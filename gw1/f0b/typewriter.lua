@@ -15,18 +15,17 @@ local function nextCodePoint(text, start)
 end
 
 return {
-	finish = function(board, style)
+	finish = function(board)
 		board[1]:setf(board.text, unpack(board.format))
 		board.finished = true
 	end,
 
-	advance = function(board, style)
+	advance = function(board)
 		if #board.text >= board.pos then
-			local newPos, char = nextCodePoint(board.text, board.pos)
-			board[1]:setf(
-				string.sub(board.text, 1, newPos),
-				unpack(board.format)
-			)
+			local newPos, char = nextCodePoint(
+				board.text, board.pos)
+			board[1]:setf(string.sub(board.text, 1, newPos),
+				unpack(board.format))
 			board.pos = newPos + 1
 			return char
 		else
@@ -35,12 +34,9 @@ return {
 		end
 	end,
 
-	setup = function(board, style, text, keep)
-		local text = string.gsub(
-			string.gsub(text, "([^\n])\n%s*([^\n])", "%1 %2"),
-			"\n+%s*", "\n"
-		)
-		local _, text = style.font:getWrap(text, board.format[1])
+	setup = function(board, font, text, keep)
+		local text = string.gsub(text, "\n+%s*", " ")
+		local _, text = font:getWrap(text, board.format[1])
 		board.text = table.concat(text, "\n")
 		board.pos = 1
 		board.finished = false

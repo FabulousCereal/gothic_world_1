@@ -1,9 +1,13 @@
--- Format: {"_fade", deltaVol, (time)remaining, remove}
-local function internalFade(track, dt, finish)
-	local fadeArgs, source = track.fade, track.source
+local f0b_internal = require("f0b._internal")
+
+local seqUpdate = f0b_internal.seqUpdate
+
+-- Format: {"_fade", deltaVol, (time)remaining}
+local function internalFade(track, fadeArgs, dt, finish)
+	local source = track.source
 	local deltaVol = fadeArgs[2]
 	local remaining = fadeArgs[3]
-	if finish or dt > remaining then
+	if dt > remaining or finish then
 		dt = remaining
 	end
 
@@ -13,42 +17,85 @@ local function internalFade(track, dt, finish)
 	end
 	source:setVolume(newVol)
 
-	if remaining <= 0 then
-		if fadeArgs[4] then
-			track.remove = true
-		else
-			fadeArgs[1] = false
-		end
-	else
+	if remaining > 0 then
 		fadeArgs[3] = remaining - dt
+	else
+		return 3
 	end
 end
 
-local function fadeCommon(track, dt)
-	local fadeArgs = track.fade
+local function fadeSetCommon(track, fadeArgs, dt, finish)
 	local startVol = track.source:getVolume()
 	local targetVol
-	if fadeArgs[2] == "fadescale" then
-		targetVol = startVol * fadeArgs[2]
+	local rate
+	local name = fadeArgs[1]
+	if name == "fadeout" then
+		targetVol = 0
+		rate = fadeArgs[2]
+		table.insert(fadeArgs, 3, rate)
+	elseif name == "fadein" then
+		targetVol = 1
+		rate = fadeArgs[2]
+		table.insert(fadeArgs, 3, rate)
 	else
-		targetVol = fadeArgs[2]
+		if name == "fadeto" then
+			targetVol = fadeArgs[2]
+		elseif name == "fadescale" then
+			targetVol = startVol * fadeArgs[2]
+		end
+		rate = fadeArgs[3]
 	end
-	local rate = fadeArgs[3]
 
 	fadeArgs[1] = "_fade"
 	fadeArgs[2] = (targetVol - startVol) / rate
+	return internalFade(track, fadeArgs, dt, finish)
 end
 
 local fadeOps = {
 	-- Volume fading --
-	-- Format: {type, scaleFactor, rate, remove}
-	fadescale = fadeCommon,
+	-- {type, scaleFactor, rate}
+	fadescale = fadeSetCommon,
 		
-	-- Format: {type, targetVol, rate, remove}
-	fadeabs = fadeCommon,
+	-- {type, targetVol, rate}
+	fadeto = fadeSetCommon,
+
+	-- {type, time}
+	fadein = fadeSetCommon,
+	fadeout = fadeSetCommon,
 
 	_fade = internalFade,
+
+	delay = function(track, fadeArgs, dt, finish)
+		local secs = fadeArgs[2]
+		if secs > 0 and not finish then
+			fadeArgs[2] = secs - dt
+		else
+			return 2
+		end
+	end,
+
+	cmd = function(track, fadeArgs, dt, finish)
+		local source = track.source
+		local cmd = fadeArgs[2]
+		source[cmd](source, unpack(fadeArgs[3]))
+		return 3
+	end,
 }
+
+local trackUpdate = function(tracklist, dt, finish)
+	for name, track in pairs(tracklist) do
+		local fade = track.fade
+		if fade and #fade > 0 then
+			local remove = seqUpdate(fadeOps, track, fade, dt,
+				finish)
+			if remove == true then
+				track.source:stop()
+				-- The lua manual says this is fine
+				tracklist[name] = nil
+			end
+		end
+	end
+end
 
 local trackOps = {
 	set = function(tracklist, op)
@@ -57,10 +104,12 @@ local trackOps = {
 			if not op.source:play() then
 				print("Failed to play track:", op[1])
 			end
-			if op[3] then
-				op.source:setVolume(op[3])
+			if type(op[2]) == "number" then
+				op.source:setVolume(op[2])
 			end
 		end
+		local loop = op[3] ~= false
+		op.source:setLooping(loop)
 	end,
 
 	rm = function(tracklist, op)
@@ -71,17 +120,13 @@ local trackOps = {
 
 	cmd = function(tracklist, op)
 		local source = tracklist[op[1]].source
-		if op[3] then
-			source[op[2]](source, unpack(op[3]))
-		else
-			source[op[2]](source)
-		end
+		source[op[2]](source, unpack(op, 3))
 	end,
 
 	cmdall = function(tracklist, op)
 		for _, track in pairs(tracklist) do
 			local source = track.source
-			source[op[2]](source, unpack(op[3]))
+			source[op[1]](source, unpack(op, 2))
 		end
 	end,
 
@@ -100,16 +145,8 @@ local trackOps = {
 		end
 	end,
 
-	finish = function(tracklist, op)
-		for idx, track in pairs(tracklist) do
-			if track.fade and track.fade[1] then
-				fadeOps[track.fade[1]](track, 0, true)
-				if fade.remove then
-					track.source:stop()
-					tracklist[idx] = nil
-				end
-			end
-		end
+	finish = function(tracklist, _)
+		return trackUpdate(tracklist, 0, true)
 	end,
 
 	clear = function(tracklist, op)
@@ -126,14 +163,5 @@ return {
 		return trackOps[op](tracklist, directive)
 	end,
 
-	update = function(tracklist, dt)
-		for idx, track in pairs(tracklist) do
-			if track.remove then
-				track.source:stop()
-				tracklist[idx] = nil
-			elseif track.fade and track.fade[1] then
-				fadeOps[track.fade[1]](track, dt)
-			end
-		end
-	end,
+	update = trackUpdate,
 }

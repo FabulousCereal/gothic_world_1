@@ -1,4 +1,5 @@
 return {
+	{"bgm", "set", 1, 1, source=lib.bgm["Grave Maria.ogg"]},
 	{"style", lib.style.vnBake}, {"name", "Bake"},
 	[[Me senté junto a mis amigos sin despegar la vista de la pantalla.
 Resultó que esto era mas grande de lo que pensamos.]],
@@ -47,13 +48,25 @@ periodista dejandolo casi decapitado.]],
 camarógrafo.]],
 
 	{"style", lib.style.vnFab}, {"name", "Fabian"},
+	{"bgm", "mod", 1, fade={"fadeout", 1/12, true}},
 	[[La tele se apagó junto con la lúz.]],
 	[[Me acerqué a mirar por la ventana, y todo el sector en que me hayaba
 estaba a oscuras. Podía aún ver la luz anaranjada a lo lejos en la ciudad,
 reflejado en el humo que cubría el cielo. Ni siquiera la luna era visible...]],
 
-	{"style", lib.style.vnDefault}, {"name", "María"},
+	{"style", lib.style.vnMaria}, {"name", "María"},
 	[[Me quedé sentada en la cama frente a la televisión aún luego de que
 la luz se fuera. Abrazaba mis pies fuertemente. No creía lo que estaba pasando
 afuera.]],
+
+	{"bgm", "set", 1, 1, false, source=lib.bgm["dedededededos.ogg"]},
+	{"wait", 2/3},
+	{"bg", "add", args=lib.gen.titleCard(lib.style.titleCard, "Gothic Word")},
+	{"bg", "add", args={love.graphics.newText(lib.font("dejavuSans", 24),
+		"apreta enter, no va a pasar nada mas")},
+		color={1, 1, 1, 0},
+		tween={"delay", 12, "fadein", 0}},
+	{"wait", 37},
+	{"bg", "clear"},
+	{"bgm", "clear"},
 }

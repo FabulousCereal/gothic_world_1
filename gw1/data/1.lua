@@ -6,27 +6,28 @@ return {
 	[[Lo recuerdo como si hubiera sido ayer. Ocurrió ayer martes en la
 tarde.]],
 
-	{"bgm", "set", "elisa", true, 0,
---		source=lib.bgm["Elisa, donde está.ogg"],
-		source=lib.bgm["lo que sea que logre hacer en 10 minutos o menos.mp3"],
-		fade={"fadeabs", 2/3, 2}},
-	{"bg", "add", args={lib.img["cafe-bg.png"]},
-		color={lib.color["redbg"], 1}},
-	{"bg", "add", args={lib.img["cafe-amiga1.png"]},
-		color={lib.color["fivepm"], 1}},
-	{"bg", "add", args={lib.img["cafe-cup.png"], 279, 365},
-		color={lib.color["redbg"], 1}},
+	{"bgm", "set", "elisa", 0,
+		source=lib.bgm["Elisa, donde está.ogg"],
+--		source=lib.bgm["lo que sea que logre hacer en 10 minutos o menos.mp3"],
+		fade={"fadeto", 2/3, 2}},
 
-	{"bg", "add", exec=love.graphics.rectangle, args=common.screenCover,
-		color={0,0,0,1}, tween={"fadeout", 3, true}},
-	{"gen", exec=common.vnDateSubs, args={2011, 11, 8, 17, 34}},
+	{"bg", "add", args={lib.img["cafe-bg.png"]},
+		color=lib.palette("fivepm")},
+	{"bg", "add", args={lib.img["cafe-amiga1.png"]},
+		color=lib.palette("fivepm")},
+	{"bg", "add", args={lib.img["cafe-cup.png"], 279, 365},
+		color=lib.palette("fivepm")},
+
+	{"bg", "add", args=common.screenCover, color={0,0,0,1},
+		tween={"fadeout", 3, true}},
+	{"gen", exec=lib.gen.dateSubs, args={2011, 11, 8, 17, 34}},
 
 	[[Estaba tocando "One in a Million" para una amiga en una cafetería
 cerca de su casa. No recuerdo su nombre, pero estaba bien buena (xD).
 
 Terminando de tocar sucede la explosión.]],
 
-	{"bgm", "mod", "elisa", fade={"fadeabs", 0, 1}},
+	{"bgm", "mod", "elisa", fade={"fadeto", 0, 1}},
 	{"wait", 1},
 
 	{"name", false},
@@ -36,10 +37,10 @@ Terminando de tocar sucede la explosión.]],
 	{"bg", "finish"},
 	{"bg", "mod", 2, tween={"fadeout", 1, true}},
 	{"bg", "add", 2, args={lib.img["cafe-amiga2.png"]},
-		color={lib.color["fivepm"], 0}, tween={"fadein", 1}},
+		color=lib.palette("fivepm", 0), tween={"fadein", 1}},
 
-	{"bgm", "cmd", "elisa", "setPitch", {1/3}},
-	{"bgm", "mod", "elisa", fade={"fadeabs", 2, 2}},
+	{"bgm", "cmd", "elisa", "setPitch", 1/3},
+	{"bgm", "mod", "elisa", fade={"fadeto", 2, 2}},
 
 	{"name", "amiga"}, [["¿Que fue eso?"]],
 	{"name", "Bakeritsu"}, [["¿Que fue que?"]],
@@ -52,18 +53,24 @@ en la calle.]],
 
 	{"bg", "mod", 2, tween={"fadeout", 1, true}},
 	{"bg", "add", 2, args={lib.img["cafe-amiga3.png"]},
-		color={lib.color["fivepm"], 0}, tween={"fadein", 1}},
+		color=lib.palette("fivepm", 0), tween={"fadein", 1}},
 	[[La chica se veía muy inquieta con todo esto, pero a mi no me parecía
 importante. Le dije en todo caso que mejor no salieramos, por las dudas. Quizás
 fue la decisión correcta. Al rato la gente de afuera se veía mareada o
 vomitando.]],
 
+	{"bg", "mod", 2, tween={"delay", .75, "fadeout", 1, true}},
+	{"bg", "add", 2, args={lib.img["cafe-amiga4.png"]},
+		color=lib.palette("fivepm", 0),
+		tween={"delay", .75, "fadein", 1}},
 	[[Ella entonces se levantó diciendo que iba a ver que pasaba.]],
 
-	{"select",
+--[=[
+	{"select", {
 		"No vayas.",
-		"Aprovecha de traerme un helado."},
-	{"case",
+		"Aprovecha de traerme un helado."}
+	},
+	{"case", {
 		{
 			[["Deja que pase, no creo que sea nada," le dije para
 			que se calmara.]],
@@ -71,14 +78,14 @@ vomitando.]],
 			[["¿Pero y si hay que salir?" respondió nerviosa.]],
 			{"bg", "mod", 2, tween={"fadeout", 1, true}},
 			{"bg", "add", 2, args={lib.img["cafe-amiga4.png"]},
-				color={lib.color["fivepm"], 0},
+				color=lib.palette("fivepm", 0),
 				tween={"fadein", 1}},
 			{"name", "Bakeritsu"},
 			[[La chica partió de todas formas a asomarse mientras
 			nosotros nos quedamos esperando.]],
 			{"name", "amigo"},
 			[["...Está buena en todo caso," dijo mi amigo.]],
-			{"name", "amigo2 que secretamente está en el closet"},
+			{"name", "amigo2 que secretamente es gay"},
 			[["Yeah."]],
 			{"name", "Bakeritsu"},
 			[["Lol, si," dije mientras mis amigos reían en
@@ -92,25 +99,26 @@ vomitando.]],
 			[["¿Que?"]],
 			{"name", "Bakeritsu"},
 			[["...Traeme un helado ya que te paraste, lol."]],
-			{"bg", "mod", 2, tween={"delay", .75, "fadeout", 1, true}},
+			{"bg", "mod", 2,
+				tween={"delay", .75, "fadeout", 1, true}},
 			{"bg", "add", 2, args={lib.img["cafe-amiga4.png"]},
-				color={lib.color["fivepm"], 0},
+				color=lib.palette("fivepm", 0),
 				tween={"delay", .75, "fadein", 1}},
 			[[La chica me miró feo y partió mientras mis amigos
 			reían.]],
 		},
-	},		
-
+	}},		
+--]=]
 	{"bgm", "rm", "elisa"},
 	{"bg", "finish"},
 	{"bg", "rm", 1, 2},
-	{"bg", "mod", color={0.8, 0, 0, 1}},
+	{"bg", "mod", color=lib.palette("redbg")},
 	[[No dió ni diez pasos cuando un auto atraviesa el vidrio y justo
 golpea a la que estaba bien buena.]],
 
 	[["Oh shit"]],
 
-	{"bg", "mod", 1, tween={"mvdiff", 0, -120, 2}},
+	{"bg", "mod", tween={"mvdiff", 0, -120, 2}},
 	[[Apenas bajó el polvo corrimos a ayudar y a putear al conductor y a la
 chica. El dueño de la cafetería apareció furioso y cagó al conductor a palos,
 mientras mis amigos corriamos el auto.]],
@@ -130,15 +138,36 @@ se fueron.]],
 pero al final la curiosidad mató al gato. Nos subimos a un auto tapandonos la
 cara y fuimos a mi casa.]],
 
-	{"bg", "mod", 1, tween={"fadeout", 3, true}},
+	{"bg", "mod", tween={"fadeout", 3, true}},
 	[[En el camino había mucha gente tirada en las calles. No sabiamos que
 estaba pasando, pero lo que había dicho la chica sobre la explosión nos empezó
 a preocupar.]],
 
+	{"bg", "finish"},
+	{"bg", "add", args=common.screenCover,
+		color=lib.palette("sixpm", 1, .8)},
+	{"bg", "add", args={lib.gen.wallClock(lib.style.clockMono, 19, 22,
+		"Saikō")}, color=lib.palette("sixpm")},
+	{"bg", "add", args=common.screenCover,
+		color={0, 0, 0, 1},
+		tween={"fadeout", 1/3}},
 	[[Llegamos y nos bañamos por las dudas. Faltabamos solo yo y mi amigo
-cuando el me dice que sería mejor que nos bañaramos los dos juntos para
-lavarnos mejor, asi que eso hicimos. Posiblemente eso fue lo que me salvó.
-Luego fuimos al living, mis amigos ya habían prendido la tele...]],
+cuando el me dice que sería mejor que nos bañaramos los dos juntos, para
+lavarnos mejor. Asi que eso hicimos.]],
+
+	{"bg", "mod", tween={"fadein", 1/6, "delay", 1/6, "fadeout", 4/3, true}},
+	{"bg", "mod", 1, 2, tween={"delay", 1/6, true}},
+	{"wait", 1/3},
+	{"bg", "add", 1, args={lib.img["bakeritsu-y-su-amigo.png"]},
+		color=lib.palette("sixpm")},
+	{"wait", 2},
+	[[Posiblemente eso fue lo que me salvó.]],
+
+	{"bg", "finish"},
+	{"bg", "mod", tween={"fadeout", 1, true}},
+	{"wait", 2/3},
+	[[Envueltos solo con la luz del crepúsculo, salimos de la ducha y nos
+fuimos al living, donde mis amigos ya habían prendido la tele...]],
 }
 
 --[=[	[[Resultó que esto era mas grande de lo que pensamos. Estaba la

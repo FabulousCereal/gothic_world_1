@@ -5,7 +5,7 @@ local function eauDeParfum()
 	local imgX = math.floor(imgEm / 2)
 	local imgY = math.floor(imgEm / 4)
 
-	local font = lib.fonts["dejavu" .. math.floor(imgEm / 5)]
+	local font = lib.font("dejavuSans", math.floor(imgEm / 5))
 
 	local canvasW = imgW + imgEm
 	local canvasH = imgH + imgEm
@@ -43,8 +43,10 @@ local function fadeShow(args)
 end
 
 return {
-	{"bgm", "set", "intro", true, 0.1, source=lib.bgm["newgw2-alt.ogg"],
-		fade={"fadeabs", 0.5, 2}},
+	{"name", "María"},
+	{"style", lib.style.vnMaria},
+	{"bgm", "set", "intro", 0.1, source=lib.bgm["newgw2-alt.ogg"],
+		fade={"fadeto", 0.5, 2}},
 	{"wait", 2},
 	[[Tuve un sueño antes del desastre.]],
 
@@ -82,30 +84,29 @@ caída.]],
 	[["Gracias, pero no puedes..."]],
 
 	{"bg", "mod", tween={"delay", 3, true}},
-	{"bg", "add", exec=love.graphics.rectangle, color={.15, .2, .2, 0},
-		tween={"fadein", 3},
+	{"bg", "add", color={.15, .2, .2, 0}, tween={"fadein", 3},
 		args=common.screenCover},
 --	{"bg", "add", args={lib.img["maria-intro7.png"], 0, 0, 0, .8},
 --		color={1, 1, 1, 0},
 --		tween={"delay", 1.5, "fadein", 3}},
 
-	{"bgm", "set", "waves", true, 0, source=lib.bgm["waves.ogg"],
-		fade={"fadeabs", 1, 20}},
+	{"bgm", "set", "waves", 0, source=lib.bgm["waves.ogg"],
+		fade={"fadeto", 1, 20}},
 	[[Pasamos por una nube, y cuando salimos cubiertas de escarcha blanca,
 encontré a la paloma acobijada a mi pecho.]],
 
 	[[Con mis manos entumecidas la abracé gentilmente, mientras el olor y
-el ruido de las olas nos envolvían.]],
+el ruido de las olas nos alcanzaban.]],
 
-	{"gen", exec=fadeShow, args={lib.img["sea.png"]}},
+	{"gen", exec=fadeShow, args={lib.img["sea2.png"], 0, 0, 0, .8}},
 	{"wait", 1, true},
 	[["Gracias..."]],
 
 	{"bg", "add", args=eauDeParfum(), tween={"fadein", 3}},
-	{"bgm", "mod", "intro", fade={"fadeabs", 0, 4, true}},
-	{"bgm", "mod", "waves", fade={"fadeabs", 0, 4, true}},
+	{"bgm", "mod", "intro", fade={"fadeout", 4, true}},
+	{"bgm", "mod", "waves", fade={"fadeout", 4, true}},
 	{"wait", 4, true},
-	{"bg", "mod", -1, tween={"fadeout", 3, true}},
-	{"bg", "mod", tween={"fadeout", 3, true}},
+	{"bg", "mod", -1, tween={"fadeout", 2, true}},
+	{"bg", "mod", tween={"fadeout", 2, true}},
 	{"wait", 1.9, true},
 }

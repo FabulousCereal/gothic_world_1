@@ -1,7 +1,6 @@
 return {
-	{"style", lib.style.vnMaria},
-	{"bg", "add", args={lib.img["sa2.png"], 60, 48},
-		color={2/3, .0, .2, 1}},
+	{"style", "vnMaria"},
+	{"bg", "add", args={"sa2.png", 60, 48}, color={2/3, .0, .2, 1}},
 	{"name", "Michelle"},
 	[[Lamento el sufrimiento que estás a punto de experimentar con este
 cuento.]],

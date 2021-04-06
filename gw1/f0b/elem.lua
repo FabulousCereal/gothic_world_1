@@ -12,8 +12,7 @@ local function starRegular(sides)
 end
 
 local function polyRegular(sides)
-	local graphics = love.graphics
-	local segs = sides or math.max(graphics.getDimensions())
+	local segs = sides or math.max(love.graphics.getDimensions())
 	local angle = math.pi * 2 / segs
 	local cos, sin = math.cos, math.sin
 	local unit = {}
@@ -21,7 +20,7 @@ local function polyRegular(sides)
 		local pos = angle * i
 		unit[i] = {cos(pos), sin(pos)}
 	end
-	return graphics.newMesh(unit, "fan", "static")
+	return love.graphics.newMesh(unit, "fan", "static")
 end
 
 local function elemMetatable(func)
@@ -34,9 +33,59 @@ local function elemMetatable(func)
 	})
 end
 
+local poly = elemMetatable(polyRegular)
+local star = elemMetatable(starRegular)
+
+local function genScreenFill()
+	local w, h = love.graphics.getDimensions()
+	return setmetatable(
+		{
+			poly[4], w/2, h/2, math.pi/4,
+			math.max(w, h) / math.sqrt(2)
+		},
+		{
+			__call = function(self, scale)
+				return {self[1], self[2], self[3], self[4],
+					self[5] * scale}
+			end
+		}
+	)
+end
+
+local function roundRect(w, h, r)
+	-- We could be fancy and do a superellipse, but we'd like to save on
+	-- vertices
+	local angle = math.pi / 2 / r
+	local cos = math.cos
+	local sin = math.sin
+	local rect = {}
+	local corner = function(k, x, y)
+		local l = k + r
+		while k < l do
+			local a = angle * k
+			k = k + 1
+			rect[k] = {cos(a)*r + x, sin(a)*r + y}
+		end
+		return k
+	end
+
+	w = w - r
+	h = h - r
+
+	local k = corner(0, w, h)
+	k = corner(k, r, h)
+	k = corner(k, r, r)
+	k = corner(k, w, r)
+	return love.graphics.newMesh(rect, "fan", "static")
+end
+
 return {
-	poly = elemMetatable(polyRegular),
-	star = elemMetatable(starRegular),
+	poly = poly,
+	star = star,
+
+	roundRect = roundRect,
 
 	circle = polyRegular(),
+
+	screenFill = genScreenFill(),
 }

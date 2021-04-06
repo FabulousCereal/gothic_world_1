@@ -11,7 +11,7 @@ local function getProperWrap(font, text, maxWidth)
 end
 
 local function genSub(text, align)
-	local style = lib.style.subtitles
+	local style = res.style.subtitles
 	local graphics = love.graphics
 
 	local em = style.font:getHeight()
@@ -57,7 +57,7 @@ end
 return {
 	subtitle = genSub,
 
-	dateSubs = function(args)
+	date = function(args)
 		local months = {"Enero", "Febrero", "Marzo", "Abril",
 			"Mayo", "Junio", "Julio", "Agosto",
 			"Septiembre", "Octubre", "Noviembre", "Diciembre"}

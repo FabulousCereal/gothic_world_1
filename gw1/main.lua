@@ -5,46 +5,17 @@ end
 
 function love.load()
 	love.setDeprecationOutput(true)
---	love.graphics.setDefaultFilter("linear", "linear")
---	love.graphics.setLineStyle("rough")
 	love.keyboard.setKeyRepeat(true)
 	love.keyboard.setTextInput(true)
 
-	f0b = require("f0ball")
-	lib = require("assets")
-	common = require("common")
-	gamestate = require("gamestate")
-	stateSetup = require("setup")
-
-	local gs = stateSetup(gamestate.create())
-
-	love.draw = function()
-		return gamestate.draw(gs)
-	end
-
-	love.update = function(dt)
-		return gamestate.update(gs, dt)
-	end
-
-	love.keypressed = function(key, scancode)
-		if key == "escape" then
-			gs.to = "quit"
-		elseif key == "backspace" then
-			gs.to = table.remove(gs.stack)
-		elseif key == "d" then
-			if gs.state.background then
-				for id, bg in ipairs(gs.state.background) do
-					printBGColor(id, bg.color)
-				end
-			end
-		else
-			gamestate.keypressed(gs, key)
-		end
-	end
+	require("f0ball")
+	require("gamestate")
+	require("assets")
+	love.filesystem.load("local/setup.lua")()
 
 	local cur = 0
 	love.textinput = function(t)
-		if not gs.state.background then
+		if not gamestate.state.background then
 			return
 		end
 
@@ -77,18 +48,42 @@ function love.load()
 
 		if acts then
 			if cur ~= 0 then
-				local bg = gs.state.background[cur]
+				local bg = gamestate.state.background[cur]
 				if bg then
 					bg.color[acts[1]] = bg.color[acts[1]] + acts[2]
 					printBGColor(cur, bg.color)
-					return
 				end
+				return
 			end
 
-			for id, bg in ipairs(gs.state.background) do
+			for id, bg in ipairs(gamestate.state.background) do
 				bg.color[acts[1]] = bg.color[acts[1]] + acts[2]
 				printBGColor(id, bg.color)
 			end
 		end
+	end
+end
+
+function love.draw()
+	return gamestate:draw()
+end
+
+function love.update(dt)
+	return gamestate:update(dt)
+end
+
+function love.keypressed(key, scancode)
+	if key == "escape" then
+		gamestate.to = "quit"
+	elseif key == "backspace" then
+		gamestate.to = table.remove(gamestate.stack)
+	elseif key == "d" then
+		if gamestate.state.background then
+			for id, bg in ipairs(gamestate.state.background) do
+				printBGColor(id, bg.color)
+			end
+		end
+	else
+		gamestate:keypressed(key, scancode)
 	end
 end

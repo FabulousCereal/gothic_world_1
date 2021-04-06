@@ -81,7 +81,7 @@ local printNumeralFunction = {
 }
 
 return {
-	wallClock = function(style, hour, minute, brand, numerals, hands)
+	wall = function(style, hour, minute, brand, numerals, hands)
 		local graphics = love.graphics
 
 		local w, h = graphics.getDimensions()
@@ -119,7 +119,7 @@ return {
 		local minuteTurn = math.pi * 2 / 60 * minute - math.pi/2
 		clockHandFunction[hands](style, radius, hourTurn, minuteTurn)
 
-		local brandFont = lib.font(style.fontFamily, math.floor(em * 2/3))
+		local brandFont = res.font(style.fontFamily, math.floor(em * 2/3))
 		local brandEm = brandFont:getHeight()
 		graphics.setFont(brandFont)
 		graphics.print(brand,
@@ -130,7 +130,7 @@ return {
 			math.floor(h / 2 - dims / 2)
 	end,
 
-	alarmClock = function(style, hour, minute)
+	alarm = function(style, hour, minute)
 		local text = love.graphics.newText(style.font)
 		local twidth, theight = text:getDimensions(
 			text:add({style.backgroundColor, "88:88"})

@@ -1,5 +1,5 @@
 local function stubKeypressed(self)
-	return self.stateSwitch(true)
+	return gamestate:stateSwitch(true)
 end
 
 return {

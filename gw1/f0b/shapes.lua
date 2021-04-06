@@ -1,5 +1,3 @@
---local elem = require("f0b.elem")
-
 return {
 	bordered = function(func, style, ...)
 		local graphics = love.graphics
@@ -33,10 +31,10 @@ return {
 			color, bgColor = bgColor, color
 		end
 
-		local em = style.font:getHeight()
-		local padding = em * style.padding
 		local _, wrappedText = style.font:getWrap(text, limit)
+		local em = style.font:getHeight()
 		local height = em * style.lineHeight * #wrappedText
+		local padding = em * style.padding
 
 		local graphics = love.graphics
 		graphics.setColor(bgColor)
@@ -50,24 +48,23 @@ return {
 		graphics.printf(text, x, y, limit, alignment)
 	end,
 
-	dropShadow = function(xOff, yOff, drawable, ...)
+	dropShadow = function(drawArgs, xOff, yOff, scaleX, scaleY)
 		local graphics = love.graphics
-		local color = {graphics.getColor()}
-		graphics.setColor(0, 0, 0, color[4]/2)
+		local r, g, b, a = graphics.getColor()
+		graphics.setColor(0, 0, 0, a/2)
 
-		local defaults = {0, 0, 0, 1, 1, 0, 0, 0, 0}
-		local args = {...}
-		for i = 1, #defaults do
-			if not args[i] then
-				args[i] = defaults[i]
-			end
+		local shadow = {drawArgs[1], 0, 0, 0, 1, 1, 0, 0, 0, 0}
+		for i = 2, #shadow do
+			shadow[i] = drawArgs[i] or shadow[i]
 		end
 
-		local scaleBlur = .01
-		graphics.draw(drawable, args[1] + xOff, args[2] + yOff,
-			args[3], args[4] + scaleBlur, args[5] + scaleBlur,
-			unpack(args, 6))
-		graphics.setColor(color)
-		graphics.draw(drawable, unpack(args))
+		shadow[2] = shadow[2] + xOff
+		shadow[3] = shadow[3] + yOff
+		shadow[5] = shadow[5] * (scaleX or 1)
+		shadow[6] = shadow[6] * (scaleY or scaleX or 1)
+
+		graphics.draw(unpack(shadow))
+		graphics.setColor(r, g, b, a)
+		graphics.draw(unpack(drawArgs))
 	end
 }

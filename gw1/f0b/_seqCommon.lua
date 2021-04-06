@@ -1,5 +1,15 @@
 return {
-	seqUpdate = function(funcs, target, seq, dt, finish)
+	normalizeSrc = function(metatable, obj)
+		local objType = type(obj)
+		if objType == "string" then
+			return metatable(obj)
+		elseif objType == "function" then
+			return obj()
+		end
+		return obj
+	end,
+
+	update = function(funcs, target, seq, dt, finish)
 		repeat
 			local op = seq[1]
 			local advance = funcs[op](target, seq, dt, finish)

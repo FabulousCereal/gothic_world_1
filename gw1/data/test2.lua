@@ -1,4 +1,4 @@
-local frDie = {"bg", "mod", args={lib.img["franziska2.png"]}}
+local frDie = {"bg", "mod", args={"franziska/die.png"}}
 local bgmStopAll = {"bgm", "modall", fade={"fadeout", 1/6, true}}
 
 local final = {
@@ -108,8 +108,8 @@ local elGusanoDeAl = {
 	[["¿Al? ¿Ese depravado?"]],
 	[["...Es mi padre."]],
 
-	{"bgm", "set", "crotal", 1, source=lib.bgm["crotal.ogg"]},
-	{"bg", "mod", args={lib.img["franziska0.png"]}},
+	{"bgm", "set", "crotal", 1, source="crotal.ogg"},
+	{"bg", "mod", args={"franziska/shock.png"}},
 	{"select", {
 		[["¿En serio?"]],
 		[["¿Que te hizo?"]]}
@@ -180,14 +180,14 @@ local malditosInsectos = {
 return {
 	{"var", "dead", true},
 
-	{"style", lib.style.vnMaria},
+	{"style", "vnMaria"},
 	[[Repentinamente, te encuentras frente a frente con Franszciska.]],
  
-	{"bg", "add", args={lib.img["franziska.png"]}},
+	{"bg", "add", args={"franziska/normal.png"}},
 	{"name", "Franzszczcskiszka"},
 	[["¿Que quieres?"]],
 
-	{"bgm", "set", "raev", 2/3, source=lib.bgm["raev.ogg"]},
+	{"bgm", "set", "raev", 2/3, source="raev.ogg"},
 	{"select", {
 		[[Dí "Me gusta el pan con pollo."]],
 		[[Dí "Falcon tuvo razón, si morí."]]}
@@ -212,9 +212,7 @@ return {
 
 		[false] = {
 			[[Has sobrevivido a la entrevista con Fraziskana.
-				Increíble, pero no hay premio.]],
+				Bien hecho, pero no hay premio.]],
 		}
 	}},
-
-	{"bg", "clear"},
 }

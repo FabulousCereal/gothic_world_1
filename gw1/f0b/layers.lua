@@ -1,9 +1,7 @@
-local f0b_internal = require("f0b._internal")
-
-local seqUpdate = f0b_internal.seqUpdate
+local seq = require("f0b._seqCommon")
 
 -- Varies arbitrary variables --
--- Format: {"_generic", directives, (time)remaining}
+-- Format: {"_generic", directives, timeRemaining}
 --   directives = {control, [control, [...]]}
 --     control = {component, index, delta, [index, delta, [...]]}
 local function genericVary(layer, tween, dt, finish)
@@ -35,20 +33,30 @@ end
 -- Turns handwriten movement into "_generic"
 -- Format: {type, x, y, rate}
 local function mvCommon(layer, tween, dt, finish)
-	local type, deltaX, deltaY, rate = unpack(tween, 1, 4)
-	if type == "mvabs" then
-		deltaX = deltaX - layer.args[2]
-		deltaY = deltaY - layer.args[3]
+	local args = layer.args
+	if not args[2] then
+		args[2] = 0
+	end
+	if not args[3] then
+		args[3] = 0
 	end
 
+	local mult = layer.distance or 1
+	local type, deltaX, deltaY, rate = unpack(tween, 1, 4)
+	if type == "mvabs" then
+		deltaX = deltaX - (args[2] / mult)
+		deltaY = deltaY - (args[3] / mult)
+	end
+
+	local rate = math.max(dt, rate) --Allow rate=0
 	local control = {"args"}
 	if deltaX ~= 0 then
 		table.insert(control, 2)
-		table.insert(control, deltaX / rate)
+		table.insert(control, deltaX / rate * mult)
 	end
 	if deltaY ~= 0 then
 		table.insert(control, 3)
-		table.insert(control, deltaY / rate)
+		table.insert(control, deltaY / rate * mult)
 	end
 	tween[1] = "_generic"
 	tween[2] = {control}
@@ -74,6 +82,9 @@ local tweenOps = {
 	-- Fades --
 	-- Format: {"fadein" | "fadeout", rate}
 	fadein = function(layer, tween, dt, finish)
+		if not layer.color then
+			layer.color = {1,1,1,0}
+		end
 		local alpha = layer.color[4]
 		if alpha < 1 and not finish then
 			local rate = tween[2]
@@ -85,6 +96,9 @@ local tweenOps = {
 	end,
 
 	fadeout = function(layer, tween, dt, finish)
+		if not layer.color then
+			layer.color = {1,1,1,1}
+		end
 		local alpha = layer.color[4]
 		if alpha > 0 and not finish then
 			local rate = tween[2]
@@ -103,9 +117,13 @@ local tweenOps = {
 local function layerUpdate(layerTable, dt, endTween)
 	for i = #layerTable, 1, -1 do
 		local layer = layerTable[i]
+		local drawable = layer.args[1]
+		if drawable.update then
+			drawable:update(dt)
+		end
 		local tween = layer.tween
 		if tween and #tween > 0 then
-			local remove = seqUpdate(tweenOps, layer, tween, dt,
+			local remove = seq.update(tweenOps, layer, tween, dt,
 				endTween)
 			if remove == true then
 				table.remove(layerTable, i)
@@ -114,31 +132,63 @@ local function layerUpdate(layerTable, dt, endTween)
 	end
 end
 
-local function normalizeLayer(op)
-	if not op.color then
-		if op.tween and op.tween[1] == "fadein" then
-			op.color = {1,1,1,0}
-		else 
-			op.color = {1,1,1,1}
-		end
+local function normalizeArgs(args)
+	local t = type(args[1])
+	if t == "string" then
+		args[1] = res.img[args[1]]
+	elseif t == "function" then
+		args[1] = args[1]()
 	end
 end
 
-local function normalizeIndex(tab, idx, default)
+local function normalizeLayer(op)
+	if op.tween and op.tween[1] == "fadein" and not op.color then
+		op.color = {1,1,1,0}
+	end
+	op.args[1] = seq.normalizeSrc(res.img, op.args[1])
+end
+
+local function normalizeIndex(table, idx, default)
 	if not idx then
-		return default or #tab
+		return default or #table
 	elseif idx < 1 then
-		return #tab + idx
+		return #table + idx
 	else
 		return idx
 	end
 end
 
+local function getNormalizedRange(table, defaultStart, defaultLimit)
+	local start = normalizeIndex(table, defaultStart)
+	local limit = normalizeIndex(table, defaultLimit, start)
+	return start, limit
+end
+
+local function layerMod(layers, op, start, limit)
+	local deepCopy = f0b.table.deepCopy
+	for key, value in pairs(op) do
+		local valType = type(value)
+		for i = start, limit do
+			if valType == "table" then
+				local copy = deepCopy(value)
+				layers[i][key] = copy
+				if key == "args" then
+					copy[1] = seq.normalizeSrc(res.img,
+						copy[1])
+				end
+			elseif valType ~= "number" then
+				layers[i][key] = value
+			end
+		end
+	end
+end	
+
 local layerOps = {
 	add = function(layers, op)
 		normalizeLayer(op)
-		if op[1] then
-			table.insert(layers, op[1], op)
+		local idx = op[1]
+		if idx then
+			table.insert(layers, idx, op)
 		else
 			layers[#layers + 1] = op
 		end
@@ -151,56 +201,50 @@ local layerOps = {
 	end,
 
 	rm = function(layers, op)
-		local start = normalizeIndex(layers, op[1])
-		local limit = normalizeIndex(layers, op[2], start)
+		local start, limit = getNormalizedRange(layers, op[1], op[2])
 		for i = limit, start, -1 do
 			table.remove(layers, i)
 		end
 	end,
 
 	mod = function(layers, op)
-		local start = normalizeIndex(layers, op[1])
-		local limit = normalizeIndex(layers, op[2], start)
-		local bdc = f0b.std.basicDeepCopy
-		for i = start, limit do
-			for key, value in pairs(op) do
-				if type(value) == "table" then
-					layers[i][key] = bdc(value)
-				elseif type(value) ~= "number" then
-					layers[i][key] = value
-				end
-			end
-		end
+		local start, limit = getNormalizedRange(layers, op[1], op[2])
+		layerMod(layers, op, start, limit)
 	end,
 
-	finish = function(layers, _)
-		return layerUpdate(layers, 0, true)
+	modall = function(layers, op)
+		layerMod(layers, op, 1, #layers)
 	end,
 
-	clear = function(layers, _)
+	finish = function(layers)
+		layerUpdate(layers, 0, true)
+	end,
+
+	clear = function(layers)
 		for i = #layers, 1, -1 do
 			layers[i] = nil
 		end
 	end,
 
-	debug = function(layers, _)
+	debug = function(layers)
 		print(#layers)
 	end,
 }
 
 return {
-	ops = function(layerTable, directive)
-		local op = table.remove(directive, 1)
+	ops = function(layerTable, op, directive)
 		return layerOps[op](layerTable, directive)
 	end,
 
 	update = layerUpdate,
 
 	draw = function(layerTable)
+		local graphics = love.graphics
 		for i = 1, #layerTable do
 			local layer = layerTable[i]
-			local drawFunc = layer.exec or love.graphics.draw
-			love.graphics.setColor(layer.color)
+--			normalizeArgs(layer.args)
+			local drawFunc = layer.exec or graphics.draw
+			graphics.setColor(layer.color or {1, 1, 1, 1})
 			drawFunc(unpack(layer.args))
 		end
 	end,

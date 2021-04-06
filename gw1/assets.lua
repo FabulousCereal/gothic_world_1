@@ -1,50 +1,13 @@
 local base = {
-	fonts = {
-		kappa = "kappa10x20.pcf.gz",
-		ayu = "ayu-mincho9x18m.pcf.gz",
-		sony = "sony12x24.pcf.gz",
-		caption = "caption.pcf.gz",
+	fonts = f0b.std.dofileOr("res/fonts/alias.lua"),
 
-		teletext1 = "teletext1.pcf.gz",
-		teletext2 = "teletext2.pcf.gz",
-		teletext4 = "teletext4.pcf.gz",
-
-		biwidth = "efont-biwidth16.pcf.gz",
-		helvetica = "helvR14.pcf.gz",
-
-		ncentury14 = "ncenR14.pcf.gz",
-		ncentury18 = "ncenR18.pcf.gz",
-		ncentury24 = "ncenR24.pcf.gz",
-
-		dejavuSans = "DejaVuSans.ttf",
-		dejavuSerif = "DejaVuSerif.ttf",
-
-		dseg7 = "DSEG7Classic-Regular.ttf",
-
-		proof = "proof9x16_c.pcf.gz",
-		vollkorn = "Vollkorn-Black.ttf",
-		takaoMincho = "TakaoMincho.ttf",
-		libertineM = "LinLibertine_M.otf",
-		compagnonRoman = "Compagnon-Roman.otf",
-		ebGaramond08 = "EBGaramond08-Regular.otf",
-		ebGaramond12 = "EBGaramond12-Regular.otf",
-	},
-
-	palette = {
-		repellantYellow = {.35, .35, .3},
-		tenpm = {.55, .55, .7},
-
-		-- Bake
-		redbg = {1, 0, 0},
-		fivepm = {1, .75, .45},
-		sixpm = {.6, .4, .5},
-		hardPurple = {.8, 0, 1},
-
-		-- Fab
-		softAfternoon = {1, .95, .8},
-		tungsten = {1, .5, .25},
-	},
+	palette = f0b.std.dofileOr("res/palette.lua"),
 }
+
+local function setReturn(table, key, arg)
+	table[key] = arg
+	return arg
+end
 
 local fontCache = setmetatable({}, {
 	__index = function(self, key)
@@ -52,9 +15,7 @@ local fontCache = setmetatable({}, {
 		name = "res/fonts/" .. base.fonts[name]
 		size = tonumber(size)
 
-		local font = love.graphics.newFont(name, size)
-		self[key] = font
-		return font
+		return setReturn(self, key, love.graphics.newFont(name, size))
 	end,
 
 	__call = function(self, name, size)
@@ -62,10 +23,9 @@ local fontCache = setmetatable({}, {
 		if self[key] then
 			return self[key]
 		else
-			local font = love.graphics.newFont(
-				"res/fonts/" .. base.fonts[name], size)
-			self[key] = font
-			return font
+			name = "res/fonts/" .. base.fonts[name]
+			return setReturn(self, key,
+				love.graphics.newFont(name, size))
 		end
 	end
 })
@@ -82,6 +42,7 @@ local specialFallbacks = {
 
 local defaultStyle = {
 	lineHeight = 1,
+	textAlign = "left",
 }
 
 local aliases = {
@@ -92,118 +53,89 @@ local fallbackMetatable = {
 	__index = function(table, key)
 		local alias = aliases[key]
 		if alias then
-			local val = table[alias]
-			table[key] = val
-			return val
+			return setReturn(table, key, table[alias])
 		end
 
 		local fbFunc = specialFallbacks[key]
 		if fbFunc then
-			local val = fbFunc(table)
-			table[key] = val
-			return val
+			return setReturn(table, key, fbFunc(table))
 		end
 
 		local parent = rawget(table, 1)
 		if parent then
-			local val = lib.style[parent][key]
-			table[key] = val
-			return val
+			return setReturn(table, key, parent[key])
 		end
 
 		local default = defaultStyle[key]
 		if default then
-			table[key] = default
-			return default
+			return setReturn(table, key, default)
 		end
 
 		return nil
 	end,
 }			
 
-local function setFallbacks(style)
+local function setFallbacks(parent)
 	local reserved = {"disabled", "unselected"}
 	for i = 1, #reserved do
-		local descent = style[reserved[i]]
-		if descent then
-			-- Fetches key from parent table
-			setmetatable(descent, {
+		local subvariant = parent[reserved[i]]
+		if subvariant then
+			-- Search key in parent table
+			setmetatable(subvariant, {
 				__index = function(self, key)
-					return style[key]
+					return parent[key]
 				end
 			})
 		end
 	end
 
-	return setmetatable(style, fallbackMetatable)
+	return setmetatable(parent, fallbackMetatable)
 end
 
-local function setStyles(styleTable)
-	for key, style in pairs(styleTable) do
-		styleTable[key] = setFallbacks(style)
+local function setStyles(filename)
+	local styleTable = f0b.std.dofileOr(filename)
+	if styleTable then
+		for _, style in pairs(styleTable) do
+			if style[1] then
+				style[1] = styleTable[style[1]]
+			end
+			setFallbacks(style)
+		end
+		return styleTable
 	end
-	return styleTable
 end
 
-return {
-	index = {
-		{name = "Prefacio", noNumbers = true, segue = true,
-			{"por Michelle", "-1"}},
+local function resLoader(fn, path, arg)
+	return setmetatable({}, {
+		__call = function(_, key)
+			return fn(path .. key, arg)
+		end,
 
-		{name = "Prólogo",
-			{"El Sueño de Morfeo", "0"},
-			{"Bakeritsu, el Espadachín Romántico", "1"},
-			{"Fabian llega a la Ciudad", "2"},
-			{"FÃ¶¬â¡¢", "3"},
-			{"Fin del Primer Día", "4"}},
+		__index = function(table, key)
+			local val = fn(path .. key, arg)
+			table[key] = val
+			return val
+		end,
+	})
+end
 
-		{name = "Gothic World",
-			{"María, la heroína", "5"},
-			{"heroína, lol", "6"},
-			{"420, blaze it", "7"},
-			{"María Juana le decían", "8"}},
-
-		{name = "pruebas de función", noNumbers = true,
-			{"texto", "test1"},
-			{"selección", "test2"}},
-
-		{name = "¿por que te agradaron más mis lágrimas, Daphne mía?"},
-
-	},
+res = {
+	index = f0b.std.dofileOr("data/index.lua"),
 
 	font = fontCache,
 
-	sfx = setmetatable({}, {
-		__index = function(self, key)
-			local source = love.audio.newSource(
-				"res/sfx/" .. key, "static"
-			)
-			return source
-		end
-	}),
+	sfx = resLoader(love.audio.newSource, "res/sfx/", "static"),
 
-	bgm = setmetatable({}, {
-		__index = function(self, key)
-			local source = love.audio.newSource(
-				"res/bgm/" .. key, "stream"
-			)
-			return source
-		end
-	}),
+	bgm = resLoader(love.audio.newSource, "res/bgm/", "stream"),
 
-	img = setmetatable({}, {
-		__index = function(self, key)
-			local source = love.graphics.newImage(
-				"res/img/" .. key
-			)
-			return source
-		end
-	}),
+	img = resLoader(love.graphics.newImage, "res/img/"),
 
-	gen = require("res.code.all"),
+	gen = f0b.std.dofileOr("res/code/all.lua"),
 
 	chrono = {
 		textSpeed = 1/60,
+		keyRepeat = 1/30,
+		keyFirstHold = 1/6,
 	},
 
 	palette = function(name, alpha, mult)
@@ -217,105 +149,5 @@ return {
 		return color
 	end,
 
-	style = setStyles({
-		menu = {
-			fontFamily = "ncentury18",
-			fontSize = 18,
-			color = {1, 0, 0, 1},
-			backgroundColor = {0, 0, 0, 1},
-			padding = .25,
-			borderWidth = 1,
-			lineSpacing = 5/3,
-			disabled = {
-				color = {.5, 0, .5, 1},
-			},
-		},
-
-		subtitles = {
-			fontFamily = "caption",
-			fontSize = 26,
-			color = {1, 1, 1, 1},
-			backgroundColor = {0, 0, 0, 1},
-			padding = .25,
-			margin = 2,
-		},
-
-		clockTint = {
-			fontFamily = "takaoMincho",
-			fontSize = 48,
-			color = {1/12, 1/12, 1/12, 1},
-			backgroundColor = {11/12, 11/12, 11/12, 1},
-			borderWidth = 12
-		},
-
-		clockMono = {
-			fontFamily = "takaoMincho",
-			fontSize = 48,
-			color = {0, 0, 0, 1},
-			backgroundColor = {1, 1, 1, 1},
-			borderWidth = 12
-		},
-
-		clockAlarm = {
-			fontFamily = "dseg7",
-			fontSize = 72,
-			color = {1, 0, 0, 1},
-			backgroundColor = {1/8, 0, 1/8, 1},
-		},
-
-		carClockAlarm = {
-			fontFamily = "dseg7",
-			fontSize = 72,
-			color = {12/12, 11/12, 12/12, 1},
-			backgroundColor = {2/12, 1/12, 2/12, 1},
-		},
-
-		titleCard = {
-			fontFamily = "takaoMincho",
-			fontSize = 72,
-			color = {1, 1, .8, 1},
-		},
-
-		vnMaria = {
-			fontFamily = "dejavuSans",
-			fontSize = 14,
-			color = {1, 1, 1, 1},
-			backgroundColor = {.25, 0, .25, .5},
-			borderWidth = 2,
---			borderColor = {.5, .25, .5, 1},
-			borderRadius = 6,
-			lineSpacing = 2,
-			margin = 1,
-			padding = 1,
-			unselected = {
-				borderColor = {.5, .5, .5, .75},
-				backgroundColor = {.25, .25, .25, .5},
-			}
-		},
-
-		vnBake = {
-			"vnMaria",
-			backgroundColor = {0, .25, .1, .5},
-		},
-
-		vnFab = {
-			"vnMaria",
-			backgroundColor = {.5, 0, 0, .5},
-		},
-
-		vnFalcon = {
-			"vnMaria",
-			backgroundColor = {1, .5, 0, .2},
-		},
-
-		vnCroft = {
-			"vnMaria",
-			backgroundColor = {0, 0, .2, .5},
-		},
-
-		vnMartin = {
-			"vnMaria",
-			backgroundColor = {.5, 0, 0, .2},
-		},
-	})
+	style = setStyles("res/styles.lua"),
 }

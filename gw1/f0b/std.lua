@@ -1,23 +1,17 @@
-function basicDeepCopy(orig)
-	local copy = {}
-	for key, val in pairs(orig) do
-		if type(val) == "table" then
-			copy[key] = basicDeepCopy(val)
-		else
-			copy[key] = val
-		end
-	end
-	return copy
-end
-
 return {
-	basicDeepCopy = basicDeepCopy,
+	dofileOr = function(filename, arg)
+		local func = love.filesystem.load(filename)
+		if func then
+			return func()
+		end
+		return arg
+	end,
 
-	next = function(iter)
-		local func, value, idx = unpack(iter)
-		local result = {func(value, idx)}
-		iter[3] = result[1]
-		return unpack(result, 2)
+	copy = function(val)
+		if type(val) == "table" then
+			return f0b.table.deepCopy(val)
+		end
+		return val
 	end,
 }
 			

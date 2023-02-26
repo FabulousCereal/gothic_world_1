@@ -34,7 +34,7 @@ local menuOps = {
 	end,
 
 	menu = function(self, entry)
-		self.stack[#self.stack + 1] = self.entries.cur
+		table.insert(self.stack, self.entries.cur)
 		local entries = entry[3]
 		if not entries.cur then
 			entries.cur = 1

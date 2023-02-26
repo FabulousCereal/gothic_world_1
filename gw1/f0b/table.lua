@@ -10,31 +10,43 @@ local function basicDeepCopy(orig)
 	return copy
 end
 
-return {
-	print = function(table, depth, pad)
-		if depth > 0 then
-			if not pad then
-				pad = 0
-			end
+local function tablePrint(table, depth, pad)
+	if not depth then
+		depth = math.huge
+	end
+	if depth > 0 then
+		if not pad then
+			pad = 0
+		end
 
-			local padding = string.rep(" ", pad * 2)
-			for key, val in pairs(table) do
-				local valType = type(val)
-				local base = padding .. key .. "="
-				if valType == "table" then
-					print(base .. "{")
-					tablePrint(val, depth - 1, pad + 1)
-					print(padding .. "}")
-				elseif valType == "userdata" then
-					print(base .. "userdata")
-				else
-					print(base .. tostring(val))
-				end
+		local padding = string.rep(" ", pad * 2)
+		for key, val in pairs(table) do
+			local valType = type(val)
+			local base = padding .. key .. "="
+			if valType == "table" then
+				print(base .. "{")
+				tablePrint(val, depth - 1, pad + 1)
+				print(padding .. "}")
+			elseif valType == "userdata" then
+				print(base .. "userdata")
+			else
+				print(base .. tostring(val))
 			end
 		end
-	end,
+	end
+end
+
+return {
+	print = tablePrint,
 
 	deepCopy = basicDeepCopy,
+
+	clear = function(table)
+		for k, _ in pairs(table) do
+			table[k] = nil
+		end
+		return table
+	end,
 
 	union = function(...)
 		local t = {}

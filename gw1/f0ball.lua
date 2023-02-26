@@ -1,5 +1,6 @@
 f0b = {
 	std = require("f0b.std"),
+	math = require("f0b.math"),
 	elem = require("f0b.elem"),
 	lisp = require("f0b.lisp"),
 	table = require("f0b.table"),
@@ -8,6 +9,4 @@ f0b = {
 	layers = require("f0b.layers"),
 	jukebox = require("f0b.jukebox"),
 	ui = require("f0b.ui")
---	textboard = require("f0b.textboard"),
---	typewriter = require("f0b.typewriter"),
 }

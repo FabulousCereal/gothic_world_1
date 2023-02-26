@@ -1,8 +1,8 @@
 return {
-	normalizeSrc = function(metatable, obj)
+	normalizeSrc = function(loadFn, obj)
 		local objType = type(obj)
 		if objType == "string" then
-			return metatable(obj)
+			return loadFn(obj)
 		elseif objType == "function" then
 			return obj()
 		end

@@ -1,72 +1,81 @@
-local function getInstruction(dataStack)
-	local idx = #dataStack
+local function clearCur(proc, i)
+	proc[i] = nil
+	proc[i - 1] = nil
+	proc[i - 2] = nil
+end
+
+local function instructionIter(proc)
+	local idx = #proc
 	if idx > 2 then
-		local data, pos, loop = dataStack[idx - 2], dataStack[idx - 1],
-			dataStack[idx]
+		local data, loop, pos = proc[idx - 2], proc[idx - 1],
+			proc[idx]
 		if pos == #data then
 			if loop then
-				dataStack[idx - 1] = 1
+				proc[idx] = 1
 			else
-				dataStack[idx] = nil
-				dataStack[idx - 1] = nil
-				dataStack[idx - 2] = nil
+				clearCur(proc, idx)
 			end
 		else
-			dataStack[idx - 1] = pos + 1
+			proc[idx] = pos + 1
 		end
 		return data[pos]
 	end
 	return nil
 end
 
-local function rewind(dataStack, limit)
-	for i = #dataStack, limit, -1 do
-		dataStack[i] = nil
+local function rewindTo(proc, limit)
+	for i = #proc, limit, -1 do
+		proc[i] = nil
 	end
 end
 
+local function clear(proc)
+	return rewindTo(proc, 1)
+end
+
+local function push(proc, data, loop)
+	local i = #proc
+	proc[i + 1] = data
+	proc[i + 2] = loop and true or false
+	proc[i + 3] = 1
+end
+
 return {
-	restart = function(dataStack)
-		dataStack[2] = 1
-		return rewind(dataStack, 4)
+	rewind = function(proc)
+		proc[2] = 1
+		return rewindTo(proc, 4)
 	end,
 
-	unwind = function(dataStack)
-		return rewind(dataStack, 1)
-	end,
+	clear = clear,
 
-	["break"] = function(dataStack)
-		for i = #dataStack, 1, -3 do
-			local wasLoop = dataStack[i]
-			dataStack[i] = nil
-			dataStack[i - 1] = nil
-			dataStack[i - 2] = nil
+	["break"] = function(proc)
+		for i = #proc, 1, -3 do
+			local wasLoop = proc[i]
+			clearCur(proc, i)
 			if wasLoop then
 				break
 			end
 		end
 	end,
 
-	pop = function(dataStack, n)
-		local len = #dataStack
+	pop = function(proc, n)
+		local len = #proc
 		local limit = len - (n or 1) * 3 + 1
 		for i = len, limit, -3 do
-			dataStack[i] = nil
-			dataStack[i - 1] = nil
-			dataStack[i - 2] = nil
+			clearCur(proc, i)
 		end
 	end,
 
-	push = function(dataStack, data, loop)
-		local i = #dataStack
-		dataStack[i + 1] = data
-		dataStack[i + 2] = 1
-		dataStack[i + 3] = loop and true or false
+	push = push,
+
+	set = function(proc, ...)
+		clear(proc)
+		return push(proc, ...)
 	end,
 
-	process = function(dataStack, ...)
-		for inst in getInstruction, dataStack do
-			local result = dataStack[type(inst)](inst, ...)
+	process = function(proc, ...)
+		for inst in instructionIter, proc do
+			local result = proc[type(inst)](inst, ...)
 			if result then
 				return result
 			end
@@ -74,13 +83,13 @@ return {
 	end,
 
 	init = function(typeTable, instTable)
-		local dataStack = f0b.table.deepCopy(typeTable)
-		if instTable and not dataStack.table then
-			dataStack.table = function(inst, ...)
+		local proc = f0b.table.deepCopy(typeTable)
+		if instTable and not proc.table then
+			proc.table = function(inst, ...)
 				local copy = f0b.table.deepCopy(inst)
 				return instTable[copy[1]](copy, ...)
 			end
 		end
-		return dataStack
+		return proc
 	end,
 }

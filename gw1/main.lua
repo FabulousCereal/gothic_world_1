@@ -10,8 +10,8 @@ function love.load()
 
 	require("f0ball")
 	require("gamestate")
-	require("assets")
-	love.filesystem.load("local/setup.lua")()
+	require("res")
+	require("init")
 
 	local cur = 0
 	love.textinput = function(t)
@@ -79,9 +79,7 @@ function love.keypressed(key, scancode)
 		gamestate.to = table.remove(gamestate.stack)
 	elseif key == "d" then
 		if gamestate.state.background then
-			for id, bg in ipairs(gamestate.state.background) do
-				printBGColor(id, bg.color)
-			end
+			f0b.table.print(gamestate.state.background, 10)
 		end
 	else
 		gamestate:keypressed(key, scancode)

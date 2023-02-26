@@ -94,28 +94,27 @@ local function trackUpdate(tracklist, dt, finish)
 	end
 end
 
-local function modCopy(track, op)
-	local copy = f0b.std.copy
-	for key, val in pairs(op) do
-		if type(val) ~= "number" then
-			track[key] = copy(val)
+local function jukeMod(track, op)
+	for k, v in pairs(op) do
+		if type(v) == "table" then
+			track[k] = f0b.table.deepCopy(v)
+		else
+			track[k] = v
 		end
 	end
 end
 
-local defaultAlias = true
+local function getAlias(op)
+	local defaultAlias = true
+	return op[1] ~= nil and op[1] or defaultAlias
+end
 
 local trackOps = {
 	set = function(tracklist, op)
-		if op[1] == nil then
-			op[1] = defaultAlias
-		end
-
+		op[1] = getAlias(op)
 		op.source = seq.normalizeSrc(res.bgm, op.source)
 		if op[2] then
 			op.source:setVolume(op[2])
-		elseif op.fade and op.fade[1] == "fadein" then
-			op.source:setVolume(0)
 		end
 		op.source:setLooping(op[3] ~= false)
 
@@ -127,15 +126,22 @@ local trackOps = {
 	end,
 
 	rm = function(tracklist, op)
-		local idx = op[1] or defaultAlias
+		local idx = getAlias(op)
 		tracklist[idx].source:stop()
 		tracklist[idx] = nil
 	end,
 
+	rmall = function(tracklist)
+		for idx, track in pairs(tracklist) do
+			track.source:stop()
+			tracklist[idx] = nil
+		end
+	end,
+
 	cmd = function(tracklist, op)
-		local idx = op[1] or defaultAlias
+		local idx = getAlias(op)
 		local source = tracklist[idx].source
-		return source[op[2]](source, unpack(op, 3))
+		source[op[2]](source, unpack(op, 3))
 	end,
 
 	cmdall = function(tracklist, op)
@@ -146,24 +152,18 @@ local trackOps = {
 	end,
 
 	mod = function(tracklist, op)
-		return modCopy(tracklist[op[1] or defaultAlias], op)
+		local idx = getAlias(op)
+		jukeMod(tracklist[idx], op)
 	end,
 
 	modall = function(tracklist, op)
 		for _, track in pairs(tracklist) do
-			modCopy(track, op)
+			jukeMod(track, op)
 		end
 	end,
 
 	finish = function(tracklist)
 		return trackUpdate(tracklist, 0, true)
-	end,
-
-	clear = function(tracklist)
-		for idx, track in pairs(tracklist) do
-			track.source:stop()
-			tracklist[idx] = nil
-		end
 	end,
 }
 

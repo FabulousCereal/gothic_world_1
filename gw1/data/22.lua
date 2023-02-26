@@ -1,3 +1,0 @@
-return {
-	[[(parte por escribir)]]
-}

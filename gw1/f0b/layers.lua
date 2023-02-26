@@ -132,12 +132,13 @@ local function layerUpdate(layerTable, dt, endTween)
 	end
 end
 
-local function normalizeArgs(args)
-	local t = type(args[1])
-	if t == "string" then
-		args[1] = res.img[args[1]]
-	elseif t == "function" then
-		args[1] = args[1]()
+local function layerDraw(layerTable)
+	local graphics = love.graphics
+	for i = 1, #layerTable do
+		local layer = layerTable[i]
+		local drawFunc = layer.exec or graphics.draw
+		graphics.setColor(layer.color or {1, 1, 1, 1})
+		drawFunc(unpack(layer.args))
 	end
 end
 
@@ -145,7 +146,24 @@ local function normalizeLayer(op)
 	if op.tween and op.tween[1] == "fadein" and not op.color then
 		op.color = {1,1,1,0}
 	end
-	op.args[1] = seq.normalizeSrc(res.img, op.args[1])
+
+	local graphics = love.graphics
+	if not op.exec or op.exec == graphics.draw then
+		local arg = op.args[1]
+		if type(arg) == "table" then
+			for i = 1, #arg do
+				normalizeLayer(arg[i])
+			end
+
+			op.args = {graphics.newCanvas()}
+			graphics.setCanvas(op.args[1])
+			--f0b.table.print(arg, 10)
+			layerDraw(arg)
+			graphics.setCanvas()
+		else
+			op.args[1] = seq.normalizeSrc(res.img, arg)
+		end
+	end
 end
 
 local function normalizeIndex(table, idx, default)
@@ -158,9 +176,9 @@ local function normalizeIndex(table, idx, default)
 	end
 end
 
-local function getNormalizedRange(table, defaultStart, defaultLimit)
-	local start = normalizeIndex(table, defaultStart)
-	local limit = normalizeIndex(table, defaultLimit, start)
+local function getNormalizedRange(table, start, limit)
+	local start = normalizeIndex(table, start)
+	local limit = normalizeIndex(table, limit, start)
 	return start, limit
 end
 
@@ -171,11 +189,11 @@ local function layerMod(layers, op, start, limit)
 		for i = start, limit do
 			if valType == "table" then
 				local copy = deepCopy(value)
-				layers[i][key] = copy
 				if key == "args" then
 					copy[1] = seq.normalizeSrc(res.img,
 						copy[1])
 				end
+				layers[i][key] = copy
 			elseif valType ~= "number" then
 				layers[i][key] = value
 			end
@@ -183,14 +201,15 @@ local function layerMod(layers, op, start, limit)
 	end
 end	
 
-local layerOps = {
+local layerOps
+layerOps = {
 	add = function(layers, op)
 		normalizeLayer(op)
 		local idx = op[1]
 		if idx then
 			table.insert(layers, idx, op)
 		else
-			layers[#layers + 1] = op
+			table.insert(layers, op)
 		end
 	end,
 
@@ -207,6 +226,12 @@ local layerOps = {
 		end
 	end,
 
+	rmall = function(layers)
+		for i = #layers, 1, -1 do
+			layers[i] = nil
+		end
+	end,
+
 	mod = function(layers, op)
 		local start, limit = getNormalizedRange(layers, op[1], op[2])
 		layerMod(layers, op, start, limit)
@@ -216,14 +241,18 @@ local layerOps = {
 		layerMod(layers, op, 1, #layers)
 	end,
 
-	finish = function(layers)
-		layerUpdate(layers, 0, true)
+	fold = function(layers, op)
+		local graphics = love.graphics
+		local cnv = graphics.newCanvas()
+		graphics.setCanvas(cnv)
+		layerDraw(layers)
+		graphics.setCanvas()
+		layerOps.rmall(layers)
+		layers[1] = {args={cnv}}
 	end,
 
-	clear = function(layers)
-		for i = #layers, 1, -1 do
-			layers[i] = nil
-		end
+	sync = function(layers)
+		layerUpdate(layers, 0, true)
 	end,
 
 	debug = function(layers)
@@ -236,16 +265,14 @@ return {
 		return layerOps[op](layerTable, directive)
 	end,
 
+	normalize = function(layerTable)
+		for i = 1, #layerTable do
+			normalizeLayer(layerTable[i])
+		end
+		return layerTable
+	end,
+
 	update = layerUpdate,
 
-	draw = function(layerTable)
-		local graphics = love.graphics
-		for i = 1, #layerTable do
-			local layer = layerTable[i]
---			normalizeArgs(layer.args)
-			local drawFunc = layer.exec or graphics.draw
-			graphics.setColor(layer.color or {1, 1, 1, 1})
-			drawFunc(unpack(layer.args))
-		end
-	end,
+	draw = layerDraw,
 }

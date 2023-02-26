@@ -44,5 +44,12 @@ return {
 			self.wait = inst
 			return true
 		end,
+
+		["function"] = function(inst, self)
+			f0b.lisp.push(self.dataStack,
+				inst(self.vars, self.gVars))
+		end,
+
+		["nil"] = function() end,
 	},
 }

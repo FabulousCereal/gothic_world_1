@@ -1,5 +1,6 @@
 function love.conf(t)
 	t.version = "11.3"
+	t.window.icon = "res/img/icon.png"
 	t.window.title = "Gothic World"
 	t.window.width = 640
 	t.window.height = 640

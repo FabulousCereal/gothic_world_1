@@ -1,51 +1,84 @@
 local widgets = f0b.ui.widgets
 
+local function initVars(vn)
+	local c1, c2 = unpack(vn.cur)
+	local chap = vn.index[c1]
+	vn.vars["_idx1"] = c1 - vn.index.offset
+	vn.vars["_idx2"] = c2
+	vn.vars["_title1"] = chap.name
+	vn.vars["_title2"] = chap[c2][1]
+end	
+
 local function stateReset(vn, fullClear)
 	vn.wait = 0
 	vn.returnValue = nil
 	vn.textCont = false
 	vn.unskippable = false
 	vn.selectTarget = false
+	f0b.table.clear(vn.vars)
+	initVars(vn)
 
 	local ui = vn.ui
 	ui.select.display = false
 	ui.textboard.display = false
 	widgets.textboard.setName(ui.textboard, false)
 	if fullClear then
-		f0b.jukebox.ops(vn.tracks, "clear")
-		f0b.layers.ops(vn.background, "clear")
+		f0b.jukebox.ops(vn.tracks, "rmall")
+		f0b.layers.ops(vn.background, "rmall")
 	end
 end
 
-local function loadStage(filename)
-	local path = "data/" .. filename .. ".lua"
-	return love.filesystem.load(path)()
+local function loadStage(dir, file, style)
+	local path = {res.dataPath}
+	if dir then
+		table.insert(path, dir)
+		table.insert(path, "/")
+	end
+	table.insert(path, file)
+	table.insert(path, ".lua")
+
+	name = table.concat(path)
+	local ok, result = pcall(f0b.std.dofile, name)
+	if ok then
+		return result
+	end
+
+	result = name .. ": Load failed\n\n" .. result
+	local graphics = love.graphics
+	local text = graphics.newText(style.font)
+	text:setf(result, graphics.getWidth(), "left")
+	return {
+		{"bg", "add", args={text}},
+		[[Carga fallida. El documento podría estar mal escrito.]],
+		{"bg", "rm"},
+		{"return", false}
+	}
 end
 
-local function getStage(index, cur, offset)
+local function getStage(self, offset)
+	local index, cur = self.index, self.cur
 	cur[2] = cur[2] + offset
 
-	local segue = true
-	if cur[2] > #index[cur[1]] then
-		segue = index[cur[1]].segue
-		repeat
-			cur[1] = cur[1] + 1
-			if cur[1] > #index then
-				return nil
-			end
-			cur[2] = 1
-		until cur[2] <= #index[cur[1]]
+	-- Implement test as a loop to handle empty chapters
+	while cur[2] > #index[cur[1]] do
+		cur[1] = cur[1] + 1
+		if cur[1] > #index then
+			return nil
+		end
+		cur[2] = 1
 	end
 
-	local filename = index[cur[1]][cur[2]][2]
-	return loadStage(filename), segue
+	local chapter = index[cur[1]]
+	local dir = chapter.dir
+	local file = chapter[cur[2]][2]
+	return loadStage(dir, file, self.style)
 end
 
 local function externalOps(opFunc, target, inst)
 	local copy = f0b.table.deepCopy(inst)
 	local op = table.remove(copy, 2)
-	table.remove(copy, 1)
-	return opFunc(target, op, copy)
+	local _ = table.remove(copy, 1)
+	return opFunc.ops(target, op, copy)
 end
 
 local instructionTable = {
@@ -57,17 +90,17 @@ local instructionTable = {
 	end,
 
 	sfx = function(line)
-		local sfx = res.sfx[line[2]]
+		local sfx = res.sfx(line[2])
 		sfx:setVolume(line[3] or 1)
 		love.audio.play(sfx)
 	end,
 
 	bg = function(line, vn)
-		externalOps(f0b.layers.ops, vn.background, line)
+		externalOps(f0b.layers, vn.background, line)
 	end,
 
 	bgm = function(line, vn)
-		externalOps(f0b.jukebox.ops, vn.tracks, line)
+		externalOps(f0b.jukebox, vn.tracks, line)
 	end,
 
 	var = function(line, vn)
@@ -89,35 +122,26 @@ local instructionTable = {
 	end,
 
 	select = function(line, vn)
-		local options
-		if type(line[2]) == "table" then
-			vn.selectTarget = nil
-			options = line[2]
-		else
-			vn.selectTarget = line[2]
-			options = line[3]
-		end
-
-		widgets.select.set(vn.ui.select, options)
+		vn.selectTarget = line[2]
+		widgets.select.set(vn.ui.select, line[3])
 		return true
 	end,
 
 	case = function(line, vn)
+		local name = line[2]
 		local var
-		local caseIdx = 2
-		if type(line[2]) == "table" then
+		if name == nil then
 			var = table.remove(vn.vars)
 		else
-			var = vn.vars[line[2]]
-			caseIdx = caseIdx + 1
+			var = vn.vars[name]
 		end
 
-		local case = line[caseIdx]
-		local default = line[caseIdx + 1]
+		local cases = line[3]
+		local default = line[4]
 
-		local data = case[var]
+		local data = cases[var]
 		if not data and default then
-			data = default[var]
+			data = default
 		end
 
 		if data then
@@ -130,7 +154,8 @@ local instructionTable = {
 	end,
 
 	macro = function(line, vn)
-		f0b.lisp.push(vn.dataStack, line[2](line[3]))
+		f0b.lisp.push(vn.dataStack,
+			line[2](vn.vars, vn.gVars, unpack(line, 3)))
 	end,
 
 	read = function(line, vn)
@@ -150,7 +175,7 @@ local instructionTable = {
 	end,
 
 	["return"] = function(line, vn)
-		f0b.lisp.unwind(vn.dataStack)
+		f0b.lisp.clear(vn.dataStack)
 		vn.returnValue = line[2]
 	end,
 }
@@ -162,16 +187,13 @@ local function advanceVN2(self)
 	end
 
 	if self.returnValue == false then
-		f0b.lisp.restart(self.dataStack)
+		f0b.lisp.rewind(self.dataStack)
 	else
-		f0b.lisp.unwind(self.dataStack)
-		local stage, segue = getStage(self.index, self.cur, 1)
+		local stage = getStage(self, 1)
 		if stage then
-			f0b.lisp.push(self.dataStack, stage)
-			if segue then
-				stateReset(self, false)
-				return advanceVN2(self)
-			end
+			f0b.lisp.set(self.dataStack, stage)
+			stateReset(self, false)
+			return advanceVN2(self)
 		end
 	end
 	stateReset(self, true)
@@ -205,15 +227,15 @@ local function vnUpdate(self, dt)
 	if self.wait > 0 then
 		self.wait = self.wait - dt
 	elseif not self.ui.select.display then
-		local textboard = self.ui.textboard
-		if textboard.display then
-			if textboard.finished then
+		local tb = self.ui.textboard
+		if tb.display then
+			if tb.finished then
 				self.unskippable = false
 				if self.textCont then
 					return advanceVN2(self)
 				end
 			else
-				return widgets.textboard.update(textboard, dt)
+				return widgets.textboard.update(tb, dt)
 			end
 		else
 			self.unskippable = false
@@ -226,9 +248,10 @@ local function vnDraw(self)
 	return f0b.ui.draw(self.ui)
 end
 
-local function vnPreCommon(self)
-	local stage = getStage(self.index, self.cur, 0)
-	f0b.lisp.push(self.dataStack, stage)
+local function vnPreCommon(self, fullReset)
+	local stage = getStage(self, 0)
+	f0b.lisp.set(self.dataStack, stage)
+	stateReset(self, fullReset)
 	return advanceVN2(self)
 end
 
@@ -236,12 +259,8 @@ local function vnPreInitiated(self, stage)
 	if stage then
 		local chapter, section = unpack(stage)
 		local cur = self.cur
-		if cur[1] ~= chapter or cur[2] ~= section then
-			stateReset(self, true)
-
-			cur[1], cur[2] = chapter, section
-			return vnPreCommon(self)
-		end
+		self.cur[1], self.cur[2] = chapter, section
+		return vnPreCommon(self, true)
 	end
 end
 
@@ -257,7 +276,7 @@ local function vnPreInit(self, stage)
 		self.cur[1], self.cur[2] = unpack(stage)
 	end
 	self.pre = vnPreInitiated
-	return vnPreCommon(self)
+	return vnPreCommon(self, true)
 end
 
 return {
@@ -284,9 +303,9 @@ return {
 			gVars = globalVars,
 			vars = setmetatable({}, {
 				__index = function(t, k)
-					local g = globalVars[k]
-					t[k] = g
-					return g
+					local v = globalVars[k]
+					t[k] = v
+					return v
 				end,
 			}),
 

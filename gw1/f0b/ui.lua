@@ -1,16 +1,12 @@
-local widgets = setmetatable({}, {
-	__index = function(table, key)
-		table[key] = require("f0b.ui." .. key)
-		return table[key]
-	end,
-})
+local widgets = {
+	select = require('f0b.ui.select'),
+	textboard = require('f0b.ui.textboard')
+}
 
 local function forEach(fn)
 	return function(ui, ...)
-		for i = 1, #ui do
-			local name = ui[i]
-			local target = ui[name]
-			fn(name, target, ...)
+		for _, name in ipairs(ui) do
+			fn(name, ui[name], ...)
 		end
 	end
 end
@@ -28,19 +24,9 @@ return {
 		end
 	end),
 
---[[	draw = function(ui)
-		for i = 1, #ui do
-			local name = ui[i]
-			local target = ui[name]
-			if target.display then
-				widgets[name].draw(target)
-			end
-		end
-	end,]]
-
 	add = function(ui, name, ...)
 		if not ui[name] then
-			ui[#ui + 1] = name
+			table.insert(ui, name)
 			ui[name] = widgets[name].new(...)
 		end
 	end,

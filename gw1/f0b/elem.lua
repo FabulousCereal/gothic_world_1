@@ -1,6 +1,6 @@
 local function starRegular(sides)
 	local segs = sides * 2
-	local angle = math.pi * 2 / segs
+	local angle = math.pi*2 / segs
 	local cos, sin = math.cos, math.sin
 	local star = {{0, 0}}
 	for i = 2, segs + 2 do
@@ -12,8 +12,8 @@ local function starRegular(sides)
 end
 
 local function polyRegular(sides)
-	local segs = sides or math.max(love.graphics.getDimensions())
-	local angle = math.pi * 2 / segs
+	local segs = sides or math.min(love.graphics.getDimensions())
+	local angle = math.pi*2 / segs
 	local cos, sin = math.cos, math.sin
 	local unit = {}
 	for i = 1, segs do

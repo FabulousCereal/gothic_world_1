@@ -45,7 +45,7 @@ gamestate = {
 		if gs.to then
 			return transitionExec(gs, dt)
 		else
-			if state.background and #state.background > 0 then
+			if state.background then
 				f0b.layers.update(state.background, dt)
 			end
 			if state.tracks then
@@ -61,7 +61,7 @@ gamestate = {
 		local state = gs.state
 		local graphics = love.graphics
 
-		if state.background and #state.background > 0 then
+		if state.background then
 			f0b.layers.draw(state.background)
 		end
 		if state.draw then
@@ -98,7 +98,7 @@ gamestate = {
 		if not newStateID or newStateID == true then
 			self.to = table.remove(self.stack)
 		else
-			self.stack[#self.stack + 1] = self.state.id
+			table.insert(self.stack, self.state.id)
 			self.to = newStateID
 		end
 	end,
@@ -119,3 +119,4 @@ gamestate = {
 		end,
 	},
 }
+

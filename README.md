@@ -6,9 +6,9 @@ La adaptación que nadie pidió, la experiencia que ninguno quiere volver a repe
 
 ## Imagenes viejas
 
-![Image](gw1.love.1.png "Pantalla de inicio")
+![Image](scr1.png "Pantalla de inicio")
 
-![Image](gw1.love.2.png "¿Que fue que?")
+![Image](scr1.png "¿Que fue que?")
 
 ## Progreso
  * Código: 95%

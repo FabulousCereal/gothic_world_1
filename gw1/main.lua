@@ -1,3 +1,6 @@
+-- SPDX-FileCopyrightText: 2023 Grupo Warominutes
+-- SPDX-License-Identifier: Unlicense
+
 local function printBGColor(id, bgColor)
 	print(string.format("%u - r:%.2f, g:%.2f, b:%.2f",
 		id, bgColor[1], bgColor[2], bgColor[3]))

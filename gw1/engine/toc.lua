@@ -1,3 +1,6 @@
+-- SPDX-FileCopyrightText: 2023 Grupo Warominutes
+-- SPDX-License-Identifier: Unlicense
+
 local tocCmp = {
 	eq = function(c, s)
 		return c[1] == s[1] and c[2] == s[2]

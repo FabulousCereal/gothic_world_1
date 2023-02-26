@@ -1,3 +1,8 @@
+<!--
+SPDX-FileCopyrightText: 2023 Grupo Warominutes
+SPDX-License-Identifier: Unlicense
+-->
+
 # Gothic World, chapter 1
 
 La adaptación que nadie pidió, la experiencia que ninguno quiere volver a repetir.

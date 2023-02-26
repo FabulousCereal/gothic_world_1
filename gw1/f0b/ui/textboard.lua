@@ -1,3 +1,6 @@
+-- SPDX-FileCopyrightText: 2023 Grupo Warominutes
+-- SPDX-License-Identifier: Unlicense
+
 local function nextCodePoint(text, start)
 	local byte = string.byte(text, start)
 	if byte > 0xf0 then

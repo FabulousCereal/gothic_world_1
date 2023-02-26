@@ -1,3 +1,6 @@
+-- SPDX-FileCopyrightText: 2023 Grupo Warominutes
+-- SPDX-License-Identifier: Unlicense
+
 local function basicDeepCopy(orig)
 	local copy = {}
 	for key, val in pairs(orig) do

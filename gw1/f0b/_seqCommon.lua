@@ -1,3 +1,6 @@
+-- SPDX-FileCopyrightText: 2023 Grupo Warominutes
+-- SPDX-License-Identifier: Unlicense
+
 return {
 	normalizeSrc = function(loadFn, obj)
 		local objType = type(obj)

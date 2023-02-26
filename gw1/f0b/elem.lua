@@ -1,3 +1,6 @@
+-- SPDX-FileCopyrightText: 2023 Grupo Warominutes
+-- SPDX-License-Identifier: Unlicense
+
 local function starRegular(sides)
 	local segs = sides * 2
 	local angle = math.pi*2 / segs

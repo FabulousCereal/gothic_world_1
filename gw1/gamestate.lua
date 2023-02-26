@@ -1,3 +1,6 @@
+-- SPDX-FileCopyrightText: 2023 Grupo Warominutes
+-- SPDX-License-Identifier: Unlicense
+
 local function transitionExec(self, dt)
 	local color = self.transitionColor
 	-- Apparently, calling setVolume(1 - color[4]) makes all

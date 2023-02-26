@@ -1,3 +1,6 @@
+-- SPDX-FileCopyrightText: 2023 Grupo Warominutes
+-- SPDX-License-Identifier: Unlicense
+
 function love.conf(t)
 	t.version = "11.3"
 	t.window.icon = "res/img/icon.png"

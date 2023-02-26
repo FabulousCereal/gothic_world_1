@@ -1,3 +1,6 @@
+-- SPDX-FileCopyrightText: 2023 Grupo Warominutes
+-- SPDX-License-Identifier: Unlicense
+
 f0b = {
 	std = require("f0b.std"),
 	math = require("f0b.math"),

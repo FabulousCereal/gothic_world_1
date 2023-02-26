@@ -1,3 +1,6 @@
+-- SPDX-FileCopyrightText: 2023 Grupo Warominutes
+-- SPDX-License-Identifier: Unlicense
+
 local base = f0b.std.dofileOr("res_table.lua", {})
 
 local function setReturn(table, key, arg)

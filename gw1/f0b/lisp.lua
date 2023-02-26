@@ -1,3 +1,6 @@
+-- SPDX-FileCopyrightText: 2023 Grupo Warominutes
+-- SPDX-License-Identifier: Unlicense
+
 local function clearCur(proc, i)
 	proc[i] = nil
 	proc[i - 1] = nil

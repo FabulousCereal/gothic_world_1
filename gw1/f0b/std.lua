@@ -1,3 +1,6 @@
+-- SPDX-FileCopyrightText: 2023 Grupo Warominutes
+-- SPDX-License-Identifier: Unlicense
+
 return {
 	dofile = function(filename)
 		return love.filesystem.load(filename)()

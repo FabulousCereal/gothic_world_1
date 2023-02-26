@@ -8,7 +8,7 @@ La adaptación que nadie pidió, la experiencia que ninguno quiere volver a repe
 
 ![Image](scr1.png "Pantalla de inicio")
 
-![Image](scr1.png "¿Que fue que?")
+![Image](scr2.png "¿Que fue que?")
 
 ## Progreso
  * Código: 95%

@@ -3,27 +3,12 @@
 
 return {
 	fontAlias = {
-		caption = "caption.pcf.gz",
 		dejaVuSans = "DejaVuSans.ttf",
 		dseg7 = "DSEG7Classic-Regular.ttf",
 		ncentury18 = "ncenR18.pcf.gz",
 		takaoMincho = "TakaoMincho.ttf",
 		vollkorn = "Vollkorn-Black.ttf",
-
-		kappa = "kappa10x20.pcf.gz",
-		ayu = "ayu-mincho9x18m.pcf.gz",
-		sony = "sony12x24.pcf.gz",
-
-		teletext1 = "teletext1.pcf.gz",
-		teletext2 = "teletext2.pcf.gz",
-		teletext4 = "teletext4.pcf.gz",
-
-		biwidth = "efont-biwidth16.pcf.gz",
-		helvetica = "helvR14.pcf.gz",
-
-		ncentury14 = "ncenR14.pcf.gz",
-		ncentury24 = "ncenR24.pcf.gz",
-		proof = "proof9x16_c.pcf.gz",
+		terminus = "ter-u28n_unicode.pcf.gz",
 	},
 
 	palette = {
@@ -57,8 +42,8 @@ return {
 		},
 
 		subtitles = {
-			fontFamily = "caption",
-			fontSize = 26,
+			fontFamily = "terminus",
+			fontSize = 28,
 			color = {1, 1, 1, 1},
 			backgroundColor = {0, 0, 0, 1},
 			padding = .25,

@@ -16,13 +16,16 @@ La adaptación que nadie pidió, la experiencia que ninguno quiere volver a repe
 ![Image](scr2.png "¿Que fue que?")
 
 ## Progreso
+
  * Código: 95%
  * Texto: 5%
  * Música: 1%
  * Gráficos: ~0%
+
 Tiempo estimado restante: 24 años.
 
 ## ¿Como juego esto?
+
  * No tiene casi ningún gráfico así que es mejor leer el texto directamente (todo lo que esta en gw1/res/data)
  * O ya que insiste:
    1. Descargue y extraiga el archivo zip de este proyecto (arriba donde dice Code > Download ZIP)

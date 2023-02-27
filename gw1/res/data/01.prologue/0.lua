@@ -8,8 +8,11 @@ local function eauDeParfum()
 	local font = res.fonts("dejaVuSans", math.floor(imgEm / 5))
 	local graphics = love.graphics
 
+	local eauHeight = font:getHeight()
+	local eauPos = imgH + imgY*2 + eauHeight
+
 	local canvasW = imgW + imgX*2
-	local canvasH = imgH + imgY*3
+	local canvasH = eauPos + eauHeight
 	local canvas = graphics.newCanvas(canvasW, canvasH)
 
 	graphics.setCanvas(canvas)
@@ -24,8 +27,7 @@ local function eauDeParfum()
 	graphics.rectangle("line", 1, 1, canvasW - 2, frameH - 1)
 
 	graphics.setFont(font)
-	graphics.printf("eau de parfum", 0,
-		math.ceil(canvasH - font:getHeight()), canvasW, "center")
+	graphics.printf("eau de parfum", 0, eauPos, canvasW, "center")
 
 	graphics.setCanvas()
 	graphics.setBlendMode("alpha", "alphamultiply")
@@ -39,9 +41,8 @@ local function eauDeParfum()
 	}}
 end
 
-local function fadeShow(...)
+local function fadeSwap(_, _, args)
 	local time = 3
-	local args = select(select("#", ...), ...)
 	return {
 		{"bg", "mod", tween={"delay", time, true}},
 		{"bg", "add", args=args, tween={"fadein", time}},
@@ -59,23 +60,23 @@ return {
 	{"bg", "add", args={"maria/intro1.png", -80}, tween={"fadein", 2}},
 	[[Soñé que caía sobre un inmenso océano sin costas.]],
 
-	{"macro", fadeShow, {"maria/intro2.png", 0, 0, 0, .8}},
+	{"macro", fadeSwap, {"maria/intro2.png", 0, 0, 0, .8}},
 	[[Un mar negro bajo una bóveda de nubes y estrellas blancas. Una
 tiniebla que abarcaba mas allá de la Tierra.]],
 
---	{"macro", fadeShow, {"maria/intro3.png", 0, 0, 0, .8}},
+--	{"macro", fadeSwap, {"maria/intro3.png", 0, 0, 0, .8}},
 	[[El viento era tan helado y punzante que parecía chillar.]],
 
 	[[En eso...]],
 
-	{"macro", fadeShow, {"maria/intro4.png", 0, 0, 0, .8}},
+	{"macro", fadeSwap, {"maria/intro4.png", 0, 0, 0, .8}},
 	[[Una pequeña paloma revoloteó junto a mi.]],
 
---	{"macro", fadeShow, {"maria/intro5.png", 0, 0, 0, .8}},
+--	{"macro", fadeSwap, {"maria/intro5.png", 0, 0, 0, .8}},
 	[[La paloma trataba de tomarme con sus patas. Intentaba detener mi
 caída.]],
 
-	{"macro", fadeShow,
+	{"macro", fadeSwap,
 		{"maria/intro6.png",
 			300, 200, -math.pi/2, 1, 1, 400, 300
 		}
@@ -98,7 +99,7 @@ encontré a la paloma acobijada a mi pecho.]],
 	[[Con mis manos entumecidas la abracé, mientras el olor y el ruido de
 las olas nos envolvían.]],
 
-	{"macro", fadeShow, {"sea2.png", 0, 0, 0, .8}},
+	{"macro", fadeSwap, {"sea2.png", 0, 0, 0, .8}},
 	{"wait", 1, true},
 	[["Gracias..."]],
 

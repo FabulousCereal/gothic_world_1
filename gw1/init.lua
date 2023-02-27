@@ -74,9 +74,9 @@ local confBG = f0b.layers.normalize({
 })
 local mainBG = f0b.layers.normalize({
 	{args={{
-		{args=menuScreen(res.style.title, w, h)},
---		{args={"menu/main.png"}},
---		{args=f0b.elem.screenFill(.89), color=elemColor},
+--		{args=menuScreen(res.style.title, w, h)},
+		{args={"menu/main.png"}},
+		{args=f0b.elem.screenFill(.9), color=elemColor},
 	}}},
 })
 

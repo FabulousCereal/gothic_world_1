@@ -97,7 +97,7 @@ return {
 
 		vnMaria = {
 			"vn",
-			backgroundColor = {.25, 0, .25, .5},
+			backgroundColor = {1/3, 0, 1/3, .5},
 		},
 
 		vnBake = {
@@ -117,7 +117,7 @@ return {
 
 		vnCroft = {
 			"vn",
-			backgroundColor = {0, 0, .2, .5},
+			backgroundColor = {0, 0, .25, .5},
 		},
 
 		vnMartin = {

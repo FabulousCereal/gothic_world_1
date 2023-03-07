@@ -173,19 +173,20 @@ Alrededor de 6 cuerpos destrozados y apilados en un rincón.]],
 a iluminar el otro lado de la bodega. Solo habían mas manchas de sangre, pero
 los chicos se sobresaltaron por quedar sin luz.]],
 
-	[[Ya no podía. Sentía que no podía aguantar más.]],
+	[[Ya no podía. Sentía que no podía aguantar más. Aquella fue gente que
+hasta hace unos días vivían como todos.]],
 
-	[[Aquella fue gente que hasta hace unos días vivían como todos.]],
-
-	[[De pronto Bake se acercó a abrazarme. Su cuerpo era cálido.]],
+	[[De pronto Bake se acercó a rodearme con sus brazos. Su cuerpo era
+cálido.]],
 
 	{"name", "Bake"},
-	[["María, yo me encargo." Me aferré fuertemente a el. Era injusto que
-estuviera encargandose de todo, que fuera lo único que impedia que yo o Falcon
-colapsaramos. Quería ayudarlo a llevar esto. "Falcon, ¿la acompañás?"]],
+	[["María, yo me encargo." Me aferré fuertemente a el y presioné mi
+cabeza contra su pecho. Era injusto que estuviera encargandose de todo, que
+fuera lo único que impedia que yo o Falcon colapsaramos. Quería ayudarlo a
+llevar esto. "Falcon, ¿la acompañás?"]],
 
 	{"name", "Falcon"},
-	[["¿Puedes tu solo?"]],
+	[["¿Puedes solo?"]],
 
 	{"name", "Bake"},
 	[["Es solo buscar una caja." Bake me soltó, pero yo seguía apretándolo.

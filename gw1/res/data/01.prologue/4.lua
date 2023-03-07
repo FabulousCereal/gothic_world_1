@@ -1,3 +1,4 @@
+local endFade = {"fadeout", 1, true}
 return {
 	{"bgm", "set", source="Grave Maria.ogg"},
 	{"style", "vnBake"}, {"name", "Bake"},
@@ -47,7 +48,7 @@ periodista dejandolo casi decapitado.]],
 	[[El periodista comenzó a balbucear frente a la camara, atacando al
 camarógrafo.]],
 
-	{"style", "vnFab"}, {"name", "Naxo"},
+	{"style", "vnFab"}, {"name", "Fabian"},
 	{"bgm", "mod", fade={"fadeout", 1/12, true}},
 	[[La tele se apagó junto con la lúz.]],
 	[[Me acerqué a mirar por la ventana, y todo el sector en que me hayaba
@@ -60,8 +61,10 @@ Ni siquiera la luna era visible...]],
 fuera. Abrazaba mis pies fuertemente. No creía lo que estaba pasando afuera.]],
 
 	{"bgm", "set", source="dedededededos.ogg"},
-	{"wait", 2/3},
 	{"bg", "add",
 		args=res.fun.card.card(res.style.title.fontFamily, 72, "Gothic World", "center")},
-	6.25,
+	13,
+	{"bgm", "modall", fade=endFade},
+	{"bg", "modall", tween=endFade},
+	{"wait", 2, true},
 }

@@ -155,8 +155,8 @@ pasado con películas y novelas. Me acuerdo cuando ví 'La Conversación' de
 Francisco Cúpula."]],
 
 	[["Había visto dos películas el día anterior, una comedia y un drama
-romántico. Y eran buenas pero a ratos me aburrían. Luego ví La Conversación,
-que es muy lenta", dijo Fab, y se le formó una media sonrisa.
+romántico. Y eran buenas pero a ratos perdía interés. Luego ví La Conversación,
+que es muy lenta."]],
 
 	[["Y era otro nivel. Es una historia simple con tomas largas y que dura
 2 horas, y me tuvo pegado cada minuto."]],
@@ -190,7 +190,7 @@ cuenta que te engañaron."]],
 	[["¡Si! Eso mismo. Los Bitless pueden usar cualquier instrumento o
 efecto raro, pero nunca sospechas nada de la batería."]],
 
-	[["¿Que hay de tí, María?"]],
+	[["¿Que hay de tí, María?" me preguntó de pronto.]],
 
 	{"name", "María"},
 	[["Ehh--, ¿que?"]],
@@ -237,8 +237,7 @@ malos, no tengo contra que comparar los buenos."]],
 reímos un poco, pero el recuerdo de mi hermano me quedó pesando, y creo que los
 chicos se dieron cuenta.]],
 
-	[["Ehm, disculpa que pregunte pero... ¿Que pasó con tu
-hermano?"]],
+	[["Ehm, disculpa que pregunte pero... ¿Que pasó con tu hermano?"]],
 
 	{"name", "María"},
 	[["Nada, la verdad es que..." Me presioné la mano contra el pecho. Era
@@ -272,9 +271,9 @@ bastaría. Luego llegué acá, y salí al viento."]],
 	[["Te congelaste."]],
 
 	{"name", "Fabian"},
-	[["Nunca pensé que había que cubrirse las manos y la cara
-acá." Andrea contuvo una risa, supongo que debido a que esa era la clase de
-cosas que para los de acá eran elementales.]],
+	[["No pensé que había que cubrirse las manos y la cara acá."
+Andrea contuvo una risa, supongo que debido a que esa era la clase de cosas que
+para los de acá eran elementales.]],
 
 	{"name", false},
 	[[*creeak*]],
@@ -291,8 +290,9 @@ el, con una campera y algo de nieve en los hombros.]],
 	[["Conversamos sobre el frío."]],
 
 	{"name", "Bake"},
-	[["Ah, si, lol. Bajó mucho la temperatura, a como es en invierno.
-Si me hubieran visitado en tiempos normales, les tendria calefacción xD"]],
+	[["Ah, si, lol. Bajó mucho la temperatura, a como es en invierno,"
+dijo sacándose la campera. "Si me hubieran visitado en tiempos normales, les
+tendria calefacción xD"]],
 
 	{"name", "María"},
 	[["Espera, ¿tienen calefacción?"]],
@@ -301,8 +301,9 @@ Si me hubieran visitado en tiempos normales, les tendria calefacción xD"]],
 	[["Obvio, ¿que esperabas xD?"]],
 
 	{"name", "María"},
-	[["Es que viendote en boxers el otro día--" Mierda, eso sonó mal,
-pero dá lo mismo. "Quiero decir... pensé que estaban acostumbrados."]],
+	[["Es que viendote en boxers el otro día--" Los chicos de pronto me
+miraron. Eso sonó mal, pero dá lo mismo. "Quiero decir... pensé que estaban
+acostumbrados."]],
 
 	{"name", "Bake"},
 	[["A la primavera sí, al invierno no, imposible xD Todas las casas
@@ -334,7 +335,7 @@ nos calentamos a leña."]],
 
 	{"name", "María"},
 	[["Guau... Que modernos." Ahora entendía porque le llamaban la estrella
-de sudamérica acá. "Pero no funciona tras la explosión," adiviné.]],
+del sur acá. "Pero no funciona tras la explosión," adiviné.]],
 
 	{"name", "Bake"},
 	[["Exacto, y con la voltereta del invierno o lo que sea creo que 
@@ -345,8 +346,8 @@ sentiremos el verdadero frío de estas tierras." Mierda.]],
 
 	{"name", "Bake"},
 	[["Y cubrirnos con su grasa xDD Hablando de grasa, ya tengo hambre xD
-¿Dijiste que traías arroz?" Fab se estiró a buscar su mochila, y le
-entregó todo lo que traía.]],
+¿Dijiste que traías arroz?" Fab se estiró a buscar su mochila, y sacó unos
+paquetes. Bake los tomó.]],
 
 	{"name", "María"},
 	[["¿Quieres que te ayude?"]],

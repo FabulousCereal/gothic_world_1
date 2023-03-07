@@ -1,6 +1,7 @@
 return {
 	{"style", "vnMaría"},
 	res.fun.macro.title,
+	{"macro", res.fun.macro.date, {2011, 11, 13, 13, 59}},
 
 	{"name", "María"},
 	[[Bake tuvo el arroz listo en menos de media hora, y nos sentamos los
@@ -32,7 +33,8 @@ chico el frio duraba una semana y caía mucha nieve. Si las calles se tapan, no
 podremos salir después en coche."]],
 
 	{"name", "Andrea"},
-	[["Si, eso pasaba mucho. Aunque cuando era chica era lo que mas me gustaba."]],
+	[["Es verdad, eso pasaba cada año. Aunque cuando era chica era lo que
+mas me gustaba."]],
 
 	{"name", "Fabian"},
 	[["¿Por que? ¿Salias a jugar con nieve?"]],
@@ -73,8 +75,9 @@ la cordura mía?' pensé.]],
 Falcon. No se nos ocurrió buscar esas cosas en la farmacia."]],
 
 	{"name", "María"},
-	[["¿Pero donde encontraremos comida allí? No creo que siga habiendo en
-un lugar tan obvio."]],
+	[["De ninguna forma vamos a volver a esa farmacia," le reclamé. Bake
+se sorprendió un poco, pero se quedó callado. "Ademas... no creo que siga
+habiendo comida en un lugar tan obvio.]]
 
 	{"name", "Andrea"},
 	[["Nosotros sabemos donde hay."]],
@@ -83,7 +86,7 @@ un lugar tan obvio."]],
 	[["Si no les importa comer arroz y fideos una semana, claro."]],
 
 	{"name", "Bake"},
-	[["Hmm, puede que nos moleste xD ¿Es mucha?"]],
+	[["Pueeede que nos moleste xD ¿Es mucha?"]],
 
 	{"name", "Fabian"},
 	[["Mas o menos. Es un almacén de barrio que está algo escondido. De ahí
@@ -96,8 +99,14 @@ sacamos lo que traíamos."]],
 	[["Queda cerca... de la Avenida. Por eso preguntaba xd"]],
 
 	{"name", "Bake"},
-	[["lol, todo vuelve al inicio. ¿Quieren salir ahora o quieren beber
-algo antes?"]],
+	[["lol, todo vuelve al inicio."]],
+
+	{"name", "María"},
+	[["Bake," dije a punto de reclamarle.]],
+
+	{"name", "Bake"},
+	[["Tranquila, vamos a buscar otra farmacia, ¿ya?" me aseguró, y miró a
+los chicos. "Bueno, ¿quieren beber algo?"]],
 
 	{"name", "Fabian"},
 	[["¿Hay té?"]],
@@ -106,13 +115,16 @@ algo antes?"]],
 	[["Solo mate y café en esta casa xD" Fab entrecerró los ojos, pensando.]],
 
 	{"name", "Fabian"},
-	[["Mejor a la vuelta. O ya, mejor un mate. ¿Es bueno xD?"]],
+	[["Nunca he tomado mate. ¿Es bueno?"]],
 
 	{"name", "Bake"},
-	[["Por algo lo toman, lol. ¿Nunca has tomado?"]],
+	[["Por algo lo toman, lol."]],
+
+	{"name", "Fabian"},
+	[["Entonces dale."]],
 
 	{"name", "Andrea"},
-	[["Oye, pero si sales al frío después de un mate se te enchueca la
+	[["Oye, pero si sales al frío después de tomar mate se te enchueca la
 boca. Eso decía mi mamá."]],
 
 	{"name", "Bake"},
@@ -133,7 +145,7 @@ dijo levantandose.]],
 abrigo.]],
 
 	{"name", "Bake"},
-	[["Obvio. ¿Que pensás hacer?"]],
+	[["Obvio. ¿Que mas pensás hacer?"]],
 
 	{"name", "María"},
 	[["Falcon aún está en cama. No podemos dejarlo solo."]],
@@ -161,7 +173,7 @@ decir que si, pero... también sería dejarle todo el trabajo a el, de nuevo.]],
 
 	{"name", "Fabian"},
 	[["Es que si pasa algo, María tendría que defenderse sola. Sería mejor
-dos y dos," argumentó. "O si te acuerdas puedes ir tú y--"]],
+dos y dos," argumentó. "O si te acuerdas del lugar puedes ir tú y--"]],
 
 	{"name", "María"},
 	[["No he..." lo interrumpí, insegura, "dicho que quiera quedarme."]],
@@ -208,7 +220,7 @@ para los mareos y la fiebre... traigan eso xd"]],
 	{"name", "Falcon"},
 	[["Y-Y también..." dijo antes que me levantara. "U-Un afinador de
 guitarra," dijo formandosele una sonrisa.
-"Bake... afina muy mal x...xD" Por mas ridículo que me pareciera lo de la
+"Bake... afina pésimo x...xD" Por mas ridículo que me pareciera lo de la
 banda, no pude evitar sonreír.]],
 
 	{"name", "María"},

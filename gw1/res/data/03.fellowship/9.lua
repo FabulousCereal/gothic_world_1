@@ -109,6 +109,8 @@ local infoLoop = {
 return {
 	{"name", "María"},
 	{"style", "vnMaria"},
+	res.fun.macro.title,
+
 	{"text", [[El chico de nombre Bakeritsu, o]], false, true},
 
 	{"bg", "add", args=res.fun.card.card(

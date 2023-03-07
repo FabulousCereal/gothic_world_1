@@ -306,7 +306,7 @@ siguiendo al chico, y este tras hechar un vistazo fue a tomar un acordeón.]],
 las teclas de ambos lados, las sintió con los dedos, y asegurandose que
 Bake estuviera mirando, empezó a tocar.]],
 
-	{"bgm", "set",
+	{"bgm", "set", "acc",
 		source="prelude2_accordeon2 (godlike samples, crap midi).ogg",
 		fade={"delay", 1.5, "fadeout", 1/12, true}},
 	0.75,
@@ -339,7 +339,7 @@ batería. Aún no creía que estuvieramos perdiendo el tiempo en esto.]],
 	[["Bueeeno," dijo acomodándose. Buscó los pedales y empezó a
 tocar.]],
 
-	{"bgm", "set", source="Tension Baroque (andrea).ogg"},
+	{"bgm", "set", "tb", source="Tension Baroque (andrea).ogg"},
 	{"name", "María"},
 	[[Ya lo he dicho, soy un cero a la izquierda en la música. Andrea
 tocaba y yo ni sabía si era buena o mala.]],
@@ -349,7 +349,7 @@ era muy simple lo que hacía... Pero por otro lado, sentía un impulso por
 moverme al ritmo. Miré a Falcon, y el de hecho lo estaba haciendo.]],
 	4,
 
-	{"bgm", "mod", fade={"delay", 1, "fadeout", 4, true}},
+	{"bgm", "mod", "tb", fade={"delay", 1, "fadeout", 4, true}},
 	[[Bake dejó tocar a Andrea hasta que se detuvo por su cuenta, a
 diferencia de Fab.]],
 

@@ -39,6 +39,7 @@ mirar la herida. El pan se quemaba.]],
 return {
 	{"style", "vnMaria"},
 	{"name", "María"},
+	res.fun.macro.title,
 
 	{"case", "DespiertaDonde", {
 		Bake = conBake,

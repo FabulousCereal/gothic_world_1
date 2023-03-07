@@ -1,11 +1,17 @@
 return {
 	{"name", "María"},
 	{"style", "vnMaria"},
+	{"bgm", "set", "theme", 0, source="newgw-marimba.ogg",
+		fade={"delay", .5, "fadeto", .5, 6}},
+	res.fun.macro.title,
+
 	[[No sé en que momento habré semi-despertado, atrapada entre los sueños
 y la realidad. Mi cabeza daba vueltas, mi consciencia iba y venía, y una
 melodía retumbaba sin fin en mi mente... Me hoztigaba, pero no tanto como el
 súbito sonido de un despertador.]],
 
+	{"bgm", "mod", "theme", fade={"fadeout", 3, true}},
+	{"bgm", "set", "alarm", source="weird alarm.ogg"},
 	{"bg", "add", args={res.fun.clock.alarm(res.style.clockAlarm, 12, 30)},
 		color={1,1,1,0},
 		tween={"fadein", .25}
@@ -17,6 +23,7 @@ súbito sonido de un despertador.]],
 	{"text", [[Estiré mi mano e hice callar el reloj como volviendo a una
 vieja rutina,]], false, true},
 
+	{"bgm", "mod", "alarm", fade={"fadeout", 1/12, true}},
 	{"bg", "mod", tween={"fadeout", 1/12, true}},
 	{"text", [[ antes de caer en la cuenta de que me hallaba en un cuarto,
 en una cama. ¿Donde estaba? No reconocía el lugar, eso era seguro.]], true},

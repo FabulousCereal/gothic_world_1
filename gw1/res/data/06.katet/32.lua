@@ -296,12 +296,12 @@ Bake tomó su segunda guitarra.]],
 	{"name", "Bake"},
 	{"text", [["Un, dos, tres, y--!"]], false, true},
 
-	{"bgm", "set",
+	{"bgm", "set", "radio"
 source="si pudiera componer hits estaria en la radio y no haciendolo gratis.ogg"},
 	1,
 
 	{"name", "María"},
-	{"bgm", "mod", nil, fade={"delay", 1, "fadeto", 2/3, 1}},
+	{"bgm", "mod", "radio", fade={"delay", 1, "fadeto", 2/3, 1}},
 	[[Los chicos se pusieron a tocar con los amplis al máximo antes que
 pudiera detenerlos.]],
 
@@ -310,7 +310,7 @@ o no querían hacerme caso. Terminé retirándome a mi cuarto, donde cerré la
 puerta y me cubrí la cabeza con las sabanas para tratar de aislar el ruido.
 Desgraciadamente no bastó, los muros parecían de cartón.]],
 
-	{"bgm", "mod", nil, fade={"fadeout", 5, true}},
+	{"bgm", "mod", "radio", fade={"fadeout", 5, true}},
 	[[Como a las dos horas de estar cabeceando a ratos con la discografía
 de Armas y Rosas entremedio, el ampli se apagó de golpe, despertándome por la
 súbita falta de ruido. Refunfuñé bajo la almohada.

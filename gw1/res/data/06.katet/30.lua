@@ -1,6 +1,6 @@
 return {
 	{"style", "vnMaria"},
---	res.fun.macro.title,
+	res.fun.macro.title,
 
 	{"name", "María"},
 	[[Nos quedamos en silencio tras la historia de Croft. Bake tomó de su

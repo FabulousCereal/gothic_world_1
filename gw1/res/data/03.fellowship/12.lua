@@ -299,6 +299,8 @@ local conQuien = {
 return {
 	{"style", "vnMaria"},
 	{"name", "María"},
+	res.fun.macro.title,
+
 	[[Opté por quedarme un ratito mas dando vueltas. No se si era por enojo
 o gracias a mi pequeña 'siesta' de la mañana, o quizás hasta por el mate, pero
 no tenía ganas de pegar la pestaña aún.]],

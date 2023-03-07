@@ -147,14 +147,14 @@ miedo, giré sin pensarlo en un callejón.]],
 	{"bg", "add", args={"yssm.png", -80},
 		color=res.palette("tenpm", 0, 1.5),
 		tween={"fadein", 2/3}},
-	{"text", [[Corrí a tratar de trepar la malla apoyándome en un bote de
+	[[Corrí a tratar de trepar la malla apoyándome en un bote de
 basura, pero cuando estaba por alcanzar el borde, algo me tomó. El bote se
-movió bajo mis pies.]], false, true},
+movió bajo mis pies.]],
 
 	{"bg", "mod", tween={"fadeout", 1/6, true}},
-	{"text", [[ Caí.]], true},
+	[[Caí.]],
 
-	{"bg", "finish"},
+	{"bg", "sync"},
 	[[Solo alcancé a ver por un momento la forma borrosa de la criatura
 antes de golpearme la cabeza en el bote. Oí ladridos, y el mundo se fue.]],
 }

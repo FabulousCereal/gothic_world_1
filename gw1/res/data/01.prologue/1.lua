@@ -156,7 +156,7 @@ sangre.]],
 cuando el me dice que sería mejor que nos bañaramos juntos, para lavarnos
 mejor. Asi que eso hicimos.]],
 
-	{"bg", "mod", tween={"fadeout", 4/6}},
+	{"bg", "mod", tween={"fadeout", 4/6, true}},
 	{"wait", 4/3},
 	{"bg", "add", 1, args={"bake/y su amigo.png"},
 		color=res.palette("sixpm", 0), tween={"fadein", 4/6}},

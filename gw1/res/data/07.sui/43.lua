@@ -38,7 +38,7 @@ nosotros.]],
 	{"name", "Bake"},
 	[["Double fuck," dijo Bake, y me pasó las llaves. Los dos zombies se
 acercaban lentamente. "Fab, vos ve por el de la izquierda y yo por el de la
-derecha. María, vos tratá de abrir la puerta."]],
+derecha. María, vos seguí tratando."]],
 
 	{"name", "María"},
 	[[Fabian levantó su tubo y Bake la katana, y se movieron para separar a
@@ -185,7 +185,7 @@ salía a quitarse el regalo.]],
 escalón. "¿Iban a algún lado o ya estaban entrando?"]],
 
 	{"name", "María"},
-	[["Just ibamos a salir por comida," dije. Croft asintió sin comentar
+	[["Justo ibamos a salir por comida," dije. Croft asintió sin comentar
 mas. "Bake dijo que esta tormenta era la vuelta del invierno o algo así. ¿Es
 cierto?" Croft me miró sorprendido.]],
 
@@ -239,11 +239,11 @@ Hay arroz."]],
 	[["Dale. ¿Arroz con que?"]],
 
 	{"name", "Bake"},
-	[["Con nada. Es solo arroz xD"]],
+	[["Con nada. Es solo arroz xD" Croft lo miró con cara de °L°]],
 
 	{"name", "Croft"},
-	[["°L°" lo miró Croft. "Yo me haré algo, no te preocupes." Croft fue a
-buscar algo dentro de las cajas, y Bake se estiró peresozo.]],
+	[["Yo me haré algo, no te preocupes." Croft fue a buscar algo dentro de
+las cajas, y Bake se estiró peresozo.]],
 
 	{"name", "Bake"},
 	[["Bue, entonces me voy dormir xD Cualquier cosa me hablan," se

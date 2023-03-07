@@ -88,7 +88,7 @@ criaturas. Al estar lejos parecía que no nos detectaban. Miramos a algunos
 tras una esquina.]],
 
 	{"name", "Bake"},
-	[["Tratá de no respirar, ¿ok? Los zombies sienten el CO2."]]
+	[["Tratá de no respirar, ¿ok? Los zombies sienten el CO2."]],
 
 	{"name", "María"},
 	[["¿El que?"]],
@@ -126,7 +126,7 @@ cambió a la otra vereda para ver las tiendas del frente.]],
 	[[¿Que comida iba a quedar acá? Ibamos a volver sin nada en las manos.
 ¿Y que pasaba si nos atacaba algo de regreso?]],
 
-	[[De pronto, un estruendo de vidrios rotos retumbó cerca de nosotros.]],
+	[[De pronto, un estruendo de vidrios rotos llenó el ambiente.]],
 
 	[["¡Ba--!", fuí a gritar, cuando me dí cuenta que había sido el.]],
 
@@ -164,11 +164,11 @@ nada Bake le subió a 11 el volumen.]],
 	[["¿¿Queee??"]],
 
 	{"name", "María"},
-	{"text", [[Bake se negaba a dejar de tocar, hasta que llegó otra
+	[[Bake se negaba a dejar de tocar, hasta que llegó otra
 criatura de afuera. Bake interrumpió su solo para embocarsela en la cabeza...]],
-false, true},
+
 	{"bgm", "rmall"},
-	{"text", [[ destruyendo definitivamente la guitarra.]], true},
+	[[...Destruyendo definitivamente la guitarra.]],
 
 	{"name", "Bake"},
 	[["¡EL PARAISO SI EXISTE DE NUEVO!"]],

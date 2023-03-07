@@ -1,6 +1,8 @@
 return {
 	{"style", "vnMaria"},
 	{"name", "María"},
+	res.fun.macro.title,
+
 	{"macro", res.fun.macro.date, {2011, 11, 12, 9, 59}},
 	[[Caminaba absorta en mis pensamientos. Encontraba el silencio de la
 ciudad casi desesperante a estas alturas, y ni siquiera los pájaros se oían ni

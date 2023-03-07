@@ -90,6 +90,8 @@ café...]],
 return {
 	{"style", "vnMaria"},
 	{"name", "María"},
+	res.fun.macro.title,
+
 	{"macro", res.fun.macro.date, {2011, 11, 12, 13, 50}},
 	[[Llegamos cerca de la 2 de la tarde a la casa. El día se estaba
 empezando a nublar de nuevo, y Croft comentó que iba a nevar otra vez a la

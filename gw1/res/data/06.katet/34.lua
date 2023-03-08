@@ -279,7 +279,7 @@ razón. "¿No te pasó nada mas?"]],
 cuando Bake me toma la cabeza.]],
 
 	{"name", "Bake"},
-	[["Nena, está bien. Salgamos de acá," dijo haciendome andar.]],
+	[["Nena, está bien. Salgamos de acá," dijo haciéndome andar.]],
 
 	{"name", "María"},
 	[[Bajamos al primer piso, donde estaba Falcon con su arma en la mano.

@@ -8,8 +8,9 @@ return {
 	{"name", "María"},
 	[[Abrí aturdida los ojos, pero todo estaba oscuro. '¿Me golpée la
 cabeza de nuevo?' fue lo primero que pensé, por alguna razón. Luego distinguí
-una mano acercandose y la agarré pensando que me iba a tocar el chichón.
-La persona exclamó asustada. Yo me senté de golpe.]],
+una mano acercándose y la agarré pensando que me iba a tocar el chichón.]],
+
+	[[La persona exclamó asustada. Yo me senté de golpe.]],
 
 	[[Con los ojos bien abiertos me dí cuenta que era Falcon.]],
 
@@ -20,7 +21,7 @@ normal. "¿María?"]],
 
 	{"name", "María"},
 	[["Disculpa, pensé que... nada." Me refregué los ojos y miré la
-ventana, dandome cuenta que recién estaba aclarando afuera. "¿Que pasó?
+ventana, dándome cuenta que recién estaba aclarando afuera. "¿Que pasó?
 ¿Que hora es?"]],
 
 	{"name", "Falcon"},

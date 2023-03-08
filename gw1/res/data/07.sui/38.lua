@@ -145,7 +145,7 @@ tranquilamente."]],
 cuenta. "¿Que pasa?" me preguntó.]],
 
 	{"name", "María"},
-	[["Nada," dije girandome para ocultar mi cara. No sirvió de mucho; en
+	[["Nada," dije girándome para ocultar mi cara. No sirvió de mucho; en
 el vidrio se veía mi reflejo. Bake se volteó a verme, aunque no decía nada.]],
 
 	[[Andrea se quitó el poncho. Radiaba calor al igual que Bake, debía ser

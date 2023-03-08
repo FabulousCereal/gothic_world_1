@@ -200,7 +200,7 @@ cerrada, así que la abrí con cautela y miré adentro. El seguía en cama.]],
 tratando de no hacer ruido.]],
 
 	{"name", "María"},
-	[["Vamos a ir por comida ahora," dije arrodillandome junto a la cama.
+	[["Vamos a ir por comida ahora," dije arrodillándome junto a la cama.
 "¿Necesitas algún medicamento? Aparte de antivirales."]],
 
 	{"name", "Falcon"},

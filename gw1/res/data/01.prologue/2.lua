@@ -78,7 +78,7 @@ el humo negro empezó a entrar en el aeropuerto.]],
 
 	{"bg", "mod", tween={"fadeout", 1, true}},
 	[[Este no era mi primer rodeo. Todos los que sobrevivimos la catástrofe
-en Valdemar sabiamos que hacer, asi que me tiré al suelo tapandome la
+en Valdemar sabiamos que hacer, asi que me tiré al suelo tapándome la
 nariz y gatée hasta la salida. Afuera las cosas ya estaban empezando a
 descontrolarse. Los aviones daban vueltas sin poder aterrizar.]],
 

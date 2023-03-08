@@ -88,7 +88,7 @@ cabeza. "Seguro le debía hacer falta una buena noche."]],
 	{"name", "María"},
 	[[Bake no quiso hablar mucho, y luego de comer fue a probar su guitarra
 nueva al living. Sin ampli claro, aunque parecía saber como sonaría de todas
-formas. Quedandome sola, me dí cuenta de que no sabía que hacer ahora.]],
+formas. Quedándome sola, me dí cuenta de que no sabía que hacer ahora.]],
 
 	{"macro", res.fun.macro.date, {2011, 11, 12, 9, 26}},
 	[[Nunca pensé que el apocalípsis pudiera ser aburrido.]],

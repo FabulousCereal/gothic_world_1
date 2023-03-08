@@ -90,8 +90,8 @@ está mala."]],
 	[["Con esto tenemos para sobrevivir otro día." Habiendo
 registrado todo, los chicos se devolvieron.]],
 
-	[["María," dijo Bake poniendome de pronto la mano en el hombro,
-agarrandome desprevenida. "Tomá."]],
+	[["María," dijo Bake poniéndome de pronto la mano en el hombro,
+agarrándome desprevenida. "Tomá."]],
 
 	{"name", "María"},
 	[["¿Que--?" Apenas me di vuelta Bake puso un arma en mi mano.]],

@@ -114,7 +114,7 @@ Bake entrecerró los ojos.]],
 	[["Te dí comida falopero de mierda." Croft y yo los mirabamos tensos.]],
 
 	{"name", "María"},
-	[["Chicos..." les dije interponiendome entre ellos antes que se
+	[["Chicos..." les dije interponiéndome entre ellos antes que se
 agarraran a tunazos. Los dos entonces se pusieron a reír, se dieron palmadas en
 la espalda que retumbaron en toda la calle, y se subieron al auto de Falcon.]],
 

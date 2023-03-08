@@ -182,7 +182,7 @@ de agarrame el pie. Le dí una patada en la cara y volví corriendo con Bake.]],
 el.]],
 
 	{"name", "Bake"},
-	[["Tomá," me dijo pasándome un ampli pesado apenas llegué a su lado. En
+	[["Tomá," dijo pasándome un ampli pesado apenas llegué a su lado. En
 eso, oímos crujir los trozos de vidrio de afuera. Bake levantó por reflejo otra
 guitarra, pero luego la bajó.]],
 

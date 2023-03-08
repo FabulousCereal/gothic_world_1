@@ -77,7 +77,7 @@ esa cosa. "¿Que haces? ¿Un angel de nieve?"]],
 estaba loca.]],
 
 	{"name", "Fabian"},
-	[["No es buena idea mover la nieve," dijo extendiendome la mano.]],
+	[["No es buena idea mover la nieve," dijo extendiéndome la mano.]],
 
 	{"name", "María"},
 	[["¿Eh? ¿Por que?"]],

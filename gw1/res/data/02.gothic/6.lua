@@ -59,7 +59,7 @@ cayó.]],
 si había soñado todo? Traté de hacer memoria.]],
 
 	[[...Guau, de verdad no podía recordar nada. "Ahora si te las
-mandaste," me dije refregandome los ojos. Ojalá no haya sido por una fiesta,
+mandaste," me dije refregándome los ojos. Ojalá no haya sido por una fiesta,
 porque detestaría haberla olvidado si fue buena.]],
 
 	[[Me busqué entre el pelo el chichón, y aunque me dolío como los mil y
@@ -178,6 +178,6 @@ un lápiz, le dejé al chico su misma nota en la mesa antes de partir, con el
 despertador puesto a las 1:15pm, por si acaso.]],
 
 	[[Salí dejando la puerta junta para cuando volviera, y el perro del
-chico me siguió olfateandome hasta la puerta de la calle, y me miró mientras me
+chico me siguió olfateándome hasta la puerta de la calle, y me miró mientras me
 alejaba. Al menos, ahora tenía un lugar donde volver.]],
 }

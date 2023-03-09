@@ -1,5 +1,5 @@
 return {
-	{"style", "vnMaría"},
+	{"style", "vnMaria"},
 	res.fun.macro.title,
 	{"macro", res.fun.macro.date, {2011, 11, 13, 13, 59}},
 
@@ -77,7 +77,7 @@ Falcon. No se nos ocurrió buscar esas cosas en la farmacia."]],
 	{"name", "María"},
 	[["De ninguna forma vamos a volver a esa farmacia," le reclamé. Bake
 se sorprendió un poco, pero se quedó callado. "Ademas... no creo que siga
-habiendo comida en un lugar tan obvio.]]
+habiendo comida en un lugar tan obvio.]],
 
 	{"name", "Andrea"},
 	[["Nosotros sabemos donde hay."]],
@@ -204,7 +204,7 @@ tratando de no hacer ruido.]],
 "¿Necesitas algún medicamento? Aparte de antivirales."]],
 
 	{"name", "Falcon"},
-	[["¿Que... que hay de la tormenta?"]]
+	[["¿Que... que hay de la tormenta?"]],
 
 	{"name", "María"},
 	[["Volveremos rápido, no te preocupes. Andrea se va a quedar a

@@ -1,5 +1,3 @@
-local mus = res.bgm("dedededede.ogg")
-
 return {
 	{"name", "María"},
 	res.fun.macro.title,
@@ -93,12 +91,4 @@ baño.]],
 
 	{"name", "María"},
 	[[Tras eso se puso camisa.]],
-
-	{"bgm", "set", source=mus},
-	{"bg", "add", args=res.fun.card.card(res.style.title.fontFamily, 72,
-		"En este\ncliffhanger\nterminamos.")},
-	mus:getDuration("seconds"),
-
-	{"bg", "rmall"},
-	{"bgm", "rmall"},
 }

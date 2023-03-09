@@ -16,7 +16,7 @@ capa me daba la impresión de que muchas horas de luz no quedaban.]],
 
 	{"name", "Bake"},
 	[["¿Llover? No," respondió al instante. "Puede que nieve a la tarde."
-Bueno, me sentí estúpida por pensar como si aún estuviera en casa, en el norte.
+Me sentí estúpida por pensar como si aún estuviera en casa, en el norte.
 Me subí la cremallera del abrigo y hundí las manos en los bolsillos.]],
 
 	{"name", "María"},
@@ -27,7 +27,7 @@ Me subí la cremallera del abrigo y hundí las manos en los bolsillos.]],
 gimió y se tocó la espalda. "Oooh, bitchy-bitch."]],
 
 	{"name", "María"},
-	[["¿Que te pasó?"]],
+	[["¡¿Que te pasó?!"]],
 
 	{"name", "Bake"},
 	[["La herida. Me duele mas cicatrizada xD o a lo mejor fue tanto
@@ -53,8 +53,8 @@ calma.]],
 "Cualquier cosa vos atacá directo al cuello. ¿Vale?"]],
 
 	{"name", "María"},
-	[["Vale..." Lo decía como si fuera fácil, pero cuando peleó no parecia
-resultar mucho.]],
+	[["Vale..." Lo decía como si fuera fácil, pero yo no creía ser capaz de
+usarla como el hizo.]],
 
 	[[El chico permaneció callado unos momentos, a lo mejor preocupado de
 nuestra seguridad, de como sobreviviríamos, o tal vez de que hubiera sido bueno
@@ -97,6 +97,7 @@ tras una esquina.]],
 	[["Solo hazlo." Bake miró de nuevo, y me indicó que cruzaramos ahora.
 Aguantamos la respiración, y tomamos aire al llegar al otro lado.]],
 
+	{"name", "María"},
 	[[Le comenté sobre la criatura veloz que me encontré en mi
 breve salida. Pareció sorprendido. Por lo visto no se había enfrentado con esas
 cosas hasta esta mañana.]],

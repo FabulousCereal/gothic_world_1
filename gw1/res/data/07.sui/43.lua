@@ -1,5 +1,5 @@
 return {
-	{"style", "vnMaría"},
+	{"style", "vnMaria"},
 	res.fun.macro.title,
 
 	{"name", "Fabian"},
@@ -121,7 +121,7 @@ abrigado hasta las orejas, y un perro saltó por la ventana.]],
 
 	{"name", "Croft"},
 	[["Si, os he brindado mucha comida. Arrodillense ante mi,"
-dijo abriendo los brazos.]]
+dijo abriendo los brazos.]],
 
 	{"name", "Bake"},
 	[["Deja de hablar así, danos la comida."]],

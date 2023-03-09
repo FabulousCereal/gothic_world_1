@@ -18,7 +18,7 @@ local sobreLaGente = {
 
 	{"name", "María"},
 	[["Tuvo que haberla, ¿no? Por que si no, ¿a donde se fueron todos?"
-le expliqué. El chico se llevó la mano a la barbilla.]],
+le expliqué. El chico inclinó la cabeza a un lado.]],
 
 	{"name", "Bake"},
 	[["Ahora que lo decís, sos la primera persona que veo," dijo pensando.
@@ -189,7 +189,7 @@ nevar de nuevo, con los dos cuerpos lentamente cubriendose de un blanco sucio.
 La casa crugía. Las manchas de sangre en el patio se escondían de a poco, y
 tuve una sensación extraña en el pecho. Una inquietud de que algo no concordaba.]],
 
-	[[Sin saber que hacer, me limité a verificar que la puerta siguiera con 
+	[[Sin saber que hacer, me limité a verificar que la puerta siguiera con
 seguro.]],
 
 	{"name", "María"},

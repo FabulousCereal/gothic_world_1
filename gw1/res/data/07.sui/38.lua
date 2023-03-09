@@ -168,7 +168,7 @@ que nos protegiera del viento."]],
 	[["¿Vienen de otro país entonces?"]],
 
 	{"name", "Fabian"},
-	[["Yo si."]],
+	[["Yo si. Del norte." Igual que yo.]],
 
 	{"name", "Andrea"},
 	[["Yo no, aunque vivo casi en la frontera. Venía de paseo con mi curso,"
@@ -189,17 +189,17 @@ nada con ellos mientras venían?]],
 	[["24." Falcon inclinó la cabeza.]],
 
 	{"name", "Falcon"},
-	[["Ehh... ¿Y ustedes se conocían de antes?" dijo cauteloso.]],
+	[["Ehh... ¿Y ustedes se conocían de antes?" preguntó con cautela.]],
 
 	{"name", "Andrea"},
-	[["No. Nos conocimos hace un par de días. Llegamos al mismo
+	[["No. Nos conocimos hace tres días días. Llegamos al mismo
 supermercado a refugiarnos," Falcon asintió ante esas palabras.]],
 
 	{"name", "Falcon"},
 	[["Ahh, entonces, ¿no son novios?" Dios.]],
 
 	{"name", "Andrea"},
-	[["¿Que? No," dijo extrañada. "¿Por que dices eso?"]],
+	[["¿Q-Que? No," dijo extrañada. "¿Por que dices eso?"]],
 
 	{"name", "Falcon"},
 	[["Ehh..."]],
@@ -253,8 +253,8 @@ estupides.]],
 	[["¿No viste mas gente antes de encontrar a Fab?"]],
 
 	{"name", "Andrea"},
-	[["Ví grupos saqueando almacenes, pero no me iba a acercar
-a ellos, obviamente."]],
+	[["Ví unos grupos saqueando almacenes al principio, pero no me iba a
+acercar a ellos."]],
 
 	{"name", "Bake"},
 	[["¿Y tu Fab? ¿A que venías?"]],
@@ -266,27 +266,22 @@ a ellos, obviamente."]],
 suerte de que la fábrica explotara a los minutos de bajarme del avión.
 Hubiera sido un poco antes, y me hubieran desviado a otro lado."]],
 
-	[["En fin. Llegué como pude a un hostal, y al despertar ya no había
-civilización. No había luz ni gente. Me conseguí un mapa y he caminado desde
-entonces."]],
+	[["Como sea. Mi prima tampoco estaba en el aeropuerto, así que llegué
+como pude a un hostal, y cuando desperté ya no había ni luz ni gente. No me
+quedó mas opción que ponerme a caminar."]],
 
-	{"name", "Bake"},
-	[["¿Y tu prima?"]],
-
-	{"name", "Fabian"},
-	[["La ando buscando. No sé donde vive." Buscar a alguien
-en una ciudad... Suena imposible.]],
+	[["Cuento corto, para el segundo día deduje que esto no se iba a
+arreglar por lo pronto, así que me conseguí un mapa y me puse a buscar a mi
+prima."]],
 
 	{"name", "Falcon"},
-	[["¿Pero no fue al aeropuerto?"]],
+	[["¿Con un mapa?"]],
 
 	{"name", "Fabian"},
-	[["No sé si habrá ido. Hubo un caos porque el humo se vino hacia el
-aeropuerto muy rápido, y toda la gente empezó a salir, así que a lo mejor huyó,
-o quizás se quedó dormida. No sé."]],
+	[["Si. No sé donde vive," respondió sencillamente. Sonaba imposible.]],
 
 	{"name", "Bake"},
-	[["¿Y no la llamaste?"]],
+	[["¿Pero y no la llamaste?"]],
 
 	{"name", "Fabian"},
 	[["No tengo celular." Uf.]],
@@ -304,9 +299,9 @@ llevaba.]],
 Imaginé que el tema le interesaba.]],
 
 	{"name", "Fabian"},
-	[["Ah, sucede que cuando venía de niño, ibamos a jugar a un parque
-gigante que había cerca, así que me conseguí un mapa de la ciudad, anoté los
-parques grandes, y me puse a caminar."]],
+	[["Sucede que cuando venía de niño a verla, ibamos a jugar a un parque
+gigante que tenía cerca, así que anoté los parques grandes en el mapa, y he
+ido buscándolos."]],
 
 	{"name", "Falcon"},
 	[["Suena tedioso."]],
@@ -321,13 +316,13 @@ parques grandes, y me puse a caminar."]],
 	[["Entonces no sé xd"]],
 
 	{"name", "Fabian"},
-	[["xd bueno, anoté 5 y ahora me quedan 3."]],
+	[["xd bueno, son 5 y me quedan 3."]],
 
 	{"name", "Falcon"},
 	[["¿Pero no te acuerdas de alguna calle, o algo?"]],
 
 	{"name", "Fabian"},
-	[["Por mas que trato, nada xd"]],
+	[["Nada, no me fijaba en esas cosas de niño xd"]],
 
 	{"name", "Falcon"},
 	[["Bueno, no hay nada peor que no poder recordar..." dijo
@@ -383,7 +378,7 @@ y cuando desperté ella ya no estaba. Tampoco tenía recuerdos."]],
 	[["Fab siempre menciona eso cuando sale el tema."]],
 
 	{"name", "María"},
-	[["Yo también escuche eso. En las noticias, antes que se cortara la
+	[["Yo también escuché eso. En las noticias, antes que se cortara la
 luz."]],
 
 	{"name", "Fabian"},

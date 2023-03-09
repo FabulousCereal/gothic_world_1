@@ -79,15 +79,15 @@ hacia el frente para hablarle.]],
 
 	{"name", "María"},
 	{"text", [[ a la casa cerca de las siete, cuando ya estaba oscureciendo
-y los primeros copos de nieve comenzaban a caer. Entramos Falcon y yo cargando
+y la nieve comenzaban a tapar la vista. Entramos Falcon y yo cargando
 la comida, y el se detuvo a estirar los brazos al techo.]], true},
 
 	{"name", "Falcon"},
 	[["Dios, que agradable," dijo extasiado. "Había dormido todos estos
-días en el auto." Bake entró sin nada y se fue directo al sillón.]],
+días en el auto." Bake entró sin nada y se tiró directo al sillón.]],
 
 	{"name", "Bake"},
-	[["Tenés razón," dijo recostándose boca abajo. Llevé a Falcon a la
+	[["Tenés razón," dijo recostado boca abajo. Llevé a Falcon a la
 cocina para guardar la comida.]],
 
 	[["¿Sabés que nos hizo falta? Unas chelas," comentó Bake desde el

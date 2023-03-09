@@ -60,7 +60,7 @@ historias y nuetras vidas...]],
 Las olas nunca dejan de oirse...]],
 
 	{"bg", "add",
-		args=res.fun.sub.subtitle(
+		args=res.fun.card.subtitle(
 			{{1,1,1,1}, "Gothic World\n/fantasía/"},
 			"center"
 		)

@@ -62,16 +62,17 @@ la claridad del día. La piel seca descascarándose con costras, el ruido flemos
 al respirar, el olor...]],
 
 	[[Antes de poder pensar en como reaccionar, la criatura se volteó.
-Empezó a caminar veloz hacía mi, no torpe como los otros que había visto.
-Me puse a correr. Dí vuelta en todas las esquinas que pude hasta perderla de
-vista.]],
+Empezó a correr hacía mi, no torpe como los otros que había visto. Yo me giré y
+escapé tan rápido como pude. Dí vuelta en todas las esquinas que pude hasta
+perderla de vista.]],
 
 	[[Deteniéndome a tomar aire ya varias cuadras mas lejos, concluí que no
 iba a descubrir nada exponiéndome así sola. Ni siquiera sé que es lo que
 esperaba hacer con la navaja, lo único que había logrado era empaparla en sudor.]],
 
-	[[Decidí regresar. Todo esto fue un desperdicio mas de mi vida. Si el
-chico aún no había despertado, no se daría ni cuenta de que--]],
+	[[Decidí regresar. Todo esto fue un desperdicio mas de mi vida como
+tantos otros. Si el chico aún no había despertado, no se daría ni cuenta de
+que--]],
 
 	[[Mierda. Deje al chico solo e inconsciente y con la puerta abierta.
 ¿En que estaba pensando?]],

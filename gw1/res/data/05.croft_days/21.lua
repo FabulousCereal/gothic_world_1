@@ -20,15 +20,17 @@ intentos entendí la indirecta y me dí por vencido. Rocco agachó la cabeza.]],
 
 	[[Bueno, razoné que tras la explosión debían estar tapados de reclamos
 así que esta vez no era culpa suya. Aparte que tampoco tenía tanto apuro;
-mientras no perdiera la comida del refrigerador, todo OK.]],
+mientras no perdiera la comida del refrigerador, todo bien.]],
 
 	[[Desayuné y me subí a mi carro, monté a Rocco con su correa, y fui a
 ver a mi amigo, hacía mucho que no hablábamos.]],
 
 	[[De lejos noté que la ciudad tenía otro aspecto, como si se hubiera
 detenido por completo. ¿Por una explosión? Quiero decir, no era insignificante,
-pero la ciudad no se paraba ni con maremotos. Tres helicópteros pasaron sobre
-nosotros. Supuse que eran de los noticieros que nadie podía ver.]],
+pero la ciudad no se paraba ni con maremotos.]],
+
+	[[Tres helicópteros pasaron sobre nosotros. Supuse que eran de los
+noticieros que nadie podía ver.]],
 
 	[[Llegando tuve que esquivar un carro que venía veloz en dirección
 contraria, y mas adelante tuve que rodear un poste de luz que había derribado
@@ -48,15 +50,17 @@ haber sido una persona o hasta el que chocó el poste.]],
 
 	[[Miré por todos lados pero no encontré mas que unas manchas de sangre
 que se dirigían al otro costado. No sé que habrá sido, pero no pensaba cruzar a
-ciegas para averiguarlo. Grité "¡perdón!", me subí de nuevo y entré finalmente
-a la ciudad.]],
+ciegas para averiguarlo.]],
+
+	[["¡Perdón!" grité, y me subí de nuevo y entré finalmente a la
+ciudad.]],
 
 	[[No había mucho que ver, por la niebla, pero todo se oía bastante
 tranquilo, tal vez hasta demasiado para una capital. La recordaba con mas
 tránsito.]],
 
 	[[Que yo sepa no era dia feriado, ni lo fue ayer como para que anden
-todos con resaca. Seguí andando, encontrando una que otra persona caminando,
+todos enratonados. Seguí andando, encontrando una que otra persona caminando,
 pero el ambiente era desolador de todas formas.]],
 
 	[[Llegué al edificio de mi amigo. Vivía en uno de esos departamentos
@@ -71,12 +75,14 @@ que nunca quise venirme a la ciudad.]],
 
 	[[Entré al edificio y busqué al señor de recepción. Sucedía que no
 recordaba el apartamento de mi amigo, solo que empezaba con 3, pero al final
-nunca se le vió al caballero o yegüera. Subí por mi cuenta al tercer piso y
-como seguía sin recordar, decidí llamar a cada puerta a ver si alguien lo conocía.]],
+nunca se le vió al caballero o yegüera.]],
 
-	[[De la primera no hubo respuesta alguna. De la segunda, salió de
-inmediato un hombre que me apuntó con una escopeta. "¡Alejate!" me gritó en
-tono de desesperación, y cerró con un portazo. Asumí que estaba loco así que lo
+	[[Subí por mi cuenta al tercer piso y como seguía sin recordar, decidí
+llamar a cada puerta a ver si alguien lo conocía.]],
+
+	[[De la primera no hubo respuesta alguna. De la segunda, salió un
+hombre que me apuntó con una escopeta. "¡Alejate!" me gritó en tono de
+desesperación, y cerró con un portazo. Asumí que estaba loco así que lo
 ignoré.]],
 
 	[[Llamé a la tercera puerta y esperé a ver si salía alguien cuerdo.
@@ -90,8 +96,7 @@ guardia nocturno, así que ya tendría que estar acá. Probé con su celular.]],
 
 	[[Puede que con la explosión haya tenido una noche dura. Los citadinos
 son revoltosos y por cualquier cosa saquean los supermercados y esas cosas,
-se roban hasta la basura. Le seguí insistiendo un par de veces mas pero fue
-en vano.]],
+se roban hasta la basura. Le insistí un par de veces mas pero fue en vano.]],
 
 	[[Mientras pensaba en si devolverme a la casa, se oyó un disparo de la
 habitación del vecino. Rocco empezó a ladrar como loco. Golpée a la puerta y me
@@ -111,7 +116,9 @@ de inmediato empezó a gruñir.]],
 
 	[[El departamento estaba oscuro, mi amigo usaba de esas cortinas ultra
 gruesas para poder dormir de día. Entré con cautela y mi amigo apareció de
-pronto. Se veía raro, pero por la poca luz me costaba identificar que tenía.
+pronto.]],
+
+	[[Se veía raro, pero por la poca luz me costaba identificar que tenía.
 Parecía que había una mancha verde en su cara.]],
 
 	[["Crezzo. ¡Crezzo!" Trataba de hablarle pero no me respondía, solo se
@@ -198,8 +205,8 @@ el espejo la mujer seguía moviéndose.]],
 	[[Llegamos a mi vecindario. Era un día de locos, pero por lo menos toda
 el area rural se veía como siempre. Tranquila y solitaria. Tal vez demasiado.]],
 
-	[[Bueno, considerando como está el ambiente, yo tampoco tendía ganas de
-estar afuera.]],
+	[[Aunque considerando como está el ambiente, yo tampoco tendría ganas
+de estar afuera.]],
 
 	[[Llegamos a la casa e hice bajar a Rocco justo antes que se hiciera
 de nuevo en el asiento. Adentro seguiamos sin energía, no había internet, y

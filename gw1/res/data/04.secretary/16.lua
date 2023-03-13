@@ -95,7 +95,9 @@ return {
 	{"macro", res.fun.macro.date, {2011, 11, 12, 13, 50}},
 	[[Llegamos cerca de la 2 de la tarde a la casa. El día se estaba
 empezando a nublar de nuevo, y Croft comentó que iba a nevar otra vez a la
-tarde. Me pregunté si necesitaban el canal del clima acá, porque parece que
+tarde.]],
+
+	[[Me pregunté si necesitaban el canal del clima acá, porque parece que
 todos saben al ojo lo que va a pasar.]],
 
 	[[En fin. Croft me ayudó a bajar y fuimos hasta la puerta, con Pipi
@@ -124,7 +126,7 @@ apareció Bake apuntándo a Croft con una pistola.]],
 	[["Se llama--"]],
 
 	{"name", "Bake"},
-	[["¡POR DIOS! ¡¿Que te pasó en la cabeza?!" dijo girándome la cabeza
+	[["¡POR DIOS! ¡¿Que te pasó en la cabeza?!" dijo tomándome la cabeza
 por el mentón. "Tenés una flor de moretón." Le alejé la mano.]],
 
 	{"name", "María"},
@@ -140,9 +142,11 @@ dos miramos a Croft, y este miró a Rocco que lo miró de vuelta.]],
 
 	{"name", "Croft"},
 	[["¡Hijo de--!" Soltó a Rocco y este salió corriendo mientras Croft se
-sacudia el brazo. Lo había meado encima. "No podías hacer todo junto," lo
-regañó. Rocco terminó de mear en un árbol mientras Croft se quitaba el abrigo.
-Por suerte parecía que era impermeable.]],
+sacudia el brazo. Lo había meado encima.]],
+
+	[["No podías hacer todo junto," lo regañó. Rocco terminó de mear en un
+árbol mientras Croft se quitaba el abrigo. Por suerte parecía que era
+impermeable.]],
 
 	{"name", "Bake"},
 	[["xDD" dijo Bake.]],
@@ -154,7 +158,7 @@ Por suerte parecía que era impermeable.]],
 	[["¿Falcon? Está con fiebre en la cama."]],
 
 	{"name", "María"},
-	[["¿Q-Que? ¿Con fiebre?"]],
+	[["¿Que? ¿Con fiebre?"]],
 
 	{"name", "Bake"},
 	[["Si, lo fui a ver luego que salieras y estaba así, dijo que le dolía

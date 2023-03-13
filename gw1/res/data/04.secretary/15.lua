@@ -24,13 +24,14 @@ cuarto de madera. Hacía calor. Había olor a carbón.]],
 	{"name", "María"},
 	[[Parpadeé un par de veces, sin poder recordar de nuevo como fue que
 llegué de donde estaba hasta acá, pero intuí que el apocalípsis seguía en
-curso, y que lo mejor sería no mover la cabeza. Esto de despertar en cuartos
-ajenos se estaba haciendo costumbre.]],
+curso, y que lo mejor sería no mover la cabeza.]],
+
+	[[Esto de despertar en cuartos ajenos se estaba haciendo costumbre.]],
 
 	[["¿Quién eres?"]],
 
 	{"name", "-----"},
-	[["Me llamo Croft, y este es mi perro Rocco. Dile hola Rocco."]],
+	[["Me llamo Croft, y este es mi perro Rocco. Dí hola, Rocco."]],
 
 	{"name", "Rocco"},
 	[["¡Auf!" Un perro café se apoyó en la cama para mirarme, y por acto
@@ -47,8 +48,9 @@ por el medio y no te tocó ninguna rueda. No podía frenar con esa nieve."]],
 	{"name", "María"},
 	[[Ahora recordaba. Ya había cruzado la calle cuando se me ocurrió
 devolverme. No recuerdo el auto pero sí fragmentos, como haber estado tirada
-en mitad de la calle. El cielo gris que daba vueltas. Recordaba tambien que al
-caer me golpeé la-- "¡AUUU!" grité.]],
+en mitad de la calle. El cielo gris que daba vueltas.]],
+
+	[[Recordaba tambien que al caer me golpeé la-- "¡AUUU!" grité.]],
 
 	{"name", "Croft"},
 	[["Disculpa, quería ver como te había quedado la cabeza."]],
@@ -91,8 +93,10 @@ de que está inflamado, lo está."]],
 	{"name", "Rocco"},
 	[["¡Wuf!" asintió Rocco. ¿Como me había esguinzado? No imaginaba como,
 pero con este dolor no podía discutirle tampoco. Debía tener pésima suerte
-simplemente. Y fuera del pie y la cabeza, también me dolía la cadera donde el
-auto me había chocado. Todo andaba mal.]],
+simplemente.]],
+
+	[[Y fuera del pie y la cabeza, también me dolía la cadera donde el auto
+me había golpeado. Todo andaba mal.]],
 
 	{"name", "María"},
 	[["¿Donde hay un hospital?" pregunté al borde de las lágrimas, sin
@@ -133,8 +137,8 @@ era chatarra que tenía adornando su patio.]],
 
 	{"name", "Croft"},
 	[["Esta es mi Vieja Mula. Ya no es lo que era antes, le falla hasta la
-bocina y la radio, pero nunca me ha abandonado," explicó. Me pareció familiar
-de algún lado, pero no tuve tiempo para pensar mucho en eso.]],
+bocina y la radio, pero nunca me ha abandonado," explicó. Viéndola de frente,
+si, este fue el auto que me atropelló.]],
 
 	{"name", "María"},
 	[[Croft se subió a darle contacto, y tras provocarle lo mas parecido a
@@ -191,18 +195,19 @@ heridos. No quise molestarlos por un cepillo."]],
 	[["Pero somos cuatro personas... ¿con una sola bolsa?"]],
 
 	{"name", "Croft"},
-	[["Bueno, algo es mejor que nada." A pesar de la impactante recibida,
-Croft parecía ser buena persona, aunque me llamó la atención que viviera solo
-en el campo siendo tan joven. ¿No se aburrirá? De pronto, Rocco empezó
-a dar vueltas en el asiento.]],
+	[["Bueno, algo es mejor que nada."]],
 
-	[["¡Rocco! ¡No hagas--! Mierda. !Afuera!" Croft paró el auto e
+	[[A pesar de la impactante recibida, Croft parecía ser buena persona,
+aunque me llamó la atención que viviera solo en el campo siendo tan joven. ¿No
+se aburrirá? De pronto, Rocco empezó a dar vueltas en el asiento.]],
+
+	[["¡Rocco! ¡No hagas--! Mierda. !Afuera!" Croft detuvo el auto e
 hizo salir a Rocco al camino, que se bajó tiritando. Empezó a hacer del 2 junto
 a la rueda de la camioneta mientras Croft se llevaba la mano a la cara.]],
 
-	[["Disculpa. No está acostumbrado a andar en auto." Rocco terminó de
+	[["Disculpa. No está acostumbrado a andar en carro." Rocco terminó de
 hacer y empezó a tirarle tierra y nieve a la rueda hasta quedar contento.
-"¿Listo?" Rocco agitó la cola sonriendo y se subió de nuevo al auto.]],
+"¿Listo?" Rocco agitó la cola sonriendo y se subió de vuelta.]],
 
 	[[Ese era el olor, ese era.]],
 }

@@ -11,7 +11,7 @@ los perros ladrando.]],
 	[[En cierto modo, era como si no pertenecieramos a esta ciudad.]],
 
 	[[Bueno, yo en realidad no pertenecia. Pero aun si lo hiciera, sentía
-que ya nadie debía permanecer aquí, y los que quedabamos estabamos
+que ya nadie debía permanecer aquí, y que los que quedabamos estabamos
 transgrediendo un sepulcro.]],
 
 	[[No sabía que le pasaba a Bake, si era por la herida o por algo que
@@ -37,5 +37,5 @@ directo hacia mi.]],
 	[["¡CUIDADOOOO!"]],
 
 	{"name", "María"},
-	[[Cuando me giré a ver, ya era demasiado tarde...]],
+	[[Cuando me voltée a ver, ya era demasiado tarde...]],
 }

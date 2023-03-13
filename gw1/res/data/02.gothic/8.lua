@@ -68,8 +68,8 @@ decir.]],
 	[["En realidad--", empecé para tratar de explicar.]],
 
 	{"name", "chico"},
-	[["Disculpá, ¿cual era tu nombre? Solo recuerdo hasta la
-cachetada, lol."]],
+	[["Disculpá, ¿cual era tu nombre? Solo recuerdo hasta la cachetada,
+lol."]],
 
 	{"name", "María"},
 	[["María," le respondí. El corazón no se me calmaba.]],

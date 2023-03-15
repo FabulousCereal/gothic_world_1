@@ -12,20 +12,21 @@ local function initVars(vn)
 	vn.vars["_title2"] = chap[c2][1]
 end	
 
-local function stateReset(vn, fullClear)
+local function stateReset(vn, keepRes)
 	vn.wait = 0
 	vn.returnValue = nil
 	vn.textCont = false
 	vn.unskippable = false
 	vn.selectTarget = false
 	f0b.table.clear(vn.vars)
+	f0b.table.clear(vn.settings)
 	initVars(vn)
 
 	local ui = vn.ui
 	ui.select.display = false
 	ui.textboard.display = false
 	widgets.textboard.setName(ui.textboard, false)
-	if fullClear then
+	if not keepRes then
 		f0b.jukebox.ops(vn.tracks, "rmall")
 		f0b.layers.ops(vn.background, "rmall")
 	end
@@ -181,6 +182,10 @@ local instructionTable = {
 		f0b.lisp.clear(vn.dataStack)
 		vn.returnValue = line[2]
 	end,
+
+	settings = function(line, vn)
+		vn.settings[line[2]] = line[3]
+	end,
 }
 
 local function advanceVN2(self)
@@ -195,7 +200,7 @@ local function advanceVN2(self)
 		local stage = getStage(self, 1)
 		if stage then
 			f0b.lisp.set(self.dataStack, stage)
-			stateReset(self, false)
+			stateReset(self, self.settings.keepRes)
 			return advanceVN2(self)
 		end
 	end
@@ -303,6 +308,7 @@ return {
 			wait = 0,
 			selectTarget = nil,
 			returnValue = nil,
+			settings = f0b.table.struct({keepRes = true}),
 			gVars = globalVars,
 			vars = setmetatable({}, {
 				__index = function(t, k)

@@ -9,7 +9,7 @@ end
 
 local function instructionIter(proc)
 	local idx = #proc
-	if idx > 2 then
+	if idx >= 3 then
 		local data, loop, pos = proc[idx - 2], proc[idx - 1],
 			proc[idx]
 		if pos == #data then

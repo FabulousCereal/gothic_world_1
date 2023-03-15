@@ -44,6 +44,30 @@ return {
 
 	deepCopy = basicDeepCopy,
 
+	struct = function(defs)
+		return setmetatable({}, {
+			__name = "f0b.table.struct",
+			__metatable = defs,
+
+			__index = function(table, key)
+				if defs[key] then
+					return nil
+				end
+				error("tried to access undefined struct field "
+					.. tostring(key))
+			end,
+
+			__newindex = function(table, key, val)
+				if defs[key] then
+					rawset(table, key, val)
+				else
+					error("tried to set undefined struct field "
+						.. tostring(key))
+				end
+			end,
+		})
+	end,
+
 	clear = function(table)
 		for k, _ in pairs(table) do
 			table[k] = nil

@@ -10,4 +10,5 @@ detiene.]],
 
 	{"bg", "mod", tween={"fadeout", 3, true}},
 	{"wait", 2, true},
+--	{"settings", "keepRes", true},
 }

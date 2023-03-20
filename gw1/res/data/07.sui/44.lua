@@ -15,36 +15,44 @@ primer piso con Rocco. Bake estaba en la cama matrimonial roncando como león,
 Falcon aún no se levantaba, y Fab y Andrea se habían quedado dormidos en el
 sillón, cada uno vuelto hacia su lado y tapados con el poncho.]],
 
-	[[Sin nada que hacer ni nadie con quien hablar, lo único que quedaba
-era esperar.]],
+	[[Sin nada que hacer ni nadie con quien hablar, lo único que podía
+hacer era esperar. Esperar y pensar.]],
 
 	[[Así como estabamos, se iba a hacer muy difícil dormir, y mas si los
-hombres insistían en no compartir cama por hacerse los machos. Incluso en el
-mejor de los casos, en que tres usan la matrimonial y yo y Andrea la de
-Bake, quedaría alguien durmiendo en el sillón o en la alfombra.]],
+hombres insistían en no compartir cama por hacerse los machos.]],
+
+	[[Incluso en el mejor de los casos, en que tres usan la matrimonial y
+yo y Andrea la de Bake, quedaría alguien durmiendo en el sillón o en la
+alfombra.]],
 
 	[[Así que creo que habrá que buscar un colchón en la próxima salida,
 sea cuando sea. Cosas del apocalípsis.]],
 
 	[[El silencio me empezó a desesperar, así que me puse a tocar los
-instrumentos. Despacio, para no despertar a nadie. Tomé la guitarra de Bake,
-que era mas pesada que lo que pensaba, y traté de tocar algo. Como era de
-esperarse, no salió nada bonito.]],
+instrumentos. Despacio, ya por que por lo menos Andrea y Fab no se merecían
+despertar con un estruendo.]],
+
+	[[Tomé la guitarra de Bake, que era mas pesada que lo que pensaba, y
+traté de tocar algo. Como era de esperarse, no salió nada bonito.]],
 
 	[[¿Como Bake no se cortaba los dedos con esas cuerdas tan finas? me
 pregunté. Eran casi hilitos de metal. La dejé donde estaba, y tomé el bajo de
-Falcon. Las cuerdas de esta eran mucho mas gruesas. De inmediato el pulgar me
+Falcon.]],
+
+	[[Las cuerdas de esta eran mucho mas gruesas. De inmediato el pulgar me
 empezó a doler, así que tampoco duré mucho.]],
 
 	[[En fin. Tras haberlo movido todo me recosté en el suelo. Dios,
-¿para que tomé café? Desearía tener un libro aunque sea.]],
+¿para que tomé tanto mate? Desearía tener un libro aunque sea.]],
 
 	[[(*crrreak*)]],
 
-	[[Agudizé el oído ante el ruido. Provenía del piso de abajo.
-Parecía una puerta. Como no supe si fue Croft que salió a buscar algo, o un
-zombie, salí al pasillo y bajé las escaleras con navaja en mano.
-Fab y Andrea seguían durmiendo.]],
+	[[Agudizé el oído ante el ruido. Provenía del piso de abajo. Parecía la
+puerta de la cocina.]],
+
+	[[Ya que no sabía si era Croft que salió a buscar algo, o un zombie,
+salí al pasillo y bajé las escaleras con navaja en mano. Fab y Andrea seguían
+durmiendo.]],
 
 	[[Apenas había entrado a la cocina cuando oí el característico sonido
 de la camioneta de Croft partiendo. Corrí rápidamente al patio, justo a tiempo

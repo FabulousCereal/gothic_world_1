@@ -259,7 +259,8 @@ quieres después te lo doy."]],
 
 	{"name", "María"},
 	[["Ya... gracias," dije simplemente. Croft logró dar con una lata de
-frijoles, y la virtió en una sartén. Sin ganas de dormir mas, calenté agua para
-un mate, mas un café para Croft. Terminamos casi al mismo tiempo, y llevamos
-todo al comedor.]],
+frijoles, y la virtió en una sartén.]],
+
+	[[Como no tenía ganas de dormir mas, calenté agua para un mate, mas un
+café para Croft. Terminamos casi al mismo tiempo, y llevamos todo al comedor.]],
 }

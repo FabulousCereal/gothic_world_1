@@ -6,16 +6,21 @@ Aquella imagen quedó grabada en mi mente, lo único que quedó de antes de la
 explosión.]],
 
 	{"bg", "add", args=f0b.elem.screenFill, color={1,1,1,1},
-		tween={"fadeout", 9, true}},
+		tween={"fadeout", 6, true}},
+	{"sfx", "explosión cercana.flac"},
 	{"wait", 1, true},
 	{"macro", res.fun.macro.date,
 		{2011, 11, 8, 18, 34, idx=1, wait={1.5, true}}},
 
 	{"name", "------"},
 	[[Desperté entremedio de rocas y cenizas, con un dolor que me partía la
-cabeza. Tenía la piel caliente y la boca seca. Era el fuego. Miré a todos lados
-confundido, buscando mi chica, donde estaba mi chica. Las llamas habían
-consumido casi todo a mi alrededor. Ella no estaba.]],
+cabeza. Tenía la boca seca y la piel me ardía.]],
+
+	{"bg", "add", args={"croft/street_crappy_test_by_croft70-d57ige5.png", 0, 0,
+		0, .8, .8},
+		tween={"fadein", 1}},
+	[[Miré a todos lados confundido, buscando mi chica, donde estaba mi
+chica. Las llamas habían consumido casi todo a mi alrededor. Ella no estaba.]],
 
 	[[No recordaba que era lo que estábamos haciendo por acá, ni a donde
 nos dirigiamos ni porque pasamos por aquí. Abrí la boca para llamarla... pero
@@ -23,9 +28,6 @@ no pude recordar su nombre.]],
 
 	[[No recuerdo el mio tampoco.]],
 
-	{"bg", "add", args={"street_crappy_test_by_croft70-d57ige5.png", 0, 0,
-		0, .8, .8},
-		tween={"fadein", 1}},
 	[[Toda mi ropa estaba desgarrada y al parecer por unas garras, tal vez
 fueron perros.]],
 
@@ -101,7 +103,7 @@ blanco. No podía recordar donde vivía. Ninguna imagen o dirección. Me revisé
 los bolsillos, buscando alguna identificación o un celular.]],
 
 	[[...Nada, pero tenía unos billetes que reconocía. Por lo
-menos ahora sé que vivo en este país.]],
+menos sé que vivo en este país.]],
 
 	[[Sin rumbo claro, comencé a dar vueltas esperando encontrar algún
 policía que me pudiera ayudar, o en el caso mas rebuscado darme cuenta de donde
@@ -134,9 +136,11 @@ podía darle nombre, y no podía ver nada previo a aquél momento. No sabía ni 
 clase de vida llevaba.]],
 
 	[[Notando el control remoto sobre la mesa, hice un último esfuerzo y
-encendí la televisión, aunque fuera solo para ver porno. Sonó el golpe
-eléctrico que hacían las teles antiguas, y poco a poco la pantalla cobró
-brillo.]],
+encendí la televisión, aunque fuera para ver porno.]],
+
+	{"sfx", "crt on.flac"},
+	[[Sonó el golpe eléctrico que hacían las teles antiguas, y poco a poco
+la pantalla cobró brillo.]],
 
 	[[No hubo necesidad de cambiar de canal, las noticias ya estaban en
 curso...]],

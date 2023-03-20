@@ -419,8 +419,8 @@ estaban a la espera de poder confirmar."]],
 
 	{"name", "Fabian"},
 	[["Pero Falcon sobrevivió sin problemas. ¿Verdad?" preguntó Fab, y nos
-quedamos en silencio. "¿Verdad?" Creo que ninguno de los tres quiso arriesgarse
-a que Falcon empezara de nuevo con que tenía cáncer. "¿Eh?"]],
+quedamos en silencio. "¿Verdad?" Creo que ninguno quiso arriesgarse a que
+Falcon empezara de nuevo con que tenía cáncer. "¿Eh?"]],
 
 	{"name", "Falcon"},
 	[["Ahem, ya vamos llegando," dijo metiéndose a nuestra calle. La nieve

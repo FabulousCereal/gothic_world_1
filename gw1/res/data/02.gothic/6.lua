@@ -33,9 +33,11 @@ un suspiro. Recordé esa crisis de pánico. Que bueno que no fue
 real. Vivir así sería demasiado terrible... no lo aguantaría de verdad.]],
 
 	[["¿Que hice anoche entonces?" Seguía en una casa desconocida. Habían
-posters de bandas de rock en la habitación. Había tambien ropa de chico tirada.
-Escuché ladridos. Afuera el viento helado hacía crujir el techo a ratos, pero
-aquí estaba protegida de todo aquello. El aire era cálido y acogedor.]],
+posters de bandas de rock en la habitación. Había tambien ropa de chico
+tirada. Escuché ladridos.]],
+
+	[[Afuera el viento helado hacía crujir el techo a ratos, pero aquí
+estaba protegida de todo aquello. El aire era cálido y acogedor.]],
 
 	[[Ese sueño me dejó tan agotada emocionalmente que hasta me dieron
 ganas de dormirme de nuevo, pero tal vez sería mejor que me levantara. Noté una
@@ -55,8 +57,8 @@ nota no estaba firmada, solo contenía una posdata en otro idioma.
 cayó.]],
 
 	{"bg", "rm"},
-	[[Mi cabeza aún me dolía por la parte de atrás, ¿pero porque me dolía
-si había soñado todo? Traté de hacer memoria.]],
+	[[Mi cabeza aún me dolía, ¿pero porque me dolía si había soñado todo?
+Traté de hacer memoria.]],
 
 	[[...Guau, de verdad no podía recordar nada. "Ahora si te las
 mandaste," me dije refregándome los ojos. Ojalá no haya sido por una fiesta,

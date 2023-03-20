@@ -39,9 +39,11 @@ era."]],
 	[[Suspiré.]],
 
 	[["Pero yo soy una simple persona, y en realidad no sé nada de estos
-sucesos aún. Es solo el autor que no sabe escribir introducciones. Pero es bueno saber de ante mano a que se enfrenta uno," agregué.
-La mujer había dejado de oirme hace mucho. Tomé otro sorbo de mi jugo, y pegué
-la frente a la ventanilla. Hacía frío.]],
+sucesos aún. Es solo el autor que no sabe escribir introducciones. Pero es
+bueno saber de ante mano a que se enfrenta uno," agregué.]],
+
+	[[La mujer había dejado de oirme hace mucho. Tomé otro sorbo de mi
+jugo, y pegué la frente a la ventanilla. Hacía frío.]],
 
 	{"bg", "add", args=f0b.elem.screenFill,
 		color=res.palette("softAfternoon", 1, .5),
@@ -54,8 +56,8 @@ la frente a la ventanilla. Hacía frío.]],
 		tween={"fadeout", 1/3, "delay", 4/3, "fadein", 1/3, true}},
 
 	[[Cuando llegamos al aeropuerto y salí con mi mochila, extrañamente no
-encontré a mi prima por ningún lado, que se suponía iba a recogerme. Quizás se atrasó asi que me puse a
-esperarla, porque no sabía donde vivía.]],
+encontré a mi prima por ningún lado, que se suponía iba a recogerme. Quizás se
+atrasó asi que me puse a esperarla, porque no sabía donde vivía.]],
 
 	{"bg", "sync"},
 	{"bg", "add", args=f0b.elem.screenFill, color={1,1,1,1},
@@ -63,9 +65,9 @@ esperarla, porque no sabía donde vivía.]],
 	[[Entonces ocurrió. Ví una luz como un rayo, y luego escuché la fuerte
 explosión.]],
 
-	{"sfx", "ping.ogg"},
+	{"sfx", "explosión lejana.flac"},
 	{"name", false},
-	[[.........*boom*]],
+	[[...*boom*]],
 	{"name", "Fabian"},
 	[["¿Q-Que fue eso?"]],
 

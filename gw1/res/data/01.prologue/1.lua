@@ -1,4 +1,8 @@
 return {
+	{"bgm", "set", false, 0,
+		source="muchtoolow2.ogg",
+		fade={"fadeto", 2/3, 4}},
+
 	{"style", "vnBake"},
 	[[...Much too hiiiiiigh, much too hiiiiiaiaiaiiaIAIIIAIIgh... (8)]],
 	[[(much too high...) (8)]],
@@ -6,11 +10,6 @@ return {
 	{"name", "Bakeritsu"},
 	[[Lo recuerdo como si hubiera sido ayer. Ocurrió ayer martes en la
 tarde.]],
-
-	{"bgm", "set", false, 0,
-		source="Elisa, donde está.ogg",
---		source="lo que sea que logre hacer en 10 minutos o menos.mp3",
-		fade={"fadeto", 2/3, 2}},
 
 	{"bg", "add", args={"cafe/bg.png"}, color=res.palette("fivepm")},
 	{"bg", "add", args={"cafe/amiga1.png"}, color=res.palette("fivepm")},
@@ -30,7 +29,7 @@ Terminando de tocar sucede la explosión.]],
 	1,
 
 	{"name", false},
-	{"sfx", "ping.ogg"},
+	{"sfx", "explosión lejana.flac"},
 	[[.........*boom*]],
 
 	{"bg", "sync"},

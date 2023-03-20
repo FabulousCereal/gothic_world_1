@@ -166,7 +166,7 @@ le notaba que estuvo toda la mañana en cama.]],
 	[[Los observamos durante un rato, y como Croft no era muy dado a
 conversar, tuve que hablar yo.]],
 
-	{"loop", cafeConCroft},
+	{"read", cafeConCroft, true},
 
 	[[Cuando ya habiamos comido y estabamos retirando la loza, un
 ruido estruendoso nos hizo saltar de susto.]],

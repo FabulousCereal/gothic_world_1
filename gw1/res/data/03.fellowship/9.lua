@@ -250,7 +250,7 @@ extraño que parecía indiferente al mundo exterior y a las normas usuales de
 vestimenta, comenzamos a comer una comida común y corriente. No sabía que decir
 sobre todo esto.]],
 
-	{"loop", infoLoop},
+	{"read", infoLoop, true},
 	{"bgm", "mod", fade={"fadeout", 2, true}},
 
 	{"name", "María"},

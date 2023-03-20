@@ -163,11 +163,7 @@ local instructionTable = {
 	end,
 
 	read = function(line, vn)
-		f0b.lisp.push(vn.dataStack, line[2])
-	end,
-
-	loop = function(line, vn)
-		f0b.lisp.push(vn.dataStack, line[2], true)
+		f0b.lisp.push(vn.dataStack, line[2], line[3])
 	end,
 
 	retear = function(line, vn)

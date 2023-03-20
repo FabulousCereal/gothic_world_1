@@ -367,5 +367,5 @@ tarde.]],
 dientes.' Si, y ropa para cambiarme. Como siempre tarde, María, como siempre
 tarde. Iba a tener que dormir así no más. El tema era... ¿donde?]],
 
-	{"loop", conQuien},
+	{"read", conQuien, true},
 }

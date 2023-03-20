@@ -35,7 +35,7 @@ cortó el aire.]],
 	{"name"},
 	[["¡¡LA CONCHA DE LA LORAAAAAAA!!"]],
 
-	{"bg", "add", args={"cuchillo de cocina canvas 1-1.png",
+	{"bg", "add", args={"croft/cuchillo de cocina canvas 1-1.png",
 		-60, -108},
 		color={1,1,1,0},
 		tween={"fadein", 1/3, "delay", 1/3, "fadeout", 1/3, true}},

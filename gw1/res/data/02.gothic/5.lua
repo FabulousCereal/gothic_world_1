@@ -1,9 +1,9 @@
 return {
+	{"bgm", "set", source="Nostalgia.ogg"},
 	{"name"},
 	{"style", "vnMaria"},
 	[[Me desperté.]],
 
-	{"bgm", "set", source="Nostalgia.ogg"},
 	res.fun.macro.title,
 	{"macro", res.fun.macro.date, {2011, 11, 11, 10, 0}},
 
@@ -94,8 +94,8 @@ veredas, entorpeciéndome el paso. El viento polar se colaba por las ventanas de
 las casas, silbaba entre las ramas de los árboles que muertos sin sus hojas
 asemejaban--]],
 
-	{"sfx", "maquinaman.ogg", 1/3},
 	{"bgm", "mod", fade={"fadeout", 1/3, true}},
+	{"sfx", "sombra.flac", 1/3},
 	{"name"},
 	[[...*ffff*]],
 
@@ -103,18 +103,16 @@ asemejaban--]],
 	[["¿Q-Que fue eso?" El extraño sonido detuvo en un segundo todos mis
 pensamientos.]],
 
-	{"sfx", "maquinaman.ogg", 2/3},
+	{"sfx", "sombra.flac", 2/3},
 	{"name"},
-	{"speed", .5},
-	[[...*ffff*]],
+	[[*ffff*]],
 
 	{"speed", 1},
 	{"name", "María"},
 	[[Se oyó el ruido una vez mas. Asustada, me giré para buscarlo, pero
 las calles se seguían viendo vacias. No sabía lo que era.]],
 
-	{"sfx", "maquinaman.ogg"},
-	{"wait", 2/3},
+	{"sfx", "sombra.flac"},
 	{"name"},
 	[[*FFFF*]],
 

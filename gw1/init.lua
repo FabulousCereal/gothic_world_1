@@ -68,14 +68,14 @@ gamestate[credID].background = {
 
 local confBG = f0b.layers.normalize({
 	{args={{
-		{args={"menu/conf.png"}},
+		{args={"zeh/conf.png"}},
 		{args={f0b.elem.circle, w/2, h/2, 0, w/2}, color=elemColor},
 	}}},
 })
 local mainBG = f0b.layers.normalize({
 	{args={{
 --		{args=menuScreen(res.style.title, w, h)},
-		{args={"menu/main.png"}},
+		{args={"zeh/main.png"}},
 		{args=f0b.elem.screenFill(.9), color=elemColor},
 	}}},
 })

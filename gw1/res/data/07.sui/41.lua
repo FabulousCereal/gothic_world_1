@@ -11,13 +11,14 @@ lo mejor hasta ya era medio día. Que desperdicio de tiempo.]],
 
 	[[El horror que ví hoy ya no me afectaba tanto. No sé si podía decir
 que lo había superado. Era mas bien como si estuviera mas distante.
-Como si por haber dormido, ahora era algo de ayer y no de hoy. Abandoné el
-cuarto.]],
+Como si por haber dormido, ahora era algo de ayer y no de hoy.]],
 
-	[[Me encontré con un silencio en la casa que llegó a desconcertarme.
-¿Que pasaba? ¿Habrán salido sin mí? ¿Algo peor? El cuarto de Bake estaba
-semi-abierto. Me asomé a hechar una mirada, y ví un bulto en la cama. Era
-Falcon. Estaba durmiendo con su abrigo morado puesto.]],
+	[[Abandoné el cuarto, y me encontré con un silencio casi
+desconcertante.]],
+
+	[[¿Que pasaba? ¿Habrán salido sin mí? ¿Algo peor? El cuarto de Bake
+estaba entre-abierto. Me asomé a hechar una mirada, y ví un bulto en la cama.
+Era Falcon. Estaba durmiendo con su abrigo morado puesto.]],
 
 	[["Falcon," lo llamé en voz baja, pero no me respondió. A lo mejor se
 sintió mal. Preferí dejarlo en paz, y cerré la puerta. La alarma marcaba las
@@ -25,7 +26,9 @@ sintió mal. Preferí dejarlo en paz, y cerré la puerta. La alarma marcaba las
 
 	[[Bajé al primer piso con cautela. Allí, sorprendentemente, encontré a
 Andrea con Fab en el sillón, hablando muy despacio. Se reían de algo que el
-contaba, o mas bien, que estuvo contando, hasta que de alguna forma me escuchó
+contaba.]],
+
+	[[O mas bien, que estuvo contando, hasta que de alguna forma me escuchó
 venir. Fab se calló de pronto, y Andrea se giró a verme. Ella sonrió.]],
 
 	{"name", "Andrea"},

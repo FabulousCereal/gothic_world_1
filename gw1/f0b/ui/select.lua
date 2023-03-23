@@ -8,7 +8,7 @@ local function textboardRegen(board, style)
 	local padding = em * style.padding
 	local margin = em * style.margin
 	local lh = em * style.lineHeight
-	local screenW, screenH = love.graphics.getDimensions()
+	local screenW = love.graphics.getWidth()
 
 	local sbox = board.selectbox
 	local select = board.select
@@ -39,7 +39,8 @@ return {
 		local text = select[1]
 		text:clear()
 		for i = 1, #choices do
-			text:addf(choices[i], board.wrap, "center", 0,
+			local choice = string.gsub(choices[i], "\n+%s*", " ")
+			text:addf(choice, board.wrap, "center", 0,
 				math.floor(lineY))
 			lineY = lineY + lineSpacing
 		end

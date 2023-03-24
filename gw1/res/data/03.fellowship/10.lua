@@ -4,31 +4,26 @@ return {
 	{"macro", res.fun.macro.date, {2011, 11, 11, 15, 20}},
 
 	{"name", "María"},
-	[[Tras la pizza acordarmos con Bake salir a buscar comida, cuando el
-viento había parado. Ahora de verdad ya no quedaba nada.]],
+	[[Tras la pizza nos preparamos con Bake para buscar comida, cuando el
+viento había parado.]],
 
 	{"name", "Bake"},
-	[["¿Sabés manejar un arma?" me preguntó mientras se ponía abrigo.]],
+	[["¿Sabés manejar un arma?"]],
 
 	{"name", "María"},
 	[["No," respondí. Nunca había visto una hasta hoy.]],
 
 	{"name", "Bake"},
-	[["Fuck, aunque de todas formas solo hay una. ¿Tenés tu navaja a mano?"
+	[["Fuck. Bueno, de todas formas solo hay una. ¿Tenés tu navaja a mano?"
 Asentí. "Cualquier cosa, vos atacá al cuello, ¿vale?"]],
 
 	{"name", "María"},
 	[["Vale..." Lo decía como si fuera fácil, pero yo no creía ser capaz de
-usarla como el.]],
+usarla como el. El chico se sacó el pelo de debajo de la campera, y salimos.]],
 
-	{"name", "Bake"},
-	[["Hay un distrito comercial como a media hora de acá. Ahí
-deberíamos encontrar comida." El chico se sacó el pelo de debajo de la campera
-y tomó sus llaves. "Vamos."]],
-
-	[[Unas nubes pesadas ocultaban el sol, y aunque siempre me habían dicho
-que acá cerca del polo los días se alargaban acercándose el verano, con esa
-capa daba la impresión de que muchas horas de luz no quedaban.]],
+	[[Unas nubes pesadas ocultaban el sol, y aunque entendía que acá cerca
+del polo los días se alargaban acercándose el verano, con esa capa daba la
+impresión de que muchas horas de luz no quedaban.]],
 
 	{"name", "María"},
 	[["¿No sientes frio?" Esa campera parecía muy delgada.]],
@@ -53,11 +48,13 @@ ayudo."]],
 
 	[[Tomé el brazo del chico y empezamos a caminar. No sabía que bien le
 haría que le llevara el brazo, si era el quién conocía el camino, pero bastaba
-con que se fuera con calma.]],
+con que se fuera con calma. Pipi nos olfateó los pies hasta dejarnos en la
+calle.]],
 
-	[[El chico permaneció callado, a lo mejor preocupado de nuestra
-seguridad, de como sobreviviríamos, o tal vez de que hubiera sido bueno haber
-paseado al perro de nuevo. El viento sopló.]],
+	[[No habían criaturas a la vista, así que seguimos. El chico permaneció
+callado un buen rato, a lo mejor preocupado de nuestra seguridad, de como
+sobreviviríamos, o tal vez de que hubiera sido bueno haber paseado al perro de
+nuevo. El viento sopló.]],
 
 	[[Como me empecé a sentir incómoda por el silencio, le pregunté si es
 que no se había sentido solo, pero el chico me empezó a tirar.]],
@@ -67,8 +64,8 @@ que no se había sentido solo, pero el chico me empezó a tirar.]],
 en una esquina antes que nos vieran. Nos acercamos a la siguiente calle, y Bake
 se asomó a mirar. Habían más.]],
 
-	[["Están en todos lados los bitchies," comentó. "Lo bueno es que si
-nos ven, los podemos perder."]],
+	[["Están en todos lados los bitchies," comentó. "Lo bueno es que aunque
+nos vean, los podemos perder."]],
 
 	{"name", "María"},
 	[["Bake, algunas no son lentas."]],
@@ -77,26 +74,26 @@ nos ven, los podemos perder."]],
 	[["¿Que?"]],
 
 	{"name", "María"},
-	[["En la mañana, cuando salí, una me persiguió muy rápido. Corría como
-si fuera una persona normal."]],
+	[["En la mañana, cuando salí, me encontré con una que me persiguió muy
+rápido. Corría como si fuera una persona normal."]],
 
 	{"name", "Bake"},
-	[["¿Posta?" Asentí. Bake miró de nuevo. "Shit. Bueno, igual hay que
-cruzar. Tratá de no respirar, ¿ok? Los zombies sienten el CO2."]],
+	[["¿Posta?" Asentí. "Shit... Pero bueno, igual hay que cruzar. Tratá de
+no respirar, ¿ok? Los zombies sienten el CO2."]],
 
 	{"name", "María"},
 	[["¿El que?"]],
 
 	{"name", "Bake"},
-	[["Solo hazlo." Bake miró una vez más, y me tironeó para que
+	[["Solo hazlo." Bake miró una vez mas y me tironeó para que
 cruzáramos.]],
 
 	{"name", "María"},
 	[[Aguantamos la respiración, y medio agachados nos movimos rápido al
-otro lado. Tomamos aire.]],
+otro lado. Tomé aire apenas pude.]],
 
 	[["Bake..." dije jadeando. "¿No podríamos... tomar un auto? Están todos
-abandonados." El chico no se vió convencido. "¿Sabes conducir?"]],
+abandonados." El chico se veía dudoso. "¿Sabes conducir?"]],
 
 	{"name", "Bake"},
 	[["¿Yo? Claro, sé de niño. El tema es si vos sabés hacerlos partir sin
@@ -104,8 +101,9 @@ las llaves." No hizo falta responder, con ver mi expresión bastó. "Eso pensé
 xD"]],
 
 	{"name", "María"},
-	[[Seguimos caminando con mucho cuidado, evitando a los zombies, y
-tras una hora llegamos al fin a la zona comercial.]],
+	[[Seguimos caminando con mucho cuidado, a veces teniendo que correr.
+Por alguna suerte divina, y tras una hora, llegamos por fin a la zona
+comercial.]],
 
 	[[Era un desastre. A pesar de que ahora no se veía a nadie, habían roto
 todos los vidrios y saqueado todo en algún punto. Bake soltó mi brazo y se

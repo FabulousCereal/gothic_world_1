@@ -9,33 +9,30 @@ local laComida = {
 	[["No, no es eso. Es que como ví que tuviste que buscar mucho..."]],
 
 	{"name", "Bake"},
-	[["Ah, si. Estaba esperando que todo se arreglara, pero obvio que eso
-no pasó. Se me acabó al desayuno xD"]],
+	[["Ah, si xD Salí a buscar con Pipi en la mañana, pero me encontré con
+un ángel en un callejón y no pude seguir," dijo antes de hecharse otro pedazo a
+la boca.]],
 
-	[["Luego salí a buscar con Pipi, y me encuentro con un ángel caído
-en un callejón," dijo antes de hecharse otro pedazo a la boca. Yo demoré un
-segundo en procesar lo que dijo, y entonces me sonrojé.]],
+	[[Yo demoré un segundo en procesar lo que dijo.]],
 
 	{"name", "María"},
-	[["Ehh, e-estaba escapando de--"]],
+	[["E-Ehh, estaba escapando--"]],
 
 	{"name", "Bake"},
-	[["Y como estabas inconsciente, mejor te cargue de vuelta, así que no
-pude buscar más," continuó sin haberme escuchado. "Tenías ese chichón recién
-hecho también."]],
+	[["Hey, ¿me acompañás luego a buscar?" me interrumpió. "Hay una zona
+comercial a media hora de acá. Ahí debería haber comida," explicó. Asentí.
+"Sweet."]],
 
 	{"name", "María"},
-	[["Es que... Ehh, ¿no viste ninguna criatura?"]],
+	[[Me quedé en silencio, pensando en lo del callejón. Estuve huyendo de
+algo, pero... ¿de que?]],
 
-	{"name", "Bake"},
-	[["No, lol. Escuché un estruendo, me acerqué a mirar, y te encontré
-tirada junto a un bote de basura. No había ningún bitchy cerca," dijo con su
-característica levedad.]],
+	[[Pensando con detención, no recordaba haber visto ninguna criatura. No
+solo eso, había mirado a todos lados en medio de una calle despejada, y no
+había visto nada.]],
 
-	{"name", "María"},
-	[[Me quedé tratando de hacer memoria sobre lo que me persiguió. Estaba
-segura de que fue real, sentí muy claramente su presencia... pero no recordaba
-haberla visto. Nada mas que un borrón antes de caer.]],
+	[[No quería reconocerlo, pero parecía que había entrado en pánico por
+un ruido cualquiera, y para variar terminé subiéndome a--]],
 
 	{"name", "Bake"},
 	[["¿No te vas a comer la piña?" preguntó Bake, despavilándome. Señalaba
@@ -43,7 +40,7 @@ una rodaja que había apartado de mi trozo.]],
 
 	{"name", "María"},
 	[["No, no, dale." Dejé de darle vueltas al asunto y me enfoqué en
-comer antes que Bake se lo tragara todo. A fin de cuentas, todo eso ya estaba
+comer antes que Bake se lo tragara todo. Al fin y al cabo, todo eso ya estaba
 en el pasado.]],
 }
 
@@ -62,7 +59,7 @@ local laGente = {
 
 	{"name", "María"},
 	[["Tuvo que haberla, ¿no? Por que si no, ¿a donde se fueron todos?"
-le expliqué. El chico inclinó la cabeza a un lado.]],
+razoné. El chico inclinó la cabeza a un lado.]],
 
 	{"name", "Bake"},
 	[["Ahora que lo decís, sos la primera persona que veo," dijo pensando.
@@ -97,34 +94,79 @@ lo mismo ahora.]],
 	[["Uhmm," pensó de nuevo. "Bueno, no sé, lol."]],
 
 	{"name", "María"},
-	[[A pesar de la interrogante, el chico siguió comiendo despreocupado. A
-lo mejor yo me estaba revolviendo demasiado la cabeza con todo esto, y pronto
-alguien arreglaría todo. Me limité a comer de la pizza y mirar por la ventana.
-El aire siguió agarrando fuerza.]],
+	[[A pesar de la interrogante, el chico siguió comiendo despreocupado.]],
+
+	[[A lo mejor yo me estaba revolviendo demasiado la cabeza con todo
+esto, y pronto se arreglaría todo. Me limité a comer de la pizza y mirar por la
+ventana. El aire siguió agarrando fuerza.]],
 
 	[['Los únicos humanos en esta ciudad.' Eso sonaba claustrofóbico,
 aunque tambien... romántico.]],
 
 	[[Quiero decir, no es que me guste el chico, pero... la idea en si daba
 esa sensación. Yo solo digo.]],
+}
 
-	{"break"},
+local losAmigos = {
+	{"name", "María"},
+	[["¿No tenías amigos?"]],
+
+	{"name", "Bake"},
+	[["¿Amigos? Obvio xD"]],
+
+	{"name", "María"},
+	[["¿Como están?"]],
+
+	{"name", "Bake"},
+	[["No sé, lol, si no hay señal para llamarlos. Desde la explosión
+que no los veo."]],
+
+	{"name", "María"},
+	[[El chico me empezó a contar sobre que vieron acá la noticia de los
+zombies. Que antes de esto estuvieron en una cafetería cuando ocurrió la
+explosión, y que luego un auto entró y arrolló justo a 'la chica buena.']],
+
+	[[Yo no sabía que responder, pero el chico me aseguró que se la
+llevaron rápido a un hospital donde la pondrían en una cámara de hipersueño,
+donde seguro dormiría plácidamente todo el apocalípsis, 'lol']],
+
+	[[La cosa es que se quedarón hasta que se cortó la luz, y ahí se
+despidieron y se fue cada uno para su casa. El chico se quedó solo con Pipi y
+el arma de su viejo, y aquí ha estado desde entonces.]],
+
+	[[Le pregunté si no estaba preocupado, pero me aseguró que todos se
+habían duchado bien al llegar, y que si el había sobrevivido hasta ahora con
+facilidad, seguramente ellos tambíen.]],
+
+	[[De hecho, parecía mas preocupado por haber agarrado al conductor del
+auto a palos. Dijo que en retrospectiva, debió ser uno de los primeros en
+infectarse.]],
+
+	[[Tenía mis dudas sobre si al chico no le fallaba algo mas que solo el
+termostato, pero mala persona no parecía ser, al menos.]],
 }
 
 local infoLoop = {
-	{"name", "María"},
-	[["Dime, Bake..."]],
-
-	{"name", "Bake"},
-	[["?"]],
-
 	{"select", nil, {
 		[[Sobre la comida...]],
 		[[Sobre la gente...]],
+		[[Sobre sus amigos...]],
+		[[Tragarse la pizza entera.]],
 	}},
 	{"case", nil, {
 		laComida,
 		laGente,
+		losAmigos,
+		{
+			[["*OM OM*" El chico se detuvo a verme.]],
+
+			{"name", "Bake"},
+			[["lol xD"]],
+
+			{"name", "María"},
+			[[Con eso terminamos de almorzar.]],
+			{"break"}
+		},
 	}},
 }
 
@@ -144,9 +186,10 @@ return {
 	{"bg", "rm"},
 
 	{"text", [[como el prefiere, era otro sobreviviente, olvidado también
-en esta ciudad contaminada. Tenía 19 años, cumplidos hace solo unos días, pero
-a diferencia mía, el no parecía muy afectado por lo que estuviera ocurriendo
-allá afuera.]], true},
+en esta ciudad contaminada.]], true},
+
+	[[Tenía 19 años, cumplidos hace solo unos días, pero a diferencia mía,
+el no parecía muy afectado por lo que estuviera ocurriendo allá afuera.]],
 
 	[[De hecho, se lo tomaba todo bien a la ligera.]],
 
@@ -167,16 +210,6 @@ de abrigo encima no era tan esencial en este clima, se puso a tocar a lo
 de viaje a otro país. No se notaba preocupado por ellos, argumentando que el
 humo no llegaría tan lejos. Su único compañero ahora era Pipi, su perro. O
 perra, mas bien.]],
-
-	[[Mencionó también que tenía amigos, que estaba con ellos en una
-cafetería cuando un auto entró y justo atropelló a "la chica buena".]],
-
-	[[Dijo que se vinieron acá a ver las noticias y luego se fueron. No los
-había visto desde entonces y no los podía llamar sin señal, pero que seguro
-estaban bien porque todos se habían duchado al llegar.]],
-
-	[[Su única preocupación era la chica, pero que estando en una cámara de
-hipersueño dormiría plácidamente todo el apocalípsis. "lol".]],
 
 	[[No entendía todas las cosas que decía o hacía el chico, a lo mejor
 era la cultura del extremo sur o que se yo, pero casi envidiaba su calma en
@@ -249,6 +282,11 @@ llenó el ambiente.]],
 extraño que parecía indiferente al mundo exterior y a las normas usuales de
 vestimenta, comenzamos a comer una comida común y corriente. No sabía que decir
 sobre todo esto.]],
+
+	[["Dime, Bake..."]],
+
+	{"name", "Bake"},
+	[["?"]],
 
 	{"read", infoLoop, true},
 	{"bgm", "mod", fade={"fadeout", 2, true}},

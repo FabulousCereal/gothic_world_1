@@ -107,7 +107,6 @@ pensamientos.]],
 	{"name"},
 	[[*ffff*]],
 
-	{"speed", 1},
 	{"name", "María"},
 	[[Se oyó el ruido una vez mas. Asustada, me giré para buscarlo, pero
 las calles se seguían viendo vacias. No sabía lo que era.]],

@@ -81,7 +81,7 @@ return {
 			fontFamily = "dejaVuSans",
 			fontSize = 14,
 			color = {1, 1, 1, 1},
-			backgroundColor = {.125, .25, .125, .5},
+			backgroundColor = {.125, .25, .25, 3/4},
 			borderWidth = 2,
 	--		borderColor = {.5, .25, .5, 1},
 			borderRadius = 6,
@@ -91,38 +91,38 @@ return {
 			padding = 1,
 			unselected = {
 	--			borderColor = {.5, .5, .5, .5},
-				backgroundColor = {.125, .125, .125, .5},
+				backgroundColor = {.25, .25, .25, 3/4},
 			}
 		},
 
 		vnMaria = {
 			"vn",
-			backgroundColor = {1/3, 0, 1/3, .5},
+			backgroundColor = {1/3, 0, 1/3, 3/4},
 		},
 
 		vnBake = {
 			"vn",
-			backgroundColor = {0, .25, .1, .5},
+			backgroundColor = {0, .25, .1, 3/4},
 		},
 
 		vnFalcon = {
 			"vn",
-			backgroundColor = {.5, .25, 0, .5},
+			backgroundColor = {.5, .25, 0, 3/4},
 		},
 
 		vnFab = {
 			"vn",
-			backgroundColor = {.5, 0, 0, .5},
+			backgroundColor = {.5, 0, 0, 3/4},
 		},
 
 		vnCroft = {
 			"vn",
-			backgroundColor = {0, 0, .25, .5},
+			backgroundColor = {0, 0, .25, 3/4},
 		},
 
 		vnMartin = {
 			"vn",
-			backgroundColor = {.5, 0, 0, .5},
+			backgroundColor = {.5, 0, 0, 3/4},
 		},
 	}
 }

@@ -88,7 +88,8 @@ lo mencioné.]],
 	[["No, solo el xD Yo dormí en el sillón xD"]],
 
 	{"name", "María"},
-	{"case", "DespiertaDonde", {
+	{"global", "get", "quien", "DespiertaDonde"},
+	{"case", "quien", {
 		sola = {
 			[["Oh... Lo siento por tu espalda." No tanto.]],
 

@@ -76,6 +76,21 @@ return {
 		return push(proc, ...)
 	end,
 
+	trace = function(proc)
+		local text = {}
+		for i = #proc, 1, -3 do
+			local data, pos = proc[i-2], proc[i]
+			local inst = data[pos - 1]
+			if type(inst) == "table" then
+				f0b.table.format(inst, 0, text)
+			else
+				table.insert(text, tostring(inst))
+			end
+			table.insert(text, "\n")
+		end
+		return text
+	end,
+
 	process = function(proc, ...)
 		for inst in instructionIter, proc do
 			local result = proc[type(inst)](inst, ...)

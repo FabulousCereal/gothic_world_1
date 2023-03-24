@@ -53,16 +53,15 @@ return {
 		}
 	end,
 
-	badend = function(vars, _, num)
-		print(num)
-		local str = badends[num]
+	badend = function(_, _, n)
+		local str = badends[n]
 		local t = defaultTime
 		return {
 			{"bg", "add",
 				tween={"fadein", t, "delay", t, "fadeout", t, true},
 				args=res.fun.card.card(res.style.title.fontFamily,
 					48,
-					string.format("Mal final %d:\n%s", num, str),
+					string.format("Mal final %d:\n%s", n, str),
 					"center")},
 			t * 3,
 			{"bg", "sync"},

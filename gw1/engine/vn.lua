@@ -4,12 +4,14 @@
 local widgets = f0b.ui.widgets
 
 local function initVars(vn)
+	local vars = f0b.table.struct.new({"_idx1", "_idx2", "_title1", "_title2"})
 	local c1, c2 = unpack(vn.cur)
 	local chap = vn.index[c1]
-	vn.vars["_idx1"] = c1 - vn.index.offset
-	vn.vars["_idx2"] = c2
-	vn.vars["_title1"] = chap.name
-	vn.vars["_title2"] = chap[c2][1]
+	vars["_idx1"] = c1 - vn.index.offset
+	vars["_idx2"] = c2
+	vars["_title1"] = chap.name
+	vars["_title2"] = chap[c2][1]
+	vn.vars = vars
 end	
 
 local function stateReset(vn, keepRes)
@@ -18,8 +20,8 @@ local function stateReset(vn, keepRes)
 	vn.textCont = false
 	vn.unskippable = false
 	vn.selectTarget = false
-	f0b.table.clear(vn.vars)
 	f0b.table.clear(vn.settings)
+	vn.stackVars = {}
 	initVars(vn)
 
 	local ui = vn.ui
@@ -30,6 +32,22 @@ local function stateReset(vn, keepRes)
 		f0b.jukebox.ops(vn.tracks, "rmall")
 		f0b.layers.ops(vn.background, "rmall")
 	end
+end
+
+local function errorStage(pre, errmsg, font)
+	errmsg = pre .. "\n\n" .. errmsg
+	local graphics = love.graphics
+	local text = graphics.newText(font)
+	text:setf(errmsg, graphics.getWidth(), "left")
+	return {
+		{"bg", "add", exec=graphics.rectangle,
+			color={0, 0, 0, 1},
+			args={"fill", 0, 0, text:getDimensions()}},
+		{"bg", "add", args={text}},
+		{"text", "", true},
+		{"bg", "rmall"},
+		{"return", false}
+	}
 end
 
 local function loadStage(dir, file, style)
@@ -46,17 +64,7 @@ local function loadStage(dir, file, style)
 	if ok then
 		return result
 	end
-
-	result = name .. ": Load failed\n\n" .. result
-	local graphics = love.graphics
-	local text = graphics.newText(style.font)
-	text:setf(result, graphics.getWidth(), "left")
-	return {
-		{"bg", "add", args={text}},
-		[[Carga fallida. El documento podría estar mal escrito.]],
-		{"bg", "rm"},
-		{"return", false}
-	}
+	return errorStage(name .. ": Load failed", result, style.font)
 end
 
 local function getStage(self, offset)
@@ -76,6 +84,11 @@ local function getStage(self, offset)
 	local dir = chapter.dir
 	local file = chapter[cur[2]][2]
 	return loadStage(dir, file, self.style)
+end
+
+local function setStage(self, stage, fullReset)
+	f0b.lisp.set(self.dataStack, stage)
+	stateReset(self, fullReset)
 end
 
 local function externalOps(opFunc, target, inst)
@@ -107,12 +120,17 @@ local instructionTable = {
 		externalOps(f0b.jukebox, vn.tracks, line)
 	end,
 
-	var = function(line, vn)
-		local idx = line[2]
-		if idx == nil then
-			idx = #vn.vars + 1
-		end
-		vn.vars[idx] = line[3]
+	let = function(line, vn)
+		f0b.table.struct.addField(vn.vars, line[2], line[3])
+	end,
+
+	["="] = function(line, vn)
+		vn.vars[line[2]] = line[3]
+	end,
+
+	map = function(line, vn)
+		local key = line[2]
+		vn.vars[key] = line[3][key]
 	end,
 
 	global = function(line, vn)
@@ -135,7 +153,7 @@ local instructionTable = {
 		local name = line[2]
 		local var
 		if name == nil then
-			var = table.remove(vn.vars)
+			var = table.remove(vn.stackVars)
 		else
 			var = vn.vars[name]
 		end
@@ -153,10 +171,6 @@ local instructionTable = {
 		end
 	end,
 
-	map = function(line, vn)
-		vn.vars[line[2]] = line[3][line[2]]
-	end,
-
 	macro = function(line, vn)
 		f0b.lisp.push(vn.dataStack,
 			line[2](vn.vars, vn.gVars, unpack(line, 3)))
@@ -164,10 +178,6 @@ local instructionTable = {
 
 	read = function(line, vn)
 		f0b.lisp.push(vn.dataStack, line[2], line[3])
-	end,
-
-	retear = function(line, vn)
-		f0b.lisp.pop(vn.dataStack, line[2])
 	end,
 
 	["break"] = function(_, vn)
@@ -186,7 +196,15 @@ local instructionTable = {
 
 local function advanceVN2(self)
 	self.ui.textboard.display = false
-	if f0b.lisp.process(self.dataStack, self) then
+	local status, val = pcall(f0b.lisp.process, self.dataStack, self)
+	if not status then
+		local trace = f0b.lisp.trace(self.dataStack)
+		trace[0] = "Processing error:\n\n"
+		local render = table.concat(trace, "", 0)
+		return setStage(self, errorStage(render, val, self.style.font),
+			true)
+	end
+	if val then
 		return
 	end
 
@@ -195,8 +213,7 @@ local function advanceVN2(self)
 	else
 		local stage = getStage(self, 1)
 		if stage then
-			f0b.lisp.set(self.dataStack, stage)
-			stateReset(self, self.settings.keepRes)
+			setStage(self, stage, self.settings.keepRes)
 			return advanceVN2(self)
 		end
 	end
@@ -211,12 +228,11 @@ local function vnKeypressed(self, key)
 		if val ~= nil then
 			ui.select.display = false
 			local idx
-			if self.selectTarget ~= nil then
-				idx = self.selectTarget
+			if self.selectTarget == nil then
+				table.insert(self.stackVars, val)
 			else
-				idx = #self.vars + 1
+				self.vars[self.selectTarget] = val
 			end
-			self.vars[idx] = val
 			return advanceVN2(self)
 		end
 	elseif not ui.textboard.finished then
@@ -253,19 +269,15 @@ local function vnDraw(self)
 end
 
 local function vnPreCommon(self, fullReset)
-	local stage = getStage(self, 0)
-	f0b.lisp.set(self.dataStack, stage)
-	stateReset(self, fullReset)
+	setStage(self, getStage(self, 0), fullReset)
 	return advanceVN2(self)
 end
 
 local function vnPreInitiated(self, stage)
 	if stage then
-		local chapter, section = unpack(stage)
-		local cur = self.cur
-		self.cur[1], self.cur[2] = chapter, section
-		return vnPreCommon(self, false)
+		self.cur[1], self.cur[2] = unpack(stage)
 	end
+	return vnPreCommon(self, false)
 end
 
 local function vnPreInit(self, stage)
@@ -276,17 +288,12 @@ local function vnPreInit(self, stage)
 	f0b.ui.add(self.ui, "textboard", self.style)
 	f0b.ui.add(self.ui, "select", self.style)
 
-	if stage then
-		self.cur[1], self.cur[2] = unpack(stage)
-	end
 	self.pre = vnPreInitiated
-	return vnPreCommon(self, false)
+	return vnPreInitiated(self, stage or self.cur)
 end
 
 return {
 	new = function(index, style)
-		local startStage = {1, 1}
-		local globalVars = {}
 		return {
 			draw = vnDraw,
 			update = vnUpdate,
@@ -304,19 +311,14 @@ return {
 			wait = 0,
 			selectTarget = nil,
 			returnValue = nil,
-			settings = f0b.table.struct({keepRes = true}),
-			gVars = globalVars,
-			vars = setmetatable({}, {
-				__index = function(t, k)
-					local v = globalVars[k]
-					t[k] = v
-					return v
-				end,
-			}),
+			settings = f0b.table.struct.new({"keepRes"}),
+			gVars = {},
+			stackVars = {},
+			vars = nil,
 
 			ui = {},
 			cur = {1,1},
-			dataStack = nil, --{},
+			dataStack = nil,
 		}
 	end,
 }

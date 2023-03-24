@@ -41,7 +41,9 @@ return {
 	{"name", "María"},
 	res.fun.macro.title,
 
-	{"case", "DespiertaDonde", {
+	{"let", "quien"},
+	{"global", "get", "quien", "DespiertaDonde"},
+	{"case", "quien", {
 		Bake = conBake,
 		Falcon = conFalcon,
 		sola = {

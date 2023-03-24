@@ -13,60 +13,104 @@ local function basicDeepCopy(orig)
 	return copy
 end
 
-local function tablePrint(table, depth, pad)
-	if not depth then
-		depth = math.huge
+local function typeFormat(val)
+	if type(val) == "string" then
+		return string.format("%q", val)
 	end
-	if depth > 0 then
-		if not pad then
-			pad = 0
-		end
+	return tostring(val)
+end
 
-		local padding = string.rep(" ", pad * 2)
-		for key, val in pairs(table) do
-			local valType = type(val)
-			local base = padding .. key .. "="
-			if valType == "table" then
-				print(base .. "{")
-				tablePrint(val, depth - 1, pad + 1)
-				print(padding .. "}")
-			elseif valType == "userdata" then
-				print(base .. "userdata")
-			else
-				print(base .. tostring(val))
-			end
+local function tableFormatFull(tab, depth, text, sep)
+	local ins = table.insert
+	ins(text, "{")
+	local len = #text
+	for key, val in pairs(tab) do
+		ins(text, typeFormat(key))
+		ins(text, "=")
+		if type(val) == "table" and depth > 0 then
+			tableFormatFull(val, depth - 1, text, sep)
+		else
+			ins(text, typeFormat(val))
 		end
+		ins(text, sep)
 	end
+	text[#text + (len == #text and 1 or 0)] = "}"
+	return text
+end
+
+local function tableFormat(tab, depth, text, sep)
+	return tableFormatFull(tab, depth or 0, text or {}, sep or ", ")
 end
 
 return {
-	print = tablePrint,
+	print = function(tab, depth)
+		local sep = ","
+		local text = tableFormat(tab, depth, nil, sep)
+		local level = 0
+		local pad = ""
+		for i = 1, #text do
+			local newline = true
+			local s = text[i]
+			if s == "{" then
+				level = level + 1
+				pad = string.rep(" ", level)
+			elseif s == "}" then
+				level = level - 1
+				pad = string.rep(" ", level)
+				io.stdout:write("\n")
+				io.stdout:write(pad)
+				newline = false
+			elseif s ~= sep then
+				newline = false
+			end
+			io.stdout:write(s)
+			if newline then
+				io.stdout:write("\n")
+				io.stdout:write(pad)
+			end
+		end
+		io.stdout:write("\n")
+	end,
+
+	format = tableFormat,
 
 	deepCopy = basicDeepCopy,
 
-	struct = function(defs)
-		return setmetatable({}, {
-			__name = "f0b.table.struct",
-			__metatable = defs,
+	struct = {
+		new = function(keys)
+			local defs = {}
+			for _, val in ipairs(keys) do
+				defs[val] = true
+			end
+			return setmetatable({}, {
+				__name = "f0b.table.struct",
+				__metatable = defs,
 
-			__index = function(table, key)
-				if defs[key] then
-					return nil
-				end
-				error("tried to access undefined struct field "
-					.. tostring(key))
-			end,
-
-			__newindex = function(table, key, val)
-				if defs[key] then
-					rawset(table, key, val)
-				else
-					error("tried to set undefined struct field "
+				__index = function(table, key)
+					if defs[key] then
+						return nil
+					end
+					error("tried to access undefined struct field "
 						.. tostring(key))
-				end
-			end,
-		})
-	end,
+				end,
+
+				__newindex = function(table, key, val)
+					if defs[key] then
+						rawset(table, key, val)
+					else
+						error("tried to set undefined struct field "
+							.. tostring(key))
+					end
+				end,
+			})
+		end,
+
+		addField = function(struct, name, val)
+			local defs = getmetatable(struct)
+			defs[name] = true
+			struct[name] = val
+		end,
+	},
 
 	clear = function(table)
 		for k, _ in pairs(table) do

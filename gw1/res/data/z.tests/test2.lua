@@ -1,8 +1,20 @@
 local frDie = {"bg", "mod", args={"franziska/die.png"}}
 local bgmStopAll = {"bgm", "modall", fade={"fadeout", 1/6, true}}
 
+local franDies = {"read", {
+	frDie,
+	{"name"},
+	[[Frankiska levanta su arma, pero no hace nada.]],
+	{"bg", "mod", args={"franziska/normal.png"}},
+	{"name", "Francisca"},
+	[[Lo siento, no puedo.]],
+	{"bg", "rm"},
+	{"name"},
+	[[Francisca se dispara, y muere.]],
+}}
+
 local final = {
-	{"var", "dead", false},
+	{"=", "dead", false},
 	{"select", nil, {
 		[["Fascinante."]],
 		[["Demasiada información, puta. Acabemos la entrevista."]],
@@ -11,25 +23,20 @@ local final = {
 	},
 	{"case", nil, {
 		{
-			[["Gusana inútil, muere."]],
+			[["¡Gusana inútil! ¡Muere!"]],
+			franDies,
 		},
 		{
 			[["..."]],
 			[["Bueno."]],
-			{"retear"},
+			{"bg", "rm"},
 		},
 		{
 			[["Está bien."]],
+			franDies,
 		},
 	}},
 
---	frDie,
-	{"name"},
-	[[Frankiska levanta su arma, pero no hace nada.]],
-	{"name", "Francisca"},
-	[[Lo siento, no puedo.]],
-	{"name"},
-	[[Francisca se dispara, y muere.]],
 }
 
 local hermanos = {
@@ -148,7 +155,7 @@ local fabTeniaRazon = {
 
 	{"select", nil, {
 		[["Pero luego dijo que pediste que te mataran."]],
-		[["Pero Martín si te agradaba."]]}
+		[["Pero Martín si te agradaba, ¿eh?"]]}
 	},
 	{"case", nil, {
 		falconEsUnInsecto,
@@ -178,7 +185,7 @@ local malditosInsectos = {
 }
 
 return {
-	{"var", "dead", true},
+	{"let", "dead", true},
 
 	{"style", "vnMaria"},
 	[[Repentinamente, te encuentras frente a frente con Franszciska.]],

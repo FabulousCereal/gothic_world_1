@@ -77,6 +77,12 @@ return {
 	deepCopy = basicDeepCopy,
 
 	struct = {
+		addField = function(struct, name, val)
+			local defs = getmetatable(struct)
+			defs[name] = true
+			struct[name] = val
+		end,
+
 		new = function(keys)
 			local defs = {}
 			for _, val in ipairs(keys) do
@@ -87,28 +93,16 @@ return {
 				__metatable = defs,
 
 				__index = function(table, key)
-					if defs[key] then
-						return nil
-					end
-					error("tried to access undefined struct field "
-						.. tostring(key))
+					assert(defs[key],
+						"tried to get undefined struct field " .. typeFormat(key))
 				end,
 
 				__newindex = function(table, key, val)
-					if defs[key] then
-						rawset(table, key, val)
-					else
-						error("tried to set undefined struct field "
-							.. tostring(key))
-					end
+					assert(defs[key],
+						"tried to set undefined struct field " .. typeFormat(key))
+					rawset(table, key, val)
 				end,
 			})
-		end,
-
-		addField = function(struct, name, val)
-			local defs = getmetatable(struct)
-			defs[name] = true
-			struct[name] = val
 		end,
 	},
 

@@ -37,6 +37,7 @@ local function clear(proc)
 end
 
 local function push(proc, data, loop)
+	assert(type(data) == "table", "pushed data is not a list")
 	local i = #proc
 	proc[i + 1] = data
 	proc[i + 2] = loop and true or false
@@ -80,7 +81,11 @@ return {
 		local text = {}
 		for i = #proc, 1, -3 do
 			local data, pos = proc[i-2], proc[i]
-			local inst = data[pos - 1]
+			pos = pos - 1
+			if pos == 0 then
+				pos = #data
+			end
+			local inst = data[pos]
 			if type(inst) == "table" then
 				f0b.table.format(inst, 0, text)
 			else

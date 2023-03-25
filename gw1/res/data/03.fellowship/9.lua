@@ -163,8 +163,6 @@ local infoLoop = {
 			{"name", "Bake"},
 			[["lol xD"]],
 
-			{"name", "María"},
-			[[Con eso terminamos de almorzar.]],
 			{"break"}
 		},
 	}},
@@ -207,17 +205,19 @@ de abrigo encima no era tan esencial en este clima, se puso a tocar a lo
 
 	{"name", "María"},
 	[[El chico vivía en esta casa con sus padres, que justo habían salido
-de viaje a otro país. No se notaba preocupado por ellos, argumentando que el
-humo no llegaría tan lejos. Su único compañero ahora era Pipi, su perro. O
-perra, mas bien.]],
+de viaje a otro país.]],
+
+	[[No se notaba preocupado por ellos, argumentando que el humo no
+llegaría tan lejos. Su único compañero ahora era Pipi, su perro. O perra, mas
+bien.]],
 
 	[[No entendía todas las cosas que decía o hacía el chico, a lo mejor
 era la cultura del extremo sur o que se yo, pero casi envidiaba su calma en
 esta situación... Escucharlo hablar era como oír una voz de un mundo en que no
 todo estaba perdido.]],
 
-	[[Por otro lado, el ruido que metía con la guitarra me
-traía con los nervios de punta.]],
+	[[Por otro lado, el ruido que metía con la guitarra me traía con los
+nervios de punta.]],
 
 	[[Y no lo digo por como tocaba, de hecho lo hace bastante bien, si no
 por que podía atraer mas de esas criaturas, pero el chico insistía en que no
@@ -245,9 +245,12 @@ perder, ¿verdad?" dijo antes de enterrarle un abrelatas.]],
 
 	{"name", "María"},
 	[[Noté que afuera el viento agarraba fuerza y que habia empezado a
-nevar de nuevo, con los dos cuerpos lentamente cubriéndose de un blanco sucio.
-La casa crugía. Las manchas de sangre en el patio se escondían de a poco, y
-tuve una sensación extraña en el pecho. Una inquietud de que algo no concordaba.]],
+nevar de nuevo, con los dos cuerpos lentamente cubriéndose de un blanco
+sucio.]],
+
+	[[La casa crugía. Las manchas de sangre en el patio se escondían de a
+poco, y tuve una sensación extraña en el pecho. Una inquietud de que algo no
+concordaba.]],
 
 	[[Sin saber que hacer, me limité a verificar que la puerta siguiera con
 seguro.]],
@@ -268,10 +271,11 @@ no?" Bake se acercó un poco para ver.]],
 no dan ganas de estar afuera. Esperá que calme y me ocupo."]],
 
 	{"name", "María"},
-	[[Bake se fue al comedor con la lata y me llamó para que comieramos.
-Vació la pizza minúscula en un plato, le hechó unas gotitas de agua, y esta se
-expandió en segundos. Radiaba calor y un exquisito olor a pizza de jamón y piña
-llenó el ambiente.]],
+	[[Bake se fue al comedor con la lata y me llamó para que comieramos.]],
+
+	[[Vació la pizza minúscula en un plato, le hechó unas gotitas de agua,
+y esta se expandió en segundos. Radiaba calor y un exquisito olor a pizza de
+jamón y piña llenó el ambiente.]],
 
 	{"name", "Bake"},
 	[["Provecho, lol"]],
@@ -280,10 +284,11 @@ llenó el ambiente.]],
 	{"name", "María"},
 	[[Como en un bizarro oasis de paz dentro de la ciudad, con un amigable
 extraño que parecía indiferente al mundo exterior y a las normas usuales de
-vestimenta, comenzamos a comer una comida común y corriente. No sabía que decir
-sobre todo esto.]],
+vestimenta, comenzamos a comer una comida común y corriente.]],
 
-	[["Dime, Bake..."]],
+	[[Simplemente no sabía que decir sobre todo esto.]],
+
+	[["Ehh... Dime, Bake..."]],
 
 	{"name", "Bake"},
 	[["?"]],
@@ -292,5 +297,5 @@ sobre todo esto.]],
 	{"bgm", "mod", fade={"fadeout", 2, true}},
 
 	{"name", "María"},
-	[[Tras eso, terminamos.]],
+	[[Con eso terminamos de almorzar.]],
 }

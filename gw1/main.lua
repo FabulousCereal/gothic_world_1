@@ -88,3 +88,11 @@ function love.keypressed(key, scancode)
 		gamestate:keypressed(key, scancode)
 	end
 end
+
+function love.mousemoved(...)
+	return gamestate:mousemoved(...)
+end
+
+function love.mousepressed(...)
+	return gamestate:mousepressed(...)
+end

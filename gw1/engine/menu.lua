@@ -9,8 +9,10 @@ local function replaceMenu(self, entries)
 	local text = self.text
 	text:clear()
 
+	local x = entries.x - em * style.padding
 	local maxW = 0
 	local lineY = 0
+	local buttons = {}
 	for i = 1, #entries do
 		local entry = entries[i]
 		local colorText
@@ -19,15 +21,22 @@ local function replaceMenu(self, entries)
 		else
 			colorText = {style.disabled.color, entry[1]}
 		end
-		text:add(colorText, 0, math.floor(lineY))
-		lineY = lineY + lineSpacing
+		local y = math.floor(lineY)
+		text:add(colorText, 0, y)
 		local w = text:getWidth()
 		if w > maxW then
 			maxW = w
 		end
+
+		table.insert(buttons, {x, entries.y + y, w, em})
+		lineY = lineY + lineSpacing
 	end
-	self.rectW = math.floor(maxW + em * style.padding * 2)
+	local rectW = math.floor(maxW + em * style.padding * 2)
+	for i = 1, #buttons do
+		buttons[i][3] = rectW
+	end
 	self.entries = entries
+	self.buttons = buttons
 	self.background = entries.background
 end
 
@@ -55,21 +64,62 @@ local menuOps = {
 	end,
 }
 
-local function menuKeypressed(self, key)
-	local entries = self.entries
-	if key == "return" then
+local menuKeys = {
+	["return"] = function(self, entries)
 		local entry = entries[entries.cur]
 		if entry[2] then
 			return menuOps[entry[2]](self, entry)
 		end
-	elseif key == "up" then
+	end,
+
+	up = function(self, entries)
 		entries.cur = ((entries.cur - 2) % #entries) + 1
-	elseif key == "down" then
+	end,
+
+	down = function(self, entries)
 		entries.cur = ((entries.cur) % #entries) + 1
-	elseif key == "home" then
+	end,
+
+	home = function(self, entries)
 		entries.cur = 1
-	elseif key == "end" then
+	end,
+
+	["end"] = function(self, entries)
 		entries.cur = #entries
+	end,
+}
+
+local function menuKeypressed(self, key)
+	local fn = menuKeys[key]
+	if fn then
+		return fn(self, self.entries)
+	end
+end
+
+local function mouseTouch(self, x, y)
+	local buttons = self.buttons
+	for i, b in ipairs(buttons) do
+		if x >= b[1] and y >= b[2] and x <= b[1] + b[3] and y <= b[2] + b[4] then
+			return i
+		end
+	end
+end
+
+local function menuMousepressed(self, x, y, button, _isTouch, _presses)
+	if button == 1 then
+		local i = mouseTouch(self, x, y)
+		if i then
+			local entries = self.entries
+			entries.cur = i
+			menuKeys["return"](self, entries)
+		end
+	end
+end
+
+local function menuMousemoved(self, x, y, _dx, _dy, _isTouch)
+	local i = mouseTouch(self, x, y)
+	if i then
+		self.entries.cur = i
 	end
 end
 
@@ -79,11 +129,14 @@ local function menuDraw(self)
 	local em = style.font:getHeight()
 	local lineSpacing = em * style.lineSpacing
 
-	local rectX = math.ceil(self.entries.x - em * style.padding)
-	local rectY = math.floor(self.entries.y
-		+ (self.entries.cur - 1) * lineSpacing)
+	local b = self.buttons[self.entries.cur]
+--	local rectX = math.ceil(self.entries.x - em * style.padding)
+--	local rectY = math.floor(self.entries.y
+--		+ (self.entries.cur - 1) * lineSpacing)
+--	f0b.shapes.bordered(graphics.rectangle, style,
+--		rectX, rectY, self.rectW, self.rectH, style.borderRadius)
 	f0b.shapes.bordered(graphics.rectangle, style,
-		rectX, rectY, self.rectW, self.rectH, style.borderRadius)
+		b[1], b[2], b[3], b[4], style.borderRadius)
 
 	graphics.setColor(1, 1, 1, 1)
 	graphics.draw(self.text, self.entries.x, self.entries.y)
@@ -116,6 +169,8 @@ return {
 		return {
 			draw = menuDraw,
 			keypressed = menuKeypressed,
+			mousemoved = menuMousemoved,
+			mousepressed = menuMousepressed,
 			pre = menuPre,
 
 			allEntries = entries,

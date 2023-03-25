@@ -36,12 +36,6 @@ local function transitionExec(self, dt)
 end
 
 gamestate = {
-	keypressed = function(gs, key)
-		if not gs.to and gs.state.keypressed then
-			gs.state:keypressed(key)
-		end
-	end,
-
 	update = function(gs, dt)
 		local state = gs.state
 
@@ -123,3 +117,16 @@ gamestate = {
 	},
 }
 
+local function giveInput(fnName)
+	return function(gs, ...)
+		local state = gs.state
+		if not gs.to and state[fnName] then
+			return state[fnName](state, ...)
+		end
+	end
+end
+
+local callbacks = {"keypressed", "mousemoved", "mousepressed"}
+for i, cb in pairs(callbacks) do
+	gamestate[cb] = giveInput(cb)
+end

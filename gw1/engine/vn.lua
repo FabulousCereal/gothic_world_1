@@ -221,6 +221,22 @@ local function advanceVN2(self)
 	return gamestate:stateSwitch(true)
 end
 
+local function commonInput(self, key)
+	local ui = self.ui
+	if not ui.textboard.finished then
+		return widgets.textboard.keypressed(ui.textboard, key)
+	elseif not self.unskippable and (key == "space" or key == "return") then
+		self.wait = 0
+		return advanceVN2(self)
+	end
+end	
+
+local function vnMousepressed(self, _x, _y, button, _isTouch, _presses)
+	if not self.ui.select.display then
+		return commonInput(self, "return")
+	end
+end
+
 local function vnKeypressed(self, key)
 	local ui = self.ui
 	if ui.select.display then
@@ -235,11 +251,8 @@ local function vnKeypressed(self, key)
 			end
 			return advanceVN2(self)
 		end
-	elseif not ui.textboard.finished then
-		return widgets.textboard.keypressed(ui.textboard, key)
-	elseif not self.unskippable and (key == "space" or key == "return") then
-		self.wait = 0
-		return advanceVN2(self)
+	else
+		return commonInput(self, key)
 	end
 end
 
@@ -298,6 +311,7 @@ return {
 			draw = vnDraw,
 			update = vnUpdate,
 			keypressed = vnKeypressed,
+			mousepressed = vnMousepressed,
 			pre = vnPreInit,
 
 			background = {},

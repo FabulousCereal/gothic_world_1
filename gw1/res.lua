@@ -133,7 +133,7 @@ res = {
 	img = loaderCurry(love.graphics.newImage, "res/img/"),
 
 	chrono = {
-		textSpeed = 1/60,
+		textSpeed = 1/30,
 		keyRepeat = 1/30,
 		keyFirstHold = 1/6,
 	},

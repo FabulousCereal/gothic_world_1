@@ -48,6 +48,9 @@ return {
 			backgroundColor = {0, 0, 0, 1},
 			padding = .25,
 			margin = 2,
+			disabled = {
+				color = {.5, .5, .5, 1},
+			}
 		},
 
 		clockTint = {

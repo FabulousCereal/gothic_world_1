@@ -115,7 +115,6 @@ return {
 			else
 				typewriterFinish(board)
 			end
-			return true
 		end
 	end,
 
@@ -125,14 +124,17 @@ return {
 		end
 
 		local timer = board.timer
-		if timer <= 0 then
+		while timer <= 0 do
 			local char = typewriterNext(board)
 			if char then
-				timer = res.chrono.textSpeed / board.speed
+				local w = res.chrono.textSpeed / board.speed
 				local longs = ",.?!:;~"
 				if string.find(longs, char, 1, true) then
-					timer = timer * 4
+					w = w * 4
 				end
+				timer = timer + w
+			else
+				break
 			end
 		end
 		board.timer = timer - dt

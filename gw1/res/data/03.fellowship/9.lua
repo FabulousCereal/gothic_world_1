@@ -178,7 +178,7 @@ return {
 	{"bg", "add", args=res.fun.card.card(
 		"dejaVuSans", res.style.vnMaria.fontSize * 4,
 			" /beɪk/ ")},
-	{"speed", 1/4},
+	{"speed", 1/3},
 	{"text", [[ /beɪk/ ]], true, true},
 	{"speed", 1},
 	{"bg", "rm"},

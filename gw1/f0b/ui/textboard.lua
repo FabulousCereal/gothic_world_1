@@ -89,7 +89,6 @@ return {
 		local _, str = board.style.font:getWrap(str, board.text.wrap)
 		board.str = table.concat(str, "\n")
 		board.timer = 0
-		board.display = true
 		board.finished = instant
 	end,
 
@@ -110,11 +109,7 @@ return {
 
 	keypressed = function(board, key)
 		if key == "space" or key == "return" then
-			if board.finished then
-				board.display = false
-			else
-				typewriterFinish(board)
-			end
+			return typewriterFinish(board)
 		end
 	end,
 

@@ -20,6 +20,7 @@ local function stateReset(vn, keepRes)
 	vn.textCont = false
 	vn.unskippable = false
 	vn.selectTarget = false
+	vn.style = vn.initStyle
 	f0b.table.clear(vn.settings)
 	vn.stackVars = {}
 	initVars(vn)
@@ -28,6 +29,8 @@ local function stateReset(vn, keepRes)
 	ui.select.display = false
 	ui.textboard.display = false
 	widgets.textboard.setName(ui.textboard, false)
+	widgets.textboard.regen(ui.textboard, vn.initStyle)
+	widgets.select.regen(ui.select, vn.initStyle)
 	if not keepRes then
 		f0b.jukebox.ops(vn.tracks, "rmall")
 		f0b.layers.ops(vn.background, "rmall")
@@ -86,9 +89,9 @@ local function getStage(self, offset)
 	return loadStage(dir, file, self.style)
 end
 
-local function setStage(self, stage, fullReset)
-	f0b.lisp.set(self.dataStack, stage)
+local function setStage(self, stage, keepRes)
 	stateReset(self, fullReset)
+	f0b.lisp.set(self.dataStack, stage)
 end
 
 local function externalOps(opFunc, target, inst)
@@ -146,6 +149,7 @@ local instructionTable = {
 	select = function(line, vn)
 		vn.selectTarget = line[2]
 		widgets.select.set(vn.ui.select, line[3])
+		vn.ui.select.display = true
 		return true
 	end,
 
@@ -201,7 +205,7 @@ local function advanceVN2(self)
 		trace[0] = "Processing error:\n\n"
 		local render = table.concat(trace, "", 0)
 		return setStage(self, errorStage(render, val, self.style.font),
-			true)
+			false)
 	end
 	if val then
 		return
@@ -214,7 +218,6 @@ local function advanceVN2(self)
 			return advanceVN2(self)
 		end
 	end
-	stateReset(self, false)
 	return gamestate:stateSwitch(true)
 end
 
@@ -239,8 +242,11 @@ local function commonInput(self, fallbackKey, selectInputFn, ...)
 	end
 end	
 
-local function vnMousepressed(self, ...)
-	return commonInput(self, "return", f0b.buttons.mousepressed, ...)
+local function vnMousepressed(self, x, y, button, ...)
+	if button == 2 then
+		return gamestate:stateSwitch(true)
+	end
+	return commonInput(self, "return", f0b.buttons.mousepressed, x, y, button, ...)
 end
 
 local function vnKeypressed(self, key)
@@ -255,6 +261,7 @@ local function vnMousemoved(self, ...)
 end
 
 local function vnUpdate(self, dt)
+	print(self.ui.select.display)
 	if self.wait > 0 then
 		self.wait = self.wait - dt
 	elseif not self.ui.select.display then
@@ -279,8 +286,8 @@ local function vnDraw(self)
 	return f0b.ui.draw(self.ui)
 end
 
-local function vnPreCommon(self, fullReset)
-	setStage(self, getStage(self, 0), fullReset)
+local function vnPreCommon(self)
+	setStage(self, getStage(self, 0), false)
 	return advanceVN2(self)
 end
 
@@ -288,7 +295,7 @@ local function vnPreInitiated(self, stage)
 	if stage then
 		self.cur[1], self.cur[2] = unpack(stage)
 	end
-	return vnPreCommon(self, false)
+	return vnPreCommon(self)
 end
 
 local function vnPreInit(self, stage)
@@ -316,6 +323,7 @@ return {
 			background = {},
 			tracks = {},
 
+			initStyle = style,
 			style = style,
 			index = index,
 

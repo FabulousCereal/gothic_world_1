@@ -261,7 +261,6 @@ local function vnMousemoved(self, ...)
 end
 
 local function vnUpdate(self, dt)
-	print(self.ui.select.display)
 	if self.wait > 0 then
 		self.wait = self.wait - dt
 	elseif not self.ui.select.display then

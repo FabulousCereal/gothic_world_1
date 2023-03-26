@@ -228,29 +228,40 @@ local function commonInput(self, key)
 	end
 end	
 
-local function vnMousepressed(self, _x, _y, button, _isTouch, _presses)
-	if not self.ui.select.display then
-		return commonInput(self, "return")
+local function selectInput(self, val)
+	if val ~= nil then
+		self.ui.select.display = false
+		local idx
+		if self.selectTarget == nil then
+			table.insert(self.stackVars, val)
+		else
+			self.vars[self.selectTarget] = val
+		end
+		return advanceVN2(self)
+	end
+end
+
+local function vnMousepressed(self, ...)
+	local select = self.ui.select
+	if select.display then
+		return selectInput(self, widgets.select.mousepressed(select, ...))
+	end
+	return commonInput(self, "return")
+end
+
+local function vnMousemoved(self, ...)
+	local select = self.ui.select
+	if select.display then
+		return widgets.select.mousemoved(select, ...)
 	end
 end
 
 local function vnKeypressed(self, key)
-	local ui = self.ui
-	if ui.select.display then
-		local val = widgets.select.keypress(ui.select, key)
-		if val ~= nil then
-			ui.select.display = false
-			local idx
-			if self.selectTarget == nil then
-				table.insert(self.stackVars, val)
-			else
-				self.vars[self.selectTarget] = val
-			end
-			return advanceVN2(self)
-		end
-	else
-		return commonInput(self, key)
+	local select = self.ui.select
+	if select.display then
+		return selectInput(self, widgets.select.keypressed(select, key))
 	end
+	return commonInput(self, key)
 end
 
 local function vnUpdate(self, dt)
@@ -308,6 +319,7 @@ return {
 			draw = vnDraw,
 			update = vnUpdate,
 			keypressed = vnKeypressed,
+			mousemoved = vnMousemoved,
 			mousepressed = vnMousepressed,
 			pre = vnPreInit,
 

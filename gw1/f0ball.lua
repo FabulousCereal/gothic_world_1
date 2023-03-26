@@ -11,5 +11,6 @@ f0b = {
 	shapes = require("f0b.shapes"),
 	layers = require("f0b.layers"),
 	jukebox = require("f0b.jukebox"),
+	buttons = require("f0b.buttons"),
 	ui = require("f0b.ui")
 }

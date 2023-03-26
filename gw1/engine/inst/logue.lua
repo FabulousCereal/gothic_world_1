@@ -5,6 +5,7 @@ local textboard = f0b.ui.widgets.textboard
 
 local function setText(self, str, append, cont)
 	self.textCont = cont
+	self.ui.textboard.display = true
 	return textboard.setText(self.ui.textboard, str, append)
 end
 

@@ -1,6 +1,8 @@
 -- SPDX-FileCopyrightText: 2023 Grupo Warominutes
 -- SPDX-License-Identifier: Unlicense
 
+local clearArray = require("f0b.table").clearArray
+
 local function clearCur(proc, i)
 	proc[i] = nil
 	proc[i - 1] = nil
@@ -48,9 +50,7 @@ return {
 	push = push,
 
 	set = function(proc, ...)
-		for i = #proc, 1, -1 do
-			proc[i] = nil
-		end
+		clearArray(proc)
 		return push(proc, ...)
 	end,
 

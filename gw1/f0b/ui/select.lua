@@ -41,7 +41,6 @@ local function selectRegen(board)
 			floor(h + padding), style.borderRadius})
 		lineY = lineY + h + lineSpacing
 	end
-	board.display = true
 	board.buttons = buttons
 	return board
 end

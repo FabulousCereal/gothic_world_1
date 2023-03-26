@@ -94,12 +94,12 @@ return {
 
 				__index = function(table, key)
 					assert(defs[key],
-						"tried to get undefined struct field " .. typeFormat(key))
+						"tried to get undefined struct field: " .. typeFormat(key))
 				end,
 
 				__newindex = function(table, key, val)
 					assert(defs[key],
-						"tried to set undefined struct field " .. typeFormat(key))
+						"tried to set undefined struct field: " .. typeFormat(key))
 					rawset(table, key, val)
 				end,
 			})

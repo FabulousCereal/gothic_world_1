@@ -3,7 +3,7 @@
 
 local oneMod = require("f0b.math").oneMod
 
-local keys = {
+local keys = f0b.table.dispatch({
 	["return"] = function(buttons)
 		return buttons.cur
 	end,
@@ -23,7 +23,7 @@ local keys = {
 	["end"] = function(buttons)
 		buttons.cur = #buttons
 	end,
-}
+})
 
 local function mouseTest(self, x, y)
 	local buttons = self.buttons
@@ -47,10 +47,7 @@ return {
 	end,
 
 	keypressed = function(self, key)
-		local fn = keys[key]
-		if fn then
-			return fn(self.buttons)
-		end
+		return keys[key](self.buttons)
 	end,
 
 	wheelmoved = function(self, x, y)

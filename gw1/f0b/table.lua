@@ -106,6 +106,17 @@ return {
 		end,
 	},
 
+	dispatch = function(fnTable, defaultFn)
+		if not defaultFn then
+			defaultFn = function() end
+		end
+		return setmetatable(fnTable, {
+			__index = function()
+				return defaultFn
+			end
+		})
+	end,
+
 	clearArray = function(table)
 		for i = #table, 1, -1 do
 			table[i] = nil

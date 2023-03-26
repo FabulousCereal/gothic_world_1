@@ -136,7 +136,7 @@ local function mvTocPos(toc, cur, mag)
 	end
 end
 
-local keyMap = {
+local keyMap = f0b.table.dispatch({
 	["return"] = function(self)
 		self.forbiddenChoice = runStage(self, "any")
 		if not self.forbiddenChoice then
@@ -168,16 +168,14 @@ local keyMap = {
 	["end"] = function(self)
 		self.cur[1], self.cur[2] = #self.toc, 1
 	end
-}
+})
 
 local function tocKeypressed(self, key)
 	if self.forbiddenChoice then
 		self.forbiddenChoice = false
 		return
-	elseif keyMap[key] then
-		if keyMap[key](self) then
-			return
-		end
+	elseif keyMap[key](self) then
+		return
 	end
 
 	self.entryReached, self.entryHeight = tocRecalc(self.tocRender,
@@ -245,12 +243,8 @@ local function tocPreStarted(self)
 end
 
 local function tocPreInit(self)
-	for i = 1, #self.toc do
-		self.tocLen = self.tocLen + #self.toc[i] + 1
-	end
 	self.tocRender = love.graphics.newText(self.style.font)
 	self.pre = tocPreStarted
-
 	return tocPreStarted(self)
 end
 
@@ -264,7 +258,6 @@ return {
 			pre = tocPreInit,
 
 			toc = toc,
-			tocLen = 0,
 			indexee = gamestate[indexeeID],
 			style = style,
 

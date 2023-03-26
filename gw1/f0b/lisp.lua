@@ -26,16 +26,6 @@ local function instructionIter(proc)
 	return nil
 end
 
-local function rewindTo(proc, limit)
-	for i = #proc, limit, -1 do
-		proc[i] = nil
-	end
-end
-
-local function clear(proc)
-	return rewindTo(proc, 1)
-end
-
 local function push(proc, data, loop)
 	assert(type(data) == "table", "pushed data is not a list")
 	local i = #proc
@@ -45,13 +35,6 @@ local function push(proc, data, loop)
 end
 
 return {
-	rewind = function(proc)
-		proc[2] = 1
-		return rewindTo(proc, 4)
-	end,
-
-	clear = clear,
-
 	["break"] = function(proc)
 		for i = #proc, 1, -3 do
 			local wasLoop = proc[i]
@@ -62,18 +45,12 @@ return {
 		end
 	end,
 
-	pop = function(proc, n)
-		local len = #proc
-		local limit = len - (n or 1) * 3 + 1
-		for i = len, limit, -3 do
-			clearCur(proc, i)
-		end
-	end,
-
 	push = push,
 
 	set = function(proc, ...)
-		clear(proc)
+		for i = #proc, 1, -1 do
+			proc[i] = nil
+		end
 		return push(proc, ...)
 	end,
 

@@ -185,7 +185,6 @@ local instructionTable = {
 	end,
 
 	["return"] = function(line, vn)
-		f0b.lisp.clear(vn.dataStack)
 		vn.returnValue = line[2]
 	end,
 
@@ -208,9 +207,7 @@ local function advanceVN2(self)
 		return
 	end
 
-	if self.returnValue == false then
-		f0b.lisp.rewind(self.dataStack)
-	else
+	if self.returnValue ~= false then
 		local stage = getStage(self, 1)
 		if stage then
 			setStage(self, stage, self.settings.keepRes)

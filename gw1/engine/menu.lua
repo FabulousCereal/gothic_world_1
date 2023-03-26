@@ -62,29 +62,6 @@ local menuOps = {
 	end,
 }
 
-local function menuInput(self, fn, ...)
-	local entries = self.entries
-	local i = fn(entries, ...)
-	if i then
-		local entry = entries[i]
-		if entry[2] then
-			return menuOps[entry[2]](self, entry)
-		end
-	end
-end
-
-local function menuKeypressed(self, ...)
-	return menuInput(self, buttons.keypressed, ...)
-end
-
-local function menuMousepressed(self, ...)
-	return menuInput(self, buttons.mousepressed, ...)
-end
-
-local function menuMousemoved(self, ...)
-	return buttons.mousemoved(self.entries, ...)
-end
-
 local function menuDraw(self)
 	local graphics = love.graphics
 	local style = self.style
@@ -120,13 +97,35 @@ local function menuPre(self)
 	self.pre = nil
 end
 
+local function menuInput(self, fn, ...)
+	local entries = self.entries
+	local i = fn(entries, ...)
+	if i then
+		local entry = entries[i]
+		if entry[2] then
+			return menuOps[entry[2]](self, entry)
+		end
+	end
+end
+
+local function menuMousemoved(self, ...)
+	return buttons.mousemoved(self.entries, ...)
+end
+
+local function giveInput(fn)
+	return function(self, ...)
+		return menuInput(self, fn, ...)
+	end
+end
+
 return {
 	new = function(entries, style)
 		return {
 			draw = menuDraw,
-			keypressed = menuKeypressed,
+			keypressed = giveInput(buttons.keypressed),
+			mousepressed = giveInput(buttons.mousepressed),
+			wheelmoved = giveInput(buttons.wheelmoved),
 			mousemoved = menuMousemoved,
-			mousepressed = menuMousepressed,
 			pre = menuPre,
 
 			allEntries = entries,

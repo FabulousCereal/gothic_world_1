@@ -208,7 +208,7 @@ local function giveInput(callback)
 end
 
 gamestate.keypressed = giveInput("keypressed")
-local callbacks = {"mousemoved", "mousepressed"}
+local callbacks = {"mousemoved", "mousepressed", "wheelmoved"}
 for i, cb in pairs(callbacks) do
 	love[cb] = giveInput(cb)
 end

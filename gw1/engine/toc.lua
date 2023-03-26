@@ -123,7 +123,7 @@ end
 local function mvTocPos(toc, cur, mag)
 	cur[2] = cur[2] + mag
 	if cur[2] < 1 or cur[2] > #toc[cur[1]] then
-		cur[1] = cur[1] + math.max(-1, math.min(1, mag))
+		cur[1] = cur[1] + f0b.math.clamp(mag, -1, 1)
 		if cur[1] < 1 then
 			cur[1], cur[2] = 1, 1
 		elseif cur[1] > #toc then
@@ -136,37 +136,67 @@ local function mvTocPos(toc, cur, mag)
 	end
 end
 
-local function tocKeypressed(self, key)
-	local cur = self.cur
-	local sub = self.indexee.cur
+local keyMap = {
+	["return"] = function(self)
+		self.forbiddenChoice = runStage(self, "any")
+		if not self.forbiddenChoice then
+			gamestate:stateSwitch(self.indexee.id, self.cur)
+		end
+		return true
+	end,
 
+	up = function(self)
+		mvTocPos(self.toc, self.cur, -1)
+	end,
+
+	down = function(self)
+		mvTocPos(self.toc, self.cur, 1)
+	end,
+
+	pageup = function(self)
+		self.cur[1], self.cur[2] = math.max(self.cur[1] - 1, 1), 1
+	end,
+
+	pagedown = function(self)
+		self.cur[1], self.cur[2] = math.min(self.cur[1] + 1, #self.toc), 1
+	end,
+
+	home = function(self)
+		self.cur[1], self.cur[2] = 1, 1
+	end,
+
+	["end"] = function(self)
+		self.cur[1], self.cur[2] = #self.toc, 1
+	end
+}
+
+local function tocKeypressed(self, key)
 	if self.forbiddenChoice then
 		self.forbiddenChoice = false
 		return
-	elseif key == "return" or key == "space" then
-		self.forbiddenChoice = runStage(self, "any")
-		if not self.forbiddenChoice then
-			gamestate:stateSwitch(self.indexee.id, cur)
+	elseif keyMap[key] then
+		if keyMap[key](self) then
+			return
 		end
-		return
-	elseif key == "up" then
-		mvTocPos(self.toc, self.cur, -1)
-	elseif key == "down" then
-		mvTocPos(self.toc, self.cur, 1)
-	elseif key == "pageup" then
-		cur[1], cur[2] = math.max(1, cur[1] - 1), 1
-	elseif key == "pagedown" then
-		cur[1], cur[2] = math.min(cur[1] + 1, #self.toc), 1
-	elseif key == "home" then
-		cur[1], cur[2] = 1, 1
-	elseif key == "end" then
-		cur[1], cur[2] = #self.toc, 1
 	end
 
 	self.entryReached, self.entryHeight = tocRecalc(self.tocRender,
-		self.toc, self.style, cur, sub)
+		self.toc, self.style, self.cur, self.indexee.cur)
 	if self.background then
 		updateParallax(self)
+	end
+end
+
+local function tocMousepressed(self, _x, _y, button)
+	if button == 1 then
+		return tocKeypressed(self, "return")
+	end
+end
+
+local function tocWheelmoved(self, x, y)
+	y = f0b.math.clamp(math.floor(y), -1, 1)
+	if y ~= 0 then
+		return tocKeypressed(self, y > 0 and "up" or "down")
 	end
 end
 
@@ -182,11 +212,6 @@ local function tocDraw(self)
 	local tocMargin = em * 2
 
 	if self.forbiddenChoice then
---		graphics.clear(style.color)
---		graphics.setColor(0, 0, 0, 1)
---		graphics.draw(self.tocRender, floor(tocMargin),
---			floor(lineSpacing))
-
 		local width = style.font:getWidth(self.forbiddenChoice)
 		local x = screenW / 2 - width / 2
 		local y = screenH / 2 - em / 2
@@ -234,6 +259,8 @@ return {
 		return {
 			draw = tocDraw,
 			keypressed = tocKeypressed,
+			mousepressed = tocMousepressed,
+			wheelmoved = tocWheelmoved,
 			pre = tocPreInit,
 
 			toc = toc,

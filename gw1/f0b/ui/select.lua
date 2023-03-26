@@ -1,65 +1,86 @@
 -- SPDX-FileCopyrightText: 2023 Grupo Warominutes
 -- SPDX-License-Identifier: Unlicense
 
-local function textboardRegen(board, style)
-	board.style = style
+local buttons = require("f0b.buttons")
+
+local function selectRegen(board)
+	local style = board.style
 
 	local em = style.font:getHeight()
 	local padding = em * style.padding
 	local margin = em * style.margin
-	local lh = em * style.lineHeight
+	local lineHeight = em * style.lineHeight
+	local lineSpacing = lineHeight * style.lineSpacing
 	local screenW = love.graphics.getWidth()
 
-	local sbox = board.selectbox
-	local select = board.select
 	local floor = math.floor
 
-	sbox[1] = floor(margin + style.borderWidth + padding * 2) -- X
-	-- Y is modified during drawing.
-	sbox[3] = floor(screenW - margin * 2 - padding * 4)       -- Width
-	sbox[4] = floor(em + padding / 2)                         -- Height
-	sbox[5] = style.borderRadius                              -- Radius
+	local borderMargin = margin + style.borderWidth
+	local padgin = padding + borderMargin
+	local textboardSize = lineHeight * style.lines + padgin*2
 
-	local textboxH = lh * style.lines + padding + style.borderWidth
-	select[1]:setFont(style.font)
-	select[2] = floor(sbox[1] + padding)                -- X
-	select[3] = floor(textboxH + em * style.margin * 2) -- Y
+	local select = board.select
+	local text = select[1]
+	text:clear()
+	text:setFont(style.font)
+	select[2] = floor(padgin) -- X
+	select[3] = floor(textboardSize + padgin/2) -- Y
 
-	board.wrap = sbox[3] - padding * 2 -- Max text width
+	local textW = screenW - select[2]*2
+	local lineY = 0
+	local buttons = {}
+	local choices = board.choices
+	for i, choice in pairs(choices) do
+		choice = string.gsub(choice, "\n+%s*", " ")
+		text:addf(choice, textW, "center", 0, lineY)
+		local h = text:getHeight()
+		table.insert(buttons, {
+			floor(borderMargin),
+			floor(textboardSize + borderMargin/2 + lineY),
+			floor(screenW - borderMargin*2),
+			floor(h + padding), style.borderRadius})
+		lineY = lineY + h + lineSpacing
+	end
+	board.cur = 1
+	board.display = true
+	board.buttons = buttons
 	return board
 end
 
 return {
 	set = function(board, choices)
-		local style = board.style
-		local lineSpacing = style.font:getHeight() * style.lineSpacing
-		local lineY = 0
+		board.choices = choices
+		return selectRegen(board)
+	end,
 
-		local select = board.select
-		local text = select[1]
-		text:clear()
-		for i = 1, #choices do
-			local choice = string.gsub(choices[i], "\n+%s*", " ")
-			text:addf(choice, board.wrap, "center", 0,
-				math.floor(lineY))
-			lineY = lineY + lineSpacing
+	mousepressed = function(board, x, y, button)
+		if button == 1 then
+			local i = buttons.mouseIntersect(board.buttons, x, y)
+			if i then
+				board.cur = i
+				return i
+			end
 		end
-		board.cur = 1
-		board.num = #choices
-		board.display = true
+	end,
+
+	mousemoved = function(board, x, y)
+		local i = buttons.mouseIntersect(board.buttons, x, y)
+		if i then
+			board.cur = i
+		end
 	end,
 
 	keypress = function(board, key)
 		if key == "return" then
 			return board.cur
 		elseif key == "up" then
-			board.cur = ((board.cur - 2) % board.num) + 1
+			board.cur = ((board.cur - 2) % #board.choices) + 1
 		elseif key == "down" then
-			board.cur = (board.cur % board.num) + 1
+			board.cur = (board.cur % #board.choices) + 1
 		elseif key == "home" then
 			board.cur = 1
 		elseif key == "end" then
-			board.cur = board.num
+			board.cur = #board.choices
 		end
 	end,
 
@@ -73,33 +94,34 @@ return {
 		local lineSpacing = em * style.lineSpacing
 
 		local floor = math.floor
-		local select, selectbox = board.select, board.selectbox
-		selectbox[2] = floor(select[3] - padding / 4)
-		for i = 1, board.num do
+		for i, button in pairs(board.buttons) do
 			local lStyle
 			if i == board.cur then
 				lStyle = style
 			else
 				lStyle = style.unselected
 			end
-			bordered(graphics.rectangle, lStyle, unpack(selectbox))
-			selectbox[2] = floor(selectbox[2] + lineSpacing)
+			bordered(graphics.rectangle, lStyle, unpack(button))
 		end
 		graphics.setColor(style.color)
-		return graphics.draw(unpack(select))
+		return graphics.draw(unpack(board.select))
 	end,
 
-	regen = textboardRegen,
+	regen = function(board, style)
+		board.style = style
+		if board.choices then
+			return selectRegen(board)
+		end
+	end,
 
 	new = function(style)
-		local board = {
-			selectbox = {0, 0, 0, 0, 0},
+		return {
+			style = style,
 			select = {love.graphics.newText(style.font), 0, 0},
-			wrap = 0,
 			cur = 1,
-			num = false,
 			display = false,
+			choices = false,
+			buttons = {},
 		}
-		return textboardRegen(board, style)
 	end,
 }

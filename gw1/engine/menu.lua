@@ -1,6 +1,8 @@
 -- SPDX-FileCopyrightText: 2023 Grupo Warominutes
 -- SPDX-License-Identifier: Unlicense
 
+local buttons = require("f0b.buttons")
+
 local function replaceMenu(self, entries)
 	local style = self.style
 	local em = style.font:getHeight()
@@ -96,18 +98,9 @@ local function menuKeypressed(self, key)
 	end
 end
 
-local function mouseTouch(self, x, y)
-	local buttons = self.buttons
-	for i, b in ipairs(buttons) do
-		if x >= b[1] and y >= b[2] and x <= b[1] + b[3] and y <= b[2] + b[4] then
-			return i
-		end
-	end
-end
-
 local function menuMousepressed(self, x, y, button, _isTouch, _presses)
 	if button == 1 then
-		local i = mouseTouch(self, x, y)
+		local i = buttons.mouseIntersect(self.buttons, x, y)
 		if i then
 			local entries = self.entries
 			entries.cur = i
@@ -116,8 +109,8 @@ local function menuMousepressed(self, x, y, button, _isTouch, _presses)
 	end
 end
 
-local function menuMousemoved(self, x, y, _dx, _dy, _isTouch)
-	local i = mouseTouch(self, x, y)
+local function menuMousemoved(self, ...)
+	local i = buttons.mouseIntersect(self.buttons, ...)
 	if i then
 		self.entries.cur = i
 	end

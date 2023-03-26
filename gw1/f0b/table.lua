@@ -106,6 +106,13 @@ return {
 		end,
 	},
 
+	clearArray = function(table)
+		for i = #table, 1, -1 do
+			table[i] = nil
+		end
+		return table
+	end,
+
 	clear = function(table)
 		for k, _ in pairs(table) do
 			table[k] = nil

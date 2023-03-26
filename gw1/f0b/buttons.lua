@@ -1,55 +1,55 @@
 -- SPDX-FileCopyrightText: 2023 Grupo Warominutes
 -- SPDX-License-Identifier: Unlicense
---[=[
-local menuKeys = {
-	["return"] = function(self, entries)
-		local entry = entries[entries.cur]
-		if entry[2] then
-			return menuOps[entry[2]](self, entry)
-		end
+
+local oneMod = require("f0b.math").oneMod
+
+local keys = {
+	["return"] = function(buttons)
+		return buttons.cur
 	end,
 
-	up = function(self, entries)
-		entries.cur = ((entries.cur - 2) % #entries) + 1
+	up = function(buttons)
+		buttons.cur = oneMod(buttons.cur - 1, #buttons)
 	end,
 
-	down = function(self, entries)
-		entries.cur = ((entries.cur) % #entries) + 1
+	down = function(buttons)
+		buttons.cur = oneMod(buttons.cur + 1, #buttons)
 	end,
 
-	home = function(self, entries)
-		entries.cur = 1
+	home = function(buttons)
+		buttons.cur = 1
 	end,
 
-	["end"] = function(self, entries)
-		entries.cur = #entries
+	["end"] = function(buttons)
+		buttons.cur = #buttons
 	end,
 }
 
-local function menuMousepressed(self, x, y, button, _isTouch, _presses)
-	if button == 1 then
-		local i = mouseTouch(self, x, y)
-		if i then
-			local entries = self.entries
-			entries.cur = i
-			menuKeys["return"](self, entries)
+local function mouseTest(self, x, y)
+	local buttons = self.buttons
+	for i, b in ipairs(buttons) do
+		if x >= b[1] and y >= b[2] and x <= b[1] + b[3] and y <= b[2] + b[4] then
+			buttons.cur = i
+			return i
 		end
 	end
 end
 
-local function menuMousemoved(self, x, y, _dx, _dy, _isTouch)
-	local i = mouseTouch(self, x, y)
-	if i then
-		self.entries.cur = i
-	end
-end
-]=]
 return {
-	mouseIntersect = function(buttons, x, y)
-		for i, b in ipairs(buttons) do
-			if x >= b[1] and y >= b[2] and x <= b[1] + b[3] and y <= b[2] + b[4] then
-				return i
-			end
+	mousepressed = function(self, x, y, mouseButton)
+		if mouseButton == 1 then
+			return mouseTest(self, x, y)
+		end
+	end,
+
+	mousemoved = function(...)
+		mouseTest(...) -- Discard return value
+	end,
+
+	keypressed = function(self, key)
+		local fn = keys[key]
+		if fn then
+			return fn(self.buttons)
 		end
 	end,
 }

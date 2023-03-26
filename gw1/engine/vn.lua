@@ -1,7 +1,7 @@
 -- SPDX-FileCopyrightText: 2023 Grupo Warominutes
 -- SPDX-License-Identifier: Unlicense
 
-local widgets = f0b.ui.widgets
+local widgets = require("f0b.ui").widgets
 
 local function initVars(vn)
 	local vars = f0b.table.struct.new({"_idx1", "_idx2", "_title1", "_title2"})
@@ -218,50 +218,40 @@ local function advanceVN2(self)
 	return gamestate:stateSwitch(true)
 end
 
-local function commonInput(self, key)
+local function commonInput(self, fallbackKey, selectInputFn, ...)
 	local ui = self.ui
-	if not ui.textboard.finished then
-		return widgets.textboard.keypressed(ui.textboard, key)
-	elseif not self.unskippable and (key == "space" or key == "return") then
+	if ui.select.display then
+		local val = selectInputFn(ui.select, ...)
+		if val then
+			ui.select.display = false
+			if self.selectTarget == nil then
+				table.insert(self.stackVars, val)
+			else
+				self.vars[self.selectTarget] = val
+			end
+			return advanceVN2(self)
+		end
+	elseif not ui.textboard.finished then
+		return widgets.textboard.keypressed(ui.textboard, fallbackKey)
+	elseif not self.unskippable and (fallbackKey == "space" or fallbackKey == "return") then
 		self.wait = 0
 		return advanceVN2(self)
 	end
 end	
 
-local function selectInput(self, val)
-	if val ~= nil then
-		self.ui.select.display = false
-		local idx
-		if self.selectTarget == nil then
-			table.insert(self.stackVars, val)
-		else
-			self.vars[self.selectTarget] = val
-		end
-		return advanceVN2(self)
-	end
+local function vnMousepressed(self, ...)
+	return commonInput(self, "return", f0b.buttons.mousepressed, ...)
 end
 
-local function vnMousepressed(self, ...)
-	local select = self.ui.select
-	if select.display then
-		return selectInput(self, widgets.select.mousepressed(select, ...))
-	end
-	return commonInput(self, "return")
+local function vnKeypressed(self, key)
+	return commonInput(self, key, f0b.buttons.keypressed, key)
 end
 
 local function vnMousemoved(self, ...)
 	local select = self.ui.select
 	if select.display then
-		return widgets.select.mousemoved(select, ...)
+		return f0b.buttons.mousemoved(select, ...)
 	end
-end
-
-local function vnKeypressed(self, key)
-	local select = self.ui.select
-	if select.display then
-		return selectInput(self, widgets.select.keypressed(select, key))
-	end
-	return commonInput(self, key)
 end
 
 local function vnUpdate(self, dt)

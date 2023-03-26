@@ -28,7 +28,7 @@ local function selectRegen(board)
 
 	local textW = screenW - select[2]*2
 	local lineY = 0
-	local buttons = {}
+	local buttons = {cur = 1}
 	local choices = board.choices
 	for i, choice in pairs(choices) do
 		choice = string.gsub(choice, "\n+%s*", " ")
@@ -41,7 +41,6 @@ local function selectRegen(board)
 			floor(h + padding), style.borderRadius})
 		lineY = lineY + h + lineSpacing
 	end
-	board.cur = 1
 	board.display = true
 	board.buttons = buttons
 	return board
@@ -51,37 +50,6 @@ return {
 	set = function(board, choices)
 		board.choices = choices
 		return selectRegen(board)
-	end,
-
-	mousepressed = function(board, x, y, button)
-		if button == 1 then
-			local i = buttons.mouseIntersect(board.buttons, x, y)
-			if i then
-				board.cur = i
-				return i
-			end
-		end
-	end,
-
-	mousemoved = function(board, x, y)
-		local i = buttons.mouseIntersect(board.buttons, x, y)
-		if i then
-			board.cur = i
-		end
-	end,
-
-	keypress = function(board, key)
-		if key == "return" then
-			return board.cur
-		elseif key == "up" then
-			board.cur = ((board.cur - 2) % #board.choices) + 1
-		elseif key == "down" then
-			board.cur = (board.cur % #board.choices) + 1
-		elseif key == "home" then
-			board.cur = 1
-		elseif key == "end" then
-			board.cur = #board.choices
-		end
 	end,
 
 	draw = function(board)
@@ -94,9 +62,9 @@ return {
 		local lineSpacing = em * style.lineSpacing
 
 		local floor = math.floor
-		for i, button in pairs(board.buttons) do
+		for i, button in ipairs(board.buttons) do
 			local lStyle
-			if i == board.cur then
+			if i == board.buttons.cur then
 				lStyle = style
 			else
 				lStyle = style.unselected
@@ -118,10 +86,9 @@ return {
 		return {
 			style = style,
 			select = {love.graphics.newText(style.font), 0, 0},
-			cur = 1,
 			display = false,
 			choices = false,
-			buttons = {},
+			buttons = nil,
 		}
 	end,
 }

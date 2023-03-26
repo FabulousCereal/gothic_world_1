@@ -243,14 +243,16 @@ local function commonInput(self, fallbackKey, selectInputFn, ...)
 end	
 
 local function vnMousepressed(self, x, y, button, ...)
-	if button == 2 then
-		return gamestate:stateSwitch(true)
-	end
-	return commonInput(self, "return", f0b.buttons.mousepressed, x, y, button, ...)
+	local key = button == 1 and "return"
+	return commonInput(self, key, f0b.buttons.mousepressed, x, y, button, ...)
 end
 
 local function vnKeypressed(self, key)
 	return commonInput(self, key, f0b.buttons.keypressed, key)
+end
+
+local function vnWheelmoved(self, ...)
+	return commonInput(self, "", f0b.buttons.wheelmoved, ...)
 end
 
 local function vnMousemoved(self, ...)
@@ -317,6 +319,7 @@ return {
 			keypressed = vnKeypressed,
 			mousemoved = vnMousemoved,
 			mousepressed = vnMousepressed,
+			wheelmoved = vnWheelmoved,
 			pre = vnPreInit,
 
 			background = {},

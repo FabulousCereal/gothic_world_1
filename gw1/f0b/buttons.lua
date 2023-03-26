@@ -52,4 +52,11 @@ return {
 			return fn(self.buttons)
 		end
 	end,
+
+	wheelmoved = function(self, x, y)
+		y = f0b.math.clamp(math.floor(y), -1, 1)
+		if y ~= 0 then
+			return keys[y > 0 and "up" or "down"](self.buttons)
+		end
+	end,
 }

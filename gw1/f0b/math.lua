@@ -7,4 +7,8 @@ return {
 	end,
 
 	tau = math.pi * 2,
+
+	oneMod = function(n, div) -- Fuck one-based indexing
+		return (n-1)%div + 1
+	end,
 }

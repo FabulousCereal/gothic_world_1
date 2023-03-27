@@ -3,7 +3,7 @@ local fadeout = {"fadeout", 3, true}
 
 return {
 	{"style", "vnFab"},
-	{"bg", "add", args={"menu/conf.png"}},
+	{"bg", "add", args={"zeh/conf.png"}},
 	{"bg", "add", args={"shadows.png"}},
 	{"bg", "fold"},
 	{"bg", "mod", color={1, 1, 1, 0}, tween=fadein},

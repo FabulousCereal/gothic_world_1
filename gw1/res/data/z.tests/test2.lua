@@ -215,11 +215,13 @@ return {
 	{"case", "dead", {
 		[true] = {
 			[[Has muerto.]],
+			{"return", false}
 		},
 
 		[false] = {
 			[[Has sobrevivido a la entrevista con Fraziskana.
 				Bien hecho, pero no hay premio.]],
+			{"return", true}
 		}
 	}},
 }

@@ -2,8 +2,9 @@
 -- SPDX-License-Identifier: Unlicense
 
 local oneMod = require("f0b.math").oneMod
+local dispatch = require("f0b.table").dispatch
 
-local keys = f0b.table.dispatch({
+local keys = dispatch({
 	["return"] = function(buttons)
 		return buttons.cur
 	end,

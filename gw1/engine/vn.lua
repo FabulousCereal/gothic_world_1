@@ -328,10 +328,6 @@ end
 
 local function loadState(self)
 	local save = self.saveState
-	if #save == 0 then
-		return
-	end
-
 	self.cur[1], self.cur[2] = unpack(save.cur)
 	if curStage(self) then
 		self.update = vnUpdateLoad

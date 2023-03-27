@@ -95,7 +95,7 @@ las casas, silbaba entre las ramas de los árboles que muertos sin sus hojas
 asemejaban--]],
 
 	{"bgm", "mod", fade={"fadeout", 1/3, true}},
-	{"sfx", "sombra.flac", 1/3},
+	{"sfx", "sfx/sombra.flac", 1/3},
 	{"name"},
 	[[...*ffff*]],
 
@@ -103,7 +103,7 @@ asemejaban--]],
 	[["¿Q-Que fue eso?" El extraño sonido detuvo en un segundo todos mis
 pensamientos.]],
 
-	{"sfx", "sombra.flac", 2/3},
+	{"sfx", "sfx/sombra.flac", 2/3},
 	{"name"},
 	[[*ffff*]],
 
@@ -111,7 +111,7 @@ pensamientos.]],
 	[[Se oyó el ruido una vez mas. Asustada, me giré para buscarlo, pero
 las calles se seguían viendo vacias. No sabía lo que era.]],
 
-	{"sfx", "sombra.flac"},
+	{"sfx", "sfx/sombra.flac"},
 	{"name"},
 	[[*FFFF*]],
 

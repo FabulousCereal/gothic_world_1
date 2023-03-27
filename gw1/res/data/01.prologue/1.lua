@@ -29,7 +29,7 @@ Terminando de tocar sucede la explosión.]],
 	1,
 
 	{"name", false},
-	{"sfx", "explosión lejana.flac"},
+	{"sfx", "sfx/explosión lejana.flac"},
 	[[.........*boom*]],
 
 	{"bg", "sync"},

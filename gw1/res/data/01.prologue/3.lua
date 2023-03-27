@@ -7,7 +7,7 @@ explosión.]],
 
 	{"bg", "add", args=f0b.elem.screenFill, color={1,1,1,1},
 		tween={"fadeout", 6, true}},
-	{"sfx", "explosión cercana.flac"},
+	{"sfx", "sfx/explosión cercana.flac"},
 	{"wait", 1, true},
 	{"macro", res.fun.macro.date,
 		{2011, 11, 8, 18, 34, idx=1, wait={1.5, true}}},
@@ -138,7 +138,7 @@ clase de vida llevaba.]],
 	[[Notando el control remoto sobre la mesa, hice un último esfuerzo y
 encendí la televisión, aunque fuera para ver porno.]],
 
-	{"sfx", "crt on.flac"},
+	{"sfx", "sfx/crt on.flac"},
 	[[Sonó el golpe eléctrico que hacían las teles antiguas, y poco a poco
 la pantalla cobró brillo.]],
 

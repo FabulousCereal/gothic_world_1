@@ -34,6 +34,7 @@ local function push(proc, data, loop)
 	proc[i + 1] = data
 	proc[i + 2] = loop and true or false
 	proc[i + 3] = 1
+	proc.depth = proc.depth + 1
 end
 
 return {
@@ -51,6 +52,7 @@ return {
 
 	set = function(proc, ...)
 		clearArray(proc)
+		proc.depth = 0
 		return push(proc, ...)
 	end,
 
@@ -73,10 +75,14 @@ return {
 		return text
 	end,
 
+	getPos = function(proc)
+		return proc.depth, proc[#proc]
+	end,
+
 	process = function(proc, ...)
 		for inst in instructionIter, proc do
 			local result = proc[type(inst)](inst, ...)
-			if result then
+			if result ~= nil then
 				return result
 			end
 		end
@@ -90,6 +96,7 @@ return {
 				return instTable[copy[1]](copy, ...)
 			end
 		end
+		proc.depth = 0
 		return proc
 	end,
 }

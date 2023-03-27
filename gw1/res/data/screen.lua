@@ -26,6 +26,8 @@ return {
 				{"Escapar", "ESC"},
 			},
 			{"Secretos",
+				{"Guardar estado", "Ctrl+S"},
+				{"Cargar estado", "Ctrl+L"},
 				{"Disminuir rojo/verde/azul", "r", "g", "b"},
 				{"Aumentar rojo/verde/azul", "R", "G", "B"},
 			},

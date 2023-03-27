@@ -165,7 +165,7 @@ local trackOps = {
 		end
 	end,
 
-	finish = function(tracklist)
+	sync = function(tracklist)
 		return trackUpdate(tracklist, 0, true)
 	end,
 }

@@ -283,7 +283,7 @@ ojos.]],
 	[["Si sos guapo la vas a reconocer." Bake agarró la guitarra, y
 tocó parte de una canción que había sonado mucho hace unos años.]],
 
-	{"sfx", "bake riff2.ogg"},
+	{"sfx", "sfx/bake riff2.ogg"},
 	{"wait", 4, false, true},
 
 	{"name", "Falcon"},

@@ -65,7 +65,7 @@ atrasó asi que me puse a esperarla, porque no sabía donde vivía.]],
 	[[Entonces ocurrió. Ví una luz como un rayo, y luego escuché la fuerte
 explosión.]],
 
-	{"sfx", "explosión lejana.flac"},
+	{"sfx", "sfx/explosión lejana.flac"},
 	{"name", false},
 	[[...*boom*]],
 	{"name", "Fabian"},

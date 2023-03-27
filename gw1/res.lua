@@ -126,9 +126,9 @@ res = {
 
 	fun = funLoad("res/fun/"),
 
-	sfx = loaderCurry(love.audio.newSource, "res/sfx/", "static"),
+	sfx = loaderCurry(love.audio.newSource, "res/audio/", "static"),
 
-	bgm = loaderCurry(love.audio.newSource, "res/bgm/", "stream"),
+	bgm = loaderCurry(love.audio.newSource, "res/audio/", "stream"),
 
 	img = loaderCurry(love.graphics.newImage, "res/img/"),
 

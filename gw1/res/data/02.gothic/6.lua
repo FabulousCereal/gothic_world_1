@@ -26,7 +26,9 @@ vieja rutina,]], false, true},
 	{"bgm", "mod", "alarm", fade={"fadeout", 1/12, true}},
 	{"bg", "mod", tween={"fadeout", 1/12, true}},
 	{"text", [[ antes de caer en la cuenta de que me hallaba en un cuarto,
-en una cama. ¿Donde estaba? No reconocía el lugar, eso era seguro.]], true},
+en una cama.]], true},
+
+	[[¿Donde estaba? No reconocía el lugar, eso era seguro.]],
 
 	[["¿Habrá sido un sueño?" Sentí una sensación de alivio y paz, y solté
 un suspiro. Recordé esa crisis de pánico. Que bueno que no fue
@@ -84,9 +86,16 @@ estaban cerradas. Los ruidos provenían de lo que parecía la cocina.]],
 
 	{"bg", "mod", tween={"fadeout", 2/3, true}},
 	[[Me asomé por la puerta a mirar. Había un muchacho tirando cosas por
-la ventana, hacia el patio. ¿Será él el dueño de casa? Vestía solo una polera
-y unos shorts a pesar del frio que hacía. Parecíamos ser los
-únicos acá. De pronto sacó un arma.]],
+la ventana, hacia el patio.]],
+
+	[[¿Será él el dueño de casa? Vestía solo una polera y unos shorts a
+pesar del frio que hacía. Parecíamos ser los únicos acá. De pronto sacó un
+arma.]],
+
+	{"bgm", "set", "gunshot",
+		source="freesound/344143__brokenphono__gunshot_001.flac",
+		fade={"delay", 1.5, "cmd", "setLooping", {false}, "delay", 2, true}},
+	.5,
 
 	[[El chico comenzó a disparar por la ventana, y yo me escondí
 cubriéndome los oídos. ¿Que estaba sucediendo? ¿Por que me trajo acá? ¿Y que

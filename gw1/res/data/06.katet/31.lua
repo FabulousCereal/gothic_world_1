@@ -315,8 +315,10 @@ limpio. Entonces Croft se miró los zapatos.]],
 	{"name", "Croft"},
 	[["Perdón," dijo subiendo lo que quedaba del vidrio.]],
 
+	{"bgm", "sync"},
 	{"bgm", "mod", "window",
-		fade={"fadeto", .5, .5, "cmd", {"play", true}, "delay", 1.1, true}},
+		fade={"fadeto", .5, .5, "cmd", {"seek", 6.8},
+			"cmd", {"play", true}, "delay", 5/3, true}},
 	{"name", "María"},
 	[[...que terminó de caerse por completo.]],
 
@@ -340,15 +342,15 @@ limpio. Entonces Croft se miró los zapatos.]],
 	[[Falcon dió un giro de 360 grados con el auto y fuimos primero a la
 tienda de guitarras, cuando ya estaba oscuresciendo y empezando a nevar.]],
 
-	{"text", [[Llegamos cerca de las 18:00, y Falcon y Bake ]],
+	{"text", [[Llegamos cerca de las 18:00, y Falcon y Bake se bajaron ]],
 false, true},
 
-	{"sfx", "freesound/204777__ngruber__breaking-glass_cut.flac", .5, .8},
-	{"text", [[se bajaron a terminar de romper el ventanal a pesar que la
+	{"sfx", "freesound/204777__ngruber__breaking-glass_cut.flac", .5, .8, .5},
+	{"text", [[a terminar de romper el ventanal a pesar que la
 puerta estaba abierta. Croft y yo los mirabamos en silencio.]], true},
 
 	{"name", "Croft"},
-	[["°L° A mi tambien me hace falta un cepillo," me dijo.]],
+	[["°L°..." dijo. "A mi tambien me hace falta un cepillo."]],
 
 	{"name", "María"},
 	[["Si, vamos."]],

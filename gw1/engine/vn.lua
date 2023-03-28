@@ -117,9 +117,8 @@ end
 
 local function externalOps(opFunc, target, inst)
 	local copy = f0b.table.deepCopy(inst)
-	local op = table.remove(copy, 2)
-	local _ = table.remove(copy, 1)
-	return opFunc.ops(target, op, copy)
+	local op = copy[2]
+	return opFunc.ops(target, op, f0b.table.moveArray(copy, 2))
 end
 
 local instructionTable = {
@@ -133,7 +132,7 @@ local instructionTable = {
 	sfx = function(line, vn)
 		local fade = {"delay", "remaining", true}
 		if line[5] then
-			fade = {"delay", line[5], "cmd", "play", {},
+			fade = {"delay", line[5], "cmd", {"play", true},
 				unpack(fade)}
 		end
 		local inst = {

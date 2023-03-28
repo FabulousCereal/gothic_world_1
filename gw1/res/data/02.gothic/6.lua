@@ -96,7 +96,7 @@ arma.]],
 
 	{"bgm", "set", "gunshot",
 		source="freesound/344143__brokenphono__gunshot_001.flac",
-		fade={"delay", 1.5, "cmd", "setLooping", {false}, "delay", 2, true}},
+		fade={"delay", 1.5, "cmd", {"setLooping", false}, "delay", 2, true}},
 	.5,
 
 	[[El chico comenzó a disparar por la ventana, y yo me escondí

@@ -9,9 +9,8 @@ local seq = require("f0b._seqCommon")
 --     control = {component, index, delta, [index, delta, [...]]}
 local function genericVary(layer, tween, dt, finish)
 	local remaining = tween[3]
-	if dt > remaining or finish then
-		dt = remaining
-	end
+	local mult = math.min(dt, remaining)
+	remaining = remaining - dt
 
 	local directives = tween[2]
 	for i = 1, #directives do
@@ -21,21 +20,19 @@ local function genericVary(layer, tween, dt, finish)
 		for i = 2, #control, 2 do
 			local idx = control[i]
 			local delta = control[i + 1]
-			component[idx] = component[idx] + delta * dt
+			component[idx] = component[idx] + delta * mult
 		end
 	end
 
-	remaining = remaining - dt
-	if remaining > 0 then
-		tween[3] = remaining
-	else
-		return 3
+	if remaining <= 0 then
+		return 3, remaining
 	end
+	tween[3] = remaining
 end		
 
 -- Turns handwriten movement into "_generic"
 -- Format: {type, x, y, rate}
-local function mvCommon(layer, tween, dt, finish)
+local function mvCommon(layer, tween, dt, ...)
 	local args = layer.args
 	if not args[2] then
 		args[2] = 0
@@ -64,53 +61,42 @@ local function mvCommon(layer, tween, dt, finish)
 	tween[1] = "_generic"
 	tween[2] = {control}
 	table.remove(tween, 3)
-	return genericVary(layer, tween, dt, finish)
+	return genericVary(layer, tween, dt, ...)
+end
+
+local function layerFade(layer, tween, dt)
+	layer.color[4] = seq.fadeCommon(layer.color[4], tween, dt)
+	if tween[3] <= 0 then
+		return 3, tween[3]
+	end
+end
+
+local function fadeSetup(layer, tween, dt)
+	if not layer.color then
+		layer.color = {1, 1, 1, (tween[1] == "fadein") and 0 or 1}
+	end
+	return seq.fadeSetup(layer, tween, dt, layer.color[4], layerFade)
 end
 
 local tweenOps = {
 	-- Generic --
 	_generic = genericVary,
+	_fade = layerFade,
 
 	-- Delay --
 	-- Format: {"delay", secs}
 	delay = function(layer, tween, dt, finish)
-		local secs = tween[2]
-		if secs > 0 and not finish then
-			tween[2] = secs - dt
-		else
-			return 2
+		local secs = tween[2] - dt
+		if secs <= 0 then
+			return 2, secs
 		end
+		tween[2] = secs
 	end,
 
 	-- Fades --
-	-- Format: {"fadein" | "fadeout", rate}
-	fadein = function(layer, tween, dt, finish)
-		if not layer.color then
-			layer.color = {1,1,1,0}
-		end
-		local alpha = layer.color[4]
-		if alpha < 1 and not finish then
-			local rate = tween[2]
-			layer.color[4] = alpha + dt / rate
-		else
-			layer.color[4] = 1
-			return 2
-		end
-	end,
-
-	fadeout = function(layer, tween, dt, finish)
-		if not layer.color then
-			layer.color = {1,1,1,1}
-		end
-		local alpha = layer.color[4]
-		if alpha > 0 and not finish then
-			local rate = tween[2]
-			layer.color[4] = alpha - dt / rate
-		else
-			layer.color[4] = 0
-			return 2
-		end
-	end,
+	-- Format: {"fadein" | "fadeout", secs}
+	fadein = fadeSetup,
+	fadeout = fadeSetup,
 
 	-- Movement --
 	mvdiff = mvCommon,

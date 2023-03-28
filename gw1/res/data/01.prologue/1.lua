@@ -37,7 +37,7 @@ Terminando de tocar sucede la explosión.]],
 	{"bg", "add", 2, args={"cafe/amiga2.png"},
 		color=res.palette("fivepm", 0), tween={"fadein", 1}},
 
-	{"bgm", "mod", "song", fade={"cmd", "setPitch", {1/3}, "fadeto", 2, 2}},
+	{"bgm", "mod", "song", fade={"cmd", {"setPitch", 1/3}, "fadeto", 2, 2}},
 
 	{"name", "amiga"}, [["¿Que fue eso?"]],
 	{"name", "Bakeritsu"}, [["¿Que fue que?"]],

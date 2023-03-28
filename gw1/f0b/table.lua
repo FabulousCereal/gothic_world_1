@@ -1,6 +1,13 @@
 -- SPDX-FileCopyrightText: 2023 Grupo Warominutes
 -- SPDX-License-Identifier: Unlicense
 
+local function clearArray(table)
+	for i = #table, 1, -1 do
+	table[i] = nil
+	end
+	return table
+end
+
 local function basicDeepCopy(orig)
 	local copy = {}
 	for key, val in pairs(orig) do
@@ -117,18 +124,27 @@ return {
 		})
 	end,
 
-	clearArray = function(table)
-		for i = #table, 1, -1 do
-			table[i] = nil
-		end
-		return table
-	end,
+	clearArray = clearArray,
 
 	clear = function(table)
 		for k, _ in pairs(table) do
 			table[k] = nil
 		end
 		return table
+	end,
+
+	moveArray = function(table, n)
+		local len = #table - n
+		if len > 0 then
+			for i = 1, len do
+				table[i] = table[i + n]
+			end
+			for i = #table, len + 1, -1 do
+				table[i] = nil
+			end
+			return table
+		end
+		return clearArray(table)
 	end,
 
 	union = function(...)

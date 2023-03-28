@@ -1,5 +1,5 @@
 return {
-	{"bgm", "set", false, 0,
+	{"bgm", "set", "song", 0,
 		source="muchtoolow2.ogg",
 		fade={"fadeto", 2/3, 4}},
 
@@ -25,27 +25,28 @@ cerca de su casa. No recuerdo su nombre, pero estaba bien buena (xD).
 
 Terminando de tocar sucede la explosión.]],
 
-	{"bgm", "mod", nil, fade={"fadeto", 0, 1}},
+	{"bgm", "mod", "song", fade={"fadeto", 0, 1}},
 	1,
 
 	{"name", false},
 	{"sfx", "sfx/explosión lejana.flac"},
-	[[.........*boom*]],
+	[[......*boom*]],
 
 	{"bg", "sync"},
 	{"bg", "mod", 2, tween={"fadeout", 1, true}},
 	{"bg", "add", 2, args={"cafe/amiga2.png"},
 		color=res.palette("fivepm", 0), tween={"fadein", 1}},
 
-	{"bgm", "cmd", nil, "setPitch", 1/3},
-	{"bgm", "mod", nil, fade={"fadeto", 2, 2}},
+	{"bgm", "mod", "song", fade={"cmd", "setPitch", {1/3}, "fadeto", 2, 2}},
 
 	{"name", "amiga"}, [["¿Que fue eso?"]],
 	{"name", "Bakeritsu"}, [["¿Que fue que?"]],
 	{"name", "amiga"}, [["Escuché una explosión."]],
 	{"name", "Bakeritsu"}, [["huh"]],
 	[[Parecía hablar en serio, pero por mas que puse atención no oí nada
-mas. Mis amigos tampoco sabían de que hablaba, afuera todo se veía normal.
+mas.]],
+
+	[[Mis amigos tampoco sabían de que hablaba, afuera todo se veía normal.
 "Debió ser un camión," dije, pero a los minutos notamos que había un humo raro
 en la calle.]],
 
@@ -53,20 +54,21 @@ en la calle.]],
 	{"bg", "add", 2, args={"cafe/amiga3.png"},
 		color=res.palette("fivepm", 0), tween={"fadein", 1}},
 	[[La chica se veía muy inquieta con todo esto, pero a mi no me parecía
-importante. Le dije en todo caso que mejor no salieramos, por las dudas. Quizás
-fue la decisión correcta. Al rato la gente de afuera se veía mareada o
-vomitando.]],
+importante. Le dije en todo caso que mejor no salieramos, por las dudas.]],
 
-	{"bg", "mod", 2, tween={"delay", .5, "fadeout", 1, true}},
-	{"bg", "add", 2, args={"cafe/amiga4.png"},
-		color=res.palette("fivepm", 0),
-		tween={"delay", .5, "fadein", 1}},
-	[[Ella entonces se levantó diciendo que iba a ver que pasaba.]],
+	[[Quizás fue la decisión correcta. Al rato la gente de afuera se veía
+mareada o vomitando.]],
 
---[=[
+--	{"bg", "mod", 2, tween={"delay", .5, "fadeout", 1, true}},
+--	{"bg", "add", 2, args={"cafe/amiga4.png"},
+--		color=res.palette("fivepm", 0),
+--		tween={"delay", .5, "fadein", 1}},
+	[[Ella entonces dijo que iria a ver que pasaba.]],
+
+
 	{"select", nil, {
 		"No vayas.",
-		"Aprovecha de traerme un helado."}
+		"Espera..."}
 	},
 	{"case", nil, {
 		{
@@ -106,11 +108,17 @@ vomitando.]],
 			reían.]],
 		},
 	}},		
---]=]
-	{"bgm", "rm"},
+
+	{"bgm", "rm", "song"},
 	{"bg", "sync"},
 	{"bg", "rm", 1, 2},
 	{"bg", "mod", color=res.palette("redbg")},
+
+	{"sfx", "freesound/71741__audible-edge__nissan-maxima-handbrake-turn_cut.flac"},
+	{"sfx", "freesound/204777__ngruber__breaking-glass_cut.flac", 1/3, .8, 4/3},
+	{"sfx", "freesound/675902__craigsmith__s38-24-big-heavy-car-crash_16.flac",
+		1, 1, 4/3},
+	{"sfx", "freesound/488158__sleepskraper__female_scream.flac", 1, 1.05, 2},
 	[[No dió ni diez pasos cuando un auto atraviesa el vidrio y justo
 golpea a la que estaba bien buena.]],
 

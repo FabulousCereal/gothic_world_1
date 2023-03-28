@@ -68,6 +68,11 @@ local fadeOps = {
 
 	delay = function(track, fadeArgs, dt, finish)
 		local secs = fadeArgs[2]
+		if secs == "remaining" then
+			local src = track.source
+			secs = (src:getDuration("seconds") - src:tell("seconds"))
+				* (1/src:getPitch())
+		end
 		if secs > 0 and not finish then
 			fadeArgs[2] = secs - dt
 		else
@@ -116,15 +121,23 @@ local trackOps = {
 	set = function(tracklist, op)
 		op[1] = getAlias(op)
 		op.source = seq.normalizeSrc(res.bgm, op.source)
-		if op[2] then
-			op.source:setVolume(op[2])
-		end
-		op.source:setLooping(op[3] ~= false)
+		op.source:setVolume(op[2] or 1)
 
-		if op[4] ~= false and not op.source:play() then
-			print("Failed to play track:", op[1])
+		local setup = {play = true, setLooping = true}
+		if op.setup then
+			setup = f0b.table.union(setup, op.setup)
 		end
-
+		for k, v in pairs(setup) do
+			if k == "play" then
+				if v then
+					op.source:play()
+				else
+					op.source:stop()
+				end
+			else
+				op.source[k](op.source, v)
+			end
+		end
 		tracklist[op[1]] = op
 	end,
 

@@ -1,7 +1,7 @@
 -- SPDX-FileCopyrightText: 2023 Grupo Warominutes
 -- SPDX-License-Identifier: Unlicense
 
-local defaultTime = 3
+local defaultTime = 7/3
 
 local badends = {
 	"Cave canem",

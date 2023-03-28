@@ -115,28 +115,43 @@ suerte?]],
 
 	[[De pronto, un estruendo de vidrios rotos llenó el ambiente.]],
 
+	{"sfx", "freesound/204777__ngruber__breaking-glass_cut.flac", 1/3, 2/3},
+	1,
 	[["¡Ba--!", fuí a gritar, cuando me dí cuenta que había sido el.]],
 
 	{"name", "Bake"},
-	[["¡Existe el paraiso!" gritó acabando de romper con el codo el
-ventanal de una tienda de guitarras. Se metió de un salto y agarró una.]],
+	{"text", [["¡Existe el paraiso!" ]], false, true},
+	{"sfx", "freesound/613879__rangoanimations__window-breaking.mp3", 1,
+		4/3},
+
+	{"text", [[gritó acabando de romper con el codo el ventanal de una
+tienda de guitarras. Se metió de un salto y agarró una.]], true},
 
 	{"name", "María"},
 	[["Dios mio..."]],
 
 	[[Me apresuré en cruzar la calle, acordándome de mirar a ambos lados
-cuando ya estaba del otro lado. ¿Que importaba eso ahora? Seguí a la tienda,
-y apenas había entrado cuando desde el fondo de la tienda apareció corriendo
-una de esas cosas.]],
+cuando ya estaba del otro lado. ¿Que importaba eso ahora?]],
 
-	[[Bake tuvo apenas tiempo de girarse, y con reflejos sobrehumanos le
-alcanzó a quebrar el cráneo con la guitarra. La criatura cayó sobre unos
-estantes y no se movió mas.]],
+	[[Seguí a la tienda, y apenas había entrado cuando desde el fondo
+apareció corriendo una de esas cosas. Bake apenas tuvo tiempo de girarse.]],
+
+	{"name", "María"},
+	{"text", [["¡¡BAKE!!"]], false, true},
+
+	{"sfx", "sfx/guitar hit.flac"},
+	1/3,
+	{"sfx", "freesound/647227__traceyregina__wooden_violin_-toss_cut.flac",
+		1, 2/3, .2},
+	{"sfx", "freesound/613879__rangoanimations__window-breaking.mp3",
+		1, 1, .2},
+	[[Con reflejos sobrehumanos, Bake le alcanzó a quebrar el cráneo con la
+guitarra. La criatura cayó sobre unos estantes y no se movió mas.]],
 
 	{"name", "Bake"},
 	[["¡MI SUEÑO DE CUMPLIÓ!"]],
 
-	{"bgm", "set", source="bake riff1.ogg"},
+	{"bgm", "set", "bakeriff", .75, source="bake riff1.ogg"},
 	{"name", "María"},
 	[[Aprovechando la adrenalina Bake conectó la guitarra a un amplificador
 con batería y se puso a tocar. Aún sonaba.]],
@@ -145,6 +160,7 @@ con batería y se puso a tocar. Aún sonaba.]],
 este chico? Me acerqué a el para estar mas segura, pero antes de poder decir
 nada Bake le subió a 11 el volumen.]],
 
+	{"bgm", "mod", "bakeriff", fade={"fadeto", 1, 1}},
 	[["¡Bake, llamarás la atención!" le dije casi gritando. "¡Bake!"]],
 
 	{"name", "Bake"},
@@ -155,14 +171,23 @@ nada Bake le subió a 11 el volumen.]],
 criatura de afuera. Bake interrumpió su solo para embocarsela en la cabeza...]],
 
 	{"bgm", "rmall"},
+	{"sfx", "freesound/676613__fivebrosstopmosyt__table-smash-1.flac"},
+	{"wait", .1, true},
+	{"sfx", "sfx/guitar hit muted.flac"},
 	[[...Destruyendo definitivamente la guitarra.]],
+	{"sfx", "freesound/346694__deleted_user_2104797__body-fall_02.flac"},
 
 	{"name", "Bake"},
 	[["¡EL PARAISO SI EXISTE DE NUEVO!"]],
 
 	{"name", "María"},
-	[[Tirando los restos a un lado fue a buscarse otra guitarra "para la
-casa."]],
+	{"text", [[Tirando los restos ]], false, true},
+	{"sfx", "freesound/647227__traceyregina__wooden_violin_-toss_cut.flac", 1, .75},
+	{"sfx", "freesound/537990__cognito-perceptu__cat-scream_denoise.flac",
+		.25, 1, .5},
+
+	{"text", [[a un lado, Bake fue a buscarse otra guitarra
+"para la casa."]], true},
 
 	[[Miré de nuevo a la criatura desplomada, y esta intentaba aún casi
 muerto de agarrame el pie. Le dí una patada en la cara y volví corriendo con
@@ -172,10 +197,16 @@ Bake.]],
 el.]],
 
 	{"name", "Bake"},
-	[["Tomá," dijo pasándome un ampli pesado apenas llegué a su lado. En
-eso, oímos crujir los trozos de vidrio de afuera. Bake levantó por reflejo otra
-guitarra, pero luego la bajó.]],
+	[["Tomá," dijo pasándome un ampli pesado apenas llegué a su lado.
+En eso, oímos crujir los trozos de vidrio de afuera.]],
 
+	{"bgm", "set", "glass", .2,
+		fade={"fadein", 1},
+		source="freesound/69911__subunit23__crushed-glass2_cut.flac"},
+
+	[[Bake levantó por reflejo otra guitarra, pero luego la bajó.]],
+
+	{"bgm", "mod", "glass", fade={"fadeout", 1/3, true}},
 	{"name", "María"},
 	[[Un chico de cabello castaño había llegado atraído por el ruido.]],
 
@@ -190,9 +221,11 @@ zombie que golpeó. Este ya había dejado de moverse.]],
 	[["¿Como te llamás?"]],
 
 	{"name", "-----"},
-	[["N-No lo recuerdo," respondió. Viendolo de cerca, el chico parecía
-haber estado cerca de la muerte. Debió golpearse la cabeza o algo así, ya
-que tenía como un derrame en el ojo.]],
+	[["N-No lo recuerdo," respondió.]],
+
+	{"name", "María"},
+	[[Viendolo de cerca, el chico parecía haber estado cerca de la muerte.
+Debió golpearse la cabeza o algo así, ya que tenía como un derrame en el ojo.]],
 
 	{"name", "Bake"},
 	[["¿Ves María? No soy el único que le afectó la droga." No pude evitar

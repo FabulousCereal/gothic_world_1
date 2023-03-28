@@ -52,7 +52,7 @@ end
 return {
 	{"name", "María"},
 	{"style", "vnMaria"},
-	{"bgm", "set", "intro", 0.1, source="newgw2-alt.ogg",
+	{"bgm", "set", "intro", .1, source="newgw2-alt.ogg",
 		fade={"fadeto", 0.5, 2}},
 	{"wait", 2},
 	[[Tuve un sueño antes del desastre.]],

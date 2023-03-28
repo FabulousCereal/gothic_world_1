@@ -39,7 +39,7 @@ local tocID = gamestate:add(toc.new(res.index, res.style.menu, vnID))
 local credID = gamestate:add(stub.new())
 local helpID = gamestate:add(stub.new())
 gamestate[tocID].tracks = f0b.jukebox.newTracklist(
-	{nil, 1, true, false, source="Pronóstico de Nieve (calliope ver).ogg"}
+	{"index", setup={play=false}, source="Pronóstico de Nieve (calliope ver).ogg"}
 )
 gamestate[tocID].background = f0b.layers.normalize({
 	{args={"menu/index.png"}, color={1, 1, 1, 1}, distance=4},

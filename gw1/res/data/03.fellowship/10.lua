@@ -156,9 +156,9 @@ guitarra. La criatura cayó sobre unos estantes y no se movió mas.]],
 	[[Aprovechando la adrenalina Bake conectó la guitarra a un amplificador
 con batería y se puso a tocar. Aún sonaba.]],
 
-	[["Que... onda," fue todo lo que atiné a decir. ¿Q-Quién era
-este chico? Me acerqué a el para estar mas segura, pero antes de poder decir
-nada Bake le subió a 11 el volumen.]],
+	[["WTF??" fue todo lo que atiné a decir. ¿Q-Quién era este chico? Me
+acerqué a el para estar mas segura, pero antes de poder decir nada Bake le
+subió a 11 el volumen.]],
 
 	{"bgm", "mod", "bakeriff", fade={"fadeto", 1, 1}},
 	[["¡Bake, llamarás la atención!" le dije casi gritando. "¡Bake!"]],
@@ -172,8 +172,7 @@ criatura de afuera. Bake interrumpió su solo para embocarsela en la cabeza...]]
 
 	{"bgm", "rmall"},
 	{"sfx", "freesound/676613__fivebrosstopmosyt__table-smash-1.flac"},
-	{"wait", .1, true},
-	{"sfx", "sfx/guitar hit muted.flac"},
+	{"sfx", "sfx/guitar hit muted.flac", 1, 1, .1},
 	[[...Destruyendo definitivamente la guitarra.]],
 	{"sfx", "freesound/346694__deleted_user_2104797__body-fall_02.flac"},
 
@@ -182,7 +181,8 @@ criatura de afuera. Bake interrumpió su solo para embocarsela en la cabeza...]]
 
 	{"name", "María"},
 	{"text", [[Tirando los restos ]], false, true},
-	{"sfx", "freesound/647227__traceyregina__wooden_violin_-toss_cut.flac", 1, .75},
+	{"sfx", "freesound/647227__traceyregina__wooden_violin_-toss_cut.flac",
+		1, .75},
 	{"sfx", "freesound/537990__cognito-perceptu__cat-scream_denoise.flac",
 		.25, 1, .5},
 

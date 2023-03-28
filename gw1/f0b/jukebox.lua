@@ -3,60 +3,34 @@
 
 local seq = require("f0b._seqCommon")
 
--- Format: {"_fade", deltaVol, timeRemaining}
-local function fadeCommon(track, fadeArgs, dt, finish)
-	local source = track.source
-	local deltaVol = fadeArgs[2]
-	local remaining = fadeArgs[3]
-	if dt > remaining or finish then
-		dt = remaining
-	end
-
-	local newVol = source:getVolume() + deltaVol * dt
-	if newVol < 0 then
-		newVol = 0
-	end
-	source:setVolume(newVol)
-
-	if remaining > 0 then
-		fadeArgs[3] = remaining - dt
+local function srcExec(src, fnName, arg, ...)
+	if fnName == "play" then
+		if arg then
+			src:play()
+		else
+			src:stop()
+		end
 	else
-		return 3
+		src[fnName](src, arg, ...)
 	end
 end
 
-local function fadeSetup(track, fadeArgs, dt, finish)
-	local startVol = track.source:getVolume()
-	local targetVol
-	local rate
-	local name = fadeArgs[1]
-	if name == "fadeout" then
-		targetVol = 0
-		rate = fadeArgs[2]
-		table.insert(fadeArgs, 3, rate)
-	elseif name == "fadein" then
-		targetVol = 1
-		rate = fadeArgs[2]
-		table.insert(fadeArgs, 3, rate)
-	else
-		if name == "fadeto" then
-			targetVol = fadeArgs[2]
-		elseif name == "fadescale" then
-			targetVol = startVol * fadeArgs[2]
-		end
-		rate = fadeArgs[3]
+-- Format: {"_fade", deltaVol, timeRemaining}
+local function jukeboxFade(track, fadeArgs, dt)
+	local src = track.source
+	src:setVolume(seq.fadeCommon(src:getVolume(), fadeArgs, dt))
+	if fadeArgs[3] <= 0 then
+		return 3, fadeArgs[3]
 	end
+end
 
-	fadeArgs[1] = "_fade"
-	fadeArgs[2] = (targetVol - startVol) / rate
-	return fadeCommon(track, fadeArgs, dt, finish)
+local function fadeSetup(track, fadeArgs, dt)
+	return seq.fadeSetup(track, fadeArgs, dt, track.source:getVolume(),
+		jukeboxFade)
 end
 
 local fadeOps = {
 	-- Volume fading --
-	-- {type, scaleFactor, rate}
-	fadescale = fadeSetup,
-		
 	-- {type, targetVol, rate}
 	fadeto = fadeSetup,
 
@@ -64,27 +38,47 @@ local fadeOps = {
 	fadein = fadeSetup,
 	fadeout = fadeSetup,
 
-	_fade = fadeCommon,
+	_fade = jukeboxFade,
 
 	delay = function(track, fadeArgs, dt, finish)
 		local secs = fadeArgs[2]
 		if secs == "remaining" then
 			local src = track.source
-			secs = (src:getDuration("seconds") - src:tell("seconds"))
-				* (1/src:getPitch())
-		end
-		if secs > 0 and not finish then
-			fadeArgs[2] = secs - dt
+			secs = 1/src:getPitch()
+				* (src:getDuration() - src:tell())
 		else
+			secs = secs - dt
+		end
+		if secs <= 0 then
+			return 2, secs
+		end
+		fadeArgs[2] = secs
+	end,
+
+	loop = function(track, fadeArgs, dt, finish)
+		local info = fadeArgs[2]
+		if type(info) ~= "table" then
+			info = {info, src:tell()}
+			fadeArgs[2] = info
+		end
+
+		local src = track.source
+		local prevPos = info[2]
+		local pos = src:tell()
+		if pos < prevPos then
+			info[1] = info[1] - 1
+		end
+		if info[1] <= 0 then
 			return 2
 		end
+		info[2] = pos
 	end,
 
 	cmd = function(track, fadeArgs, dt, finish)
-		local source = track.source
-		local cmd = fadeArgs[2]
-		source[cmd](source, unpack(fadeArgs[3]))
-		return 3
+		local src = track.source
+		local args = fadeArgs[2]
+		srcExec(src, unpack(args))
+		return 2
 	end,
 }
 
@@ -128,15 +122,7 @@ local trackOps = {
 			setup = f0b.table.union(setup, op.setup)
 		end
 		for k, v in pairs(setup) do
-			if k == "play" then
-				if v then
-					op.source:play()
-				else
-					op.source:stop()
-				end
-			else
-				op.source[k](op.source, v)
-			end
+			srcExec(op.source, k, v)
 		end
 		tracklist[op[1]] = op
 	end,

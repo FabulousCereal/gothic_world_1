@@ -307,7 +307,7 @@ limpio. Entonces Croft se miró los zapatos.]],
 	[["Pisé algo," fue todo lo que dijo, y bajó la ventana trizada.]],
 
 	{"bgm", "set", "window",
-		setup={seek=4.8, setPitch=2/3}, fade={"delay", 2, "cmd", "stop", {}},
+		setup={seek=4.8, setPitch=2/3}, fade={"delay", 2, "cmd", {"stop"}},
 		source="freesound/69911__subunit23__crushed-glass2_cut.flac"},
 	{"name", "María"},
 	[[...la cual se deshizo en pedazos.]],
@@ -316,7 +316,7 @@ limpio. Entonces Croft se miró los zapatos.]],
 	[["Perdón," dijo subiendo lo que quedaba del vidrio.]],
 
 	{"bgm", "mod", "window",
-		fade={"fadeto", .5, .5, "cmd", "play", {}, "delay", 1.1, true}},
+		fade={"fadeto", .5, .5, "cmd", {"play", true}, "delay", 1.1, true}},
 	{"name", "María"},
 	[[...que terminó de caerse por completo.]],
 
@@ -336,6 +336,7 @@ limpio. Entonces Croft se miró los zapatos.]],
 	[["YEEEEAH!"]],
 
 	{"name", "María"},
+	{"sfx", "freesound/71741__audible-edge__nissan-maxima-handbrake-turn_cut.flac"},
 	[[Falcon dió un giro de 360 grados con el auto y fuimos primero a la
 tienda de guitarras, cuando ya estaba oscuresciendo y empezando a nevar.]],
 
@@ -347,7 +348,7 @@ false, true},
 puerta estaba abierta. Croft y yo los mirabamos en silencio.]], true},
 
 	{"name", "Croft"},
-	[["A mi tambien me hace falta un cepillo," me dijo.]],
+	[["°L° A mi tambien me hace falta un cepillo," me dijo.]],
 
 	{"name", "María"},
 	[["Si, vamos."]],

@@ -6,9 +6,11 @@ return {
 	res.fun.macro.title,
 
 	[[No sé en que momento habré semi-despertado, atrapada entre los sueños
-y la realidad. Mi cabeza daba vueltas, mi consciencia iba y venía, y una
-melodía retumbaba sin fin en mi mente... Me hoztigaba, pero no tanto como el
-súbito sonido de un despertador.]],
+y la realidad.]],
+
+	[[Mi cabeza daba vueltas, mi consciencia iba y venía, y una melodía
+retumbaba sin fin en mi mente... Me hoztigaba, pero no tanto como el súbito
+sonido de un despertador.]],
 
 	{"bgm", "mod", "theme", fade={"fadeout", 3, true}},
 	{"bgm", "set", "alarm", source="weird alarm.ogg"},

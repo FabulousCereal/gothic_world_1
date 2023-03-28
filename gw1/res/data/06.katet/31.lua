@@ -139,13 +139,13 @@ vidrio roto."]],
 	[["Esperá, ¿funcionan las gasolineras si no hay luz?"]],
 
 	{"name", "Croft"},
-	[["Uhmm..." Nos miramos los cuatro entre nosotros.]],
+	[["Uhmm..." Nos miramos entre los cuatro.]],
 
 	{"name", "Falcon"},
-	[["No sé xD quizás xDD"]],
+	[["No sé xD quizás xDDD"]],
 
 	{"name", "Bake"},
-	[["lol, ¿de donde sacabas gasolina?"]],
+	[["xDDD, ¿de donde sacabas gasolina?"]],
 
 	{"name", "Falcon"},
 	[["Se la sacaba a otros autos. Tengo el maletero lleno de bidones."]],
@@ -170,13 +170,15 @@ vidrio roto."]],
 
 	{"name", "María"},
 	[[Nos metimos a la gasolinera y Falcon apagó el motor. Ibamos a
-bajarnos cuando Croft dijo que no hacía falta que fueramos todos. Salió con su
-bidón, dejando a Rocco conmigo, y se fue al otro extremo, ya que al parecer
-Falcon se metió donde había gasolina pero Croft necesitaba diesel.]],
+bajarnos cuando Croft dijo que no hacía falta que fueramos todos.]],
 
-	[[Tras unos momentos tocando cosas, nos hizo una seña con el
-pulgar. La bomba funcionaba, de alguna forma. A lo mejor tenían energía de
-emergencia, o que se yo. Me acomodé para esperar.]],
+	[[Se bajó con su bidón, dejando a Rocco conmigo, y se fue al otro
+extremo, ya que al parecer Falcon se metió donde había gasolina pero Croft
+necesitaba diesel.]],
+
+	[[Tras unos momentos tocando cosas, nos hizo una seña con el pulgar.
+La bomba funcionaba, de alguna forma. A lo mejor tenían energía de emergencia,
+o que se yo. Me acomodé para esperar.]],
 
 	[[Bake se puso a revisar los cassetes que venian en el auto, mientras
 Falcon bostezaba.]],
@@ -265,7 +267,7 @@ abandonar rápido el lugar.]],
 	[[Bake se bajó de un salto y llamó la atención de la criatura.]],
 
 	{"name", "Bake"},
-	[["Come to die, bitch."]],
+	[["Come to die, shithead."]],
 
 	{"name", "María"},
 	[[La criatura se lanzó veloz contra Bake. Bake lo esquivó y lo guió
@@ -291,20 +293,32 @@ Hizo un estruendo al caer y hasta rebotó un poco.]],
 
 	[[Estaba deformado por ambos lados, pero Falcon pudo encenderlo,
 así que nos subimos y nos fuimos antes que la criatura volviera, o que llegara
-otra. Falcon miraba los espejos ansioso hasta que la gasolinera desapareció de
-nuestra vista. Soltamos un suspiro de alivio... y sentí un olor familiar.]],
+otra.]],
+
+	[[Falcon miraba los espejos ansioso hasta que la gasolinera desapareció
+de nuestra vista. Soltamos un suspiro de alivio... y sentímos un olor.]],
 
 	{"name", "Falcon"},
 	[["¿Que demonios huele así?" preguntó Falcon. Yo y Croft miramos a
 Rocco, pero este nos miró con cara de yo no fui, y de hecho, estaba el asiento
-limpio. De ahí Croft se miró los zapatos.]],
+limpio. Entonces Croft se miró los zapatos.]],
 
 	{"name", "Croft"},
-	[["Pisé algo," fue todo lo que dijo, y bajó la ventana trizada, pero
-esta se deshizo en pedazos.]],
+	[["Pisé algo," fue todo lo que dijo, y bajó la ventana trizada.]],
 
-	[["Perdón," dijo subiendo lo que quedaba del vidrio, que terminó de
-caerse. Debió pisar lo de Rocco al dar vuelta el auto.]],
+	{"bgm", "set", "window",
+		setup={seek=4.8, setPitch=2/3}, fade={"delay", 2, "cmd", "stop", {}},
+		source="freesound/69911__subunit23__crushed-glass2_cut.flac"},
+	{"name", "María"},
+	[[...la cual se deshizo en pedazos.]],
+
+	{"name", "Croft"},
+	[["Perdón," dijo subiendo lo que quedaba del vidrio.]],
+
+	{"bgm", "mod", "window",
+		fade={"fadeto", .5, .5, "cmd", "play", {}, "delay", 1.1, true}},
+	{"name", "María"},
+	[[...que terminó de caerse por completo.]],
 
 	{"name", "Bake"},
 	[["Well, shit happens. ¿Que mas nos falta?"]],
@@ -325,9 +339,12 @@ caerse. Debió pisar lo de Rocco al dar vuelta el auto.]],
 	[[Falcon dió un giro de 360 grados con el auto y fuimos primero a la
 tienda de guitarras, cuando ya estaba oscuresciendo y empezando a nevar.]],
 
-	[[Llegamos cerca de las 18:00, y Falcon y Bake se bajaron a terminar
-de romper el ventanal a pesar que la puerta estaba abierta. Croft y yo los
-mirabamos en silencio.]],
+	{"text", [[Llegamos cerca de las 18:00, y Falcon y Bake ]],
+false, true},
+
+	{"sfx", "freesound/204777__ngruber__breaking-glass_cut.flac", .5, .8},
+	{"text", [[se bajaron a terminar de romper el ventanal a pesar que la
+puerta estaba abierta. Croft y yo los mirabamos en silencio.]], true},
 
 	{"name", "Croft"},
 	[["A mi tambien me hace falta un cepillo," me dijo.]],

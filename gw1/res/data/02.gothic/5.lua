@@ -148,10 +148,11 @@ miedo, giré sin pensarlo en un callejón.]],
 basura, pero cuando estaba por alcanzar el borde, algo me tomó. El bote se
 movió bajo mis pies.]],
 
+	{"sfx", "freesound/377888__usernamemoe__trash-can-falling_edit.flac"},
 	{"bg", "mod", tween={"fadeout", 1/6, true}},
 	[[Caí.]],
 
 	{"bg", "sync"},
 	[[Solo alcancé a ver por un momento la forma borrosa de la criatura
-antes de golpearme la cabeza en el bote. Oí ladridos, y el mundo se fue.]],
+antes de golpearme la cabeza en el suelo. Oí ladridos, y el mundo se fue.]],
 }

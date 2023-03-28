@@ -10,7 +10,7 @@ explosión.]],
 	{"sfx", "sfx/explosión cercana.flac"},
 	{"wait", 1, true},
 	{"macro", res.fun.macro.date,
-		{2011, 11, 8, 18, 34, idx=1, wait={1.5, true}}},
+		{2011, 11, 8, 18, 34, idx=1}},
 
 	{"name", "------"},
 	[[Desperté entremedio de rocas y cenizas, con un dolor que me partía la

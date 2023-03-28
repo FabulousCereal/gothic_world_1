@@ -130,10 +130,18 @@ local instructionTable = {
 		f0b.ui.regen(vn.ui, vn.style)
 	end,
 
-	sfx = function(line)
-		local sfx = res.sfx(line[2])
-		sfx:setVolume(line[3] or 1)
-		love.audio.play(sfx)
+	sfx = function(line, vn)
+		local fade = {"delay", "remaining", true}
+		if line[5] then
+			fade = {"delay", line[5], "cmd", "play", {},
+				unpack(fade)}
+		end
+		local inst = {
+			line[2], line[3],
+			source=res.sfx(line[2]), fade=fade,
+			setup={setPitch=line[4], setLooping=false, play=not line[5]},
+		}
+		f0b.jukebox.ops(vn.tracks, "set", inst)
 	end,
 
 	bg = function(line, vn)
@@ -328,10 +336,12 @@ end
 
 local function loadState(self)
 	local save = self.saveState
-	self.cur[1], self.cur[2] = unpack(save.cur)
-	if curStage(self) then
-		self.update = vnUpdateLoad
-		love.audio.setVolume(0)
+	if save.cur then
+		self.cur[1], self.cur[2] = unpack(save.cur)
+		if curStage(self) then
+			self.update = vnUpdateLoad
+			love.audio.setVolume(0)
+		end
 	end
 end
 

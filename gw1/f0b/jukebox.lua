@@ -40,7 +40,7 @@ local fadeOps = {
 
 	_fade = jukeboxFade,
 
-	delay = function(track, fadeArgs, dt, finish)
+	delay = function(track, fadeArgs, dt)
 		local secs = fadeArgs[2]
 		if secs == "remaining" then
 			local src = track.source
@@ -56,25 +56,25 @@ local fadeOps = {
 	end,
 
 	loop = function(track, fadeArgs, dt, finish)
+		local src = track.source
 		local info = fadeArgs[2]
 		if type(info) ~= "table" then
 			info = {info, src:tell()}
 			fadeArgs[2] = info
 		end
 
-		local src = track.source
 		local prevPos = info[2]
 		local pos = src:tell()
 		if pos < prevPos then
 			info[1] = info[1] - 1
 		end
-		if info[1] <= 0 then
+		if info[1] <= 0 or finish then
 			return 2
 		end
 		info[2] = pos
 	end,
 
-	cmd = function(track, fadeArgs, dt, finish)
+	cmd = function(track, fadeArgs, dt)
 		local src = track.source
 		local args = fadeArgs[2]
 		srcExec(src, unpack(args))

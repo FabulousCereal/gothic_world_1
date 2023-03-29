@@ -3,15 +3,17 @@
 
 local seq = require("f0b._seqCommon")
 
-local function srcExec(src, fnName, arg, ...)
-	if fnName == "play" then
-		if arg then
-			src:play()
+local function srcSetup(src, setup)
+	for k, v in pairs(setup) do
+		if k == "play" then
+			if v then
+				src:play()
+			else
+				src:stop()
+			end
 		else
-			src:stop()
+			src[k](src, v)
 		end
-	else
-		src[fnName](src, arg, ...)
 	end
 end
 
@@ -76,8 +78,7 @@ local fadeOps = {
 
 	cmd = function(track, fadeArgs, dt)
 		local src = track.source
-		local args = fadeArgs[2]
-		srcExec(src, unpack(args))
+		srcSetup(src, fadeArgs[2])
 		return 2
 	end,
 }
@@ -117,13 +118,11 @@ local trackOps = {
 		op.source = seq.normalizeSrc(res.bgm, op.source)
 		op.source:setVolume(op[2] or 1)
 
-		local setup = {play = true, setLooping = true}
+		local setup = {play=true, setLooping=true, setVolume=op[2] or 1}
 		if op.setup then
 			setup = f0b.table.union(setup, op.setup)
 		end
-		for k, v in pairs(setup) do
-			srcExec(op.source, k, v)
-		end
+		srcSetup(op.source, setup)
 		tracklist[op[1]] = op
 	end,
 

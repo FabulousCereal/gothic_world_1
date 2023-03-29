@@ -1,3 +1,17 @@
+local function repeatSqueal(n)
+	local fade = {}
+	local time = 1.19
+	local ins = table.insert
+	for i = 1, n do
+		ins(fade, "cmd")
+		ins(fade, {seek=0})
+		ins(fade, "fadeto")
+		ins(fade, 1 - i/n)
+		ins(fade, time)
+	end
+	return fade
+end
+
 return {
 	{"style", "vnMaria"},
 	res.fun.macro.title,
@@ -52,6 +66,11 @@ hacia el frente para hablarle.]],
 			metió el pie al acelerador. Cuando nos íbamos acercando
 			a una curva giró el volante rápido.]],
 
+			{"bgm", "set", "squeal1", 0,
+				source="freesound/71739__audible-edge__chrysler-lhs-tire-squeal-04.16.flac",
+				setup={seek=5}, fade={"fadein", .25, "delay", 1.75, "fadeout", .5, true}},
+			{"sfx", "freesound/676613__fivebrosstopmosyt__table-smash-1.flac",
+				.25, 1/3, 2},
 			{"name", "Bake"},
 			{"text", [["HOLY SH--"]], false, true},
 
@@ -59,15 +78,20 @@ hacia el frente para hablarle.]],
 			[[El auto pasó de largo la curva hasta que las
 			ruedas chocaron con la cuneta de enfrente. El auto dió
 			un salto y en el aire vi el piso de la vereda
-			acercándose por mi ventana. Grité. Cuando estaba a solo
-			centímetros las ruedas tocaron el suelo y el auto saltó
-			hacia el otro lado.]],
+			acercándose por mi ventana. Grité.]],
+
+			[[Cuando estaba a solo centímetros las ruedas tocaron
+			el suelo y el auto saltó hacia el otro lado.]],
 
 			[[Nos deslizamos por la calle en dirección a un árbol
 			mientras Falcon movía como loco el volante y Bake ponía
-			y sacaba el freno de manos. De alguna forma lo
-			esquivamos, y nos fuimos con el auto dando coletazos
-			por la calle.]],
+			y sacaba el freno de manos.]],
+
+			{"bgm", "set", "squeal2",
+				source="freesound/71738__audible-edge__chrysler-lhs-tire-squeal-03.cut.flac",
+				fade=repeatSqueal(5)},
+			[[De alguna forma lo esquivamos, y nos fuimos con el
+			auto dando coletazos por la calle.]],
 
 			{"name", "Falcon"},
 			[["Q-Quería hacer eso."]],
@@ -132,9 +156,10 @@ bien muertos."]],
 
 --	{"bg", "add", args={"falcon/que.png"}},
 	{"name", "Falcon"},
-	[["Que yo sepa no son caníbales, pero quién sabe," dijo Falcon. El
-viento sopló fuerte de nuevo así que nos metimos de nuevo a la casa. Le puse el
-seguro a la puerta.]],
+	[["Que yo sepa no son caníbales, pero quién sabe."]],
+
+	[[El viento sopló fuerte de nuevo así que nos metimos de nuevo a la
+casa. Le puse el seguro a la puerta.]],
 
 --	{"bg", "mod", args={"falcon/normal.png"}},
 	[["No te preocupes en todo caso, mejor que estén lejos," dijo por lo

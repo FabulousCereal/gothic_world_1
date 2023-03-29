@@ -214,8 +214,10 @@ pronto sentimos un ruido del otro lado. Un balbuceo.]],
 	{"name", "María"},
 	[[Un zombie grandote corría a toda velocidad hacia nosotros. Falcon
 y Bake buscaron sus armas y yo traté de salir, pero fuimos demasiado lentos.
-El zombie nos embistió con todas sus fuerzas y volcó el auto.]],
+El zombie nos embistió con todas sus fuerzas.]],
 
+	{"sfx", "freesound/634778__5plus5equalspatata__metal-crash.mp3", 2/3},
+	{"sfx", "freesound/648134__5plus5equalspatata__window-break.flac", .9, 1, 1},
 	[[Me golpée contra el techo y aterrizé en la puerta. Falcon cayó encima
 de Bake y sus cassettes, perdiendo sus armas. Rocco ladraba mientras el zombie
 se subía al lado del conductor.]],
@@ -231,16 +233,25 @@ lo que pensé. Tuve que poner ambos dedos para apretarlo. Cerré los ojos
 esperando la explosión.]],
 
 	{"name", false},
+	{"bgm", "set", "click",
+		setup={setLooping=false},
+		source="freesound/540066__nox_sound__weapon_revolver_dryfire_mono.cut.flac"},
 	[[*click*]],
 
 	{"name", "María"},
 	[[No disparaba. No la había cargado.]],
 
+	{"bgm", "mod", "click",
+		fade={"cmd", {setLooping=true, play=true}, "loop", 5, true}},
 	[[Seguí apretando, pero el arma no tenía balas, el barril solo daba
 vueltas. La criatura estaba a punto de romper el vidrio con los puños.]],
 
-	[[Justo antes de hacerlo, un tiro resonó en el aire, y la cabeza del
-zombie pareció estallar. Se desplomó a un lado y cayó del auto.]],
+	{"bgm", "sync"},
+	{"sfx", "freesound/231243__augustsandberg__desert-eagle.cut.flac"},
+	{"sfx", "freesound/346694__deleted_user_2104797__body-fall_02.flac",
+		1, 1, 1},
+	[[Entonces un tiro resonó en el aire, y la cabeza del zombie pareció
+estallar. Se desplomó a un lado y cayó del auto.]],
 
 	[[Bake y yo nos quedamos atónitos un momento, y luego nos apresuramos
 en salir.]],
@@ -272,8 +283,9 @@ abandonar rápido el lugar.]],
 	{"name", "María"},
 	[[La criatura se lanzó veloz contra Bake. Bake lo esquivó y lo guió
 lejos del auto, y después con nevios de acero esperó que se acercara y le
-disparó entre los ojos.]],
+disparó en la cabeza.]],
 
+	{"sfx", "freesound/344142__brokenphono__gunshot_002.flac", .4},
 	[[La criatura cayó de nuevo, y Bake volvió al tiempo que Falcon lograba
 escalar fuera del auto. Tenía una suela de zapatilla dibujada en la cara.]],
 
@@ -281,13 +293,14 @@ escalar fuera del auto. Tenía una suela de zapatilla dibujada en la cara.]],
 	[["¿Murió?"]],
 
 	{"name", "Bake"},
-	[["No, sigue respirando el bitchy. No bastó con dos balas, es con
+	[["No, sigue respirando el bitchy. No bastó con dos tiros, es con
 mas."]],
 
 	{"name", "Falcon"},
 	[["Déjalo, hay que guardar munición. Volteemos el auto para irnos."]],
 
 	{"name", "María"},
+	{"sfx", "freesound/634778__5plus5equalspatata__metal-crash.mp3", 1/3},
 	[[Falcon se bajó, y con Croft de vuelta lo enderezamos entre todos.
 Hizo un estruendo al caer y hasta rebotó un poco.]],
 
@@ -307,8 +320,8 @@ limpio. Entonces Croft se miró los zapatos.]],
 	[["Pisé algo," fue todo lo que dijo, y bajó la ventana trizada.]],
 
 	{"bgm", "set", "window",
-		setup={seek=4.8, setPitch=2/3}, fade={"delay", 2, "cmd", {"stop"}},
-		source="freesound/69911__subunit23__crushed-glass2_cut.flac"},
+		setup={seek=4.8, setPitch=2/3}, fade={"delay", 2, "cmd", {play=false}},
+		source="freesound/69911__subunit23__crushed-glass2.cut.flac"},
 	{"name", "María"},
 	[[...la cual se deshizo en pedazos.]],
 
@@ -317,8 +330,8 @@ limpio. Entonces Croft se miró los zapatos.]],
 
 	{"bgm", "sync"},
 	{"bgm", "mod", "window",
-		fade={"fadeto", .5, .5, "cmd", {"seek", 6.8},
-			"cmd", {"play", true}, "delay", 5/3, true}},
+		fade={"fadeto", .5, .5, "cmd", {play=true, seek=6.8},
+			"delay", 5/3, true}},
 	{"name", "María"},
 	[[...que terminó de caerse por completo.]],
 
@@ -338,14 +351,16 @@ limpio. Entonces Croft se miró los zapatos.]],
 	[["YEEEEAH!"]],
 
 	{"name", "María"},
-	{"sfx", "freesound/71741__audible-edge__nissan-maxima-handbrake-turn_cut.flac"},
+	{"bgm", "set", "window", 0,
+		setup={seek=4}, fade={"fadein", .2, "delay", 4, "fadeout", 2, true},
+		source="freesound/71739__audible-edge__chrysler-lhs-tire-squeal-04.16.flac"},
 	[[Falcon dió un giro de 360 grados con el auto y fuimos primero a la
 tienda de guitarras, cuando ya estaba oscuresciendo y empezando a nevar.]],
 
 	{"text", [[Llegamos cerca de las 18:00, y Falcon y Bake se bajaron ]],
 false, true},
 
-	{"sfx", "freesound/204777__ngruber__breaking-glass_cut.flac", .5, .8, .5},
+	{"sfx", "freesound/204777__ngruber__breaking-glass.cut.flac", .5, .8, .5},
 	{"text", [[a terminar de romper el ventanal a pesar que la
 puerta estaba abierta. Croft y yo los mirabamos en silencio.]], true},
 

@@ -1,3 +1,12 @@
+local function laAmigaSale(_, _, delay)
+	return {
+		{"bg", "mod", 2, tween={"delay", delay, "fadeout", 1, true}},
+		{"bg", "add", 2, args={"cafe/amiga4.png"},
+			color=res.palette("fivepm", 0),
+			tween={"delay", delay, "fadein", 1}},
+	}
+end
+
 return {
 	{"bgm", "set", "song", 0,
 		source="muchtoolow2.ogg",
@@ -29,7 +38,7 @@ Terminando de tocar sucede la explosión.]],
 	1,
 
 	{"name", false},
-	{"sfx", "sfx/explosión lejana.flac"},
+	{"sfx", "sfx/explosión lejana.flac", .5},
 	[[......*boom*]],
 
 	{"bg", "sync"},
@@ -37,7 +46,7 @@ Terminando de tocar sucede la explosión.]],
 	{"bg", "add", 2, args={"cafe/amiga2.png"},
 		color=res.palette("fivepm", 0), tween={"fadein", 1}},
 
-	{"bgm", "mod", "song", fade={"cmd", {"setPitch", 1/3}, "fadeto", 2, 2}},
+	{"bgm", "mod", "song", fade={"cmd", {setPitch=1/3}, "fadeto", 2, 2}},
 
 	{"name", "amiga"}, [["¿Que fue eso?"]],
 	{"name", "Bakeritsu"}, [["¿Que fue que?"]],
@@ -59,12 +68,8 @@ importante. Le dije en todo caso que mejor no salieramos, por las dudas.]],
 	[[Quizás fue la decisión correcta. Al rato la gente de afuera se veía
 mareada o vomitando.]],
 
---	{"bg", "mod", 2, tween={"delay", .5, "fadeout", 1, true}},
---	{"bg", "add", 2, args={"cafe/amiga4.png"},
---		color=res.palette("fivepm", 0),
---		tween={"delay", .5, "fadein", 1}},
+--	{"macro", laAmigaSale, .5},
 	[[Ella entonces dijo que iria a ver que pasaba.]],
-
 
 	{"select", nil, {
 		"No vayas.",
@@ -75,20 +80,20 @@ mareada o vomitando.]],
 			[["Deja que pase, no creo que sea nada," le dije para
 			que se calmara.]],
 			{"name", "amiga"},
-			[["¿Pero y si hay que salir?" respondió nerviosa.]],
-			{"bg", "mod", 2, tween={"fadeout", 1, true}},
-			{"bg", "add", 2, args={"cafe/amiga4.png"},
-				color=res.palette("fivepm", 0),
-				tween={"fadein", 1}},
+			[["¿Pero y si es grave?" respondió nerviosa.]],
+
+			{"macro", laAmigaSale, 0},
+
 			{"name", "Bakeritsu"},
 			[[La chica partió de todas formas a asomarse mientras
 			nosotros nos quedamos esperando.]],
+
 			{"name", "amigo"},
 			[["...Está buena en todo caso," dijo mi amigo.]],
 			{"name", "amigo2 que secretamente es gay"},
 			[["Yeah."]],
 			{"name", "Bakeritsu"},
-			[["Lol, si," dije mientras mis amigos reían en
+			[["lol, si," dije mientras mis amigos reían en
 			silencio.]],
 		},
 
@@ -99,11 +104,9 @@ mareada o vomitando.]],
 			[["¿Que?"]],
 			{"name", "Bakeritsu"},
 			[["...Traeme un helado ya que te paraste, lol."]],
-			{"bg", "mod", 2,
-				tween={"delay", .75, "fadeout", 1, true}},
-			{"bg", "add", 2, args={"cafe/amiga4.png"},
-				color=res.palette("fivepm", 0),
-				tween={"delay", .75, "fadein", 1}},
+
+			{"macro", laAmigaSale, .75},
+
 			[[La chica me miró feo y partió mientras mis amigos
 			reían.]],
 		},
@@ -114,9 +117,9 @@ mareada o vomitando.]],
 	{"bg", "rm", 1, 2},
 	{"bg", "mod", color=res.palette("redbg")},
 
-	{"sfx", "freesound/71741__audible-edge__nissan-maxima-handbrake-turn_cut.flac"},
-	{"sfx", "freesound/204777__ngruber__breaking-glass_cut.flac", 1/3, .8, 4/3},
-	{"sfx", "freesound/675902__craigsmith__s38-24-big-heavy-car-crash_16.flac",
+	{"sfx", "freesound/71741__audible-edge__nissan-maxima-handbrake-turn.cut.flac"},
+	{"sfx", "freesound/204777__ngruber__breaking-glass.cut.flac", 1/3, .8, 4/3},
+	{"sfx", "freesound/675902__craigsmith__s38-24-big-heavy-car-crash.16.flac",
 		1, 1, 4/3},
 	{"sfx", "freesound/488158__sleepskraper__female_scream.flac", 1, 1.05, 2},
 	[[No dió ni diez pasos cuando un auto atraviesa el vidrio y justo

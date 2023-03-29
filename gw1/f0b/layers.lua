@@ -85,7 +85,7 @@ local tweenOps = {
 
 	-- Delay --
 	-- Format: {"delay", secs}
-	delay = function(layer, tween, dt, finish)
+	delay = function(layer, tween, dt)
 		local secs = tween[2] - dt
 		if secs <= 0 then
 			return 2, secs
@@ -103,7 +103,7 @@ local tweenOps = {
 	mvabs = mvCommon,
 }
 
-local function layerUpdate(layerTable, dt, endTween)
+local function layerUpdate(layerTable, dt, finish)
 	for i = #layerTable, 1, -1 do
 		local layer = layerTable[i]
 		local drawable = layer.args[1]
@@ -113,7 +113,7 @@ local function layerUpdate(layerTable, dt, endTween)
 		local tween = layer.tween
 		if tween and #tween > 0 then
 			local remove = seq.update(tweenOps, layer, tween, dt,
-				endTween)
+				finish)
 			if remove == true then
 				table.remove(layerTable, i)
 			end
@@ -261,7 +261,9 @@ return {
 		return layerTable
 	end,
 
-	update = layerUpdate,
+	update = function(layerTable, dt)
+		return layerUpdate(layerTable, dt, false)
+	end,
 
 	draw = layerDraw,
 }

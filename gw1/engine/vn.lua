@@ -7,7 +7,7 @@ local function initVars(vn)
 	local vars = f0b.table.struct.new({"_idx1", "_idx2", "_title1", "_title2"})
 	local c1, c2 = unpack(vn.cur)
 	local chap = vn.index[c1]
-	vars["_idx1"] = c1 - vn.index.offset
+	vars["_idx1"] = c1 + vn.index.offset
 	vars["_idx2"] = c2
 	vars["_title1"] = chap.name
 	vars["_title2"] = chap[c2][1]
@@ -21,9 +21,9 @@ local function stateReset(vn, keepRes)
 	vn.unskippable = false
 	vn.selectTarget = false
 	vn.style = vn.initStyle
-	f0b.table.clear(vn.settings)
 	vn.stackVars = {}
 	vn.path = {}
+	f0b.table.clear(vn.settings)
 	initVars(vn)
 
 	local ui = vn.ui
@@ -90,7 +90,6 @@ local function setErrorStage(self, ...)
 end
 
 local function loadStage(self, offset, keepRes)
-	stateReset(self, keepRes)
 	local name, ok, result = getStage(self, offset)
 	if name then
 		if ok then
@@ -99,6 +98,7 @@ local function loadStage(self, offset, keepRes)
 			setErrorStage(self, name, ": load failed\n\n", result)
 		end
 	end
+	stateReset(self, keepRes)
 	return name, ok
 end
 
@@ -132,7 +132,7 @@ local instructionTable = {
 	sfx = function(line, vn)
 		local fade = {"delay", "remaining", true}
 		if line[5] then
-			fade = {"delay", line[5], "cmd", {"play", true},
+			fade = {"delay", line[5], "cmd", {play=true},
 				unpack(fade)}
 		end
 		local inst = {

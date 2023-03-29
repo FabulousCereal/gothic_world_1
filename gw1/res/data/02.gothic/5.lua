@@ -148,10 +148,14 @@ miedo, giré sin pensarlo en un callejón.]],
 basura, pero cuando estaba por alcanzar el borde, algo me tomó. El bote se
 movió bajo mis pies.]],
 
-	{"sfx", "freesound/377888__usernamemoe__trash-can-falling_edit.flac"},
+	{"sfx", "freesound/377888__usernamemoe__trash-can-falling.edit.flac", 1, 4/3},
+	{"sfx", "freesound/648134__5plus5equalspatata__window-break.flac", 1/3, 1, .5},
 	{"bg", "mod", tween={"fadeout", 1/6, true}},
 	[[Caí.]],
 
+	{"bgm", "set", "click",
+		fade={"loop", 3, true},
+		source="freesound/540066__nox_sound__weapon_revolver_dryfire_mono.cut.flac"},
 	{"bg", "sync"},
 	[[Solo alcancé a ver por un momento la forma borrosa de la criatura
 antes de golpearme la cabeza en el suelo. Oí ladridos, y el mundo se fue.]],

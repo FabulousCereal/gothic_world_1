@@ -115,7 +115,7 @@ suerte?]],
 
 	[[De pronto, un estruendo de vidrios rotos llenó el ambiente.]],
 
-	{"sfx", "freesound/204777__ngruber__breaking-glass_cut.flac", 1/3, 2/3},
+	{"sfx", "freesound/204777__ngruber__breaking-glass.cut.flac", 1/3, 2/3},
 	1,
 	[["¡Ba--!", fuí a gritar, cuando me dí cuenta que había sido el.]],
 
@@ -141,7 +141,7 @@ apareció corriendo una de esas cosas. Bake apenas tuvo tiempo de girarse.]],
 
 	{"sfx", "sfx/guitar hit.flac"},
 	1/3,
-	{"sfx", "freesound/647227__traceyregina__wooden_violin_-toss_cut.flac",
+	{"sfx", "freesound/647227__traceyregina__wooden_violin_-toss.cut.flac",
 		1, 2/3, .2},
 	{"sfx", "freesound/613879__rangoanimations__window-breaking.mp3",
 		1, 1, .2},
@@ -156,8 +156,8 @@ guitarra. La criatura cayó sobre unos estantes y no se movió mas.]],
 	[[Aprovechando la adrenalina Bake conectó la guitarra a un amplificador
 con batería y se puso a tocar. Aún sonaba.]],
 
-	[["WTF??" fue todo lo que atiné a decir. ¿Q-Quién era este chico? Me
-acerqué a el para estar mas segura, pero antes de poder decir nada Bake le
+	[["Que... onda" fue todo lo que atiné a decir. ¿Q-Quién era este chico?
+Me acerqué a el para estar mas segura, pero antes de poder decir nada Bake le
 subió a 11 el volumen.]],
 
 	{"bgm", "mod", "bakeriff", fade={"fadeto", 1, 1}},
@@ -174,16 +174,16 @@ criatura de afuera. Bake interrumpió su solo para embocarsela en la cabeza...]]
 	{"sfx", "freesound/676613__fivebrosstopmosyt__table-smash-1.flac"},
 	{"sfx", "sfx/guitar hit muted.flac", 1, 1, .1},
 	[[...Destruyendo definitivamente la guitarra.]],
-	{"sfx", "freesound/346694__deleted_user_2104797__body-fall_02.flac"},
 
+	{"sfx", "freesound/346694__deleted_user_2104797__body-fall_02.flac"},
 	{"name", "Bake"},
 	[["¡EL PARAISO SI EXISTE DE NUEVO!"]],
 
 	{"name", "María"},
 	{"text", [[Tirando los restos ]], false, true},
-	{"sfx", "freesound/647227__traceyregina__wooden_violin_-toss_cut.flac",
+	{"sfx", "freesound/647227__traceyregina__wooden_violin_-toss.cut.flac",
 		1, .75},
-	{"sfx", "freesound/537990__cognito-perceptu__cat-scream_denoise.flac",
+	{"sfx", "freesound/537990__cognito-perceptu__cat-scream.denoise.flac",
 		.25, 1, .5},
 
 	{"text", [[a un lado, Bake fue a buscarse otra guitarra
@@ -202,7 +202,7 @@ En eso, oímos crujir los trozos de vidrio de afuera.]],
 
 	{"bgm", "set", "glass", .2,
 		fade={"fadein", 1},
-		source="freesound/69911__subunit23__crushed-glass2_cut.flac"},
+		source="freesound/69911__subunit23__crushed-glass2.cut.flac"},
 
 	[[Bake levantó por reflejo otra guitarra, pero luego la bajó.]],
 

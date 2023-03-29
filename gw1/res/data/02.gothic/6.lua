@@ -32,7 +32,7 @@ en una cama.]], true},
 
 	[[¿Donde estaba? No reconocía el lugar, eso era seguro.]],
 
-	[["¿Habrá sido un sueño?" Sentí una sensación de alivio y paz, y solté
+	[["¿Habrá sido un sueño?" Sentí una sensación de alivio, y solté
 un suspiro. Recordé esa crisis de pánico. Que bueno que no fue
 real. Vivir así sería demasiado terrible... no lo aguantaría de verdad.]],
 
@@ -44,7 +44,7 @@ tirada. Escuché ladridos.]],
 estaba protegida de todo aquello. El aire era cálido y acogedor.]],
 
 	[[Ese sueño me dejó tan agotada emocionalmente que hasta me dieron
-ganas de dormirme de nuevo, pero tal vez sería mejor que me levantara. Noté una
+ganas de dormirme de nuevo, pero tal vez sería mejor levantarme. Noté una
 nota en el estante junto al despertador.]],
 
 	{"bg", "add", args={"bake/nota.png"}},
@@ -96,54 +96,66 @@ arma.]],
 
 	{"bgm", "set", "gunshot",
 		source="freesound/344143__brokenphono__gunshot_001.flac",
-		fade={"delay", 1.5, "cmd", {"setLooping", false}, "delay", 2, true}},
+		fade={"loop", 4, "cmd", {play=false}}},
 	.5,
 
 	[[El chico comenzó a disparar por la ventana, y yo me escondí
 cubriéndome los oídos. ¿Que estaba sucediendo? ¿Por que me trajo acá? ¿Y que
-querría de mí? No lo había visto nunca, ni sabía si iba o no a
-lastimarme, pero a la vista, parecía... un buen chico.]],
+querría de mí?]],
 
-	[[Entonces oí entre disparos unos gemidos atroces desde afuera, que
+	[[No lo había visto nunca, ni sabía si iba o no a lastimarme, pero a la
+vista, parecía... un buen chico.]],
+
+	[[Entonces oí tras los disparos unos gemidos atroces desde afuera, que
 me helaron la sangre. Si esos ruidos inhumanos no eran de gente... es que tal
 vez no había despertado de ningún sueño.]],
 
-	[[No, no podía ser cierto, tenía que confirmarlo. Entré con sigilo a la
-cocina. El chico estaba demasiado pendiente de lo que había afuera para notar
-mi presencia. Miré por la ventana.]],
+	[[No, no podía ser cierto, tenía que confirmarlo. Entré con cautela a
+la cocina. El chico estaba demasiado pendiente de lo que había afuera para
+notar mi presencia. Miré por la ventana.]],
 
 	[[Por primera vez ví a las criaturas en directo. Eran dos personas con
 una piel nauseabunda, color verde petroleo, con el pelo casi completamente
-caído. Sangraban un espeso liquido marrón al ser impactados, pero a pesar de
+caído.]],
+
+	[[Sangraban un espeso liquido marrón al ser impactados, pero a pesar de
 que el chico había derribado al mas pequeño a tiros, este seguía vivo.]],
 
 	[[Las manos del chico temblaban. No sabía si le quedaban balas para el
-mas grande. Entonces recordé que si esto no era un sueño, debía seguir con las
-mismas cosas encima. Busqué en mis bolsillos. Aún poseía mi navaja.]],
+mas grande. Entonces recordé que si esto no era un sueño, debía aún tener mis
+cosas encima. Revisé mis bolsillos. Aún poseía mi navaja.]],
 
 	[[Le hablé al chico. Esté se sorprendió al verme tan de pronto, pero al
 ver la navaja lo único que atinó a hacer fue una gran sonrisa. La tomó de mis
 manos y salió al campo de batalla.]],
 
-	{"bgm", "set", source="prelude2_famicom.ogg"},
+	{"bgm", "set", "famicom", source="prelude2_famicom.ogg"},
 	[[A pesar del aspecto terrorífico de las criaturas, el movimiento de
-estas era torpe y lento. El chico botó el agua de una cubeta y se la tiró por
-la cabeza al grande para distraerlo. Corrió hacia la criatura por el costado,
-y antes de que esta pudiera atacarlo, le enterró la navaja en el cuello.]],
+estas era torpe y lento.]],
+
+	[[El chico botó el agua de una cubeta y se la tiró por la cabeza al
+grande para distraerlo. Corrió hacia la criatura por el costado, y antes de que
+esta pudiera atacarlo, le enterró la navaja en el cuello.]],
 
 	[[A la criatura no le importó. Golpeó al chico con el brazo en la
 cabeza, pero el pareció resistirlo bien.]],
 
 	[[El chico probó a realizar ataques veloces, haciendole cortes en el
 cuello y retirandose de un salto. La criatura lo atrapó en uno de sus ataques,
-pero el chico se safó rápido y volvió a arremeter. La criatura por fín empezó a
-tambalearse, y cayó al suelo mientras mas de ese líquido brotaba de su herida.]],
+pero el chico se safó rápido y volvió a arremeter.]],
 
-	{"bgm", "mod", fade={"fadeout", 1/3, true}},
-	[[Al final, el chico lo remató con un disparo detrás la cabeza, e hizo
-lo mismo con el pequeño que ya había logrado levantarse. Con ambos muertos, el
-chico volvió corriendo a la cocina, jadeando. Fue cuando se acercó que noté sus
-enormes ojos marrones.]],
+	[[La criatura por fín empezó a tambalearse, y cayó al suelo mientras
+mas de ese líquido brotaba de su herida.]],
+
+	{"bgm", "mod", "famicom", fade={"fadeout", 1/3, true}},
+	{"bgm", "mod", "gunshot",
+		fade={"delay", 1, "cmd", {play=true, setLooping=false},
+			"delay", 1, true}},
+	[[Al final, el chico lo remató con un disparo en la cabeza, e hizo
+lo mismo con el pequeño que ya había logrado levantarse.]],
+
+	[[Con ambos muertos, el chico volvió corriendo a la cocina, jadeando.
+Fue cuando se acercó que noté sus enormes ojos marrones.]],
 
 	[[De pelo negro hasta los hombros, un metro setenta y cinco. Si,
 viendolo de cerca, parecía un buen chico... y entonces recordé la nota. El
@@ -169,9 +181,14 @@ ejercicio y la adrenalina. Se notaba era atlético. El sonrió de vuelta.]],
 	[["María," respondí sin dudarlo. "¿Y el tu--?"]],
 
 	[[El chico de pronto se abalanzó sobre mi, quedando su cara en mi
-pecho. Pensé que ahora si estaba segura de que era un depravado, pero resultó
-que se había desmayado. Lo sujeté con todas mis fuerzas para que no se cayera.
-Su cuerpo se sentía cálido, a pesar que tenía muy poca ropa para este frio.]],
+pecho.]],
+
+	[[Pensé que ahora si estaba segura de que era un depravado, pero
+resultó que se había desmayado. Lo sujeté con todas mis fuerzas para que no se
+cayera.]],
+
+	[[Su cuerpo se sentía cálido, a pesar que tenía muy poca ropa para este
+frio.]],
 
 	[[Logré llevarlo —arrastrarlo— con gran esfuerzo hasta un sillón, y
 cuando fuí a recostarlo, descubrí una mancha de sangre formándose atrás en su
@@ -181,14 +198,16 @@ polera.]],
 frenar el sangrado. Tras haberme traído acá, era lo mínimo que podía hacer.]],
 
 	[[Pasaron unos minutos en que el chico seguía inconsciente. Me pregunté
-que hacía acá solo. ¿No habían evacuado? ¿Que pasó con la gente entonces? Las
-calles estaban demasiado vacias para que todos se hayan... transformado. No
-podía ser.]],
+que hacía acá solo. ¿No habían evacuado?]],
+
+	[[¿Que pasó con la gente entonces? Las calles estaban demasiado vacias
+para que todos se hayan... transformado. No podía ser.]],
 
 	[[Si había un rescate, tal vez aún había tiempo. Lavé mi navaja con
-agua y cloro y me dispuse a dar una vuelta para explorar. Como no encontré
-un lápiz, le dejé al chico su misma nota en la mesa antes de partir, con el
-despertador puesto a las 1:15pm, por si acaso.]],
+agua y cloro y me dispuse a dar una vuelta para explorar.]],
+
+	[[Como no encontré un lápiz, le dejé al chico su misma nota en la mesa
+antes de partir, con el despertador puesto a las 1:15pm, por si acaso.]],
 
 	[[Salí dejando la puerta junta para cuando volviera, y el perro del
 chico me siguió olfateándome hasta la puerta de la calle, y me miró mientras me

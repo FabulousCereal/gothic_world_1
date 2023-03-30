@@ -168,16 +168,22 @@ mejor. Asi que eso hicimos.]],
 
 	{"bg", "mod", tween={"fadeout", 4/6, true}},
 	{"wait", 4/3},
-	{"bg", "add", 1, args={"bake/y su amigo.png"},
+	{"bg", "add", args={"bake/y su amigo.png"},
 		color=res.palette("sixpm", 0), tween={"fadein", 4/6}},
 	{"wait", 1},
 	[[Posiblemente eso fue lo que me salvó.]],
 
 	{"bg", "sync"},
-	{"bg", "mod", tween={"fadeout", 1, true}},
-	{"wait", 2/3},
+	{"bg", "mod", tween={"fadeout", 4/6, true}},
+	{"wait", 4/6},
+
+	{"bg", "add", args={"bake/amigos-en-el-living.png"},
+		color=res.palette("sixpm", 0, 1.1), tween={"fadein", 4/6}},
 	[[Envueltos solo con la luz del crepúsculo, salimos de la ducha y nos
 fuimos al living. Mis amigos ya habían prendido la tele...]],
+	{"bg", "sync"},
+	{"bg", "mod", tween={"fadeout", 4/6, true}},
+	{"wait", 1},
 }
 
 --[=[	[[Resultó que esto era mas grande de lo que pensamos. Estaba la

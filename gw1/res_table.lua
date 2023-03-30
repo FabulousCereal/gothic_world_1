@@ -16,7 +16,7 @@ return {
 		tenpm = {.6, .6, .75},
 		redbg = {1, 0, 0},
 		fivepm = {1, .75, .45},
-		sixpm = {.6, .4, .5},
+		sixpm = {.75, .5, .7},
 		softAfternoon = {1, .95, .8},
 	},
 

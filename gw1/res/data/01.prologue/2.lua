@@ -81,31 +81,39 @@ el humo negro empezó a entrar en el aeropuerto.]],
 	{"bg", "mod", tween={"fadeout", 1, true}},
 	[[Este no era mi primer rodeo. Todos los que sobrevivimos la catástrofe
 en Valdemar sabiamos que hacer, asi que me tiré al suelo tapándome la
-nariz y gatée hasta la salida. Afuera las cosas ya estaban empezando a
-descontrolarse. Los aviones daban vueltas sin poder aterrizar.]],
+nariz y gatée hasta la salida.]],
 
-	[[Y ahora... me encontraba de noche en la ciudad, vagando y tratando de
+	[[Afuera las cosas ya estaban empezando a descontrolarse. Los aviones
+daban vueltas sin poder aterrizar.]],
+
+	[[Y ahora... me encontraba vagando de noche en la ciudad, tratando de
 buscar un lugar donde alojarme.]],
 
 	{"bgm", "set", source="haba-faba in da house, yo.ogg"},
-	[[Las calles estaban casi desoladas. El tráfico silencioso, el aire
-estancado. Nada se movía bajo la luz de los faroles.]],
+	[[Las calles estaban casi desoladas. Las sirenas en la distancia, el
+aire estancado. Nada se movía bajo la luz de los faroles.]],
 
-	[[No conozco bien la capital pero esperaría que lo normal fuera un poco
+	[[No conocía bien la capital, pero esperaba que lo normal fuera un poco
 mas de actividad, ¿eh? A ratos, un molesto olor a humedad se sentía y se iba.]],
 
+	{"bg", "add", args={"fab/hostal.png"}, tween={"fadein", 1}},
 	[[Terminé llegando a un lugar, no se si un hostal o un motel, pero la
-recepción estaba vacía. Vacía del tipo, seguramente podría meterme a dormir sin
-que nadie me detuviera.]],
+recepción estaba vacía.]],
 
-	[[Esperé durante varios minutos pero como se estaba haciendo muy tarde
+	[[Vacía del tipo, seguro podría meterme a dormir sin que nadie me
+detuviera.]],
+
+	[[Esperé por varios minutos pero como se estaba haciendo muy tarde
 salté sobre el mostrador, tomé cualquier juego de llaves, y entré a buscarles
 la habitación. Podía dar explicaciones después.]],
 
+	{"bg", "mod", tween={"fadeout", 1, true}},
 	[[Los corredores estaban vacios. Escuchaba una tele de alguna
-habitación, pero no veía gente. Aun tenía un poco del olor metálico del humo en
-la nariz. Llegué a mi cuarto y cerré todo, y me dí una ducha antes de poner las
-noticias...]],
+habitación, pero no veía gente. En el patio habían tuberías y palas tiradas,
+probablemente estaban remodelando.]],
+
+	[[Llegué a mi cuarto y cerré todo, y como tenía aún el olor metálico
+del humo metido en la nariz, me dí una ducha antes de poner las noticias...]],
 
 	{"bgm", "mod", fade={"fadeout", 2/3, true}},
 	{"wait", 2/3},

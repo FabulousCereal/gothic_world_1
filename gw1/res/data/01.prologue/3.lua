@@ -13,7 +13,7 @@ explosión.]],
 		{2011, 11, 8, 18, 34, idx=1}},
 
 	{"name", "------"},
-	[[Desperté entremedio de rocas y cenizas, con un dolor que me partía la
+	[[Desperté cubierto de rocas y cenizas, con un dolor que me partía la
 cabeza. Tenía la boca seca y la piel me ardía.]],
 
 	{"bg", "add", args={"croft/street_crappy_test_by_croft70-d57ige5.png", 0, 0,
@@ -32,25 +32,29 @@ no pude recordar su nombre.]],
 fueron perros.]],
 
 	[[Me puse de pie apoyándome en lo que quedaba de la pared mas cercana.
-La cabeza me daba vueltas. Había un horrendo olor metálico que no me dejaba
-respirar. Humo salía aún del edificio. No entendía nada de lo que pasaba.]],
+La cabeza me daba vueltas.]],
+
+	[[Había un horrendo olor metálico que no me dejaba respirar. Humo salía
+aún del edificio. No entendía nada de lo que pasaba.]],
 
 	[[Mi pierna derecha parecía no responderme, así que caí al tratar de
-dar un paso. "Necesito un hospital" fue lo único que pude pensar. Al
-levantar la mirada, pude ver algunos carros abandonados. Sus puertas habían
-quedado abiertas.]],
+dar un paso.]],
+
+	[["Necesito un hospital" fue lo único que pude pensar. Al levantar la
+mirada, pude ver algunos carros abandonados. Sus puertas habían quedado
+abiertas.]],
 
 	{"bg", "mod", tween={"fadeout", 1/3, true}},
-	{"text", [[Me arrastré hasta uno y utilicé mis instintos para volverlo
+	[[Me arrastré hasta uno y utilicé mis instintos para volverlo
 a prender sin usar las llaves. El motor cobró vida de inmediato y el tablero se
-iluminó.]], false, true},
+iluminó.]],
 
 	{"bg", "add", args={res.fun.clock.alarm(
 			res.style.carClockAlarm, 17, 34)},
 		color={1, 1, 1, 0},
 		tween={"fadein", 1/6},
 	},
-	{"text", [[ El reloj marcaba las 17:34.]], true},
+	[[El reloj marcaba las 17:34.]],
 
 	{"bg", "mod", tween={"delay", 2, "fadeout", 1/12, true}},
 
@@ -59,9 +63,10 @@ debería ser familiar, pero los nombres de la calles no me sonaban, lo único qu
 sabía era que se conducía por la derecha.]],
 
 	[[Mientras iba manejando veía a personas que al parecer estaban
-delirando, quizás solo un poco peor que yo. A momentos se me iba la
-consciencia, pero milagrosamente sobrevivimos yo y el auto hasta que una
-señalética me indicó donde había un hospital.]],
+delirando, quizás solo un poco peor que yo.]],
+
+	[[A momentos se me iba la consciencia, pero milagrosamente sobrevivimos
+yo y el auto hasta que una señalética me indicó donde había un hospital.]],
 
 	[[Estacioné afuera en la calle, no le puse seguro porque no tenía las
 llaves. Pude cogear hasta la entrada para que me atendieran por el pie y otras
@@ -76,34 +81,47 @@ señoras llorando por sus hijos, hijas, o familiares. Pensé en mi chica una vez
 más, debí haberla buscado mejor, no sabía que tan grave fue lo que ocurrió.]],
 
 	[[La explosión debió ser muy fuerte, o el humo que salía era
-tóxico. Me sentía mareado aún, pero por lo menos no estaba delirando. Fuí al
-baño a beber agua, y noté un derrame en mi ojo izquierdo, que a estas alturas
-ni me pareció importante.]],
+tóxico. Me sentía mareado aún, pero por lo menos no estaba delirando.]],
 
+	{"bg", "add", args={"zeh/bg/falcon/ojo.png"}, tween={"fadein", 1}},
+	[[Fuí al baño a beber agua, y noté un derrame en mi ojo izquierdo, que
+a estas alturas ni me pareció importante.]],
+
+	{"bg", "mod", tween={"fadeout", 1, true}},
 	[[Pasada una hora en el hospital, me aburrí porque nadie me había
-visto, y entré en pánico. Me metí a los pasillos y fuí con un maldito doctor
-que estaba mirando papeles y le rogué que me atendiera.]],
+visto, y entré en pánico.]],
+
+	{"bg", "add", args={"zeh/bg/falcon/dr.png"}, tween={"fadein", 1}},
+	[[Me metí a los pasillos y fuí con un maldito doctor que estaba mirando
+papeles y le rogué que me atendiera.]],
 
 	[[El doctor, al ver que estaba actuando como loco, me golpeó y me dijo
-que me calmara. Me preguntó como me sentía, le dije que no sabía que tenía en
-mi pierna. Me llevó hasta una silla porque estaban todos los cubículos ocupados
-y me comenzó a checar.]],
+que me calmara.]],
+
+	[[Me preguntó como me sentía, le dije que no sabía que tenía en mi
+pierna. Me llevó hasta una silla porque estaban todos los cubículos ocupados y
+me comenzó a checar.]],
 
 	[[Me dijo que tenía un esguince, que solo descansara y que me mejoraría
-en unos días. Por el mareo no podía hacer nada, que respirara aire fresco nada
+en unos días.]],
+
+	[[Contra el mareo no podía hacer nada, que respirara aire fresco nada
 mas. Claro. El doctor logró conseguir algunas vendas para el pie y con eso
 me fuí de ahí.]],
 
+	{"bg", "mod", tween={"fadeout", 1, true}},
 	[[Salí rápido a buscar el carro porque una niña comenzó a balbucear y
 tratar de morder a su padre, o no sé que será suyo.]],
 
 	[[Una vez me subí al carro apoyé la cabeza en el mando sin saber que
-hacer. El dolor y el mareo habían pasado un poco, pero tenía la mente en
+hacer.]],
+
+	[[El dolor y el mareo habían pasado un poco, pero tenía la mente en
 blanco. No podía recordar donde vivía. Ninguna imagen o dirección. Me revisé
 los bolsillos, buscando alguna identificación o un celular.]],
 
-	[[...Nada, pero tenía unos billetes que reconocía. Por lo
-menos sé que vivo en este país.]],
+	[[...Nada, pero tenía unos billetes que reconocía. Por lo menos sé que
+vivo en este país.]],
 
 	[[Sin rumbo claro, comencé a dar vueltas esperando encontrar algún
 policía que me pudiera ayudar, o en el caso mas rebuscado darme cuenta de donde
@@ -126,18 +144,22 @@ y fuí hasta una habitación, dejándome caer sobre la cama blanca.]],
 	[[Estaba todo tan callado, pacífico. Las sábanas olían aún a
 detergente y tenía un techo sobre la cabeza. Todo esto era impagable.]],
 
+	{"bg", "add", args={"zeh/bg/falcon/cama.png"}, tween={"fadein", 1}},
 	[[Abrí los ojos y me ví reflejado en un espejo. No se me ocurrió
 pensar porque había un espejo en el techo, solo me fijé que estaba herido por
 todos lados. Parecía un boxeador que ya debería salir del ring.]],
 
 	[[Pensé de nuevo en mi chica. Veía su cara aún como si la tuviera
-frente a mi. Sé que la conocía hace mucho, pero por mas que me esforzaba no
-podía darle nombre, y no podía ver nada previo a aquél momento. No sabía ni que
-clase de vida llevaba.]],
+frente a mi.]],
+
+	[[Sé que la conocía hace mucho, pero por mas que me esforzaba no podía
+darle nombre, y no podía ver nada previo a aquél momento. No sabía ni que clase
+de vida llevaba.]],
 
 	[[Notando el control remoto sobre la mesa, hice un último esfuerzo y
 encendí la televisión, aunque fuera para ver porno.]],
 
+	{"bg", "mod", tween={"fadeout", 1, true}},
 	{"sfx", "sfx/crt on.flac"},
 	[[Sonó el golpe eléctrico que hacían las teles antiguas, y poco a poco
 la pantalla cobró brillo.]],

@@ -54,14 +54,14 @@ gamestate[helpID].background = {
 
 local confBG = f0b.layers.normalize({
 	{args={{
-		{args={"zeh/conf.png"}},
+		{args={"zeh/menu/conf.png"}},
 		{args={f0b.elem.circle, w/2, h/2, 0, w/2}, color=elemColor},
 	}}},
 })
 local mainBG = f0b.layers.normalize({
 	{args={{
 --		{args=menuScreen(res.style.title, w, h)},
-		{args={"zeh/main.png"}},
+		{args={"zeh/menu/main.png"}},
 		{args=f0b.elem.screenFill(.9), color=elemColor},
 	}}},
 })

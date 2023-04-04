@@ -108,4 +108,8 @@ Aquella vida que vivimos...]]},
 		{"Ziggurat", "0_ziggurat"},
 		{"El Futuro", "1_futuro"}
 	},
+
+	globals = {
+		"DespiertaDonde"
+	},
 }

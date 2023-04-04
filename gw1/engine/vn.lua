@@ -429,7 +429,7 @@ return {
 			selectTarget = nil,
 			returnValue = nil,
 			settings = nil,
-			gVars = {},
+			gVars = f0b.table.struct.new(index.globals),
 			stackVars = {},
 			vars = nil,
 

@@ -12,7 +12,7 @@ local function basicDeepCopy(orig)
 	local copy = {}
 	for key, val in pairs(orig) do
 		if type(val) == "table" then
-			copy[key] = basicDeepCopy(val)
+			copy[key] = setmetatable(basicDeepCopy(val), getmetatable(val))
 		else
 			copy[key] = val
 		end

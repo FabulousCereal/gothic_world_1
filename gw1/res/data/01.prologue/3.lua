@@ -8,6 +8,11 @@ explosión.]],
 	{"bg", "add", args=f0b.elem.screenFill, color={1,1,1,1},
 		tween={"fadeout", 6, true}},
 	{"sfx", "sfx/explosión cercana.flac"},
+	{"bgm", "set", "fire", 0,
+		fade={"fadein", 12},
+		source="freesound/369983__northern87__barbecue-fire.ogg"},
+	{"bgm", "set", "siren", .1, setup={seek=15},
+		source="freesound/498187__16fpanskalan_jiri__14-1_ambulance.16.flac"},
 	{"wait", 1, true},
 	{"macro", res.fun.macro.date,
 		{2011, 11, 8, 18, 34, idx=1}},
@@ -49,6 +54,7 @@ abiertas.]],
 a prender sin usar las llaves. El motor cobró vida de inmediato y el tablero se
 iluminó.]],
 
+	{"bgm", "modall", fade={"fadeout", 1/6, true}},
 	{"bg", "add", args={res.fun.clock.alarm(
 			res.style.carClockAlarm, 17, 34)},
 		color={1, 1, 1, 0},
@@ -59,8 +65,7 @@ iluminó.]],
 	{"bg", "mod", tween={"delay", 2, "fadeout", 1/12, true}},
 
 	[[Me puse a manejar aunque no podía reconocer el lugar. Pensé que me
-debería ser familiar, pero los nombres de la calles no me sonaban, lo único que
-sabía era que se conducía por la derecha.]],
+debería ser familiar, pero los nombres de la calles no me sonaban.]],
 
 	[[Mientras iba manejando veía a personas que al parecer estaban
 delirando, quizás solo un poco peor que yo.]],
@@ -144,7 +149,7 @@ y fuí hasta una habitación, dejándome caer sobre la cama blanca.]],
 	[[Estaba todo tan callado, pacífico. Las sábanas olían aún a
 detergente y tenía un techo sobre la cabeza. Todo esto era impagable.]],
 
-	{"bg", "add", args={"zeh/bg/falcon/cama.png"}, tween={"fadein", 1}},
+	{"bg", "add", args={"zeh/bg/falcon/motel-cama.png"}, tween={"fadein", 1}},
 	[[Abrí los ojos y me ví reflejado en un espejo. No se me ocurrió
 pensar porque había un espejo en el techo, solo me fijé que estaba herido por
 todos lados. Parecía un boxeador que ya debería salir del ring.]],

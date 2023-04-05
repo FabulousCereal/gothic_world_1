@@ -121,10 +121,13 @@ aguantaba más.]],
 			caminar en la oscuridad hasta la pieza de Bake.]],
 
 			[[El viento prácticamente azotaba las paredes aquí
-			arriba, pero Bake dormía plácido como tronco. Le dí la
-			vuelta a la cama, haciendo crugir todo el piso, y me
-			metí del otro lado. La cama entera estaba calentita, o
-			quizás era yo que estaba congelada. Ah, Dios...]],
+			arriba, pero Bake dormía plácido como tronco. Que puta
+			envidia.]],
+
+			[[Le dí la vuelta a la cama, haciendo crugir todo el
+			piso, y me metí del otro lado. La cama entera estaba
+			calentita, o quizás era yo que estaba congelada. Ah,
+			Dios...]],
 
 			[[Mis principios quedaron todos olvidados cuando noté
 			que el calor de la cama radiaba de Bake, y sin dudarlo
@@ -135,10 +138,12 @@ aguantaba más.]],
 		},
 		{
 			[[Fue un suplicio salir de donde estaba, tenía cada
-			coyuntura fija en su lugar. Tras un arduo trabajo para
-			levantarme, llegué al segundo piso, que parecía a punto
-			de salir volando por el viento tormentoso. Me metí a
-			oscuras a la habitación de Falcon.]],
+			coyuntura fija en su lugar.]],
+
+			[[Tras un arduo trabajo para levantarme y caminar,
+			llegué al segundo piso, que parecía a punto de salir
+			volando por el viento tormentoso. Me metí a oscuras a
+			la habitación de Falcon.]],
 
 			[[Estaba durmiendo mirando hacia la pared, tapado hasta
 			la cabeza y ocupando tan solo la mitad de esa estrecha
@@ -158,28 +163,30 @@ aguantaba más.]],
 }
 
 local camaDeFalcon = {
-	[[Tenía varias reservas sobre dormir con Falcon, pero sinceramente, era
+	[[Tenía mis dudas sobre dormir con Falcon, pero sinceramente, era
 lo mismo fuera con quien fuera. Dejé mejor a Bake y su espalda tranquilos y
-entré a su habitación, ahora de Falcon. Había dormido bien en la mañana, pero
-era claro que en esa cama apenas cabía una persona.]],
+entré a su habitación, ahora de Falcon.]],
 
 	[[Me acerqué a ver si quedaba espacio, y en la oscuridad alcancé a
-notar que Falcon estaba vuelto hacia la pared. Gracias al cielo. Me metí como
-pude para no molestarlo, quedando espalda con espalda.]],
+notar que Falcon estaba vuelto hacia la pared. Me metí como pude, quedando
+espalda con espalda.]],
 
-	[[No era tan malo como esperaba, con no moverme mucho en sueños no me
-caería.]],
+	[[El no parecía haberse dado cuenta. De verdad debía estar cansado.]],
+
+	[[En fin, la cama no resultó tan estrecha como esperaba. Con no moverme
+mucho en sueños no me caería.]],
 }
 
 local camaDeBake = {
 	[[En sigilo entré a la pieza donde estaba Bake. Apenas distinguía nada,
-así que tuve que tantear para encontrarlo y de ahí meterme del otro lado. La
-cama estaba tan helada que hasta me dejé el abrigo puesto. ¿Quien me manda
-a estos lugares? Detesto tanto el frío.]],
+así que tuve que tantear para encontrarlo y de ahí meterme del otro lado.]],
+
+	[[La cama resultó estar tan helada que tuve que ponerme el abrigo de
+nuevo. ¿Quien demonios me manda a estos lugares? Detesto tanto el frío.]],
 
 	[[Me acomodé, me cubrí hasta la nariz con las frazadas, y seguí con
-frío. Cuando me giré por que prefería dormir de lado, sentí un calor que
-radiaba de Bake.]],
+frío. Cuando me acomodé para dormir de lado, noté una calidez que radiaba de
+Bake.]],
 
 	[[¿Será mucho atrevimiento apegarme mas? Fui acercándome discretamente
 hasta que podía casi tocar su espalda. Era como una estufita, que genial. No
@@ -189,13 +196,17 @@ sabía como Bake no moría de frío, pero menos mal que no lo hacía.]],
 local toallas = {
 	[[Pensé y pensé en mis propias palabras, y al final no logre
 convencerme ni a misma. Tomé todas las toallas que había y fui a tirarlas al
-sillón. El frío ya me tenía temblando. Me acurruqué bajo las toallas con abrigo
-y calcetines puestos. Pensé que lograría dormir bien.]],
+sillón.]],
+
+	[[Me acurruqué temblando bajo las toallas, con abrigo y calcetines
+puestos. Pensé que lograría dormir bien.]],
 
 	[[Tan ingenua que soy. Parecía que no me podía calentar de ninguna
-manera con esas toallas de playa. Para variar, a los minutos las curvas y
-partes duras del sillón empezaron a hacerse notar una a una. Me encontré en una
-gruta. Como cama este sillón era casi peor que el suelo.]],
+manera con esas toallas de playa.]],
+
+	[[Para variar, a los minutos las curvas y partes duras del sillón
+empezaron a hacerse notar una a una. Me encontré en una gruta. Como cama este
+sillón era casi peor que el suelo.]],
 
 	[[Terminé dando vueltas tratando de acomodarme mientras la temperatura
 seguía bajando y el frío me calaba más los huesos. Cuando oí el reloj de Falcon
@@ -217,18 +228,20 @@ local enElSillon = {
 	[[Miré el sillón una vez mas. Me recosté en el y se me heló la espalda.
 Demonios.]],
 
-	[[Tan estúpida yo. Debí haber abierto la boca apenas hablaron de las
-camas. Me puse a dar vuelta el primer piso en busca de alguna frazada. Mas me
-valía encontrar una, o de lo contrario iba a cubrirme con las toallas del
+	[[Tan estúpida yo. Debí haber abierto la boca apenas hablaron de
+dormir.]],
+
+	[[Me puse a dar vuelta el primer piso en busca de alguna frazada. Mas
+me valía encontrar una, o de lo contrario iba a cubrirme con las toallas del
 baño.]],
 
-	{"text", [[Living. Comedor. Cocina. Lavadora...]], false, true},
-	{"wait", 1/3, false, true},
-	{"text", [[ Baño.]], true},
+	[[Living. Comedor. Cocina. Lavadora...]],
 
-	[[Ok, quizás estaba siendo demasiado paranoica. Aún podía irme con
+	[[ Baño.]],
+
+	[[OK, quizás estaba siendo demasiado paranoica. Aún podía irme con
 cualquiera de los chicos. ¿De verdad creía que me iban a hacer algo? No eran
-los tiempos para eso. Aparte que por la situación, deben estar durmiendo como
+los tiempos para eso. Aparte que por la situación, debian estar durmiendo como
 ladrillos.]],
 
 	{"select", "quien", {
@@ -303,12 +316,12 @@ return {
 
 	[[Opté por quedarme un ratito mas dando vueltas. No se si era por enojo
 o gracias a mi pequeña 'siesta' de la mañana, o quizás hasta por el mate, pero
-no tenía ganas de pegar la pestaña aún.]],
+no tenía ganas de pegar pestaña aún.]],
 
 	[[A medida que dejé de oír a los chicos caminando arriba y el silencio
 se asentaba, aquella inquietud que me había acompañado todo el día volvió.]],
 
-	[[Me sentía ansiosa tambien cada vez que pensaba en mi situación. En
+	[[Me sentía ansiosa cada vez que pensaba en mi situación. En
 estar sola en una ciudad que no conozco y con gente que no conozco. En las
 bestias rondando allá afuera. El fin de toda la civilización, quizás.]],
 
@@ -343,8 +356,10 @@ en un océano de negro... ¿Un océano?]],
 
 	[[¿No había soñado algo así, una vez? ¿Con un océano? La palabra me
 produjo una sensación incómoda en el pecho, como si me apretara, pero el por
-que me eludía. Tal vez lo había vivido, pero no imaginaba donde ni como.
-Estuve un rato sintiéndolo, tratando de recordar, pero sin éxito.]],
+que me eludía.]],
+
+	[[Tal vez lo había vivido, pero no imaginaba donde ni como. Estuve un
+rato sintiéndolo, tratando de recordar, pero sin éxito.]],
 
 	[[De pronto, una tenue luz recorrió los árboles y las casas.
 ¿Una linterna? ¿Un auto? Agudizé el oído y me pareció sentir un motor.]],

@@ -1,5 +1,5 @@
 local function titleMacro()
-	local font = res.fonts("vollkorn", 48)
+	local font = res.font("vollkorn", 48)
 	local x = 200
 	local y = 60
 	local width = 440

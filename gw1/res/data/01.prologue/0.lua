@@ -5,7 +5,7 @@ local function eauDeParfum()
 	local imgX = math.floor(imgEm / 4)
 	local imgY = math.floor(imgEm / 4)
 
-	local font = res.fonts("dejaVuSans", math.floor(imgEm / 5))
+	local font = res.font("dejaVuSans", math.floor(imgEm / 5))
 	local graphics = love.graphics
 
 	local eauHeight = font:getHeight()

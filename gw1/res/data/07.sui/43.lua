@@ -6,21 +6,22 @@ return {
 	[["Aún podemos volver," dijo Fab casi gritando.]],
 
 	{"name", "Bake"},
-	[["Puta la wea, si no hemos dado ni un paso aún."]],
+	[["Puta la wea, si no hemos dado ni un paso aún xD"]],
 
 	{"name", "Fabian"},
 	[["Exacto, después hay que desandar." Los tres lo pensamos un
 momento.]],
 
 	{"name", "Bake"},
-	[["A la mierda, necesitamos la comida," dijo Bake sacando las llaves
-del auto. "Vamos a lo que sea." Los dos asentimos, y corrimos a la camioneta.
-Me había metido las manos a los bolsillos, pero aún así me dolían.]],
+	[["Fuck it, necesitamos la comida," dijo Bake sacando las llaves
+del auto. "Vamos a lo que sea."]],
 
 	{"name", "María"},
+	[[Los dos asentimos, y corrimos a la camioneta. Me había metido las
+manos a los bolsillos, pero aún así el frio me calaba.]],
+
 	[[Bake quitó el hielo de la puerta y metió la llave, pero esta no
-giraba. Dios, de todos los momentos para esto, tenía que ser ahora. Bake se
-puso a agitar la llave para tratar de desbloquearla, pero no resultaba.]],
+giraba. Dios, de todos los momentos para esto, tenía que ser ahora.]],
 
 	{"name", "Fabian"},
 	[["Aún podemos volver," repitió Fab.]],
@@ -51,10 +52,13 @@ tubo.]],
 
 	{"name", "Bake"},
 	[["Vení a morir, bitch," dijo Bake con una mano en la katana enfundada,
-y esperando a la criatura, desenfundó y atacó directo a la cabeza.
-La katana le golpeó la sien con un sonido seco, y la criatura cayó aturdida,
-pero completamente viva.]],
+y esperando a la criatura, desenfundó y atacó directo a la cabeza.]],
 
+	{"name", "María"},
+	[[La katana le golpeó la sien con un sonido seco, y la criatura cayó
+aturdida, pero completamente viva.]],
+
+	{"name", "Bake"},
 	[["¡Fab! ¡Esta mierda no tiene filo!"]],
 
 	{"name", "Fabian"},
@@ -73,7 +77,10 @@ abrían.]],
 
 	{"name", "Andrea"},
 	[["¡Fab, alejate!" gritó Andrea corriendo desde la casa, apuntando con
-el arma. Fab empujó a la criatura para alejarse, pero esta se volteó hacia
+el arma.]],
+
+	{"name", "María"},
+	[[Fab empujó a la criatura para alejarse, pero esta se volteó hacia
 Andrea y fue tras ella. Andrea frenó en seco y se puso a disparar con los ojos
 cerrados, fallando todos los tiros.]],
 
@@ -252,7 +259,7 @@ chicos dijeron que también irían a descansar. Quedamos solo yo y Croft.]],
 
 	{"name", "Croft"},
 	[["¿Dia duro?" me preguntó. Yo asentí. "Por cierto, tuve que sacarte
-el revolver en la mañana, pero lo perdí en la conmoción. Perdón." Ok.]],
+el revólver en la mañana, pero lo perdí en la conmoción. Perdón." Ok.]],
 
 	[["El mío de rayas de tigre lo dejé en la habitación, así que si
 quieres después te lo doy."]],

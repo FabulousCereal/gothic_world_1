@@ -116,7 +116,7 @@ return {
 		local minuteTurn = tau / 60 * minute - tau/4
 		clockHandFunction[hands](style, radius, hourTurn, minuteTurn)
 
-		local brandFont = res.fonts(style.fontFamily, floor(em * 2/3))
+		local brandFont = res.font(style.fontFamily, floor(em * 2/3))
 		local brandEm = brandFont:getHeight()
 		graphics.setFont(brandFont)
 		graphics.print(brand,

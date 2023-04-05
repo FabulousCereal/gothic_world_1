@@ -1,3 +1,41 @@
+local function checaMiRiff()
+	local dialog = {
+		{false, 3},
+		{"Bake", 5, [["¡Checá mi riff!"]]},
+		{"Falcon", 6, [["¿A esa mierda llamas un riff? Mira."]]},
+		{"Bake", 3, [["lol, ¿que es eso? ¿Pipi con tos?"]]},
+		{"Falcon", 3, [["Trato de improvisar, hdp ¬¬..."]]},
+		{false, 15},
+		{"Falcon", 3, [["¿Por que paraste?"]]},
+		{"Bake", 3, [["Por que hay que trabajar xD Trabaja xDD"]]},
+		{"Falcon", 3, [["Estaba a punto de hacer un hit, Bake xddd"]]},
+		{"Bake", 2, [["Martillá acá mierda xD"]]},
+	}
+	local floor = math.floor
+	local w, h = love.graphics.getDimensions()
+	local y = floor(h * 1/12)
+	local limit = floor(w * 1/3)
+
+	local cmd = {}
+	local delay = 0
+	for i = 1, #dialog do
+		local who, time, what = unpack(dialog[i])
+		if who then
+			local x = floor(w * (who == "Bake" and 0 or 3/6))
+			local style = res.style["vn" .. who]
+			local cnv = f0b.shapes.textCanvas(what, limit, "center", style)
+			cmd[#cmd + 1] = {
+				"bg", "add",
+				args={cnv, x, y},
+				color={1, 1, 1, 0},
+				tween={"delay", delay, "fadein", 1/12, "delay", time, true},
+			}
+		end
+		delay = delay + time
+	end
+	return cmd
+end
+
 local cafeConCroft = {
 	{"select", nil, {
 		[["¿Vas a quedarte?"]],
@@ -153,7 +191,7 @@ viento en la cara.]],
 	[[Entré con el y Rocco mientras los chicos bajaban sus instrumentos, y
 como se veían entusiasmados en eso, le ofrecí a Croft tomar algo calentarnos.]],
 
-	[[Nos sentamos a comer mientras los chicos subían, martillaban, y
+	[[Nos sentamos a comer mientras los chicos martillaban, y
 aserruchaban cosas en el segundo piso, en el cuarto desocupado. A Falcon ni se
 le notaba que estuvo toda la mañana en cama.]],
 
@@ -163,8 +201,8 @@ le notaba que estuvo toda la mañana en cama.]],
 	{"name", "María"},
 	[["Eso creo."]],
 
-	[[Los observamos durante un rato, y como Croft no era muy dado a
-conversar, tuve que hablar yo.]],
+	[[Los observamos subiendo cosas durante un rato, y como Croft no era
+muy dado a conversar, tuve que hablar yo.]],
 
 	{"read", cafeConCroft, true},
 
@@ -172,16 +210,25 @@ conversar, tuve que hablar yo.]],
 ruido estruendoso nos hizo saltar de susto.]],
 
 	{"name", "Bake"},
-	[["Welcome to the jungle!" gritó Bake mientras tocaba su guitarra
+	{"sfx", "sfx/amp on.flac"},
+	{"bgm", "set", "test", .8 ,setup={play=false},
+		fade={"delay", 2, "cmd", {play=true}},
+		source="amp test.ogg"},
+	[["¡BIENVENIDO A LA SELVA!" gritó Bake mientras tocaba su guitarra
 distorsionada por el ampli. "¡Ahora si, Falcon!"]],
 
 	{"name", "Falcon"},
-	[["Fuck yeah!" gritaron aplaudiendo.]],
+	[["WOOOOH!" gritaron aplaudiendo.]],
 
 	{"name", "María"},
 	[["Dios mío." No sabía como le hacían si no había luz, pero lo
-hicieron. Tampoco sé para que trajeron pared antisonora si sonaba fuerte
-igual. Escuchamos pasos por el pasillo de arriba. Falcon se asomó de cabeza.]],
+hicieron.]],
+
+	[[Tampoco sabía para que trajeron pared antisonora si sonaba fuerte
+igual.]],
+
+	[[De pronto escuchamos pasos por el pasillo. Falcon se asomó de cabeza
+por la escalera.]],
 
 	{"name", "Falcon"},
 	[["Croft, ¿sabes tocar la guitarra? ¿O el bajo?"
@@ -191,10 +238,44 @@ Croft tenía cara de °J°]],
 	[["No °J°"]],
 
 	{"name", "Falcon"},
-	[["¡Dice que no!" gritó devolviendose.]],
+	[["¡Dice que no!" gritó devolviéndose.]],
+
+	{"sfx", "sfx/amp shock.flac", 2/3, 1, 1/3},
+	{"bgm", "mod", "test", fade={"delay", 1/3, true}},
+	{"bgm", "set", "ryf", setup={play=false},
+		fade={"delay", 1.5, "cmd", {play=true}, "loop", 1, true},
+		source="bake y falcon hacen funcionar los amplis.ogg"},
+
+	{"bgm", "set", "hammer",
+		setup={play=false, setFilter={type="lowpass", highgain=.2}},
+		fade={"delay", 40, "cmd", {play=true}},
+		source="freesound/455899__samuelgremaud__hammer.16.flac"},
+	{"bgm", "set", "saw",
+		setup={play=false, setFilter={type="lowpass", highgain=.2}},
+		fade={"delay", 40, "cmd", {play=true}},
+		source="freesound/555299__itinerantmonk108__sawing-a-2-by-4.ogg"},
+
+	checaMiRiff,
+	{"name", "Bake"},
+	[["¡Vale!" Bake se puso a tocar a toda velocidad, y pronto Falcon se
+le unió con el bajo.]],
+
+--[=[	{"text", [["¡Vale!" Bake se pusó a tocar a toda velocidad.
+"¡Checá mi riff!"]], false, true},
+	{"wait", 4, true, true},
+
+	{"name", "Falcon"},
+	{"text", [["¿A esa mierda llamas un riff?" Falcon se puso a tocar su
+bajo también.]], false, true},
+	{"wait", 3, true, true},
 
 	{"name", "Bake"},
-	[["¡Vale!" Bake se pusó a tocar a toda velocidad.]],
+	{"text", [["lol, que mierda es eso? ¿Pipi con tos?"]], false, true},
+	{"wait", 2, true, true},
+
+	{"name", "Falcon"},
+	{"text", [["Trato de improvisar, mierda ¬¬"]], false, true},
+	{"wait", 4, true, true},]=]
 
 	{"name", "María"},
 	[[Con Croft nos lavamos los dientes al sonido de pruebas de guitarra,
@@ -212,14 +293,16 @@ vida viendolas y nunca se me ocurrió que eran para eso.]],
 llegar agua esta mañana. Debia ser por eso que preferió quedarse a pesar de que
 no quedaran camas.]],
 
+	{"bgm", "mod", "saw", fade={"fadeout", 12, true}},
 	[[En fin, terminamos, y como era tarde, Croft se fue a agarrar la cama
 de Falcon antes que los chicos salieran. Yo tomé la de Bake. Me puse dos
 pijamas para el frio, y me estaba acomodando cuando los chicos se pusieron a
-aserruchar de nuevo.]],
+martillar de nuevo.]],
 
 	[[Suspiré. Ahora aparte de indignada tenía curiosidad. Me levanté de
 nuevo y fui a tocar la puerta. Me dijeron que pasara. Abrí...]],
 
+	{"bgm", "mod", "hammer", fade={"cmd", {setFilter={type="lowpass", highgain=1}}}},
 	[[...Y me encontré con un estudio de grabación en construcción.]],
 
 	{"name", "Bake"},
@@ -245,11 +328,12 @@ maraña de cables conectando las guitarras con los amplis.]],
 	{"name", "María"},
 	[["¿Es que son locos? ¿Que pasa si llegan los zombies con el ruido?"]],
 
+	{"bgm", "mod", "hammer", fade={"loop", 1, true}},
 	{"name", "Bake"},
 	[["A los zombies los espanta el ruido, lol"]],
 
 	{"name", "María"},
-	[["wtf?? ¿Quien dijo eso?"]],
+	[["WTF?? ¿Quien dijo eso?"]],
 
 	{"name", "Bake"},
 	[["Yo lo digo xD" Falcon terminó de clavar, y puso una de las linternas
@@ -291,10 +375,7 @@ tocó parte de una canción que había sonado mucho hace unos años.]],
 Bake tomó su segunda guitarra.]],
 
 	{"name", "María"},
-	[["¡E-Esperen...!"]],
-
-	{"name", "Bake"},
-	{"text", [["Un, dos, tres, y--!"]], false, true},
+	[["¡H-Hey...!"]],
 
 	{"bgm", "set", "radio",
 source="si pudiera componer hits estaria en la radio y no haciendolo gratis.ogg"},

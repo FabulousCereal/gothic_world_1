@@ -3,7 +3,7 @@ local laComida = {
 	[["¿Ya no te queda comida?"]],
 
 	{"name", "Bake"},
-	[["¿No te gustó la pizza?"]],
+	[["¿No te gustó la pizza?" preguntó preocupado.]],
 
 	{"name", "María"},
 	[["No, no es eso. Es que como ví que tuviste que buscar mucho..."]],
@@ -13,9 +13,9 @@ local laComida = {
 un ángel en un callejón y no pude seguir," dijo antes de hecharse otro pedazo a
 la boca.]],
 
+	{"name", "María"},
 	[[Yo demoré un segundo en procesar lo que dijo.]],
 
-	{"name", "María"},
 	[["E-Ehh, estaba escapando--"]],
 
 	{"name", "Bake"},
@@ -66,8 +66,8 @@ razoné. El chico inclinó la cabeza a un lado.]],
 "No me había fijado. Yo teniendo mi arma y comida no me preocupaba, lol"]],
 
 	{"name", "María"},
-	[[Me quedé en silencio sin saber que contestar, y el chico habló de
-nuevo.]],
+	[[Me quedé sin saber como contestar. Este chico jamás iba a morir de
+estrés. El chico habló de nuevo.]],
 
 	{"name", "Bake"},
 	[["Igual todas las estaciones y antenas dejaron de funcionar a pocas
@@ -118,19 +118,24 @@ local losAmigos = {
 	[["¿Como están?"]],
 
 	{"name", "Bake"},
-	[["No sé, lol, si no hay señal para llamarlos. Desde la explosión
-que no los veo."]],
+	[["No sé, lol xDD"]],
+
+	{"name", "María"},
+	[["¿Q-Que?"]],
+
+	{"name", "Bake"},
+	[["Si no hay señal para llamarlos. Desde la explosión que no los veo."]],
 
 	{"name", "María"},
 	[[El chico me empezó a contar sobre que vieron acá la noticia de los
-zombies. Que antes de esto estuvieron en una cafetería cuando ocurrió la
+mutados. Que antes de esto estuvieron en una cafetería cuando ocurrió la
 explosión, y que luego un auto entró y arrolló justo a 'la chica buena.']],
 
 	[[Yo no sabía que responder, pero el chico me aseguró que se la
 llevaron rápido a un hospital donde la pondrían en una cámara de hipersueño,
 donde seguro dormiría plácidamente todo el apocalípsis, 'lol']],
 
-	[[La cosa es que se quedarón hasta que se cortó la luz, y ahí se
+	[[La cosa es que se quedaron hasta que se cortó la luz, y ahí se
 despidieron y se fue cada uno para su casa. El chico se quedó solo con Pipi y
 el arma de su viejo, y aquí ha estado desde entonces.]],
 
@@ -158,6 +163,10 @@ local infoLoop = {
 		laGente,
 		losAmigos,
 		{
+			{"name", "María"},
+			[[Habíamos pasado mucho tiempo comiendo, así que agarré
+			toda la pizza.]],
+
 			[["*OM OM*" El chico se detuvo a verme.]],
 
 			{"name", "Bake"},

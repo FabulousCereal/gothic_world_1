@@ -25,7 +25,7 @@ ventana, dándome cuenta que recién estaba aclarando afuera. "¿Que pasó?
 ¿Que hora es?"]],
 
 	{"name", "Falcon"},
-	[["Croft se fue. ¿Sabes donde está tu revolver?"]],
+	[["Croft se fue. ¿Sabes donde está tu revólver?"]],
 
 	{"name", "María"},
 	[["¿Ah?" dije totalmente perdida. "¿Que Croft que?"]],
@@ -45,7 +45,7 @@ ayer. Lo dejé en la silla anoche."]],
 	[["Si. ¿Que pasó? ¿Que es eso de que Croft se fue?"]],
 
 	{"name", "Falcon"},
-	[["Se fue con su camioneta y su perro. Y tu revolver al parecer."]],
+	[["Se fue con su camioneta y su perro. Y tu revólver al parecer."]],
 
 	{"name", "María"},
 	[["¿A-Ahora?"]],
@@ -75,8 +75,7 @@ solo que tampoco podía pensar que Croft pudiera hacer eso. O bueno, nadie mas
 bien dicho.]],
 
 	{"name", "María"},
-	[["¿Y Bake donde está?" A Falcon se le formó una pequeña sonrisa apenas
-lo mencioné.]],
+	[["¿Y Bake donde está?" A Falcon se le formó una pequeña sonrisa.]],
 
 	{"name", "Falcon"},
 	[["Está abajo durmiendo en la alfombra. No lo pude despertar."]],
@@ -88,6 +87,7 @@ lo mencioné.]],
 	[["No, solo el xD Yo dormí en el sillón xD"]],
 
 	{"name", "María"},
+	{"let", "quien"},
 	{"global", "get", "quien", "DespiertaDonde"},
 	{"case", "quien", {
 		sola = {
@@ -108,12 +108,12 @@ lo mencioné.]],
 maldito debía saber como era. Ya me las va a pagar."]],
 
 	{"name", "María"},
-	[[A-ja. En lo que a mi respectaba, mucha simpatía no les tenía
+	[["A-ja..." En lo que a mi respectaba, mucha simpatía no les tenía
 considerando el ruido de anoche. Falcon se puso de pie.]],
 
 	{"name", "Falcon"},
-	[["Me voy a preparar el desayuno, por si quieres bajar. Voy a hacer el
-pollo y el puré que es lo único que hay."]],
+	[["Como sea. Me voy a preparar el desayuno. Voy a hacer el pollo y el
+puré que es lo único que hay, por si quieres bajar."]],
 
 	{"name", "María"},
 	[["Lo pensaré," dije mientras me recostaba de nuevo. Era muy temprano.]],
@@ -138,7 +138,7 @@ hasta la puerta. Yo me volví a acostar.]],
 
 	{"name", "María"},
 	[[¿Que habrá pasado con Croft? Guardaba algo de esperanza en que
-volvería. ¿Para que se iba a robar un revolver si ya tenía un arma?]],
+volvería. ¿Para que se iba a robar un revólver si ya tenía un arma?]],
 
 	[[Me cubrí con las frazadas para meditar sobre aquello, en sueños.
 No sentía hambre aún... Hasta que el olor a comida me empezó a llamar.
@@ -152,8 +152,10 @@ me conmoví un poco. ¿Por que no me había despertado? Ahí se iba a enfermar.
 Me acerqué a moverlo.]],
 
 	[["Bake, Bake." Como no reaccionó lo empecé a agitar. Bake se volvió
-hacia el otro lado, pero yo insistí. Tras como un cuarto de hora reaccionó.
-Para entonces se me había pasado la pena.]],
+hacia el otro lado, pero yo insistí.]],
+
+	[[Tras como un cuarto de hora reaccionó. Para entonces se me había
+pasado la pena.]],
 
 	{"name", "Bake"},
 	[["¿Que pasa?" Sonreía somnoliento.]],
@@ -190,13 +192,13 @@ calentito.]],
 	[["Creo que no vendrá con nosotros hasta que esté por morir xD"]],
 
 	{"name", "María"},
-	[["Pero se llevó mi revolver además de su arma."]],
+	[["Pero se llevó mi revólver además de su arma."]],
 
 	{"name", "Bake"},
 	[["Hmm, seguro se lo llevó sin balas, no es para tanto xD" Bake tenía
 respuesta para todo.]],
 
 	{"name", "María"},
-	[[Me fui al comedor a revisar mi abrigo, y efectivamente, mi revolver
+	[[Me fui al comedor a revisar mi abrigo, y efectivamente, mi revólver
 no estaba pero si el cargador, tal como había dicho. Era todo tan extraño.]],
 }

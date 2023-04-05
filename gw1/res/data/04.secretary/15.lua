@@ -47,10 +47,11 @@ por el medio y no te tocó ninguna rueda. No podía frenar con esa nieve."]],
 
 	{"name", "María"},
 	[[Ahora recordaba. Ya había cruzado la calle cuando se me ocurrió
-devolverme. No recuerdo el auto pero sí fragmentos, como haber estado tirada
-en mitad de la calle. El cielo gris que daba vueltas.]],
+devolverme.]],
 
-	[[Recordaba tambien que al caer me golpeé la-- "¡AUUU!" grité.]],
+	[[No lograba recordar el auto pero sí fragmentos, como haber estado
+tirada en mitad de la calle. El cielo gris que daba vueltas. Tambien que al
+caer me golpeé la-- "¡AUUU!" grité.]],
 
 	{"name", "Croft"},
 	[["Disculpa, quería ver como te había quedado la cabeza."]],
@@ -84,7 +85,7 @@ inmediato volví a caer.]],
 revisarme.]],
 
 	{"name", "María"},
-	[["!Ah!"]],
+	[["¡Ah!"]],
 
 	{"name", "Croft"},
 	[["Disculpa. Me parece que te esguinzaste el pie. No soy doctor, pero
@@ -140,11 +141,16 @@ era chatarra que tenía adornando su patio.]],
 bocina y la radio, pero nunca me ha abandonado," explicó. Viéndola de frente,
 si, este fue el auto que me atropelló.]],
 
+	{"sfx", "freesound/561724__ezzin__tractor-start.fadeout@9.5.flac"},
+	{"bgm", "set", "mula_idle", 0, setup={play=false},
+		fade={"delay", 9.5, "cmd", {play=true}, "fadein", 1},
+		source="freesound/561724__ezzin__tractor-start.idle_loop.flac"},
 	{"name", "María"},
 	[[Croft se subió a darle contacto, y tras provocarle lo mas parecido a
-una tos convulsiva que se le pueda dar a un vehículo, este encendió. Rocco se
-metió por la ventana de un salto. Noté un olor raro al subir, pero preferí no
-hacer preguntas.]],
+una tos convulsiva que se le pueda dar a un vehículo, este encendió.]],
+
+	[[Rocco se metió por la ventana de un salto. Noté un olor raro al
+subir, pero preferí no hacer preguntas.]],
 
 	{"name", "Croft"},
 	[["¿Donde vives?"]],
@@ -158,18 +164,23 @@ hacer preguntas.]],
 	{"name", "María"},
 	[["Si, sería lo mejor."]],
 
+	{"bgm", "sync"},
+	{"bgm", "mod", "mula_idle", fade={"cmd", {setPitch=2}, "fadeout", 2, true}},
+	{"bgm", "set", "mula_run", 0,
+		fade={"fadein", 2},
+		source="freesound/561724__ezzin__tractor-start.run_loop.flac"},
 	[[Croft movió la palanca oxidada con lo que me dí cuenta debía ser una
 fuerza considerable. Se oyó el ruido de metal dislocándose desde el motor, y
 con un remezón la camioneta empezó a andar como si se hubiera sacudido las
 pulgas.]],
 
-	[[Rocco, por la parte, iba sentado entre los dos, con la lengua afuera,
-mirando a la lejanía. Salimos al camino de tierra. Se divisaba una que otra
-casa, pero era casi todo campo.]],
+	[[Rocco, por su parte, iba sentado entre los dos, mirando a la lejanía.
+Salimos al camino de tierra. Se divisaba una que otra casa, pero era casi todo
+campo.]],
 
 	{"name", "Croft"},
 	[["¿Escapabas de algo? Ví que te devolviste de pronto pero no ví
-nada tras de ti."]],
+nada tras de ti." Ay Dios.]],
 
 	{"name", "María"},
 	[["No, no, solo salí a buscar ropa y cosas para el aseo. Lo perdí todo
@@ -197,10 +208,12 @@ heridos. No quise molestarlos por un cepillo."]],
 	{"name", "Croft"},
 	[["Bueno, algo es mejor que nada."]],
 
+	{"name", "María"},
 	[[A pesar de la impactante recibida, Croft parecía ser buena persona,
 aunque me llamó la atención que viviera solo en el campo siendo tan joven. ¿No
 se aburrirá? De pronto, Rocco empezó a dar vueltas en el asiento.]],
 
+	{"name", "Croft"},
 	[["¡Rocco! ¡No hagas--! Mierda. !Afuera!" Croft detuvo el auto e
 hizo salir a Rocco al camino, que se bajó tiritando. Empezó a hacer del 2 junto
 a la rueda de la camioneta mientras Croft se llevaba la mano a la cara.]],
@@ -209,5 +222,7 @@ a la rueda de la camioneta mientras Croft se llevaba la mano a la cara.]],
 hacer y empezó a tirarle tierra y nieve a la rueda hasta quedar contento.
 "¿Listo?" Rocco agitó la cola sonriendo y se subió de vuelta.]],
 
+	{"name", "María"},
 	[[Ese era el olor, ese era.]],
+	{"bgm", "rmall"},
 }

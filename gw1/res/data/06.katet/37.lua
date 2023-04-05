@@ -188,7 +188,7 @@ explicó. Los chicos se miraron confudidos.]],
 	[[Entendía la preocupación de Falcon, pero me daba algo de pena
 dejar a los dos chicos los en la calle con esta tormenta. Además que no creía
 que Croft se haya querido aprovechar de nosotros; no tenía sentido habersenos
-unido solo para robar un revolver.]],
+unido solo para robar un revólver.]],
 
 	[[Ya que Bake lucía indeciso, giré a Falcon y a Bake hacía mí.]],
 

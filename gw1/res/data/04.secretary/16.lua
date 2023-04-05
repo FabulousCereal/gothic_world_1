@@ -144,7 +144,7 @@ dos miramos a Croft, y este miró a Rocco que lo miró de vuelta.]],
 	[["¡Hijo de--!" Soltó a Rocco y este salió corriendo mientras Croft se
 sacudia el brazo. Lo había meado encima.]],
 
-	[["No podías hacer todo junto," lo regañó. Rocco terminó de mear en un
+	[["¡No podías hacer todo junto!" lo regañó. Rocco terminó de mear en un
 árbol mientras Croft se quitaba el abrigo. Por suerte parecía que era
 impermeable.]],
 

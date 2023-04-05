@@ -11,7 +11,7 @@ return {
 	help = function(style, w, h)
 		local c = style.color
 		local dc = style.disabled.color
-		local font = res.fonts("takaoMincho", 30)
+		local font = res.font("takaoMincho", 30)
 		local em = font:getWidth(" ")
 		local sep = ""
 

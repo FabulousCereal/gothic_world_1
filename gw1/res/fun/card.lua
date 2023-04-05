@@ -61,7 +61,7 @@ return {
 		local graphics = love.graphics
 
 		local w, h = graphics.getDimensions()
-		local font = res.fonts(fontName, fontSize)
+		local font = res.font(fontName, fontSize)
 		local t = graphics.newText(font)
 		if not align then
 			align = "left"

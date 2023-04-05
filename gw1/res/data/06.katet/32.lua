@@ -1,19 +1,19 @@
 local function checaMiRiff()
 	local dialog = {
 		{false, 3},
-		{"Bake", 5, [["¡Checá mi riff!"]]},
-		{"Falcon", 6, [["¿A esa mierda llamas un riff? Mira."]]},
-		{"Bake", 3, [["lol, ¿que es eso? ¿Pipi con tos?"]]},
-		{"Falcon", 3, [["Trato de improvisar, hdp ¬¬..."]]},
-		{false, 15},
+		{"Bake", 6, [["¡Checá mi riff!"]]},
+		{"Falcon", 5, [["¿A eso llamas un riff? Mira."]]},
+		{"Bake", 3, [["lol, ¿que es eso? ¿Pipi con carraspera?"]]},
+		{"Falcon", 5, [["Trato de improvisar, hdp ¬¬..."]]},
+		{false, 13},
 		{"Falcon", 3, [["¿Por que paraste?"]]},
-		{"Bake", 3, [["Por que hay que trabajar xD Trabaja xDD"]]},
-		{"Falcon", 3, [["Estaba a punto de hacer un hit, Bake xddd"]]},
+		{"Bake", 4, [["Por que hay que trabajar xD Trabaja xDD"]]},
+		{"Falcon", 4, [["Estaba a punto de sacar un hit, Bake xddd"]]},
 		{"Bake", 2, [["Martillá acá mierda xD"]]},
 	}
 	local floor = math.floor
+	local rnd = math.random
 	local w, h = love.graphics.getDimensions()
-	local y = floor(h * 1/12)
 	local limit = floor(w * 1/3)
 
 	local cmd = {}
@@ -21,12 +21,14 @@ local function checaMiRiff()
 	for i = 1, #dialog do
 		local who, time, what = unpack(dialog[i])
 		if who then
-			local x = floor(w * (who == "Bake" and 0 or 3/6))
+			local xAdd = (who == "Bake" and 1 or 5)
+			local x = (rnd() + xAdd) * w/12
+			local y = (rnd() + 6) * h/72
 			local style = res.style["vn" .. who]
 			local cnv = f0b.shapes.textCanvas(what, limit, "center", style)
 			cmd[#cmd + 1] = {
 				"bg", "add",
-				args={cnv, x, y},
+				args={cnv, floor(x), floor(y)},
 				color={1, 1, 1, 0},
 				tween={"delay", delay, "fadein", 1/12, "delay", time, true},
 			}
@@ -247,11 +249,11 @@ Croft tenía cara de °J°]],
 		source="bake y falcon hacen funcionar los amplis.ogg"},
 
 	{"bgm", "set", "hammer",
-		setup={play=false, setFilter={type="lowpass", highgain=.2}},
+		setup={play=false, setFilter={type="lowpass", volume=.5, highgain=.2}},
 		fade={"delay", 40, "cmd", {play=true}},
 		source="freesound/455899__samuelgremaud__hammer.16.flac"},
 	{"bgm", "set", "saw",
-		setup={play=false, setFilter={type="lowpass", highgain=.2}},
+		setup={play=false, setFilter={type="lowpass", volume=.5, highgain=.2}},
 		fade={"delay", 40, "cmd", {play=true}},
 		source="freesound/555299__itinerantmonk108__sawing-a-2-by-4.ogg"},
 
@@ -259,23 +261,6 @@ Croft tenía cara de °J°]],
 	{"name", "Bake"},
 	[["¡Vale!" Bake se puso a tocar a toda velocidad, y pronto Falcon se
 le unió con el bajo.]],
-
---[=[	{"text", [["¡Vale!" Bake se pusó a tocar a toda velocidad.
-"¡Checá mi riff!"]], false, true},
-	{"wait", 4, true, true},
-
-	{"name", "Falcon"},
-	{"text", [["¿A esa mierda llamas un riff?" Falcon se puso a tocar su
-bajo también.]], false, true},
-	{"wait", 3, true, true},
-
-	{"name", "Bake"},
-	{"text", [["lol, que mierda es eso? ¿Pipi con tos?"]], false, true},
-	{"wait", 2, true, true},
-
-	{"name", "Falcon"},
-	{"text", [["Trato de improvisar, mierda ¬¬"]], false, true},
-	{"wait", 4, true, true},]=]
 
 	{"name", "María"},
 	[[Con Croft nos lavamos los dientes al sonido de pruebas de guitarra,
@@ -286,20 +271,27 @@ que el agua corría por gravedad desde las torres. Si seré tonta. Toda la
 vida viendolas y nunca se me ocurrió que eran para eso.]],
 
 	{"name", "Bake"},
-	[["(Na-na-na-na-na-na-na-na knees! Na-na-na-na kneees!)"]],
+	[["(Na-na-na-na-na-na-na-na niece! Na-na-na-na niece!)"]],
+
+	{"name", "Falcon"},
+	[["(Feel my, my, my anaconda)"]],
 
 	{"name", "María"},
-	[[También dijo que a su casa por estar en lo alto le dejó de
+	[[No tenía idea de que cantaban esos dos.]],
+
+	[[Croft también dijo que a su casa por estar en lo alto le dejó de
 llegar agua esta mañana. Debia ser por eso que preferió quedarse a pesar de que
 no quedaran camas.]],
 
+	{"bgm", "sync"},
+	{"bg", "sync"},
 	{"bgm", "mod", "saw", fade={"fadeout", 12, true}},
 	[[En fin, terminamos, y como era tarde, Croft se fue a agarrar la cama
 de Falcon antes que los chicos salieran. Yo tomé la de Bake. Me puse dos
 pijamas para el frio, y me estaba acomodando cuando los chicos se pusieron a
 martillar de nuevo.]],
 
-	[[Suspiré. Ahora aparte de indignada tenía curiosidad. Me levanté de
+	[[Suspiré. Ahora aparte de indignada sentía curiosidad. Me levanté de
 nuevo y fui a tocar la puerta. Me dijeron que pasara. Abrí...]],
 
 	{"bgm", "mod", "hammer", fade={"cmd", {setFilter={type="lowpass", highgain=1}}}},
@@ -333,7 +325,7 @@ maraña de cables conectando las guitarras con los amplis.]],
 	[["A los zombies los espanta el ruido, lol"]],
 
 	{"name", "María"},
-	[["WTF?? ¿Quien dijo eso?"]],
+	[["wtf?!? ¿Quien dijo eso?"]],
 
 	{"name", "Bake"},
 	[["Yo lo digo xD" Falcon terminó de clavar, y puso una de las linternas
@@ -364,8 +356,11 @@ ojos.]],
 	[["Ehh, tengo amnesia."]],
 
 	{"name", "Bake"},
-	[["Si sos guapo la vas a reconocer." Bake agarró la guitarra, y
-tocó parte de una canción que había sonado mucho hace unos años.]],
+	[["Si sos guapo la vas a reconocer."]],
+
+	{"name", "María"},
+	[[Bake agarró la guitarra, y tocó parte de una canción que había sonado
+mucho hace unos años.]],
 
 	{"sfx", "sfx/bake riff2.ogg"},
 	{"wait", 4, false, true},

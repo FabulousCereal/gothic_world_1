@@ -149,8 +149,8 @@ mas de ese líquido brotaba de su herida.]],
 
 	{"bgm", "mod", "famicom", fade={"fadeout", 1/3, true}},
 	{"bgm", "mod", "gunshot",
-		fade={"delay", 1, "cmd", {play=true, setLooping=false},
-			"delay", 1, true}},
+		fade={"delay", 1, "cmd", {play=true, setLooping=true},
+			"loop", 1, true}},
 	[[Al final, el chico lo remató con un disparo en la cabeza, e hizo
 lo mismo con el pequeño que ya había logrado levantarse.]],
 

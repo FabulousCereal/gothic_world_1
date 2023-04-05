@@ -11,7 +11,13 @@ local function snowParticles(screenW, screenH)
 	graphics.setCanvas()
 
 	local speed = 12
-	local span = screenH + size*2
+	local span = screenH + size*3
+	for i = 1, #res.index do -- Parallax
+		local ch = res.index[i]
+		span = span + #ch
+	end
+	span = span + #res.index
+
 	local snow = graphics.newParticleSystem(cnv, 512)
 	snow:setDirection(math.pi/2)
 	snow:setSpeed(12)

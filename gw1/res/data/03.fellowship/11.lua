@@ -142,8 +142,9 @@ sacarlos."]], true, false},
 	{"text", [[ Falcon fue a echar un ojo mientras yo guardaba la comida.]],
 true},
 
-	[["Aquí no hay nada," dijo. Pensé que quizás la nieve los había
-cubrido. Me asomé a mirar, y luego abrí la puerta. De verdad no estaban.]],
+	[["Aquí no hay nada," dijo. Pensé que quizás era por la oscuridad, o
+por la nieve que los había cubrido. Me asomé a mirar, y luego abrí la puerta.
+De verdad no estaban.]],
 
 	{"name", "María"},
 	[["S-Se suponía que estaban muertos." ¿Donde se habían ido? ¿Que había
@@ -163,30 +164,40 @@ casa. Le puse el seguro a la puerta.]],
 
 --	{"bg", "mod", args={"falcon/normal.png"}},
 	[["No te preocupes en todo caso, mejor que estén lejos," dijo por lo
-visto calmado. "Si no les molesta, voy a darle una vuelta a la casa."]],
+visto calmado. "¿Les molesta si le doy una vuelta a la casa?"]],
 
 	{"name", "Bake"},
 	[["Dale. Yo tengo hambre así que voy a preparar algo."]],
 
 --	{"bg", "rm"},
 	{"name", "María"},
-	[[Intenté quedarme tranquila con sus palabras, aunque por mas que
-me dijeran esas cosas, esa extraña incomodidad en el pecho no desaparecía.
-Empecé a charlar un poco con Bake para quitarme eso de la
-mente. Aunque fuera loco, escucharlo hablar siempre me ayudaba.]],
+	[[Falcon nos dejó solos, y yo intenté quedarme tranquila con sus
+palabras. Por mas que me dijeran esas cosas, esa extraña incomodidad en el
+pecho no desaparecía.]],
 
-	[[Afuera la nieve se apilaba, el día oscurecía, y pusimos una linterna
-para iluminarnos mientras Bake cocinaba. Falcon volvió, y dijo
-que sería mejor reforzar las ventanas ya que ninguna tenía protección.]],
+	[[Empecé a charlar un poco con Bake para quitarme eso de la mente.
+Aunque fuera loco, escucharlo hablar me ayudaba.]],
+
+	[[Afuera la nieve se apilaba, y el sol se ponía lentamente. Falcon
+regresó casi una sombra, y recién ahí Bake prendió su linterna.]],
+
+	[[Falcon dijo que le preocupaba no tener protección en las ventanas.
+Según el, había visto unos zombies metiendose a una casa así, e iba a ser muy
+dificil defender tantas entradas ante cualquier problema.]],
 
 	{"name", "Bake"},
-	[["Te ayudaría, pero caminar dos horas no le hizo bien a mi espalda xD
-Me duele xD" dijo Bake.]],
+	[["Hmm, en la bodega hay unas tablas. Puedes clavarlas si quieres xD"]],
 
 	{"name", "María"},
-	[["Yo te puedo ayudar." Bake nos dijo que en la bodega tenía unas
-tablas que nos podían servir. El se quedó cocinando, mientras yo y Falcon nos
-dedicabamos a tapar cada ventana.]],
+	[["¿No vas a ayudar?"]],
+
+	{"name", "Bake"},
+	[["Quisiera, pero caminar dos horas no le hizo bien a mi espalda xD
+Me duele xDD"]],
+
+	{"name", "María"},
+	[["Yo te puedo ayudar," me ofrecí. Le quitamos la linterna a Bake y
+lo dejamos cocinando a oscuras, y entramos todas las tablas y herramientas.]],
 
 	[["¿Crees que vayan a volver a la noche?" le pregunté tras un rato.]],
 

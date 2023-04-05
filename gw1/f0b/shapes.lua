@@ -1,7 +1,62 @@
 -- SPDX-FileCopyrightText: 2023 Grupo Warominutes
 -- SPDX-License-Identifier: Unlicense
 
+local function textGen(style, ...)
+	local t = love.graphics.newText(style.font)
+	t:setf(...)
+	return t, style.font:getHeight() * style.padding
+end
+
+local function textWrapDims(t, x, y, limit, pad)
+	local floor = math.floor
+	return floor(x - pad), floor(y - pad/2),
+		floor(limit + pad*2), floor(t:getHeight() + 0) -- ???
+end
+
+local function textColor(style, invert)
+	if invert then
+		return style.backgroundColor, style.color
+	end
+	return style.color, style.backgroundColor
+end
+
+local function textDraw(text, x, y, limit, alignment, style, invert)
+	local t, pad = textGen(style, text, limit, alignment)
+	local color, bgColor = textColor(style, invert)
+	local graphics = love.graphics
+	local x, y, w, h = textWrapDims(t, x, y, limit, pad)
+	graphics.setColor(bgColor)
+	graphics.rectangle("fill", x, y, w, h, style.borderRadius)
+	graphics.setColor(color)
+	graphics.draw(t, x, y)
+end
+
 return {
+	textCanvas = function(text, limit, alignment, style, invert)
+		local t, pad = textGen(style, text, limit, alignment)
+
+		local xOff, yOff, w, h = textWrapDims(t, 0, 0, limit, pad)
+		local em = style.font:getHeight()
+		local bw = math.floor(style.borderWidth/2 * em)
+		xOff = xOff - bw
+		yOff = yOff - bw
+		w = w + bw*2
+		h = h + bw*2
+
+		local color, bgColor = textColor(style, invert)
+		local graphics = love.graphics
+		local cnv = graphics.newCanvas(w, h)
+		graphics.setCanvas(cnv)
+		graphics.setColor(bgColor)
+		graphics.rectangle("fill", bw, bw, w - bw, h - bw, style.borderRadius)
+		graphics.setColor(color)
+		graphics.rectangle("line", bw, bw, w - bw, h - bw, style.borderRadius)
+		graphics.draw(t, -xOff, -yOff)
+		graphics.setCanvas()
+
+		return cnv, xOff, yOff
+	end,
+
 	bordered = function(func, style, ...)
 		local graphics = love.graphics
 
@@ -28,28 +83,7 @@ return {
 		return graphics.line(points)
 	end,
 
-	text = function(text, x, y, limit, alignment, style, invert)
-		local color, bgColor = style.color, style.backgroundColor
-		if invert then
-			color, bgColor = bgColor, color
-		end
-
-		local _, wrappedText = style.font:getWrap(text, limit)
-		local em = style.font:getHeight()
-		local height = em * style.lineHeight * #wrappedText
-		local padding = em * style.padding
-
-		local graphics = love.graphics
-		graphics.setColor(bgColor)
-		graphics.rectangle("fill",
-			x - padding,
-			y - padding / 2,
-			limit + padding * 2,
-			height + padding)
-		graphics.setColor(color)
-		graphics.setFont(style.font)
-		graphics.printf(text, x, y, limit, alignment)
-	end,
+	text = textDraw,
 
 	dropShadow = function(drawArgs, xOff, yOff, scaleX, scaleY)
 		local graphics = love.graphics

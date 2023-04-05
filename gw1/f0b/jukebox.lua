@@ -17,6 +17,15 @@ local function srcSetup(src, setup)
 	end
 end
 
+-- Format: {"_bend", deltaPitch, timeRemaining}
+local function jukeboxBend(track, fadeArgs, dt)
+	local src = track.source
+	src:setPitch(seq.fadeCommon(src:getPitch(), fadeArgs, dt))
+	if fadeArgs[3] <= 0 then
+		return 3, fadeArgs[3]
+	end
+end
+
 -- Format: {"_fade", deltaVol, timeRemaining}
 local function jukeboxFade(track, fadeArgs, dt)
 	local src = track.source
@@ -41,6 +50,20 @@ local fadeOps = {
 	fadeout = fadeSetup,
 
 	_fade = jukeboxFade,
+
+	bend = function(track, fadeArgs, dt)
+		if not track.cents then
+			track.cents = 0
+		end
+		local n, secs = seq.fadeSetup(track, fadeArgs, dt,
+			track.source:getPitch(), jukeboxBend)
+		if n then
+			return n, secs
+		end
+		fadeArgs[1] = "_bend"
+	end,
+
+	_bend = jukeboxBend,
 
 	delay = function(track, fadeArgs, dt)
 		local secs = fadeArgs[2]

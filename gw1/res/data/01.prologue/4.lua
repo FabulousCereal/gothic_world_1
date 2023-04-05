@@ -7,9 +7,8 @@ Resultó que esto era mas grande de lo que pensamos.]],
 
 	{"style", "vnFab"}, {"name", "Televisión"},
 	[["A eso de las 17:34 horas en XXXXX, XXXXXXXXX, se habría registrado
-una enorme explosión en un laboratorio en la comuna de XXXX en la zona sur de
-la ciudad. La explosión se habría producido según testigos por un incendio en
-la fábrica de tapas de inodoros adyacente..."]],
+una enorme explosión en una fábrica de tapas de inodoros en la comuna de XXXX
+en la zona sur de la ciudad."]],
 
 	{"style", "vnFalcon"}, {"name", "------"},
 	[[Advertían que no salieran de sus hogares, que el humo era tóxico, el

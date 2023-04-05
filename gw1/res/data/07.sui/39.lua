@@ -8,7 +8,7 @@ cola muy rápido, como asustada.]],
 
 	[[Bake y Falcon se miraron, y como entendiendose sin hablar, se
 aseguraron de tener las armas cargadas y caminaron hacia la puerta, nosotros
-siguiendolos de cerca. Fab venía con su tubo, y Andrea reveló un revolver
+siguiendolos de cerca. Fab venía con su tubo, y Andrea reveló un revólver
 negro.]],
 
 	{"name", "María"},

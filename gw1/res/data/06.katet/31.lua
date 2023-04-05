@@ -97,7 +97,7 @@ agarrándome desprevenida. "Tomá."]],
 	[["¿Que--?" Apenas me di vuelta Bake puso un arma en mi mano.]],
 
 	{"name", "Bake"},
-	[["Un revolver y un cargador. Debés usarlos bien."]],
+	[["Un revólver y un cargador. Debés usarlos bien."]],
 
 	{"name", "María"},
 	[["Pero no se disparar."]],
@@ -222,7 +222,7 @@ El zombie nos embistió con todas sus fuerzas.]],
 de Bake y sus cassettes, perdiendo sus armas. Rocco ladraba mientras el zombie
 se subía al lado del conductor.]],
 
-	[["El revolver, el revolver..."]],
+	[["El revólver, el revólver..."]],
 
 	[[El zombie se puso a golpear la puerta mientras yo sin pensar sacaba
 mi arma. Bake y Falcon trataban de moverse pero se estorbaban el uno al otro.

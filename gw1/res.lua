@@ -83,7 +83,6 @@ local function setFallbacks(parent)
 			})
 		end
 	end
-
 	return setmetatable(parent, fallbackMetatable)
 end
 
@@ -122,7 +121,7 @@ res = {
 	dataPath = dataPath,
 	index = f0b.std.dofileOr(dataPath .. "index.lua"),
 
-	fonts = fontCache,
+	font = fontCache,
 
 	fun = funLoad("res/fun/"),
 

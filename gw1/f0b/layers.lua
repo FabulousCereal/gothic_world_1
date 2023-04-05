@@ -146,7 +146,6 @@ local function normalizeLayer(op)
 
 			op.args = {graphics.newCanvas()}
 			graphics.setCanvas(op.args[1])
-			--f0b.table.print(arg, 10)
 			layerDraw(arg)
 			graphics.setCanvas()
 		else

@@ -4,7 +4,7 @@ return {
 	[["Atención pasajeros, les habla su cápitan para anunciar que estamos
 próximos a aterrizar. Favor de dirigirse a su asientos, y abrochar sus
 cinturones de seguridad. La hora local es 17:12 de la tarde, y la temperatura
-afuera es de unos 8 grados"]],
+afuera es de unos 8 grados."]],
 
 	[["Atentu pasaĝeroj..."]],
 

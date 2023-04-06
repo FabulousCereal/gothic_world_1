@@ -165,7 +165,9 @@ subir, pero preferí no hacer preguntas.]],
 	[["Si, sería lo mejor."]],
 
 	{"bgm", "sync"},
-	{"bgm", "mod", "mula_idle", fade={"cmd", {setPitch=2}, "fadeout", 2, true}},
+	{"bgm", "mod", "mula_idle",
+		fade={"cmd", {setPitch=2}, "fadeout", 2,
+			"cmd", {play=false, setPitch=1}}},
 	{"bgm", "set", "mula_run", 0,
 		fade={"fadein", 2},
 		source="freesound/561724__ezzin__tractor-start.run_loop.flac"},
@@ -214,9 +216,14 @@ aunque me llamó la atención que viviera solo en el campo siendo tan joven. ¿N
 se aburrirá? De pronto, Rocco empezó a dar vueltas en el asiento.]],
 
 	{"name", "Croft"},
-	[["¡Rocco! ¡No hagas--! Mierda. !Afuera!" Croft detuvo el auto e
-hizo salir a Rocco al camino, que se bajó tiritando. Empezó a hacer del 2 junto
-a la rueda de la camioneta mientras Croft se llevaba la mano a la cara.]],
+	[["¡Rocco! ¡No hagas--! Mierda. !Afuera!"]],
+
+	{"bgm", "mod", "mula_idle", fade={"cmd", {play=true}, "fadein", 2}},
+	{"bgm", "mod", "mula_run", fade={"fadeout", 2, "cmd", {play=false}}},
+	{"name", "María"},
+	[[Croft detuvo el auto e hizo salir a Rocco al camino, que se bajó
+tiritando. Empezó a hacer del dos junto a la rueda de la camioneta mientras
+Croft se llevaba la mano a la cara.]],
 
 	[["Disculpa. No está acostumbrado a andar en carro." Rocco terminó de
 hacer y empezó a tirarle tierra y nieve a la rueda hasta quedar contento.

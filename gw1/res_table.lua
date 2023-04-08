@@ -15,8 +15,8 @@ return {
 		repellantYellow = {.35, .35, .3},
 		tenpm = {.6, .6, .75},
 		redbg = {1, 0, 0},
-		fivepm = {1, .75, .45},
-		sixpm = {.75, .5, .7},
+		fivepm = {1, .65, .35},
+		sixpm = {.55, .35, .5},
 		softAfternoon = {1, .95, .8},
 	},
 
@@ -84,7 +84,7 @@ return {
 			fontFamily = "dejaVuSans",
 			fontSize = 14,
 			color = {1, 1, 1, 1},
-			backgroundColor = {.125, .25, .25, 3/4},
+			backgroundColor = {0, 0, 0, 1},--{.125, .25, .25, 3/4},
 			borderWidth = 2,
 	--		borderColor = {.5, .25, .5, 1},
 			borderRadius = 6,
@@ -98,14 +98,27 @@ return {
 			}
 		},
 
+		vnMichelle = {
+			fontFamily = "takaoMincho",
+			fontSize = 24,
+			color = {1, 0, 0, 1},
+			backgroundColor = {0, 0, 0, 1},
+			borderWidth = 0,
+			margin = 1,
+			padding = 1,
+			lines = 4,
+		},
+
 		vnMaria = {
 			"vn",
+--			color = {.5, 0, .5, 1},
 			backgroundColor = {1/3, 0, 1/3, 3/4},
 		},
 
 		vnBake = {
 			"vn",
-			backgroundColor = {0, .25, .1, 3/4},
+			backgroundColor = {0, .2, 0, 3/4},
+			borderRadius = 0,
 		},
 
 		vnFalcon = {

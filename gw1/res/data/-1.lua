@@ -1,7 +1,8 @@
 return {
-	{"style", "vn"},
+	{"style", "vnMichelle"},
 	{"name", "Michelle"},
-	{"bg", "add", args={"sa2.png", 180, 120}, color={1/3, 2/3, 1/3, 1}},
+--	{"bg", "add", args={"sa2.png", 180, 120}, color={1/3, 2/3, 1/3, 1}},
+	{"bg", "add", args={"sa2.png", 180, 120}, color={1, 0, 0, 1}},
 	[[Lamento el sufrimiento que estás a punto de experimentar con este
 cuento.]],
 

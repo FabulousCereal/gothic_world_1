@@ -63,9 +63,11 @@ return {
 		graphics.setColor(style.backgroundColor)
 		func("fill", ...)
 
-		graphics.setLineWidth(style.borderWidth)
-		graphics.setColor(style.borderColor)
-		func("line", ...)
+		if style.borderWidth > 0 then
+			graphics.setLineWidth(style.borderWidth)
+			graphics.setColor(style.borderColor)
+			func("line", ...)
+		end
 	end,
 
 	line = function(points, pointRadius)

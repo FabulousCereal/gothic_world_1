@@ -38,6 +38,8 @@ local specialFallbacks = {
 local defaultStyle = {
 	lineHeight = 1,
 	textAlign = "left",
+	borderRadius = 0,
+	borderWidth = 0,
 }
 
 local aliases = {

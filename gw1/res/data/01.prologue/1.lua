@@ -38,6 +38,8 @@ Terminando de tocar sucede la explosión.]],
 	1,
 
 	{"name", false},
+	{"bg", "mod", 1, color=res.palette("redbg")},
+	{"bg", "mod", 3, color=res.palette("redbg")},
 	{"sfx", "sfx/explosión lejana.flac", .5},
 	[[......*boom*]],
 
@@ -143,17 +145,18 @@ se fueron.]],
 	[["Si, es muy raro," respondió uno de mis amigos.]],
 
 	{"name", "Bakeritsu"},
-	[[Nos metimos mas adentro a esperar que el extraño fenómeno pasara,
+	[[Nos metimos mas adentro a esperar a que el extraño fenómeno pasara,
 pero al final la curiosidad mató al gato. Nos subimos al auto tapandonos la
 cara y fuimos a mi casa.]],
 
 	{"bg", "add", 1, args={"cafe/ext.png"},
 		color=res.palette("fivepm", 0), tween={"fadein", 3}},
 	{"bg", "mod", tween={"fadeout", 3, true}},
-	[[En el camino había mucha gente tirada en las calles. No sabiamos que
-estaba pasando, pero lo que había dicho la chica sobre la explosión nos empezó
-a preocupar. A momentos se sentía un olor metálico en el aire... Casi como
-sangre.]],
+	[[En el camino había mucha gente tirada en las calles.]],
+
+	[[No sabiamos que estaba pasando, pero lo que había dicho la chica
+sobre la explosión nos empezó a preocupar. A momentos se sentía un olor
+metálico en el aire... Casi como sangre.]],
 
 	{"bg", "sync"},
 	{"bg", "add", args=f0b.elem.screenFill,
@@ -162,14 +165,15 @@ sangre.]],
 		"Saikō")}, color=res.palette("sixpm")},
 	{"bg", "fold"},
 	{"bg", "mod", tween={"fadein", 2/6}},
-	[[Llegamos y nos bañamos por las dudas. Faltabamos solo yo y mi amigo
-cuando el me dice que sería mejor que nos bañaramos juntos, para lavarnos
-mejor. Asi que eso hicimos.]],
+	[[Llegamos casi oscuresciendo, y nos bañamos por las dudas. Faltabamos
+solo yo y mi amigo cuando el me dice que sería mejor que nos bañaramos juntos,
+para lavarnos mejor. Asi que eso hicimos.]],
 
-	{"bg", "mod", tween={"fadeout", 4/6, true}},
-	{"wait", 4/3},
+--	{"bg", "mod", tween={"fadeout", 4/6, true}},
+	{"bg", "rm"},
+	{"wait", 1},
 	{"bg", "add", args={"bake/y su amigo.png"},
-		color=res.palette("sixpm", 0), tween={"fadein", 4/6}},
+		color=res.palette("sixpm", 0, 0.9), tween={"fadein", 4/6}},
 	{"wait", 1},
 	[[Posiblemente eso fue lo que me salvó.]],
 
@@ -178,7 +182,7 @@ mejor. Asi que eso hicimos.]],
 	{"wait", 4/6},
 
 	{"bg", "add", args={"bake/amigos-en-el-living.png"},
-		color=res.palette("sixpm", 0, 1.1), tween={"fadein", 4/6}},
+		color={.8, .6, 1, 0}, tween={"fadein", 4/6}},
 	[[Envueltos solo con la luz del crepúsculo, salimos de la ducha y nos
 fuimos al living. Mis amigos ya habían prendido la tele...]],
 	{"bg", "sync"},

@@ -1,6 +1,17 @@
 -- SPDX-FileCopyrightText: 2023 Grupo Warominutes
 -- SPDX-License-Identifier: Unlicense
 
+local function borderedParams(fn, fg, bg, borderWidth, ...)
+	local graphics = love.graphics
+	graphics.setColor(bg)
+	fn("fill", ...)
+	if borderWidth > 0 then
+		graphics.setLineWidth(borderWidth)
+		graphics.setColor(fg)
+		fn("line", ...)
+	end
+end
+
 local function textGen(style, ...)
 	local t = love.graphics.newText(style.font)
 	t:setf(...)
@@ -20,18 +31,12 @@ local function textColor(style, invert)
 	return style.color, style.backgroundColor
 end
 
-local function textDraw(text, x, y, limit, alignment, style, invert)
-	local t, pad = textGen(style, text, limit, alignment)
-	local color, bgColor = textColor(style, invert)
-	local graphics = love.graphics
-	local x, y, w, h = textWrapDims(t, x, y, limit, pad)
-	graphics.setColor(bgColor)
-	graphics.rectangle("fill", x, y, w, h, style.borderRadius)
-	graphics.setColor(color)
-	graphics.draw(t, x, y)
-end
-
 return {
+	rectangleTest = function(rect, x, y)
+		return x >= rect[1] and y >= rect[2]
+			and x <= rect[1] + rect[3] and y <= rect[2] + rect[4]
+	end,
+
 	textCanvas = function(text, limit, alignment, style, invert)
 		local t, pad = textGen(style, text, limit, alignment)
 
@@ -47,27 +52,29 @@ return {
 		local graphics = love.graphics
 		local cnv = graphics.newCanvas(w, h)
 		graphics.setCanvas(cnv)
-		graphics.setColor(bgColor)
-		graphics.rectangle("fill", bw, bw, w - bw, h - bw, style.borderRadius)
-		graphics.setColor(color)
-		graphics.rectangle("line", bw, bw, w - bw, h - bw, style.borderRadius)
+		borderedParams(graphics.rectangle, color, bgColor,
+			style.borderWidth,
+			bw, bw, w - bw, h - bw, style.borderRadius)
 		graphics.draw(t, -xOff, -yOff)
 		graphics.setCanvas()
 
 		return cnv, xOff, yOff
 	end,
 
-	bordered = function(func, style, ...)
+	text = function(text, x, y, limit, alignment, style, invert)
+		local t, pad = textGen(style, text, limit, alignment)
+		local x, y, w, h = textWrapDims(t, x, y, limit, pad)
+		local color, bgColor = textColor(style, invert)
 		local graphics = love.graphics
+		graphics.setColor(bgColor)
+		graphics.rectangle("fill", x, y, w, h, style.borderRadius)
+		graphics.setColor(color)
+		graphics.draw(t, x, y)
+	end,
 
-		graphics.setColor(style.backgroundColor)
-		func("fill", ...)
-
-		if style.borderWidth > 0 then
-			graphics.setLineWidth(style.borderWidth)
-			graphics.setColor(style.borderColor)
-			func("line", ...)
-		end
+	bordered = function(func, style, ...)
+		return borderedParams(func, style.borderColor,
+			style.backgroundColor, style.borderWidth, ...)
 	end,
 
 	line = function(points, pointRadius)
@@ -84,8 +91,6 @@ return {
 		graphics.setLineWidth(lineWidth)
 		return graphics.line(points)
 	end,
-
-	text = textDraw,
 
 	dropShadow = function(drawArgs, xOff, yOff, scaleX, scaleY)
 		local graphics = love.graphics

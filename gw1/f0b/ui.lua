@@ -1,36 +1,34 @@
 -- SPDX-FileCopyrightText: 2023 Grupo Warominutes
 -- SPDX-License-Identifier: Unlicense
 
-local widgets = {
-	select = require('f0b.ui.select'),
-	textboard = require('f0b.ui.textboard')
-}
+local widget = {}
+local widgetNames = {"select", "textboard"}
+for i, name in ipairs(widgetNames) do
+	widget[name] = require("f0b.ui." .. name)
+end
 
-local function forEach(fn)
+local function forEachWidget(fn)
 	return function(ui, ...)
-		for _, name in ipairs(ui) do
-			fn(name, ui[name], ...)
+		for name, val in pairs(ui) do
+			fn(widget[name], val, ...)
 		end
 	end
 end
 
 return {
-	widgets = widgets,
+	widget = widget,
 
-	regen = forEach(function(name, target, style)
-		return widgets[name].regen(target, style)
+	regen = forEachWidget(function(widget, target, style)
+		return widget.regen(target, style)
 	end),
 
-	draw = forEach(function(name, target)
+	draw = forEachWidget(function(widget, target)
 		if target.display then
-			return widgets[name].draw(target)
+			return widget.draw(target)
 		end
 	end),
 
 	add = function(ui, name, ...)
-		if not ui[name] then
-			table.insert(ui, name)
-			ui[name] = widgets[name].new(...)
-		end
+		ui[name] = widget[name].new(...)
 	end,
 }

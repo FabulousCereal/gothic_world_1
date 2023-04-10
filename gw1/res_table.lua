@@ -28,9 +28,13 @@ return {
 			backgroundColor = {0, 0, 0, .5},
 			padding = .25,
 			borderWidth = 1,
-			lineSpacing = 5/3,
+			margin = .5,
+			width = "adapt",
 			disabled = {
 				color = {.5, 0, .5, 1},
+			},
+			unselected = {
+				borderColor = {0, 0, 0, 0},
 			},
 		},
 
@@ -46,7 +50,7 @@ return {
 			fontSize = 28,
 			color = {1, 1, 1, 1},
 			backgroundColor = {0, 0, 0, 1},
-			padding = .25,
+			padding = .2,
 			margin = 2,
 			disabled = {
 				color = {.5, .5, .5, 1},
@@ -84,7 +88,7 @@ return {
 			fontFamily = "dejaVuSans",
 			fontSize = 14,
 			color = {1, 1, 1, 1},
-			backgroundColor = {0, 0, 0, 1},--{.125, .25, .25, 3/4},
+			backgroundColor = {.125, .125, .125, 3/4},
 			borderWidth = 2,
 	--		borderColor = {.5, .25, .5, 1},
 			borderRadius = 6,
@@ -92,6 +96,7 @@ return {
 			lineSpacing = 2,
 			margin = 1,
 			padding = 1,
+			hover = true,
 			unselected = {
 	--			borderColor = {.5, .5, .5, .5},
 				backgroundColor = {.25, .25, .25, 3/4},
@@ -111,7 +116,6 @@ return {
 
 		vnMaria = {
 			"vn",
---			color = {.5, 0, .5, 1},
 			backgroundColor = {1/3, 0, 1/3, 3/4},
 		},
 

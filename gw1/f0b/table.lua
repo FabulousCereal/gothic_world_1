@@ -156,4 +156,11 @@ return {
 		end
 		return t
 	end,
+
+	map = function(t, fn)
+		for k, v in pairs(t) do
+			t[k] = fn(v)
+		end
+		return t
+	end,
 }

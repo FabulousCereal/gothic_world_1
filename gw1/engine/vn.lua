@@ -1,7 +1,7 @@
 -- SPDX-FileCopyrightText: 2023 Grupo Warominutes
 -- SPDX-License-Identifier: Unlicense
 
-local widgets = require("f0b.ui").widgets
+local widget = require("f0b.ui").widget
 
 local function initVars(vn)
 	local vars = f0b.table.struct.new({"_idx1", "_idx2", "_title1", "_title2"})
@@ -29,9 +29,9 @@ local function stateReset(vn, keepRes)
 	local ui = vn.ui
 	ui.select.display = false
 	ui.textboard.display = false
-	widgets.textboard.setName(ui.textboard, false)
-	widgets.textboard.regen(ui.textboard, vn.initStyle)
-	widgets.select.regen(ui.select, vn.initStyle)
+	widget.textboard.setName(ui.textboard, false)
+	widget.textboard.regen(ui.textboard, vn.initStyle)
+	widget.select.regen(ui.select, vn.initStyle)
 	if not keepRes then
 		f0b.jukebox.ops(vn.tracks, "rmall")
 		f0b.layers.ops(vn.background, "rmall")
@@ -176,7 +176,7 @@ local instructionTable = {
 
 	select = function(line, vn)
 		vn.selectTarget = line[2]
-		widgets.select.set(vn.ui.select, line[3])
+		widget.select.set(vn.ui.select, line[3])
 		vn.ui.select.display = true
 		return true
 	end,
@@ -262,7 +262,7 @@ local function vnUpdate(self, dt)
 					return advanceVN2(self)
 				end
 			else
-				widgets.textboard.update(tb, dt)
+				widget.textboard.update(tb, dt)
 			end
 		else
 			self.unskippable = false
@@ -288,13 +288,13 @@ end
 local function commonInput(self, fallbackKey, selectInputFn, ...)
 	local ui = self.ui
 	if ui.select.display then
-		local val = selectInputFn(ui.select, ...)
+		local val = widget.select[selectInputFn](ui.select, ...)
 		if val then
 			selectChosen(self, val)
 			return advanceVN2(self)
 		end
 	elseif not ui.textboard.finished then
-		widgets.textboard.keypressed(ui.textboard, fallbackKey)
+		widget.textboard.keypressed(ui.textboard, fallbackKey)
 	elseif not self.unskippable and (fallbackKey == "space" or fallbackKey == "return") then
 		self.wait = 0
 		return advanceVN2(self)
@@ -302,7 +302,7 @@ local function commonInput(self, fallbackKey, selectInputFn, ...)
 end
 
 local function commonKeypress(self, key)
-	return commonInput(self, key, f0b.buttons.keypressed, key)
+	return commonInput(self, key, "keypressed", key)
 end
 
 local function endLoadState(self, dt)
@@ -366,17 +366,17 @@ end
 
 local function vnMousepressed(self, x, y, button, ...)
 	local key = button == 1 and "return"
-	return commonInput(self, key, f0b.buttons.mousepressed, x, y, button, ...)
+	return commonInput(self, key, "mousepressed", x, y, button, ...)
 end
 
 local function vnWheelmoved(self, ...)
-	return commonInput(self, "", f0b.buttons.wheelmoved, ...)
+	return commonInput(self, "", "wheelmoved", ...)
 end
 
 local function vnMousemoved(self, ...)
 	local select = self.ui.select
 	if select.display then
-		return f0b.buttons.mousemoved(select, ...)
+		return widget.select.mousemoved(select, ...)
 	end
 end
 
@@ -398,7 +398,8 @@ local function vnPreInit(self, stage)
 		f0b.table.union(logue.instructionTable, instructionTable))
 
 	f0b.ui.add(self.ui, "textboard", self.style, self.index.repl)
-	f0b.ui.add(self.ui, "select", self.style, self.index.repl)
+	f0b.ui.add(self.ui, "select", self.style, self.index.repl, "center",
+		0, self.ui.textboard.textboard.pos[4])
 	self.settings = f0b.table.struct.new({"keepRes"})
 
 	self.pre = vnPreInitiated

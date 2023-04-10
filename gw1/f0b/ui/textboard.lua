@@ -21,7 +21,7 @@ local function typewriterNext(board)
 	local str, pos = board.str, board.pos
 	if pos <= #str then
 		local pos, char = nextCodePoint(str, pos)
-		board.text[1]:setf(string.sub(str, 1, pos), board.text.wrap,
+		f0b.buttons.setText(board.textboard, string.sub(str, 1, pos),
 			board.style.textAlign)
 		board.pos = pos + 1
 		return char
@@ -32,7 +32,8 @@ local function typewriterNext(board)
 end
 
 local function typewriterFinish(board)
-	board.text[1]:setf(board.str, board.text.wrap, board.style.textAlign)
+	local text = board.textboard.text
+	f0b.buttons.setText(board.textboard, board.str, board.style.textAlign)
 	board.pos = #board.str + 1
 	board.finished = true
 end
@@ -40,74 +41,65 @@ end
 local function textboardRegen(board, style)
 	board.style = style
 
-	local em = style.font:getHeight()
-	local lh = em * style.lineHeight
-	local padding = em * style.padding
-	local margin = em * style.margin
+	local em, pad, margin, lh = f0b.style.getUnits(style)
 	local screenW, screenH = love.graphics.getDimensions()
 
+	local tb = f0b.buttons.regen(board.textboard, style, 0, 0, screenW,
+		style.lines)
+	f0b.buttons.setPos(board.textboard, 0, screenH, "bottom")
+
 	local floor = math.floor
-
-	local tbox = board.textbox
-	local nbox = board.namebox
-	local text = board.text
-	local name = board.name
-
-	local textboxH = lh * style.lines + padding + style.borderWidth
-	tbox[1] = floor(margin)                      -- X
-	tbox[2] = floor(screenH - margin - textboxH) -- Y
-	tbox[3] = floor(screenW - margin * 2)        -- Width
-	tbox[4] = floor(textboxH)                    -- Height
-	tbox[5] = style.borderRadius                 -- Radius
-
 	local nameboxH = em + style.borderWidth / 2
-	nbox[1] = floor(tbox[1] + padding)   -- X
-	nbox[2] = floor(tbox[2] - nameboxH)  -- Y 
+	local nbox = board.namebox
+	local ntext = board.nametext
+	nbox[1] = floor(tb.pos[1] + tb.box[1] + pad)      -- X
+	nbox[2] = floor(tb.pos[2] + tb.box[2] - nameboxH) -- Y 
 	-- Width is set with name.
-	nbox[4] = floor(nameboxH)            -- Height
-	nbox[5] = style.borderRadius / 2 + 1 -- Radius
+	nbox[4] = floor(nameboxH)                         -- Height
+	nbox[5] = math.ceil(style.borderRadius / 2)       -- Radius
 
-	text[1]:setFont(style.font)
-	text[2] = floor(tbox[1] + padding)     -- X
-	text[3] = floor(tbox[2] + padding / 2) -- Y
-	text.wrap = floor(tbox[3] - (padding + style.borderWidth) * 2)
+	ntext[1]:setFont(style.font)
+	ntext[2] = floor(nbox[1] + pad/2) -- X
+	ntext[3] = nbox[2]                -- Y
 
-	name[1]:setFont(style.font)
-	name[2] = floor(nbox[1] + padding / 2) -- X
-	name[3] = nbox[2]                      -- Y
+	nbox[3] = floor(ntext[1]:getWidth() + pad)
 	return board
 end
 
 return {
 	setText = function(board, str, append, instant)
 		str = multiRepl(str, board.repl)
+		local text = board.textboard.text
 		if append then
 			str = board.str .. str
 		else
 			board.pos = 1
-			board.text[1]:clear()
+			text[1]:clear()
 		end
 
-		local _, str = board.style.font:getWrap(str, board.text.wrap)
+		local _, str = board.style.font:getWrap(str, text.wrap)
 		board.str = table.concat(str, "\n")
 		board.timer = 0
 		board.finished = instant
 	end,
 
 	setName = function(board, name)
+		board.name = name
 		if name then
 			local style = board.style
 			local em = style.font:getHeight()
-			local pad = style.padding * em + style.borderWidth
-			board.name[1]:set(name)
+			local pad = style.padding * em
+			board.nametext[1]:set(name)
 			board.namebox[3] = math.floor(
-				board.name[1]:getWidth() + pad)
+				board.nametext[1]:getWidth() + pad)
 		else
-			board.namebox[3] = 0
+			board.nametext[3] = 0
 		end
 	end,
 
 	finish = typewriterFinish,
+
+	--mousepressed = function(board, x, y, button)
 
 	keypressed = function(board, key)
 		if key == "space" or key == "return" then
@@ -139,38 +131,31 @@ return {
 
 	draw = function(board)
 		local style = board.style
+		f0b.buttons.draw(board.textboard, style)
+
 		local graphics = love.graphics
 		local bordered = f0b.shapes.bordered
-
-		if board.namebox[3] > 0 then
+		if board.name then
 			bordered(graphics.rectangle, style,
 				unpack(board.namebox))
 			graphics.setColor(style.color)
-			graphics.draw(unpack(board.name))
+			graphics.draw(unpack(board.nametext))
 		end
-
-		bordered(graphics.rectangle, style, unpack(board.textbox))
-		graphics.setColor(style.color)
-		return graphics.draw(unpack(board.text))
 	end,
 
 	regen = textboardRegen,
 
 	new = function(style, repl)
-		local newText = love.graphics.newText
 		local board = {
-			textbox = {0, 0, 0, 0, 0},
 			namebox = {0, 0, 0, 0, 0},
-			text = {
-				newText(style.font), 0, 0,
-				wrap = 0,
+			nametext = {
+				love.graphics.newText(style.font), 0, 0
 			},
-			name = {
-				newText(style.font), 0, 0
-			},
+			name = false,
+			str = false,
+			textboard = f0b.buttons.default(style),
 			pos = 0,
 			speed = 1,
-			str = nil,
 			finished = true,
 			display = false,
 			style = style,

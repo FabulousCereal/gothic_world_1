@@ -1,95 +1,135 @@
 -- SPDX-FileCopyrightText: 2023 Grupo Warominutes
 -- SPDX-License-Identifier: Unlicense
 
-local buttons = require("f0b.buttons")
 local multiRepl = require("f0b.ui._uiCommon").multiRepl
+local oneMod = require("f0b.math").oneMod
+local dispatch = require("f0b.table").dispatch
 
-local function selectRegen(board)
-	local style = board.style
+local function selectRegen(select)
+	local style = select.style
 
-	local em = style.font:getHeight()
-	local padding = em * style.padding
-	local margin = em * style.margin
-	local lineHeight = em * style.lineHeight
-	local lineSpacing = lineHeight * style.lineSpacing
+	local em, pad, margin, lineHeight = f0b.style.getUnits(style)
 	local screenW = love.graphics.getWidth()
 
-	local floor = math.floor
-
-	local borderMargin = margin + style.borderWidth
-	local padgin = padding + borderMargin
-	local textboardSize = lineHeight * style.lines + padgin*2
-
-	local select = board.select
-	local text = select[1]
-	text:clear()
-	text:setFont(style.font)
-	select[2] = floor(padgin) -- X
-	select[3] = floor(textboardSize + padgin/2) -- Y
-
-	local textW = screenW - select[2]*2
 	local lineY = 0
-	local buttons = {cur = 1}
-	local choices = board.choices
-	for i, choice in pairs(choices) do
-		choice = multiRepl(choice, board.repl)
-		text:addf(choice, textW, "center", 0, lineY)
-		local h = text:getHeight()
-		table.insert(buttons, {
-			floor(borderMargin),
-			floor(textboardSize + borderMargin/2 + lineY),
-			floor(screenW - borderMargin*2),
-			floor(h + padding), style.borderRadius})
-		lineY = lineY + h + lineSpacing
+	local maxW = 0
+	for i, choice in ipairs(select.choices) do
+		if select.repl then
+			choice = multiRepl(choice, select.repl)
+		end
+		local button, _, y, textW = f0b.buttons.new(style, 0, lineY,
+			screenW, 1, choice, select.align)
+		select[i] = button
+		lineY = y
+		if textW > maxW then
+			maxW = textW
+		end
 	end
-	board.buttons = buttons
-	return board
+	for i = #select.choices + 1, #select do
+		select[i] = nil
+	end
+	if style.width == "adapt" then
+		for _, button in ipairs(select) do
+			f0b.buttons.setWidth(button, style, maxW)
+		end
+	end
+	select.pos[3] = select[1].pos[3]
+	select.pos[4] = lineY + margin + style.borderWidth/2
+	return select
+end
+
+local keys = dispatch({
+	["return"] = function(buttons)
+		return buttons.cur
+	end,
+
+	up = function(buttons)
+		buttons.cur = oneMod(buttons.cur - 1, #buttons)
+	end,
+
+	down = function(buttons)
+		buttons.cur = oneMod(buttons.cur + 1, #buttons)
+	end,
+
+	home = function(buttons)
+		buttons.cur = 1
+	end,
+
+	["end"] = function(buttons)
+		buttons.cur = #buttons
+	end,
+})
+
+local function mouseTest(select, x, y, press)
+	if f0b.shapes.rectangleTest(select.pos, x, y) then
+		x = x - select.pos[1]
+		y = y - select.pos[2]
+		for i, button in ipairs(select) do
+			if f0b.buttons.mousemoved(button, x, y) then
+				if press or select.style.hover then
+					select.cur = i
+				end
+				return i
+			end
+		end
+	end
 end
 
 return {
-	set = function(board, choices)
-		board.choices = choices
-		return selectRegen(board)
+	mousepressed = function(select, x, y, mouseButton)
+		return mouseTest(select, x, y, mouseButton == 1)
 	end,
 
-	draw = function(board)
-		local style = board.style
+	mousemoved = function(select, x, y)
+		return mouseTest(select, x, y, false)
+	end,
+
+	keypressed = function(select, key)
+		return keys[key](select)
+	end,
+
+	wheelmoved = function(select, x, y)
+		y = math.modf(y)
+		if y ~= 0 then
+			return keys[y > 0 and "up" or "down"](select)
+		end
+	end,
+
+	draw = function(select)
+		local style = select.style
 		local graphics = love.graphics
-		local bordered = f0b.shapes.bordered
+		graphics.push()
 
-		local em = style.font:getHeight()
-		local padding = em * style.padding
-		local lineSpacing = em * style.lineSpacing
-
-		local floor = math.floor
-		for i, button in ipairs(board.buttons) do
-			local lStyle
-			if i == board.buttons.cur then
-				lStyle = style
-			else
-				lStyle = style.unselected
-			end
-			bordered(graphics.rectangle, lStyle, unpack(button))
+		graphics.translate(unpack(select.pos, 1, 2))
+		for i, button in ipairs(select) do
+			f0b.buttons.draw(button, (i == select.cur)
+				and style or style.unselected)
 		end
-		graphics.setColor(style.color)
-		return graphics.draw(unpack(board.select))
+
+		graphics.pop()
 	end,
 
-	regen = function(board, style)
-		board.style = style
-		if board.choices then
-			return selectRegen(board)
+	regen = function(select, style)
+		select.style = style
+		if select.choices then
+			return selectRegen(select)
 		end
 	end,
 
-	new = function(style, repl)
+	set = function(select, choices)
+		select.choices = choices
+		return selectRegen(select)
+	end,
+
+	new = function(style, repl, align, x, y)
 		return {
+			cur = 1,
+			pos = {x or 0, y or 0, 0, 0},
 			style = style,
-			select = {love.graphics.newText(style.font), 0, 0},
 			display = false,
 			choices = false,
-			buttons = nil,
 			repl = repl,
+			align = align,
 		}
 	end,
 }

@@ -18,7 +18,7 @@ local tocCmp = {
 local function tocRecalc(fText, toc, style, cur, sub)
 	fText:clear()
 	local em = style.font:getHeight()
-	local lineSpacing = em * style.lineSpacing - em
+	local lineSpacing = em * style.margin
 
 	local screenH = love.graphics.getHeight()
 	local sectionX = math.floor(em * 2)
@@ -206,7 +206,7 @@ local function tocDraw(self)
 	local floor = math.floor
 	local graphics = love.graphics
 	local screenW, screenH = graphics.getDimensions()
-	local lineSpacing = em * style.lineSpacing
+	local lineSpacing = em * style.margin + em
 	local tocMargin = em * 2
 
 	if self.forbiddenChoice then

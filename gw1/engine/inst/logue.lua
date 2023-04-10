@@ -1,7 +1,7 @@
 -- SPDX-FileCopyrightText: 2023 Grupo Warominutes
 -- SPDX-License-Identifier: Unlicense
 
-local textboard = f0b.ui.widgets.textboard
+local textboard = f0b.ui.widget.textboard
 
 local function setText(self, str, append, cont)
 	self.textCont = cont

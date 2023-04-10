@@ -1,43 +1,23 @@
 -- SPDX-FileCopyrightText: 2023 Grupo Warominutes
 -- SPDX-License-Identifier: Unlicense
 
-local buttons = require("f0b.buttons")
 local clearArray = require("f0b.table").clearArray
 
 local function replaceMenu(self, entries)
 	local style = self.style
-	local em = style.font:getHeight()
-	local lineSpacing = em * style.lineSpacing
-
-	local x = entries.x - em * style.padding
-	local maxW = 0
-	local lineY = 0
-	local buttons = f0b.table.clearArray(entries.buttons)
-	local text = self.text
-	text:clear()
-
-	for i = 1, #entries do
-		local entry = entries[i]
-		local colorText
-		if entry[2] then
-			colorText = {style.color, entry[1]}
-		else
-			colorText = {style.disabled.color, entry[1]}
-		end
-		local y = math.floor(lineY)
-		text:add(colorText, 0, y)
-		local w = text:getWidth()
-		if w > maxW then
-			maxW = w
-		end
-
-		table.insert(buttons, {x, entries.y + y, w, em})
-		lineY = lineY + lineSpacing
+	local textList = {}
+	for _, entry in ipairs(entries) do
+		table.insert(textList, {
+			entry[2] and style.color or style.disabled.color,
+			entry[1]
+		})
 	end
-	local rectW = math.floor(maxW + em * style.padding * 2)
-	for i = 1, #buttons do
-		buttons[i][3] = rectW
-	end
+
+	local select = self.ui.select
+	f0b.ui.widget.select.set(select, textList)
+	select.pos[1] = entries.x
+	select.pos[2] = entries.y
+
 	self.entries = entries
 	self.background = entries.background
 end
@@ -48,7 +28,7 @@ local menuOps = {
 	end,
 
 	menu = function(self, entry)
-		table.insert(self.stack, self.entries.buttons.cur)
+		table.insert(self.stack, self.ui.select.cur)
 		replaceMenu(self, entry[3])
 	end,
 
@@ -63,24 +43,27 @@ local menuOps = {
 }
 
 local function menuDraw(self)
-	local graphics = love.graphics
-	local style = self.style
-	local em = style.font:getHeight()
-	local lineSpacing = em * style.lineSpacing
+	f0b.ui.draw(self.ui)
+end
 
-	local entries = self.entries
-	local b = entries.buttons[entries.buttons.cur]
-	f0b.shapes.bordered(graphics.rectangle, style,
-		b[1], b[2], b[3], b[4], style.borderRadius)
+local function emCoords(x, y, scale)
+	if scale then
+		x, y = x * scale, y * scale
+	end
 
-	graphics.setColor(1, 1, 1, 1)
-	graphics.draw(self.text, entries.x, entries.y)
+	local w, h = love.graphics.getDimensions()
+	if x < 0 then
+		x = x + w
+	end
+	if y < 0 then
+		y = y + h
+	end
+	return x, y
 end
 
 local function normalizeEntries(entries, em)
-	entries.x, entries.y = f0b.screen.coords(entries.x or 1, entries.y or 1, em)
-	entries.buttons = {cur = 1}
-	for i = 1, #entries do
+	entries.x, entries.y = emCoords(entries.x or 1, entries.y or 1, em)
+	for i, entry in ipairs(entries) do
 		local entry = entries[i]
 		if entry[2] == "menu" then
 			normalizeEntries(entry[3], em)
@@ -89,19 +72,18 @@ local function normalizeEntries(entries, em)
 end
 
 local function menuPre(self)
-	local font = self.style.font
-	self.text = love.graphics.newText(font)
-	normalizeEntries(self.allEntries, font:getHeight())
+	f0b.ui.add(self.ui, "select", self.style, nil, "left")
+	self.ui.select.display = true
+	normalizeEntries(self.allEntries, self.style.font:getHeight())
 	replaceMenu(self, self.allEntries)
 
 	self.pre = nil
 end
 
 local function menuInput(self, fn, ...)
-	local entries = self.entries
-	local i = fn(entries, ...)
+	local i = fn(self.ui.select, ...)
 	if i then
-		local entry = entries[i]
+		local entry = self.entries[i]
 		if entry[2] then
 			return menuOps[entry[2]](self, entry)
 		end
@@ -109,10 +91,11 @@ local function menuInput(self, fn, ...)
 end
 
 local function menuMousemoved(self, ...)
-	return buttons.mousemoved(self.entries, ...)
+	return f0b.ui.widget.select.mousemoved(self.ui.select, ...)
 end
 
-local function giveInput(fn)
+local function giveInput(name)
+	local fn = f0b.ui.widget.select[name]
 	return function(self, ...)
 		return menuInput(self, fn, ...)
 	end
@@ -122,9 +105,9 @@ return {
 	new = function(entries, style)
 		return {
 			draw = menuDraw,
-			keypressed = giveInput(buttons.keypressed),
-			mousepressed = giveInput(buttons.mousepressed),
-			wheelmoved = giveInput(buttons.wheelmoved),
+			keypressed = giveInput("keypressed"),
+			mousepressed = giveInput("mousepressed"),
+			wheelmoved = giveInput("wheelmoved"),
 			mousemoved = menuMousemoved,
 			pre = menuPre,
 
@@ -132,8 +115,7 @@ return {
 			entries = nil,
 			stack = {},
 			style = style,
-
-			text = nil,
+			ui = {},
 
 			background = nil,
 			tracks = nil,

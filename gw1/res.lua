@@ -33,6 +33,11 @@ local specialFallbacks = {
 		end
 		return f
 	end,
+
+	em = function(style)
+		local f = fontCache(style.fontFamily, style.fontSize)
+		return f:getHeight()
+	end,
 }
 
 local defaultStyle = {

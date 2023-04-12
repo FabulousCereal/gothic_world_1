@@ -2,6 +2,7 @@ return {
 	{"style", "vnCroft"},
 	{"name", "Croft"},
 	res.fun.macro.title,
+	{"macro", res.fun.macro.date, {2011, 11, 9, 7, 37}},
 
 	[[Desperté al otro día tranquilamente. Rocco dormía y afuera había
 niebla. Fui a prender la TV pero aún no había llegado la energía. Lo supe
@@ -27,7 +28,7 @@ ver a mi amigo, hacía mucho que no hablábamos.]],
 
 	[[De lejos noté que la ciudad tenía otro aspecto, como si se hubiera
 detenido por completo. ¿Por una explosión? Quiero decir, no era insignificante,
-pero la ciudad no se paraba ni con maremotos.]],
+pero la ciudad no se paraba ni con tsunamis.]],
 
 	[[Tres helicópteros pasaron sobre nosotros. Supuse que eran de los
 noticieros que nadie podía ver.]],
@@ -39,8 +40,10 @@ ningún lado.]],
 
 	[[No soy de esos campesinos que les gusta quejarse de como vive la
 gente en la ciudad, pero hasta yo consideraba que aquí habían problemas graves
-de convivencia vial. Rocco empezó a ladrar y estuve de acuerdo con todo lo que
-decía, es como si a nadie le importara--]],
+de convivencia vial.]],
+
+	[[Rocco empezó a ladrar y estuve de acuerdo con todo lo que decía, era
+como si a nadie le importara--]],
 
 	[[Holy crap! Creo que le pasé a algo encima.]],
 
@@ -57,7 +60,7 @@ ciudad.]],
 
 	[[No había mucho que ver, por la niebla, pero todo se oía bastante
 tranquilo, tal vez hasta demasiado para una capital. La recordaba con mas
-tránsito.]],
+atascos.]],
 
 	[[Que yo sepa no era dia feriado, ni lo fue ayer como para que anden
 todos enratonados. Seguí andando, encontrando una que otra persona caminando,
@@ -99,9 +102,10 @@ son revoltosos y por cualquier cosa saquean los supermercados y esas cosas,
 se roban hasta la basura. Le insistí un par de veces mas pero fue en vano.]],
 
 	[[Mientras pensaba en si devolverme a la casa, se oyó un disparo de la
-habitación del vecino. Rocco empezó a ladrar como loco. Golpée a la puerta y me
-dí cuenta de que no tenía seguro. Entré y encontré al de la escopeta muerto en
-una silla. Se había suicidado.]],
+habitación del vecino. Rocco empezó a ladrar como loco.]],
+
+	[[Golpée a la puerta y me dí cuenta de que no tenía seguro. Entré y
+encontré al de la escopeta muerto en una silla. Se había suicidado.]],
 
 	[[Escuché pasos del apartamento de mi amigo, a lo mejor el ruido lo
 despertó al fin. Corrí a golpear de nuevo pero seguía sin abrirme.]],
@@ -134,8 +138,8 @@ helado, hasta que el golpe retumbó en el aire e hizo volar a las palomas.]],
 
 	{"name", "Croft"},
 	[[Me asomé a mirar y ví que había caido junto a un sujeto encapuchado,
-que cargaba una tubería. El hombre continuó su camino a pesar de haberse
-llevado un buen susto.]],
+que cargaba una tubería. El hombre lo rodeó y continuó su camino a pesar de
+haberse llevado un buen susto.]],
 
 	[[Tras el shock, traté de llamar a la policía para dar cuenta de lo que
 había pasado, pero tras varios intentos, nunca contestaron. En otras palabras,
@@ -143,20 +147,25 @@ lo de siempre. Bajé de vuelta y monté a Rocco en el carro. Si la montaña no
 le contesta a Mahoma...]],
 
 	[[Conducía encontrando a cada momento mas personas caminando raro, poco
-mas y se arrastraban por el suelo. Sospechaba que algo no andaba bien acá. Lo
-bueno es que casi no habían carros, así que llegué pronto una comisaría.
-Nos bajamos con Rocco.]],
+mas y se arrastraban por el suelo. Sospechaba que algo no andaba bien acá.]],
+
+	[[Lo bueno es que casi no habían carros, así que llegué pronto una
+comisaría. Nos bajamos con Rocco.]],
 
 	[[Como en todos los demas lugares, no había nadie y las puertas
 estaban cerradas. Pensé que por ser de vidrio podría romperlas, pero tras
 estrellarnos quince veces con Rocco, me dí cuenta que no iba a resultar. No sin
-armamento de guerra. Había un citófono así que les grité algunos improperios y
-nos fuimos.]],
+armamento de guerra.]],
 
-	[[Me subí al carro rendido. Mi amigo se había suicidado y no había
+	[[Había un citófono así que les grité algunos improperios y nos
+fuimos al carro.]],
+
+	[[Me subí completamente rendido. Mi amigo se había suicidado y no había
 nadie que pudiera hacer nada. Sin luz, con los postes caídos, y la gente
-muriendose de borracha. Decidí regresar a casa con Rocco. Era mejor que nos
-alejaramos de este antro de la decadencia mientras se podía.]],
+muriendose de borracha.]],
+
+	[[Decidí regresar a casa con Rocco. Era mejor que nos alejaramos de
+este antro de la decadencia mientras se podía.]],
 
 	{"name", "Rocco"},
 	[["Oooouuuu," se lamentaba Rocco. Si, era todo muy triste. Me fui
@@ -164,14 +173,16 @@ rápido por la carretera antes de encontrar mas sorpresas. "Ouuuu."]],
 
 	{"name", "Croft"},
 	[["¿Que te pasa, amigo?" Rocco empezó a darse vueltas en el asiento,
-pero luego se quedó quieto y sentí un olor feo. "¡Hey! ¡Espera!" Traté de
-detenerme en el costado pero tardé demasiado. Rocco se hizo en el
-asiento, y en dos segundos el carro apestó a diablo.]],
+pero luego se quedó quieto y sentí un olor feo. "¡Hey! ¡Espera!"]],
+
+	[[Traté de detenerme en el costado pero tardé demasiado. Rocco se hizo
+en el asiento, y en dos segundos el carro apestó a diablo.]],
 
 	[["¡Maldita sea, Rocco!" Bajé las ventanas y abrí las puertas.
-A Rocco se le había pasado la pena, me miró sonriente y salió a dar vueltas. Me
-quedé buscando un trapo para tratar de limpiar, pero era diarrea. Esto no iba a
-salir mas, no.]],
+A Rocco se le había pasado la pena, me miró sonriente y salió a dar vueltas.]],
+
+	[[Me quedé buscando un trapo para tratar de limpiar, pero era diarrea.
+Esto no iba a salir mas, no.]],
 
 	{"name", false},
 	[["Bwaaa..." escuché de pronto. Una mujer se acercaba de mi lado.]],
@@ -208,12 +219,14 @@ el area rural se veía como siempre. Tranquila y solitaria. Tal vez demasiado.]]
 	[[Aunque considerando como está el ambiente, yo tampoco tendría ganas
 de estar afuera.]],
 
-	[[Llegamos a la casa e hice bajar a Rocco justo antes que se hiciera
-de nuevo en el asiento. Adentro seguiamos sin energía, no había internet, y
-nadie contestaba mis llamados, aunque eso ya no me preocupaba. Lo malo es que
-no tenía otro lugar donde ir. No cerca, al menos.]],
+	[[Llegamos a la casa cerca del mediodía, e hice bajar a Rocco justo
+antes que se hiciera de nuevo en el asiento.]],
 
-	[[Decidí resguardarme en mi casa a esperar a que se arreglaba solo el
+	[[Adentro seguiamos sin energía. No había internet, y nadie contestaba
+mis llamados, aunque eso ya no me preocupaba. Lo malo es que no tenía otro
+lugar donde ir. No cerca, al menos.]],
+
+	[[Decidí resguardarme en mi casa a esperar a que se arreglaba el
 problema con la gente o hasta que no pudieramos seguir acá, lo que estimé sería
 muy pronto, así que busque lo mas viejo del refri para no perder la comida.]],
 
@@ -221,7 +234,9 @@ muy pronto, así que busque lo mas viejo del refri para no perder la comida.]],
 haciendo agua. No tenían mal aspecto así que hice un fuego para calentarlos.]],
 
 	[[A medida que empezó a salir olor, Rocco se sentó junto a mi. Me
-miraba a mi y luego a la olla con cara de pena. Agregué un trozo de pollo que
-se estaba descongelando tambien para darle. Al final el comió pollo con
-sabor a frijoles y yo frijoles con sabor a pollo. Luego junté agua.]],
+miraba a mi y luego a la olla con cara de pena, así que agregué un trozo de
+pollo que se estaba descongelando tambien para darle.]],
+
+	[[Al final el comió pollo con sabor a frijoles y yo frijoles con sabor
+a pollo. Luego junté agua.]],
 }

@@ -16,8 +16,8 @@ la ventana que daba al camino y no parecía oírme.]],
 ladraba sin motivo. Como no parecía querer parar, me levanté aunque fuera a
 mirar.]],
 
-	[[No veía casi nada, pero creí ver a alguien andando por mitad del
-camino.]],
+	[[No veía casi nada, pero creí ver a alguien andando encorvado por
+mitad del camino.]],
 
 	[[Si era o no una ilusión, no sé, pero me tomó un minuto darme cuenta
 de que el verdadero problema acá, era que los faroles de la calle no estaban

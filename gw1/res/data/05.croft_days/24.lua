@@ -1,3 +1,3 @@
 return {
-	[[(¿a que hora escribiré tanto?)]]
+	[[(creo que debería cortar el relato acá)]]
 }

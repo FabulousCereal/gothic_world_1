@@ -2,6 +2,7 @@
 -- SPDX-License-Identifier: Unlicense
 
 local buttons = require("f0b.buttons")
+local multiRepl = require("f0b.ui._uiCommon").multiRepl
 
 local function selectRegen(board)
 	local style = board.style
@@ -31,7 +32,7 @@ local function selectRegen(board)
 	local buttons = {cur = 1}
 	local choices = board.choices
 	for i, choice in pairs(choices) do
-		choice = string.gsub(choice, "\n+%s*", " ")
+		choice = multiRepl(choice, board.repl)
 		text:addf(choice, textW, "center", 0, lineY)
 		local h = text:getHeight()
 		table.insert(buttons, {
@@ -81,13 +82,14 @@ return {
 		end
 	end,
 
-	new = function(style)
+	new = function(style, repl)
 		return {
 			style = style,
 			select = {love.graphics.newText(style.font), 0, 0},
 			display = false,
 			choices = false,
 			buttons = nil,
+			repl = repl,
 		}
 	end,
 }

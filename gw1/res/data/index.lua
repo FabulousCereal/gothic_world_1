@@ -1,4 +1,13 @@
 return {offset = -1,
+	globals = {
+		"DespiertaDonde"
+	},
+	repl = {
+		["%-%-"] = "―",
+		['"([^"]*)"'] = "«%1»"
+--		["%(8%)"] = "♫",
+	},
+
 	{name = "Prefacio", noNumbers = true,
 		{"por Michelle", "-1"}
 	},
@@ -110,9 +119,5 @@ Aquella vida que vivimos...]]},
 	{name = "viejo", noNumbers = true, dir = "zz.old",
 		{"Ziggurat", "0_ziggurat"},
 		{"El Futuro", "1_futuro"}
-	},
-
-	globals = {
-		"DespiertaDonde"
 	},
 }

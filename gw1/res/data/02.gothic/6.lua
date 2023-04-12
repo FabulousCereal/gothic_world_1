@@ -190,7 +190,7 @@ cayera.]],
 	[[Su cuerpo se sentía cálido, a pesar que tenía muy poca ropa para este
 frio.]],
 
-	[[Logré llevarlo —arrastrarlo— con gran esfuerzo hasta un sillón, y
+	[[Logré llevarlo --arrastrarlo-- con gran esfuerzo hasta un sillón, y
 cuando fuí a recostarlo, descubrí una mancha de sangre formándose atrás en su
 polera.]],
 

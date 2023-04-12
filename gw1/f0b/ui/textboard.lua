@@ -1,6 +1,8 @@
 -- SPDX-FileCopyrightText: 2023 Grupo Warominutes
 -- SPDX-License-Identifier: Unlicense
 
+local multiRepl = require("f0b.ui._uiCommon").multiRepl
+
 local function nextCodePoint(text, start)
 	local byte = string.byte(text, start)
 	if byte > 0xf0 then
@@ -78,7 +80,7 @@ end
 
 return {
 	setText = function(board, str, append, instant)
-		str = string.gsub(str, "\n+%s*", " ")
+		str = multiRepl(str, board.repl)
 		if append then
 			str = board.str .. str
 		else
@@ -154,7 +156,7 @@ return {
 
 	regen = textboardRegen,
 
-	new = function(style)
+	new = function(style, repl)
 		local newText = love.graphics.newText
 		local board = {
 			textbox = {0, 0, 0, 0, 0},
@@ -172,6 +174,7 @@ return {
 			finished = true,
 			display = false,
 			style = style,
+			repl = repl,
 		}
 		return textboardRegen(board, style)
 	end,

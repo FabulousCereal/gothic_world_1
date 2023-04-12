@@ -397,8 +397,8 @@ local function vnPreInit(self, stage)
 	self.dataStack = f0b.lisp.init(logue.typeTable,
 		f0b.table.union(logue.instructionTable, instructionTable))
 
-	f0b.ui.add(self.ui, "textboard", self.style)
-	f0b.ui.add(self.ui, "select", self.style)
+	f0b.ui.add(self.ui, "textboard", self.style, self.index.repl)
+	f0b.ui.add(self.ui, "select", self.style, self.index.repl)
 	self.settings = f0b.table.struct.new({"keepRes"})
 
 	self.pre = vnPreInitiated

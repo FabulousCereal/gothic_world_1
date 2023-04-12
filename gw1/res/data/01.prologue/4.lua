@@ -1,4 +1,4 @@
-local endFade = {"fadeout", 1, true}
+local endFade = {"fadeout", 1/24, true}
 return {
 	{"bgm", "set", source="Grave Maria.ogg"},
 	{"style", "vnBake"}, {"name", "Bake"},
@@ -62,8 +62,8 @@ fuera. Abrazaba mis pies fuertemente. No creía lo que estaba pasando afuera.]],
 	{"bgm", "set", source="dedededededos.ogg"},
 	{"bg", "add",
 		args=res.fun.card.card(res.style.title.fontFamily, 72, "Gothic World", "center")},
-	6,
+	6.3,
 	{"bgm", "modall", fade=endFade},
 	{"bg", "modall", tween=endFade},
-	{"wait", 2, true},
+	{"wait", 1, true},
 }

@@ -13,8 +13,8 @@ return {
 momento.]],
 
 	{"name", "Bake"},
-	[["Fuck it, necesitamos la comida," dijo Bake sacando las llaves
-del auto. "Vamos a lo que sea."]],
+	[["Fuck it, hay que ir," dijo Bake sacando las llaves del auto.
+"Vamos a lo que sea."]],
 
 	{"name", "María"},
 	[[Los dos asentimos, y corrimos a la camioneta. Me había metido las
@@ -67,10 +67,11 @@ mordido.]],
 
 	{"name", "Bake"},
 	[["Son of a bitch." La criatura se agazapó en el suelo y salto contra
-Bake, y este interpuso la espada antes que pudiera morderlo. "Quería dejarle el
-cerebro abierto como Chill Bill." Bake empujó a la criatura y le dió un
-golpe hacia arriba en el mentón, pero a esta no le hacía nada. La llaves aún no
-abrían.]],
+Bake, y este interpuso la espada antes que pudiera morderlo.]],
+
+	[["Quería dejarle el cerebro abierto como Chill Bill." Bake empujó a la
+criatura y le dió un golpe hacia arriba en el mentón, pero a esta no le hacía
+nada. La llaves aún no abrían.]],
 
 	{"name", "María"},
 	[[Se me ocurrió que a lo mejor estas eran las llaves del otro auto.]],
@@ -87,15 +88,15 @@ cerrados, fallando todos los tiros.]],
 	{"name", "Fabian"},
 	[["Holy--!" Fab esquivó las balas y con el tubo atrapó a la criatura
 por el cuello antes que alcanzara a Andrea. La criatura empezó a mover los
-brazos hacia todos lados. Fab apenas podía controlarla.]],
+brazos hacia todos lados. Fab trató de traerla de vuelta a la camioneta.]],
 
 	{"name", "María"},
 	[[Oímos de pronto un auto derrapando. Dando la vuelta a la esquina
 apareció una camioneta destartalada acercándose a toda velocidad. Fab la notó
-y sin perder un segundo se puso a arrastrar a la criatura hacia la calle.]],
+y sin perder un segundo redobló sus esfuerzos.]],
 
-	[[Esta se logró soltar y agarró a Fab por la campera, pero el de un
-tirón lanzó a la bestia hacia la calle. Está cayó al medio, y la camioneta
+	[[La criatura se logró soltar y agarró a Fab por la campera, pero el de
+un tirón lanzó a la bestia hacia la calle. Está cayó al medio, y la camioneta
 incapaz de frenar le paso por encima con un fuerte estruendo, matándola.]],
 
 	{"name", "Fabian"},
@@ -134,11 +135,11 @@ dijo abriendo los brazos.]],
 	[["Deja de hablar así, danos la comida."]],
 
 	{"name", "Croft"},
-	[["Bueno u.u" Croft acomodó su camioneta y entre los cinco
+	[["Bueno u.u" Croft acomodó su camioneta y entre todos
 descargamos las cajas que traía.]],
 
 	[[Contenían de todo. Latas de conserva, atún, SPÖM, incluso café.
-Llevamos todo hasta la cocina, con Rocco siempre pegado a Croft.]],
+Llevamos todo hacia la cocina, con Rocco siempre pegado a Croft.]],
 
 	{"name", "Bake"},
 	[["Che, ¿a quien mataste para robarle este alimento?"]],
@@ -152,8 +153,11 @@ Llevamos todo hasta la cocina, con Rocco siempre pegado a Croft.]],
 	{"name", "Croft"},
 	[["Si. Mi amigo, el guardia, trabajaba ahí, y a juzgar por todo lo que
 había, parece que lo protegió bien la primera noche, cuando aún había gente.
-Traje solo una parte." Increíble. Fab y Andrea llegaron con las últimas
-cajas, pero se quedaron parados frente a la puerta, a todo viento.]],
+Traje solo una parte."]],
+
+	{"name", "María"},
+	[[Increíble. Fab y Andrea llegaron con las últimas cajas, pero se
+quedaron parados frente a la puerta, a todo viento.]],
 
 	{"name", "Fabian"},
 	[["Ehh... Croft," lo llamó Fab.]],
@@ -163,8 +167,8 @@ cajas, pero se quedaron parados frente a la puerta, a todo viento.]],
 
 	{"name", "Bake"},
 	[["El tio con cara de angustiado es Fabian, usa una tubería como arma,
-y su amiga de poncho verde con revólver se llama Andrea. Los recogimos cerca de
-la Avenida esta mañana."]],
+y su amiga de poncho con revólver se llama Andrea. Los recogimos cerca de
+la Avenida esta mañana. Estaban abandonados xD"]],
 
 	{"name", "Croft"},
 	[["Ahh," dijo asintiendo. Fab y Andrea seguían quietos en la puerta.]],

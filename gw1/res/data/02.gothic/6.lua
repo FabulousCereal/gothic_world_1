@@ -137,8 +137,8 @@ estas era torpe y lento.]],
 grande para distraerlo. Corrió hacia la criatura por el costado, y antes de que
 esta pudiera atacarlo, le enterró la navaja en el cuello.]],
 
-	[[A la criatura no le importó. Golpeó al chico con el brazo en la
-cabeza, pero el pareció resistirlo bien.]],
+	[[La criatura se agitó y golpeo al chico con el codo, pero el pareció
+resistirlo bien.]],
 
 	[[El chico probó a realizar ataques veloces, haciendole cortes en el
 cuello y retirandose de un salto. La criatura lo atrapó en uno de sus ataques,

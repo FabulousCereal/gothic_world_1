@@ -12,7 +12,7 @@ return {
 	[[Soñé que me encontraba en una inmensa playa junto a la ciudad.]],
 
 	[[Sus restos se veían en la distancia, los rascacielos semejantes a la
-cárcasa de una criatura que día a día se descomponía. El sol de la tarde se
+carcasa de una criatura que día a día se descomponía. El sol de la tarde se
 reflejaba fragmentado en las ventanas rotas.]],
 
 	[[En eso, noté que había una mochila junto a mis pies.]],

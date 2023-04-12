@@ -188,7 +188,7 @@ del auto.]],
 
 	[[Mas encima que como venía la ventana rota, me morí de frio todo el
 camino. Croft aguantó estóico, pero creo que igual la debió pasar mal con el
-viento en la cara.]],
+viento en la cara y sin abrigo.]],
 
 	[[Entré con el y Rocco mientras los chicos bajaban sus instrumentos, y
 como se veían entusiasmados en eso, le ofrecí a Croft tomar algo calentarnos.]],

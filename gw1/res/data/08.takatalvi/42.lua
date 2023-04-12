@@ -15,7 +15,7 @@ hacerse muy poca. Asumiendo que Falcon siga vivo para comer, debería
 alcanzarnos hasta... mañana por la mañana."]],
 
 	{"name", "María"},
-	[["O sea que debemos salir por mas." Fab asintió]],
+	[["O sea que debemos salir por mas." Fab asintió.]],
 
 	{"name", "Andrea"},
 	[["Eso o practicar canibalismo." Dios.]],
@@ -47,8 +47,8 @@ mas me gustaba."]],
 
 	{"name", "Andrea"},
 	[["Pero en cualquier caso es cierto. Deberíamos ir ahora, si o si."
-Los chicos parecian estar de acuerdo en eso. Supuse que tenían razón, aunque
-a mi me desagradaba la idea de salir con este frio.]],
+Los chicos parecian estar de acuerdo en eso. A mi me desagradaba la idea de
+salir con este frio, pero tampoco podía oponerme.]],
 
 	{"name", "María"},
 	[["Debimos habernos abastecido mejor hace unos días," suspiré.]],
@@ -75,9 +75,14 @@ la cordura mía?' pensé.]],
 Falcon. No se nos ocurrió buscar esas cosas en la farmacia."]],
 
 	{"name", "María"},
-	[["De ninguna forma vamos a volver a esa farmacia," le reclamé. Bake
-se sorprendió un poco, pero se quedó callado. "Ademas... no creo que siga
-habiendo comida en un lugar tan obvio.]],
+	[["De ninguna forma vamos a volver a esa farmacia," le reclamé de
+inmediato. Bake se sorprendió un poco.]],
+
+	{"name", "Bake"},
+	[["No estaba diciendo eso."]],
+
+	{"name", "María"},
+	[["Bueno... igual no creo que siga habiendo comida en la Avenida."]],
 
 	{"name", "Andrea"},
 	[["Nosotros sabemos donde hay."]],
@@ -99,14 +104,7 @@ sacamos lo que traíamos."]],
 	[["Queda cerca... de la Avenida. Por eso preguntaba xd"]],
 
 	{"name", "Bake"},
-	[["lol, todo vuelve al inicio."]],
-
-	{"name", "María"},
-	[["Bake," dije a punto de reclamarle.]],
-
-	{"name", "Bake"},
-	[["Tranquila, vamos a buscar otra farmacia, ¿ya?" me aseguró, y miró a
-los chicos. "Bueno, ¿quieren beber algo?"]],
+	[["lol, todo vuelve al inicio. ¿Quieren tomar mate?"]],
 
 	{"name", "Fabian"},
 	[["¿Hay té?"]],
@@ -115,7 +113,7 @@ los chicos. "Bueno, ¿quieren beber algo?"]],
 	[["Solo mate y café en esta casa xD" Fab entrecerró los ojos, pensando.]],
 
 	{"name", "Fabian"},
-	[["Nunca he tomado mate. ¿Es bueno?"]],
+	[["¿Es bueno el mate?"]],
 
 	{"name", "Bake"},
 	[["Por algo lo toman, lol."]],
@@ -128,7 +126,7 @@ los chicos. "Bueno, ¿quieren beber algo?"]],
 boca. Eso decía mi mamá."]],
 
 	{"name", "Bake"},
-	[["Ah verdad xDD Shit. ¿Que hay del café?"]],
+	[["Oh shit, verdad xDD ¿Que hay del café?"]],
 
 	{"name", "Andrea"},
 	[["No, del café no decía nada." Dios.]],
@@ -159,17 +157,21 @@ abrigo.]],
 Solo dos necesitaban ir.]],
 
 	{"name", "Bake"},
-	[["Bueno, ¿te querés quedar, nena?" me preguntó. Lo mas racional sería
-decir que si, pero... también sería dejarle todo el trabajo a el, de nuevo.]],
+	[["Bueno, ¿te querés quedar, nena?" me preguntó.]],
 
 	{"name", "María"},
-	[["Es que... O sea..."]],
+	[[Y ahí entendí. Por el tono de voz, por la mirada de los chicos.
+Esperaban que me quedara guardada en casa. Era para lo único que servía.]],
+
+	[["Es que..."]],
 
 	{"name", "Fabian"},
-	[["Andrea, ¿quieres quedarte?"]],
+	[["Andrea, ¿quieres ir tu o me quedo yo?"]],
 
 	{"name", "Andrea"},
-	[["Yo pienso que deberiamos ir los tres, porque afuera es mas peligroso."]],
+	[["Yo pienso que--..." Andrea le lanzó una breve mirada, una expresión
+de que no era la primera vez que oía ese chiste. "Deberiamos ir los tres,
+porque afuera es mas peligroso."]]
 
 	{"name", "Fabian"},
 	[["Es que si pasa algo, María tendría que defenderse sola. Sería mejor
@@ -219,15 +221,17 @@ para los mareos y la fiebre... traigan eso xd"]],
 
 	{"name", "Falcon"},
 	[["Y-Y también..." dijo antes que me levantara. "U-Un afinador de
-guitarra," dijo formandosele una sonrisa.
-"Bake... afina pésimo x...xD" Por mas ridículo que me pareciera lo de la
-banda, no pude evitar sonreír.]],
+guitarra," dijo formandosele una sonrisa. "Bake es pésimo afinando x...xD"]],
 
 	{"name", "María"},
-	[["Buscaré uno sin decirle, ¿ok?" Falcon asintió debil. Una ráfaga de
-viento azotó el segundo piso, así que le dí un beso en la frente. El me miró
-sorprendido. "Chao." Corrí escalera abajo. El esguince me dolía, pero el tiempo
-se acababa al parecer.]],
+	[[Por mas ridículo que me pareciera todo eso de la banda, no pude
+evitar sonreír.]],
+
+	[["Buscaré uno sin decirle, ¿ok?"]],
+
+	[[Falcon asintió debil. Una ráfaga de viento azotó el segundo piso, así
+que le dí un beso en la frente. El me miró sorprendido. "Chao." Corrí escalera
+abajo. El esguince me dolía, pero el tiempo se acababa al parecer.]],
 
 	[[Los chicos estaban en la puerta esperándome. Bake tenía la katana y
 Fab su tubo. Andrea esperaba junto a la puerta. Me abrigué rápido, tomé el

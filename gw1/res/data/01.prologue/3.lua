@@ -2,7 +2,7 @@ return {
 	{"style", "vnFalcon"},
 	{"name", false},
 	[[Lo último que recuerdo era que estaba en la calle con mi chica.
-Aquella imagen quedó grabada en mi mente, lo único que quedó de antes de la
+Aquella imagen quedó grabada en mi mente, lo único que me quedó de antes de la
 explosión.]],
 
 	{"bg", "add", args=f0b.elem.screenFill, color={1,1,1,1},
@@ -31,7 +31,7 @@ chica. Las llamas habían consumido casi todo a mi alrededor. Ella no estaba.]],
 nos dirigiamos ni porque pasamos por aquí. Abrí la boca para llamarla... pero
 no pude recordar su nombre.]],
 
-	[[No recuerdo el mio tampoco.]],
+	[[No recordaba el mio tampoco.]],
 
 	[[Toda mi ropa estaba desgarrada y al parecer por unas garras, tal vez
 fueron perros.]],
@@ -146,8 +146,8 @@ inconscientes.]], true},
 cabeza cada vez que trataba recordar. Salté el mostrador para tomar unas llaves
 y fuí hasta una habitación, dejándome caer sobre la cama blanca.]],
 
-	[[Estaba todo tan callado, pacífico. Las sábanas olían aún a
-detergente y tenía un techo sobre la cabeza. Todo esto era impagable.]],
+	[[Estaba todo tan callado, pacífico. Las sábanas olían a detergente, y
+tenía un techo sobre la cabeza. Todo esto era impagable.]],
 
 	{"bg", "add", args={"zeh/bg/falcon/motel-cama.png"}, tween={"fadein", 1}},
 	[[Abrí los ojos y me ví reflejado en un espejo. No se me ocurrió

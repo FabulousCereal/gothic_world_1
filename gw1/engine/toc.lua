@@ -185,12 +185,6 @@ local function tocKeypressed(self, key)
 	end
 end
 
-local function tocMousepressed(self, _x, _y, button)
-	if button == 1 then
-		return tocKeypressed(self, "return")
-	end
-end
-
 local function tocWheelmoved(self, x, y)
 	y = f0b.math.clamp(math.floor(y), -1, 1)
 	if y ~= 0 then
@@ -253,7 +247,6 @@ return {
 		return {
 			draw = tocDraw,
 			keypressed = tocKeypressed,
-			mousepressed = tocMousepressed,
 			wheelmoved = tocWheelmoved,
 			pre = tocPreInit,
 

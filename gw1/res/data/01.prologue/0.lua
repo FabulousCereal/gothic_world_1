@@ -61,11 +61,12 @@ return {
 	[[Soñé que caía sobre un inmenso océano sin costas.]],
 
 	{"macro", fadeSwap, {"maria/intro2.png", 0, 0, 0, .8}},
-	[[Un mar negro bajo una bóveda de nubes y estrellas blancas. Una
+	[[Un mar negro bajo una bóveda de nubes y estrellas. Una
 tiniebla que abarcaba mas allá de la Tierra.]],
 
 --	{"macro", fadeSwap, {"maria/intro3.png", 0, 0, 0, .8}},
-	[[El viento era tan helado y punzante que parecía chillar.]],
+	[[El viento helado parecía gritar en mis oídos. Era tan punzante que
+pensé que me arrancaría la piel.]],
 
 	[[En eso...]],
 

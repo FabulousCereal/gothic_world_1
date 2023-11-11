@@ -6,7 +6,7 @@ return {
 	[["Aún podemos volver," dijo Fab casi gritando.]],
 
 	{"name", "Bake"},
-	[["Puta la wea, si no hemos dado ni un paso aún xD"]],
+	[["Puta la wea, si no hemos dado ni un paso aún xddd"]],
 
 	{"name", "Fabian"},
 	[["Exacto, después hay que desandar." Los tres lo pensamos un
@@ -66,7 +66,7 @@ aturdida, pero completamente viva.]],
 mordido.]],
 
 	{"name", "Bake"},
-	[["Son of a bitch." La criatura se agazapó en el suelo y salto contra
+	[["Son of a bitch." La criatura se agazapó en el suelo y saltó contra
 Bake, y este interpuso la espada antes que pudiera morderlo.]],
 
 	[["Quería dejarle el cerebro abierto como Chill Bill." Bake empujó a la
@@ -167,8 +167,8 @@ quedaron parados frente a la puerta, a todo viento.]],
 
 	{"name", "Bake"},
 	[["El tio con cara de angustiado es Fabian, usa una tubería como arma,
-y su amiga de poncho con revólver se llama Andrea. Los recogimos cerca de
-la Avenida esta mañana. Estaban abandonados xD"]],
+y su amiga de poncho se llama Andrea, tiene mejores armas que el xDD. Los
+recogimos cerca de la Avenida esta mañana. Estaban abandonados xD"]],
 
 	{"name", "Croft"},
 	[["Ahh," dijo asintiendo. Fab y Andrea seguían quietos en la puerta.]],
@@ -210,9 +210,9 @@ lo había vivido. Ahora que lo mencionas, si, definitivamente debe ser eso."]],
 
 	{"name", "Croft"},
 	[["Ehh, sinceramente no sé. Mis vecinos hablaban a raíz del
-calentamiento global. En general les gustaba que no ocurriera porque la helada
-les mataba las flores. Pero no sé cuanto vaya a durar. Imagino que no mas de
-una semana."]],
+calentamiento global. En general les gustaba que no ocurriera porque sin las
+heladas podían plantar flores. Pero no sé cuanto vaya a durar. Imagino que no
+mas de una semana."]],
 
 	{"name", "Bake"},
 	[["Bue, por lo menos nos ahorramos el viaje. Cuando las cosas
@@ -258,11 +258,13 @@ las cajas, y Bake se estiró peresozo.]],
 
 	{"name", "Bake"},
 	[["Bue, entonces me voy dormir xD Cualquier cosa me hablan," se
-despidió. Como si despertarlo fuera fácil. Bake salió de la cocina, y los
-chicos dijeron que también irían a descansar. Quedamos solo yo y Croft.]],
+despidió. Como si despertarlo fuera fácil.]],
+
+	[[Bake salió de la cocina, y los chicos dijeron que también irían a
+descansar. Quedamos solo yo y Croft. Yo suspiré agotada.]],
 
 	{"name", "Croft"},
-	[["¿Dia duro?" me preguntó. Yo asentí. "Por cierto, tuve que sacarte
+	[["¿Dia duro?" adivinó. Yo asentí. "Por cierto, tuve que sacarte
 el revólver en la mañana, pero lo perdí en la conmoción. Perdón." Ok.]],
 
 	[["El mío de rayas de tigre lo dejé en la habitación, así que si

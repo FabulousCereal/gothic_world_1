@@ -32,9 +32,11 @@ en una cama.]], true},
 
 	[[¿Donde estaba? No reconocía el lugar, eso era seguro.]],
 
-	[["¿Habrá sido un sueño?" Sentí una sensación de alivio, y solté
-un suspiro. Recordé esa crisis de pánico. Que bueno que no fue
-real. Vivir así sería demasiado terrible... no lo aguantaría de verdad.]],
+	[["¿Habrá sido un sueño?" Solté un suspiro y sentí un alivio
+incredíble, tan grande que se me humedecieron los ojos.]],
+
+	[[Recordé esa crisis de pánico. Que bueno que no fue real. Vivir así
+sería demasiado terrible... no lo aguantaría de verdad.]],
 
 	[["¿Que hice anoche entonces?" Seguía en una casa desconocida. Habían
 posters de bandas de rock en la habitación. Había tambien ropa de chico
@@ -43,9 +45,9 @@ tirada. Escuché ladridos.]],
 	[[Afuera el viento helado hacía crujir el techo a ratos, pero aquí
 estaba protegida de todo aquello. El aire era cálido y acogedor.]],
 
-	[[Ese sueño me dejó tan agotada emocionalmente que hasta me dieron
-ganas de dormirme de nuevo, pero tal vez sería mejor levantarme. Noté una
-nota en el estante junto al despertador.]],
+	[[No tenía idea de nada, pero ese sueño me dejó tan agotada
+emocionalmente que hasta me dieron ganas de dormirme de nuevo, pero tal vez
+sería mejor levantarme. Noté una nota en el estante junto al despertador.]],
 
 	{"bg", "add", args={"bake/nota.png"}},
 	[["Uno. Me voy y volveré a eso de las doce y media, la alarma está
@@ -65,8 +67,9 @@ cayó.]],
 Traté de hacer memoria.]],
 
 	[[...Guau, de verdad no podía recordar nada. "Ahora si te las
-mandaste," me dije refregándome los ojos. Ojalá no haya sido por una fiesta,
-porque detestaría haberla olvidado si fue buena.]],
+mandaste," me dije refregándome los ojos, imaginando la voz de mi hermano.
+Ojalá no haya sido por una fiesta, porque detestaría haberla olvidado si fue
+buena.]],
 
 	[[Me busqué entre el pelo el chichón, y aunque me dolío como los mil y
 un demonios al tocarme, no parecía haberme hecho herida ni haberme sangrado,
@@ -110,7 +113,7 @@ vista, parecía... un buen chico.]],
 me helaron la sangre. Si esos ruidos inhumanos no eran de gente... es que tal
 vez no había despertado de ningún sueño.]],
 
-	[[No, no podía ser cierto, tenía que confirmarlo. Entré con cautela a
+	[[No, no podía ser cierto, de ninguna forma. Entré con cautela a
 la cocina. El chico estaba demasiado pendiente de lo que había afuera para
 notar mi presencia. Miré por la ventana.]],
 

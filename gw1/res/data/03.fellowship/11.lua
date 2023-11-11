@@ -46,7 +46,7 @@ hacia el frente para hablarle.]],
 			lado.]],
 
 			{"name", "Falcon"},
-			[["En realidad... la verdad es que lo aprendí de ocioso
+			[["La verdad... es que lo aprendí de ocioso
 			en estos días. Ya perdí la cuenta de cuantas veces
 			choqué el auto."]],
 

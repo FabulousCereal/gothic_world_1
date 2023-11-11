@@ -139,9 +139,9 @@ chico con cara de vándalo, casi me parte la cabeza con ese tubo xD" A-Ah.]],
 	[["Era un chiste para ella xD" dijo señalando a Andrea. O-Oye...]],
 
 	{"name", "Andrea"},
-	[["La verdad yo lo llamé violador y pervertido cuando lo conocí,"
-respondió la chica. Bake se puso a reir, mientras el chico se llevaba la palma
-a la frente.]],
+	[["La verdad yo lo llamé 'zombie' y pervertido cuando me lo encontré.
+Me dió un gran susto," respondió la chica. Bake se puso a reir, mientras el
+chico se llevaba la palma a la frente.]],
 
 	{"name", "María"},
 	[[Se veían normales, pero ahora ya no sabía que esperar.]],
@@ -185,15 +185,18 @@ Falcon se golpeó la frente con la palma, suspiró, y se dirigió a los chicos.]
 	[["Miren, no es por nada, pero no estamos aceptando gente,"
 explicó. Los chicos se miraron confudidos.]],
 
-	[[Entendía la preocupación de Falcon, pero me daba algo de pena
-dejar a los dos chicos los en la calle con esta tormenta. Además que no creía
-que Croft se haya querido aprovechar de nosotros; no tenía sentido habersenos
-unido solo para robar un revólver.]],
+	{"name", "María"},
+	[[Entendía la preocupación de Falcon, pero me dió algo de pena
+pensar en dejar a los dos chicos los en la calle con esta tormenta.]],
 
-	[[Ya que Bake lucía indeciso, giré a Falcon y a Bake hacía mí.]],
+	[[Además que no creía que Croft se haya querido aprovechar de nosotros;
+no tenía sentido habersenos unido solo para robar un revólver.]],
+
+	[[Miré a Bake quién lucía incesiso, así que lo tironée a el y a Falcon
+para formar un círculo.]],
 
 	{"name", "María"},
-	[["Falcon, no creo que sean mala gente," susurré.]],
+	[["Escuchen, no creo que sean mala gente," susurré.]],
 
 	{"name", "Falcon"},
 	[["¿Los viste bien? El tio tiene cara de terrorista. Nos va a hacer
@@ -209,6 +212,8 @@ tubería, y de pronto se le pegó con un click a la mochila.]],
 
 	[[Mierda, a lo mejor si traía una bomba.]],
 
+	[["Ok, mejor no."]],
+
 	{"name", "Bake"},
 	[["Yo tengo un plan. Para salir de la duda, quiero decir."]],
 
@@ -218,22 +223,23 @@ tubería, y de pronto se le pegó con un click a la mochila.]],
 	{"name", "Bake"},
 	[["No es bola. Ustedes tranquilos." Bake se giró hacia los chicos, que
 se callaron apenas Bake se acercó. "Pueden venir con nosotros, pero tienen que
-demostrar que son de fiar," declaró. Los chicos nos miraron desconfiados.]],
+mostrar que son de fiar," declaró. Los chicos nos miraron desconfiados.]],
 
 	{"name", "Andrea"},
 	[["Eso suena bien sospechoso."]],
 
 	{"name", "Fab"},
 	[["Si, y peligroso. Fijate en el tipo de allá. Parece que lo molieron
-a golpes," Falcon frunció el ceño molesto, resaltando aún mas sus moretones.]],
+a golpes," Falcon frunció el ceño con el comentario, resaltando aún mas sus
+moretones.]],
 
 	{"name", "Bake"},
 	[["shit xD No, miren, nuestro último compañero nos abandonó y se llevó
-un arma, así que solo queremos asegurarnos," se explicó. Los chicos se miraron
+un arma, así que solo queremos asegurarnos," les explicó. Los chicos se miraron
 con cara de duda. Se miraban bastante al parecer.]],
 
 	{"name", "Fab"},
-	[["Tampoco es que estemos mal solos," dijo aun desconfiando.]],
+	[["Tampoco es que estemos mal solos," dijo aún desconfiando.]],
 
 	{"name", "Andrea"},
 	[["Si, pero igual llevamos 3 días cargando esos fideos porque no
@@ -299,7 +305,7 @@ empezó a quitar la mochila.]],
 siguiendo al chico, y este tras hechar un vistazo fue a tomar un acordeón.]],
 
 	{"name", "Andrea"},
-	[["Tu puedes Fab," lo animó la chica.]],
+	[["Tu puedes Fab, enséñales," lo animó la chica.]],
 
 	{"name", "María"},
 	[[El chico se colocó el acordeón y se sentó en una silla. Observó
@@ -320,11 +326,12 @@ notas. Los cuatro nos giramos a verlo.]],
 
 	{"name", "Bake"},
 	[["Solo quería comprobar que hicieras algo xD La verdad lo que mas
-hace falta es la batería." El chico se quedó impresionado sin saber que decir,
-miró a la chica, y simplemente levantó los hombros. Dejó el acordeón a un
-lado y fue a tomar sus cosas.]],
+hace falta es la batería."]],
 
 	{"name", "María"},
+	[[El chico se quedó anonadado. Miró a la chica, y simplemente levantó
+los hombros. Dejó el acordeón a un lado y fue a tomar sus cosas.]],
+
 	[[El viento estaba agitando los árboles con fuerza afuera, así que la
 chica sin perder mas tiempo fue a buscar unas baquetas y se sentó frente a una
 batería. Aún no creía que estuvieramos perdiendo el tiempo en esto.]],
@@ -384,12 +391,12 @@ acercó sonriente, alzó ambas manos...]],
 	[[...y empezó a aplaudir tan veloz como podía.]],
 
 	{"name", "María"},
-	{"text", [[Andrea lo miró fijamente, como si eso fuera una broma y ella
-estuviera silenciosamente enojada...]], false, true},
+	[[Andrea lo miró fijamente, como si eso fuera una broma y ella
+estuviera silenciosamente enojada...]],
 
 	{"bgm", "set", "drums", source="andrea metal loop.ogg"},
-	{"text", [[ Y luego alzó las baquetas y partió golpeando el platillo.
-Empezó a tocar tán rápido como Bake.]], true},
+	[[Y luego alzó las baquetas y partió golpeando el platillo.
+Empezó a tocar tán rápido como Bake.]],
 
 	[["Dios mio..." murmuré. ¿Ese era el estilo metal? ¿Golpear todo en
 cada milisegundo? Los chicos la miraban fijamente.]],
@@ -434,7 +441,7 @@ detuvo, completamente exausta. Se agarraba el pie.]],
 
 	{"name", "María"},
 	[[Que demonios tenía que ver la habilidad musical con la confianza,
-por las retutas. Yo no servía ni para limpiar y aquí estaba >.>]],
+por las retutas. Yo no servía ni para calentar agua y aquí estaba >.>]],
 
 	{"name", "Falcon"},
 	[["Ehh, igual lo primero me dió seguridad." Y por que Falcon actuaba
@@ -445,7 +452,7 @@ como si esto tuviera sentido. "No sé si los blast beats sean tan importantes."]
 
 --	{"read", ebinSolo},
 	{"name", "Falcon"},
-	[["Bake, anoche ni siquiera podías con Disposable Heroes."]],
+	[["Bake, anoche ni siquiera podías con Heroes Desechables."]],
 
 	{"name", "Bake"},
 	[["Pero es que ya llevabamos dos horas tocando xd es distinto xddd"]],
@@ -460,8 +467,10 @@ como si esto tuviera sentido. "No sé si los blast beats sean tan importantes."]
 	[["Estoy de acuerdo."]],
 
 	{"name", "María"},
-	[[Fabian se acercó a verla, mientras Bake y Falcon salían. Yo los
-seguí. No se si era idea mía, pero todo se veía aún mas oscuro que cuando
+	[[Andrea se quedó cabisbaja mientras Fabian se acercaba a verla,
+mientras Bake y Falcon salían. Yo los seguí.]],
+
+	[[No sé si era idea mía, pero todo se veía aún mas oscuro que cuando
 entramos.]],
 
 	{"name", "Falcon"},
@@ -471,10 +480,11 @@ entramos.]],
 	[["Si, perdimos demasiado tiempo. Hay que correr a la casa."]],
 
 	{"name", "María"},
-	[["¿Es una tormenta?"]],
+	[["¿Que pasó? ¿Va a caer nieve?"]],
 
 	{"name", "Bake"},
-	[["Si, una buena," fue todo lo que dijo.]],
+	[["Parece de hecho una tormenta. Una buena," fue todo lo que dijo.
+Falcon parecía de acuerdo.]],
 
 	{"name", "María"},
 	[[Nos volteamos a ver los chicos que aún no salían. Estaban riendose de
@@ -517,7 +527,7 @@ se llevan demasiado bien."]],
 	[["Ñam, bueno, yo me llevo bien con mi hermana."]],
 
 	{"name", "María"},
-	[["¿H-Hermana?"]],
+	[["¡¿H-Hermana?!"]],
 
 	{"name", "Falcon"},
 	[["¿Tienes hermana?" preguntó tan sorprendido como yo.]],
@@ -546,7 +556,7 @@ mis viejos hace unos años y se fue de la casa. La veo tan poco que se me
 olvida que existe xD"]],
 
 	{"name", "Falcon"},
-	[["Bueno, ¿pero está bien?"]],
+	[["Uf, ¿pero está bien?"]],
 
 	{"name", "Bake"},
 	[["No lo sé, pero sabe cuidarse mejor que yo." Si Bake lo decía, a
@@ -557,10 +567,10 @@ lo mejor era cierto...]],
 tienda.]],
 
 	{"name", "Fabian"},
-	[["El cielo se ve feo," dijo apuntando a la cordillera con el tubo.
-Estaba prácticamente tapada.]],
+	[["El cielo se ve feo," comentó mirando al horizonte. La cordillera
+estaba prácticamente tapada.]],
 
 	{"name", "Falcon"},
-	[["Y se pondrá peor. Tenemos que irnos rápido,"
+	[["Y se pondrá peor. Hay que irnos rápido,"
 dijo Falcon. Sin decir mas nos apresuramos de vuelta a la camioneta.]],
 }

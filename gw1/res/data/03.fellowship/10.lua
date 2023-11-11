@@ -37,7 +37,7 @@ gimió adolorido. "Oooh, bitchy-bitch."]],
 
 	{"name", "Bake"},
 	[["La herida. Me duele mas cicatrizada xD o a lo mejor fue tanto
-alcohol xD"]],
+alcohol xDD"]],
 
 	{"name", "María"},
 	[['xD'... Este chico rompía con todos los paradigmas.]],
@@ -56,8 +56,9 @@ callado un buen rato, a lo mejor preocupado de nuestra seguridad, de como
 sobreviviríamos, o tal vez de que hubiera sido bueno haber paseado al perro de
 nuevo. El viento sopló.]],
 
-	[[Como me empecé a sentir incómoda por el silencio, le pregunté si es
-que no se había sentido solo, pero el chico me empezó a tirar.]],
+	[[Como me empecé a sentir incómoda por el silencio, le traté de
+preguntar si es que no se había sentido solo, pero el chico me empezó a
+tirar.]],
 
 	{"name", "Bake"},
 	[["Vení, por acá." Mas adelante aparecieron un par criaturas, y giramos
@@ -102,7 +103,7 @@ xD"]],
 
 	{"name", "María"},
 	[[Seguimos caminando con mucho cuidado, a veces teniendo que correr.
-Por alguna suerte divina, y tras una hora, llegamos por fin a la zona
+Por alguna suerte divina, y tras media hora, llegamos por fin a la zona
 comercial.]],
 
 	[[Era un desastre. A pesar de que ahora no se veía a nadie, habían roto
@@ -145,8 +146,8 @@ apareció corriendo una de esas cosas. Bake apenas tuvo tiempo de girarse.]],
 		1, 2/3, .2},
 	{"sfx", "freesound/613879__rangoanimations__window-breaking.mp3",
 		1, 1, .2},
-	[[Con reflejos sobrehumanos, Bake le alcanzó a quebrar el cráneo con la
-guitarra. La criatura cayó sobre unos estantes y no se movió mas.]],
+	[[Con reflejos casi sobrehumanos, Bake le alcanzó a quebrar el cráneo
+con la guitarra. La criatura cayó sobre unos estantes y no se movió mas.]],
 
 	{"name", "Bake"},
 	[["¡MI SUEÑO DE CUMPLIÓ!"]],
@@ -278,8 +279,10 @@ los minutos salió con una pistola en la mano.]],
 
 	{"name", "Bake"},
 	[["Vos sos adivino, había una Clock 18 con cargador," dijo metiendo
-el cartucho con una sonrisa, y Falcon silbó al verla. Yo no le encontraba la
-diferencia con la que ya teniamos, pero supuse que debía ser mejor en algo.]],
+el cartucho con una sonrisa, y Falcon silbó al verla.]],
+
+	[[Yo no le encontraba la diferencia con la que ya teniamos, pero supuse
+que debía ser mejor en algo.]],
 
 	{"name", "María"},
 	[["¿Que mas nos falta?" pregunté. Los tres nos detuvimos a pensar,
@@ -309,6 +312,8 @@ acompañár? Hay que caminar un poco."]],
 buscar el auto de Falcon.]],
 
 	[[En efecto era un Auri, uno un tanto machacado, pero que funcionaba al
-fin y al cabo. Cuando nos subimos notamos que para prenderlo Falcon le movía
-unos cables debajo del volante, y yo con Bake nos sonreímos.]],
+fin y al cabo.]],
+
+	[[Cuando nos subimos notamos que para prenderlo Falcon le movía unos
+cables debajo del volante, y yo con Bake nos sonreímos.]],
 }

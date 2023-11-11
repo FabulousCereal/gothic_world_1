@@ -11,7 +11,9 @@ observando el clima como si estuviera en una prisión.]],
 	[[Que quieren que diga. El apocalípsis era en efecto aburrido.]],
 
 	[[El único en pie aparte de mi era Croft, que se encontraba en el
-primer piso con Rocco. Bake estaba en la cama matrimonial roncando como león,
+primer piso con Rocco.]],
+
+	[[Bake estaba en la cama matrimonial roncando como león,
 Falcon aún no se levantaba, y Fab y Andrea se habían quedado dormidos en el
 sillón, cada uno vuelto hacia su lado y tapados con el poncho.]],
 

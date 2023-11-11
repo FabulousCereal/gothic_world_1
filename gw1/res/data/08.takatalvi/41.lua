@@ -3,8 +3,8 @@ return {
 	res.fun.macro.title,
 
 	{"name", "María"},
-	[[Desperté con el sonido del viento, babeando la almohada y con dolor
-de cabeza.]],
+	[[Desperté con el ruido del viento azotando la casa, babeando la
+almohada y con dolor de cabeza.]],
 
 	[[El día se veía oscuro aún. Estimé que había dormido un buen rato, a
 lo mejor hasta ya era medio día. Que desperdicio de tiempo.]],
@@ -14,22 +14,22 @@ que lo había superado. Era mas bien como si estuviera mas distante.
 Como si por haber dormido, ahora era algo de ayer y no de hoy.]],
 
 	[[Abandoné el cuarto, y me encontré con un silencio casi
-desconcertante.]],
+desconcertante en la casa.]],
 
 	[[¿Que pasaba? ¿Habrán salido sin mí? ¿Algo peor? El cuarto de Bake
 estaba entre-abierto. Me asomé a hechar una mirada, y ví un bulto en la cama.
 Era Falcon. Estaba durmiendo con su abrigo morado puesto.]],
 
 	[["Falcon," lo llamé en voz baja, pero no me respondió. A lo mejor se
-sintió mal. Preferí dejarlo en paz, y cerré la puerta. La alarma marcaba las
-13:13.]],
+sintió mal. Preferí dejarlo en paz, y cerré la puerta. La alarma en su estante
+marcaba las 13:13.]],
 
 	[[Bajé al primer piso con cautela. Allí, sorprendentemente, encontré a
 Andrea con Fab en el sillón, hablando muy despacio. Se reían de algo que el
 contaba.]],
 
-	[[O mas bien, que estuvo contando, hasta que de alguna forma me escuchó
-venir. Fab se calló de pronto, y Andrea se giró a verme. Ella sonrió.]],
+	[[O mas bien, que estuvo contando, hasta que de alguna forma me sintió
+venir. Fab se calló de pronto, y Andrea se giró a verme. Ella me sonrió.]],
 
 	{"name", "Andrea"},
 	[["¿Como estás?"]],
@@ -49,7 +49,7 @@ acostar."]],
 	{"name", "María"},
 	[["Entiendo... Se ha sentido mal desde la explosión, pero con la
 noticia de la radiación se ha puesto muy paranóico," expliqué. Los chicos
-asintieron. "¿Y Bake? ¿Está en la cocina?"]],
+no comentaron nada. "¿Y Bake? ¿Está en la cocina?"]],
 
 	{"name", "Andrea"},
 	[["Bake salió. Dijo que quería dar una vuelta."]],
@@ -72,7 +72,7 @@ congelada. Por suerte aún corría.]],
 
 	[[Pensé, 'ayer le pasó lo mismo cuando hacía el desayuno.' Como si algo
 lo inquietara, algo que se estaba guardando. Si era algo que pudiera arreglar,
-desearía que me lo dijera.]],
+desearía que me lo dijera. Quizás el no confiaba en mi.]],
 
 	[[Cuando volví al living, los chicos se callaron de nuevo. Si fuera un
 poco mas mal pensada, creería que hablaban de mí, y no exactamente algo
@@ -81,10 +81,9 @@ positivo.]],
 	[[Pero bueno, si ibamos a convivir, por lo menos tenía que hacer el
 intento de no empezar mal. Tomé aire.]],
 
-	[["Diganme... ¿Tienen pensado hacer algo?" pregunté. Despues de
-todo, Fab estaba buscando a su prima, y no sé si Andrea tendrá algún apuro por
-volver a casa. Yo ya me había dando por vencida respecto a abandonar esta
-ciudad.]],
+	[["Diganme... ¿Tienen pensado hacer algo?" pregunté. Al fin y al cabo,
+Fab estaba buscando a su prima, y no sé si Andrea tendrá algún apuro por volver
+a casa. Yo ya me había dando por vencida respecto a abandonar esta ciudad.]],
 
 	{"name", "Andrea"},
 	[["Eh, si, Bake dijo que podríamos salir a buscar algún medicamento
@@ -125,7 +124,7 @@ alguna."]],
 	[["¿Cual es esa?"]],
 
 	{"name", "Andrea"},
-	[["Es una de Los Bitless. ¿Los has escuchado?"]],
+	[["Es una de Los Beat Less. ¿Los has escuchado?"]],
 
 	{"name", "Fabian"},
 	[["Ehh, jamás."]],
@@ -155,11 +154,11 @@ Fab se quedó pensando, rascándose la barbilla.]],
 	{"name", "Fabian"},
 	[["No sé, o al menos no recuerdo ninguno ahora, pero si me ha
 pasado con películas y novelas. Me acuerdo cuando ví 'La Conversación' de
-Francisco Cúpula."]],
+Pancho Cúpula."]],
 
 	[["Había visto dos películas el día anterior, una comedia y un drama
 romántico. Y eran buenas pero a ratos perdía interés. Luego ví La Conversación,
-que es muy lenta."]],
+que es muy muy lenta."]],
 
 	[["Y era otro nivel. Es una historia simple con tomas largas y que dura
 2 horas, y me tuvo pegado cada minuto."]],
@@ -190,7 +189,7 @@ el personaje. No sospechas de el. Y mientras mejor es, mas te demores en darte
 cuenta que te engañaron."]],
 
 	{"name", "Andrea"},
-	[["¡Si! Eso mismo. Los Bitless pueden usar cualquier instrumento o
+	[["¡Si! Eso mismo. Los Beat Less pueden usar cualquier instrumento o
 efecto raro, pero nunca sospechas nada de la batería."]],
 
 	[["¿Que hay de tí, María?" me preguntó de pronto.]],
@@ -200,7 +199,8 @@ efecto raro, pero nunca sospechas nada de la batería."]],
 
 	{"name", "Andrea"},
 	[["¿Algún artista que te impresione?" Comparado a lo que hablaron,
-tenía la mente totalmente en blanco.]],
+tenía la mente totalmente en blanco. No sabía de ningún tema al nivel de estos
+dos.]],
 
 	{"name", "María"},
 	[["Ehh, cuando era chica..." balbucée. Piensa, María. "veía muchas
@@ -213,10 +213,12 @@ aburrían, a pesar que creía que tenían que gustarme por que era una niña y
 todo eso. Así que siempre las evitaba. Y un día domingo en la tarde, aburrida
 totalmente, no encontré nada que ver en la tele mas que una de esas."]],
 
-	[["No recuerdo bien el nombre ya, y creo que trataba sobre un castillo
-de cristal, pero la cosa es que me puse a verla, y es como todo era distinto.
-Me metí mucho en la historia, y estaba atenta a cada cosa que pasaba. Era toda
-muy buena."]],
+	[["No recuerdo bien el nombre ya, y era una historia sencilla sobre una
+princesa en un viaje, pero la cosa es que me puse a verla, y es como todo era
+distinto."]],
+
+	[["Me metí mucho en la historia, y estaba atenta a cada cosa que
+pasaba. Era toda muy buena."]],
 
 	[["Como en la mitad llegó mi hermano diciendo que quería ver tele. Y
 como yo siempre decía que no me gustaban esas películas, se empezó a burlar.
@@ -274,9 +276,9 @@ bastaría. Luego llegué acá, y salí al viento."]],
 	[["Te congelaste."]],
 
 	{"name", "Fabian"},
-	[["No pensé que había que cubrirse las manos y la cara acá."
-Andrea contuvo una risa, supongo que debido a que esa era la clase de cosas que
-para los de acá eran elementales.]],
+	[["Mas bien, el abrigo me bastó, pero no pensé que había que cubrirse
+las manos y la cara acá." Andrea contuvo una risa, supongo que debido a que esa
+era la clase de cosas que para los de acá eran elementales.]],
 
 	{"name", false},
 	[[*creeak*]],

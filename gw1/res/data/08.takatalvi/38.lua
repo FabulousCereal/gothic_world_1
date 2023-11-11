@@ -45,7 +45,7 @@ silencio con la estática mientras lo asimilabamos.]],
 
 	{"name", "Fabian"},
 	[["Si. Dura mas o menos una hora. Cuando termina hay un silencio, y
-luego parte de nuevo," nos explicó. "No creo que sea algo bueno."]],
+luego parte de nuevo," nos explicó. "No creo que sea buena señal."]],
 
 	{"name", "María"},
 	[["O-O sea que eso de los 12 paises..."]],
@@ -109,10 +109,16 @@ nos mirabamos. Esto no era bueno.]],
 cargarla."]],
 
 	{"name", "Andrea"},
-	[["Se le agotó la batería, y como no se oía nada, ¿para que?"
-Ninguno de los dos chicos se veían preocupados, a diferencia de nosotros.
-Quizás ellos ya habían aceptado la situación, pero para mi esto era terrible.
-¿Que ibamos a hacer ahora?]],
+	[["Se le agotó la batería, y como no se oía nada, ¿para que?"]],
+
+	{"name", "María"},
+	[[Ninguno de los dos chicos se veían preocupados, a diferencia de
+nosotros. Quizás ellos ya habían aceptado la situación, pero para mi eso fue
+como un balde de agua fría.]],
+
+	[[Creía que en cualquier momento vendría alguien por nosotros. Creía
+hasta esta mañana que saliendo de la ciudad dejaríamos de vivir encerrados y
+con miedo.]],
 
 	[[Miré a Bake, y el se pasaba la mano por el pelo.
 Finalmente suspiró.]],
@@ -132,13 +138,12 @@ que dijeron los chicos; si fue verdad, ya no debían estar ahí.]],
 
 	{"name", "Andrea"},
 	[["Mira el viento," le dijo Andrea a Fab apuntando afuera. La nieve se
-levantaba del suelo en lenguas. Se desprendía de los árboles y techos.
-"Menos mal encontramos gente. ¿Que habría pasado si nos agarraba
-la tormenta sin refugio?"]],
+desprendía de los árboles y techos en lenguas. "Menos mal encontramos gente.
+¿Que habría pasado si nos agarraba la tormenta sin refugio?"]],
 
 	{"name", "Fabian"},
-	[["Hmm, nada, el frio nos habría adormecido y nos hubieramos congelado
-tranquilamente."]],
+	[["Hmm, nada, el frio nos habría adormecido y hubieramos muerto en
+paz."]],
 
 	{"name", "Andrea"},
 	[["Aaah," dijo asintiendo. Yo me sequé las lágrimas, y Andrea se dió
@@ -245,8 +250,8 @@ porque no recuerdas a nadie, supongo.]],
 	[["Y luego conociste a Fab."]],
 
 	{"name", "Andrea"},
-	[["A los dos días después, en realidad." ¿Dos días? Era bastante,
-considerando que yo no duro ni 15 minutos afuera sin que me pase alguna
+	[["A los dos días después, en realidad." ¿Dos días sola? Era bastante,
+considerando que yo no daraba ni 15 minutos afuera sin que me pase alguna
 estupides.]],
 
 	{"name", "María"},
@@ -260,7 +265,7 @@ acercar a ellos."]],
 	[["¿Y tu Fab? ¿A que venías?"]],
 
 	{"name", "Fabian"},
-	[["Venía a quedarme unos días con una prima que no veo hacen años."]],
+	[["Venía a quedarme unos días con una prima."]],
 
 	[["Se suponía que me iba a buscar al aeropuerto, pero tuve la
 suerte de que la fábrica explotara a los minutos de bajarme del avión.
@@ -346,8 +351,13 @@ le estaría dando tunasos a Bake en este instante.]],
 
 	{"name", "Andrea"},
 	[["A-Ah, ok. Igual que terrible perder la memoria," dijo tratando de
-arreglarla. A mi se me escapó otra risa. "¿Pero de verdad no recuerdas nada
-de nada?"]],
+arreglarla. A mi se me escapó otra risa.]],
+
+	{"name", "María"},
+	[["P-Perdón," traté de decir, pero creo que no me escuchó.]],
+
+	{"name", "Andrea"},
+	[["¿Pero de verdad no recuerdas nada de nada?"]],
 
 	{"name", "Falcon"},
 	[["Reconozco lugares famosos como la Avenida, pero eso es
@@ -423,10 +433,12 @@ quedamos en silencio. "¿Verdad?" Creo que ninguno quiso arriesgarse a que
 Falcon empezara de nuevo con que tenía cáncer. "¿Eh?"]],
 
 	{"name", "Falcon"},
-	[["Ahem, ya vamos llegando," dijo metiéndose a nuestra calle. La nieve
-ya tapaba todo, pero aún se distinguía el portón abierto de la casa del vecino,
-tal como lo dejamos. Bajé la cabeza al pasar por en frente. Iba a tener a
-resignarme a la idea de dormir con dos cadáveres al lado.]],
+	[["Ahem, ya vamos llegando," dijo metiéndose a nuestra calle.]],
+
+	{"name", "María"},
+	[[La nieve ya tapaba todo, pero aún se distinguía el portón abierto de
+la casa del vecino, tal como lo dejamos. Bajé la cabeza al pasar por en frente.
+Iba a tener a resignarme a la idea de dormir con dos cadáveres al lado.]],
 
 	{"name", "Bake"},
 	[["¿Que hace Pipi afuera?" preguntó Bake al ver su casa. Miramos y

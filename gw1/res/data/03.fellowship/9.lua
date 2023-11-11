@@ -9,9 +9,9 @@ local laComida = {
 	[["No, no es eso. Es que como ví que tuviste que buscar mucho..."]],
 
 	{"name", "Bake"},
-	[["Ah, si xD Salí a buscar con Pipi en la mañana, pero me encontré con
-un ángel en un callejón y no pude seguir," dijo antes de hecharse otro pedazo a
-la boca.]],
+	[["Ah, si xD Salí a buscar con Pipi en la mañana, pero escuché unos
+ruidos desde un callejón y no pude seguir," dijo antes de hecharse otro pedazo
+a la boca.]],
 
 	{"name", "María"},
 	[[Yo demoré un segundo en procesar lo que dijo.]],
@@ -63,7 +63,7 @@ razoné. El chico inclinó la cabeza a un lado.]],
 
 	{"name", "Bake"},
 	[["Ahora que lo decís, sos la primera persona que veo," dijo pensando.
-"No me había fijado. Yo teniendo mi arma y comida no me preocupaba, lol"]],
+"No me había fijado. Yo teniendo mi arma y guitarra no me preocupaba, lol"]],
 
 	{"name", "María"},
 	[[Me quedé sin saber como contestar. Este chico jamás iba a morir de
@@ -83,10 +83,12 @@ pensó brevemente la situación mientras comía la pizza. "A lo mejor se volvier
 todos zombies, y somos los únicos humanos."]],
 
 	{"name", "María"},
-	[["Zombies..." Bake lo decía como si nada. Esa fue la primera palabra
-que se me vino a la mente cuando empezó todo, pero creo ni siquiera los
-periodistas se atrevian a usarla, era muy de película... Bueno, supongo que da
-lo mismo ahora.]],
+	[["Zombies..."]],
+
+	[[Bake lo decía como si nada. Esa fue la primera palabra que se me vino
+a la mente cuando empezó todo, pero creo ni siquiera los periodistas se
+atrevian a usarla, era muy de película... Bueno, supongo que da lo mismo
+ahora.]],
 
 	[["Pero las calles estarían repletas de esas cosas si fuera así..."]],
 
@@ -118,7 +120,7 @@ local losAmigos = {
 	[["¿Como están?"]],
 
 	{"name", "Bake"},
-	[["No sé, lol xDD"]],
+	[["Imagino que bien xD"]],
 
 	{"name", "María"},
 	[["¿Q-Que?"]],
@@ -132,10 +134,10 @@ mutados. Que antes de esto estuvieron en una cafetería cuando ocurrió la
 explosión, y que luego un auto entró y arrolló justo a 'la chica buena.']],
 
 	[[Yo no sabía que responder, pero el chico me aseguró que se la
-llevaron rápido a un hospital donde la pondrían en una cámara de hipersueño,
+llevaron rápido a un hospital donde la metieron en una cámara de hipersueño,
 donde seguro dormiría plácidamente todo el apocalípsis, 'lol']],
 
-	[[La cosa es que se quedaron hasta que se cortó la luz, y ahí se
+	[[La cosa es que se quedaron acá hasta que se cortó la luz, y ahí se
 despidieron y se fue cada uno para su casa. El chico se quedó solo con Pipi y
 el arma de su viejo, y aquí ha estado desde entonces.]],
 
@@ -167,7 +169,7 @@ local infoLoop = {
 			[[Habíamos pasado mucho tiempo comiendo, así que agarré
 			toda la pizza.]],
 
-			[["*OM OM*" El chico se detuvo a verme.]],
+			[["*OM OM*" El chico me miró pasmado.]],
 
 			{"name", "Bake"},
 			[["lol xD"]],
@@ -196,7 +198,7 @@ return {
 en esta ciudad contaminada.]], true},
 
 	[[Tenía 19 años, cumplidos hace solo unos días, pero a diferencia mía,
-el no parecía muy afectado por lo que estuviera ocurriendo allá afuera.]],
+el no parecía tan afectado por lo que estuviera ocurriendo allá afuera.]],
 
 	[[De hecho, se lo tomaba todo bien a la ligera.]],
 
@@ -245,8 +247,8 @@ lado. "¿Querés comer algo? Tengo Pizza Enlatada."]],
 
 	{"name", "María"},
 	[[El chico y yo bajamos a la cocina, el sin molestarse en ponerse
-nada encima de la camisa o de los boxers. Tras dos minutos hurgueteando entre
-las despensas y muebles dió con una lata enpolvada.]],
+nada encima de la camisa o de los boxers. El se agachó a hurguetear entre las
+despensas y muebles, y tras dos minutos dió con una lata empolvada.]],
 
 	{"name", "Bake"},
 	[["'Consumir antes del 2007.' Si está enlatada, no se debería hechar a
@@ -259,7 +261,7 @@ sucio.]],
 
 	[[La casa crugía. Las manchas de sangre en el patio se escondían de a
 poco, y tuve una sensación extraña en el pecho. Una inquietud de que algo no
-concordaba.]],
+estaba bien.]],
 
 	[[Sin saber que hacer, me limité a verificar que la puerta siguiera con
 seguro.]],

@@ -62,8 +62,8 @@ atrasó asi que me puse a esperarla, porque no sabía donde vivía.]],
 	{"bg", "sync"},
 	{"bg", "add", args=f0b.elem.screenFill, color={1,1,1,1},
 		tween={"fadeout", .1, true}},
-	[[Entonces ocurrió. Ví una luz como un rayo, y luego escuché la fuerte
-explosión.]],
+	[[Entonces ocurrió. Una luz como un rayo iluminó todo, y luego sentí
+la fuerte explosión.]],
 
 	{"sfx", "sfx/explosión lejana.flac"},
 	{"name", false},
@@ -75,7 +75,7 @@ explosión.]],
 		color=res.palette("softAfternoon", 0),
 		tween={"fadein", 1}},
 	[[Me acerqué a mirar por la ventana, y lo único que ví fue una gran
-nube de humo acercandose desde la ciudad. La gente miraba confundida, y pronto
+nube de humo acercándose desde la ciudad. La gente miraba confundida, y pronto
 el humo negro empezó a entrar en el aeropuerto.]],
 
 	{"bg", "mod", tween={"fadeout", 1, true}},
@@ -90,7 +90,7 @@ daban vueltas sin poder aterrizar.]],
 buscar un lugar donde alojarme.]],
 
 	{"bgm", "set", source="haba-faba in da house, yo.ogg"},
-	[[Las calles estaban casi desoladas. Las sirenas en la distancia, el
+	[[Las calles estaban desoladas. Las sirenas en la distancia, el
 aire estancado. Nada se movía bajo la luz de los faroles.]],
 
 	[[No conocía bien la capital, pero esperaba que lo normal fuera un poco
@@ -98,10 +98,8 @@ mas de actividad, ¿eh? A ratos, un molesto olor a humedad se sentía y se iba.]
 
 	{"bg", "add", args={"fab/hostal.png"}, tween={"fadein", 1}},
 	[[Terminé llegando a un lugar, no se si un hostal o un motel, pero la
-recepción estaba vacía.]],
-
-	[[Vacía del tipo, seguro podría meterme a dormir sin que nadie me
-detuviera.]],
+recepción estaba vacía. Vacía del tipo, seguro podría meterme a dormir sin que
+nadie me detuviera.]],
 
 	[[Esperé por varios minutos pero como se estaba haciendo muy tarde
 salté sobre el mostrador, tomé cualquier juego de llaves, y entré a buscarles

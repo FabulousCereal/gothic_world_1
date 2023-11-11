@@ -12,8 +12,8 @@ siguiendolos de cerca. Fab venía con su tubo, y Andrea reveló un revólver
 negro.]],
 
 	{"name", "María"},
-	[["¿Sabes disparar Andrea?" le pregunté subiendo la voz. El viento
-hacía difícil oír.]],
+	[["¿Sabes disparar Andrea?" le pregunté teniendo que subir la voz. El
+viento hacía difícil oír.]],
 
 	{"name", "Andrea"},
 	[["Si... pero nunca he acertado."]],
@@ -54,7 +54,7 @@ Habían manchas de sangre junto a la entrada.]],
 	[["O a lo mejor subió." Mierda, Falcon...]],
 
 	{"name", "Bake"},
-	[["Vamos a ver." Los dos se fueron a revisar el segundo piso,
+	[["Subamos a ver." Los dos se fueron a revisar el segundo piso,
 mientras Fab se acercaba a mirar la puerta. Este lugar era una pesadilla.]],
 
 	{"name", "Fabian"},
@@ -127,7 +127,7 @@ En eso, Bake y Falcon volvieron.]],
 	[["Y no había nada. Lo que haya sido, solo llegó hasta acá."]],
 
 	{"name", "Bake"},
-	[["Y dudo que haya sido Croft y Rocco con hambre xD" rió Bake.]],
+	[["Y dudo que hayan sido Croft y Rocco con hambre xD"]],
 
 	{"name", "María"},
 	[["¿Que vamos a hacer entonces?"]],
@@ -148,7 +148,7 @@ quedaron."]],
 y lo sacudió para mirar entre los trozos. "¿Ves? Ahora no están."]],
 
 	{"name", "Bake"},
-	[["Si, y Pipi no come del basurero, así que solo pudo haber sido eso.
+	[["Si, y Pipi no come de la basura, así que solo pudo haber sido eso.
 Tendremos que tener mas cuidado."]],
 
 	{"name", "María"},

@@ -50,10 +50,18 @@ Terminando de tocar sucede la explosión.]],
 
 	{"bgm", "mod", "song", fade={"cmd", {setPitch=1/3}, "fadeto", 2, 2}},
 
-	{"name", "amiga"}, [["¿Que fue eso?"]],
-	{"name", "Bakeritsu"}, [["¿Que fue que?"]],
-	{"name", "amiga"}, [["Escuché una explosión."]],
-	{"name", "Bakeritsu"}, [["huh"]],
+	{"name", "amiga"},
+	[["¿Que fue eso?"]],
+
+	{"name", "Bakeritsu"},
+	[["¿Que fue que?"]],
+
+	{"name", "amiga"},
+	[["Escuché una explosión."]],
+
+	{"name", "Bakeritsu"},
+	[["huh"]],
+
 	[[Parecía hablar en serio, pero por mas que puse atención no oí nada
 mas.]],
 
@@ -81,6 +89,7 @@ mareada o vomitando.]],
 		{
 			[["Deja que pase, no creo que sea nada," le dije para
 			que se calmara.]],
+
 			{"name", "amiga"},
 			[["¿Pero y si es grave?" respondió nerviosa.]],
 
@@ -92,8 +101,10 @@ mareada o vomitando.]],
 
 			{"name", "amigo"},
 			[["...Está buena en todo caso," dijo mi amigo.]],
+
 			{"name", "amigo2 que secretamente es gay"},
 			[["Yeah."]],
+
 			{"name", "Bakeritsu"},
 			[["lol, si," dije mientras mis amigos reían en
 			silencio.]],
@@ -102,8 +113,10 @@ mareada o vomitando.]],
 		{
 			[["Espera," le dije antes que se fuera. Ella me miró a
 			los ojos. Su labio temblaba.]],
+
 			{"name", "amiga"},
 			[["¿Que?"]],
+
 			{"name", "Bakeritsu"},
 			[["...Traeme un helado ya que te paraste, lol."]],
 
@@ -135,7 +148,9 @@ chica. El dueño de la cafetería apareció furioso y cagó al conductor a palos
 mientras mis amigos corriamos el auto.]],
 
 	[[La chica parecía estar mas mal de lo que se veía, para haber sido
-atropellada. Llamamos una ambulancia de inmediato, y sorprendentemente llegó en
+atropellada.]],
+
+	[[Llamamos una ambulancia de inmediato, y sorprendentemente llegó en
 pocos minutos. La subieron a ella y al conductor que ahora tenía contusiones y
 se fueron.]],
 

@@ -55,11 +55,13 @@ puerta. Al final se aburrió y le dió patadas. Así había que abrir todo ahora
 parecer. Pasamos.]],
 
 	{"name", "Bake"},
-	[["Aw shit," exclamó Bake. Iluminó con el celular al suelo. Había un
-camino de sangre llevando a la puerta trasera, probablemente la bodega.
-Tratamos de no pisarlo, y fuimos a lo que veníamos.]],
+	[["Aw shit," exclamó Bake.]],
 
 	{"name", "María"},
+	[[Iluminó con el celular al suelo. Había un camino de sangre llevando a
+la puerta trasera, probablemente la bodega. Tratamos de no pisarlo, y fuimos a
+lo que veníamos.]],
+
 	[[Fuimos separando lo que nos servía en el mostrador. Tomamos botellas
 de alcohol, guantes quirúrgicos, y algunos medicamentos comunes, para
 infecciones, el dolor, y esas cosas. Antivirales, no encontrábamos nada.]],

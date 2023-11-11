@@ -53,17 +53,18 @@ desinfectante que se acababa de hechar por la espalda.]],
 	[["¡RRRGH!" gruñó de nuevo mientras le corría el alcohol por el cuerpo,
 era como que se duchaba con ella. Tras apretar los puños pareció disipar de
 una todo su dolor. El vapor se fue. Entoces el chico se giró a mirarme con esos
-cautivadores ojos marrones.]],
+cautivantes ojos marrones.]],
 
 	[["Oh, hola. ¿Donde estabas?" me preguntó disimulando estar bien, pero
-respiraba entrecortado por el dolor... o tal vez el frio. Andaba solo en
-boxers.]],
+respiraba entrecortado por el dolor... o tal vez por el frio. Andaba solo en
+boxers. No pude alejar la vista.]],
 
 	{"name", "María"},
 	[["Ehh..." titubee. Noté que había entrado con un cuchillo carnicero en
-la mano, pero el chico no parecía alarmado por esto. Lo tiré en el lavamanos.
-"¿Y-Yo? A-Afuera." El chico se quedó mirándome un rato, como no sabiendo que
-decir.]],
+la mano, pero el chico no parecía alarmado por esto. Lo tiré en el lavamanos.]],
+
+	[["¿Y-Yo? A-Afuera." El chico se quedó mirándome un rato, como sin
+saber que decir. Me empecé a sonrojar.]],
 
 	[["En realidad--", empecé para tratar de explicar.]],
 
@@ -72,7 +73,7 @@ decir.]],
 lol."]],
 
 	{"name", "María"},
-	[["María," le respondí. El corazón no se me calmaba.]],
+	[["M-María," le respondí. El corazón no se me calmaba.]],
 
 	{"name", "chico"},
 	[["María," repitió sonriendo. "Como mi guitarra."]],

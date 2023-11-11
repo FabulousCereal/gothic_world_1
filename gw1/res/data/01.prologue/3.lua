@@ -2,8 +2,8 @@ return {
 	{"style", "vnFalcon"},
 	{"name", false},
 	[[Lo último que recuerdo era que estaba en la calle con mi chica.
-Aquella imagen quedó grabada en mi mente, lo único que me quedó de antes de la
-explosión.]],
+Aquella imagen quedó grabada en mi mente, lo único que se quedó conmigo de
+antes de la explosión.]],
 
 	{"bg", "add", args=f0b.elem.screenFill, color={1,1,1,1},
 		tween={"fadeout", 6, true}},

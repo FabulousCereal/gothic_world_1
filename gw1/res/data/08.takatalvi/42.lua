@@ -5,8 +5,9 @@ return {
 
 	{"name", "María"},
 	[[Bake tuvo el arroz listo en menos de media hora, y nos sentamos los
-cuatro a comer. Falcon seguía en cama. La nieve seguía cayendo, con ráfagas de
-viento golpeando a ratos.]],
+cuatro a comer. Falcon seguía en cama. La nieve seguía cayendo, y yo ya me
+había acostumbrado a la sensación de que el viento hecharía la casa abajo en
+cualquier segundo.]],
 
 	{"name", "Fab"},
 	[["Ehh, entonces...", dijo Fab tras un silencio. "Traiamos
@@ -43,12 +44,13 @@ mas me gustaba."]],
 	[["Jugaba en casa, porque no había clases."]],
 
 	{"name", "Fabian"},
-	[["Aaah."]],
+	[["Aaah." Comenzaba a sospechar que Andrea no disfrutó mucho la
+escuela.]],
 
 	{"name", "Andrea"},
 	[["Pero en cualquier caso es cierto. Deberíamos ir ahora, si o si."
 Los chicos parecian estar de acuerdo en eso. A mi me desagradaba la idea de
-salir con este frio, pero tampoco podía oponerme.]],
+salir con este frio, pero evidemente no había opción.]],
 
 	{"name", "María"},
 	[["Debimos habernos abastecido mejor hace unos días," suspiré.]],
@@ -79,7 +81,7 @@ Falcon. No se nos ocurrió buscar esas cosas en la farmacia."]],
 inmediato. Bake se sorprendió un poco.]],
 
 	{"name", "Bake"},
-	[["No estaba diciendo eso."]],
+	[["No estaba diciendo que fueramos a esa."]],
 
 	{"name", "María"},
 	[["Bueno... igual no creo que siga habiendo comida en la Avenida."]],
@@ -88,7 +90,8 @@ inmediato. Bake se sorprendió un poco.]],
 	[["Nosotros sabemos donde hay."]],
 
 	{"name", "Fabian"},
-	[["Si no les importa comer arroz y fideos una semana, claro."]],
+	[["Si no les importa comer arroz y fideos con salsa una semana,
+claro."]],
 
 	{"name", "Bake"},
 	[["Pueeede que nos moleste xD ¿Es mucha?"]],
@@ -104,7 +107,7 @@ sacamos lo que traíamos."]],
 	[["Queda cerca... de la Avenida. Por eso preguntaba xd"]],
 
 	{"name", "Bake"},
-	[["lol, todo vuelve al inicio. ¿Quieren tomar mate?"]],
+	[["lol, todo vuelve al inicio. ¿Quieren mate?"]],
 
 	{"name", "Fabian"},
 	[["¿Hay té?"]],
@@ -160,8 +163,8 @@ Solo dos necesitaban ir.]],
 	[["Bueno, ¿te querés quedar, nena?" me preguntó.]],
 
 	{"name", "María"},
-	[[Y ahí entendí. Por el tono de voz, por la mirada de los chicos.
-Esperaban que me quedara guardada en casa. Era para lo único que servía.]],
+	[[Entendí, por el tono de voz, por la mirada de los chicos, que
+esperaban que me quedara guardada en casa. Era para lo único que servía.]],
 
 	[["Es que..."]],
 
@@ -191,9 +194,11 @@ Andrea colgó su poncho en la silla, y quedó decidido.]],
 	[["Salgamos rápido entonces."]],
 
 	{"name", "María"},
-	[["Solo déjame avisarle a Falcon primero." Mientras los chicos
-juntaban sus armas, yo me dirigí al segundo piso. La puerta de Falcon seguía
-cerrada, así que la abrí con cautela y miré adentro. El seguía en cama.]],
+	[["Solo déjame avisarle a Falcon primero."]],
+
+	[[Mientras los chicos juntaban sus armas, yo me dirigí al segundo piso.
+La puerta de Falcon seguía cerrada, así que la abrí con cautela y miré adentro.
+El seguía en cama.]],
 
 	[["Falcon," susurré. El se movió. "¿Estás despierto?"]],
 
@@ -221,7 +226,8 @@ para los mareos y la fiebre... traigan eso xd"]],
 
 	{"name", "Falcon"},
 	[["Y-Y también..." dijo antes que me levantara. "U-Un afinador de
-guitarra," dijo formandosele una sonrisa. "Bake es pésimo afinando x...xD"]],
+guitarra," dijo formandosele una sonrisa. "Bake tiene... un oido de mierda
+x...xD"]],
 
 	{"name", "María"},
 	[[Por mas ridículo que me pareciera todo eso de la banda, no pude
@@ -230,10 +236,14 @@ evitar sonreír.]],
 	[["Buscaré uno sin decirle, ¿ok?"]],
 
 	[[Falcon asintió debil. Una ráfaga de viento azotó el segundo piso, así
-que le dí un beso en la frente. El me miró sorprendido. "Chao." Corrí escalera
-abajo. El esguince me dolía, pero el tiempo se acababa al parecer.]],
+que le dí un beso en la frente. El me miró sorprendido.]],
 
-	[[Los chicos estaban en la puerta esperándome. Bake tenía la katana y
-Fab su tubo. Andrea esperaba junto a la puerta. Me abrigué rápido, tomé el
-bate, y abrimos. El viento entró con fuerza, y la nieve nos golpeó en la cara.]],
+	[["Chao." Corrí escalera abajo. El esguince me dolía, pero el tiempo se
+acababa al parecer.]],
+
+	[[Los chicos estaban junto a la puerta esperándome. Bake tenía la
+katana y Fab su tubo. Andrea esperaba junto a ellos.]],
+
+	[[Me abrigué rápido, tomé el bate, y abrimos. El viento entró con
+fuerza, y la nieve nos golpeó en la cara.]],
 }

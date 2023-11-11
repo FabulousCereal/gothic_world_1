@@ -7,9 +7,9 @@ return {
 	[[Seguía en casa para la tarde. Habiamos comido un bocadillo con Rocco,
 y me encontraba reparando unas goteras que tenía hace años en el techo.]],
 
-	[[Claro, cuando llovía, no lo hacía para no mojarme, y cuando no, no
-había para que molestarse. Pero sin electricidad ni internet, es increíble lo
-que rinde el tiempo.]],
+	[[Claro, cuando llovía, no me subía a arreglarlo para no mojarme, y
+cuando había sol, no había para que molestarse. Pero sin electricidad ni
+internet, es increíble lo que rinde el tiempo.]],
 
 	[[Y además, así mantenía la mente ocupada. Mi amigo estaba muerto.]],
 
@@ -59,14 +59,14 @@ detenerlo. Había un cuchillo a mi alcance.]],
 	[[Decidí huir. Era mi vecino. No podía lastimarlo.]],
 
 	[[Escapé por atrás al tiempo que Bill hechaba la puerta abajo.
-Aproveché la ventaja de estar afuera, y corrí a toda velocidad hasta la
-camioneta. Me subí a darle contacto.]],
+Aproveché que me buscaba adentro y corrí a toda velocidad hasta la
+camioneta. Me subí a darle contacto. Bill salió tras nosotros.]],
 
 	[[Mi Vieja Mula pareció leer mi mente, porque encendió de inmediato.
-Rocco se subió de un salto y nos fuimos antes que Bill volviera.]],
+Rocco llegó a subirse de un salto y nos fuimos antes que Bill nos alcanzara.]],
 
 	[[Salí al camino, y en un impulso me fuí en dirección contraria a la
-ciudad.]],
+ciudad. Perdimos a Bill en el espejo retrovisor.]],
 
 	[[Pasé tras unos minutos frente a la casa de Bill. Tenía la puerta
 abierta, con manchas de sangre adentro.]],
@@ -92,7 +92,7 @@ cuando noté que uno de los hombres se acercaba a mi ventana.]],
 cosa.]],
 
 	{"name", false},
-	[["Retirese del lugar," me ordernó.]],
+	[["Retirese del lugar," me ordenó.]],
 
 	{"name", "Croft"},
 	[["¿Tienen idea de lo que está pasando allá atrás? ¡Necesito refugio!"]],
@@ -103,17 +103,17 @@ el asiento.]],
 
 	[["¡Espera! ¡Rocco!" Rocco saltó por mi ventana, causando que todos los
 militares le apuntaran, y creo que solo porque aún estaba el otro sujeto al
-lado nuestro no lo llenaron de balas antes de tocar el suelo.]],
+lado nuestro no nos llenaron de balas antes de tocar el suelo.]],
 
 	[[Lo dejaron cagar junto a la rueda tranquilo, aunque sin bajar sus
 rifles durante todo el proceso. Apenas Rocco terminó me dieron 10 segundos para
 esfumarme.]],
 
 	[[Traté de ver que había mas allá de la barricada, pero en la oscuridad
-no distinguía nada mas allá de los árboles. También estaba casi seguro de que
-aquí no habían bases militares ni infraestructura crítica.]],
+no distinguía nada. También estaba casi seguro de que aquí no habían bases
+militares ni infraestructura crítica.]],
 
-	[[A los 5 segundos decidí no tentar mas mi suerte.]],
+	[[A los 5 segundos decidí no tentar mas mi ya estirada suerte.]],
 
 	[["Son una vergüenza," les dije mientras daba la vuelta. Iba a tener
 que hacer el largo viaje de regreso.]],
@@ -122,6 +122,9 @@ que hacer el largo viaje de regreso.]],
 ciudad, salir por la autopista, pero algo me decía que me iba a encontrar con
 lo mismo.]],
 
+	[[Podía abandonar la camioneta y escabullirme a pie por entremedio del
+bosque, pero si nos descubrían iba a ser claro que veniamos de la ciudad.]],
+
 	[[Mis únicas alternativas parecían ser irme a casa y rogar que Bill se
-haya ido, buscar donde dormir en la ciudad, o dormir en el carro.]],
+haya ido, buscar refugio en la ciudad, o dormir en el carro.]],
 }

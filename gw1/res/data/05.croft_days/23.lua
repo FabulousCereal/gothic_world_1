@@ -9,7 +9,7 @@ a toda velocidad. Me estaba por dormir de nuevo cuando oigo ruidos de disparos
 y caballos relinchando. Provenían de la barricada.]],
 
 	[[Con Rocco ya despierto, decidí que ya no ibamos a conciliar mas el
-sueño. Aún estaba oscuro, pero debería haber mas luz llegando a la casa.
+sueño. Aún estaba oscuro, pero debería ir aclarando llegando a la casa.
 Le dí contacto al carro y emprendí el camino de vuelta.]],
 
 	[[Como era de esperar, al llegar encontré la puerta de entrada y
@@ -20,7 +20,7 @@ tampoco estaba Bill.]],
 directo al refrigerador, que tenía un charco debajo, y abrí el congelador.
 La carne blanda cayó a mis pies, y Rocco se escapó con un trozo.]],
 
-	[[Al menos el frio bastaba para los quesos y mermeladas.]],
+	[[Al menos tenía queso. Gran consuelo.]],
 
 	[[Calenté mi último plato de frijoles, que ya tenían un sabor ácido
 pero que estimé podía tolerar. Rocco llegó con su trozo de carne a
@@ -33,15 +33,15 @@ repleta de esos 'verdes'.]],
 podían convertir a otros como los zombies de la tele, pero no importaba.]],
 
 	[[Las calles quedaron vacias el primer día; mis probabilidades allá no
-eran buenas.
+eran buenas.]],
 
 	[[Mi mejor opción por lo tanto era resguardarme acá, pero iba a
-necesitar provisiones. Carne enlatada, para empezar. Legumbres, nueces. Harina
-y papas ya tenía. Armas no.]],
+necesitar provisiones. Carne enlatada, para empezar. Nueces y harina no me
+vendrían mal. Legumbres y papas ya tenía. Armas no.]],
 
-	[[Rocco se acabó el trozo de carne y fue a buscar mas. Comida para
-perro también, para hacer durar la mía, aunque tampoco iba a arriesgar la vida
-por eso.]],
+	[[Rocco se acabó el trozo de carne y empezó a morder los huesos. Comida
+para perro también, para hacer durar la mía, aunque tampoco iba a arriesgar la
+vida por eso.]],
 
 	[[Así quedó decidido. Una vez terminamos de comer, partimos con Rocco a
 buscar lo que necesitábamos. Después clavaría la puerta.]],

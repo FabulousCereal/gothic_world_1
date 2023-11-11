@@ -1,5 +1,8 @@
 return {
 	{"style", "vnFab"},
+	{"bgm", "set", "atmos", 0, source="avion atmos.flac",
+		fade={"fadeto", 1, 4}},
+	{"bgm", "set", "prelude", source="airplane_temp.ogg"},
 	{"name", "Altavoz"},
 	[["Atención pasajeros, les habla su cápitan para anunciar que estamos
 próximos a aterrizar. Favor de dirigirse a su asientos, y abrochar sus
@@ -44,6 +47,8 @@ bueno saber de ante mano a que se enfrenta uno," agregué.]],
 
 	[[La mujer había dejado de oirme hace mucho. Tomé otro sorbo de mi
 jugo, y pegué la frente a la ventanilla. Hacía frío.]],
+
+	{"bgm", "modall", fade={"fadeout", 2, true}},
 
 	{"bg", "add", args=f0b.elem.screenFill,
 		color=res.palette("softAfternoon", 1, .5),

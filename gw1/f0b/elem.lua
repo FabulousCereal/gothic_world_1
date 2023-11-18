@@ -55,40 +55,17 @@ local function genScreenFill()
 	)
 end
 
-local function roundRect(w, h, r)
-	-- We could be fancy and do a superellipse, but we'd like to save on
-	-- vertices
-	local angle = math.pi / 2 / r
-	local cos = math.cos
-	local sin = math.sin
-	local rect = {}
-	local corner = function(k, x, y)
-		local l = k + r
-		while k < l do
-			local a = angle * k
-			k = k + 1
-			rect[k] = {cos(a)*r + x, sin(a)*r + y}
-		end
-		return k
-	end
-
-	w = w - r
-	h = h - r
-
-	local k = corner(0, w, h)
-	k = corner(k, r, h)
-	k = corner(k, r, r)
-	k = corner(k, w, r)
-	return love.graphics.newMesh(rect, "fan", "static")
+local function texSquare()
+	return love.graphics.newCanvas(1, 1)
 end
 
 return {
 	poly = poly,
 	star = star,
 
-	roundRect = roundRect,
-
 	circle = polyRegular(),
 
 	screenFill = genScreenFill(),
+
+	square = texSquare(),
 }

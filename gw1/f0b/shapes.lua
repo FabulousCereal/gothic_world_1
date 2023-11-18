@@ -110,5 +110,13 @@ return {
 		graphics.draw(unpack(shadow))
 		graphics.setColor(r, g, b, a)
 		graphics.draw(unpack(drawArgs))
-	end
+	end,
+
+	shader = function(style, coords)
+		local x, y, w, h = unpack(coords)
+		local graphics = love.graphics
+		graphics.setShader(f0b.style.setupShader(style))
+		graphics.draw(f0b.elem.square, x, y, 0, w, h)
+		graphics.setShader()
+	end,
 }

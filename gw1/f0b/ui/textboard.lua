@@ -38,6 +38,14 @@ local function typewriterFinish(board)
 	board.finished = true
 end
 
+local function nameAndWidth(board, style)
+	local style = board.style
+	local em = style.font:getHeight()
+	local pad = style.padding * em
+	board.namebox[3] = math.floor(
+		board.nametext[1]:getWidth() + pad + style.borderWidth*2)
+end
+
 local function textboardRegen(board, style)
 	board.style = style
 
@@ -49,20 +57,20 @@ local function textboardRegen(board, style)
 	f0b.buttons.setPos(board.textboard, 0, screenH, "bottom")
 
 	local floor = math.floor
-	local nameboxH = em + style.borderWidth / 2
+	local bw = style.borderWidth
+	local nameboxH = em + bw*2 + pad/2
 	local nbox = board.namebox
 	local ntext = board.nametext
-	nbox[1] = floor(tb.pos[1] + tb.box[1] + pad)      -- X
-	nbox[2] = floor(tb.pos[2] + tb.box[2] - nameboxH) -- Y 
+	nbox[1] = floor(tb.pos[1] + tb.box[1] + pad)           -- X
+	nbox[2] = floor(tb.pos[2] + tb.box[2] - nameboxH + bw) -- Y 
 	-- Width is set with name.
-	nbox[4] = floor(nameboxH)                         -- Height
-	nbox[5] = math.ceil(style.borderRadius / 2)       -- Radius
+	nbox[4] = floor(nameboxH) -- Height
 
 	ntext[1]:setFont(style.font)
-	ntext[2] = floor(nbox[1] + pad/2) -- X
-	ntext[3] = nbox[2]                -- Y
+	ntext[2] = floor(nbox[1] + pad/2 + bw) -- X
+	ntext[3] = floor(nbox[2] + pad/4 + bw) -- Y
 
-	nbox[3] = floor(ntext[1]:getWidth() + pad)
+	nameAndWidth(board, style)
 	return board
 end
 
@@ -86,14 +94,8 @@ return {
 	setName = function(board, name)
 		board.name = name
 		if name then
-			local style = board.style
-			local em = style.font:getHeight()
-			local pad = style.padding * em
 			board.nametext[1]:set(name)
-			board.namebox[3] = math.floor(
-				board.nametext[1]:getWidth() + pad)
-		else
-			board.nametext[3] = 0
+			nameAndWidth(board, style)
 		end
 	end,
 
@@ -134,10 +136,8 @@ return {
 		f0b.buttons.draw(board.textboard, style)
 
 		local graphics = love.graphics
-		local bordered = f0b.shapes.bordered
 		if board.name then
-			bordered(graphics.rectangle, style,
-				unpack(board.namebox))
+			f0b.shapes.shader(style, board.namebox)
 			graphics.setColor(style.color)
 			graphics.draw(unpack(board.nametext))
 		end

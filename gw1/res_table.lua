@@ -92,6 +92,7 @@ return {
 			borderWidth = 2,
 	--		borderColor = {.5, .25, .5, 1},
 			borderRadius = 6,
+			shader = "rect",
 			lines = 4,
 			lineSpacing = 2,
 			margin = 1,
@@ -122,7 +123,6 @@ return {
 		vnBake = {
 			"vn",
 			backgroundColor = {0, .2, 0, 3/4},
-			borderRadius = 0,
 		},
 
 		vnFalcon = {
@@ -144,5 +144,43 @@ return {
 			"vn",
 			backgroundColor = {.5, 0, 0, 3/4},
 		},
-	}
+	},
+
+	shader = {
+		rect = [[
+			uniform float style_borderRadius;
+			uniform float style_borderWidth;
+			uniform vec4 style_borderColor;
+			uniform vec4 style_backgroundColor;
+
+			float sdf(vec2 pos, vec2 size, float radius) {
+				vec2 d = abs(pos) - size + vec2(radius);
+				return clamp(d.x, d.y, 0.0)
+					+ length(max(d, vec2(0.0))) - radius;
+			}
+			float aliasing(float dist) {
+				const float aliasing = 1.0;
+
+				float d = abs(dist) - style_borderWidth;
+				return smoothstep(-aliasing, aliasing, d);
+				//return = step(0, d);
+			}
+			vec4 get_color(float dist) {
+				const vec4 outside_color = vec4(0.0);
+
+				vec4 side_color = dist < 0.0
+					? style_backgroundColor
+					: outside_color;
+				return mix(style_borderColor, side_color,
+					aliasing(dist));
+			}
+			vec4 effect(vec4 color, Image _tex, vec2 tex_coord, vec2 _screen_coord) {
+				vec2 texSize = vec2(1.0) / fwidth(tex_coord);
+				vec2 size = texSize - vec2(style_borderWidth);
+				vec2 normal_coord = tex_coord * texSize * vec2(2.0) - texSize;
+				float dist = sdf(normal_coord, size, style_borderRadius*2.0);
+				return color * get_color(dist);
+			}
+		]],
+	},
 }

@@ -20,14 +20,14 @@ end
 
 local function regen(button, style, x, y, w, textLines, str, align)
 	local em, pad, margin, lineHeight = f0b.style.getUnits(style)
-	local hbw = style.borderWidth/2
+	local bw = style.borderWidth
 
 	local pos, box, text = button.pos, button.box, button.text
-	local borderMargin = margin + hbw
+	local borderMargin = margin + bw
 	if not textLines then
 		textLines = 1
 	end
-	local textH = textLines * lineHeight + pad + hbw*2
+	local textH = textLines * lineHeight + pad + bw*2
 
 	pos[1] = x
 	pos[2] = y
@@ -38,7 +38,6 @@ local function regen(button, style, x, y, w, textLines, str, align)
 	box[2] = borderMargin
 	box[3] = w - borderMargin*2
 	box[4] = textH
-	box[5] = style.borderRadius
 
 	text.wrap = f0b.style.textLimit(style, w)
 	text.lines = textLines
@@ -50,8 +49,8 @@ local function regen(button, style, x, y, w, textLines, str, align)
 		align = text.align
 	end
 	setTextStr(button, str, align)
-	text[2] = box[1] + hbw + pad
-	text[3] = box[2] + hbw + pad/2
+	text[2] = box[1] + pad
+	text[3] = box[2] + pad/2
 
 	return floorButton(button),
 		x + w - borderMargin, y + textH + borderMargin,
@@ -97,7 +96,8 @@ return {
 		local pos = button.pos
 		graphics.translate(pos[1], pos[2])
 
-		f0b.shapes.bordered(graphics.rectangle, style, unpack(button.box))
+		graphics.setColor(1, 1, 1, 1)
+		f0b.shapes.shader(style, button.box)
 
 		graphics.setColor(type(button.text.str) == "table"
 			and {1, 1, 1, 1} or style.color)

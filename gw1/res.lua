@@ -45,6 +45,7 @@ local defaultStyle = {
 	textAlign = "left",
 	borderRadius = 0,
 	borderWidth = 0,
+	shader = "rect"
 }
 
 local aliases = {
@@ -52,25 +53,25 @@ local aliases = {
 }
 
 local fallbackMetatable = {
-	__index = function(table, key)
+	__index = function(style, key)
 		local alias = aliases[key]
 		if alias then
-			return setReturn(table, key, table[alias])
+			return setReturn(style, key, style[alias])
 		end
 
 		local fbFunc = specialFallbacks[key]
 		if fbFunc then
-			return setReturn(table, key, fbFunc(table))
+			return setReturn(style, key, fbFunc(style))
 		end
 
-		local parent = rawget(table, 1)
+		local parent = rawget(style, 1)
 		if parent then
-			return setReturn(table, key, parent[key])
+			return setReturn(style, key, parent[key])
 		end
 
 		local default = defaultStyle[key]
 		if default then
-			return setReturn(table, key, default)
+			return setReturn(style, key, default)
 		end
 
 		return nil
@@ -160,4 +161,12 @@ res = {
 	end,
 
 	style = setStyles(base.style),
+
+	shader = setmetatable({}, {
+		__index = function(table, key)
+			return setReturn(table, key,
+				love.graphics.newShader(base.shader[key])
+			)
+		end,
+	})
 }

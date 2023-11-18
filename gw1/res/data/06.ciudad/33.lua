@@ -56,7 +56,7 @@ que nos había robado algo, pero estaban las armas y la comida... Hasta
 que revisé tu abrigo."]],
 
 	{"name", "María"},
-	[["¿N-No habrá salido a buscar algo?"]],
+	[["¿No habrá salido a buscar algo?"]],
 
 	{"name", "Falcon"},
 	[["¿Como que?" respondió simplemente. Si, era una tontera lo que decía,
@@ -71,8 +71,8 @@ quien dejamos entrar. Nos podría haber matado."]],
 
 	{"name", "Falcon"},
 	[["Yo solo digo," dijo sombrio. No podía negar que tenía razón... es
-solo que tampoco podía pensar que Croft pudiera hacer eso. O bueno, nadie mas
-bien dicho.]],
+solo que tampoco podía pensar que Croft pudiera hacer eso. No parecía esa clase
+de gente.]],
 
 	{"name", "María"},
 	[["¿Y Bake donde está?" A Falcon se le formó una pequeña sonrisa.]],
@@ -183,13 +183,14 @@ calentito.]],
 	[["Que Croft se fue."]],
 
 	{"name", "Bake"},
-	[["Hmm, si el quiere estar solo, bueno xD..."]],
+	[["Hmm, si el quiere estar solo, bueno xD... zzzzzz"]],
 
 	{"name", "María"},
 	[["¿No te importa?"]],
 
 	{"name", "Bake"},
-	[["Creo que no vendrá con nosotros hasta que esté por morir xD"]],
+	[["Creo que no vendrá con nosotros hasta que esté por morir xD
+ZZZZZZZZZZZ" Roncaba entre frases, wtf.]],
 
 	{"name", "María"},
 	[["Pero se llevó mi revólver además de su arma."]],

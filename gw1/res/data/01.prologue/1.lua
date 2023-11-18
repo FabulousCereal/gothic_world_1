@@ -167,11 +167,10 @@ cara y fuimos a mi casa.]],
 	{"bg", "add", 1, args={"cafe/ext.png"},
 		color=res.palette("fivepm", 0), tween={"fadein", 3}},
 	{"bg", "mod", tween={"fadeout", 3, true}},
-	[[En el camino había mucha gente tirada en las calles.]],
-
-	[[No sabiamos que estaba pasando, pero lo que había dicho la chica
-sobre la explosión nos empezó a preocupar. A momentos se sentía un olor
-metálico en el aire... Casi como sangre.]],
+	[[En el camino había mucha gente tirada en las calles. No sabiamos que
+estaba pasando, pero lo que había dicho la chica sobre la explosión nos empezó
+a preocupar. A momentos se sentía un olor metálico en el aire... Casi como
+sangre.]],
 
 	{"bg", "sync"},
 	{"bg", "add", args=f0b.elem.screenFill,

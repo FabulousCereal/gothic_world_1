@@ -58,18 +58,22 @@ pies.]],
 
 	{"name", "María"},
 	[[Fuimos a la casa del vecino. Sin perder el tiempo Bake escaló el
-portón y se metió de un salto. Parecía que ya estaba mejor de la espalda, o por
-lo menos no le impedía moverse. Movió un par de fierros adentro y nos abrió. Lo
-primero que vimos fue una camioneta en la cochera.]],
+portón y se metió de un salto.]],
+
+	[[Parecía que ya estaba mejor de la espalda, o por lo menos no le
+impedía moverse. Movió un par de fierros adentro y nos abrió. Lo primero que
+vimos fue una camioneta en la cochera.]],
 
 	{"name", "Bake"},
 	[["Vos sabés robar carros, ¿verdad?"]],
 
 	{"name", "Falcon"},
 	[["No porque sepa hacerlos partir voy a saber abrirlos," respondió
-ofendido. "Pero dejame probar." Falcón se acercó a inspeccionar la puerta.
-Cerca había una mesa con un montón de herramientas, así que Falcon tomó un
-destonillador y se puso a meterlo en la cerradura.]],
+ofendido. "Pero dejame probar."]],
+
+	[[Falcón se acercó a inspeccionar la puerta. Cerca había una mesa con
+un montón de herramientas, así que Falcon tomó un destonillador y se puso a
+meterlo en la cerradura.]],
 
 	{"name", "María"},
 	[[Y en fin, parece que estaba en lo correcto porque tras unos segundos
@@ -99,10 +103,12 @@ casa."]],
 
 	{"name", "Bake"},
 	[["No gastemos municiones. Dejá." Bake agarró vuelo y se lanzó
-con el hombro contra la puerta. Sonó un golpe seco y Bake cayó al suelo.]],
+con el hombro a derribarla. Sonó un golpe seco, y Bake rebotó en la puerta y
+luego en el suelo.]],
 
 	[["Hoooly shit..." dijo agarrándose el hombro, revolcándose con lo que
-parecía una risa adolorida. Falcon se golpeó la frente con la palma.]],
+parecía una risa adolorida. Falcon se golpeó la frente con la palma. Yo ni eso
+pude hacer.]],
 
 	{"name", "María"},
 	[["Dios mío," dije atónita. No ibamos a llegar a ningún lado a este
@@ -177,8 +183,10 @@ cuando la cadera me recordó que estaba atropellada. Auuuch...]],
 
 	[[A duras penas logré pasar la pierna, contorsionarme metí la cabeza, y
 tuve que colgarme para bajar porque justo estaba el estanque del inodoro
-debajo, y no creía que fuera a aguantar mi peso. Terminé con los rieles
-marcados en las manos, pero fue todo extrañamente divertido.]],
+debajo, y no creía que fuera a aguantar mi peso.]],
+
+	[[Terminé con los rieles marcados en las manos, pero fue todo
+extrañamente divertido.]],
 
 	[[Me miré de casualidad en el espejo. Era increíble como llevaba como 6
 días con la misma ropa.]],
@@ -186,18 +194,16 @@ días con la misma ropa.]],
 	[[Estaba bien mal, de hecho. Mi pelo estaba grasoso y tenía unas ojeras
 terribles. Ni en mis momentos mas bajos recordaba haberme visto así.]],
 
-	[[Llevaba menos de una semana en el apocalípsis. 3 días sin contar el
-tiempo encerrada del hotel, pero igual...]],
-
 	[[¿Que hubiera pasado si me hubiera quedado en casa? Papá, hermano...]],
 
 	[[No sé como de un momento a otro pasé al borde de las lágrimas. Dios,
-este no era el momento para ponerme melancólca. Me abofeteé las mejillas, y
-pensé en Bake para sacarme la pena de la mente. Bake rebotando contra la
-puerta. Con eso recuperé un poco el ánimo.]],
+este no era el momento para ponerme melancólca.]],
 
-	[[A lo mejor podía sacar ropa de acá. Si me quedaba grande, daba lo
-mismo.]],
+	[[Me abofeteé las mejillas, y pensé en Bake para sacarme la pena de la
+mente. Bake rebotando contra la puerta. Con eso recuperé un poco el ánimo.]],
+
+	[[A lo mejor podía sacar ropa de acá. ¿Como tanta mala suerte de que
+todo me quede chico?]],
 
 	[[Abrí la puerta del baño que daba a un pasillo, y de inmediato
 retrocedí ante un nauseante olor a carne descompuesta. Algo andaba mal. Algo
@@ -228,14 +234,16 @@ me paré antes de que la criatura alcanzara a tomarme y seguí corriendo.]],
 	[["¡MARÍA!"]],
 
 	{"name", "María"},
-	[[Llegué al segundo piso y me metí a la primera habitación que pude,
-un cuarto oscuro. Alcancé a cerrar la puerta antes que la criatura la
-embistiera con todo su peso, botando los cuadros que estaban colgados. La
-bestía gemía mientras golpeaba.]],
+	[[Llegué al segundo piso y me metí a la primera habitación que vi
+abierta. Alcancé a cerrar la puerta antes que la criatura la embistiera con
+todo su peso, botando los cuadros que estaban colgados. Estaba a oscuras.]],
 
-	[[El cuarto se estremecia entero, cayeron cosas de los muebles. Puse
-seguro, pero la criatura se lanzó de nuevo e hizo crugir la madera. No sabía
-cuanto iba a resistir. El olor a muerte me tenía al borde del vómito.]],
+	[[La bestía gemía mientras golpeaba. El cuarto se estremecia entero,
+cayeron cosas de los muebles.]],
+
+	[[Me apoyé contra la puerta para que no se rompiera, pero la criatura
+se lanzó de nuevo e hizo crugir la madera. No sabía cuanto iba a resistir. El
+olor a muerte me tenía al borde del vómito.]],
 
 	[[De prontó oí disparos.]],
 
@@ -256,8 +264,7 @@ oyeron mas disparos y gritos.]],
 
 	{"name", "María"},
 	[[Todo quedó en silencio por unos momentos, en que solo escuchaba mis
-propios latidos, hasta que unos pasos fuertes resonaron por las
-escaleras.]],
+propios latidos. De pronto unos pasos fuertes resonaron por las escaleras.]],
 
 	{"name", "Bake"},
 	[["¿María?" me llamó Bake al subir. Las manos me temblaban tanto que
@@ -288,8 +295,10 @@ A los pies de la escalera estaba el cuerpo inerte de la criatura.]],
 	{"name", "Falcon"},
 	[["Vamos," dijo guiando el paso. Lo seguí hasta la cocina donde estaba
 la salida al garage. La puerta estaba abierta por completo, la cerradura estaba
-hecha añicos. Falcon de pronto se giró con su arma. Me sobresalté, pero era
-para tomar un juego de llaves que estaban colgados.]],
+hecha añicos.]],
+
+	[[Falcon de pronto se giró con su arma. Me sobresalté, pero era para
+tomar un juego de llaves que estaban colgados.]],
 
 	[[Salimos y sin perder el tiempo Falcon abrió la camioneta. Nos subimos
 los tres; Bake de copiloto, y yo atrás. Falcon la hizo andar y partimos.]],

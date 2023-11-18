@@ -27,7 +27,7 @@ pero igual..." Bake se pasaba la mano por el pelo.
 	[[Los chicos se quedaron en silencio.]],
 
 	{"name", "Falcon"},
-	[["¿Que pasa si es mas de lo mismo? Si nos quedamos sin gasolina en la
+	[["¿Que pasa si es mas de lo mismo? Quedarnos sin gasolina en la
 carretera sería peor."]],
 
 	{"name", "María"},

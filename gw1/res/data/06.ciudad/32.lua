@@ -1,13 +1,13 @@
 local function checaMiRiff()
 	local dialog = {
 		{false, 3},
-		{"Bake", 6, [["¡Checá mi riff!"]]},
+		{"Bake", 5.5, [["¡Checá mi riff!"]]},
 		{"Falcon", 5, [["¿A eso llamas un riff? Mira."]]},
 		{"Bake", 3, [["lol, ¿que es eso? ¿Pipi con carraspera?"]]},
 		{"Falcon", 5, [["Trato de improvisar, hdp ¬¬..."]]},
 		{false, 13},
 		{"Falcon", 3, [["¿Por que paraste?"]]},
-		{"Bake", 4, [["Por que hay que trabajar xD Trabaja xDD"]]},
+		{"Bake", 4, [["Porque hay que trabajar xD Trabajá xDD"]]},
 		{"Falcon", 4, [["Estaba a punto de sacar un hit, Bake xddd"]]},
 		{"Bake", 2, [["Martillá acá mierda xD"]]},
 	}

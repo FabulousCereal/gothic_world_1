@@ -109,12 +109,13 @@ dimos cuenta: el mas alto era Bake.]],
 
 	{"name", "Falcon"},
 	[["¿Y este por donde salió?" se preguntó Falcon, tan anonadado como yo,
-pero sin perder tiempo fuimos a recibirlos. Era Bake con dos desconocidos, un
-chico y una chica. Tenía el rostro radiante, como cuando lo conocí tras la
-pelea.]],
+pero sin perder tiempo fuimos a recibirlo. Venía con dos desconocidos. Un chico
+y una chica.]],
 
+	{"bgm", "set", "af", source="andrea y fab (demo).ogg"},
 	{"name", "Bake"},
-	[["lol, hola xD" rió.]],
+	[["lol, hola xD" rió. Tenía el rostro radiante, como cuando lo conocí
+tras la pelea.]],
 
 	{"name", "María"},
 	[["¿Que te pasó?" fue lo primero que le dije. Parecía haber corrido una
@@ -172,6 +173,8 @@ queremos comida tenemos que ir por ella ahora ya."]],
 
 	{"name", "Bake"},
 	[["Si. Después buscamos tus pastillas."]],
+
+	{"bgm", "mod", "af", fade={"fadeout", 5, true}},
 
 	{"name", "Falcon"},
 	[["Mierda, no es por eso. ¿Se te olvidó lo que hablamos en la mañana?"
@@ -262,7 +265,7 @@ tenemos olla." dijo la chica.]],
 
 	{"name", "Bake"},
 	[["Aw shit nigga, vos vas enton-- Espera, no. Tenés que demostrarlo
-primero xDD Siganme."]],
+primero xDD ¡Seguidme!"]],
 
 	{"name", "María"},
 	[[Bake se giró y se puso a caminar a pesar de que el viento agarraba
@@ -305,7 +308,7 @@ empezó a quitar la mochila.]],
 siguiendo al chico, y este tras hechar un vistazo fue a tomar un acordeón.]],
 
 	{"name", "Andrea"},
-	[["Tu puedes Fab, enséñales," lo animó la chica.]],
+	[["Tu puedes Fab," lo animó la chica.]],
 
 	{"name", "María"},
 	[[El chico se colocó el acordeón y se sentó en una silla. Observó
@@ -314,11 +317,11 @@ Bake estuviera mirando, empezó a tocar.]],
 
 	{"bgm", "set", "acc",
 		source="prelude2_accordeon2 (godlike samples, crap midi).ogg",
-		fade={"delay", 1.5, "fadeout", 1/12, true}},
+		fade={"delay", 1.25, "fadeout", 1/12, true}},
 	0.75,
 
 	{"name", "Bake"},
-	[["Ahí está bien, vos pasas," dijo Bake cuando el chico no llevaba ni 3
+	[["Ahí está bien, vos pasás," dijo Bake cuando el chico no llevaba ni 3
 notas. Los cuatro nos giramos a verlo.]],
 
 	{"name", "Fabian"},

@@ -207,7 +207,7 @@ En eso, oímos crujir los trozos de vidrio de afuera.]],
 
 	[[Bake levantó por reflejo otra guitarra, pero luego la bajó.]],
 
-	{"bgm", "mod", "glass", fade={"fadeout", 1/3, true}},
+	{"bgm", "mod", "glass", fade={"fadeout", 1/6, true}},
 	{"name", "María"},
 	[[Un chico de cabello castaño había llegado atraído por el ruido.]],
 

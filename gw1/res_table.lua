@@ -174,12 +174,36 @@ return {
 				return mix(style_borderColor, side_color,
 					aliasing(dist));
 			}
-			vec4 effect(vec4 color, Image _tex, vec2 tex_coord, vec2 _screen_coord) {
-				vec2 texSize = vec2(1.0) / fwidth(tex_coord);
-				vec2 size = texSize - vec2(style_borderWidth);
-				vec2 normal_coord = tex_coord * texSize * vec2(2.0) - texSize;
+			vec4 effect(vec4 color, Image _tex, vec2 tex_coord, vec2 _scr_coord) {
+				vec2 tex_size = vec2(1.0) / fwidth(tex_coord);
+				vec2 size = tex_size - vec2(style_borderWidth);
+				vec2 normal_coord = tex_coord * tex_size * vec2(2.0) - tex_size;
 				float dist = sdf(normal_coord, size, style_borderRadius*2.0);
 				return color * get_color(dist);
+			}
+		]],
+
+		edgy = [[
+			vec4 effect(vec4 color, Image tex, vec2 tex_coord, vec2 _scr_coord) {
+				float off = fwidth(tex_coord.x);
+				vec4 cur = Texel(tex, tex_coord);
+				vec4 right = Texel(tex, vec2(tex_coord.x + off, tex_coord.y));
+				float d = distance(cur.rgb, right.rgb);
+				return color * vec4(d, d, d, cur.a);
+			}
+		]],
+
+		dither_o2x2 = [[
+			vec4 effect(vec4 color, Image tex, vec2 tex_coord, vec2 _scr_coord) {
+				const mat2 weight = mat2(
+					1./16., 9./16.,
+					13./16., 5./16.
+				);
+				vec2 tex_size = vec2(1.0) / fwidth(tex_coord);
+				ivec2 pos = ivec2(mod(tex_coord * tex_size, 2.0));
+				float offset = weight[pos.x][pos.y];
+				vec4 pxl = Texel(tex, tex_coord) + vec4(offset);
+				return color * floor(pxl);
 			}
 		]],
 	},

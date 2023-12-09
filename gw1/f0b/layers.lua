@@ -127,7 +127,13 @@ local function layerDraw(layerTable)
 		local layer = layerTable[i]
 		local drawFunc = layer.exec or graphics.draw
 		graphics.setColor(layer.color or {1, 1, 1, 1})
+		if layer.shader then
+			graphics.setShader(layer.shader)
+		end
 		drawFunc(unpack(layer.args))
+		if layer.shader then
+			graphics.setShader()
+		end
 	end
 end
 

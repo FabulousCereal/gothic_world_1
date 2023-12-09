@@ -36,27 +36,31 @@ local function elemMetatable(func)
 	})
 end
 
+local function unitCanvas()
+	local graphics = love.graphics
+	local cnv = graphics.newCanvas(1, 1)
+	graphics.setCanvas(cnv)
+	graphics.clear(1, 1, 1, 1)
+	graphics.setCanvas()
+	return cnv
+end
+
 local poly = elemMetatable(polyRegular)
 local star = elemMetatable(starRegular)
+local cnvSquare = unitCanvas()
 
 local function genScreenFill()
 	local w, h = love.graphics.getDimensions()
 	return setmetatable(
 		{
-			poly[4], w/2, h/2, math.pi/4,
-			math.max(w, h) / math.sqrt(2)
+			cnvSquare, 0, 0, 0, w, h,
 		},
 		{
 			__call = function(self, scale)
-				return {self[1], self[2], self[3], self[4],
-					self[5] * scale}
+				return {self[1], 0, 0, 0, self[5] * scale, self[6] * scale}
 			end
 		}
 	)
-end
-
-local function texSquare()
-	return love.graphics.newCanvas(1, 1)
 end
 
 return {
@@ -67,5 +71,5 @@ return {
 
 	screenFill = genScreenFill(),
 
-	square = texSquare(),
+	square = cnvSquare,
 }

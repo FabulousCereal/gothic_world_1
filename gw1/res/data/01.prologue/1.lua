@@ -173,12 +173,12 @@ a preocupar. A momentos se sentía un olor metálico en el aire... Casi como
 sangre.]],
 
 	{"bg", "sync"},
-	{"bg", "add", args=f0b.elem.screenFill,
-		color=res.palette("sixpm", 1, .8)},
-	{"bg", "add", args={res.fun.clock.wall(res.style.clockMono, 19, 22,
-		"Saikō")}, color=res.palette("sixpm")},
+	{"bg", "add", color={.6, .6, .6, 1}, args=f0b.elem.screenFill},
+	{"bg", "add", color={.95, .95, .95, 1},
+		args={res.fun.clock.wall(res.style.clockMono, 19, 22, "Saikō")}},
 	{"bg", "fold"},
-	{"bg", "mod", tween={"fadein", 2/6}},
+	{"bg", "mod", tween={"fadein", 2/6}, shader=res.shader.dither_o2x2,
+		color=res.palette("sixpm", 0)},
 	[[Llegamos casi oscuresciendo, y nos bañamos por las dudas. Faltabamos
 solo yo y mi amigo cuando el me dice que sería mejor que nos bañaramos juntos,
 para lavarnos mejor. Asi que eso hicimos.]],
@@ -196,7 +196,8 @@ para lavarnos mejor. Asi que eso hicimos.]],
 	{"wait", 4/6},
 
 	{"bg", "add", args={"bake/amigos-en-el-living.png"},
-		color={.8, .6, 1, 0}, tween={"fadein", 4/6}},
+		color={.8, .6, .8, 0}, tween={"fadein", 4/6},
+		shader=res.shader.dither_o2x2},
 	[[Envueltos solo con la luz del crepúsculo, salimos de la ducha y nos
 fuimos al living. Mis amigos ya habían prendido la tele...]],
 	{"bg", "sync"},

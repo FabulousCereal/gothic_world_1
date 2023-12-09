@@ -60,13 +60,13 @@ gamestate[helpID].background = {
 
 local confBG = f0b.layers.normalize({
 	{args={{
-		{args={"zeh/menu/conf.png"}},
-		{args={f0b.elem.circle, w/2, h/2, 0, w/2}, color=elemColor},
+		{args={"zeh/menu/conf.png"}, shader=res.shader.edgy},
+--		{args={f0b.elem.circle, w/2, h/2, 0, w/2}, color=elemColor},
 	}}},
 })
 local mainBG = f0b.layers.normalize({
 	{args={{
---		{args={"zeh/menu/main.png"}},
+--		{args={"zeh/menu/main.png"}, shader=res.shader.edgy},
 --		{args=f0b.elem.screenFill(.9), color=elemColor},
 		{args=screen.menu(res.style.title, w, h)},
 	}}},
@@ -78,12 +78,12 @@ local mainEntries = {
 	{"Configuración", "menu", {
 		{"Volumen", false},
 		{"Volver", "return"},
-		x = -9, y = -9, background = confBG,
+		x = -6, y = -6, background = confBG,
 	}},
 	{"Ayuda", "state", helpID},
 	{"Créditos", "state", credID},
 	{"Salir", "state", true},
-	x = 3, y = 3, background = mainBG,
+	x = 2, y = 2, background = mainBG,
 }
 
 local mainMenu = menu.new(mainEntries, res.style.menu)

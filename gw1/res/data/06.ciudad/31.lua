@@ -49,7 +49,7 @@ anuncian eso.]],
 	[[Bake se puso a caminar y los demás lo seguimos. No nos tomó mucho dar
 con una armería, aunque como era de esperarse, estaba saqueada por completo ya.
 La gente debía ser buena para las armas acá; nunca había visto armerías de
-donde vengo. De verdad era otro país ahora.]],
+donde vengo.]],
 
 	[[Entramos igual a la tienda por si quedó algo. Estaban todos los
 muebles tirados y la caja registradora hecha pedazos, y fuera de eso todo
@@ -145,7 +145,7 @@ vidrio roto."]],
 	[["No sé xD quizás xDDD"]],
 
 	{"name", "Bake"},
-	[["xDDD, ¿de donde sacabas gasolina?"]],
+	[["xDD, ¿de donde sacabas gasolina?"]],
 
 	{"name", "Falcon"},
 	[["Se la sacaba a otros autos. Tengo el maletero lleno de bidones."]],
@@ -184,7 +184,7 @@ o que se yo. Me acomodé para esperar.]],
 Falcon bostezaba.]],
 
 	{"name", "Bake"},
-	[["Hay puras rancheras en este auto. ¿Querén escuchar alguna?"]],
+	[["Hay puras rancheras. ¿Querén escuchar alguna?"]],
 
 	{"name", "Falcon"},
 	[["La verdad detesto las rancheras," dijo Falcon, y se sorprendió.
@@ -260,12 +260,12 @@ en salir.]],
 se volcara por completo. Rocco le ladraba al cuerpo de la criatura. Croft venía
 rápido con su arma, habiendo dejado la manguera y el bidón botando bencina.]],
 
-	[[Por la forma en que se desplazaba, parecía realmente alguien que
-había hecho el servicio.]],
+	[[Por la forma en que se desplazaba, realmente parecía alguien que
+hizo el servicio.]],
 
 	{"name", "Croft"},
 	[["Me creerán que se me había olvidado cargarla," nos dijo.
-También le creía que lo hubieran hechado.]],
+También le creía que lo hubieran echado.]],
 
 	{"name", "María"},
 	[[Bake no alcanzó a responderle. La criatura gimió aún viva y se
@@ -300,7 +300,8 @@ mas."]],
 	[["Déjalo, hay que guardar munición. Volteemos el auto para irnos."]],
 
 	{"name", "María"},
-	{"sfx", "freesound/634778__5plus5equalspatata__metal-crash.mp3", 1/3},
+	{"sfx", "freesound/634778__5plus5equalspatata__metal-crash.mp3",
+		1/3, 1, 1},
 	[[Falcon se bajó, y con Croft de vuelta lo enderezamos entre todos.
 Hizo un estruendo al caer y hasta rebotó un poco.]],
 

@@ -21,7 +21,9 @@ momento.]],
 manos a los bolsillos, pero aún así el frio me calaba.]],
 
 	[[Bake quitó el hielo de la puerta y metió la llave, pero esta no
-giraba. Dios, de todos los momentos para esto, tenía que ser ahora.]],
+giraba.]],
+
+	[[De todos los momentos, tenía que ser ahora.]],
 
 	{"name", "Fabian"},
 	[["Aún podemos volver," repitió Fab.]],
@@ -38,8 +40,10 @@ nosotros.]],
 
 	{"name", "Bake"},
 	[["Double fuck," dijo Bake, y me pasó las llaves. Los dos zombies se
-acercaban lentamente. "Fab, vos ve por el de la izquierda y yo por el de la
-derecha. María, vos seguí tratando."]],
+acercaban lentamente.]],
+
+	[["Fab, vos ve por el de la izquierda y yo voy por el de la derecha.
+María, vos seguí tratando."]],
 
 	{"name", "María"},
 	[[Fabian levantó su tubo y Bake la katana, y se movieron para separar a
@@ -59,7 +63,7 @@ y esperando a la criatura, desenfundó y atacó directo a la cabeza.]],
 aturdida, pero completamente viva.]],
 
 	{"name", "Bake"},
-	[["¡Fab! ¡Esta mierda no tiene filo!"]],
+	[["¡Fab! ¡Esta cosa no tiene filo!"]],
 
 	{"name", "Fabian"},
 	[["¡La saqué de un mall, es de adorno!" replicó tratando de no ser
@@ -71,7 +75,7 @@ Bake, y este interpuso la espada antes que pudiera morderlo.]],
 
 	[["Quería dejarle el cerebro abierto como Chill Bill." Bake empujó a la
 criatura y le dió un golpe hacia arriba en el mentón, pero a esta no le hacía
-nada. La llaves aún no abrían.]],
+nada. La llave aún no abría.]],
 
 	{"name", "María"},
 	[[Se me ocurrió que a lo mejor estas eran las llaves del otro auto.]],
@@ -87,12 +91,14 @@ cerrados, fallando todos los tiros.]],
 
 	{"name", "Fabian"},
 	[["Holy--!" Fab esquivó las balas y con el tubo atrapó a la criatura
-por el cuello antes que alcanzara a Andrea. La criatura empezó a mover los
-brazos hacia todos lados. Fab trató de traerla de vuelta a la camioneta.]],
+por el cuello antes que alcanzara a Andrea.]],
+
+	[[La criatura empezó a mover los brazos hacia todos lados. Fab trató de
+arrastrarla de vuelta a la calle, lejos de todos.]],
 
 	{"name", "María"},
 	[[Oímos de pronto un auto derrapando. Dando la vuelta a la esquina
-apareció una camioneta destartalada acercándose a toda velocidad. Fab la notó
+apareció una camioneta destartalada patinando a toda velocidad. Fab la notó
 y sin perder un segundo redobló sus esfuerzos.]],
 
 	[[La criatura se logró soltar y agarró a Fab por la campera, pero el de
@@ -116,20 +122,21 @@ abrigado hasta las orejas, y un perro saltó por la ventana.]],
 	{"name", "Croft"},
 	[["¡Ah, son ustedes!" dijo mientras nos acercabamos a verlo.
 "Espera, ¿donde está el machacao?" Croft se acercó a ver el cuerpo atropellado.
-"Oh, ok, no era el."]],
+"Oh, que bien que no era el."]],
 
 	{"name", "María"},
 	[["¿Donde te habías metido?"]],
 
 	{"name", "Croft"},
-	[["Ehh, es una larga historia, pero traje comida. ¿Quienes son--?"]],
+	[["Ehh, es una larga y enredada historia, pero traje comida. ¿Quienes
+son--?"]],
 
 	{"name", "María"},
 	[["¡¿Comida?!" exclamamos de nuevo con Bake. Croft sonrió.]],
 
 	{"name", "Croft"},
-	[["Si, os he brindado mucha comida. Arrodillense ante mi,"
-dijo abriendo los brazos.]],
+	[["Si, os he brindado abundancia. Arrodillense ante mi," dijo abriendo
+los brazos.]],
 
 	{"name", "Bake"},
 	[["Deja de hablar así, danos la comida."]],
@@ -211,8 +218,8 @@ lo había vivido. Ahora que lo mencionas, si, definitivamente debe ser eso."]],
 	{"name", "Croft"},
 	[["Ehh, sinceramente no sé. Mis vecinos hablaban a raíz del
 calentamiento global. En general les gustaba que no ocurriera porque sin las
-heladas podían plantar flores. Pero no sé cuanto vaya a durar. Imagino que no
-mas de una semana."]],
+heladas podían plantar flores. Pero no sé cuanto vaya a durar. Dudo que mas de
+una semana."]],
 
 	{"name", "Bake"},
 	[["Bue, por lo menos nos ahorramos el viaje. Cuando las cosas
@@ -237,9 +244,9 @@ garganta y se levantó.]],
 
 	{"name", "Croft"},
 	[["Sí me preguntan, esperaría a las tres o a las cuatro para ver como
-está el clima", dijo Croft al fin cerrando la puerta.
+está el tiempo", dijo Croft al fin cerrando la puerta.
 "Despues de todo, es la hora de mas calor, y si llevaba tantos años sin
-ocurrir, es probable que no sea tan pesado como lo era antes."]],
+ocurrir, no debería ser tan pesado como lo era antes."]],
 
 	{"name", "Bake"},
 	[["¿Ves? Es mejor esperar xD", dijo. Entendía el punto de Croft,
@@ -257,7 +264,7 @@ Hay arroz."]],
 las cajas, y Bake se estiró peresozo.]],
 
 	{"name", "Bake"},
-	[["Bue, entonces me voy dormir xD Cualquier cosa me hablan," se
+	[["Entonces me voy dormir xD Cualquier cosa me hablan," se
 despidió. Como si despertarlo fuera fácil.]],
 
 	[[Bake salió de la cocina, y los chicos dijeron que también irían a

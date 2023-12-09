@@ -62,7 +62,7 @@ ciudad.]],
 tranquilo, tal vez hasta demasiado para una capital. La recordaba con mas
 atascos.]],
 
-	[[Que yo sepa no era dia feriado, ni lo fue ayer como para que anden
+	[[Que yo sepa no era dia festivo, ni lo fue ayer como para que anden
 todos enratonados. Seguí andando, encontrando una que otra persona caminando,
 pero el ambiente era desolador de todas formas.]],
 
@@ -134,7 +134,7 @@ Traté se seguirlo pero solo alcancé a ver como saltaba al vacio. Me quedé
 helado, hasta que el golpe retumbó en el aire e hizo volar a las palomas.]],
 
 	{"name", "------"},
-	[["¡La conchela--!" oí a alguien gritar.]],
+	[["¡La concha de la--!" oí a alguien gritar.]],
 
 	{"name", "Croft"},
 	[[Me asomé a mirar y ví que había caido junto a un sujeto encapuchado,
@@ -228,7 +228,7 @@ lugar donde ir. No cerca, al menos.]],
 
 	[[Decidí resguardarme en mi casa a esperar a que se arreglaba el
 problema con la gente o hasta que no pudieramos seguir acá, lo que estimé sería
-muy pronto, así que busque lo mas viejo del refri para no perder la comida.]],
+muy pronto, así que busque lo mas viejo de la nevera para no perder comida.]],
 
 	[[Encontré unos frijoles que congelé el año pasado que ya se estaban
 haciendo agua. No tenían mal aspecto así que hice un fuego para calentarlos.]],

@@ -47,32 +47,33 @@ tomado una en la mañana y que no eran caramelos."]],
 acostar."]],
 
 	{"name", "María"},
-	[["Entiendo... Se ha sentido mal desde la explosión, pero con la
-noticia de la radiación se ha puesto muy paranóico," expliqué. Los chicos
-no comentaron nada. "¿Y Bake? ¿Está en la cocina?"]],
+	[["Entiendo... ¿Y Bake? ¿Está en la cocina?"]],
 
 	{"name", "Andrea"},
 	[["Bake salió. Dijo que quería dar una vuelta."]],
 
 	{"name", "María"},
-	[["¿Con este mal tiempo?"]],
+	[["¿Con este clima?"]],
 
 	{"name", "Fabian"},
-	[["Pues... sí."]],
+	[["Ehh, sí."]],
 
 	{"name", "Andrea"},
 	[["Es que la tormenta se calmó un poco, y dijo que quería aprovechar de
-caminar y estar solo. Prometió que iba a andar cerca en todo caso."]],
+caminar y estar solo. Prometió que iba a andar cerca."]],
 
 	{"name", "María"},
 	[[Me sentí bajoneada. Era una cosa que todo lo que había pasado en la
 mañana lo afectara, pero el que tuviera que cuidar de mi y en menor medida de
-Falcon tampoco debía ayudar. Fui a la cocina a tomarme un vaso de agua casi
-congelada. Por suerte aún corría.]],
+Falcon tampoco debía ayudar.]],
+
+	[[Fui a la cocina a tomarme un vaso de agua, casi congelada. Por suerte
+aún corría.]],
 
 	[[Pensé, 'ayer le pasó lo mismo cuando hacía el desayuno.' Como si algo
-lo inquietara, algo que se estaba guardando. Si era algo que pudiera arreglar,
-desearía que me lo dijera. Quizás el no confiaba en mi.]],
+lo inquietara, algo que se estaba guardando.]],
+
+	[[Quizás el no confiaba en mi como para decírmelo.]],
 
 	[[Cuando volví al living, los chicos se callaron de nuevo. Si fuera un
 poco mas mal pensada, creería que hablaban de mí, y no exactamente algo
@@ -114,11 +115,10 @@ lo pensé, y luego dije 'podría funcionar.'"]],
 locos menos yo. "No esperé que se tendría que acabar el mundo primero."]],
 
 	{"name", "Fabian"},
-	[["Si, y compondremos el hit de la semana. No va a haber competencia
-alguna."]],
+	[["Si, y cualquier cosa que hagamos será el hit de la semana."]],
 
 	{"name", "Andrea"},
-	[["Ya, pero quiero tocar 'Un Día de la Vida' antes."]],
+	[["Ya, pero quiero tocar 'Un Día de la Vida' igual."]],
 
 	{"name", "Fabian"},
 	[["¿Cual es esa?"]],
@@ -127,7 +127,7 @@ alguna."]],
 	[["Es una de Los Beat Less. ¿Los has escuchado?"]],
 
 	{"name", "Fabian"},
-	[["Ehh, jamás."]],
+	[["Nunca en la vida."]],
 
 	{"name", "Andrea"},
 	[["Buu, pero bueno. En la canción, Ring O'Star toca la batería, y es
@@ -153,15 +153,13 @@ Fab se quedó pensando, rascándose la barbilla.]],
 
 	{"name", "Fabian"},
 	[["No sé, o al menos no recuerdo ninguno ahora, pero si me ha
-pasado con películas y novelas. Me acuerdo cuando ví 'La Conversación' de
-Pancho Cúpula."]],
+pasado con películas y novelas."]],
 
-	[["Había visto dos películas el día anterior, una comedia y un drama
-romántico. Y eran buenas pero a ratos perdía interés. Luego ví La Conversación,
-que es muy muy lenta."]],
+	[["Recuerdo en especial una sobre un tipo analizando una grabación
+una y otra vez para encontrarle sentido."]],
 
-	[["Y era otro nivel. Es una historia simple con tomas largas y que dura
-2 horas, y me tuvo pegado cada minuto."]],
+	[["Era bien lenta y con tomas largas, pero me mantuvo pegado cada
+minuto de las dos horas que duró."]],
 
 	{"name", "María"},
 	[["Ehhh..."]],
@@ -169,20 +167,21 @@ que es muy muy lenta."]],
 	{"name", "Fabian"},
 	[["Quiero decir, no sé como alguien aprende a hacer eso. Poner la
 cámara, hacer una toma estática de un minuto entero, y que la gente se quede
-observando atentamente. O quizás es por el editado, no sé, pero es casi control
-mental."]],
+observando atentamente."]],
+
+	[["O quizás es por el editado, no sé, pero es casi control mental."]],
 
 	{"name", "Andrea"},
 	[["Guau."]],
 
 	{"name", "Fabian"},
-	[["También hay actores con lo que me ha pasado. Usualmente mientras
+	[["También me ha pasado con actores. Usualmente mientras
 alguien habla pienso es cosas como, '¿costará mucho ignorar toda esa
 gente tras la cámara?' '¿estarán grabando en un set? porque ese cuarto se vé
 demasiado pequeño para que quepa todo el equipo.'"]],
 
 	[["Pero a veces llega un actor que hace cualquier cosa en la escena, y
-es como que te quedas mirando atento."]],
+es como que evade todo eso."]],
 
 	[["Piensas en todos los demás actores actuando pero no en este, esté es
 el personaje. No sospechas de el. Y mientras mejor es, mas te demores en darte
@@ -205,20 +204,25 @@ dos.]],
 	{"name", "María"},
 	[["Ehh, cuando era chica..." balbucée. Piensa, María. "veía muchas
 caricaturas," se me escapó. Me quedé esperando alguna burla, pero los dos
-esperaron que siguiera. No tenía idea de lo que decía la verdad, pero
-ya que empecé, tenía que continuar.]],
+esperaron que siguiera.]],
+
+	[[No tenía idea de lo que decía la verdad, pero ya que empecé, tenía
+que continuar.]],
 
 	[["Y la cosa es que nunca me gustaron las de Stephie. Las películas me
 aburrían, a pesar que creía que tenían que gustarme por que era una niña y
-todo eso. Así que siempre las evitaba. Y un día domingo en la tarde, aburrida
+todo eso."]],
+
+	[["Así que siempre las evitaba. Y un día domingo en la tarde, aburrida
 totalmente, no encontré nada que ver en la tele mas que una de esas."]],
 
-	[["No recuerdo bien el nombre ya, y era una historia sencilla sobre una
+	[["No recuerdo bien el nombre ya, y era una historia sobre una
 princesa en un viaje, pero la cosa es que me puse a verla, y es como todo era
 distinto."]],
 
-	[["Me metí mucho en la historia, y estaba atenta a cada cosa que
-pasaba. Era toda muy buena."]],
+	[["Me metí mucho en la historia, los personajes eran buenos. Hasta
+el príncipe era interesante en las pocas veces que aparecía. Era toda muy
+buena."]],
 
 	[["Como en la mitad llegó mi hermano diciendo que quería ver tele. Y
 como yo siempre decía que no me gustaban esas películas, se empezó a burlar.
@@ -226,26 +230,25 @@ Así que me enojé y le dije que no estaba mirando nada, le tiré el control por
 la cabeza, y me fui."]],
 
 	[["Ehh, así que eso. Es raro, porque es la primera vez que me acuerdo
-de eso. No sabía que lo recordaba. Me gustan mas los juegos de escape
-la verdad."]],
+de eso. Me gustan mas los juegos de escape la verdad."]],
 
 	{"name", "Andrea"},
 	[["Eres como Fab entonces. Según el le gusta la música pero lo
 impresionan más las películas."]],
 
 	{"name", "Fabian"},
-	[["Pero lo mío es porque tengo buenos gustos. Como no escucho artistas
-malos, no tengo contra que comparar los buenos."]],
+	[["Es que yo si tengo gustos buenos. Como no escucho artistas malos, no
+tengo contra que comparar los buenos."]],
 
 	{"name", "Andrea"},
-	[["Uuy si, Fab el de los buenos gustos," se rió Andrea. Los tres
+	[["Uuy si, Fab el del buen gusto," se rió Andrea. Los tres
 reímos un poco, pero el recuerdo de mi hermano me quedó pesando, y creo que los
 chicos se dieron cuenta.]],
 
 	[["Ehm, disculpa que pregunte pero... ¿Que pasó con tu hermano?"]],
 
 	{"name", "María"},
-	[["Nada, la verdad es que..." Me presioné la mano contra el pecho. Era
+	[["Nada, la verdad es que..." Me presioné el puño contra el pecho. Era
 la primera vez que hablaba de mi familia desde la explosión. Creo que no tenía
 derecho a molestarme con Bake por no haber mencionado a su hermana.]],
 
@@ -253,11 +256,14 @@ derecho a molestarme con Bake por no haber mencionado a su hermana.]],
 tú, creo."]],
 
 	{"name", "Andrea"},
-	[["Igual que yo," murmuró. "¿Venias de paseo?"]],
+	[["Entiendo..." murmuró. "¿Venias de paseo?"]],
 
 	{"name", "María"},
-	[["No, no. Solo quería... respirar," dije. "Salir. Claro que no me
-esperaba, pues..."]],
+	[["No, no. Solo quería... respirar," dije. "Salir. Estar sola." Pensé
+en Bake de nuevo, en que quería verlo y preguntarle como se sentía.
+¿Como nunca se me ocurrió hacerlo en todo este tiempo?]],
+
+	[["Y bueno, iba a ser por unos días, pero no me esperaba, pues..."]],
 
 	{"name", "Fabian"},
 	[["¿La explosión?"]],
@@ -267,25 +273,25 @@ esperaba, pues..."]],
 garganta apretada.]],
 
 	{"name", "Fabian"},
-	[["El clima es bien especial acá," concordó Fab. "El día antes de venir
-mi prima me llamó y me dijo 'harán -5 grados mañana, y como vos sos nortino mas
-te vale empacar abrigo.' Así que imaginé que con mi ropa de invierno normal
-bastaría. Luego llegué acá, y salí al viento."]],
+	[["El día antes de venir mi prima me llamó y me dijo 'hacen 4 grados
+en el dia, y como vos sos nortino mas te vale empacar abrigo.' Así que
+imaginé que con mi ropa de invierno bastaría. Luego llegué acá, y salí al
+viento."]],
 
 	{"name", "Andrea"},
 	[["Te congelaste."]],
 
 	{"name", "Fabian"},
 	[["Mas bien, el abrigo me bastó, pero no pensé que había que cubrirse
-las manos y la cara acá." Andrea contuvo una risa, supongo que debido a que esa
-era la clase de cosas que para los de acá eran elementales.]],
+las manos y la cara también." Andrea contuvo una risa, supongo que debido a que
+esa era la clase de cosas que para los de acá eran elementales.]],
 
 	{"name", false},
 	[[*creeak*]],
 
 	{"name", "María"},
 	[[Escuchamos la puerta de la cocina abrirse y unos pasos fuertes.
-Reconocí que eran los pasos de Bake, y efectivamente, a los segundos apareció
+Reconocí que eran los de Bake, y efectivamente, a los segundos apareció
 el, con una campera y algo de nieve en los hombros.]],
 
 	{"name", "Bake"},
@@ -295,30 +301,30 @@ el, con una campera y algo de nieve en los hombros.]],
 	[["Conversamos sobre el frío."]],
 
 	{"name", "Bake"},
-	[["Ah, si, lol. Bajó mucho la temperatura, a como es en invierno,"
-dijo sacándose la campera. "Si me hubieran visitado en tiempos normales, les
-tendria calefacción xD"]],
+	[["Ah, si, lol. Parece invierno de nuevo," dijo sacándose la campera.
+"Si me hubieran visitado en tiempos normales, les tendria calefacción."]],
 
 	{"name", "María"},
 	[["Espera, ¿tienen calefacción?"]],
 
 	{"name", "Bake"},
-	[["Obvio, ¿que esperabas xD?"]],
+	[["Obvio, ¿que esperabas?"]],
 
 	{"name", "María"},
 	[["Es que viendote en boxers el otro día--" Los chicos de pronto me
-miraron. Eso sonó mal, pero dá lo mismo. "Quiero decir... pensé que estaban
-acostumbrados."]],
+miraron. Eso sonó... mal.]],
+
+	[["Quiero decir... pensé que estaban acostumbrados."]],
 
 	{"name", "Bake"},
-	[["A la primavera sí, al invierno no, imposible xD Todas las casas
+	[["A la primavera sí, al invierno no, imposible xD. Todas las casas
 tienen calefacción acá."]],
 
 	{"name", "María"},
 	[["¿Se calientan con gas?"]],
 
 	{"name", "Bake"},
-	[["No, con agua caliente."]],
+	[["No, con agua caliente." Dios.]],
 
 	{"name", "María"},
 	[["¿Pero como calientan el agua?"]],
@@ -328,10 +334,9 @@ tienen calefacción acá."]],
 hablaba. Yo no entendía, y creo que se me notó en la cara.]],
 
 	{"name", "Bake"},
-	[["Todas las casas acá necesitan calefacción, así el agua se calienta
-en estanques gigantes, y se distribuye por cañerías. Se hace así porque
-importar combustible acá es caro, y calentar toda el agua en un solo lugar sale
-mas económico."]],
+	[["Como todos necesitan agua caliente, el agua se calienta en estanques
+gigantes y se distribuye por cañerías. Se hace así porque importar combustible
+acá es caro, y hacerlo en un solo lugar sale mas económico."]],
 
 	{"name", "Andrea"},
 	[["Sí, así que las llaves de agua caliente están conectadas a un
@@ -347,22 +352,21 @@ del sur acá. "Pero no funciona tras la explosión," adiviné.]],
 sentiremos el verdadero frío de estas tierras." Mierda.]],
 
 	{"name", "Fabian"},
-	[["Siempre podemos cazar focas."]],
+	[["Siempre podemos cazar focas y cubrirnos con su grasa."]],
 
 	{"name", "Bake"},
-	[["Y cubrirnos con su grasa xDD Hablando de grasa, ya tengo hambre xD
-¿Dijiste que traías arroz?" Fab se estiró a buscar su mochila, y sacó unos
-paquetes. Bake los tomó.]],
+	[["lol xDD hablando de grasa, ya tengo hambre xD
+¿Dijiste que traías arroz?" Fab le pasó uno de los paquetes que traía.]],
 
 	{"name", "María"},
 	[["¿Quieres que te ayude?"]],
 
 	{"name", "Bake"},
 	[["No hace falta, no hay nada así que haré arroz sin nada xdd"
-Bake se fue a la cocina. Fab siguió urgeteando en su mochila.]],
+Bake se fue a la cocina. Fab siguió urgando en su mochila.]],
 
 	{"name", "Fabian"},
 	[["Mira María, traigo un imán," me dijo. Me lo mostró, y tuve como un
-deja vú. "Se lo saqué a un parlante." Nos quedamos admirando el imán mientras
-esperabamos la comida. Era fuerte.]],
+deja vú. "Se lo saqué a un parlante." Nos quedamos admirando como el imán se
+pegaba al tubo mientras esperabamos la comida. Era fuerte.]],
 }

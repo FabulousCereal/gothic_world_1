@@ -15,7 +15,7 @@ abierta por completo.]],
 	[["¡Guau guau guau!"]],
 
 	{"name", "María"},
-	[["¿Que dices Pipi? ¿Que el chico se cayó a un pozo?"]],
+	[["¡¿Que?! ¡¿Que el chico se cayó a un pozo?!"]],
 
 	[[Entré a la casa, y lo primero que noté fue que el chico no estaba en
 el sofá. ¿Se habrá levantado? ¿Habrá tenido que huir de algo? El living se veía

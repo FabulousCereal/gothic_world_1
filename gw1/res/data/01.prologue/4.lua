@@ -37,7 +37,7 @@ no nos dimos cuenta. Seguimos mirando...]],
 	[["Se desconoce si el humo produce efectos permantentes..."]],
 
 	{"style", "vnFalcon"}, {"name", "------"},
-	[[¿Cuanto tiempo estuve ahí inconsciente?]],
+	[[No sabía si tenía familia o amigos. ¿Que iba a hacer ahora?]],
 
 	{"style", "vnBake"}, {"name", "Bake"},
 	[[De pronto, lo que parecía un ingeniero mordió el cuello de un
@@ -48,7 +48,7 @@ periodista dejandolo casi decapitado.]],
 camarógrafo.]],
 
 	{"style", "vnFab"}, {"name", "Fabian"},
-	{"bgm", "mod", fade={"fadeout", 1/12, true}},
+	{"bgm", "rmall"},
 	[[La tele se apagó junto con la lúz.]],
 	[[Me acerqué a mirar por la ventana, y todo el sector en que me hayaba
 había quedado a oscuras. Podía aún ver la luz anaranjada a lo lejos en la

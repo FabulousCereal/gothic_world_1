@@ -1,8 +1,11 @@
 return {
 	{"name", "María"},
 	{"style", "vnMaria"},
+	{"bgm", "set", "wind", 0,
+		fade={"fadeto", .5, 12},
+		source="freesound/557188__julien-matthey__jm_natural-elements_wind-01.flac"},
 	{"bgm", "set", "theme", 0, source="newgw-marimba.ogg",
-		fade={"delay", .5, "fadeto", .5, 6}},
+		fade={"delay", .5, "fadeto", 2/3, 6}},
 	res.fun.macro.title,
 
 	[[No sé en que momento habré semi-despertado, atrapada entre los sueños
@@ -12,8 +15,8 @@ y la realidad.]],
 retumbaba sin fin en mi mente... Me hoztigaba, pero no tanto como el súbito
 sonido de un despertador.]],
 
-	{"bgm", "mod", "theme", fade={"fadeout", 3, true}},
-	{"bgm", "set", "alarm", source="weird alarm.ogg"},
+	{"bgm", "mod", "theme", fade={"fadeout", 2, true}},
+	{"bgm", "set", "alarm", 2/3, source="weird alarm.ogg"},
 	{"bg", "add", args={res.fun.clock.alarm(res.style.clockAlarm, 12, 30)},
 		color={1,1,1,0},
 		tween={"fadein", .25}
@@ -63,7 +66,7 @@ nota no estaba firmada, solo contenía una posdata en otro idioma.
 cayó.]],
 
 	{"bg", "rm"},
-	[[Mi cabeza aún me dolía, ¿pero porque me dolía si había soñado todo?
+	[[Mi cabeza aún me dolía, ¿pero por que me dolía si había soñado todo?
 Traté de hacer memoria.]],
 
 	[[...Guau, de verdad no podía recordar nada. "Ahora si te las
@@ -82,6 +85,7 @@ violentamente. El buen humor se me fue de inmediato.]],
 	[[Yo aquí riéndome de este chico y ni sé aún si es peligroso o no. De
 pronto, esa nota no se me hacía tan graciosa.]],
 
+	{"bgm", "mod", "wind", fade={"fadeout", 6, true}},
 	{"bg", "add", args={"Flash/day.png"},
 		color=res.palette("repellantYellow", 0),
 		tween={"fadein", 2/3}},
@@ -136,9 +140,9 @@ manos y salió al campo de batalla.]],
 	[[A pesar del aspecto terrorífico de las criaturas, el movimiento de
 estas era torpe y lento.]],
 
-	[[El chico botó el agua de una cubeta y se la tiró por la cabeza al
-grande para distraerlo. Corrió hacia la criatura por el costado, y antes de que
-esta pudiera atacarlo, le enterró la navaja en el cuello.]],
+	[[El chico tomó una cubeta y se la tiró por la cabeza al grande para
+distraerlo. Corrió hacia la criatura por el costado, y antes de que esta
+pudiera atacarlo, le enterró la navaja en el cuello.]],
 
 	[[La criatura se agitó y golpeo al chico con el codo, pero el pareció
 resistirlo bien.]],
@@ -171,7 +175,7 @@ chico habló.]],
 	[["No creo lo segundo que pusiste en la carta," le reclamé.]],
 
 	{"name", "chico"},
-	[["Tranquila, era broma," dijo riendo.]],
+	[["Tranquila, era por joda," dijo riendo.]],
 
 	{"name", "María"},
 	[[Me quedé mirando sus ojos, y sonreí. Su rostro radiaba por el
@@ -212,7 +216,7 @@ agua y cloro y me dispuse a dar una vuelta para explorar.]],
 	[[Como no encontré un lápiz, le dejé al chico su misma nota en la mesa
 antes de partir, con el despertador puesto a las 1:15pm, por si acaso.]],
 
-	[[Salí dejando la puerta junta para cuando volviera, y el perro del
+	[[Salí dejando la puerta junta para cuando volviera. El perro del
 chico me siguió olfateándome hasta la puerta de la calle, y me miró mientras me
 alejaba. Al menos, ahora tenía un lugar donde volver.]],
 }

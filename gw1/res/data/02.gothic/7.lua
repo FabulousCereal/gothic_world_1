@@ -19,9 +19,10 @@ seguro, o alguien que nos pudiera llevar a uno. Como haría eso, no lo sabía,
 pero era lo único que podía intentar.]],
 
 	[[Un viento gélido sopló por la calle y botó nieve de los árboles, y
-hundí aún mas mis manos en mis bolsillos, apretando siempre la navaja. "¿Quién
-me habrá mandado a venirme acá?" me pregunté nuevamente. Debí por lo menos
-haber traído mas ropa.]],
+hundí aún mas mis manos en mis bolsillos, apretando siempre la navaja.]],
+
+	[["¿Quién me habrá mandado a venirme acá?" me pregunté nuevamente. Debí
+por lo menos haber traído mas ropa.]],
 
 	[[Giré en una esquina para protegerme del viento, y mientras miraba a
 todos lados para asegurarme que no hubiera nada asechando, me llamó la atención

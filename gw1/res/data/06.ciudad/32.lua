@@ -9,7 +9,7 @@ local function checaMiRiff()
 		{"Falcon", 3, [["¿Por que paraste?"]]},
 		{"Bake", 4, [["Porque hay que trabajar xD Trabajá xDD"]]},
 		{"Falcon", 4, [["Estaba a punto de sacar un hit, Bake xddd"]]},
-		{"Bake", 2, [["Martillá acá mierda xD"]]},
+		{"Bake", 2, [["Clavá acá mierda xD"]]},
 	}
 	local floor = math.floor
 	local rnd = math.random
@@ -76,7 +76,7 @@ local cafeConCroft = {
 			{"name", "María"},
 			[["...Ah, es broma."]],
 
-			[[Croft sorbeteó de su café, enigmático como siempre. Se
+			[[Croft sorbeteó su café, enigmático como siempre. Se
 			me ocurrió que tal vez no bromeaba, pero no sabía.]],
 
 			{"name", "Croft"},
@@ -124,7 +124,7 @@ local cafeConCroft = {
 			daban sacos, y para las fiestas todos poniamos algo."]],
 
 			{"name", "María"},
-			[["Suena agradable eso," comenté.
+			[["Suena bonito eso," comenté.
 			"¿Que pasó con tus vecinos?"]],
 
 			{"name", "Croft"},
@@ -139,9 +139,10 @@ local cafeConCroft = {
 		{
 			[[Croft alejó la vista, como si la pregunta le hubiera
 			traido dolorosos recuerdos de un tiempo que debería ser
-			olvidado. Tras un incómodo silencio quise decirle que
-			no tenía que responder, pero Croft suspiró primero y
-			dijo]],
+			olvidado.]],
+
+			[[Tras un incómodo silencio quise decirle que no tenía
+			que responder, pero Croft suspiró primero y dijo]],
 
 			{"name", "Croft"},
 			[["Bueno, todo empezó por un panal de abejas. Promete
@@ -150,7 +151,7 @@ local cafeConCroft = {
 			{"name", "María"},
 			[["Lo prometo."]],
 
-			[[Croft me contó la historia del panal, y como prometí
+			[[Croft me contó la historia, y como prometí
 			no contarla, no la repetiré.]],
 
 			[[Las manos me temblaban cuando Croft terminó. El no
@@ -193,7 +194,7 @@ viento en la cara y sin abrigo.]],
 	[[Entré con el y Rocco mientras los chicos bajaban sus instrumentos, y
 como se veían entusiasmados en eso, le ofrecí a Croft tomar algo calentarnos.]],
 
-	[[Nos sentamos a comer mientras los chicos martillaban, y
+	[[Nos sentamos a comer mientras los chicos martillaban y
 aserruchaban cosas en el segundo piso, en el cuarto desocupado. A Falcon ni se
 le notaba que estuvo toda la mañana en cama.]],
 
@@ -263,6 +264,10 @@ Croft tenía cara de °J°]],
 le unió con el bajo.]],
 
 	{"name", "María"},
+	{"bgm", "set", "wind", 0,
+		setup={setPitch=3/4},
+		fade={"fadeto", 1/2, 30},
+		source="freesound/557188__julien-matthey__jm_natural-elements_wind-01.flac"},
 	[[Con Croft nos lavamos los dientes al sonido de pruebas de guitarra,
 golpes eléctricos, y mas martillazos provenientes del cuarto.]],
 
@@ -328,8 +333,8 @@ maraña de cables conectando las guitarras con los amplis.]],
 	[["wtf?!? ¿Quien dijo eso?"]],
 
 	{"name", "Bake"},
-	[["Yo lo digo xD" Falcon terminó de clavar, y puso una de las linternas
-encima.]],
+	[["Yo lo digo xDDD" Falcon terminó de clavar, y puso una de las
+linternas encima.]],
 
 	{"name", "Falcon"},
 	[["Perfecto."]],

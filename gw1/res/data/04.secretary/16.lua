@@ -16,7 +16,7 @@ su abrigo con chapa.]],
 	{"name", "Falcon"},
 	[["Hola," me dijo con buen ánimo. Noté que se había puesto ropa nueva
 debajo. Usaba una camisa de Green Park, así que a lo mejor Bake le había
-prestado ropa. En el mueble junto a la alarma estaba la pistola de Falcon y un
+prestado ropa. En el mueble junto a la alarma tenía la pistola y un
 cartucho.]],
 
 	{"name", "María"},
@@ -149,7 +149,7 @@ sacudia el brazo. Lo había meado encima.]],
 impermeable.]],
 
 	{"name", "Bake"},
-	[["xDD" dijo Bake.]],
+	[["xD" dijo Bake.]],
 
 	{"name", "María"},
 	[["¿Ya despertó Falcon?"]],

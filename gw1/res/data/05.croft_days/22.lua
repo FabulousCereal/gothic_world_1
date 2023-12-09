@@ -123,7 +123,8 @@ ciudad, salir por la autopista, pero algo me decía que me iba a encontrar con
 lo mismo.]],
 
 	[[Podía abandonar la camioneta y escabullirme a pie por entremedio del
-bosque, pero si nos descubrían iba a ser claro que veniamos de la ciudad.]],
+bosque, pero pasar la noche afuera era otra forma mas estúpida de morir. Y si
+nos descubrían, sería obvio que veniamos de la ciudad.]],
 
 	[[Mis únicas alternativas parecían ser irme a casa y rogar que Bill se
 haya ido, buscar refugio en la ciudad, o dormir en el carro.]],

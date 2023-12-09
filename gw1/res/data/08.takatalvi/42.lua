@@ -4,16 +4,16 @@ return {
 	{"macro", res.fun.macro.date, {2011, 11, 13, 13, 59}},
 
 	{"name", "María"},
-	[[Bake tuvo el arroz listo en menos de media hora, y nos sentamos los
-cuatro a comer. Falcon seguía en cama. La nieve seguía cayendo, y yo ya me
-había acostumbrado a la sensación de que el viento hecharía la casa abajo en
-cualquier segundo.]],
+	[[El mal clima seguía cuando nos sentamos al fin a comer. Falcon seguía
+en cama, y yo ya me había acostumbrado a la sensación de que el viento hecharía
+la casa abajo en cualquier segundo.]],
 
 	{"name", "Fab"},
-	[["Ehh, entonces...", dijo Fab tras un silencio. "Traiamos
-comida contando con que sería para los dos, pero ahora que somos mas, va a
-hacerse muy poca. Asumiendo que Falcon siga vivo para comer, debería
-alcanzarnos hasta... mañana por la mañana."]],
+	[["Ehh, entonces...", dijo Fab tras terminar.]],
+
+	[["Traía comida contando con que sería para los dos, pero ahora que
+somos mas, no nos va a durar mucho. Asumiendo que Falcon siga vivo para comer,
+debería alcanzarnos hasta... mañana por la mañana."]],
 
 	{"name", "María"},
 	[["O sea que debemos salir por mas." Fab asintió.]],
@@ -31,7 +31,7 @@ a mi. Yo no tenía idea esta vez.]],
 	{"name", "Bake"},
 	[["Puede que lo sea. No sé si te acordás vos Andrea, pero cuando era
 chico el frio duraba una semana y caía mucha nieve. Si las calles se tapan, no
-podremos salir después en coche."]],
+podremos salir en coche mas tarde."]],
 
 	{"name", "Andrea"},
 	[["Es verdad, eso pasaba cada año. Aunque cuando era chica era lo que
@@ -113,23 +113,23 @@ sacamos lo que traíamos."]],
 	[["¿Hay té?"]],
 
 	{"name", "Bake"},
-	[["Solo mate y café en esta casa xD" Fab entrecerró los ojos, pensando.]],
+	[["Solo mate y café en esta casa xD" Fab entrecerró los ojos.]],
 
 	{"name", "Fabian"},
 	[["¿Es bueno el mate?"]],
 
 	{"name", "Bake"},
-	[["Por algo lo toman, lol."]],
+	[["Por algo lo toman."]],
 
 	{"name", "Fabian"},
-	[["Entonces dale."]],
+	[["Entonces dale xd"]],
 
 	{"name", "Andrea"},
 	[["Oye, pero si sales al frío después de tomar mate se te enchueca la
 boca. Eso decía mi mamá."]],
 
 	{"name", "Bake"},
-	[["Oh shit, verdad xDD ¿Que hay del café?"]],
+	[["Aw shit, es verdad xDD ¿Que hay del café?"]],
 
 	{"name", "Andrea"},
 	[["No, del café no decía nada." Dios.]],
@@ -174,7 +174,7 @@ esperaban que me quedara guardada en casa. Era para lo único que servía.]],
 	{"name", "Andrea"},
 	[["Yo pienso que--..." Andrea le lanzó una breve mirada, una expresión
 de que no era la primera vez que oía ese chiste. "Deberiamos ir los tres,
-porque afuera es mas peligroso."]]
+porque afuera es mas peligroso."]],
 
 	{"name", "Fabian"},
 	[["Es que si pasa algo, María tendría que defenderse sola. Sería mejor
@@ -198,7 +198,7 @@ Andrea colgó su poncho en la silla, y quedó decidido.]],
 
 	[[Mientras los chicos juntaban sus armas, yo me dirigí al segundo piso.
 La puerta de Falcon seguía cerrada, así que la abrí con cautela y miré adentro.
-El seguía en cama.]],
+Seguía en cama.]],
 
 	[["Falcon," susurré. El se movió. "¿Estás despierto?"]],
 
@@ -211,7 +211,7 @@ tratando de no hacer ruido.]],
 "¿Necesitas algún medicamento? Aparte de antivirales."]],
 
 	{"name", "Falcon"},
-	[["¿Que... que hay de la tormenta?"]],
+	[["¿Que, que hay de la tormenta?"]],
 
 	{"name", "María"},
 	[["Volveremos rápido, no te preocupes. Andrea se va a quedar a
@@ -235,7 +235,7 @@ evitar sonreír.]],
 
 	[["Buscaré uno sin decirle, ¿ok?"]],
 
-	[[Falcon asintió debil. Una ráfaga de viento azotó el segundo piso, así
+	[[Falcon asintió debil. Una ráfaga de viento azotó el segundo piso, y
 que le dí un beso en la frente. El me miró sorprendido.]],
 
 	[["Chao." Corrí escalera abajo. El esguince me dolía, pero el tiempo se

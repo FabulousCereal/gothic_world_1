@@ -1,6 +1,9 @@
 return {
 	{"style", "vnMaria"},
+	{"bgm", "set", "theme", 0, source="newgw-marimba.ogg",
+		fade={"fadein", 6}},
 	res.fun.macro.title,
+	{"macro", res.fun.macro.date, {2011, 11, 12, 12, 42}},
 
 	{"name", "-----"},
 	[["¿Hola, me escuchas?"]],
@@ -8,6 +11,8 @@ return {
 	{"name", "María"},
 	[[Veía el rostro de un hombre sobre mi. Calvo. Nariz prominente. Era lo
 único que distinguía. La cabeza se me partía sola.]],
+
+	{"bgm", "mod", "theme", fade={"fadeout", 6, true}},
 
 	[["Ay..."]],
 
@@ -33,8 +38,9 @@ curso, y que lo mejor sería no mover la cabeza.]],
 	{"name", "-----"},
 	[["Me llamo Croft, y este es mi perro Rocco. Dí hola, Rocco."]],
 
+	{"sfx", "sfx/un perro que olfatea ansioso mientras todos creen que está feliz x2.flac"},
 	{"name", "Rocco"},
-	[["¡Auf!" Un perro café se apoyó en la cama para mirarme, y por acto
+	[[Un perro café se apoyó en la cama para olfatearme, y por acto
 reflejo le acaricié la cabeza. El perro sacaba alegre la lengua.
 Supuse que este sujeto no podia ser mala persona.]],
 
@@ -96,6 +102,7 @@ de que está inflamado, lo está."]],
 pero con este dolor no podía discutirle tampoco. Debía tener pésima suerte
 simplemente.]],
 
+	{"name", "María"},
 	[[Y fuera del pie y la cabeza, también me dolía la cadera donde el auto
 me había golpeado. Todo andaba mal.]],
 
@@ -225,6 +232,7 @@ se aburrirá? De pronto, Rocco empezó a dar vueltas en el asiento.]],
 tiritando. Empezó a hacer del dos junto a la rueda de la camioneta mientras
 Croft se llevaba la mano a la cara.]],
 
+	{"name", "Croft"},
 	[["Disculpa. No está acostumbrado a andar en carro." Rocco terminó de
 hacer y empezó a tirarle tierra y nieve a la rueda hasta quedar contento.
 "¿Listo?" Rocco agitó la cola sonriendo y se subió de vuelta.]],

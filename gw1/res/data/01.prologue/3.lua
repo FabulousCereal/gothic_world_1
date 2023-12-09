@@ -9,20 +9,20 @@ antes de la explosión.]],
 		tween={"fadeout", 6, true}},
 	{"sfx", "sfx/explosión cercana.flac"},
 	{"bgm", "set", "fire", 0,
-		fade={"fadein", 12},
+		fade={"delay", 2, "fadein", 12},
 		source="freesound/369983__northern87__barbecue-fire.ogg"},
-	{"bgm", "set", "siren", .1, setup={seek=15},
+	{"bgm", "set", "siren", .15, setup={seek=21},
 		source="freesound/498187__16fpanskalan_jiri__14-1_ambulance.16.flac"},
-	{"wait", 1, true},
+	{"wait", 2, true},
 	{"macro", res.fun.macro.date,
 		{2011, 11, 8, 18, 34, idx=1}},
 
 	{"name", "------"},
 	[[Desperté cubierto de rocas y cenizas, con un dolor que me partía la
-cabeza. Tenía la boca seca y la piel me ardía.]],
+cabeza. Tenía la boca seca y toda la piel me ardía.]],
 
-	{"bg", "add", args={"croft/street_crappy_test_by_croft70-d57ige5.png", 0, 0,
-		0, .8, .8},
+	{"bg", "add", args={"croft/street_crappy_test_by_croft70-d57ige5.png",
+		0, -16, 0, .8, .8},
 		tween={"fadein", 1}},
 	[[Miré a todos lados confundido, buscando mi chica, donde estaba mi
 chica. Las llamas habían consumido casi todo a mi alrededor. Ella no estaba.]],
@@ -54,7 +54,6 @@ abiertas.]],
 a prender sin usar las llaves. El motor cobró vida de inmediato y el tablero se
 iluminó.]],
 
-	{"bgm", "modall", fade={"fadeout", 1/6, true}},
 	{"bg", "add", args={res.fun.clock.alarm(
 			res.style.carClockAlarm, 17, 34)},
 		color={1, 1, 1, 0},
@@ -62,6 +61,8 @@ iluminó.]],
 	},
 	[[El reloj marcaba las 17:34.]],
 
+	{"bgm", "modall", fade={"fadeout", 1/6, true}},
+	{"sfx", "freesound/208695__monotraum__car-door-close.flac"},
 	{"bg", "mod", tween={"delay", 2, "fadeout", 1/12, true}},
 
 	[[Me puse a manejar aunque no podía reconocer el lugar. Pensé que me

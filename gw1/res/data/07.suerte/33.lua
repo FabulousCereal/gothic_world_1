@@ -152,9 +152,10 @@ me conmoví un poco. ¿Por que no me había despertado? Ahí se iba a enfermar.
 Me acerqué a moverlo.]],
 
 	[["Bake, Bake." Como no reaccionó lo empecé a agitar. Bake se volvió
-hacia el otro lado, pero yo insistí.]],
+hacia el otro lado, pero yo insistí. Falcon mientras tanto tarareaba un riff o
+como se llame desde la cocina.]],
 
-	[[Tras como un cuarto de hora reaccionó. Para entonces se me había
+	[[Tras como un cuarto de hora Bake reaccionó. Para entonces se me había
 pasado la pena.]],
 
 	{"name", "Bake"},
@@ -173,6 +174,9 @@ calentito.]],
 	{"name", "Bake"},
 	[["Not even in the cold november rain... (8)"]],
 
+	{"name", "Falcon"},
+	[["Tin tin tiri tiriri tiriri (8)" armonizó Falcon.]],
+
 	{"name", "María"},
 	[["Oye, Croft se fue."]],
 
@@ -190,7 +194,7 @@ calentito.]],
 
 	{"name", "Bake"},
 	[["Creo que no vendrá con nosotros hasta que esté por morir xD
-ZZZZZZZZZZZ" Roncaba entre frases, wtf.]],
+ZZZZZZ" Roncaba entre frases, wtf.]],
 
 	{"name", "María"},
 	[["Pero se llevó mi revólver además de su arma."]],

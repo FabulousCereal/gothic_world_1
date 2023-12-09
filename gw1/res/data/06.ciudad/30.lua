@@ -68,11 +68,11 @@ suerte."]],
 ninguno se lo esperó eso. No parecía militar.]],
 
 	{"name", "Falcon"},
-	[["¿De veras? ¿Y no te llamaron tras la explosión?"]],
+	[["¿De veras? ¿Y aún así no te dejaron salir?"]],
 
 	{"name", "Croft"},
 	[["Eh, pasó que no lo terminé porque accidentalmente le prendí fuego a
-una bodega de municiones. Desde entonces no me llaman." Croft hablaba con
+una bodega con municiones. Así que sigo siendo civil." Croft hablaba con
 tanta sencillez que no sabía si era en serio o si nos jugaba una broma.]],
 
 	{"name", "Bake"},
@@ -99,15 +99,15 @@ variedad."]],
 	{"name", "María"},
 	[["Ah, verdad. Vamos entonces."]],
 
-	[[Agarramos nuestros abrigos (excepto Croft) y salimos al patio. Pipi
-nos olfeateó los pies de nuevo al salir.]],
+	[[Agarramos nuestros abrigos --excepto por Croft-- y salimos al patio.
+Pipi nos olfeateó los pies de nuevo al salir.]],
 
 	{"name", "Bake"},
 	[["Che, ¿en cual carro vamos?"]],
 
 	{"name", "Falcon"},
 	[["¿Como que en cual vamos 'che'? En el mio boludo. ¿O querés
-congelarte las pelotas en el pickup todo el camino?" dijo imitandole el acento.
+congelarte las pelotas en el pickup todo el camino?" dijo imitándole el acento.
 Bake entrecerró los ojos.]],
 
 	{"name", "Bake"},

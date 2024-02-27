@@ -7,12 +7,12 @@ local seq = require("f0b._seqCommon")
 -- Format: {"_generic", directives, timeRemaining}
 --   directives = {control, [control, [...]]}
 --     control = {component, index, delta, [index, delta, [...]]}
-local function genericVary(layer, tween, dt, finish)
-	local remaining = tween[3]
+local function genericVary(layer, fade, dt, finish)
+	local remaining = fade[3]
 	local mult = math.min(dt, remaining)
 	remaining = remaining - dt
 
-	local directives = tween[2]
+	local directives = fade[2]
 	for i = 1, #directives do
 		local control = directives[i]
 
@@ -27,12 +27,12 @@ local function genericVary(layer, tween, dt, finish)
 	if remaining <= 0 then
 		return 3, remaining
 	end
-	tween[3] = remaining
+	fade[3] = remaining
 end		
 
 -- Turns handwriten movement into "_generic"
 -- Format: {type, x, y, rate}
-local function mvCommon(layer, tween, dt, ...)
+local function mvCommon(layer, fade, dt, ...)
 	local args = layer.args
 	if not args[2] then
 		args[2] = 0
@@ -42,7 +42,7 @@ local function mvCommon(layer, tween, dt, ...)
 	end
 
 	local mult = layer.distance or 1
-	local type, deltaX, deltaY, rate = unpack(tween, 1, 4)
+	local type, deltaX, deltaY, rate = unpack(fade, 1, 4)
 	if type == "mvabs" then
 		deltaX = deltaX - (args[2] / mult)
 		deltaY = deltaY - (args[3] / mult)
@@ -58,39 +58,39 @@ local function mvCommon(layer, tween, dt, ...)
 		table.insert(control, 3)
 		table.insert(control, deltaY / rate * mult)
 	end
-	tween[1] = "_generic"
-	tween[2] = {control}
-	table.remove(tween, 3)
-	return genericVary(layer, tween, dt, ...)
+	fade[1] = "_generic"
+	fade[2] = {control}
+	table.remove(fade, 3)
+	return genericVary(layer, fade, dt, ...)
 end
 
-local function layerFade(layer, tween, dt)
-	layer.color[4] = seq.fadeCommon(layer.color[4], tween, dt)
-	if tween[3] <= 0 then
-		return 3, tween[3]
+local function layerFade(layer, fade, dt)
+	layer.color[4] = seq.fadeCommon(layer.color[4], fade, dt)
+	if fade[3] <= 0 then
+		return 3, fade[3]
 	end
 end
 
-local function fadeSetup(layer, tween, dt)
+local function fadeSetup(layer, fade, dt)
 	if not layer.color then
-		layer.color = {1, 1, 1, (tween[1] == "fadein") and 0 or 1}
+		layer.color = {1, 1, 1, (fade[1] == "fadein") and 0 or 1}
 	end
-	return seq.fadeSetup(layer, tween, dt, layer.color[4], layerFade)
+	return seq.fadeSetup(layer, fade, dt, layer.color[4], layerFade)
 end
 
-local tweenOps = {
+local fadeOps = {
 	-- Generic --
 	_generic = genericVary,
 	_fade = layerFade,
 
 	-- Delay --
 	-- Format: {"delay", secs}
-	delay = function(layer, tween, dt)
-		local secs = tween[2] - dt
+	delay = function(layer, fade, dt)
+		local secs = fade[2] - dt
 		if secs <= 0 then
 			return 2, secs
 		end
-		tween[2] = secs
+		fade[2] = secs
 	end,
 
 	-- Fades --
@@ -110,9 +110,9 @@ local function layerUpdate(layerTable, dt, finish)
 		if drawable.update then
 			drawable:update(dt)
 		end
-		local tween = layer.tween
-		if tween and #tween > 0 then
-			local remove = seq.update(tweenOps, layer, tween, dt,
+		local fade = layer.fade
+		if fade and #fade > 0 then
+			local remove = seq.update(fadeOps, layer, fade, dt,
 				finish)
 			if remove == true then
 				table.remove(layerTable, i)
@@ -138,7 +138,7 @@ local function layerDraw(layerTable)
 end
 
 local function normalizeLayer(op)
-	if op.tween and op.tween[1] == "fadein" and not op.color then
+	if op.fade and op.fade[1] == "fadein" and not op.color then
 		op.color = {1,1,1,0}
 	end
 

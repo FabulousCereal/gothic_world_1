@@ -3,7 +3,7 @@
 
 local function clearArray(table)
 	for i = #table, 1, -1 do
-	table[i] = nil
+		table[i] = nil
 	end
 	return table
 end

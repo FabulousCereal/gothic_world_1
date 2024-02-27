@@ -1,3 +1,9 @@
+local falconPieza = {
+	"bg", "add",
+	args={"maria/pieza.png"}, shader=res.shader.purkinje,
+	color={1/6, 1/6, 1/6, 0}, fade={"fadein", 4}
+}
+
 local pipiElPerroMaravilla = {
 	[[Pipi... ¡Pipi! Pipi dormía en una cama. Fui desenrollándome de a poco
 mientras recuperaba la sensación del cuerpo, ya que el frío casi me había
@@ -71,7 +77,9 @@ cuenta de que podía ver mis manos. Asomé la cabeza. Estaba amaneciendo.]],
 
 	[[Aliviada porque la temperatura pronto empezaría a subir, me dije
 que ahora lograría conciliar bien el sueño, que descansaría algo por fin. Que
-ingenua. A los minutos escuché que unos de los chicos se bajaba de un salto de
+ingenua.]],
+
+	[[A los minutos escuché que unos de los chicos se bajaba de un salto de
 la cama, estremeciendo toda la casa.]],
 
 	{"name", "Bake"},
@@ -110,8 +118,8 @@ aguantaba más.]],
 
 	{"select", "quien", {
 		[[Fue divertida esta aventura pero ahora si me voy con Bake.]],
-		[[Ir con Falcon antes de perder alguna extremidad.]],
-		[[Si dormi algo, puedo hacerlo de nuevo.]],
+		[[Ir con Falcon antes de perder los dedos.]],
+		[[Si dormi un poco, puedo hacerlo de nuevo.]],
 		[[Dormir... con Pipi.]],
 	}},
 	{"case", "quien", {
@@ -129,9 +137,10 @@ aguantaba más.]],
 			calentita, o quizás era yo que estaba congelada. Ah,
 			Dios...]],
 
-			[[Mis principios quedaron todos olvidados cuando noté
-			que el calor de la cama radiaba de Bake, y sin dudarlo
-			terminé casi pegada a el a pesar de su espalda.]],
+			[[Mis preocupaciones quedaron todas olvidadas cuando
+			noté que el calor de la cama radiaba de Bake, y sin
+			dudarlo terminé casi pegada a el a pesar de su
+			espalda.]],
 
 			[[Allí quedaron mis principios, en la basura.
 			zzzzZZZZZZzzzz...]],
@@ -145,6 +154,7 @@ aguantaba más.]],
 			volando por el viento tormentoso. Me metí a oscuras a
 			la habitación de Falcon.]],
 
+			falconPieza,
 			[[Estaba durmiendo mirando hacia la pared, tapado hasta
 			la cabeza y ocupando tan solo la mitad de esa estrecha
 			cama. Gracias Falcon, eres un santo.]],
@@ -167,6 +177,7 @@ local camaDeFalcon = {
 lo mismo fuera con quien fuera. Dejé mejor a Bake y su espalda tranquilos y
 entré a su habitación, ahora de Falcon.]],
 
+	falconPieza,
 	[[Me acerqué a ver si quedaba espacio, y en la oscuridad alcancé a
 notar que Falcon estaba vuelto hacia la pared. Me metí como pude, quedando
 espalda con espalda.]],
@@ -182,7 +193,8 @@ local camaDeBake = {
 así que tuve que tantear para encontrarlo y de ahí meterme del otro lado.]],
 
 	[[La cama resultó estar tan helada que tuve que ponerme el abrigo de
-nuevo. ¿Quien demonios me manda a estos lugares? Detesto tanto el frío.]],
+nuevo. ¿Quien demonios me manda a estos lugares? Detesto tanto el frío, y me
+detesto a mi misma por meterme acá.]],
 
 	[[Me acomodé, me cubrí hasta la nariz con las frazadas, y seguí con
 frío. Cuando me acomodé para dormir de lado, noté una calidez que radiaba de
@@ -201,11 +213,11 @@ sillón.]],
 	[[Me acurruqué temblando bajo las toallas, con abrigo y calcetines
 puestos. Pensé que lograría dormir bien.]],
 
-	[[Tan ingenua que soy. Parecía que no me podía calentar de ninguna
+	[[Era tan ingenua. Parecía que no me podía calentar de ninguna
 manera con esas toallas de playa.]],
 
-	[[Para variar, a los minutos las curvas y partes duras del sillón
-empezaron a hacerse notar una a una. Me encontré en una gruta. Como cama este
+	[[Para variar, a los minutos las curvas, resortes, y partes duras del
+sillón se hacieron notar una a una. Me encontré en una gruta. Como cama este
 sillón era casi peor que el suelo.]],
 
 	[[Terminé dando vueltas tratando de acomodarme mientras la temperatura
@@ -275,7 +287,7 @@ local conQuien = {
 			[[Si me daban a elegir entre Bake y Falcon,
 			Falcon se notaba era algo mas considerado y sensato que
 			Bake. Solo un poco.]],
-			[[Quiero decir, no dudo que Bake sea bueno, peeeero es
+			[[Quiero decir, no creía que Bake fuera malo, peeeero es
 			solo que Falcon me daba mas confianza de tener buen
 			juicio.]],
 			[[Aparte, Bake tiene su espalda recién herida. Buen
@@ -322,13 +334,14 @@ no tenía ganas de pegar pestaña aún.]],
 se asentaba, aquella inquietud que me había acompañado todo el día volvió.]],
 
 	[[Me sentía ansiosa cada vez que pensaba en mi situación. En
-estar sola en una ciudad que no conozco y con gente que no conozco. En las
-bestias rondando allá afuera. El fin de toda la civilización, quizás.]],
+estar sola en una ciudad que no conozco y con gente que en realidad no conozco.
+En las bestias rondando allá afuera. El fin de toda la civilización, quizás.]],
 
-	[[¿Que había sido la explosión, en todo caso? Entendí que fue una
-fábrica de inodoros que se había incendiado, pero eso me parecía demasiado
-ridículo. ¿Que había en ese humo que podía convertir a la gente en esto? ¿Y a
-donde se habían ido todos?]],
+	[[¿Que había sido la explosión, en todo caso?]],
+
+	[[Entendí que fue una fábrica de inodoros que se había incendiado, pero
+eso me parecía demasiado ridículo. ¿Que había en ese humo que podía convertir a
+la gente en esto? ¿Y a donde se habían ido todos?]],
 
 	[[Mas aún, ¿que era esa sombra de la que habló Bake? ¿De verdad era lo
 que me había asechado en la mañana, o solo me estaba tomando el pelo? ¿Que hay
@@ -358,8 +371,9 @@ en un océano de negro... ¿Un océano?]],
 produjo una sensación incómoda en el pecho, como si me apretara, pero el por
 que me eludía.]],
 
-	[[Tal vez lo había vivido, pero no imaginaba donde ni como. Estuve un
-rato sintiéndolo, tratando de recordar, pero sin éxito.]],
+	[[Tal vez lo había vivido, pero no recordaba donde ni como. Estuve un
+rato sintiéndolo, pensando en si alguna vez estuve en una playa de
+noche, pero sin éxito.]],
 
 	[[De pronto, una tenue luz recorrió los árboles y las casas.
 ¿Una linterna? ¿Un auto? Agudizé el oído y me pareció sentir un motor.]],
@@ -374,13 +388,16 @@ dos ocupantes en su interior.]],
 hay al menos cuatro personas vivas en la ciudad.]],
 
 	[[A lo mejor la ciudad era como un bosque. Había que tener paciencia
-para ver quién la habitaba. O alguna cuestión así. No sé. Con tanta oscuridad
-y silencio ya me pesaban los ojos. Debería irme a acostar para no levantarme
-tarde.]],
+para ver quién la habitaba.]],
+
+	[[O alguna cuestión así. No sé. Con tanta oscuridad y silencio ya me
+pesaban los ojos. Debería irme a acostar para no levantarme tarde.]],
 
 	[['¿Sabes que se te olvidó traer?' pensé para mi misma. 'Un cepillo de
-dientes.' Si, y ropa para cambiarme. Como siempre tarde, María, como siempre
-tarde. Iba a tener que dormir así no más. El tema era... ¿donde?]],
+dientes.' Si, y un pijama, y ropa para cambiarme. Como siempre tarde, María,
+como siempre. Iba a tener que dormir la ropa puesta no más.]],
+
+	[[El tema era... ¿donde?]],
 
 	{"let", "quien"},
 	{"read", conQuien, true},

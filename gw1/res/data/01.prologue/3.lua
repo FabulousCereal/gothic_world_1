@@ -1,3 +1,5 @@
+local orange = {1, 7/8, 6/8, 0}
+
 return {
 	{"style", "vnFalcon"},
 	{"name", false},
@@ -6,7 +8,7 @@ Aquella imagen quedó grabada en mi mente, lo único que se quedó conmigo de
 antes de la explosión.]],
 
 	{"bg", "add", args=f0b.elem.screenFill, color={1,1,1,1},
-		tween={"fadeout", 6, true}},
+		fade={"fadeout", 6, true}},
 	{"sfx", "sfx/explosión cercana.flac"},
 	{"bgm", "set", "fire", 0,
 		fade={"delay", 2, "fadein", 12},
@@ -22,8 +24,8 @@ antes de la explosión.]],
 cabeza. Tenía la boca seca y toda la piel me ardía.]],
 
 	{"bg", "add", args={"croft/street_crappy_test_by_croft70-d57ige5.png",
-		0, -16, 0, .8, .8},
-		tween={"fadein", 1}},
+		0, 0, 0, .9, 1},
+		fade={"fadein", 1}},
 	[[Miré a todos lados confundido, buscando mi chica, donde estaba mi
 chica. Las llamas habían consumido casi todo a mi alrededor. Ella no estaba.]],
 
@@ -49,7 +51,7 @@ dar un paso.]],
 mirada, pude ver algunos carros abandonados. Sus puertas habían quedado
 abiertas.]],
 
-	{"bg", "mod", tween={"fadeout", 1/3, true}},
+	{"bg", "mod", fade={"fadeout", 1/3, true}},
 	[[Me arrastré hasta uno y utilicé mis instintos para volverlo
 a prender sin usar las llaves. El motor cobró vida de inmediato y el tablero se
 iluminó.]],
@@ -57,14 +59,17 @@ iluminó.]],
 	{"bg", "add", args={res.fun.clock.alarm(
 			res.style.carClockAlarm, 17, 34)},
 		color={1, 1, 1, 0},
-		tween={"fadein", 1/6},
+		fade={"fadein", 1/6},
 	},
 	[[El reloj marcaba las 17:34.]],
 
 	{"bgm", "modall", fade={"fadeout", 1/6, true}},
 	{"sfx", "freesound/208695__monotraum__car-door-close.flac"},
-	{"bg", "mod", tween={"delay", 2, "fadeout", 1/12, true}},
+	{"bg", "mod", fade={"fadeout", 1/3, true}},
 
+	{"bg", "add", args={"falcon/carro.png"},
+		fade={"delay", 1/3, "fadein", 1},
+		color=res.palette("sixpm", 0)},
 	[[Me puse a manejar aunque no podía reconocer el lugar. Pensé que me
 debería ser familiar, pero los nombres de la calles no me sonaban.]],
 
@@ -74,6 +79,7 @@ delirando, quizás solo un poco peor que yo.]],
 	[[A momentos se me iba la consciencia, pero milagrosamente sobrevivimos
 yo y el auto hasta que una señalética me indicó donde había un hospital.]],
 
+	{"macro", res.fun.macro.xFade, "falcon/hospital.png", 1, orange},
 	[[Estacioné afuera en la calle, no le puse seguro porque no tenía las
 llaves. Pude cogear hasta la entrada para que me atendieran por el pie y otras
 heridas menores, pero había demasiada gente.]],
@@ -86,18 +92,19 @@ normal. Busqué un muro donde apoyarme. No quedaban asientos.]],
 señoras llorando por sus hijos, hijas, o familiares. Pensé en mi chica una vez
 más, debí haberla buscado mejor, no sabía que tan grave fue lo que ocurrió.]],
 
+	{"macro", res.fun.macro.xFade, "falcon/niña.png", 1, orange},
 	[[La explosión debió ser muy fuerte, o el humo que salía era
 tóxico. Me sentía mareado aún, pero por lo menos no estaba delirando.]],
 
-	{"bg", "add", args={"zeh/bg/falcon/ojo.png"}, tween={"fadein", 1}},
+	{"macro", res.fun.macro.xFade, "zeh/bg/falcon/ojo.png", 1},
 	[[Fuí al baño a beber agua, y noté un derrame en mi ojo izquierdo, que
 a estas alturas ni me pareció importante.]],
 
-	{"bg", "mod", tween={"fadeout", 1, true}},
+	{"bg", "mod", fade={"fadeout", 1, true}},
 	[[Pasada una hora en el hospital, me aburrí porque nadie me había
 visto, y entré en pánico.]],
 
-	{"bg", "add", args={"zeh/bg/falcon/dr.png"}, tween={"fadein", 1}},
+	{"bg", "add", args={"zeh/bg/falcon/dr.png"}, fade={"fadein", 1}},
 	[[Me metí a los pasillos y fuí con un maldito doctor que estaba mirando
 papeles y le rogué que me atendiera.]],
 
@@ -115,7 +122,7 @@ en unos días.]],
 mas. Claro. El doctor logró conseguir algunas vendas para el pie y con eso
 me fuí de ahí.]],
 
-	{"bg", "mod", tween={"fadeout", 1, true}},
+	{"bg", "mod", fade={"fadeout", 1, true}},
 	[[Salí rápido a buscar el carro porque una niña comenzó a balbucear y
 tratar de morder a su padre, o no sé que será suyo.]],
 
@@ -134,15 +141,16 @@ policía que me pudiera ayudar, o en el caso mas rebuscado darme cuenta de donde
 me hallaba. Tras media hora ví el anuncio de un hostal.]],
 
 	{"bg", "add", args={res.fun.clock.alarm(res.style.carClockAlarm, 20, 50)},
-		tween={"fadein", 1/8},
+		fade={"fadein", 1/8},
 	},
 	{"text", [[El tablero marcó las 20:50 cuando me bajé. ]], false, true},
 
-	{"bg", "mod", tween={"fadeout", 1/12, true}},
+	{"macro", res.fun.macro.xFade, "falcon/hostal.png", 1, falconColor},
 	{"text", [[Entré a la recepción pero no había nadie. Siempre lo mismo.
 No había nadie en ningún lado, y si encontraba gente estaban delirando o
 inconscientes.]], true},
 
+	{"bg", "mod", fade={"fadeout", 1, true}},
 	[[Estaba cansado de no poder entender que mierda ocurría, me dolía la
 cabeza cada vez que trataba recordar. Salté el mostrador para tomar unas llaves
 y fuí hasta una habitación, dejándome caer sobre la cama blanca.]],
@@ -150,7 +158,7 @@ y fuí hasta una habitación, dejándome caer sobre la cama blanca.]],
 	[[Estaba todo tan callado, pacífico. Las sábanas olían a detergente, y
 tenía un techo sobre la cabeza. Todo esto era impagable.]],
 
-	{"bg", "add", args={"zeh/bg/falcon/motel-cama.png"}, tween={"fadein", 1}},
+	{"bg", "add", args={"zeh/bg/falcon/motel-cama.png"}, fade={"fadein", 1}},
 	[[Abrí los ojos y me ví reflejado en un espejo. No se me ocurrió
 pensar porque había un espejo en el techo, solo me fijé que estaba herido por
 todos lados. Parecía un boxeador que ya debería salir del ring.]],
@@ -165,7 +173,7 @@ de vida llevaba.]],
 	[[Notando el control remoto sobre la mesa, hice un último esfuerzo y
 encendí la televisión, aunque fuera para ver porno.]],
 
-	{"bg", "mod", tween={"fadeout", 1, true}},
+	{"bg", "mod", fade={"fadeout", 1, true}},
 	{"sfx", "sfx/crt on.flac"},
 	[[Sonó el golpe eléctrico que hacían las teles antiguas, y poco a poco
 la pantalla cobró brillo.]],

@@ -6,7 +6,7 @@ return {
 	{"bg", "add", args={"zeh/conf.png"}},
 	{"bg", "add", args={"shadows.png"}},
 	{"bg", "fold"},
-	{"bg", "mod", color={1, 1, 1, 0}, tween=fadein},
+	{"bg", "mod", color={1, 1, 1, 0}, fade=fadein},
 	{"bgm", "set", "w", 0, source="olas.ogg", fade=fadein},
 	{"bgm", "set", "m", 0, source="María se fue al Cielo, mireusted mireusted que pena.ogg", fade=fadein},
 	3/2,
@@ -60,6 +60,6 @@ otra vez sin motivo. Una idea a medias es mas peligrosa que las armas que hemos
 usado hoy día. Nunca dejan de matar."]],
 
 	{"bgm", "modall", fade=fadeout},
-	{"bg", "modall", tween=fadeout},
+	{"bg", "modall", fade=fadeout},
 	3
 }

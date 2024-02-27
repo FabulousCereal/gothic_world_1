@@ -8,6 +8,14 @@ local badends = {
 }
 
 return {
+	xFade = function(_, _, name, secs, color)
+		return {
+			{"bg", "mod", fade={"delay", secs, true}},
+			{"bg", "add", args={name}, fade={"fadein", secs},
+				color=color},
+		}
+	end,
+
 	title = function(vars, _, showTitle, time)
 		local idx, name
 		if showTitle then
@@ -58,7 +66,7 @@ return {
 		local t = defaultTime
 		return {
 			{"bg", "add",
-				tween={"fadein", t, "delay", t, "fadeout", t, true},
+				fade={"fadein", t, "delay", t, "fadeout", t, true},
 				args=res.fun.card.card(res.style.title.fontFamily,
 					48,
 					string.format("Mal final %d:\n%s", n, str),

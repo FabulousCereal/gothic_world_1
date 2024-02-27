@@ -123,8 +123,9 @@ return {
 			floor(radius - brandFont:getWidth(brand) / 2),
 			floor(radius + brandFont:getHeight() * 5/3))
 		graphics.setCanvas()
+
 		return clockFace, floor(w / 2 - dims / 2),
-			floor(h / 2 - dims / 2)
+			floor(h * 3/7 - dims / 2)
 	end,
 
 	alarm = function(style, hour, minute)

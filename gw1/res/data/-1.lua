@@ -9,7 +9,6 @@ cuento.]],
 	[[Siempre puedes escapar presionando "Esc". Eres el único que te
 detiene.]],
 
-	{"bg", "mod", tween={"fadeout", 3, true}},
+	{"bg", "mod", fade={"fadeout", 3, true}},
 	{"wait", 2, true},
---	{"settings", "keepRes", true},
 }

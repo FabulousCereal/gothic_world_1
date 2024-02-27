@@ -1,9 +1,9 @@
 local function laAmigaSale(_, _, delay)
 	return {
-		{"bg", "mod", 2, tween={"delay", delay, "fadeout", 1, true}},
+		{"bg", "mod", 2, fade={"delay", delay, "fadeout", 1, true}},
 		{"bg", "add", 2, args={"cafe/amiga4.png"},
 			color=res.palette("fivepm", 0),
-			tween={"delay", delay, "fadein", 1}},
+			fade={"delay", delay, "fadein", 1}},
 	}
 end
 
@@ -26,7 +26,7 @@ tarde.]],
 		color=res.palette("fivepm")},
 
 	{"bg", "add", args=f0b.elem.screenFill, color={0,0,0,1},
-		tween={"fadeout", 3, true}},
+		fade={"fadeout", 3, true}},
 	{"macro", res.fun.macro.date, {2011, 11, 8, 17, 34}},
 
 	[[Estaba tocando "One in a Million" para una amiga en una cafetería
@@ -44,9 +44,9 @@ Terminando de tocar sucede la explosión.]],
 	[[......*boom*]],
 
 	{"bg", "sync"},
-	{"bg", "mod", 2, tween={"fadeout", 1, true}},
+	{"bg", "mod", 2, fade={"fadeout", 1, true}},
 	{"bg", "add", 2, args={"cafe/amiga2.png"},
-		color=res.palette("fivepm", 0), tween={"fadein", 1}},
+		color=res.palette("fivepm", 0), fade={"fadein", 1}},
 
 	{"bgm", "mod", "song", fade={"cmd", {setPitch=1/3}, "fadeto", 2, 2}},
 
@@ -57,7 +57,7 @@ Terminando de tocar sucede la explosión.]],
 	[["¿Que fue que?"]],
 
 	{"name", "amiga"},
-	[["Escuché una explosión."]],
+	[["Sentí una explosión."]],
 
 	{"name", "Bakeritsu"},
 	[["huh"]],
@@ -69,9 +69,9 @@ mas.]],
 "Debió ser un camión," dije, pero a los minutos notamos que había un humo raro
 en la calle.]],
 
-	{"bg", "mod", 2, tween={"fadeout", 1, true}},
+	{"bg", "mod", 2, fade={"fadeout", 1, true}},
 	{"bg", "add", 2, args={"cafe/amiga3.png"},
-		color=res.palette("fivepm", 0), tween={"fadein", 1}},
+		color=res.palette("fivepm", 0), fade={"fadein", 1}},
 	[[La chica se veía muy inquieta con todo esto, pero a mi no me parecía
 importante. Le dije en todo caso que mejor no salieramos, por las dudas.]],
 
@@ -87,7 +87,7 @@ mareada o vomitando.]],
 	},
 	{"case", nil, {
 		{
-			[["Deja que pase, no creo que sea nada," le dije para
+			[["Dejá que pase, no creo que sea nada," le dije para
 			que se calmara.]],
 
 			{"name", "amiga"},
@@ -142,7 +142,7 @@ golpea a la que estaba bien buena.]],
 
 	[["Oh shit"]],
 
-	{"bg", "mod", tween={"mvdiff", 0, -120, 2}},
+	{"bg", "mod", fade={"mvdiff", 0, -120, 2}},
 	[[Apenas bajó el polvo corrimos a ayudar y a putear al conductor y a la
 chica. El dueño de la cafetería apareció furioso y cagó al conductor a palos,
 mientras mis amigos corriamos el auto.]],
@@ -165,8 +165,8 @@ pero al final la curiosidad mató al gato. Nos subimos al auto tapandonos la
 cara y fuimos a mi casa.]],
 
 	{"bg", "add", 1, args={"cafe/ext.png"},
-		color=res.palette("fivepm", 0), tween={"fadein", 3}},
-	{"bg", "mod", tween={"fadeout", 3, true}},
+		color=res.palette("fivepm", 0), fade={"fadein", 3}},
+	{"bg", "mod", fade={"fadeout", 3, true}},
 	[[En el camino había mucha gente tirada en las calles. No sabiamos que
 estaba pasando, pero lo que había dicho la chica sobre la explosión nos empezó
 a preocupar. A momentos se sentía un olor metálico en el aire... Casi como
@@ -175,33 +175,33 @@ sangre.]],
 	{"bg", "sync"},
 	{"bg", "add", color={.6, .6, .6, 1}, args=f0b.elem.screenFill},
 	{"bg", "add", color={.95, .95, .95, 1},
-		args={res.fun.clock.wall(res.style.clockMono, 19, 22, "Saikō")}},
+		args={res.fun.clock.wall(res.style.clockTint, 19, 22, "Saikō")}},
 	{"bg", "fold"},
-	{"bg", "mod", tween={"fadein", 2/6}, shader=res.shader.dither_o2x2,
+	{"bg", "mod", fade={"fadein", 2/6}, shader=res.shader.dither_o2x2,
 		color=res.palette("sixpm", 0)},
 	[[Llegamos casi oscuresciendo, y nos bañamos por las dudas. Faltabamos
 solo yo y mi amigo cuando el me dice que sería mejor que nos bañaramos juntos,
 para lavarnos mejor. Asi que eso hicimos.]],
 
---	{"bg", "mod", tween={"fadeout", 4/6, true}},
+--	{"bg", "mod", fade={"fadeout", 4/6, true}},
 	{"bg", "rm"},
 	{"wait", 1},
 	{"bg", "add", args={"bake/y su amigo.png"},
-		color=res.palette("sixpm", 0, 0.9), tween={"fadein", 4/6}},
+		color=res.palette("sixpm", 0, 0.9), fade={"fadein", 4/6}},
 	{"wait", 1},
 	[[Posiblemente eso fue lo que me salvó.]],
 
 	{"bg", "sync"},
-	{"bg", "mod", tween={"fadeout", 4/6, true}},
+	{"bg", "mod", fade={"fadeout", 4/6, true}},
 	{"wait", 4/6},
 
 	{"bg", "add", args={"bake/amigos-en-el-living.png"},
-		color={.8, .6, .8, 0}, tween={"fadein", 4/6},
+		color={.8, .6, .8, 0}, fade={"fadein", 4/6},
 		shader=res.shader.dither_o2x2},
 	[[Envueltos solo con la luz del crepúsculo, salimos de la ducha y nos
 fuimos al living. Mis amigos ya habían prendido la tele...]],
 	{"bg", "sync"},
-	{"bg", "mod", tween={"fadeout", 4/6, true}},
+	{"bg", "mod", fade={"fadeout", 4/6, true}},
 	{"wait", 1},
 }
 

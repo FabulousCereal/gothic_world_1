@@ -13,17 +13,22 @@ lo mejor hasta ya era medio día. Que desperdicio de tiempo.]],
 que lo había superado. Era mas bien como si estuviera mas distante.
 Como si por haber dormido, ahora era algo de ayer y no de hoy.]],
 
+	{"bg", "add", args={"maria/pasillo.png"}, fade={"fadein", 1}},
 	[[Abandoné el cuarto, y me encontré con un silencio casi
 desconcertante en la casa.]],
 
 	[[¿Que pasaba? ¿Habrán salido sin mí? ¿Algo peor? El cuarto de Bake
-estaba entre-abierto. Me asomé a hechar una mirada, y ví un bulto en la cama.
+estaba entre-abierto.]],
+
+	{"macro", res.fun.macro.xFade, "maria/pieza.png", 1, {.3, .28, .26, 0}},
+	[[Me asomé a hechar una mirada, y ví un bulto en la cama.
 Era Falcon. Estaba durmiendo con su abrigo morado puesto.]],
 
 	[["Falcon," lo llamé en voz baja, pero no me respondió. A lo mejor se
 sintió mal. Preferí dejarlo en paz, y cerré la puerta. La alarma en su estante
 marcaba las 13:13.]],
 
+	{"bg", "mod", fade={"fadeout", 1, true}},
 	[[Bajé al primer piso con cautela. Allí, sorprendentemente, encontré a
 Andrea con Fab en el sillón, hablando muy despacio. Se reían de algo que el
 contaba.]],

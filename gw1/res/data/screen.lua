@@ -80,7 +80,7 @@ return {
 		local text = love.graphics.newText(style.font, "Gothic World 1")
 		local textW, textH = text:getDimensions()
 		return {text,
-			math.floor(w * 2/3 - textW / 2),
-			math.floor(h * 2/3 - textH / 2)}
+			math.floor(w * 1/2 - textW / 2),
+			math.floor(h * 5/6 - textH / 2)}
 	end,
 }

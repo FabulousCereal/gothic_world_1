@@ -48,25 +48,28 @@ bueno saber de ante mano a que se enfrenta uno," agregué.]],
 	[[La mujer había dejado de oirme hace mucho. Tomé otro sorbo de mi
 jugo, y pegué la frente a la ventanilla. Hacía frío.]],
 
-	{"bgm", "modall", fade={"fadeout", 2, true}},
+	{"bgm", "modall", fade={"fadeout", 1/3, true}},
 
 	{"bg", "add", args=f0b.elem.screenFill,
 		color=res.palette("softAfternoon", 1, .5),
-		tween={"delay", 2, true}},
+		fade={"delay", 2, true}},
 	{"bg", "add", args={res.fun.clock.wall(res.style.clockTint, 17, 34,
 		"Seikō")},
 		color=res.palette("softAfternoon"),
-		tween={"delay", 2, true}},
+		fade={"delay", 2, true}},
 	{"bg", "add", args=f0b.elem.screenFill, color={0, 0, 0, 1},
-		tween={"fadeout", 1/3, "delay", 4/3, "fadein", 1/3, true}},
+		fade={"fadeout", 1/3, "delay", 5/3, true}},
+	{"bg", "add", args={"fab/aeropuerto1.png"},
+		color=res.palette("softAfternoon", 0),
+		fade={"delay", 5/3, "fadein", 1/3}},
 
-	[[Cuando llegamos al aeropuerto y salí con mi mochila, extrañamente no
+	[[Cuando llegamos al aeropuerto y salí con mis cosas, extrañamente no
 encontré a mi prima por ningún lado, que se suponía iba a recogerme. Quizás se
 atrasó asi que me puse a esperarla, porque no sabía donde vivía.]],
 
-	{"bg", "sync"},
+	{"bg", "rmall"},
 	{"bg", "add", args=f0b.elem.screenFill, color={1,1,1,1},
-		tween={"fadeout", .1, true}},
+		fade={"fadeout", .1, true}},
 	[[Entonces ocurrió. Una luz como un rayo iluminó todo, y luego sentí
 la fuerte explosión.]],
 
@@ -76,14 +79,14 @@ la fuerte explosión.]],
 	{"name", "Fabian"},
 	[["¿Q-Que fue eso?"]],
 
-	{"bg", "add", args={"fab/aeropuerto.png", 20, 0, 0, .75},
+	{"bg", "add", args={"fab/aeropuerto2.png", 20, 0, 0, .75},
 		color=res.palette("softAfternoon", 0),
-		tween={"fadein", 1}},
+		fade={"fadein", 1}},
 	[[Me acerqué a mirar por la ventana, y lo único que ví fue una gran
 nube de humo acercándose desde la ciudad. La gente miraba confundida, y pronto
 el humo negro empezó a entrar en el aeropuerto.]],
 
-	{"bg", "mod", tween={"fadeout", 1, true}},
+	{"bg", "mod", fade={"fadeout", 1, true}},
 	[[Este no era mi primer rodeo. Todos los que sobrevivimos la catástrofe
 en Valdemar sabiamos que hacer, asi que me tiré al suelo tapándome la
 nariz y gatée hasta la salida.]],
@@ -101,7 +104,7 @@ aire estancado. Nada se movía bajo la luz de los faroles.]],
 	[[No conocía bien la capital, pero esperaba que lo normal fuera un poco
 mas de actividad, ¿eh? A ratos, un molesto olor a humedad se sentía y se iba.]],
 
-	{"bg", "add", args={"fab/hostal.png"}, tween={"fadein", 1}},
+	{"bg", "add", args={"fab/hostal.png"}, fade={"fadein", 1}},
 	[[Terminé llegando a un lugar, no se si un hostal o un motel, pero la
 recepción estaba vacía. Vacía del tipo, seguro podría meterme a dormir sin que
 nadie me detuviera.]],
@@ -110,7 +113,7 @@ nadie me detuviera.]],
 salté sobre el mostrador, tomé cualquier juego de llaves, y entré a buscarles
 la habitación. Podía dar explicaciones después.]],
 
-	{"bg", "mod", tween={"fadeout", 1, true}},
+	{"bg", "mod", fade={"fadeout", 1, true}},
 	[[Los corredores estaban vacios. Escuchaba una tele de alguna
 habitación, pero no veía gente. En el patio habían tuberías y palas tiradas,
 probablemente estaban remodelando.]],

@@ -98,11 +98,12 @@ revisarme.]],
 de que está inflamado, lo está."]],
 
 	{"name", "Rocco"},
-	[["¡Wuf!" asintió Rocco. ¿Como me había esguinzado? No imaginaba como,
-pero con este dolor no podía discutirle tampoco. Debía tener pésima suerte
-simplemente.]],
+	[["¡Wuf!" asintió Rocco.]],
 
 	{"name", "María"},
+	[[¿Como me había esguinzado? No imaginaba como, pero con este dolor no
+podía discutirle tampoco. Debía tener pésima suerte simplemente.]],
+
 	[[Y fuera del pie y la cabeza, también me dolía la cadera donde el auto
 me había golpeado. Todo andaba mal.]],
 
@@ -124,8 +125,8 @@ Al menos no se burló, o si esa era su forma de hacerlo, no la capté.]],
 	[[No sé porque, pero lo primero en lo que pensé fue en Bake duchándose
 con alcohol. Al menos eso me subió un poco el ánimo.]],
 
-	[["Ehh, bueno, gracias pero no. Me tengo que ir. Me están esperando,"
-dije recogiendo mis botas.]],
+	[["Ehh, bueno, gracias pero no gracias. Me tengo que ir. Me están
+esperando," dije recogiendo mis botas.]],
 
 	{"name", "Croft"},
 	[["Vamos, te llevo en el auto." Croft me extendió la mano para

@@ -1,6 +1,19 @@
 -- SPDX-FileCopyrightText: 2023 Grupo Warominutes
 -- SPDX-License-Identifier: Unlicense
 
+local vnAlpha = 6/7
+
+local function grayWeight(r, g, b)
+	return string.format(
+		[[vec4 effect(vec4 color, Image tex, vec2 tex_coord, vec2 _scr_coord) {
+			const vec3 weights = vec3(%f, %f, %f);
+			vec4 pxl = Texel(tex, tex_coord);
+			pxl.rgb = vec3(dot(pxl.rgb, weights));
+			return color * pxl;
+		}
+	]], r, g, b)
+end
+
 return {
 	fontAlias = {
 		dejaVuSans = "DejaVuSans.ttf",
@@ -13,10 +26,12 @@ return {
 
 	palette = {
 		repellantYellow = {.35, .35, .3},
-		tenpm = {.6, .6, .75},
+		tenpm = {.5, .5, .75},
 		redbg = {1, 0, 0},
 		fivepm = {1, .65, .35},
 		sixpm = {.55, .35, .5},
+		sevenpm = {.1, .3, .5},
+		tungsten = {1, 7/8, 6/8},
 		softAfternoon = {1, .95, .8},
 	},
 
@@ -117,32 +132,32 @@ return {
 
 		vnMaria = {
 			"vn",
-			backgroundColor = {1/3, 0, 1/3, 3/4},
+			backgroundColor = {1/3, 0, 1/3, vnAlpha},
 		},
 
 		vnBake = {
 			"vn",
-			backgroundColor = {0, .2, 0, 3/4},
+			backgroundColor = {0, .2, 0, vnAlpha},
 		},
 
 		vnFalcon = {
 			"vn",
-			backgroundColor = {.5, .25, 0, 3/4},
+			backgroundColor = {.5, .25, 0, vnAlpha},
 		},
 
 		vnFab = {
 			"vn",
-			backgroundColor = {.5, 0, 0, 3/4},
+			backgroundColor = {.5, 0, 0, vnAlpha},
 		},
 
 		vnCroft = {
 			"vn",
-			backgroundColor = {0, 0, .25, 3/4},
+			backgroundColor = {0, 0, .25, vnAlpha},
 		},
 
 		vnMartin = {
 			"vn",
-			backgroundColor = {.5, 0, 0, 3/4},
+			backgroundColor = {.5, 0, 0, vnAlpha},
 		},
 	},
 
@@ -202,9 +217,18 @@ return {
 				vec2 tex_size = vec2(1.0) / fwidth(tex_coord);
 				ivec2 pos = ivec2(mod(tex_coord * tex_size, 2.0));
 				float offset = weight[pos.x][pos.y];
-				vec4 pxl = Texel(tex, tex_coord) + vec4(offset);
-				return color * floor(pxl);
+				/*vec4 pxl = Texel(tex, tex_coord) + vec4(offset);
+				return color * floor(pxl);*/
+				vec4 pxl = Texel(tex, tex_coord) * color + vec4(offset);
+				return floor(pxl);
 			}
 		]],
+
+		-- Mas o menos como YCbCr.
+		gray = grayWeight(.3, .6, .1),
+
+		-- Una pésima aproximación del efecto Purkinje
+		-- https://es.wikipedia.org/wiki/Efecto_Purkinje
+		purkinje = grayWeight(.1, .3, .6),
 	},
 }

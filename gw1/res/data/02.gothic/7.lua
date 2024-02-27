@@ -69,7 +69,7 @@ aberraciones sin una ventana o el chico entremedio para protegerme, y con toda
 la claridad del día. La piel seca descascarándose con costras, el ruido flemoso
 al respirar, el olor...]],
 
-	[[Antes de poder pensar en como reaccionar, la criatura se volteó.
+	[[Antes de poder pensar en como reaccionar, la criatura se movió.
 Empezó a correr hacía mi, no torpe como los otros que había visto.]],
 
 	[[Yo sin pensarlo me puse a correr tan rápido como pude. Dí vuelta en

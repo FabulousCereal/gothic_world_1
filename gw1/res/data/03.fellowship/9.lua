@@ -13,10 +13,11 @@ local laComida = {
 ruidos desde un callejón y no pude seguir," dijo antes de hecharse otro pedazo
 a la boca.]],
 
+	{"bgm", "mod", fade={"fadeout", 4}},
 	{"name", "María"},
-	[[Yo demoré un segundo en procesar lo que dijo.]],
+	[[Yo demoré un segundo en procesar lo que dijo. El callejón.]],
 
-	[["E-Ehh, estaba escapando--"]],
+	[["E-Ehh, estaba--"]],
 
 	{"name", "Bake"},
 	[["Hey, ¿me acompañás luego a buscar?" me interrumpió. "Hay una zona
@@ -24,16 +25,29 @@ comercial a media hora de acá. Ahí debería haber comida," explicó. Asentí.
 "Sweet."]],
 
 	{"name", "María"},
-	[[Me quedé en silencio, pensando en lo del callejón. Estuve huyendo de
-algo, pero... ¿de que?]],
+	[[Me quedé en silencio, preocupada pensando en lo del callejón. Lo
+había olvidado por completo. Estuve huyendo de algo, pero... ¿de que?]],
 
-	[[Pensando con detención, no recordaba haber visto ninguna criatura. No
-solo eso, había mirado a todos lados en medio de una calle despejada, y no
-había visto nada.]],
+	{"bg", "add", args={"streetlamps.png", 0, 0, 0, .8},
+		shader=res.shader.gray,--dither_o2x2,
+		color=res.palette("tenpm", 0, .7),
+		fade={"fadein", 1}},
+	[[Pensando con detención, no recordaba haber visto ningún zombie.]],
 
-	[[No quería reconocerlo, pero parecía que había entrado en pánico por
-un ruido cualquiera, y para variar terminé subiéndome a--]],
+	{"bg", "mod", fade={"delay", 1, true}},
+	{"bg", "add", args={"yssm.png", -80}, shader=res.shader.dither_o2x2,
+		color=res.palette("tenpm", 0), fade={"fadein", 1}},
+	[[No solo eso, había mirado a todos lados en medio de una calle
+despejada, y no había visto nada.]],
 
+	{"bg", "rm"},
+	{"bg", "mod", color={1, 1, 1, 0}},
+	[[Pero entonces, ¿por que sentía que me faltaba el aire al recordar?]],
+
+	[[¿De verdad no ví nada? ¿O solo no quería creer que había entrado en
+pánico por un ruido cualquiera, y que para variar terminé subiéndome a--?]],
+
+	{"bg", "mod", fade={"fadein", 1/24}},
 	{"name", "Bake"},
 	[["¿No te vas a comer la piña?" preguntó Bake, despavilándome. Señalaba
 una rodaja que había apartado de mi trozo.]],
@@ -41,7 +55,8 @@ una rodaja que había apartado de mi trozo.]],
 	{"name", "María"},
 	[["No, no, dale." Dejé de darle vueltas al asunto y me enfoqué en
 comer antes que Bake se lo tragara todo. Al fin y al cabo, todo eso ya estaba
-en el pasado.]],
+en el pasado. Estaba segura, y viva.]],
+	{"bgm", "mod", fade={"fadein", 4}},
 }
 
 local laGente = {
@@ -99,8 +114,8 @@ ahora.]],
 	[[A pesar de la interrogante, el chico siguió comiendo despreocupado.]],
 
 	[[A lo mejor yo me estaba revolviendo demasiado la cabeza con todo
-esto, y pronto se arreglaría todo. Me limité a comer de la pizza y mirar por la
-ventana. El aire siguió agarrando fuerza.]],
+esto, y pronto se arreglaría todo. Me limité a comer de la pizza y a escuchar
+el viento.]],
 
 	[['Los únicos humanos en esta ciudad.' Eso sonaba claustrofóbico,
 aunque tambien... romántico.]],
@@ -130,16 +145,18 @@ local losAmigos = {
 
 	{"name", "María"},
 	[[El chico me empezó a contar sobre que vieron acá la noticia de los
-mutados. Que antes de esto estuvieron en una cafetería cuando ocurrió la
-explosión, y que luego un auto entró y arrolló justo a 'la chica buena.']],
+mutados. Era una historia tan rara como lo era el.]],
 
-	[[Yo no sabía que responder, pero el chico me aseguró que se la
+	[[Lo que entendí fue que estaban en una cafetería cuando ocurrió la
+explosión, y que entonces un auto entró y arrolló justo a 'la chica buena.']],
+
+	[[Pero eso no era tan grave porque el chico me aseguró que se la
 llevaron rápido a un hospital donde la metieron en una cámara de hipersueño,
 donde seguro dormiría plácidamente todo el apocalípsis, 'lol']],
 
-	[[La cosa es que se quedaron acá hasta que se cortó la luz, y ahí se
-despidieron y se fue cada uno para su casa. El chico se quedó solo con Pipi y
-el arma de su viejo, y aquí ha estado desde entonces.]],
+	[[La cosa es que se vinieron acá y se quedaron hasta que se cortó la
+luz, y ahí se despidieron y se fue cada uno para su casa. El chico se quedó
+solo con Pipi y el arma de su viejo, y aquí ha estado desde entonces.]],
 
 	[[Le pregunté si no estaba preocupado, pero me aseguró que todos se
 habían duchado bien al llegar, y que si el había sobrevivido hasta ahora con
@@ -155,25 +172,25 @@ termostato, pero mala persona no parecía ser, al menos.]],
 
 local infoLoop = {
 	{"select", nil, {
-		[[Sobre la comida...]],
 		[[Sobre la gente...]],
 		[[Sobre sus amigos...]],
+		[[Sobre la comida...]],
 		[[Tragarse la pizza entera.]],
 	}},
 	{"case", nil, {
-		laComida,
 		laGente,
 		losAmigos,
+		laComida,
 		{
 			{"name", "María"},
-			[[Habíamos pasado mucho tiempo comiendo, así que agarré
+			[[Habíamos pasado mucho tiempo hablando, así que agarré
 			toda la pizza.]],
 
+			{"bgm", "mod", fade={"fadeout", 1/4, true}},
 			[["*OM OM*" El chico me miró pasmado.]],
 
 			{"name", "Bake"},
-			[["lol xD"]],
-
+			[["xDDD"]],
 			{"break"}
 		},
 	}},
@@ -210,10 +227,12 @@ contener alcohol.]],
 	[["¿Eh?"]],
 
 	{"name", "Bake"},
-	[["Imitando a mi guitarra xD" El chico, considerando que ponerse ropa
-de abrigo encima no era tan esencial en este clima, se puso a tocar a lo
+	[["Imitando a mi guitarra xD" El chico, que consideraba que ponerse
+ropa de abrigo no era tan esencial en este clima, se puso a tocar a lo
 'Cabeza de Cubeta' mientras salía del baño al pasillo.]],
 
+	{"bg", "add", args={"maria/pasillo.png"}, fade={"fadein", 1},
+		color={1, 1, .95, 0}},
 	{"name", "María"},
 	[[El chico vivía en esta casa con sus padres, que justo habían salido
 de viaje a otro país.]],
@@ -222,6 +241,7 @@ de viaje a otro país.]],
 llegaría tan lejos. Su único compañero ahora era Pipi, su perro. O perra, mas
 bien.]],
 
+	{"macro", res.fun.macro.xFade, "maria/living.png", 1},
 	[[No entendía todas las cosas que decía o hacía el chico, a lo mejor
 era la cultura del extremo sur o que se yo, pero casi envidiaba su calma en
 esta situación... Escucharlo hablar era como oír una voz de un mundo en que no
@@ -230,9 +250,9 @@ todo estaba perdido.]],
 	[[Por otro lado, el ruido que metía con la guitarra me traía con los
 nervios de punta.]],
 
-	[[Y no lo digo por como tocaba, de hecho lo hace bastante bien, si no
-por que podía atraer mas de esas criaturas, pero el chico insistía en que no
-pasaba nada.]],
+	[[Y no lo digo por como tocaba, de hecho parecía hacerlo bastante bien,
+si no por que podía atraer mas de esas criaturas, pero el chico insistía en que
+no pasaba nada.]],
 
 	{"name", "Bake"},
 	[["Bue, me dolió el tendón," dijo cuando se cansó de tocar, con el
@@ -245,6 +265,7 @@ lado. "¿Querés comer algo? Tengo Pizza Enlatada."]],
 	{"name", "Bake"},
 	[["Si, son re-flasheras," dijo volviendo a sonreír.]],
 
+	{"bg", "mod", fade={"fadeout", 1, true}},
 	{"name", "María"},
 	[[El chico y yo bajamos a la cocina, el sin molestarse en ponerse
 nada encima de la camisa o de los boxers. El se agachó a hurguetear entre las
@@ -284,6 +305,7 @@ no dan ganas de estar afuera. Esperá que calme y me ocupo."]],
 	{"name", "María"},
 	[[Bake se fue al comedor con la lata y me llamó para que comieramos.]],
 
+	{"bg", "add", args={"Flash/day.png"}, fade={"fadein", 1}},
 	[[Vació la pizza minúscula en un plato, le hechó unas gotitas de agua,
 y esta se expandió en segundos. Radiaba calor y un exquisito olor a pizza de
 jamón y piña llenó el ambiente.]],
@@ -305,8 +327,4 @@ vestimenta, comenzamos a comer una comida común y corriente.]],
 	[["?"]],
 
 	{"read", infoLoop, true},
-	{"bgm", "mod", fade={"fadeout", 2, true}},
-
-	{"name", "María"},
-	[[Con eso terminamos de almorzar.]],
 }

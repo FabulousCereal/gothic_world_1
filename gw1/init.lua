@@ -66,7 +66,7 @@ local confBG = f0b.layers.normalize({
 })
 local mainBG = f0b.layers.normalize({
 	{args={{
---		{args={"zeh/menu/main.png"}, shader=res.shader.edgy},
+		{args={"zeh/menu/main.png"}, shader=res.shader.edgy},
 --		{args=f0b.elem.screenFill(.9), color=elemColor},
 		{args=screen.menu(res.style.title, w, h)},
 	}}},

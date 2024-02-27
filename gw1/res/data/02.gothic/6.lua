@@ -1,8 +1,8 @@
 return {
 	{"name", "María"},
 	{"style", "vnMaria"},
-	{"bgm", "set", "wind", 0,
-		fade={"fadeto", .5, 12},
+	{"bgm", "set", "wind", 0, 4/3,
+		fade={"fadeto", .5, 24},
 		source="freesound/557188__julien-matthey__jm_natural-elements_wind-01.flac"},
 	{"bgm", "set", "theme", 0, source="newgw-marimba.ogg",
 		fade={"delay", .5, "fadeto", 2/3, 6}},
@@ -19,7 +19,7 @@ sonido de un despertador.]],
 	{"bgm", "set", "alarm", 2/3, source="weird alarm.ogg"},
 	{"bg", "add", args={res.fun.clock.alarm(res.style.clockAlarm, 12, 30)},
 		color={1,1,1,0},
-		tween={"fadein", .25}
+		fade={"fadein", .25}
 	},
 	1,
 
@@ -29,14 +29,17 @@ sonido de un despertador.]],
 vieja rutina,]], false, true},
 
 	{"bgm", "mod", "alarm", fade={"fadeout", 1/12, true}},
-	{"bg", "mod", tween={"fadeout", 1/12, true}},
+	{"bg", "mod", fade={"fadeout", 1/12, true}},
+	{"bg", "add", args={"maria/pieza.png"},
+		color={1, 1, 1, 0},
+		fade={"delay", 1/6, "fadein", 4}},
 	{"text", [[ antes de caer en la cuenta de que me hallaba en un cuarto,
 en una cama.]], true},
 
 	[[¿Donde estaba? No reconocía el lugar, eso era seguro.]],
 
-	[["¿Habrá sido un sueño?" Solté un suspiro y sentí un alivio
-incredíble, tan grande que se me humedecieron los ojos.]],
+	[["¿Habrá sido un sueño?" Solté un suspiro y sentí un alivio y una
+dicha incredíble.]],
 
 	[[Recordé esa crisis de pánico. Que bueno que no fue real. Vivir así
 sería demasiado terrible... no lo aguantaría de verdad.]],
@@ -79,6 +82,7 @@ un demonios al tocarme, no parecía haberme hecho herida ni haberme sangrado,
 así que no debía ser tan grave. Me levanté y me acerqué a la puerta a buscar
 respuestas.]],
 
+	{"macro", res.fun.macro.xFade, "maria/pasillo.png", 2/3},
 	[[Al abrirla escuché ruidos del primer piso. Cosas golpeándose
 violentamente. El buen humor se me fue de inmediato.]],
 
@@ -86,14 +90,15 @@ violentamente. El buen humor se me fue de inmediato.]],
 pronto, esa nota no se me hacía tan graciosa.]],
 
 	{"bgm", "mod", "wind", fade={"fadeout", 6, true}},
+	{"bg", "mod", fade={"delay", 2/3, true}},
 	{"bg", "add", args={"Flash/day.png"},
 		color=res.palette("repellantYellow", 0),
-		tween={"fadein", 2/3}},
+		fade={"fadein", 2/3}},
 	[[Bajé con cautela las escaleras, mientras los ruidos aumentaban en
 intensidad. Llegué a una especie de living que daba a un comedor. Las cortinas
 estaban cerradas. Los ruidos provenían de lo que parecía la cocina.]],
 
-	{"bg", "mod", tween={"fadeout", 2/3, true}},
+	{"bg", "mod", fade={"fadeout", 2/3, true}},
 	[[Me asomé por la puerta a mirar. Había un muchacho tirando cosas por
 la ventana, hacia el patio.]],
 
@@ -175,7 +180,7 @@ chico habló.]],
 	[["No creo lo segundo que pusiste en la carta," le reclamé.]],
 
 	{"name", "chico"},
-	[["Tranquila, era por joda," dijo riendo.]],
+	[["Tranquila, era joda," dijo riendo.]],
 
 	{"name", "María"},
 	[[Me quedé mirando sus ojos, y sonreí. Su rostro radiaba por el
@@ -190,13 +195,15 @@ ejercicio y la adrenalina. Se notaba era atlético. El sonrió de vuelta.]],
 	[[El chico de pronto se abalanzó sobre mi, quedando su cara en mi
 pecho.]],
 
-	[[Pensé que ahora si estaba segura de que era un depravado, pero
+	[[Ahora si estaba segura de que era un depravado, pero
 resultó que se había desmayado. Lo sujeté con todas mis fuerzas para que no se
 cayera.]],
 
 	[[Su cuerpo se sentía cálido, a pesar que tenía muy poca ropa para este
 frio.]],
 
+	{"bg", "add", args={"maria/living.png"},
+		color={2/3, 2/3, 2/3, 0}, fade={"fadein", 1}},
 	[[Logré llevarlo --arrastrarlo-- con gran esfuerzo hasta un sillón, y
 cuando fuí a recostarlo, descubrí una mancha de sangre formándose atrás en su
 polera.]],
@@ -216,6 +223,7 @@ agua y cloro y me dispuse a dar una vuelta para explorar.]],
 	[[Como no encontré un lápiz, le dejé al chico su misma nota en la mesa
 antes de partir, con el despertador puesto a las 1:15pm, por si acaso.]],
 
+	{"bg", "mod", fade={"fadeout", 1, true}},
 	[[Salí dejando la puerta junta para cuando volviera. El perro del
 chico me siguió olfateándome hasta la puerta de la calle, y me miró mientras me
 alejaba. Al menos, ahora tenía un lugar donde volver.]],

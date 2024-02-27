@@ -1,17 +1,21 @@
 local comoEstaFalcon = {
 	[[Dejé tiradas las botas y me dediqué a la dolorosa tarea de subir con
-un pie esguinzado y la cadera moreteada. Esto de andar atropellada no era muy
-sano, pero quería ver si Falcon se encontraba bien. Aparte que algo de compañía
-nunca le viene mal a nadie.]],
+un pie esguinzado y la cadera moreteada.]],
+
+	[[Esto de andar atropellada no era muy sano, pero quería ver si Falcon
+se encontraba bien. Aparte que algo de compañía nunca le viene mal a nadie.]],
 
 	[[Y no es por desconfiar de Bake, de hecho confio bastante para haberlo
 conocido recíen ayer, pero por alguna razón cuestionaba su habilidad para
 saber si algo era grave.]],
 
-	[[Llegué a duras penas a la habitación y toqué a la puerta. La
+	{"macro", res.fun.macro.xFade, "maria/pasillo.png", 1},
+	[[Llegué a duras penas arriba y toqué a la puerta. La
 verdad iba a entrar igual porque no esperaba respuesta, pero sorprendentemente
-oí un "Pase" casi de inmediato. Abrí y encontré a Falcon en pie, poniéndose
-su abrigo con chapa.]],
+oí un "Pase" casi de inmediato.]],
+
+	{"macro", res.fun.macro.xFade, "maria/pieza.png", 1, {.8, .8, .8, 0}},
+	[[Abrí y encontré a Falcon en pie, poniéndose su abrigo con chapa.]],
 
 	{"name", "Falcon"},
 	[["Hola," me dijo con buen ánimo. Noté que se había puesto ropa nueva
@@ -35,6 +39,7 @@ comiendo galletas abajo. ¿Vienes?"]],
 	{"name", "Falcon"},
 	[["Ya. Muero del hambre."]],
 
+	{"macro", res.fun.macro.xFade, "maria/pasillo.png", 1},
 	{"name", "María"},
 	[[Salí a esperarlo al pasillo, y cuando estuvo listo fui con en el
 hasta la escalera.]],
@@ -55,6 +60,7 @@ y con levantar la manga del pantalón bastó.]],
 	{"name", "Falcon"},
 	[["Igual si reposas creo que se te va a pasar mas luego."]],
 
+	{"macro", res.fun.macro.xFade, "Flash/day.png", 1}},
 	{"name", "María"},
 	[[Bajamos los dos la escalera a duras penas, y de ahí fuimos al comedor
 donde estaban Bake y Croft tomando mate y café, respectivamente.]],
@@ -67,7 +73,7 @@ donde estaban Bake y Croft tomando mate y café, respectivamente.]],
 ver a Falcon. "Despertó el bello durmiente."]],
 
 	{"name", "Falcon"},
-	[["Estaba con fiebre."]],
+	[["Estaba con fiebre ¬¬"]],
 
 	{"name", "Bake"},
 	[["lol, si sé. Este es Croft. Atropelló a María esta mañana." Falcon
@@ -178,6 +184,7 @@ de nuevo volví sin nada.]],
 	{"name", "Bake"},
 	[["Coooool," dijo invitandonos a entrar.]],
 
+	{"bg", "add", args={"maria/living.png"}, fade={"fadein", 1}},
 	{"name", "María"},
 	[[Pasamos con Croft, que alcanzó a poner el pie para no dejar entrar a
 Rocco en castigo, y se fue con Bake directamente a la mesa a comer y tal vez a
@@ -193,6 +200,7 @@ al pasar frente a la escalera.]],
 		{
 			[[A lo mejor solo iba a molestarlo si lo despertaba.]],
 
+			{"macro", res.fun.macro.xFade, "Flash/day.png", 1},
 			[[Seguí hasta la mesa y me senté junto a los chicos.
 			Croft ya le estaba contando a Bake sobre como me
 			pasó por encima, y que aparentemente lo rodearon tres

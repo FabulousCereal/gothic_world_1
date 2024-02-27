@@ -9,7 +9,7 @@ return {
 
 	{"name", "María"},
 	[[El cielo se pintaba de un color gris abismal. Me levanté, casi sin
-ánimos de nada. Creía ilusa que podía aguantar muchas cosas, pero parecía que
+ánimos de nada. Creía que podía aguantar muchas cosas, pero parecía que
 hasta quedarme en un hotel mas de dos días resultaba demasiado.]],
 
 	{"bg", "add", args=f0b.elem.screenFill,
@@ -19,17 +19,17 @@ hasta quedarme en un hotel mas de dos días resultaba demasiado.]],
 		)}, 12, 12},
 		exec=f0b.shapes.dropShadow,
 		color=res.palette("repellantYellow")},
-	{"bg", "add", args=f0b.elem.screenFill, color={0, 0, 0, 1},
-		tween={"fadeout", 1/3}},
+	{"bg", "fold"},
+	{"bg", "mod", color={1,1,1,0}, fade={"fadein", 1/3}},
 
 	[[El reloj marcaba las 10am justas, su molesto tick-tack reverberando
 de un lado a otro en el cuarto ante el silencio sepulcrural en que me hayaba.]],
 
-	{"bg", "mod", 1, 2, tween={"delay", 1/3, true}},
-	{"bg", "mod", tween={"fadein", 1/3, true}},
+	{"bg", "mod", 1, 2, fade={"delay", 1/3, true}},
+	{"bg", "mod", fade={"fadein", 1/3, true}},
 
 	{"bg", "add", 1, color=res.palette("repellantYellow", 0),
-		tween={"delay", 2/3, "fadein", 2/3},
+		fade={"delay", 2/3, "fadein", 2/3},
 		args={{
 			{args={"Flash/i die/Nube.png", 0, -50}},
 			{args={"Flash/la-guagua.png", 0, 137}},
@@ -42,7 +42,7 @@ de un lado a otro en el cuarto ante el silencio sepulcrural en que me hayaba.]],
 la gente mutada, los muertos, el humo, pertenecían a la televisión. O eso
 deseaba.]],
 
-	{"bg", "mod", 1, tween={"fadeout", 2/3, true}},
+	{"bg", "mod", 1, fade={"fadeout", 2/3, true}},
 	[[Fui a prender la luz para ir al baño, tomar algo de agua, pero
 entonces descubrí que no andaba.]],
 
@@ -51,18 +51,15 @@ hotel?"]],
 
 	[[Claro... había sido yo.]],
 
---	{"bg", "add", args={"maria/bath.png"}, tween={"fadein", 2/3},
---		color=res.palette("repellantYellow", 0)},
 	[[Mi nombre es María. Solo diré que tengo 18 años. No me parece que sea
 el momento para hablar sobre mí. Tampoco es que quiera, ni que importe.]],
 
---	{"bg", "mod", tween={"fadeout", 2/3, true}},
 	[[Me tragué mi frustración y, guardando una navaja en mi bolsillo, salí
 por fín de mi cuarto. Muy cómodo y seguro será, pero ningún humano podía vivir
 por mucho ahí. Me volvería loca si seguía una hora mas.]],
 
 	{"bg", "add", args={"hotel.jpg", 0, 0, 0, .8},
-		tween={"fadein", 1/3},
+		fade={"fadein", 1/3},
 		color=res.palette("repellantYellow", 0)},
 	[[Nadie en los pasillos, nadie en las escaleras, nadie en el comedor.
 La falta de luz hacía difícil ver lejos de las ventanas, ¿pero que
@@ -74,12 +71,12 @@ en donde sea que se haya ido toda la gente.]],
 
 	[[Tuvieron que haberse ido a algún lado, ¿verdad? Evacuar.]],
 
-	{"bg", "mod", tween={"fadeout", 1/3, true}},
+	{"bg", "mod", fade={"fadeout", 1/3, true}},
 	[[Sin comida ni gente que restara, salí a la calle. Sin saber que
 hacer, me puse a caminar.]],
 
 	{"bg", "add", color=res.palette("tenpm", 0),
-		tween={"delay", 1/3, "fadein", 2/3},
+		fade={"delay", 1/3, "fadein", 2/3},
 		args={{
 			{args={"Flash/i die/Nube.png", 0, -50}},
 			{args={"Flash/i die/Montañas.png", 40, 160}},
@@ -116,9 +113,9 @@ las calles se seguían viendo vacias. No sabía lo que era.]],
 	[[*FFFF*]],
 
 	{"name", "María"},
-	{"bg", "mod", tween={"fadeout", 2/3, true}},
+	{"bg", "mod", fade={"fadeout", 2/3, true}},
 	{"bg", "add", color=res.palette("tenpm", 0),
-		tween={"delay", 1, "fadein", 2/3},
+		fade={"delay", 2/3, "fadein", 2/3},
 		args={{
 			{args={"Flash/i die/Nube.png", 640, 480, 0, -1}},
 			{args={"Flash/the.png", 0, 136}},
@@ -129,34 +126,36 @@ las calles se seguían viendo vacias. No sabía lo que era.]],
 quedarme a mirar. El ruido me siguió. Me buscaba.]],
 
 	{"bg", "sync"},
-	{"bg", "mod", tween={"fadeout", 2/3, true}},
+	{"bg", "mod", fade={"fadeout", 2/3, true}},
 	{"bg", "add", args={"streetlamps.png", 0, 0, 0, .8},
 		color=res.palette("tenpm", 0),
-		tween={"delay", 1, "fadein", 2/3}},
+		fade={"delay", 2/3, "fadein", 2/3}},
 	[[No conocía el barrio, apenas y había llegado la tarde del día del
 evento. El ruido se hacía cada vez mas intenso, y por alguna estupidez mía, por
 miedo, giré sin pensarlo en un callejón.]],
 
-	{"bg", "rm"}, --tween={"fadeout", 2/3, true}},
+	{"bg", "rm"},
 	{"wait", 2/3},
 	[[Sin salida.]],
 
 	{"bg", "add", args={"yssm.png", -80},
 		color=res.palette("tenpm", 0, 1.5),
-		tween={"fadein", 2/3}},
+		fade={"fadein", 2/3}},
 	[[Corrí a tratar de trepar la malla apoyándome en un bote de
 basura, pero cuando estaba por alcanzar el borde, algo me tomó. El bote se
 movió bajo mis pies.]],
 
+	{"bg", "mod", fade={"fadeout", 1/12, true}},
 	{"sfx", "freesound/377888__usernamemoe__trash-can-falling.edit.flac", 1, 4/3},
-	{"sfx", "freesound/648134__5plus5equalspatata__window-break.flac", 1/3, 1, .5},
-	{"bg", "mod", tween={"fadeout", 1/6, true}},
 	[[Caí.]],
 
-	{"bgm", "set", "click",
-		fade={"loop", 3, true},
-		source="freesound/540066__nox_sound__weapon_revolver_dryfire_mono.cut.flac"},
-	{"bg", "sync"},
+	{"bg", "add", args={"maria/sombra.png", -680, 0, 0, 3, 3},
+		color=res.palette("tenpm", 1),
+		fade={"fadein", 1/24, "mvabs", -640, -1280, 1/4, "fadeout", 1/6, true}
+	},
+--	{"sfx", "freesound/540066__nox_sound__weapon_revolver_dryfire_mono.cut.flac"},
+	{"sfx", "freesound/648134__5plus5equalspatata__window-break.flac", 1/2, 1, 1/2},
+	{"sfx", "freesound/346694__deleted_user_2104797__body-fall_02.flac", 1, 1, 4/3},
 	[[Solo alcancé a ver por un momento la forma borrosa de la criatura
 antes de golpearme la cabeza en el suelo. Oí ladridos, y el mundo se fue.]],
 }

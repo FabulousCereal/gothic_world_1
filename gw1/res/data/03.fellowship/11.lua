@@ -54,7 +54,7 @@ hacia el frente para hablarle.]],
 			[["A-Ah."]],
 
 			{"name", "Bake"},
-			[["lol, entiendo todo ahora."]],
+			[["Eso explica las abolladuras xD"]],
 
 			{"name", "María"},
 			{"text", [[Llegamos]], false, true},
@@ -104,11 +104,12 @@ hacia el frente para hablarle.]],
 	{"name", "María"},
 	{"text", [[ a la casa cerca de las siete, cuando ya estaba oscureciendo
 y la nieve comenzaban a tapar la vista. Entramos Falcon y yo cargando
-la comida, y el se detuvo a estirar los brazos al techo.]], true},
+la comida, y el dejó un segundo las bolsas para estirar los brazos al techo.]],
+	true},
 
 	{"name", "Falcon"},
 	[["Dios, que agradable," dijo extasiado. "Había dormido todos estos
-días en el auto." Bake entró sin nada y se tiró directo al sillón.]],
+días en el auto." Bake entró sin nada y se tiró como tabla en el sillón.]],
 
 	{"name", "Bake"},
 	[["Tenés razón," dijo recostado boca abajo. Llevé a Falcon a la
@@ -123,7 +124,6 @@ living. Falcon contuvo una risa, aunque a mi no me hizo gracia.]],
 	{"name", "Bake"},
 	[["Mierda xD"]],
 
---	{"bg", "add", args={"falcon/que.png"}},
 	{"name", "Falcon"},
 	[["¿Eh? ¿Cuerpos?"]],
 
@@ -131,20 +131,17 @@ living. Falcon contuvo una risa, aunque a mi no me hizo gracia.]],
 	{"text", [["Si. Unos zombies nos atacaron en la mañana y quedaron ahí
 afuera," dije apuntando a la ventana porque]], false, true},
 
---	{"bg", "mod", args={"falcon/lado.png"}},
 	{"text", [[ no quería verlos de nuevo. "Bake no me quiere ayudar a
 sacarlos."]], true, false},
 
 	{"name", "Falcon"},
 	{"text", [["Ahh."]], false, true},
 
---	{"bg", "mod", tween={"fadeout", 1/2, true}},
 	{"text", [[ Falcon fue a echar un ojo mientras yo guardaba la comida.]],
 true},
 
-	[["Aquí no hay nada," dijo. Pensé que quizás era por la oscuridad, o
-por la nieve que los había cubrido. Me asomé a mirar, y luego abrí la puerta.
-De verdad no estaban.]],
+	[["Aquí no hay nada," dijo. Pensé que quizás era la nieve que los había
+cubrido. Me asomé a mirar, y luego abrí la puerta. De verdad no estaban.]],
 
 	{"name", "María"},
 	[["S-Se suponía que estaban muertos." ¿Donde se habían ido? ¿Que había
@@ -155,21 +152,20 @@ pasado?]],
 puerta, sin polera. "Debe ser que se los llegó a comer otro porque yo los dejé
 bien muertos."]],
 
---	{"bg", "add", args={"falcon/que.png"}},
 	{"name", "Falcon"},
 	[["Que yo sepa no son caníbales, pero quién sabe."]],
 
+	{"name", "María"},
 	[[El viento sopló fuerte de nuevo así que nos metimos de nuevo a la
 casa. Le puse el seguro a la puerta.]],
 
---	{"bg", "mod", args={"falcon/normal.png"}},
+	{"name", "Falcon"},
 	[["No te preocupes en todo caso, mejor que estén lejos," dijo por lo
 visto calmado. "¿Les molesta si le doy una vuelta a la casa?"]],
 
 	{"name", "Bake"},
 	[["Dale. Yo tengo hambre así que voy a preparar algo."]],
 
---	{"bg", "rm"},
 	{"name", "María"},
 	[[Falcon nos dejó solos, y yo intenté quedarme tranquila con sus
 palabras. Por mas que me dijeran esas cosas, esa extraña incomodidad en el
@@ -179,14 +175,15 @@ pecho no desaparecía.]],
 Aunque fuera loco, escucharlo hablar me ayudaba.]],
 
 	[[Afuera la nieve se apilaba, y el sol se ponía lentamente. Falcon
-regresó casi una sombra, y recién ahí Bake prendió su linterna.]],
+regresó casi una sombra, haciendo que me sobre-saltara. Bake se rió, y recién
+ahí prendió su linterna.]],
 
 	[[Falcon dijo que le preocupaba no tener protección en las ventanas.
 Según el, había visto unos zombies metiendose a una casa así, e iba a ser muy
 dificil defender tantas entradas ante cualquier problema.]],
 
 	{"name", "Bake"},
-	[["Hmm, en la bodega hay unas tablas. Puedes clavarlas si quieres xD"]],
+	[["Hmm, en la bodega hay unas tablas. Podés clavarlas si querés xD"]],
 
 	{"name", "María"},
 	[["¿No vas a ayudar?"]],
@@ -196,8 +193,14 @@ dificil defender tantas entradas ante cualquier problema.]],
 Me duele xDD"]],
 
 	{"name", "María"},
-	[["Yo te puedo ayudar," me ofrecí. Le quitamos la linterna a Bake y
-lo dejamos cocinando a oscuras, y entramos todas las tablas y herramientas.]],
+	[["Yo te ayudo entonces," me ofrecí. Le quitamos la linterna a Bake y
+lo dejamos cocinando solo con la llama del gas, y entramos todas las tablas y
+herramientas.]],
+
+	{"bg", "add", args={"maria/living.png"}, color={.8, .9, 1, 0},
+		fade={"fadein", 1}},
+	[[Yo sostenía mientras el clavaba. Me sentía un poco mal haciéndole
+esto a la casa de Bake, pero peor sería dormir tras lo que dijo Falcon.]],
 
 	[["¿Crees que vayan a volver a la noche?" le pregunté tras un rato.]],
 
@@ -223,21 +226,25 @@ de estar atentos."]],
 
 	{"name", "María"},
 	[["Uhm..." Me quedé mirando a Falcon un poco mientras trabajabamos, y
-me quedé pensando en sus palabras. 'Estar atentos'. Yo andaba sobresaltada.
+me quedé pensando en sus palabras. 'Estar atentos'. Yo andaba demasiado alerta.
 Ojalá sirva de algo.]],
 
-	[[Al final de nuestro arreglo la casa quedó aún mas oscura, así que
-con Falcon acordamos buscar velas y baterías para la próxima salida. Terminado
-eso, nos sentamos a comer un estofado con la última comida real que le quedaba
-a Bake.]],
+	[[Tras nuestro arreglo la casa quedó aún mas oscura, así que
+con Falcon acordamos buscar velas y baterías para la próxima salida.]],
+
+	{"macro", res.fun.macro.xFade, "Flash/day.png", 1, {.8, .9, 1, 0}},
+	[[Terminado eso, nos sentamos a comer un estofado con lo único
+medianamente saludable que trajimos.]],
 
 	[[Voy a admitir que luego de lo de la pizza en lata no tenía fe que
 Bake fuera bueno en esto...]],
 
 	[[Pero no sé si fueron todos los días comiendo galletas y o que, pero
 la primera cucharada casi me hizo llorar. Estaba tan exquisito, era incluso
-mejor que lo que comía en casa. Antes de darme cuenta me lo había tragado
-todo. Bake me miraba atento.]],
+mejor que lo que comía en casa.]],
+
+	[[Antes de darme cuenta me lo había tragado todo. Bake me miraba
+atento.]],
 
 	[["Te quedó muy bueno," concluí.]],
 
@@ -245,7 +252,7 @@ todo. Bake me miraba atento.]],
 	[["lol, se notó. ¿Mate? ¿Café?"]],
 
 	{"name", "María"},
-	[["Mate."]],
+	[["Yo quiero un mate."]],
 
 	{"name", "Falcon"},
 	[["Eeh, mate también."]],
@@ -287,8 +294,8 @@ probó el mate,]],
 	[["Vos fumaste de la mala parece."]],
 
 	{"name", "Falcon"},
-	[["No bromees, ya casi creo que tienes razón," dijo
-rebalsando su mate con azúcar.]],
+	[["No bromees, que ya estoy por creerte," dijo rebalsando su mate con
+azúcar.]],
 
 	{"name", "María"},
 	[[Nos quedamos charlando un rato ahora que podíamos hablar con calma.
@@ -300,11 +307,13 @@ ahora porque Falcon no había abandonado la ciudad a pesar de tener un auto.
 Ojalá la hubiera buscado mas.]],
 
 	[[Hablando de autos, me pareció curioso como al segundo día, ayer, ya
-no había nadie. Le pregunté si sabía de alguna evacuación y me dijo que no,
-pero que como todas las estaciones habían dejado de transmitir el primer día,
-había dejado de usar la radio del auto.]],
+no había nadie.]],
 
-	[[Tambien habló de que se veían helicópteros de cuando en vez, aunque
+	[[Le pregunté si sabía de alguna evacuación y me dijo que no, pero que
+como todas las estaciones habían dejado de transmitir el primer día, había
+dejado de usar la radio del auto.]],
+
+	[[Tambien habló de que se veían helicópteros de vez en cuando, aunque
 no sabía donde iban ni que hacían. Sugerí que a lo mejor eran del rescate, pero
 Falcon dijo que no aterrizaban en la ciudad. Reconocimiento, dijo Bake, pero
 ¿que tanto reconocimiento se podía necesitar de la propia capital?]],
@@ -318,6 +327,7 @@ cansancio se nos notaba a todos, aunque a el especialmente.]],
 prácticamente de noche y el ambiente se enfriaba por segundo, decidimos que era
 mejor irnos a dormir. Fuimos hasta la escalera.]],
 
+	{"macro", res.fun.macro.xFade, "maria/living.png", 1, {.8, .9, 1, 0}},
 	{"name", "Falcon"},
 	[["¿Donde dormiremos?"]],
 
@@ -349,11 +359,13 @@ noches."]],
 
 	{"name", "María"},
 	[[Ambos subieron y se fueron a dormir, dejándome sola a los pies de la
-escalera con la linterna en la mano. En cinco segundos se habían repartido las
-camas, y poco mas y decidían con quién dormía sin siquiera preguntarme. Ya
-se habían esfumado para cuando se me ocurrió reclamar. Patée el suelo.]],
+escalera con la linterna en la mano.]],
+
+	[[En cinco segundos se habían repartido las camas, y poco mas y
+decidían con quién dormía sin siquiera preguntarme. Ya se habían esfumado para
+cuando se me ocurrió reclamar. Patée el suelo.]],
 
 	[[¿Por que los hombres siempre tenían que creerse tan machos? ¿Que
 tenía que durmieran juntos? En la escuela era igual, no se podían ni pasar a
-tocar entre ellos. Yo si preferiría dormir con otra mujer.]],
+tocar entre ellos. Yo si preferiría compartir cama con otra mujer.]],
 }

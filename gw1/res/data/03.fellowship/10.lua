@@ -62,11 +62,11 @@ tirar.]],
 
 	{"name", "Bake"},
 	[["Vení, por acá." Mas adelante aparecieron un par criaturas, y giramos
-en una esquina antes que nos vieran. Nos acercamos a la siguiente calle, y Bake
+en una esquina antes que nos vieran. Fuimos a la siguiente calle, y Bake
 se asomó a mirar. Habían más.]],
 
 	[["Están en todos lados los bitchies," comentó. "Lo bueno es que aunque
-nos vean, los podemos perder."]],
+nos vean, nosotros somos mas rápidos."]],
 
 	{"name", "María"},
 	[["Bake, algunas no son lentas."]],
@@ -76,7 +76,7 @@ nos vean, los podemos perder."]],
 
 	{"name", "María"},
 	[["En la mañana, cuando salí, me encontré con una que me persiguió muy
-rápido. Corría como si fuera una persona normal."]],
+rápido. Corría como si fuera una persona cualquiera."]],
 
 	{"name", "Bake"},
 	[["¿Posta?" Asentí. "Shit... Pero bueno, igual hay que cruzar. Tratá de
@@ -90,7 +90,7 @@ no respirar, ¿ok? Los zombies sienten el CO2."]],
 cruzáramos.]],
 
 	{"name", "María"},
-	[[Aguantamos la respiración, y medio agachados nos movimos rápido al
+	[[Aguantamos la respiración, y medio agachados corrimos al
 otro lado. Tomé aire apenas pude.]],
 
 	[["Bake..." dije jadeando. "¿No podríamos... tomar un auto? Están todos
@@ -102,17 +102,19 @@ las llaves." No hizo falta responder, con ver mi expresión bastó. "Eso pensé
 xD"]],
 
 	{"name", "María"},
-	[[Seguimos caminando con mucho cuidado, a veces teniendo que correr.
-Por alguna suerte divina, y tras media hora, llegamos por fin a la zona
-comercial.]],
+	[[Seguimos caminando con mucho cuidado, a veces teniendo que correr, y
+aguantando siempre la respiración aunque no le viera ningún sentido.]],
+
+	[[Por alguna suerte divina, y tras media hora, llegamos por fin a la
+zona comercial.]],
 
 	[[Era un desastre. A pesar de que ahora no se veía a nadie, habían roto
-todos los vidrios y saqueado todo en algún punto. Bake soltó mi brazo y se
+los vidrios y saqueado todo en algún punto. Bake soltó mi brazo y se
 cambió a la otra vereda para ver las tiendas del frente.]],
 
-	[[¿Que comida iba a quedar acá? Ibamos a tener que hacer el viaje de
-vuelta y sin nada en las manos. ¿Y que pasaba si esta vez no corriamos con
-suerte?]],
+	[[¿De verdad encontrariamos comida acá? Ibamos a tener que hacer el
+viaje de vuelta y sin nada en las manos. ¿Y que pasaba si esta vez no corriamos
+con suerte?]],
 
 	[[De pronto, un estruendo de vidrios rotos llenó el ambiente.]],
 
@@ -225,7 +227,7 @@ zombie que golpeó. Este ya había dejado de moverse.]],
 	[["N-No lo recuerdo," respondió.]],
 
 	{"name", "María"},
-	[[Viendolo de cerca, el chico parecía haber estado cerca de la muerte.
+	[[Viéndolo de cerca, el chico parecía haber estado cerca de la muerte.
 Debió golpearse la cabeza o algo así, ya que tenía como un derrame en el ojo.]],
 
 	{"name", "Bake"},
@@ -265,8 +267,12 @@ que veo en días."]],
 	{"name", "Falcon"},
 	[["Les muestro si me alcanzan ese bajo xD"]],
 
+	{"bgm", "set", source="falcon melancólico.ogg",
+		setup={play=false},
+		fade={"delay", 1, "cmd", {play=true}, "delay", "remaining", true}},
 	{"name", "María"},
-	[[Seguimos a Falcon y su bajo hacia los departamentos mas altos.]],
+	[[Seguimos a Falcon quien tocaba su bajo hasta los departamentos mas
+altos.]],
 
 	[[Habían saqueado todo, igual que abajo, pero Falcon había encontrado
 cosas en pequeños escondrijos. Conseguimos comida chatarra, un bate de una
@@ -281,10 +287,10 @@ los minutos salió con una pistola en la mano.]],
 	[["Vos sos adivino, había una Clock 18 con cargador," dijo metiendo
 el cartucho con una sonrisa, y Falcon silbó al verla.]],
 
+	{"name", "María"},
 	[[Yo no le encontraba la diferencia con la que ya teniamos, pero supuse
 que debía ser mejor en algo.]],
 
-	{"name", "María"},
 	[["¿Que mas nos falta?" pregunté. Los tres nos detuvimos a pensar,
 cuando de pronto le cayó un copo de nieve en la frente a Falcon.]],
 
@@ -311,8 +317,8 @@ acompañár? Hay que caminar un poco."]],
 	[[Me entregaron a mi el bate ya que los dos tenían armas, y fuimos a
 buscar el auto de Falcon.]],
 
-	[[En efecto era un Auri, uno un tanto machacado, pero que funcionaba al
-fin y al cabo.]],
+	[[Efectivamente era un Auri, uno un tanto machacado, pero que
+funcionaba al fin y al cabo.]],
 
 	[[Cuando nos subimos notamos que para prenderlo Falcon le movía unos
 cables debajo del volante, y yo con Bake nos sonreímos.]],

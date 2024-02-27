@@ -74,7 +74,7 @@ return {offset = -1,
 		{"Sangre", "45"},
 	},
 
-	{name = "Partes sin escribir a partir de ahora --------------"},
+	{name = "------- Partes sin escribir a partir de ahora -------"},
 
 	{name = "Días de Fab",
 		{"La Flor Austral", "zzz"},

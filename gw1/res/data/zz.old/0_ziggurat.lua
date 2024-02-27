@@ -16,7 +16,7 @@ local function titleMacro()
 	}, 0, 0, width, "center")
 	love.graphics.setCanvas()
 	return {
-		{"bg", "add", args={canvas, x, y}, tween={"fadein", 3}}
+		{"bg", "add", args={canvas, x, y}, fade={"fadein", 3}}
 	}
 end
 
@@ -67,7 +67,7 @@ Las olas nunca dejan de oirse...]],
 	},
 	{"sfx", "sfx/gw.wav"},
 	false,
-	{"bg", "mod", 1, tween={"fadeout", 3, true}},
+	{"bg", "mod", 1, fade={"fadeout", 3, true}},
 	false,
 	{"bg", "rm"},
 }

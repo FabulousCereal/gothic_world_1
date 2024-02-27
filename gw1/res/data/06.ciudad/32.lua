@@ -30,7 +30,7 @@ local function checaMiRiff()
 				"bg", "add",
 				args={cnv, floor(x), floor(y)},
 				color={1, 1, 1, 0},
-				tween={"delay", delay, "fadein", 1/12, "delay", time, true},
+				fade={"delay", delay, "fadein", 1/12, "delay", time, true},
 			}
 		end
 		delay = delay + time
@@ -267,13 +267,13 @@ le unió con el bajo.]],
 	{"bgm", "set", "wind", 0,
 		setup={setPitch=3/4},
 		fade={"fadeto", 1/2, 30},
-		source="freesound/557188__julien-matthey__jm_natural-elements_wind-01.flac"},
+		source="freesound/557188__julien-matthey__jm_natural-elements_wind-01.ogg"},
 	[[Con Croft nos lavamos los dientes al sonido de pruebas de guitarra,
 golpes eléctricos, y mas martillazos provenientes del cuarto.]],
 
 	[[Le pregunté a Croft porque había agua pero no luz, y Croft me dijo
 que el agua corría por gravedad desde las torres. Si seré tonta. Toda la
-vida viendolas y nunca se me ocurrió que eran para eso.]],
+vida vié|ndolas y nunca se me ocurrió que eran para eso.]],
 
 	{"name", "Bake"},
 	[["(Na-na-na-na-na-na-na-na niece! Na-na-na-na niece!)"]],

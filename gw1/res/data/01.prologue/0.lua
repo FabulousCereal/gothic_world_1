@@ -37,15 +37,15 @@ local function eauDeParfum()
 		args={canvas,
 			math.floor(w / 2 - canvasW / 2),
 			math.floor(h / 2 - canvasH / 2)},
-		tween={"fadein", 3},
+		fade={"fadein", 3},
 	}}
 end
 
 local function fadeSwap(_, _, args)
 	local time = 3
 	return {
-		{"bg", "mod", tween={"delay", time, true}},
-		{"bg", "add", args=args, tween={"fadein", time}},
+		{"bg", "mod", fade={"delay", time, true}},
+		{"bg", "add", args=args, fade={"fadein", time}},
 	}
 end
 
@@ -57,7 +57,7 @@ return {
 	{"wait", 2},
 	[[Tuve un sueño antes del desastre.]],
 
-	{"bg", "add", args={"maria/intro1.png", -80}, tween={"fadein", 2}},
+	{"bg", "add", args={"maria/intro1.png", -80}, fade={"fadein", 2}},
 	[[Soñé que caía sobre un inmenso océano sin costas.]],
 
 	{"macro", fadeSwap, {"maria/intro2.png", 0, 0, 0, .8}},
@@ -85,12 +85,12 @@ caída.]],
 	{"wait", 1},
 	[["Gracias, pero no puedes..."]],
 
-	{"bg", "mod", tween={"delay", 3, true}},
-	{"bg", "add", color={.15, .2, .2, 0}, tween={"fadein", 3},
+	{"bg", "mod", fade={"delay", 3, true}},
+	{"bg", "add", color={.15, .2, .2, 0}, fade={"fadein", 3},
 		args=f0b.elem.screenFill},
 --	{"bg", "add", args={"maria/intro7.png", 0, 0, 0, .8},
 --		color={1, 1, 1, 0},
---		tween={"delay", 1.5, "fadein", 3}},
+--		fade={"delay", 1.5, "fadein", 3}},
 
 	{"bgm", "set", "waves", 0, source="olas.ogg",
 		fade={"fadeto", 1, 20}},
@@ -109,7 +109,7 @@ las olas nos envolvían.]],
 --	{"bgm", "mod", "waves", fade={"fadeout", 4, true}},
 	{"bgm", "modall", fade={"fadeout", 4, true}},
 	{"wait", 4, true},
-	{"bg", "mod", -1, tween={"fadeout", 2, true}},
-	{"bg", "mod", tween={"fadeout", 2, true}},
+	{"bg", "mod", -1, fade={"fadeout", 2, true}},
+	{"bg", "mod", fade={"fadeout", 2, true}},
 	{"wait", 1.9, true},
 }

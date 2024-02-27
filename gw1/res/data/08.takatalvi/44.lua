@@ -42,11 +42,12 @@ pregunté. Eran casi hilitos de metal. La dejé donde estaba, y tomé el bajo de
 Falcon.]],
 
 	[[Las cuerdas de esta eran mucho mas gruesas. De inmediato el pulgar me
-empezó a doler, así que tampoco duré mucho.]],
+empezó a doler, así que tampoco toqué nada.]],
 
 	[[En fin. Tras haberlo movido todo me recosté en el suelo. Dios,
 ¿para que tomé tanto mate? Desearía tener un libro aunque sea.]],
 
+	{"bgm", "mod", fade={"fadeout", 3, true}},
 	[[(*crrreak*)]],
 
 	[[Agudizé el oído ante el ruido. Provenía del piso de abajo. Parecía la

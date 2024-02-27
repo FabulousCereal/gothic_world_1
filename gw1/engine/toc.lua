@@ -97,7 +97,7 @@ local function updateParallax(self)
 	end
 	offset = offset + cur[2]
 		
-	f0b.layers.ops(layers, "modall", {tween={"mvabs", 0, -offset, 2/3}})
+	f0b.layers.ops(layers, "modall", {fade={"mvabs", 0, -offset, 2/3}})
 end
 
 local function runStage(self, allow)

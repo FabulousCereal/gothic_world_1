@@ -161,7 +161,7 @@ local instructionTable = {
 
 	map = function(line, vn)
 		local key = line[2]
-		vn.vars[key] = line[3][key]
+		vn.vars[key] = line[3][vn.vars[key]]
 	end,
 
 	global = function(line, vn)

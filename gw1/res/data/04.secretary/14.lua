@@ -14,9 +14,9 @@ los perros ladrando.]],
 que ya nadie debía permanecer aquí, y que los que quedabamos estabamos
 transgrediendo un sepulcro.]],
 
-	[[No sabía que le pasaba a Bake, si era por la herida o por algo que
-había hecho mal. No pude evitar pensar que era en parte mi culpa por no poder
-valerme sola.]],
+	[[Volviendo a temas mas personales, no entendía que le pasaba a Bake.
+Si era por la herida o por algo que había hecho mal. No pude evitar pensar que
+era en parte mi culpa por no poder valerme sola.]],
 
 	[[Distinguí a la distancia algunos edificios grandes, y fuí en
 dirección a ellos. El hotel no lo recordaba bien por fuera, pero estaba
@@ -50,7 +50,7 @@ que patinaba por el hielo directo hacia mi.]],
 	{"bgm", "mod", "mula", fade={"fadeto", 1/8, 3}},
 	{"bgm", "set", "auto", 0,
 		source="freesound/71739__audible-edge__chrysler-lhs-tire-squeal-04.16.flac",
-		fade={"fadein", 1.5},
+		fade={"fadein", 2},
 		setup={seek=2.5, setPitch=3/3}},
 	3,
 	{"bgm", "rmall"},

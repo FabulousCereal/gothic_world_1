@@ -17,11 +17,16 @@ abierta por completo.]],
 	{"name", "María"},
 	[["¡¿Que?! ¡¿Que el chico se cayó a un pozo?!"]],
 
+	{"bg", "add", args={"maria/living.png"}, color={2/3, 2/3, 2/3, 0},
+		fade={"fadein", 1}},
 	[[Entré a la casa, y lo primero que noté fue que el chico no estaba en
-el sofá. ¿Se habrá levantado? ¿Habrá tenido que huir de algo? El living se veía
-intacto, así que nada se había metido. Calmé mis nervios. Me estaba asustando
-sola.]],
+el sofá.]],
 
+	[[¿Se habrá levantado? ¿Habrá tenido que huir de algo? El living se
+veía intacto, así que nada se había metido. Calmé mis nervios. Me estaba
+asustando sola.]],
+
+	{"bg", "mod", fade={"fadeout", 1}},
 	[[Se me vinieron a la mente los cuerpos. Sabía que no podían seguir
 vivos con los balazos en la cabeza, pero parecía que algo fallaba en la
 mía porque de nuevo empecé a alarmarme. Me metí a la cocina. Nada parecía fuera
@@ -35,10 +40,10 @@ cortó el aire.]],
 	{"name"},
 	[["¡¡LA CONCHA DE LA LORAAAAAAA!!"]],
 
-	{"bg", "add", args={"croft/cuchillo de cocina canvas 1-1.png",
-		-60, -108},
+	{"bg", "add",
+		args={"croft/cuchillo de cocina canvas 1-1.png", -60, -108},
 		color={1,1,1,0},
-		tween={"fadein", 1/3, "delay", 1/3, "fadeout", 1/3, true}},
+		fade={"fadein", 1/3, "delay", 1/3, "fadeout", 1/3, true}},
 	{"name", "María"},
 	[[Tomé lo primero que encontré a mano y corrí arriba a buscar al chico.
 ¿Que esperaba hacer? ¿Creía que serviría yo de algo? Lamentablemente, no

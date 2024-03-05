@@ -1,9 +1,8 @@
 return {
-        {"style", "vnCroft"},
-        res.fun.macro.title,
-        {"macro", res.fun.macro.date, {2011, 11, 10, 6, 20}},
+	{"style", "vnCroft"},
+	{"macro", "titleDate", {2011, 11, 10, 6, 20}},
 
-        {"name", "Croft"},
+	{"name", "Croft"},
 	[[Desperté tras una incómoda y fría noche con el ruido de una carreta
 a toda velocidad. Me estaba por dormir de nuevo cuando oigo ruidos de disparos
 y caballos relinchando. Provenían de la barricada.]],

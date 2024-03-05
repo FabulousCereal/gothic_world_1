@@ -7,16 +7,14 @@ tenido en demasiado tiempo. Con pereza abrí los ojos.]],
 
 	[[Estaba vuelta hacia Falcon, con un brazo alrededor de el.]],
 
-	{"bg", "add", args={"maria/pieza.png"}, color=res.palette("tenpm", 0),
-		fade={"fadein", 2}},
+	{"bg", "add", args={"maria/pieza.png"}, fade={"fadein", 2}},
 	[[Me quedé paralizada sin saber que hacer. El seguía vuelto hacia la
 pared, y pronto me dí cuenta que el aún dormía, sin darse cuenta.]],
 
 	[[Con cautela lo solté y salí de la cama. Me puse abrigo y zapatos.
 Esto nunca pasó.]],
 
-	{"macro", res.fun.macro.xFade, "maria/pasillo.png", 1,
-		res.palette("tenpm", 0)},
+	{"macro", "xFade", "maria/pasillo.png"},
 	[[Salí al pasillo y me recibió un olor a tostadas. Ese debía ser Bake.]],
 
 	[[Me debatí sobre si despertar a Falcon para que desayunara, pero tras
@@ -25,12 +23,11 @@ ese incidente que acababa de prometerme olvidar, no tuve el valor.]],
 	[[Si, no tenía ningún sentido si es que de verdad seguía durmiendo;
 igual no me atrevía.]],
 
-	{"macro", res.fun.macro.xFade, "maria/living.png", 1,
-		res.palette("tenpm", 0)},
+	{"macro", "xFade", "maria/living.png"},
 	[[Bajé sola, tratando de entender como fue que había terminado así sí
 me había acostado vuelta hacia el otro lado.]],
 
-	{"bg", "mod", fade={"fadeout", 1, true}},
+	{"macro", "xFade", "maria/cocina.png"},
 	[[Llegando a la cocina me encontré con Bake, que se trataba de mirar la
 herida mientras el pan se le empezaba a quemar.]]
 }
@@ -47,8 +44,7 @@ compañía.]],
 	[[Me giré y noté que Bake ya se había levantado, o al menos no estaba
 en la cama, así que me vestí (o sea me puse zapatos) y bajé a buscarlo.]],
 
-	{"bg", "add", args={"maria/living.png"}, color=res.palette("tenpm", 0),
-		fade={"fadein", 2}},
+	{"bg", "add", args={"maria/cocina.png"}, fade={"fadein", 1}},
 	[[Guiada por el olor a tostadas llegué a la cocina. Bake se trataba de
 mirar la herida. El pan se quemaba.]],
 }
@@ -58,29 +54,33 @@ return {
 	{"name", "María"},
 	res.fun.macro.title,
 
+	{"bg", "mod", "default", color=res.palette("tenpm")},
 	{"let", "quien"},
 	{"global", "get", "quien", "DespiertaDonde"},
-	{"case", "quien", {
-		Bake = conBake,
-		Falcon = conFalcon,
-		sola = {
+	{"case", "quien",
+		{
+			Bake = conBake,
+			Falcon = conFalcon,
+		},
+		{
 			{"bg", "add", args={"maria/living.png"},
-				color=res.palette("tenpm", 0),
 				fade={"fadein", 2}},
 			[[Me sentía con ganas de morir. Tanto los ojos y el
 			cuerpo me pesaban, y la cabeza se me partía, pero
 			la claridad del día era tal que la horas perdidas ya no
-			volverían. Para rematar, Bake se puso a hacer el
-			desayuno. Mi estómago gruñó. 8 horas sin comer.]],
+			volverían.]],
 
-			{"bg", "mod", fade={"fadeout", 1}},
-			[[Me desenrollé del nido con gran dificultad y fui
-			tras el. Me quedé en la puerta de la cocina, mirándolo.
+			[[Para rematar, Bake se puso a hacer el desayuno.
+			Mi estómago gruñó. 8 horas sin comer. Me desenrollé del
+			nido con gran dificultad y fui tras el.]],
+
+			{"macro", "xFade", "maria/cocina.png"},
+			[[Me quedé en la puerta de la cocina, mirándolo.
 			Había puesto la tetera y puso a tostar pan, pero
 			intentaba revisarse la herida de la espalda. Se
 			veía preocupado.]],
 		}
-	}},
+	},
 
 	[["¿Bake?"]],
 
@@ -104,11 +104,10 @@ un rato estaría listo, que esperara un par de minutos.]],
 hacerle preguntas. Al final no hice mas que llevar una mantequilla a la mesa.
 Bake llegó pronto con las tostadas y el agua.]],
 
-	{"bg", "add", args={"Flash/day.png"}, color=res.palette("tenpm", 0),
-		fade={"fadein", 1}},
+	{"macro", "xFade", "Flash/day.png"},
 	{"name", "Bake"},
-	[["¿No se levantó Falcon?" me preguntó mientras servía té. Negué con la
-cabeza. "Seguro le debía hacer falta una buena noche."]],
+	[["¿No se levantó Falcon?" me preguntó mientras servía mate. Negué con
+la cabeza. "Seguro le debía hacer falta una buena noche."]],
 
 	{"name", "María"},
 	[[Bake no quiso hablar mucho, y luego de comer fue a probar su guitarra
@@ -117,9 +116,10 @@ formas. Quedándome sola, me dí cuenta de que no sabía que hacer ahora.]],
 
 	{"bg", "mod", fade={"fadeout", 1, true}},
 	1,
-	{"bgm", "set", source="maria se aburre (demo).ogg", setup={play=false},
-		fade={"delay", 2/3, "cmd", {play=true}}},
-	{"macro", res.fun.macro.date, {2011, 11, 12, 9, 26}},
+
+	{"bgm", "set", "bored", source="maria se aburre (demo).ogg",
+		setup={play=false}, fade={"delay", 2/3, "cmd", {play=true}}},
+	{"macro", "date", {2011, 11, 12, 9, 26}},
 	[[Nunca pensé que el apocalípsis pudiera ser tan aburrido.]],
 
 	[[Salí a mirar donde estuvieron los cuerpos ayer y a mover la nieve con
@@ -146,7 +146,7 @@ Me pregunté si es la herida que lo estaba molestando.]],
 	[[Aunque ahora que lo pienso, un baño no me haría mal... Y de hecho,
 tampoco una muda de ropa y un cepillo. Necesitaba conseguir esas cosas hoy.]],
 
-	{"bgm", "mod", fadeout={"fadeout", 1, true}},
+	{"bgm", "mod", "bored", fade={"fadeout", 1, true}},
 	[[Oh Dios, tal vez era eso. Bake me evitaba porque apestaba. Traté de
 sentirme el olor, pero no olí nada.]],
 

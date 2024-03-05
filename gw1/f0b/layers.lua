@@ -2,6 +2,7 @@
 -- SPDX-License-Identifier: Unlicense
 
 local seq = require("f0b._seqCommon")
+local fTable = require("f0b.table")
 
 -- Varies arbitrary variables --
 -- Format: {"_generic", directives, timeRemaining}
@@ -72,9 +73,7 @@ local function layerFade(layer, fade, dt)
 end
 
 local function fadeSetup(layer, fade, dt)
-	if not layer.color then
-		layer.color = {1, 1, 1, (fade[1] == "fadein") and 0 or 1}
-	end
+	layer.color[4] = (fade[1] == "fadein") and 0 or 1
 	return seq.fadeSetup(layer, fade, dt, layer.color[4], layerFade)
 end
 
@@ -123,31 +122,52 @@ end
 
 local function layerDraw(layerTable)
 	local graphics = love.graphics
+	local default = layerTable.default
 	for i = 1, #layerTable do
 		local layer = layerTable[i]
-		local drawFunc = layer.exec or graphics.draw
-		graphics.setColor(layer.color or {1, 1, 1, 1})
-		if layer.shader then
-			graphics.setShader(layer.shader)
+		local drawFn = layer.exec or default.exec
+		local shader = layer.shader
+		local color = layer.color
+		graphics.setColor(color)
+		if shader then
+			graphics.setShader(shader)
 		end
-		drawFunc(unpack(layer.args))
-		if layer.shader then
+		drawFn(unpack(layer.args))
+		if shader then
 			graphics.setShader()
 		end
 	end
 end
 
-local function normalizeLayer(op)
-	if op.fade and op.fade[1] == "fadein" and not op.color then
-		op.color = {1,1,1,0}
+local function defaultDefaults()
+	return {color={1,1,1,1}, exec=love.graphics.draw}
+end
+
+local function setDefaults(layerTable)
+	if not layerTable.default then
+		layerTable.default = defaultDefaults()
+	end
+end
+
+local function normalizeLayer(layerTable, op)
+	local graphics = love.graphics
+	local default = layerTable.default
+	if not op.color then
+		op.color = fTable.deepCopy(default.color)
+	end
+	if not op.shader then
+		op.shader = default.shader
+	end
+	if not op.exec then
+		op.exec = default.exec
 	end
 
-	local graphics = love.graphics
-	if not op.exec or op.exec == graphics.draw then
+	if op.exec == graphics.draw then
 		local arg = op.args[1]
 		if type(arg) == "table" then
+			arg.default = fTable.deepCopy(default)
 			for i = 1, #arg do
-				normalizeLayer(arg[i])
+				normalizeLayer(layerTable, arg[i])
 			end
 
 			op.args = {graphics.newCanvas()}
@@ -165,9 +185,8 @@ local function normalizeIndex(table, idx, default)
 		return default or #table
 	elseif idx < 1 then
 		return #table + idx
-	else
-		return idx
 	end
+	return idx
 end
 
 local function getNormalizedRange(table, start, limit)
@@ -176,29 +195,34 @@ local function getNormalizedRange(table, start, limit)
 	return start, limit
 end
 
-local function layerMod(layers, op, start, limit)
-	local deepCopy = f0b.table.deepCopy
-	for key, value in pairs(op) do
-		local valType = type(value)
-		for i = start, limit do
-			if valType == "table" then
-				local copy = deepCopy(value)
-				if key == "args" then
-					copy[1] = seq.normalizeSrc(res.img,
-						copy[1])
-				end
-				layers[i][key] = copy
-			elseif valType ~= "number" then
-				layers[i][key] = value
+local function layerMod(layer, op)
+	local deepCopy = fTable.deepCopy
+	for key, val in pairs(op) do
+		local valType = type(val)
+		if valType == "table" then
+			local copy = deepCopy(val)
+			if key == "args" then
+				copy[1] = seq.normalizeSrc(res.img,
+					copy[1])
 			end
+			layer[key] = copy
+		elseif valType ~= "number" then
+			layer[key] = val
 		end
+	end
+end
+
+local function layerModRange(layers, op, start, limit)
+	for i = start, limit do
+		layerMod(layers[i], op)
 	end
 end	
 
 local layerOps
 layerOps = {
 	add = function(layers, op)
-		normalizeLayer(op)
+		setDefaults(layers)
+		normalizeLayer(layers, op)
 		local idx = op[1]
 		if idx then
 			table.insert(layers, idx, op)
@@ -208,7 +232,8 @@ layerOps = {
 	end,
 
 	set = function(layers, op)
-		normalizeLayer(op)
+		setDefaults(layers)
+		normalizeLayer(layers, op)
 		local idx = normalizeIndex(layers, op[1])
 		layers[idx] = op
 	end,
@@ -220,19 +245,20 @@ layerOps = {
 		end
 	end,
 
-	rmall = function(layers)
-		for i = #layers, 1, -1 do
-			layers[i] = nil
+	rmall = fTable.clearArray,
+
+	mod = function(layers, op)
+		local start, limit = unpack(op)
+		if type(start) == "string" then
+			layerMod(layers[start], op)
+		else
+			start, limit = getNormalizedRange(layers, start, limit)
+			layerModRange(layers, op, start, limit)
 		end
 	end,
 
-	mod = function(layers, op)
-		local start, limit = getNormalizedRange(layers, op[1], op[2])
-		layerMod(layers, op, start, limit)
-	end,
-
 	modall = function(layers, op)
-		layerMod(layers, op, 1, #layers)
+		layerModRange(layers, op, 1, #layers)
 	end,
 
 	fold = function(layers, op)
@@ -260,10 +286,16 @@ return {
 	end,
 
 	normalize = function(layerTable)
+		setDefaults(layerTable)
 		for i = 1, #layerTable do
-			normalizeLayer(layerTable[i])
+			normalizeLayer(layerTable, layerTable[i])
 		end
 		return layerTable
+	end,
+
+	reset = function(layerTable)
+		layerTable.default = defaultDefaults()
+		return fTable.clearArray(layerTable)
 	end,
 
 	update = function(layerTable, dt)

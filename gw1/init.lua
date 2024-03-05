@@ -39,6 +39,7 @@ local stub = fload("engine/stub.lua")
 
 local w, h = love.graphics.getDimensions()
 local elemColor = {0, 0, 0, 1/3}
+local normalize = f0b.layers.normalize
 
 local vnID = gamestate:add(vn.new(res.index, res.style.vn))
 local tocID = gamestate:add(toc.new(res.index, res.style.menu, vnID))
@@ -47,24 +48,24 @@ local helpID = gamestate:add(stub.new())
 gamestate[tocID].tracks = f0b.jukebox.newTracklist(
 	{"index", setup={play=false}, source="Pronóstico de Nieve (calliope ver).ogg"}
 )
-gamestate[tocID].background = f0b.layers.normalize({
+gamestate[tocID].background = normalize({
 	{args={"menu/index.png"}, color={1, 1, 1, 1}, distance=4},
 	{args={snowParticles(w, h)}, distance=1},
 })
-gamestate[credID].background = {
+gamestate[credID].background = normalize({
 	{args=screen.credit(res.style.menu, w, h)}
-}
-gamestate[helpID].background = {
+})
+gamestate[helpID].background = normalize({
 	{args=screen.help(res.style.menu, w, h)}
-}
+})
 
-local confBG = f0b.layers.normalize({
+local confBG = normalize({
 	{args={{
 		{args={"zeh/menu/conf.png"}, shader=res.shader.edgy},
 --		{args={f0b.elem.circle, w/2, h/2, 0, w/2}, color=elemColor},
 	}}},
 })
-local mainBG = f0b.layers.normalize({
+local mainBG = normalize({
 	{args={{
 		{args={"zeh/menu/main.png"}, shader=res.shader.edgy},
 --		{args=f0b.elem.screenFill(.9), color=elemColor},

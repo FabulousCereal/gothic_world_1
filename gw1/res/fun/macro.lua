@@ -7,33 +7,36 @@ local badends = {
 	"Cave canem",
 }
 
+local function title(vars, _, showTitle, time)
+	local idx, name
+	if showTitle then
+		idx = vars._idx1
+		name = vars._title1
+	else
+		idx = vars._idx2
+		name = vars._title2
+	end
+	local str = string.format("%d.%d\n%s", vars._idx1, idx, name)
+	return {
+		{"bg", "add",
+			args=res.fun.card.card(res.style.title.fontFamily,
+				48, str, "center")},
+		time or defaultTime,
+		{"bg", "rm"},
+	}
+end
+
 return {
 	xFade = function(_, _, name, secs, color)
+		local s = secs or 1
 		return {
-			{"bg", "mod", fade={"delay", secs, true}},
-			{"bg", "add", args={name}, fade={"fadein", secs},
+			{"bg", "mod", fade={"delay", s, true}},
+			{"bg", "add", args={name}, fade={"fadein", s},
 				color=color},
 		}
 	end,
 
-	title = function(vars, _, showTitle, time)
-		local idx, name
-		if showTitle then
-			idx = vars._idx1
-			name = vars._title1
-		else
-			idx = vars._idx2
-			name = vars._title2
-		end
-		local str = string.format("%d.%d\n%s", vars._idx1, idx, name)
-		return {
-			{"bg", "add",
-				args=res.fun.card.card(res.style.title.fontFamily,
-					48, str, "center")},
-			time or defaultTime,
-			{"bg", "rm"},
-		}
-	end,
+	title = title,
 
 	date = function(_, _, args)
 		local months = {"Enero", "Febrero", "Marzo", "Abril",
@@ -52,12 +55,20 @@ return {
 			day, months[month], year)
 		local timeString = string.format("%.2u:%.2u", hour, min)
 		local genSub = res.fun.card.subtitle
+		local white = {1, 1, 1, 1},
 		return {
-			{"bg", "add", idx, args=genSub(dateString, "center")},
+			{"bg", "add", idx, args=genSub(dateString, "center"), color=white},
 			wait,
-			{"bg", "mod", idx, args=genSub(timeString, "center")},
+			{"bg", "mod", idx, args=genSub(timeString, "center"), color=white},
 			defaultTime,
 			{"bg", "rm", idx},
+		}
+	end,
+
+	titleDate = function(_, _, args)
+		return {
+			title,
+			{"macro", "date", args}
 		}
 	end,
 

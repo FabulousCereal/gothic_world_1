@@ -2,6 +2,11 @@ return {
 	{"style", "vnMaria"},
 	res.fun.macro.title,
 
+	{"bg", "add", args={"Flash/day.png"}, fade={"fadein", 1}},
+	{"bgm", "set", nil, 0,
+		source="freesound/557188__julien-matthey__jm_natural-elements_wind-01.ogg",
+		setup={setFilter={type="lowpass", volume=1/2, highgain=0}},
+		fade={"fadein", 12}},
 	{"name", "María"},
 	[[Nos quedamos en silencio tras la historia de Croft. Bake tomó de su
 mate y Croft sorbeteó de su café. El viento agarraba fuerza una vez mas.]],
@@ -99,6 +104,7 @@ variedad."]],
 	{"name", "María"},
 	[["Ah, verdad. Vamos entonces."]],
 
+	{"bg", "mod", fade={"fadeout", 1, true}},
 	[[Agarramos nuestros abrigos --excepto por Croft-- y salimos al patio.
 Pipi nos olfeateó los pies de nuevo al salir.]],
 

@@ -69,17 +69,21 @@ hacia el frente para hablarle.]],
 			{"bgm", "set", "squeal1", 0,
 				source="freesound/71739__audible-edge__chrysler-lhs-tire-squeal-04.16.flac",
 				setup={seek=5}, fade={"fadein", .25, "delay", 1.75, "fadeout", .5, true}},
-			{"sfx", "freesound/676613__fivebrosstopmosyt__table-smash-1.flac",
-				.25, 1/3, 2},
+--			{"sfx", "freesound/676613__fivebrosstopmosyt__table-smash-1.flac",
+--				.25, 1/3, 2},
 			{"name", "Bake"},
 			{"text", [["HOLY SH--"]], false, true},
 
 			{"name", "María"},
+			{"sfx", "freesound/634778__5plus5equalspatata__metal-crash.mp3",
+				1/6, 4/3, 2},
 			[[El auto pasó de largo la curva hasta que las
 			ruedas chocaron con la cuneta de enfrente. El auto dió
 			un salto y en el aire vi el piso de la vereda
 			acercándose por mi ventana. Grité.]],
 
+			{"sfx", "freesound/634778__5plus5equalspatata__metal-crash.mp3",
+				1/3, 1, 1},
 			[[Cuando estaba a solo centímetros las ruedas tocaron
 			el suelo y el auto saltó hacia el otro lado.]],
 
@@ -89,7 +93,7 @@ hacia el frente para hablarle.]],
 
 			{"bgm", "set", "squeal2",
 				source="freesound/71738__audible-edge__chrysler-lhs-tire-squeal-03.cut.flac",
-				fade=repeatSqueal(5)},
+				fade={"loop", 5, true}}, --repeatSqueal(5)},
 			[[De alguna forma lo esquivamos, y nos fuimos con el
 			auto dando coletazos por la calle.]],
 
@@ -101,8 +105,10 @@ hacia el frente para hablarle.]],
 		}
 	}},
 
+	{"bg", "mod", "default", color=res.palette("fivepm")},
+	{"bg", "add", args={"maria/living.png"}, fade={"fadein", 2}},
 	{"name", "María"},
-	{"text", [[ a la casa cerca de las siete, cuando ya estaba oscureciendo
+	{"text", [[ a la casa cerca de las seis, cuando ya estaba oscureciendo
 y la nieve comenzaban a tapar la vista. Entramos Falcon y yo cargando
 la comida, y el dejó un segundo las bolsas para estirar los brazos al techo.]],
 	true},
@@ -115,6 +121,7 @@ días en el auto." Bake entró sin nada y se tiró como tabla en el sillón.]],
 	[["Tenés razón," dijo recostado boca abajo. Llevé a Falcon a la
 cocina para guardar la comida.]],
 
+	{"macro", "xFade", "maria/cocina.png"},
 	[["¿Sabés que nos hizo falta? Unas chelas," comentó Bake desde el
 living. Falcon contuvo una risa, aunque a mi no me hizo gracia.]],
 
@@ -174,8 +181,9 @@ pecho no desaparecía.]],
 	[[Empecé a charlar un poco con Bake para quitarme eso de la mente.
 Aunque fuera loco, escucharlo hablar me ayudaba.]],
 
+	{"bg", "mod", color=res.palette("sixpm")},
 	[[Afuera la nieve se apilaba, y el sol se ponía lentamente. Falcon
-regresó casi una sombra, haciendo que me sobre-saltara. Bake se rió, y recién
+regresó casi una sombra, haciendo que me sobresaltara. Bake se rió, y recién
 ahí prendió su linterna.]],
 
 	[[Falcon dijo que le preocupaba no tener protección en las ventanas.
@@ -183,7 +191,7 @@ Según el, había visto unos zombies metiendose a una casa así, e iba a ser muy
 dificil defender tantas entradas ante cualquier problema.]],
 
 	{"name", "Bake"},
-	[["Hmm, en la bodega hay unas tablas. Podés clavarlas si querés xD"]],
+	[["Hmm, en la bodega hay unas tablas. Podés clavarlas si querés."]],
 
 	{"name", "María"},
 	[["¿No vas a ayudar?"]],
@@ -197,8 +205,9 @@ Me duele xDD"]],
 lo dejamos cocinando solo con la llama del gas, y entramos todas las tablas y
 herramientas.]],
 
-	{"bg", "add", args={"maria/living.png"}, color={.8, .9, 1, 0},
-		fade={"fadein", 1}},
+	{"bg", "mod", "default", color=res.palette("flashlight"),
+		shader=res.shader.contrast},
+	{"macro", "xFade", "maria/living.png"},
 	[[Yo sostenía mientras el clavaba. Me sentía un poco mal haciéndole
 esto a la casa de Bake, pero peor sería dormir tras lo que dijo Falcon.]],
 
@@ -232,7 +241,7 @@ Ojalá sirva de algo.]],
 	[[Tras nuestro arreglo la casa quedó aún mas oscura, así que
 con Falcon acordamos buscar velas y baterías para la próxima salida.]],
 
-	{"macro", res.fun.macro.xFade, "Flash/day.png", 1, {.8, .9, 1, 0}},
+	{"macro", "xFade", "Flash/day.png", false, {2/3, 1/2, 2/3, 0}},
 	[[Terminado eso, nos sentamos a comer un estofado con lo único
 medianamente saludable que trajimos.]],
 
@@ -327,7 +336,7 @@ cansancio se nos notaba a todos, aunque a el especialmente.]],
 prácticamente de noche y el ambiente se enfriaba por segundo, decidimos que era
 mejor irnos a dormir. Fuimos hasta la escalera.]],
 
-	{"macro", res.fun.macro.xFade, "maria/living.png", 1, {.8, .9, 1, 0}},
+	{"macro", "xFade", "maria/living.png"},
 	{"name", "Falcon"},
 	[["¿Donde dormiremos?"]],
 

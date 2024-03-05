@@ -9,12 +9,12 @@ se encontraba bien. Aparte que algo de compañía nunca le viene mal a nadie.]],
 conocido recíen ayer, pero por alguna razón cuestionaba su habilidad para
 saber si algo era grave.]],
 
-	{"macro", res.fun.macro.xFade, "maria/pasillo.png", 1},
+	{"macro", "xFade", "maria/pasillo.png"},
 	[[Llegué a duras penas arriba y toqué a la puerta. La
 verdad iba a entrar igual porque no esperaba respuesta, pero sorprendentemente
 oí un "Pase" casi de inmediato.]],
 
-	{"macro", res.fun.macro.xFade, "maria/pieza.png", 1, {.8, .8, .8, 0}},
+	{"macro", "xFade", "maria/pieza.png", false, {.8, .8, .8, 0}},
 	[[Abrí y encontré a Falcon en pie, poniéndose su abrigo con chapa.]],
 
 	{"name", "Falcon"},
@@ -39,7 +39,7 @@ comiendo galletas abajo. ¿Vienes?"]],
 	{"name", "Falcon"},
 	[["Ya. Muero del hambre."]],
 
-	{"macro", res.fun.macro.xFade, "maria/pasillo.png", 1},
+	{"macro", "xFade", "maria/pasillo.png"},
 	{"name", "María"},
 	[[Salí a esperarlo al pasillo, y cuando estuvo listo fui con en el
 hasta la escalera.]],
@@ -60,7 +60,7 @@ y con levantar la manga del pantalón bastó.]],
 	{"name", "Falcon"},
 	[["Igual si reposas creo que se te va a pasar mas luego."]],
 
-	{"macro", res.fun.macro.xFade, "Flash/day.png", 1}},
+	{"macro", "xFade", "Flash/day.png"}},
 	{"name", "María"},
 	[[Bajamos los dos la escalera a duras penas, y de ahí fuimos al comedor
 donde estaban Bake y Croft tomando mate y café, respectivamente.]],
@@ -96,9 +96,7 @@ café...]],
 return {
 	{"style", "vnMaria"},
 	{"name", "María"},
-	res.fun.macro.title,
-
-	{"macro", res.fun.macro.date, {2011, 11, 12, 13, 50}},
+	{"macro", "titleDate", {2011, 11, 12, 13, 50}},
 	[[Llegamos cerca de la 2 de la tarde a la casa. El día se estaba
 empezando a nublar de nuevo, y Croft comentó que iba a nevar otra vez a la
 tarde.]],
@@ -200,7 +198,7 @@ al pasar frente a la escalera.]],
 		{
 			[[A lo mejor solo iba a molestarlo si lo despertaba.]],
 
-			{"macro", res.fun.macro.xFade, "Flash/day.png", 1},
+			{"macro", "xFade", "Flash/day.png"},
 			[[Seguí hasta la mesa y me senté junto a los chicos.
 			Croft ya le estaba contando a Bake sobre como me
 			pasó por encima, y que aparentemente lo rodearon tres

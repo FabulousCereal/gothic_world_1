@@ -1,9 +1,3 @@
-local falconPieza = {
-	"bg", "add",
-	args={"maria/pieza.png"}, shader=res.shader.purkinje,
-	color={1/6, 1/6, 1/6, 0}, fade={"fadein", 4}
-}
-
 local pipiElPerroMaravilla = {
 	[[Pipi... ¡Pipi! Pipi dormía en una cama. Fui desenrollándome de a poco
 mientras recuperaba la sensación del cuerpo, ya que el frío casi me había
@@ -51,7 +45,7 @@ mientras dejaba de sentir mi cuerpo. La fuerza se me iba, el liquido brotaba a
 golpes y ya no podía moverme. Me desmayaba. Alcancé a oír unas voces en la
 puerta, a ver una luz y unas sombras, y...]],
 
-	{"macro", res.fun.macro.badend, 1},
+	{"macro", "badend", 1},
 	{"return", false},
 }
 
@@ -103,9 +97,9 @@ local soyTestaruda = {
 principios y porfía, así que de una u otra forma esto tenía que funcionar.]],
 
 	[[Me enrollé en posición fetal y me hice un nido encima de un solo
-cojín. No iba a acostarme con ningún chico por mas guapo que fuera, ni aunque
-tuviera que dormir acá con la frente pegada a las rodillas. Intenté hacerme
-dormir rápido antes que el frío y el dolor me impidieran hacerlo.]],
+cojín. No iba a acostarme con ningún chico, ni aunque tuviera que dormir acá
+con la frente pegada a las rodillas. Intenté hacerme dormir rápido antes que el
+frío y el dolor me impidieran hacerlo.]],
 
 	[[No sé si lo logré, si lo hice no se cuanto duré, pero de todas
 formas, al rato estaba despierta de nuevo. Afuera seguía oscuro y yo temblaba
@@ -149,12 +143,13 @@ aguantaba más.]],
 			[[Fue un suplicio salir de donde estaba, tenía cada
 			coyuntura fija en su lugar.]],
 
+			{"macro", "xFade", "maria/pasillo.png"},
 			[[Tras un arduo trabajo para levantarme y caminar,
 			llegué al segundo piso, que parecía a punto de salir
 			volando por el viento tormentoso. Me metí a oscuras a
 			la habitación de Falcon.]],
 
-			falconPieza,
+			{"macro", "xFade", "maria/pieza.png"},
 			[[Estaba durmiendo mirando hacia la pared, tapado hasta
 			la cabeza y ocupando tan solo la mitad de esa estrecha
 			cama. Gracias Falcon, eres un santo.]],
@@ -177,7 +172,7 @@ local camaDeFalcon = {
 lo mismo fuera con quien fuera. Dejé mejor a Bake y su espalda tranquilos y
 entré a su habitación, ahora de Falcon.]],
 
-	falconPieza,
+	{"macro", "xFade", "maria/pieza.png"},
 	[[Me acerqué a ver si quedaba espacio, y en la oscuridad alcancé a
 notar que Falcon estaba vuelto hacia la pared. Me metí como pude, quedando
 espalda con espalda.]],
@@ -213,7 +208,7 @@ sillón.]],
 	[[Me acurruqué temblando bajo las toallas, con abrigo y calcetines
 puestos. Pensé que lograría dormir bien.]],
 
-	[[Era tan ingenua. Parecía que no me podía calentar de ninguna
+	[[Que ingenua. Parecía que no me podía calentar de ninguna
 manera con esas toallas de playa.]],
 
 	[[Para variar, a los minutos las curvas, resortes, y partes duras del
@@ -249,7 +244,7 @@ baño.]],
 
 	[[Living. Comedor. Cocina. Lavadora...]],
 
-	[[ Baño.]],
+	[[Baño.]],
 
 	[[OK, quizás estaba siendo demasiado paranoica. Aún podía irme con
 cualquiera de los chicos. ¿De verdad creía que me iban a hacer algo? No eran
@@ -326,6 +321,9 @@ return {
 	{"name", "María"},
 	res.fun.macro.title,
 
+	{"bg", "mod", "default", color=res.palette("flashlight"),
+		shader=res.shader.contrast},
+	{"bg", "add", args={"maria/living.png"}, fade={"fadein", 1}},
 	[[Opté por quedarme un ratito mas dando vueltas. No se si era por enojo
 o gracias a mi pequeña 'siesta' de la mañana, o quizás hasta por el mate, pero
 no tenía ganas de pegar pestaña aún.]],
@@ -334,8 +332,9 @@ no tenía ganas de pegar pestaña aún.]],
 se asentaba, aquella inquietud que me había acompañado todo el día volvió.]],
 
 	[[Me sentía ansiosa cada vez que pensaba en mi situación. En
-estar sola en una ciudad que no conozco y con gente que en realidad no conozco.
-En las bestias rondando allá afuera. El fin de toda la civilización, quizás.]],
+estar sola en una ciudad que nunca había visitado y con gente que en realidad
+no conozco. En las bestias rondando allá afuera. El fin de toda la
+civilización, quizás.]],
 
 	[[¿Que había sido la explosión, en todo caso?]],
 
@@ -349,6 +348,7 @@ de Falcon? ¿Como no se convirtió si estuvo casi en el centro de todo?]],
 
 	[[Ninguna de esas cosas parecían tener ningún sentido.]],
 
+	{"macro", "xFade", "maria/cocina.png"},
 	[[Me aseguré que las puertas estuvieran bien cerradas y las tablas bien
 clavadas. Miré por la ventana de la cocina a la oscuridad del exterior, donde
 los dos cuerpos quedaron esta mañana.]],
@@ -358,8 +358,10 @@ salir a investigar a estas horas. Me limité a mirar desde adentro, segura,
 intentando no pensar en la posibilidad de que aparecieran de golpe, o peor
 aun...]],
 
+	{"bg", "mod", fade={"fadeout", 1/12}},
 	[[Detrás mío.]],
 
+	{"bg", "mod", fade={"fadein", 6}},
 	[[Mierda, mierda, mierda. ¿Para que me asusto yo sola? Literalmente
 siempre hacía lo mismo.]],
 
@@ -378,9 +380,14 @@ noche, pero sin éxito.]],
 	[[De pronto, una tenue luz recorrió los árboles y las casas.
 ¿Una linterna? ¿Un auto? Agudizé el oído y me pareció sentir un motor.]],
 
-	[[Me dirigí al living y miré por entre las tablas. Solo alcancé a ver
-una camioneta vieja y destartalada que se fue antes que pudiera hacer algo, con
-dos ocupantes en su interior.]],
+	{"bg", "mod", "default",
+		shader=res.shader.purkinje, color={1/6, 1/6, 1/6, 1}},
+	{"macro", "xFade", "maria/living.png"},
+	[[Me dirigí al living y miré por entre las tablas, apagando la linterna
+para no encandilarme.]],
+
+	[[Solo alcancé a ver una camioneta vieja y destartalada que se fue
+antes que pudiera hacer algo, con dos ocupantes en su interior.]],
 
 	[[Y al menos uno era un perro, de eso no tengo duda.]],
 

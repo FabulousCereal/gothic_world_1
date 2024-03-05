@@ -20,7 +20,7 @@ desconcertante en la casa.]],
 	[[¿Que pasaba? ¿Habrán salido sin mí? ¿Algo peor? El cuarto de Bake
 estaba entre-abierto.]],
 
-	{"macro", res.fun.macro.xFade, "maria/pieza.png", 1, {.3, .28, .26, 0}},
+	{"macro", "xFade", "maria/pieza.png", 1, {.3, .28, .26, 0}},
 	[[Me asomé a hechar una mirada, y ví un bulto en la cama.
 Era Falcon. Estaba durmiendo con su abrigo morado puesto.]],
 

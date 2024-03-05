@@ -1,7 +1,6 @@
 return {
 	{"style", "vnMaria"},
-	res.fun.macro.title,
-	{"macro", res.fun.macro.date, {2011, 11, 13, 13, 59}},
+	{"macro", "titleDate", {2011, 11, 13, 13, 59}},
 
 	{"name", "María"},
 	[[El mal clima seguía cuando nos sentamos al fin a comer. Falcon seguía

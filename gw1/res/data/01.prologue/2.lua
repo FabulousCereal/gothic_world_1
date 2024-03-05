@@ -15,7 +15,7 @@ afuera es de unos 8 grados."]],
 	{"name", "señora de al lado"}, [["¿Me hablaba?"]],
 
 	{"name", "Najo"}, [["No."]],
-	{"macro", res.fun.macro.date, {2011, 11, 8, 17, 11}},
+	{"macro", "date", {2011, 11, 8, 17, 11}},
 	[[Me acomodé en mi asiento mientras miraba la ciudad por la ventana. El
 sol del atardecer se reflejaba en los cristales de los rascacielos. "Una casa
 de espejos monumental," comenté, "donde nada es lo que parece."]],

@@ -21,8 +21,8 @@ local function checaMiRiff()
 	for i = 1, #dialog do
 		local who, time, what = unpack(dialog[i])
 		if who then
-			local xAdd = (who == "Bake" and 1 or 5)
-			local x = (rnd() + xAdd) * w/12
+			local xAdd = (who == "Bake" and 1 or 11)
+			local x = (rnd() + xAdd) * w/24
 			local y = (rnd() + 6) * h/72
 			local style = res.style["vn" .. who]
 			local cnv = f0b.shapes.textCanvas(what, limit, "center", style)
@@ -191,9 +191,12 @@ del auto.]],
 camino. Croft aguantó estóico, pero creo que igual la debió pasar mal con el
 viento en la cara y sin abrigo.]],
 
+	{"bg", "add", args={"maria/living.png"}, shader=res.shader.contrast,
+		color=res.palette("flashlight", 0), fade={"fadein", 1}},
 	[[Entré con el y Rocco mientras los chicos bajaban sus instrumentos, y
 como se veían entusiasmados en eso, le ofrecí a Croft tomar algo calentarnos.]],
 
+	{"macro", "xFade", "Flash/day.png", false, {.4, .3, .5, 0}},
 	[[Nos sentamos a comer mientras los chicos martillaban y
 aserruchaban cosas en el segundo piso, en el cuarto desocupado. A Falcon ni se
 le notaba que estuvo toda la mañana en cama.]],
@@ -263,17 +266,19 @@ Croft tenía cara de °J°]],
 	[["¡Vale!" Bake se puso a tocar a toda velocidad, y pronto Falcon se
 le unió con el bajo.]],
 
-	{"name", "María"},
+
+	{"bg", "mod", 1, fade={"fadeout", 1, true}},
 	{"bgm", "set", "wind", 0,
 		setup={setPitch=3/4},
 		fade={"fadeto", 1/2, 30},
 		source="freesound/557188__julien-matthey__jm_natural-elements_wind-01.ogg"},
+	{"name", "María"},
 	[[Con Croft nos lavamos los dientes al sonido de pruebas de guitarra,
 golpes eléctricos, y mas martillazos provenientes del cuarto.]],
 
 	[[Le pregunté a Croft porque había agua pero no luz, y Croft me dijo
 que el agua corría por gravedad desde las torres. Si seré tonta. Toda la
-vida vié|ndolas y nunca se me ocurrió que eran para eso.]],
+vida viéndolas y nunca se me ocurrió que eran para eso.]],
 
 	{"name", "Bake"},
 	[["(Na-na-na-na-na-na-na-na niece! Na-na-na-na niece!)"]],

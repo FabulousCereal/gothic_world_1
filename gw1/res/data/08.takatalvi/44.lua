@@ -1,7 +1,6 @@
 return {
 	{"style", "vnMaria"},
-	res.fun.macro.title,
-	{"macro", res.fun.macro.date, {2011, 11, 13, 15, 20}},
+	{"macro", "titleDate", {2011, 11, 13, 15, 20}},
 
 	{"name", "María"},
 	[[Las nubes escondían la cordillera y los techos se llenaban de nieve.

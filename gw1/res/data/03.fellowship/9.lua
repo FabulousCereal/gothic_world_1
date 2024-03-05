@@ -241,7 +241,7 @@ de viaje a otro país.]],
 llegaría tan lejos. Su único compañero ahora era Pipi, su perro. O perra, mas
 bien.]],
 
-	{"macro", res.fun.macro.xFade, "maria/living.png", 1},
+	{"macro", "xFade", "maria/living.png"},
 	[[No entendía todas las cosas que decía o hacía el chico, a lo mejor
 era la cultura del extremo sur o que se yo, pero casi envidiaba su calma en
 esta situación... Escucharlo hablar era como oír una voz de un mundo en que no
@@ -265,7 +265,7 @@ lado. "¿Querés comer algo? Tengo Pizza Enlatada."]],
 	{"name", "Bake"},
 	[["Si, son re-flasheras," dijo volviendo a sonreír.]],
 
-	{"bg", "mod", fade={"fadeout", 1, true}},
+	{"macro", "xFade", "maria/cocina.png"},
 	{"name", "María"},
 	[[El chico y yo bajamos a la cocina, el sin molestarse en ponerse
 nada encima de la camisa o de los boxers. El se agachó a hurguetear entre las
@@ -305,7 +305,7 @@ no dan ganas de estar afuera. Esperá que calme y me ocupo."]],
 	{"name", "María"},
 	[[Bake se fue al comedor con la lata y me llamó para que comieramos.]],
 
-	{"bg", "add", args={"Flash/day.png"}, fade={"fadein", 1}},
+	{"macro", "xFade", "Flash/day.png"},
 	[[Vació la pizza minúscula en un plato, le hechó unas gotitas de agua,
 y esta se expandió en segundos. Radiaba calor y un exquisito olor a pizza de
 jamón y piña llenó el ambiente.]],

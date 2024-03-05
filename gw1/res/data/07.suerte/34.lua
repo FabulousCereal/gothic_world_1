@@ -1,8 +1,8 @@
 return {
 	{"style", "vnMaria"},
-	res.fun.macro.title,
-	{"macro", res.fun.macro.date, {2011, 11, 13, 9, 13}},
+	{"macro", "titleDate", {2011, 11, 13, 9, 13}},
 
+	{"bg", "add", args={"Flash/day.png"}, color=res.palette("tenpm", 0)},
 	{"name", "Bake"},
 	[["Ahh, delicioso," dijo Bake tras acabarse el último pedazo de pollo.
 "¿Que hacemos ahora?"]],

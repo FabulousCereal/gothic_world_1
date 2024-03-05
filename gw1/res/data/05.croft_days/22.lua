@@ -1,7 +1,6 @@
 return {
 	{"style", "vnCroft"},
-	res.fun.macro.title,
-	{"macro", res.fun.macro.date, {2011, 11, 9, 17, 12}},
+	{"macro", "titleDate", {2011, 11, 9, 17, 12}},
 
 	{"name", "Croft"},
 	[[Seguía en casa para la tarde. Habiamos comido un bocadillo con Rocco,
@@ -76,7 +75,7 @@ averiguarlo. Aceleré, iba a irme a la frontera.]],
 
 	[[(montaje de viaje)]],
 
-	{"macro", res.fun.macro.date, {2011, 11, 9, 19, 01}},
+	{"macro", "date", {2011, 11, 9, 19, 01}},
 	[[Estando ya a oscuras, y habiendo usado uno de mis bidones de
 combustible, llegué a una especie de bloqueo militar. Habían unos hombres con
 fusiles resguardando.]],

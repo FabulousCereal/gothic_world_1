@@ -23,7 +23,7 @@ sonido de un despertador.]],
 	},
 	1,
 
-	{"macro", res.fun.macro.date, {2011, 11, 11, 12, 30}},
+	{"macro", "date", {2011, 11, 11, 12, 30}},
 
 	{"text", [[Estiré mi mano e hice callar el reloj como volviendo a una
 vieja rutina,]], false, true},
@@ -82,7 +82,7 @@ un demonios al tocarme, no parecía haberme hecho herida ni haberme sangrado,
 así que no debía ser tan grave. Me levanté y me acerqué a la puerta a buscar
 respuestas.]],
 
-	{"macro", res.fun.macro.xFade, "maria/pasillo.png", 2/3},
+	{"macro", "xFade", "maria/pasillo.png", 2/3},
 	[[Al abrirla escuché ruidos del primer piso. Cosas golpeándose
 violentamente. El buen humor se me fue de inmediato.]],
 
@@ -90,17 +90,15 @@ violentamente. El buen humor se me fue de inmediato.]],
 pronto, esa nota no se me hacía tan graciosa.]],
 
 	{"bgm", "mod", "wind", fade={"fadeout", 6, true}},
-	{"bg", "mod", fade={"delay", 2/3, true}},
-	{"bg", "add", args={"Flash/day.png"},
-		color=res.palette("repellantYellow", 0),
-		fade={"fadein", 2/3}},
+	{"macro", "xFade", "Flash/day.png", 2/3, 
+		res.palette("repellantYellow", 0)},
 	[[Bajé con cautela las escaleras, mientras los ruidos aumentaban en
 intensidad. Llegué a una especie de living que daba a un comedor. Las cortinas
 estaban cerradas. Los ruidos provenían de lo que parecía la cocina.]],
 
-	{"bg", "mod", fade={"delay", 2/3, true}},
+--	{"bg", "mod", fade={"delay", 2/3, true}},
 	{"bg", "add", args={"maria/cocina.png"},
-		color=res.palette("repellantYellow", 0),
+--		color=res.palette("repellantYellow", 0),
 		fade={"fadein", 2/3}},
 	[[Me asomé por la puerta a mirar. Había un muchacho tirando cosas por
 la ventana, hacia el patio.]],
@@ -112,8 +110,9 @@ arma.]],
 	{"bgm", "set", "gunshot",
 		source="freesound/344143__brokenphono__gunshot_001.flac",
 		fade={"loop", 4, "cmd", {play=false}}},
-	.5,
+	1/3,
 
+	{"bg", "mod", fade={"fadeout", 1/6}},
 	[[El chico comenzó a disparar por la ventana, y yo me escondí
 cubriéndome los oídos. ¿Que estaba sucediendo? ¿Por que me trajo acá? ¿Y que
 querría de mí?]],
@@ -125,10 +124,14 @@ vista, parecía... un buen chico.]],
 me helaron la sangre. Si esos ruidos inhumanos no eran de gente... es que tal
 vez no había despertado de ningún sueño.]],
 
+	{"bg", "mod", fade={"delay", 1, "fadein", 1}},
+	{"bg", "mod", 1, fade={"delay", 2, true}},
 	[[No, no podía ser cierto, de ninguna forma. Entré con cautela a
 la cocina. El chico estaba demasiado pendiente de lo que había afuera para
 notar mi presencia. Miré por la ventana.]],
 
+	{"bg", "sync"},
+	{"bg", "mod", fade={"fadeout", 1/24}},
 	[[Por primera vez ví a las criaturas en directo. Eran dos personas con
 una piel nauseabunda, color verde petroleo, con el pelo casi completamente
 caído.]],
@@ -136,6 +139,7 @@ caído.]],
 	[[Sangraban un espeso liquido marrón al ser impactados, pero a pesar de
 que el chico había derribado al mas pequeño a tiros, este seguía vivo.]],
 
+	{"bg", "mod", fade={"fadein", 2/3}},
 	[[Las manos del chico temblaban. No sabía si le quedaban balas para el
 mas grande. Entonces recordé que si esto no era un sueño, debía aún tener mis
 cosas encima. Revisé mis bolsillos. Aún poseía mi navaja.]],
@@ -164,8 +168,8 @@ mas de ese líquido brotaba de su herida.]],
 
 	{"bgm", "mod", "famicom", fade={"fadeout", 1/3, true}},
 	{"bgm", "mod", "gunshot",
-		fade={"delay", 1, "cmd", {play=true, setLooping=true},
-			"loop", 1, true}},
+		fade={"delay", 1, "cmd", {seek=0, play=true, setLooping=true},
+			"loop", 2, true}},
 	[[Al final, el chico lo remató con un disparo en la cabeza, e hizo
 lo mismo con el pequeño que ya había logrado levantarse.]],
 
@@ -177,7 +181,10 @@ viendolo de cerca, parecía un buen chico... y entonces recordé la nota. El
 chico habló.]],
 
 	{"name", "chico"},
-	[["Graci--" Lo interrumpí con una cachetada.]],
+	{"text", [["Graci--"]], false, true},
+	{"bg", "add", args=f0b.elem.screenFill, color={1,1,1,.5},
+		fade={"fadeout", 1/12, true}},
+	{"text", [[ Lo interrumpí con una cachetada.]], true},
 
 	{"name", "María"},
 	[["No creo lo segundo que pusiste en la carta," le reclamé.]],
@@ -205,8 +212,7 @@ cayera.]],
 	[[Su cuerpo se sentía cálido, a pesar que tenía muy poca ropa para este
 frio.]],
 
-	{"bg", "add", args={"maria/living.png"},
-		color={2/3, 2/3, 2/3, 0}, fade={"fadein", 1}},
+	{"macro", "xFade", "maria/living.png", 1, {2/3, 2/3, 2/3, 0}},
 	[[Logré llevarlo --arrastrarlo-- con gran esfuerzo hasta un sillón, y
 cuando fuí a recostarlo, descubrí una mancha de sangre formándose atrás en su
 polera.]],
@@ -228,6 +234,6 @@ antes de partir, con el despertador puesto a las 1:15pm, por si acaso.]],
 
 	{"bg", "mod", fade={"fadeout", 1, true}},
 	[[Salí dejando la puerta junta para cuando volviera. El perro del
-chico me siguió olfateándome hasta la puerta de la calle, y me miró mientras me
+chico me siguió olfateándome hasta la calle, y me miró mientras me
 alejaba. Al menos, ahora tenía un lugar donde volver.]],
 }

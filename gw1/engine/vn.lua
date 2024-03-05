@@ -34,7 +34,7 @@ local function stateReset(vn, keepRes)
 	widget.select.regen(ui.select, vn.initStyle)
 	if not keepRes then
 		f0b.jukebox.ops(vn.tracks, "rmall")
-		f0b.layers.ops(vn.background, "rmall")
+		f0b.layers.reset(vn.background)
 	end
 end
 
@@ -47,7 +47,7 @@ local function errorStage(font, ...)
 		{"bg", "add", exec=graphics.rectangle,
 			color={0, 0, 0, 1},
 			args={"fill", 0, 0, text:getDimensions()}},
-		{"bg", "add", args={text}},
+		{"bg", "add", args={text}, color={1,1,1,1}},
 		{"text", "", true},
 		{"bg", "rmall"},
 		{"return", false}
@@ -204,8 +204,12 @@ local instructionTable = {
 	end,
 
 	macro = function(line, vn)
+		local fn = line[2]
+		if type(fn) ~= "function" then
+			fn = res.fun.macro[fn]
+		end
 		f0b.lisp.push(vn.dataStack,
-			line[2](vn.vars, vn.gVars, unpack(line, 3)))
+			fn(vn.vars, vn.gVars, unpack(line, 3)))
 	end,
 
 	read = function(line, vn)

@@ -1,7 +1,6 @@
 return {
 	{"style", "vnMaria"},
-	res.fun.macro.title,
-	{"macro", res.fun.macro.date, {2011, 11, 11, 15, 20}},
+	{"macro", "titleDate", {2011, 11, 11, 15, 20}},
 
 	{"name", "María"},
 	[[Tras la pizza nos preparamos con Bake para buscar comida, cuando el

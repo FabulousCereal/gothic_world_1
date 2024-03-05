@@ -30,7 +30,8 @@ return {
 		redbg = {1, 0, 0},
 		fivepm = {1, .65, .35},
 		sixpm = {.55, .35, .5},
-		sevenpm = {.1, .3, .5},
+		sevenpm = {.3, .4, .5},
+		flashlight = {1, .6, 1/4},
 		tungsten = {1, 7/8, 6/8},
 		softAfternoon = {1, .95, .8},
 	},
@@ -221,6 +222,14 @@ return {
 				return color * floor(pxl);*/
 				vec4 pxl = Texel(tex, tex_coord) * color + vec4(offset);
 				return floor(pxl);
+			}
+		]],
+
+		contrast = [[
+			vec4 effect(vec4 color, Image tex, vec2 tex_coord, vec2 _scr_coord) {
+				vec4 pxl = Texel(tex, tex_coord);
+				pxl.rgb *= pxl.rgb;
+				return pxl * color;
 			}
 		]],
 

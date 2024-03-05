@@ -2,8 +2,7 @@ return {
 	{"style", "vnMaria"},
 	{"bgm", "set", "theme", 0, source="newgw-marimba.ogg",
 		fade={"fadein", 6}},
-	res.fun.macro.title,
-	{"macro", res.fun.macro.date, {2011, 11, 12, 12, 42}},
+	{"macro", "titleDate", {2011, 11, 12, 12, 42}},
 
 	{"name", "-----"},
 	[["¿Hola, me escuchas?"]],

@@ -27,7 +27,7 @@ tarde.]],
 
 	{"bg", "add", args=f0b.elem.screenFill, color={0,0,0,1},
 		fade={"fadeout", 3, true}},
-	{"macro", res.fun.macro.date, {2011, 11, 8, 17, 34}},
+	{"macro", "date", {2011, 11, 8, 17, 34}},
 
 	[[Estaba tocando "One in a Million" para una amiga en una cafetería
 cerca de su casa. No recuerdo su nombre, pero estaba bien buena (xD).

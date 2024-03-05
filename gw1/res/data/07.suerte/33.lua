@@ -144,6 +144,8 @@ volvería. ¿Para que se iba a robar un revólver si ya tenía un arma?]],
 No sentía hambre aún... Hasta que el olor a comida me empezó a llamar.
 Que remedio. Me vestí y bajé al primer piso.]],
 
+	{"bg", "add", args={"maria/living.png"}, fade={"fadein", 1},
+		color=res.palette("tenpm", 0)},
 	[[En la sala me encontré a Bake cubierto con dos toallas en la
 alfombra.]],
 

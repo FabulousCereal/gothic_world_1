@@ -1,8 +1,7 @@
 return {
 	{"style", "vnCroft"},
 	{"name", "Croft"},
-	res.fun.macro.title,
-	{"macro", res.fun.macro.date, {2011, 11, 9, 7, 37}},
+	{"macro", "titleDate", {2011, 11, 9, 7, 37}},
 
 	[[Desperté al otro día tranquilamente. Rocco dormía y afuera había
 niebla. Fui a prender la TV pero aún no había llegado la energía. Lo supe

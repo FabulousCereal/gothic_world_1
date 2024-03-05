@@ -4,8 +4,7 @@ return {
 	{"style", "vnMaria"},
 	[[Me desperté.]],
 
-	res.fun.macro.title,
-	{"macro", res.fun.macro.date, {2011, 11, 11, 10, 0}},
+	{"macro", "titleDate", {2011, 11, 11, 10, 0}},
 
 	{"name", "María"},
 	[[El cielo se pintaba de un color gris abismal. Me levanté, casi sin
@@ -25,11 +24,10 @@ hasta quedarme en un hotel mas de dos días resultaba demasiado.]],
 	[[El reloj marcaba las 10am justas, su molesto tick-tack reverberando
 de un lado a otro en el cuarto ante el silencio sepulcrural en que me hayaba.]],
 
-	{"bg", "mod", 1, 2, fade={"delay", 1/3, true}},
-	{"bg", "mod", fade={"fadein", 1/3, true}},
+	{"bg", "mod", fade={"delay", 1, true}},
 
-	{"bg", "add", 1, color=res.palette("repellantYellow", 0),
-		fade={"delay", 2/3, "fadein", 2/3},
+	{"bg", "add", color=res.palette("repellantYellow", 0),
+		fade={"fadein", 1},
 		args={{
 			{args={"Flash/i die/Nube.png", 0, -50}},
 			{args={"Flash/la-guagua.png", 0, 137}},

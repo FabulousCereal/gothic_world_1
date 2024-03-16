@@ -191,12 +191,13 @@ del auto.]],
 camino. Croft aguantó estóico, pero creo que igual la debió pasar mal con el
 viento en la cara y sin abrigo.]],
 
-	{"bg", "add", args={"maria/living.png"}, shader=res.shader.contrast,
-		color=res.palette("flashlight", 0), fade={"fadein", 1}},
+	{"bg", "conf", "default", shader=res.shader.contrast,
+		color=res.palette("flashlight", 0)},
+	{"bg", "add", args={"maria/living.png"}, fade={"fadein", 1}},
 	[[Entré con el y Rocco mientras los chicos bajaban sus instrumentos, y
 como se veían entusiasmados en eso, le ofrecí a Croft tomar algo calentarnos.]],
 
-	{"macro", "xFade", "Flash/day.png", false, {.4, .3, .5, 0}},
+	{"macro", "rFade", "Flash/day.png", {.4, .3, .5, 0}},
 	[[Nos sentamos a comer mientras los chicos martillaban y
 aserruchaban cosas en el segundo piso, en el cuarto desocupado. A Falcon ni se
 le notaba que estuvo toda la mañana en cama.]],
@@ -267,19 +268,22 @@ Croft tenía cara de °J°]],
 le unió con el bajo.]],
 
 
-	{"bg", "mod", 1, fade={"fadeout", 1, true}},
+	{"macro", "rFade", "maria/baño.png", false, 1},
+	{"bg", "add", args={"zeh/croft-ojo.png"}, fade={"fadein", 1}},
 	{"bgm", "set", "wind", 0,
 		setup={setPitch=3/4},
-		fade={"fadeto", 1/2, 30},
+		fade={"fadeto", 1/3, 24},
 		source="freesound/557188__julien-matthey__jm_natural-elements_wind-01.ogg"},
 	{"name", "María"},
 	[[Con Croft nos lavamos los dientes al sonido de pruebas de guitarra,
 golpes eléctricos, y mas martillazos provenientes del cuarto.]],
 
+	{"bg", "mod", args={"zeh/croft.png"}},
 	[[Le pregunté a Croft porque había agua pero no luz, y Croft me dijo
 que el agua corría por gravedad desde las torres. Si seré tonta. Toda la
 vida viéndolas y nunca se me ocurrió que eran para eso.]],
 
+	{"bg", "mod", args={"zeh/croft-ojo.png"}},
 	{"name", "Bake"},
 	[["(Na-na-na-na-na-na-na-na niece! Na-na-na-na niece!)"]],
 
@@ -289,17 +293,21 @@ vida viéndolas y nunca se me ocurrió que eran para eso.]],
 	{"name", "María"},
 	[[No tenía idea de que cantaban esos dos.]],
 
+	{"bg", "mod", args={"zeh/croft.png"}},
 	[[Croft también dijo que a su casa por estar en lo alto le dejó de
 llegar agua esta mañana. Debia ser por eso que preferió quedarse a pesar de que
 no quedaran camas.]],
 
 	{"bgm", "sync"},
 	{"bg", "sync"},
+	{"bg", "mod", fade={"fadeout", 1, true}},
+	{"bg", "mod", 1, fade={"fadeout", 1, true}},
 	{"bgm", "mod", "saw", fade={"fadeout", 12, true}},
 	[[En fin, terminamos, y como era tarde, Croft se fue a agarrar la cama
-de Falcon antes que los chicos salieran. Yo tomé la de Bake. Me puse dos
-pijamas para el frio, y me estaba acomodando cuando los chicos se pusieron a
-martillar de nuevo.]],
+de Falcon antes que los chicos salieran. Yo tomé la de Bake.]],
+
+	[[Me puse dos pijamas para el frio, y me estaba acomodando cuando los
+chicos se pusieron a martillar de nuevo.]],
 
 	[[Suspiré. Ahora aparte de indignada sentía curiosidad. Me levanté de
 nuevo y fui a tocar la puerta. Me dijeron que pasara. Abrí...]],
@@ -352,8 +360,8 @@ linternas encima.]],
 
 	{"name", "Bake"},
 	[["Si, aparte se siente como escenario xDDD" dijo levantando las manos
-como roquero hacia un público imaginario. El ingenio de estos dos era
-asombroso.]],
+como roquero hacia un público imaginario. No sé por qué me sentí mal clavando
+las ventanas ayer.]],
 
 	{"name", "Falcon"},
 	[["¿Cual tocamos ahora?"]],

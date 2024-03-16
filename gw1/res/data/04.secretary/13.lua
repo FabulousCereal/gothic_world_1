@@ -14,20 +14,20 @@ pared, y pronto me dí cuenta que el aún dormía, sin darse cuenta.]],
 	[[Con cautela lo solté y salí de la cama. Me puse abrigo y zapatos.
 Esto nunca pasó.]],
 
-	{"macro", "xFade", "maria/pasillo.png"},
+	{"macro", "rFade", "maria/pasillo.png"},
 	[[Salí al pasillo y me recibió un olor a tostadas. Ese debía ser Bake.]],
 
 	[[Me debatí sobre si despertar a Falcon para que desayunara, pero tras
 ese incidente que acababa de prometerme olvidar, no tuve el valor.]],
 
 	[[Si, no tenía ningún sentido si es que de verdad seguía durmiendo;
-igual no me atrevía.]],
+igual no quería.]],
 
-	{"macro", "xFade", "maria/living.png"},
+	{"macro", "rFade", "maria/living.png"},
 	[[Bajé sola, tratando de entender como fue que había terminado así sí
 me había acostado vuelta hacia el otro lado.]],
 
-	{"macro", "xFade", "maria/cocina.png"},
+	{"macro", "rFade", "maria/cocina.png"},
 	[[Llegando a la cocina me encontré con Bake, que se trataba de mirar la
 herida mientras el pan se le empezaba a quemar.]]
 }
@@ -54,7 +54,7 @@ return {
 	{"name", "María"},
 	res.fun.macro.title,
 
-	{"bg", "mod", "default", color=res.palette("tenpm")},
+	{"bg", "conf", "default", color=res.palette("tenpm")},
 	{"let", "quien"},
 	{"global", "get", "quien", "DespiertaDonde"},
 	{"case", "quien",
@@ -65,7 +65,7 @@ return {
 		{
 			{"bg", "add", args={"maria/living.png"},
 				fade={"fadein", 2}},
-			[[Me sentía con ganas de morir. Tanto los ojos y el
+			[[Me sentía con ganas de morir. Tanto los ojos como el
 			cuerpo me pesaban, y la cabeza se me partía, pero
 			la claridad del día era tal que la horas perdidas ya no
 			volverían.]],
@@ -74,11 +74,13 @@ return {
 			Mi estómago gruñó. 8 horas sin comer. Me desenrollé del
 			nido con gran dificultad y fui tras el.]],
 
-			{"macro", "xFade", "maria/cocina.png"},
-			[[Me quedé en la puerta de la cocina, mirándolo.
-			Había puesto la tetera y puso a tostar pan, pero
-			intentaba revisarse la herida de la espalda. Se
-			veía preocupado.]],
+			{"macro", "rFade", "maria/cocina.png"},
+			[[Me quedé en la puerta de la cocina, a punto de caerme
+			de cara al suelo, mirándolo sin que se diera cuenta.]],
+
+			[[Había puesto la tetera y puso a tostar pan, pero
+			intentaba revisarse la herida de la espalda. Se veía
+			preocupado.]],
 		}
 	},
 
@@ -104,7 +106,7 @@ un rato estaría listo, que esperara un par de minutos.]],
 hacerle preguntas. Al final no hice mas que llevar una mantequilla a la mesa.
 Bake llegó pronto con las tostadas y el agua.]],
 
-	{"macro", "xFade", "Flash/day.png"},
+	{"macro", "rFade", "Flash/day.png"},
 	{"name", "Bake"},
 	[["¿No se levantó Falcon?" me preguntó mientras servía mate. Negué con
 la cabeza. "Seguro le debía hacer falta una buena noche."]],
@@ -114,14 +116,14 @@ la cabeza. "Seguro le debía hacer falta una buena noche."]],
 nueva al living. Sin ampli claro, aunque parecía saber como sonaría de todas
 formas. Quedándome sola, me dí cuenta de que no sabía que hacer ahora.]],
 
-	{"bg", "mod", fade={"fadeout", 1, true}},
-	1,
+	{"bgm", "set", "bored", source="RECSNG13 - Un Château Abandonné.ogg"},
+	{"bg", "mod", fade={"fadeout", 2/3, true}},
+	2/3,
 
-	{"bgm", "set", "bored", source="maria se aburre (demo).ogg",
-		setup={play=false}, fade={"delay", 2/3, "cmd", {play=true}}},
-	{"macro", "date", {2011, 11, 12, 9, 26}},
+	{"macro", "date", {2011, 11, 12, 9, 25}},
 	[[Nunca pensé que el apocalípsis pudiera ser tan aburrido.]],
 
+	{"bg", "add", args={"maria/patio.png"}, fade={"fadein", 1}},
 	[[Salí a mirar donde estuvieron los cuerpos ayer y a mover la nieve con
 los pies, pero de nuevo, no habían quedado mas que las manchas de sangre.]],
 
@@ -130,7 +132,7 @@ Falcon. Traté de oir el ruido de algún auto por sobre los silenciosos solos de
 Bake, pero parecía que el tiempo se había quedado estancado en esta ciudad,
 pudriéndose.]],
 
-	[[El día tenía buen aspecto, eso si. Ojalá se acabara el frio.]],
+	[[El día tenía mejor aspecto, eso si. Ojalá se acabara el frio.]],
 
 	[[Pensé como última opción pedirle a Bake que me enseñara a tocar, para
 pasar el rato, pero la verdad es que soy negada para eso de la música. Siempre
@@ -140,6 +142,7 @@ tenía malas notas en eso.]],
 bonito y cantaba, pero aunque pusiera los dedos igual, a mi me sonaba feo.
 Nunca entendí eso.]],
 
+	{"macro", "rFade", "maria/living.png"},
 	[[En fin, cuando entré de vuelta a la casa, Bake se había ido al baño.
 Me pregunté si es la herida que lo estaba molestando.]],
 
@@ -148,7 +151,7 @@ tampoco una muda de ropa y un cepillo. Necesitaba conseguir esas cosas hoy.]],
 
 	{"bgm", "mod", "bored", fade={"fadeout", 1, true}},
 	[[Oh Dios, tal vez era eso. Bake me evitaba porque apestaba. Traté de
-sentirme el olor, pero no olí nada.]],
+sentirme el olor. No lo logré pero estaba segura que debía ser eso.]],
 
 	[[Todo esto es culpa del puto fin del mundo.]],
 

@@ -16,7 +16,7 @@ local function title(vars, _, showTitle, time)
 		idx = vars._idx2
 		name = vars._title2
 	end
-	local str = string.format("%d.%d\n%s", vars._idx1, idx, name)
+	local str = string.format("Parte %d\n%s", idx, name)
 	return {
 		{"bg", "add",
 			args=res.fun.card.card(res.style.title.fontFamily,
@@ -26,14 +26,23 @@ local function title(vars, _, showTitle, time)
 	}
 end
 
+local function fade(name, color, idx, secs, op)
+	local c = color or nil
+	local s = secs or 2/3
+	local next = idx and idx+1 or nil
+	return {
+		{"bg", "mod", idx, fade={op, s, true}},
+		{"bg", "add", next, args={name}, fade={"fadein", s}, color=c},
+	}
+end
+
 return {
-	xFade = function(_, _, name, secs, color)
-		local s = secs or 1
-		return {
-			{"bg", "mod", fade={"delay", s, true}},
-			{"bg", "add", args={name}, fade={"fadein", s},
-				color=color},
-		}
+	rFade = function(_, _, name, color, idx, secs)
+		return fade(name, color, idx, secs, "delay")
+	end,
+
+	xFade = function(_, _, name, color, idx, secs)
+		return fade(name, color, idx, secs, "fadeout")
 	end,
 
 	title = title,
@@ -55,7 +64,7 @@ return {
 			day, months[month], year)
 		local timeString = string.format("%.2u:%.2u", hour, min)
 		local genSub = res.fun.card.subtitle
-		local white = {1, 1, 1, 1},
+		local white = {1, 1, 1, 1}
 		return {
 			{"bg", "add", idx, args=genSub(dateString, "center"), color=white},
 			wait,

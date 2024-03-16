@@ -2,6 +2,7 @@ return {
 	{"style", "vnMaria"},
 	{"macro", "titleDate", {2011, 11, 11, 15, 20}},
 
+	{"bg", "add", args={"maria/living.png"}},
 	{"name", "María"},
 	[[Tras la pizza nos preparamos con Bake para buscar comida, cuando el
 viento había parado.]],
@@ -20,6 +21,10 @@ Asentí. "Cualquier cosa, vos atacá al cuello, ¿vale?"]],
 	[["Vale..." Lo decía como si fuera fácil, pero yo no creía ser capaz de
 usarla como el. El chico se sacó el pelo de debajo de la campera, y salimos.]],
 
+	{"bg", "mod", fade={"fadeout", 2, true}},
+	{"bgm", "set", "wind", 0, source="wahwahwhite noise.flac",
+		setup={setFilter={type="lowpass", highgain=1/120}},
+		fade={"fadeto", 1/2, 6}},
 	[[Unas nubes pesadas ocultaban el sol, y aunque entendía que acá cerca
 del polo los días se alargaban acercándose el verano, con esa capa daba la
 impresión de que muchas horas de luz no quedaban.]],
@@ -172,7 +177,7 @@ subió a 11 el volumen.]],
 	[[Bake se negaba a dejar de tocar, hasta que llegó otra
 criatura de afuera. Bake interrumpió su solo para embocarsela en la cabeza...]],
 
-	{"bgm", "rmall"},
+	{"bgm", "rm", "bakeriff"},
 	{"sfx", "freesound/676613__fivebrosstopmosyt__table-smash-1.flac"},
 	{"sfx", "sfx/guitar hit muted.flac", 1, 1, .1},
 	[[...Destruyendo definitivamente la guitarra.]],
@@ -208,7 +213,7 @@ En eso, oímos crujir los trozos de vidrio de afuera.]],
 
 	[[Bake levantó por reflejo otra guitarra, pero luego la bajó.]],
 
-	{"bgm", "mod", "glass", fade={"fadeout", 1/6, true}},
+	{"bgm", "mod", "glass", fade={"fadeout", 1/3, true}},
 	{"name", "María"},
 	[[Un chico de cabello castaño había llegado atraído por el ruido.]],
 

@@ -20,15 +20,15 @@ desconcertante en la casa.]],
 	[[¿Que pasaba? ¿Habrán salido sin mí? ¿Algo peor? El cuarto de Bake
 estaba entre-abierto.]],
 
-	{"macro", "xFade", "maria/pieza.png", 1, {.3, .28, .26, 0}},
+	{"macro", "rFade", "maria/pieza.png", {.3, .28, .26, 0}},
 	[[Me asomé a hechar una mirada, y ví un bulto en la cama.
 Era Falcon. Estaba durmiendo con su abrigo morado puesto.]],
 
 	[["Falcon," lo llamé en voz baja, pero no me respondió. A lo mejor se
-sintió mal. Preferí dejarlo en paz, y cerré la puerta. La alarma en su estante
+sintió mal. Preferí dejarlo en paz y cerré la puerta. La alarma en su estante
 marcaba las 13:13.]],
 
-	{"bg", "mod", fade={"fadeout", 1, true}},
+	{"macro", "rFade", "maria/living.png"},
 	[[Bajé al primer piso con cautela. Allí, sorprendentemente, encontré a
 Andrea con Fab en el sillón, hablando muy despacio. Se reían de algo que el
 contaba.]],

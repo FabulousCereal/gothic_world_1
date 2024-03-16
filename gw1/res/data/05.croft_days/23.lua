@@ -4,7 +4,7 @@ return {
 
 	{"name", "Croft"},
 	[[Desperté tras una incómoda y fría noche con el ruido de una carreta
-a toda velocidad. Me estaba por dormir de nuevo cuando oigo ruidos de disparos
+a toda velocidad. Me estaba por dormir de nuevo cuando oí ruidos de disparos
 y caballos relinchando. Provenían de la barricada.]],
 
 	[[Con Rocco ya despierto, decidí que ya no ibamos a conciliar mas el
@@ -47,6 +47,6 @@ buscar lo que necesitábamos. Después clavaría la puerta.]],
 esencialmente sin tráfico. Las luces que normalmente aún iluminaban a esta hora
 seguían apagadas. Toda la gente caminaba como perdida.]],
 
-	[[Era definitivo, la ciudad estaba muerta. Y para variar, mi estanque
-estaba en rojo.]],
+	[[Era definitivo, la ciudad estaba muerta. Y para variar, había gastado
+toda mi gasolina. Mi estanque estaba en rojo.]],
 }

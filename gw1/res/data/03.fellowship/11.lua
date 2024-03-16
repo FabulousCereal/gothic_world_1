@@ -93,7 +93,8 @@ hacia el frente para hablarle.]],
 
 			{"bgm", "set", "squeal2",
 				source="freesound/71738__audible-edge__chrysler-lhs-tire-squeal-03.cut.flac",
-				fade={"loop", 5, true}}, --repeatSqueal(5)},
+				--fade={"loop", 5, true}}, --repeatSqueal(5)},
+				fade={"fadeout", 6, true}},
 			[[De alguna forma lo esquivamos, y nos fuimos con el
 			auto dando coletazos por la calle.]],
 
@@ -105,14 +106,15 @@ hacia el frente para hablarle.]],
 		}
 	}},
 
-	{"bg", "mod", "default", color=res.palette("fivepm")},
+	{"bg", "conf", "default", color=res.palette("fivepm")},
 	{"bg", "add", args={"maria/living.png"}, fade={"fadein", 2}},
 	{"name", "María"},
-	{"text", [[ a la casa cerca de las seis, cuando ya estaba oscureciendo
-y la nieve comenzaban a tapar la vista. Entramos Falcon y yo cargando
+	{"text", [[ a la casa cerca de las seis, cuando ya empezaba a oscurecer
+y la nieve comenzaba a tapar la vista. Entramos Falcon y yo cargando
 la comida, y el dejó un segundo las bolsas para estirar los brazos al techo.]],
 	true},
 
+	{"bg", "add", args={"zeh/falcon-ja.png", 150}, fade={"fadein", 1/12}},
 	{"name", "Falcon"},
 	[["Dios, que agradable," dijo extasiado. "Había dormido todos estos
 días en el auto." Bake entró sin nada y se tiró como tabla en el sillón.]],
@@ -121,7 +123,8 @@ días en el auto." Bake entró sin nada y se tiró como tabla en el sillón.]],
 	[["Tenés razón," dijo recostado boca abajo. Llevé a Falcon a la
 cocina para guardar la comida.]],
 
-	{"macro", "xFade", "maria/cocina.png"},
+	{"macro", "rFade", "maria/cocina.png", false, 1},
+	{"bg", "mod", fade={"fadeout", 1}},
 	[["¿Sabés que nos hizo falta? Unas chelas," comentó Bake desde el
 living. Falcon contuvo una risa, aunque a mi no me hizo gracia.]],
 
@@ -131,24 +134,27 @@ living. Falcon contuvo una risa, aunque a mi no me hizo gracia.]],
 	{"name", "Bake"},
 	[["Mierda xD"]],
 
+	{"bg", "mod", args={"zeh/falcon.png", 50}, fade={"fadein", 1/12}},
 	{"name", "Falcon"},
 	[["¿Eh? ¿Cuerpos?"]],
 
 	{"name", "María"},
-	{"text", [["Si. Unos zombies nos atacaron en la mañana y quedaron ahí
-afuera," dije apuntando a la ventana porque]], false, true},
-
-	{"text", [[ no quería verlos de nuevo. "Bake no me quiere ayudar a
-sacarlos."]], true, false},
+	[["Si. Unos zombies nos atacaron en la mañana y quedaron ahí
+afuera," dije apuntando a la ventana porque no quería verlos de nuevo.
+"Bake no me quiere ayudar a sacarlos."]],
 
 	{"name", "Falcon"},
 	{"text", [["Ahh."]], false, true},
 
+	{"bg", "mod", fade={"fadeout", 1}},
 	{"text", [[ Falcon fue a echar un ojo mientras yo guardaba la comida.]],
 true},
 
-	[["Aquí no hay nada," dijo. Pensé que quizás era la nieve que los había
-cubrido. Me asomé a mirar, y luego abrí la puerta. De verdad no estaban.]],
+	[["Aquí no hay nada," dijo.]],
+
+	{"bg", "add", 2, args={"maria/patio.png"}, fade={"fadein", 1/3}},
+	[[Pensé que quizás era la nieve que los había cubrido. Me asomé a
+mirar, y luego abrí la puerta. De verdad no estaban.]],
 
 	{"name", "María"},
 	[["S-Se suponía que estaban muertos." ¿Donde se habían ido? ¿Que había
@@ -156,23 +162,30 @@ pasado?]],
 
 	{"name", "Bake"},
 	[["Mi espalda dice gracias xD," dijo Bake llegando a apoyarse en la
-puerta, sin polera. "Debe ser que se los llegó a comer otro porque yo los dejé
+puerta, sin campera. "Debe ser que se los llegó a comer otro porque yo los dejé
 bien muertos."]],
 
 	{"name", "Falcon"},
 	[["Que yo sepa no son caníbales, pero quién sabe."]],
 
+	{"bg", "add", args={"zeh/bake.png", 640, 0, 0, -1, 1}, fade={"fadein", 1/2}},
+	{"bg", "mod", 3, fade={"mvabs", 50, 0, 0, "fadein", 1/2}},
+	{"bg", "mod", 2, fade={"fadeout", 1/2, true}},
 	{"name", "María"},
 	[[El viento sopló fuerte de nuevo así que nos metimos de nuevo a la
 casa. Le puse el seguro a la puerta.]],
 
 	{"name", "Falcon"},
-	[["No te preocupes en todo caso, mejor que estén lejos," dijo por lo
-visto calmado. "¿Les molesta si le doy una vuelta a la casa?"]],
+	[["No te preocupes en todo caso, mejor que estén lejos," dijo tratando
+de calmarme.]],
+
+	[["¿Les molesta si le doy una vuelta a la casa?"]],
 
 	{"name", "Bake"},
 	[["Dale. Yo tengo hambre así que voy a preparar algo."]],
 
+	{"bg", "sync"},
+	{"bg", "mod", 2, fade={"fadeout", 1}},
 	{"name", "María"},
 	[[Falcon nos dejó solos, y yo intenté quedarme tranquila con sus
 palabras. Por mas que me dijeran esas cosas, esa extraña incomodidad en el
@@ -181,13 +194,20 @@ pecho no desaparecía.]],
 	[[Empecé a charlar un poco con Bake para quitarme eso de la mente.
 Aunque fuera loco, escucharlo hablar me ayudaba.]],
 
-	{"bg", "mod", color=res.palette("sixpm")},
-	[[Afuera la nieve se apilaba, y el sol se ponía lentamente. Falcon
-regresó casi una sombra, haciendo que me sobresaltara. Bake se rió, y recién
-ahí prendió su linterna.]],
+	{"bg", "mod", 1, 3, color=res.palette("sixpm"), shader=res.shader.purkinje},
+	{"bg", "mod", 2, fade={"fadeout", 0, "mvdiff", -50, 0, 0}},
+	{"bg", "mod", 3, fade={"mvabs", 600, 0, 1/60}},
+	{"bg", "add", args=f0b.elem.screenFill, color={0,0,0,1},
+		fade={"fadeout", 1, true}},
+	[[Afuera la nieve se apilaba, y el sol se ponía lentamente. Bake me
+contaba de la vez que a Pipi la atropellaron pero que logró salir adelante.]],
+
+	{"bg", "mod", 2, fade={"fadein", 2}},
+	[[Falcon regresó casi una sombra, haciendo que me sobresaltara. Bake se
+rió, y recién ahí sacó su linterna.]],
 
 	[[Falcon dijo que le preocupaba no tener protección en las ventanas.
-Según el, había visto unos zombies metiendose a una casa así, e iba a ser muy
+Según el, había visto unos zombies metiéndose a una casa así, e iba a ser muy
 dificil defender tantas entradas ante cualquier problema.]],
 
 	{"name", "Bake"},
@@ -197,20 +217,31 @@ dificil defender tantas entradas ante cualquier problema.]],
 	[["¿No vas a ayudar?"]],
 
 	{"name", "Bake"},
-	[["Quisiera, pero caminar dos horas no le hizo bien a mi espalda xD
-Me duele xDD"]],
+	{"text", [["Quisiera, pero caminar dos horas no le hizo bien a mi
+espalda xD]], false, true},
 
+	{"bg", "mod", args={"zeh/bake-xd.png", 640, 0, 0, -1, 1}},
+	{"text", [[ Me duele xDD"]], true},
+
+	{"bg", "mod", args={"zeh/bake.png", 600, 0, 0, -1, 1}},
 	{"name", "María"},
-	[["Yo te ayudo entonces," me ofrecí. Le quitamos la linterna a Bake y
-lo dejamos cocinando solo con la llama del gas, y entramos todas las tablas y
-herramientas.]],
+	[["Yo te ayudo entonces," me ofrecí.]],
 
-	{"bg", "mod", "default", color=res.palette("flashlight"),
+	{"bg", "mod", 2, 3, fade={"fadeout", 1/3}},
+	[[Le quitamos la linterna a Bake y lo dejamos cocinando solo con la
+llama del gas, y entramos todas las tablas y herramientas.]],
+
+	{"macro", "rFade", "maria/living.png", false, 1},
+	{"bg", "conf", "default", color=res.palette("flashlight"),
 		shader=res.shader.contrast},
-	{"macro", "xFade", "maria/living.png"},
+	{"bg", "mod", 2, 3, color=res.palette("flashlight"),
+		shader=res.shader.contrast},
+	{"bg", "mod", 3, fade={"fadeout", 0}},
+	{"bg", "rm"},
 	[[Yo sostenía mientras el clavaba. Me sentía un poco mal haciéndole
 esto a la casa de Bake, pero peor sería dormir tras lo que dijo Falcon.]],
 
+	{"bg", "mod", fade={"mvabs", 150, 0, 1/60, "fadein", 1/3}},
 	[["¿Crees que vayan a volver a la noche?" le pregunté tras un rato.]],
 
 	{"name", "Falcon"},
@@ -235,20 +266,22 @@ de estar atentos."]],
 
 	{"name", "María"},
 	[["Uhm..." Me quedé mirando a Falcon un poco mientras trabajabamos, y
-me quedé pensando en sus palabras. 'Estar atentos'. Yo andaba demasiado alerta.
-Ojalá sirva de algo.]],
+me quedé pensando en sus palabras. 'Estar atentos'.]],
 
+	[[Yo andaba demasiado alerta. Ojalá sirva de algo.]],
+
+	{"bg", "mod", fade={"fadeout", 1, true}},
 	[[Tras nuestro arreglo la casa quedó aún mas oscura, así que
 con Falcon acordamos buscar velas y baterías para la próxima salida.]],
 
-	{"macro", "xFade", "Flash/day.png", false, {2/3, 1/2, 2/3, 0}},
-	[[Terminado eso, nos sentamos a comer un estofado con lo único
+	{"macro", "rFade", "Flash/day.png", {1, 3/4, 2/3, 0}, 1},
+	[[Acabado el trabajo, nos sentamos a comer un estofado con lo único
 medianamente saludable que trajimos.]],
 
 	[[Voy a admitir que luego de lo de la pizza en lata no tenía fe que
 Bake fuera bueno en esto...]],
 
-	[[Pero no sé si fueron todos los días comiendo galletas y o que, pero
+	[[Pero no sé si fueron todos los días comiendo galletas o que, pero
 la primera cucharada casi me hizo llorar. Estaba tan exquisito, era incluso
 mejor que lo que comía en casa.]],
 
@@ -258,7 +291,7 @@ atento.]],
 	[["Te quedó muy bueno," concluí.]],
 
 	{"name", "Bake"},
-	[["lol, se notó. ¿Mate? ¿Café?"]],
+	[["lol, se notó," dijo sonriendo. "¿Mate? ¿Café?"]],
 
 	{"name", "María"},
 	[["Yo quiero un mate."]],
@@ -272,41 +305,76 @@ un termo con agua caliente que había hervido de antes. Bake me pasó la yerba y
 empecé a servirme de inmediato. Falcon nos quedó mirando.]],
 
 	{"name", "Falcon"},
-	[["Pregunta, ¿ustedes son novios?" preguntó de pronto. Nos
-quedamos callados un segundo.]],
+	[["Pregunta, ¿ustedes son novios?" preguntó de pronto. Ambos lo
+miramos.]],
 
 	{"name", "María"},
-	[[Bake empezó a reir con la pregunta tan repentina, y yo tambien, no
-más que de paso errándole con el agua al mate.]],
+	[[Bake empezó a reir con la pregunta tan repentina, y yo hice lo mismo,
+no más que de paso errándole con el agua al mate.]],
 
 	{"name", "Bake"},
 	[["lol, no, nos conocimos esta mañana. La salvé de la Sombra," rió.]],
 
 	{"name", "María"},
-	[["¿De la que?" Bake solo sonrió misteriosamente y se negó a explicarme
-que era eso de la sombra.]],
-
-	[[También se negó a decirme como fue que terminé en su cama, y Falcon
-levantó las cejas tras eso último. O bueno, lo hizo hasta que
-probó el mate,]],
-
-	{"name", "Falcon"},
-	[["Ew," dijo arrugando la cara. "Que amargo."]],
+	[["¿De la que?" Bake solo sonrió misteriosamente. "¿Como que una
+Sombra?"]],
 
 	{"name", "Bake"},
-	[["lol, ¿nunca habias tomado?"]],
+	[["Solo algo random que ví. No era nada."]],
+
+	{"name", "María"},
+	[["¿Como que nada? Había algo persiguiéndome en la mañana. ¿Era eso?"]],
+
+	{"name", "Bake"},
+	[["Nena, cuando te encontré estabas en el suelo. Si no sabés que te
+pasó, yo menos xD"]],
+
+	{"name", "María"},
+	[["¿Y entonces que viste?"]],
+
+	{"name", "Bake"},
+	[["Ví como de reojo un manchón alejándose de donde estabas, eso es
+todo."]],
+
+	{"name", "María"},
+	[["¿Un manchón como que? ¿Como un zombie?"]],
+
+	{"name", "Bake"},
+	[["Como un manchón."]],
+
+	{"name", "María"},
+	[["¡Bake!"]],
+
+	{"name", "Bake"},
+	[["No sé, fue como una fracción de segundo. No me pidas mas detalles
+porque no sé Xd"]],
+
+	{"name", "María"},
+	[[Me quedé mirándolo, como tratando de ver si decía la verdad,
+mientras Falcon nos observaba en silencio con las cejas levantadas. O bueno,
+lo estuvo hasta que probó el mate.]],
 
 	{"name", "Falcon"},
-	[["Intuia que no pero pensé que era por la amnesia."]],
+	[["Ew," dijo arrugando la cara. "Es amargo."]],
+
+	{"name", "Bake"},
+	[["¿Nunca habias tomado?"]],
+
+	{"name", "Falcon"},
+	[["Intuia que no pero pensé que era por la amnesia," dijo agarrando
+el azucarero.]],
 
 	{"name", "Bake"},
 	[["Vos fumaste de la mala parece."]],
 
 	{"name", "Falcon"},
-	[["No bromees, que ya estoy por creerte," dijo rebalsando su mate con
+	[["No bromees, que ya estoy que te creo." Falcon rebalsó su mate con
 azúcar.]],
 
 	{"name", "María"},
+	[[Tenía la impresión de que Bake decía la verdad con lo de la Sombra,
+así que decidí olvidarme del tema. Daba lo mismo a estas alturas. En serio.]],
+
 	[[Nos quedamos charlando un rato ahora que podíamos hablar con calma.
 Falcon nos contó, como el mismo la llamó, la completa historia de su vida, que
 se limitaba a los últimos tres días desde la explosión.]],
@@ -324,8 +392,10 @@ dejado de usar la radio del auto.]],
 
 	[[Tambien habló de que se veían helicópteros de vez en cuando, aunque
 no sabía donde iban ni que hacían. Sugerí que a lo mejor eran del rescate, pero
-Falcon dijo que no aterrizaban en la ciudad. Reconocimiento, dijo Bake, pero
-¿que tanto reconocimiento se podía necesitar de la propia capital?]],
+Falcon dijo que no aterrizaban en la ciudad.]],
+
+	[[Reconocimiento, dijo Bake, pero ninguno le encontró mucho sentido.
+¿Cuantos días de reconocimiento podía necesitar la propia capital?]],
 
 	[[Por donde se le mirara nada parecía tener sentido.]],
 
@@ -336,7 +406,9 @@ cansancio se nos notaba a todos, aunque a el especialmente.]],
 prácticamente de noche y el ambiente se enfriaba por segundo, decidimos que era
 mejor irnos a dormir. Fuimos hasta la escalera.]],
 
-	{"macro", "xFade", "maria/living.png"},
+	{"macro", "rFade", "maria/living.png"},
+	{"bg", "add", args={"zeh/bake.png", 20}, fade={"fadein", 1}},
+	{"bg", "add", args={"zeh/falcon.png", 600, 0, 0, -1, 1}, fade={"fadein", 1}},
 	{"name", "Falcon"},
 	[["¿Donde dormiremos?"]],
 
@@ -347,9 +419,12 @@ mis padres que es doble."]],
 	{"name", "Falcon"},
 	[["No dormiré contigo."]],
 
+	{"bg", "sync"},
+	{"bg", "mod", 2, args={"zeh/bake-xd.png"}},
 	{"name", "Bake"},
 	[["Yo tampoco. No somos gays xD"]],
 
+	{"bg", "mod", 2, args={"zeh/bake.png", 20}},
 	{"name", "Falcon"},
 	[["María duerme contigo en la doble entonces, a menos que quieras
 dormir solo por la espalda."]],
@@ -366,6 +441,7 @@ noches."]],
 	{"name", "Bake"},
 	[["Buenas noches."]],
 
+	{"bg", "mod", 2, 3, fade={"fadeout", 1/3, true}},
 	{"name", "María"},
 	[[Ambos subieron y se fueron a dormir, dejándome sola a los pies de la
 escalera con la linterna en la mano.]],
@@ -376,5 +452,5 @@ cuando se me ocurrió reclamar. Patée el suelo.]],
 
 	[[¿Por que los hombres siempre tenían que creerse tan machos? ¿Que
 tenía que durmieran juntos? En la escuela era igual, no se podían ni pasar a
-tocar entre ellos. Yo si preferiría compartir cama con otra mujer.]],
+tocar entre ellos.]],
 }

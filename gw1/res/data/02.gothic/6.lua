@@ -82,7 +82,10 @@ un demonios al tocarme, no parecía haberme hecho herida ni haberme sangrado,
 así que no debía ser tan grave. Me levanté y me acerqué a la puerta a buscar
 respuestas.]],
 
-	{"macro", "xFade", "maria/pasillo.png", 2/3},
+	{"bgm", "mod", "wind",
+		fade={"cmd", {setFilter={type="lowpass", highgain=1/6}}}
+	},
+	{"macro", "rFade", "maria/pasillo.png"},
 	[[Al abrirla escuché ruidos del primer piso. Cosas golpeándose
 violentamente. El buen humor se me fue de inmediato.]],
 
@@ -90,13 +93,12 @@ violentamente. El buen humor se me fue de inmediato.]],
 pronto, esa nota no se me hacía tan graciosa.]],
 
 	{"bgm", "mod", "wind", fade={"fadeout", 6, true}},
-	{"macro", "xFade", "Flash/day.png", 2/3, 
+	{"macro", "rFade", "Flash/day.png",
 		res.palette("repellantYellow", 0)},
 	[[Bajé con cautela las escaleras, mientras los ruidos aumentaban en
 intensidad. Llegué a una especie de living que daba a un comedor. Las cortinas
 estaban cerradas. Los ruidos provenían de lo que parecía la cocina.]],
 
---	{"bg", "mod", fade={"delay", 2/3, true}},
 	{"bg", "add", args={"maria/cocina.png"},
 --		color=res.palette("repellantYellow", 0),
 		fade={"fadein", 2/3}},
@@ -212,7 +214,7 @@ cayera.]],
 	[[Su cuerpo se sentía cálido, a pesar que tenía muy poca ropa para este
 frio.]],
 
-	{"macro", "xFade", "maria/living.png", 1, {2/3, 2/3, 2/3, 0}},
+	{"macro", "rFade", "maria/living.png", {2/3, 2/3, 2/3, 0}},
 	[[Logré llevarlo --arrastrarlo-- con gran esfuerzo hasta un sillón, y
 cuando fuí a recostarlo, descubrí una mancha de sangre formándose atrás en su
 polera.]],

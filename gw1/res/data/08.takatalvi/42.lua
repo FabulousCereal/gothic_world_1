@@ -2,6 +2,7 @@ return {
 	{"style", "vnMaria"},
 	{"macro", "titleDate", {2011, 11, 13, 13, 59}},
 
+	{"bg", "add", args={"Flash/day.png"}},
 	{"name", "María"},
 	[[El mal clima seguía cuando nos sentamos al fin a comer. Falcon seguía
 en cama, y yo ya me había acostumbrado a la sensación de que el viento hecharía
@@ -43,7 +44,7 @@ mas me gustaba."]],
 	[["Jugaba en casa, porque no había clases."]],
 
 	{"name", "Fabian"},
-	[["Aaah." Comenzaba a sospechar que Andrea no disfrutó mucho la
+	[["Aaah." Comenzaba a sospechar que Andrea no disfrutó mucho de la
 escuela.]],
 
 	{"name", "Andrea"},
@@ -59,7 +60,7 @@ salir con este frio, pero evidemente no había opción.]],
 Bake.]],
 
 	{"name", "María"},
-	[["Si, como meter guitarras al auto ayer ¬¬"]],
+	[["Si, como meter guitarras y amplis al auto ¬¬"]],
 
 	{"name", "Bake"},
 	[["No, eso era esencial xD Es por nuestra cordura xDD" '¿Que había de
@@ -195,6 +196,7 @@ Andrea colgó su poncho en la silla, y quedó decidido.]],
 	{"name", "María"},
 	[["Solo déjame avisarle a Falcon primero."]],
 
+	{"macro", "rFade", "maria/pasillo.png"},
 	[[Mientras los chicos juntaban sus armas, yo me dirigí al segundo piso.
 La puerta de Falcon seguía cerrada, así que la abrí con cautela y miré adentro.
 Seguía en cama.]],
@@ -205,12 +207,13 @@ Seguía en cama.]],
 	[["¿M-María?" balbuceó girándose. Se veía pálido. Me acerqué
 tratando de no hacer ruido.]],
 
+	{"macro", "rFade", "maria/pieza.png"},
 	{"name", "María"},
 	[["Vamos a ir por comida ahora," dije arrodillándome junto a la cama.
 "¿Necesitas algún medicamento? Aparte de antivirales."]],
 
 	{"name", "Falcon"},
-	[["¿Que, que hay de la tormenta?"]],
+	[["¿Que... que hay de la tormenta?"]],
 
 	{"name", "María"},
 	[["Volveremos rápido, no te preocupes. Andrea se va a quedar a
@@ -237,9 +240,13 @@ evitar sonreír.]],
 	[[Falcon asintió debil. Una ráfaga de viento azotó el segundo piso, y
 que le dí un beso en la frente. El me miró sorprendido.]],
 
-	[["Chao." Corrí escalera abajo. El esguince me dolía, pero el tiempo se
+	[["Chao."]],
+
+	{"bg", "mod", fade={"fadeout", 1, true}},
+	[[Corrí escalera abajo. El esguince me dolía, pero el tiempo se
 acababa al parecer.]],
 
+	{"bg", "add", args={"maria/living.png"}, fade={"fadein", 1}},
 	[[Los chicos estaban junto a la puerta esperándome. Bake tenía la
 katana y Fab su tubo. Andrea esperaba junto a ellos.]],
 

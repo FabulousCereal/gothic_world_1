@@ -22,7 +22,7 @@ viento hacía difícil oír.]],
 	[["¿E-Es broma?"]],
 
 	{"name", "Fabian"},
-	[["No se puede practicar si tienes solo 10 balas," dijo Fab. No era
+	[["No podemos practicar si tenemos solo 10 balas," dijo Fab. No era
 broma. "Acuerdate de no cerrar los ojos antes de jalar el gatillo."
 Andrea hizo una mueca. A lo mejor usar el tubo era una decisión mas racional
 que lo que creía.]],
@@ -32,6 +32,8 @@ que lo que creía.]],
 a Falcon. Hicieron tal como en la farmacia: Falcon abrió de golpe, y Bake
 apuntó.]],
 
+	{"bg", "conf", "default", color={.5, .5, .5, 1}},
+	{"bg", "add", args={"maria/living.png"}},
 	[[La casa estaba oscura por las tablas, pero no se veía ningún
 movimiento adentro. Nos metimos con cautela, sin romper el grupo.]],
 
@@ -41,8 +43,9 @@ desde la cocina. Debía estar abierto.]],
 
 	[[Fuera de eso, todo lucía tal cual lo dejamos, así que nos dirigimos
 a la cocina con Bake al frente. El se metió de un salto apuntando. Miró al
-suelo y guardó el arma.]],
+suelo y guardó el arma. Entramos.]],
 
+	{"macro", "rFade", "maria/cocina.png"},
 	[[Encontramos todo revuelto. La puerta estaba abierta y con la
 cerradura destruida. En el suelo habían platos rotos y ollas tiradas al azar.
 Habían manchas de sangre junto a la entrada.]],
@@ -91,7 +94,7 @@ entretenido. Miré los platos rotos en el suelo, y me agaché a limpiar.]],
 por una escoba." Fab miró hacia todos lados confundido.]],
 
 	{"name", "Fabian"},
-	[["Ehh, ¿donde hay una escoba?" me preguntó. Ambos me miraron, pero
+	[["Ehh, ¿donde hay una escoba?" Ambos me miraron, pero
 yo tampoco sabía. Si, yo era una increíble ayuda. Fab salió del cuarto, y
 pronto volvió con pala y escoba. Andrea acercó el basurero, y empezaron a
 hechar todo adentro.]],
@@ -165,6 +168,7 @@ era obvio que mentía; no debia tener buena cara.]],
 	[[Ya casi detestaba que me trataran bien, pero terminé asintiendo.
 Quizás sería mejor, a pesar que no era ni mediodía aún.]],
 
+	{"bg", "mod", fade={"fadeout", .5}},
 	[[Subí al segundo piso, y me fui a la cama. En el espacio que dejé
 desordenado en la mañana, me enrollé, y traté de no pensar en nada.]],
 }

@@ -145,8 +145,10 @@ los brazos.]],
 	[["Bueno u.u" Croft acomodó su camioneta y entre todos
 descargamos las cajas que traía.]],
 
-	[[Contenían de todo. Latas de conserva, atún, SPÖM, incluso café.
-Llevamos todo hacia la cocina, con Rocco siempre pegado a Croft.]],
+	[[Contenían de todo. Latas de conserva, atún, SPÖM, incluso café.]],
+
+	{"bg", "add", args={"maria/cocina.png"}, fade={"fadein", 1}},
+	[[Llevamos todo hacia la cocina, con Rocco siempre pegado a Croft.]],
 
 	{"name", "Bake"},
 	[["Che, ¿a quien mataste para robarle este alimento?"]],

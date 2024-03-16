@@ -47,8 +47,11 @@ return {
 
 	{"name", "María"},
 	[[Me había logrado calmar tras unos minutos. Estaba recostada en el
-asiento del copiloto, con la vista perdida en la ciudad. Falcon vigilaba la
-Avenida, con su arma en mano. Ninguno hablaba. Esperabamos a Bake.]],
+asiento del copiloto, vuelta hacia mi lado, con la vista perdida en la
+ciudad.]],
+
+	[[Falcon vigilaba la Avenida, con su arma en mano. Ninguno hablaba.
+Esperabamos a Bake.]],
 
 	[[En los minutos que estuvimos adentro había comenzado a nevar. Todo
 se había empezado a cubrir de blanco rápidamente, y hasta yo podía darme cuenta
@@ -64,7 +67,7 @@ yo no podía aguantar al lado de seis cuerpos despedazados. Y si yo me quedaba
 afuera, discutirían cual de los dos debería quedarse a cuidar a la pobre de
 María, que cuando sale es asechada por su propia sombra, la inútil.]],
 
-	[[Lo único bueno de la situación es que ningún zombie se nos acercaba.
+	[[El único punto bueno hasta ahora es que ningún zombie se nos acercaba.
 Rondaban lejos, pero no venían. Quizás no nos sentían dentro del auto, o por el
 viento no les llegaba nuestro olor, aunque la verdad no sabía si tenían buen
 olfato,]],
@@ -92,8 +95,8 @@ salir.]],
 
 	{"name", "Falcon"},
 	[["Voy a decirle que busquemos el remedio en otro lado. Lo que mas debe
-haber en esta ciudad son farmacias." Falcon se bajó... pero se
-quedó junto al auto.]],
+haber en esta ciudad son farmacias." Falcon se bajó... pero no cerró la
+puerta.]],
 
 	[["Viene gente," dijo. Levanté la cabeza, y distinguí tres figuras
 que venían en la esquina.]],
@@ -215,8 +218,6 @@ tubería, y de pronto se le pegó con un click a la mochila.]],
 
 	[[Mierda, a lo mejor si traía una bomba.]],
 
-	[["Ok, mejor no."]],
-
 	{"name", "Bake"},
 	[["Yo tengo un plan. Para salir de la duda, quiero decir."]],
 
@@ -276,7 +277,7 @@ fuerza y la nieve no paraba. Todos fueron de inmediato tras el.]],
 	[["F-Falcon, ¡dí algo!"]],
 
 	{"name", "Falcon"},
-	[["Estoy tan impactado como tu. No sé como el que Croft no tocara no me
+	[["Estoy tan impactado como tú. No sé como el que Croft no tocara no me
 pareció sospechoso." ò.ó]],
 
 	{"name", "María"},
@@ -308,7 +309,7 @@ empezó a quitar la mochila.]],
 siguiendo al chico, y este tras hechar un vistazo fue a tomar un acordeón.]],
 
 	{"name", "Andrea"},
-	[["Tu puedes Fab," lo animó la chica.]],
+	[["Ve por ellos Fab," lo animó la chica.]],
 
 	{"name", "María"},
 	[[El chico se colocó el acordeón y se sentó en una silla. Observó
@@ -317,15 +318,15 @@ Bake estuviera mirando, empezó a tocar.]],
 
 	{"bgm", "set", "acc",
 		source="prelude2_accordeon2 (godlike samples, crap midi).ogg",
-		fade={"delay", 1.25, "fadeout", 1/12, true}},
-	0.75,
+		fade={"delay", 4/3, "fadeout", 1/48, true}},
+	2/3,
 
 	{"name", "Bake"},
 	[["Ahí está bien, vos pasás," dijo Bake cuando el chico no llevaba ni 3
 notas. Los cuatro nos giramos a verlo.]],
 
 	{"name", "Fabian"},
-	[["Que chucha."]],
+	[["WTF"]],
 
 	{"name", "Bake"},
 	[["Solo quería comprobar que hicieras algo xD La verdad lo que mas
@@ -455,7 +456,7 @@ como si esto tuviera sentido. "No sé si los blast beats sean tan importantes."]
 
 --	{"read", ebinSolo},
 	{"name", "Falcon"},
-	[["Bake, anoche ni siquiera podías con Heroes Desechables."]],
+	[["Bake, anoche ni siquiera podías con Heroes Desechables xDDD"]],
 
 	{"name", "Bake"},
 	[["Pero es que ya llevabamos dos horas tocando xd es distinto xddd"]],
@@ -470,10 +471,10 @@ como si esto tuviera sentido. "No sé si los blast beats sean tan importantes."]
 	[["Estoy de acuerdo."]],
 
 	{"name", "María"},
-	[[Andrea se quedó cabisbaja mientras Fabian se acercaba a verla,
-mientras Bake y Falcon salían. Yo los seguí.]],
+	[[Andrea se quedó cabisbaja a pesar de la noticia, y Fabian se acercó a
+verla. Mientras tanto, Bake y Falcon salieron a la calle. Yo los seguí.]],
 
-	[[No sé si era idea mía, pero todo se veía aún mas oscuro que cuando
+	[[No sé si era idea mía, pero todo se veía mas oscuro que cuando
 entramos.]],
 
 	{"name", "Falcon"},
@@ -490,7 +491,7 @@ entramos.]],
 Falcon parecía de acuerdo.]],
 
 	{"name", "María"},
-	[[Nos volteamos a ver los chicos que aún no salían. Estaban riendose de
+	[[Nos volteamos a ver los chicos que aún no salían. Ambos se rieron de
 algo.]],
 
 	{"name", "Falcon"},

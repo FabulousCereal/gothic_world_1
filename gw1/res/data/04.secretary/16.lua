@@ -9,16 +9,17 @@ se encontraba bien. Aparte que algo de compañía nunca le viene mal a nadie.]],
 conocido recíen ayer, pero por alguna razón cuestionaba su habilidad para
 saber si algo era grave.]],
 
-	{"macro", "xFade", "maria/pasillo.png"},
+	{"macro", "rFade", "maria/pasillo.png"},
 	[[Llegué a duras penas arriba y toqué a la puerta. La
 verdad iba a entrar igual porque no esperaba respuesta, pero sorprendentemente
-oí un "Pase" casi de inmediato.]],
+Falcon me respondió casi de inmediato.]],
 
-	{"macro", "xFade", "maria/pieza.png", false, {.8, .8, .8, 0}},
+	{"macro", "rFade", "maria/pieza.png", {.8, .8, .8, 0}},
 	[[Abrí y encontré a Falcon en pie, poniéndose su abrigo con chapa.]],
 
+	{"bg", "add", args={"zeh/falcon.png", 50}},
 	{"name", "Falcon"},
-	[["Hola," me dijo con buen ánimo. Noté que se había puesto ropa nueva
+	[["Hola," me dijo algo desanimado. Noté que se había puesto ropa nueva
 debajo. Usaba una camisa de Green Park, así que a lo mejor Bake le había
 prestado ropa. En el mueble junto a la alarma tenía la pistola y un
 cartucho.]],
@@ -27,19 +28,21 @@ cartucho.]],
 	[["¿Estás bien? Bake me dijo que tenías fiebre."]],
 
 	{"name", "Falcon"},
-	[["Si, amanecí adolorido entero. No sé si será que me resfrié por que
+	[["Si, amanecí adolorido entero. No sé si será que me resfrié porque
 dormí en el auto estos días o que, pero sea lo que sea ya se me pasó." Falcon
-se guardó el arma. "¿Que pasó abajo? Escuché ladridos y casi me caí de la cama
-pensando que eran zombies."]],
+se guardó el arma.]],
+
+	[["¿Que pasó abajo? Escuché ladridos y casi me caí de la cama pensando
+que eran zombies."]],
 
 	{"name", "María"},
 	[["No, no. Ehh, solo digamos que tenemos un nuevo integrante. Estamos
 comiendo galletas abajo. ¿Vienes?"]],
 
 	{"name", "Falcon"},
-	[["Ya. Muero del hambre."]],
+	[["Ya. Muero del hambre," dijo sonriendo.]],
 
-	{"macro", "xFade", "maria/pasillo.png"},
+	{"macro", "rFade", "maria/pasillo.png", false, 1},
 	{"name", "María"},
 	[[Salí a esperarlo al pasillo, y cuando estuvo listo fui con en el
 hasta la escalera.]],
@@ -52,7 +55,7 @@ hasta la escalera.]],
 y con levantar la manga del pantalón bastó.]],
 
 	{"name", "Falcon"},
-	[["Ah, si, es un esguince. Va a estar así unos días."]],
+	[["Si, es un esguince. Va a estar así unos días."]],
 
 	{"name", "María"},
 	[["Mierda."]],
@@ -60,10 +63,11 @@ y con levantar la manga del pantalón bastó.]],
 	{"name", "Falcon"},
 	[["Igual si reposas creo que se te va a pasar mas luego."]],
 
-	{"macro", "xFade", "Flash/day.png"}},
+	{"bg", "mod", fade={"fadeout", 2/3, true}},
+	{"macro", "rFade", "Flash/day.png", false, 1},
 	{"name", "María"},
-	[[Bajamos los dos la escalera a duras penas, y de ahí fuimos al comedor
-donde estaban Bake y Croft tomando mate y café, respectivamente.]],
+	[[Bajamos los dos la escalera, cual peor que el otro, y de ahí fuimos
+al comedor donde estaban Bake y Croft tomando mate y café, respectivamente.]],
 
 	{"name", "Croft"},
 	[["Así que ahora solo guardo una botella de la que nunca bebo."]],
@@ -89,8 +93,7 @@ tostadas frias de la mañana." Bueno, será.]],
 
 	{"name", "María"},
 	[[Nos pusimos a comer lo que había junto con las galletas de Croft, y
-le preguntamos sobre como había sobrevivido. Croft suspiró y se sirvió otro
-café...]],
+le preguntamos sobre como había sobrevivido.]],
 }
 
 return {
@@ -162,7 +165,7 @@ impermeable.]],
 	[["¿Falcon? Está con fiebre en la cama."]],
 
 	{"name", "María"},
-	[["¿Que? ¿Con fiebre?"]],
+	[["¿Que? ¿Como con fiebre?"]],
 
 	{"name", "Bake"},
 	[["Si, lo fui a ver luego que salieras y estaba así, dijo que le dolía
@@ -180,14 +183,17 @@ de nuevo volví sin nada.]],
 	[["Traje galletitas."]],
 
 	{"name", "Bake"},
-	[["Coooool," dijo invitandonos a entrar.]],
+	[["Coooool," dijo invitándonos a entrar.]],
 
 	{"bg", "add", args={"maria/living.png"}, fade={"fadein", 1}},
+	{"bgm", "set", "normal", source="un día normal (demo).ogg"},
 	{"name", "María"},
 	[[Pasamos con Croft, que alcanzó a poner el pie para no dejar entrar a
 Rocco en castigo, y se fue con Bake directamente a la mesa a comer y tal vez a
-charlar un poco. Yo los seguí de mas atrás por mi cojera, pero me detuve
-al pasar frente a la escalera.]],
+charlar un poco.]],
+
+	[[Yo los seguí de mas atrás por mi cojera, pero me detuve al pasar
+frente a la escalera.]],
 
 	{"select", nil, {
 		[[Subir a ver a Falcon.]],
@@ -198,7 +204,7 @@ al pasar frente a la escalera.]],
 		{
 			[[A lo mejor solo iba a molestarlo si lo despertaba.]],
 
-			{"macro", "xFade", "Flash/day.png"},
+			{"macro", "rFade", "Flash/day.png"},
 			[[Seguí hasta la mesa y me senté junto a los chicos.
 			Croft ya le estaba contando a Bake sobre como me
 			pasó por encima, y que aparentemente lo rodearon tres
@@ -251,7 +257,10 @@ al pasar frente a la escalera.]],
 			{"name", "María"},
 			[[Croft terminó de contar sobre nuestra huida de los
 			tres zombies, y le preguntamos sobre como había pasado
-			estos días. Croft tomó un sorbo de café y suspiró...]],
+			estos días.]],
 		}
 	}},
+	{"bgm", "mod", "normal", fade={"fadeout", 2, true}},
+	{"bg", "mod", 1, fade={"fadeout", 2, true}},
+	[[Croft bajó la mirada hacia su café. Tomó un sorbo y suspiró...]],
 }

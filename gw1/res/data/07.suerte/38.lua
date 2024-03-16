@@ -11,9 +11,11 @@ del conductor antes que Bake, y partimos con toda prisa hacia la casa.]],
 
 	{"name", "Bake"},
 	[["Ni idea. Esta es como la vuelta del invierno en primavera,
-pero desde que era chico que no ocurría. No sé que irá a pasar," respondió.
-Primavera... Recordé que era noviembre, que era primavera ahora y que esta
-misma semana hicieron 30 grados donde vivía.]],
+pero desde que era chico que no ocurría. No sé que irá a pasar."]],
+
+	{"name", "María"},
+	[[Primavera... Recordé que era noviembre, que era primavera ahora y que
+esta misma semana hicieron 30 grados donde vivía.]],
 
 	[[No va a haber día en que no me arrepienta de haber venido a esta
 puta ciudad.]],
@@ -79,16 +81,18 @@ de personas, y los alcanzan a controlar, no sucedería lo de acá."]],
 
 	{"name", "Fabian"},
 	[["O sea, claro, no podemos asumir que se haya salido de control como
-acá..." razonó Fab. "Pero estuve escuchando la onda corta, y todas las
-estaciones de otros lados han ido desapareciendo. Puede que sea que la gente se
-está resguardando... puede que no."]],
+acá..." razonó Fab.]],
+
+	[["Pero estuve escuchando la onda corta, y todas las estaciones de
+otros lados han ido desapareciendo. Puede que sea que la gente se está
+resguardando... puede que no."]],
 
 	{"name", "Falcon"},
 	[["Espera. Onda corta me suena," dijo Falcon tratando de pensar.
 "Ehh, es una frecuencia de muy largo alcance, ¿no es así?"]],
 
 	{"name", "Fabian"},
-	[["Asi es, abarca casi todo el continente. Rebota en lo
+	[["Exacto, abarca casi todo el continente. Rebota en lo
 alto de la atmósfera así que la curvatura de la Tierra o la cordillera no la
 bloquean. Solo necesitas encontrar una radio que la pueda recibir."]],
 
@@ -128,10 +132,11 @@ Finalmente suspiró.]],
 ahora no tiene ningún sentido."]],
 
 	{"name", "María"},
-	[["No," susurré para mi misma. Sentía que a cada rato todo se perdía.
-¿Que ibamos a hacer, si tenemos que quedarnos acá? ¿Esperar que los zombies se
-murieran solos? ¿Terminarían algún día? ¿Sobreviviriamos lo suficiente para
-verlo?]],
+	[["No," susurré para mi misma. Sentía que a cada rato todo se perdía.]],
+
+	[[Que ibamos a hacer, si tenemos que quedarnos acá? ¿Esperar que los
+zombies se murieran solos? ¿Terminarían algún día? ¿Sobreviviriamos lo
+suficiente para verlo?]],
 
 	[[Pensé en lo que dijo Croft sobre los militares, y me convencí de lo
 que dijeron los chicos; si fue verdad, ya no debían estar ahí.]],
@@ -142,8 +147,8 @@ desprendía de los árboles y techos en lenguas. "Menos mal encontramos gente.
 ¿Que habría pasado si nos agarraba la tormenta sin refugio?"]],
 
 	{"name", "Fabian"},
-	[["Hmm, nada, el frio nos habría adormecido y hubieramos muerto en
-paz."]],
+	[["Hmm, nada, el frio nos habría adormecido y hubieramos muerto
+pacíficamente."]],
 
 	{"name", "Andrea"},
 	[["Aaah," dijo asintiendo. Yo me sequé las lágrimas, y Andrea se dió
@@ -166,7 +171,7 @@ por el ejercicio de recién.]],
 	[["Somos errantes," dijo como si fuera divertido.]],
 
 	{"name", "Fabian"},
-	[["No somos de acá la verdad, así que dormiamos en cualquier lugar
+	[["No somos de acá, así que dormiamos en cualquier lugar
 que nos protegiera del viento."]],
 
 	{"name", "Falcon"},
@@ -176,9 +181,9 @@ que nos protegiera del viento."]],
 	[["Yo si. Del norte." Igual que yo.]],
 
 	{"name", "Andrea"},
-	[["Yo no, aunque vivo casi en la frontera. Venía de paseo con mi curso,"
-dijo. ¿Curso? Sus palabras sonaban tan a normalidad que me distrajeron de mi
-pena.]],
+	[["Yo no, vivo en un pueblo cerca de la frontera. Venía de paseo con mi
+curso," dijo. ¿Curso? Sus palabras sonaban tan a normalidad que me distrajeron
+de mi pena.]],
 
 	{"name", "Bake"},
 	[["¿Cuantos años tenés?" preguntó Bake. ¿De verdad no habló de
@@ -220,7 +225,9 @@ en la tarde, nos ordenaron quedarnos en el hotel en calma hasta que llegara el
 bus al día siguiente."]],
 
 	[["Yo compartía habitación con tres compañeras, pero no hablaba mucho
-con ellas. Vimos las noticias en la noche, nos fuimos a dormir y todo, y como a
+con ellas.]],
+
+	[[Vimos las noticias en la noche, nos fuimos a dormir y todo, y como a
 las seis de la mañana nos despertaron unos gritos desesperados en el piso
 nuestro."]],
 
@@ -229,7 +236,7 @@ teléfono, porque no se atrevían a salir del cuarto, yo decidí que no aguantab
 esto y junté mis cosas para irme a casa por mi cuenta."]],
 
 	[["Ellas me dijeron que era peligroso, que iban a llamar al profesor
-si salía, así que salí corriendo para huir antes que alguien me detuviera."]],
+si salía, y yo salí corriendo para huir antes que alguien me detuviera."]],
 
 	[["Ehh, y bueno, cuento corto, logré llegar a un terminal de buses al
 mediodía, pero estaba todo cerrado así que no sirvió de nada. Me quedé sin
@@ -250,9 +257,8 @@ porque no recuerdas a nadie, supongo.]],
 	[["Y luego conociste a Fab."]],
 
 	{"name", "Andrea"},
-	[["A los dos días después, en realidad." ¿Dos días sola? Era bastante,
-considerando que yo no daraba ni 15 minutos afuera sin que me pase alguna
-estupides.]],
+	[["Sí, pero a los dos días después." ¿Dos días sola? Era increíble.
+Yo no daraba ni 15 minutos afuera sin que me pase alguna estupides.]],
 
 	{"name", "María"},
 	[["¿No viste mas gente antes de encontrar a Fab?"]],
@@ -271,9 +277,9 @@ acercar a ellos."]],
 suerte de que la fábrica explotara a los minutos de bajarme del avión.
 Hubiera sido un poco antes, y me hubieran desviado a otro lado."]],
 
-	[["Como sea. Mi prima tampoco estaba en el aeropuerto, así que llegué
-como pude a un hostal, y cuando desperté ya no había ni luz ni gente. No me
-quedó mas opción que ponerme a caminar."]],
+	[["Como sea. Mi prima tampoco había llegado al aeropuerto, así que
+llegué como pude a un hostal, y cuando desperté ya no había ni luz ni gente.
+No me quedó mas opción que ponerme a caminar."]],
 
 	[["Cuento corto, para el segundo día deduje que esto no se iba a
 arreglar por lo pronto, así que me conseguí un mapa y me puse a buscar a mi
@@ -327,7 +333,7 @@ ido buscándolos."]],
 	[["¿Pero no te acuerdas de alguna calle, o algo?"]],
 
 	{"name", "Fabian"},
-	[["Nada, no me fijaba en esas cosas de niño xd"]],
+	[["No me fijaba en esas cosas de niño xd"]],
 
 	{"name", "Falcon"},
 	[["Bueno, no hay nada peor que no poder recordar..." dijo
@@ -447,6 +453,6 @@ estacionó. "¿No se habrá metido algo?"]],
 
 	{"name", "Falcon"},
 	[["No mames." Observamos atentos la casa por unos momentos. No se veía
-ningún movimiento, tampoco ningún ruido, pero ante la duda Falcon y Bake
+ningún movimiento, tampoco había ningún ruido, pero ante la duda Falcon y Bake
 sacaron sus armas.]],
 }

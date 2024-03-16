@@ -249,16 +249,16 @@ layerOps = {
 
 	mod = function(layers, op)
 		local start, limit = unpack(op)
-		if type(start) == "string" then
-			layerMod(layers[start], op)
-		else
-			start, limit = getNormalizedRange(layers, start, limit)
-			layerModRange(layers, op, start, limit)
-		end
+		start, limit = getNormalizedRange(layers, start, limit)
+		layerModRange(layers, op, start, limit)
 	end,
 
 	modall = function(layers, op)
 		layerModRange(layers, op, 1, #layers)
+	end,
+
+	conf = function(layers, op)
+		layerMod(layers[op[1]], op)
 	end,
 
 	fold = function(layers, op)

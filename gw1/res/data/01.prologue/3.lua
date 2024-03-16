@@ -78,7 +78,7 @@ delirando, quizás solo un poco peor que yo.]],
 	[[A momentos se me iba la consciencia, pero milagrosamente sobrevivimos
 yo y el auto hasta que una señalética me indicó donde había un hospital.]],
 
-	{"macro", "xFade", "falcon/hospital.png", 1, orange},
+	{"macro", "rFade", "falcon/hospital.png", orange},
 	[[Estacioné afuera en la calle, no le puse seguro porque no tenía las
 llaves. Pude cogear hasta la entrada para que me atendieran por el pie y otras
 heridas menores, pero había demasiada gente.]],
@@ -91,11 +91,11 @@ normal. Busqué un muro donde apoyarme. No quedaban asientos.]],
 señoras llorando por sus hijos, hijas, o familiares. Pensé en mi chica una vez
 más, debí haberla buscado mejor, no sabía que tan grave fue lo que ocurrió.]],
 
-	{"macro", "xFade", "falcon/niña.png", 1, orange},
+	{"macro", "rFade", "falcon/niña.png", orange},
 	[[La explosión debió ser muy fuerte, o el humo que salía era
 tóxico. Me sentía mareado aún, pero por lo menos no estaba delirando.]],
 
-	{"macro", "xFade", "zeh/bg/falcon/ojo.png", 1},
+	{"macro", "rFade", "zeh/bg/falcon/ojo.png"},
 	[[Fuí al baño a beber agua, y noté un derrame en mi ojo izquierdo, que
 a estas alturas ni me pareció importante.]],
 
@@ -144,7 +144,7 @@ me hallaba. Tras media hora ví el anuncio de un hostal.]],
 	},
 	{"text", [[El tablero marcó las 20:50 cuando me bajé. ]], false, true},
 
-	{"macro", "xFade", "falcon/hostal.png", 1, orange},
+	{"macro", "rFade", "falcon/hostal.png", orange},
 	{"text", [[Entré a la recepción pero no había nadie. Siempre lo mismo.
 No había nadie en ningún lado, y si encontraba gente estaban delirando o
 inconscientes.]], true},

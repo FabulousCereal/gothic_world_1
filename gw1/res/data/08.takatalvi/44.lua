@@ -1,5 +1,6 @@
 return {
 	{"style", "vnMaria"},
+	{"bgm", "set", source="Nice.ogg"},
 	{"macro", "titleDate", {2011, 11, 13, 15, 20}},
 
 	{"name", "María"},

@@ -1,6 +1,9 @@
 return {
 	{"style", "vnMaria"},
-	{"bgm", "set", source="en el año 2027....ogg"},
+	{"bgm", "set", "wind", 0, source="wahwahwhite noise.flac",
+		setup={setFilter={type="lowpass", volume=1, highgain=0}},
+		fade={"delay", 1, "fadeto", 1/3, 6}},
+	{"bgm", "set", "year", source="en el año 2027....ogg"},
 	res.fun.macro.title,
 
 	{"name", "María"},
@@ -18,6 +21,7 @@ chico.]],
 seguro, o alguien que nos pudiera llevar a uno. Como haría eso, no lo sabía,
 pero era lo único que podía intentar.]],
 
+	{"bgm", "mod", "wind", fade={"fadeto", 1, 1, "delay", 1, "fadeto", 1/3, 3}},
 	[[Un viento gélido sopló por la calle y botó nieve de los árboles, y
 hundí aún mas mis manos en mis bolsillos, apretando siempre la navaja.]],
 
@@ -60,7 +64,7 @@ sobre si debería buscar comida, y donde.]],
 todos estos días quizas ya tenía. Quizás no. Quizás justo iba a cocinar cuando
 llegaron los--]],
 
-	{"bgm", "mod", fade={"fadeout", 1/6, true}},
+	{"bgm", "mod", "year", fade={"fadeout", 1/6, true}},
 	[[Me detuve en seco, encontrándome en una intersección con una figura
 verde.]],
 
@@ -83,7 +87,7 @@ esperaba hacer con la navaja, lo único que había logrado era empaparla en sudo
 tantos otros. Si el chico aún no había despertado, no se daría ni cuenta de
 que--]],
 
-	[[Mierda. Deje al chico solo e inconsciente y con la puerta abierta.
+	[[¡Mierda! ¡Deje al chico solo e inconsciente y con la puerta abierta!
 ¿En que estaba pensando?]],
 
 	[[¡En nada! ¡En eso pienso!]],

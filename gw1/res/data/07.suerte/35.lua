@@ -242,12 +242,12 @@ nuevo.]],
 	[["¿Que esta pasando? ¿Donde aprendiste a conducir?"]],
 
 	{"name", "Bake"},
-	[["lol, en el GTA. Solo arrollamos un zombie, tranquilo."]],
+	[["Jugando a la Play xDD. Solo arrollamos un zombie, tranquilo."]],
 
 	{"name", "Falcon"},
 	[["Dios, ¿me vas a arrollar así también si me transformo?"]],
 
 	{"name", "Bake"},
 	[["Te voy a arrollar aunque estés bueno y sano si seguís hablando
-pelutodeces. Mirá, ya vamos llegando." Ya estabamos en la Avenida.]],
+pelotudeces. Mirá, ya vamos llegando." Ya estabamos en la Avenida.]],
 }

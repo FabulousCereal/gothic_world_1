@@ -102,15 +102,15 @@ el asiento.]],
 
 	[["¡Espera! ¡Rocco!" Rocco saltó por mi ventana, causando que todos los
 militares le apuntaran, y creo que solo porque aún estaba el otro sujeto al
-lado nuestro no nos llenaron de balas antes de tocar el suelo.]],
+lado nuestro no nos llenaron de balas antes que tocara el suelo.]],
 
 	[[Lo dejaron cagar junto a la rueda tranquilo, aunque sin bajar sus
 rifles durante todo el proceso. Apenas Rocco terminó me dieron 10 segundos para
 esfumarme.]],
 
 	[[Traté de ver que había mas allá de la barricada, pero en la oscuridad
-no distinguía nada. También estaba casi seguro de que aquí no habían bases
-militares ni infraestructura crítica.]],
+no distinguía nada mas que pinos. También estaba casi seguro de que aquí no
+habían bases militares ni infraestructura crítica.]],
 
 	[[A los 5 segundos decidí no tentar mas mi ya estirada suerte.]],
 
@@ -122,8 +122,8 @@ ciudad, salir por la autopista, pero algo me decía que me iba a encontrar con
 lo mismo.]],
 
 	[[Podía abandonar la camioneta y escabullirme a pie por entremedio del
-bosque, pero pasar la noche afuera era otra forma mas estúpida de morir. Y si
-nos descubrían, sería obvio que veniamos de la ciudad.]],
+bosque, pero pasar la noche afuera era otra forma estúpida de morir. Y si
+nos descubrían, no tendríamos excusa alguna.]],
 
 	[[Mis únicas alternativas parecían ser irme a casa y rogar que Bill se
 haya ido, buscar refugio en la ciudad, o dormir en el carro.]],

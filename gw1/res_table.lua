@@ -28,7 +28,7 @@ return {
 		repellantYellow = {.35, .35, .3},
 		tenpm = {.5, .5, .75},
 		redbg = {1, 0, 0},
-		fivepm = {1, .65, .35},
+		fivepm = {1, .7, .3},
 		sixpm = {.55, .35, .5},
 		sevenpm = {.3, .4, .5},
 		flashlight = {1, .6, 1/4},

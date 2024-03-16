@@ -1,10 +1,12 @@
 local pipiElPerroMaravilla = {
 	[[Pipi... ¡Pipi! Pipi dormía en una cama. Fui desenrollándome de a poco
 mientras recuperaba la sensación del cuerpo, ya que el frío casi me había
-paralizado, y luego caminé torpemente buscando la habitación de Pipi.]],
+paralizado, y caminé torpemente hasta la puerta bajo la escalera. La abrí.]],
 
-	[[Llegúe a lo que pareció haber sido la habitación de una mujer. El
-lugar olía a perro, literalmente, pero alli estaba Pipi envuelta en frazadas.]],
+	{"bg", "mod", fade={"fadeout", 1, true}},
+	[[Me encontré con lo que pareció haber sido la habitación de una mujer.
+El lugar olía a perro, literalmente, pero alli estaba Pipi envuelta en
+frazadas.]],
 
 	[[Con el olor se me había ido el entusiasmo, y ni pensar en todos los
 pelos que botan y quizás que otras cosas más, pero era mejor que morir de
@@ -28,23 +30,28 @@ Pipi empezó a ladrarme de pronto.]],
 
 	{"name", "María"},
 	[["¡Shh, Pipi! Vas a despertar a los chicos," dije tratando de calmarla.
-Pipi ladró mas fuerte aún. "¡Pipi!" Intenté cerrarle el hocico. Pipi se calló y
-dejó de moverse, y pensé que a lo mejor ya me había reconocido. Me acomodé en
-la cama, pero Pipi se me pegó de inmediato al cuerpo.]],
+Pipi ladró mas fuerte aún. "¡Pipi!" Intenté cerrarle el hocico.]],
+
+	[[Pipi se calló y dejó de moverse, y pensé que a lo mejor ya me había
+reconocido. Me acomodé en la cama, pero Pipi se me apegó de inmediato.]],
 
 	[["Pipi, quisiera algo de espa--" De pronto sufrí un fuerte dolor que
 me estremeció el cuerpo. Pipi me había agarrado el cuello.]],
 
 	[[No pude reaccionar. No pude gritar. Pipi gruñó y traté de apartarla,
-alejar su cabeza, pero Pipi me soltó solo para morderme con mas firmeza. De mis
-gritos solo se oyeron gárgaras. Empecé a ahogarme con un liquido, y solo en mi
-desesperación Pipi me soltó.]],
+alejar su cabeza, pero Pipi me soltó solo para morderme con mas firmeza.]],
+
+	[[De mis gritos solo se oyeron gárgaras. Empecé a ahogarme con un
+liquido, y solo en mi desesperación Pipi me soltó.]],
 
 	[[Solo alcancé a sentir algo cálido cuando traté de tocarme el cuello,
-mientras dejaba de sentir mi cuerpo. La fuerza se me iba, el liquido brotaba a
-golpes y ya no podía moverme. Me desmayaba. Alcancé a oír unas voces en la
-puerta, a ver una luz y unas sombras, y...]],
+mientras dejaba de sentir mi cuerpo.]],
 
+	[[La fuerza se me iba, el liquido brotaba a golpes y ya no podía
+moverme. Me desmayaba. Alcancé a oír unas voces en la puerta, a ver una luz y
+unas sombras, y...]],
+
+	{"bg", "conf", "default", color={1,1,1,1}},
 	{"macro", "badend", 1},
 	{"return", false},
 }
@@ -56,9 +63,10 @@ Si o si tenía que llegar hasta la mañana.]],
 
 	[[Terminé quedando en una especie de limbo, en que a veces soñaba con
 las bestias, con los chicos, con mi vida anterior, en que a veces despertaba
-sobresaltada con las ráfagas, con el crugir de la casa, con el frío. En que a
-veces soñaba con el océano negro. El viento se oía igual que las olas en la
-playa.]],
+sobresaltada con las ráfagas, con el crugir de la casa, con el frío.]],
+
+	[[En que a veces soñaba con el océano negro. El viento se oía igual que
+las olas en la playa.]],
 
 	[[Así pasé por horas, en ese purgatorio en que a cada minuto sentía que
 no podría soportar el siguiente. Resistí.]],
@@ -84,7 +92,7 @@ la cama, estremeciendo toda la casa.]],
 saltos.]],
 
 	{"name", "Bake"},
-	[["Shit, María estaba durmiendo xD" dijo deteniéndose en seco, y se fue
+	[["Shit, María está durmiendo xD" dijo deteniéndose en seco, y se fue
 a la cocina tratando de no hacer ruido. Venía en boxers y camisa como si fuera
 verano.]],
 
@@ -143,13 +151,13 @@ aguantaba más.]],
 			[[Fue un suplicio salir de donde estaba, tenía cada
 			coyuntura fija en su lugar.]],
 
-			{"macro", "xFade", "maria/pasillo.png"},
+			{"macro", "rFade", "maria/pasillo.png"},
 			[[Tras un arduo trabajo para levantarme y caminar,
 			llegué al segundo piso, que parecía a punto de salir
 			volando por el viento tormentoso. Me metí a oscuras a
 			la habitación de Falcon.]],
 
-			{"macro", "xFade", "maria/pieza.png"},
+			{"macro", "rFade", "maria/pieza.png"},
 			[[Estaba durmiendo mirando hacia la pared, tapado hasta
 			la cabeza y ocupando tan solo la mitad de esa estrecha
 			cama. Gracias Falcon, eres un santo.]],
@@ -172,7 +180,7 @@ local camaDeFalcon = {
 lo mismo fuera con quien fuera. Dejé mejor a Bake y su espalda tranquilos y
 entré a su habitación, ahora de Falcon.]],
 
-	{"macro", "xFade", "maria/pieza.png"},
+	{"macro", "rFade", "maria/pieza.png"},
 	[[Me acerqué a ver si quedaba espacio, y en la oscuridad alcancé a
 notar que Falcon estaba vuelto hacia la pared. Me metí como pude, quedando
 espalda con espalda.]],
@@ -321,7 +329,7 @@ return {
 	{"name", "María"},
 	res.fun.macro.title,
 
-	{"bg", "mod", "default", color=res.palette("flashlight"),
+	{"bg", "conf", "default", color=res.palette("flashlight", 1, .5),
 		shader=res.shader.contrast},
 	{"bg", "add", args={"maria/living.png"}, fade={"fadein", 1}},
 	[[Opté por quedarme un ratito mas dando vueltas. No se si era por enojo
@@ -342,21 +350,27 @@ civilización, quizás.]],
 eso me parecía demasiado ridículo. ¿Que había en ese humo que podía convertir a
 la gente en esto? ¿Y a donde se habían ido todos?]],
 
-	[[Mas aún, ¿que era esa sombra de la que habló Bake? ¿De verdad era lo
-que me había asechado en la mañana, o solo me estaba tomando el pelo? ¿Que hay
-de Falcon? ¿Como no se convirtió si estuvo casi en el centro de todo?]],
+	[[Mas aún, ¿que era esa Sombra de la que habló Bake? Podía imaginar que
+yo en pánico viera cualquier cosa, ¿pero Bake? ¿Y justo al mismo tiempo?]],
+
+	[[Por otro lado, que un zombie me tuviera a su alcance y se fuera
+sin hacerme nada tenía incluso menos sentido.]],
+
+	[[¿Y que hay de Falcon? ¿Como no se convirtió si estuvo casi en el
+centro de todo?]],
 
 	[[Ninguna de esas cosas parecían tener ningún sentido.]],
 
-	{"macro", "xFade", "maria/cocina.png"},
+	{"macro", "rFade", "maria/cocina.png"},
 	[[Me aseguré que las puertas estuvieran bien cerradas y las tablas bien
 clavadas. Miré por la ventana de la cocina a la oscuridad del exterior, donde
 los dos cuerpos quedaron esta mañana.]],
 
-	[[No saber que había pasado acá también me inquietaba, pero no pensaba
-salir a investigar a estas horas. Me limité a mirar desde adentro, segura,
-intentando no pensar en la posibilidad de que aparecieran de golpe, o peor
-aun...]],
+	[[No saber que había pasado con ellos también me inquietaba, pero no
+pensaba salir a investigar a estas horas.]],
+
+	[[Me limité a mirar desde adentro, segura, intentando no pensar en la
+posibilidad de que aparecieran de golpe, o peor aún...]],
 
 	{"bg", "mod", fade={"fadeout", 1/12}},
 	[[Detrás mío.]],
@@ -380,9 +394,9 @@ noche, pero sin éxito.]],
 	[[De pronto, una tenue luz recorrió los árboles y las casas.
 ¿Una linterna? ¿Un auto? Agudizé el oído y me pareció sentir un motor.]],
 
-	{"bg", "mod", "default",
+	{"bg", "conf", "default",
 		shader=res.shader.purkinje, color={1/6, 1/6, 1/6, 1}},
-	{"macro", "xFade", "maria/living.png"},
+	{"macro", "rFade", "maria/living.png"},
 	[[Me dirigí al living y miré por entre las tablas, apagando la linterna
 para no encandilarme.]],
 
@@ -398,7 +412,7 @@ hay al menos cuatro personas vivas en la ciudad.]],
 para ver quién la habitaba.]],
 
 	[[O alguna cuestión así. No sé. Con tanta oscuridad y silencio ya me
-pesaban los ojos. Debería irme a acostar para no levantarme tarde.]],
+pesaban los ojos. Tal vez ya era hora de dormirme.]],
 
 	[['¿Sabes que se te olvidó traer?' pensé para mi misma. 'Un cepillo de
 dientes.' Si, y un pijama, y ropa para cambiarme. Como siempre tarde, María,

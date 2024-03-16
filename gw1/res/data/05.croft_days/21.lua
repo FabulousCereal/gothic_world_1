@@ -19,8 +19,8 @@ desviarme infinitamente, ahora ya ni eso se dignaban a hacer. Tras varios
 intentos entendí la indirecta y me dí por vencido. Rocco agachó la cabeza.]],
 
 	[[Bueno, razoné que tras la explosión debían estar tapados de reclamos
-así que esta vez no era culpa suya. Aparte que tampoco tenía tanto apuro;
-mientras no perdiera la comida del refrigerador, todo bien.]],
+así que quizás no era culpa suya esta vez. Aparte que tampoco tenía tanto
+apuro. Mientras no perdiera la comida del refrigerador, todo bien.]],
 
 	[[Desayuné y me subí a mi carro, monté a Rocco con su correa, y fui a
 ver a mi amigo, hacía mucho que no hablábamos.]],
@@ -66,14 +66,17 @@ todos enratonados. Seguí andando, encontrando una que otra persona caminando,
 pero el ambiente era desolador de todas formas.]],
 
 	[[Llegué al edificio de mi amigo. Vivía en uno de esos departamentos
-que son diminutos pero donde el entorno era bien verde. No me parecía malo el
-lugar, pero siempre había dicho que si alguna vez decidía venirme a la ciudad,
-sería a una casa, como Zeus manda.]],
+que son diminutos pero donde el entorno era bien verde.]],
+
+	[[No me parecía malo el lugar, pero siempre había dicho que si alguna
+vez decidía venirme a la ciudad, sería a una casa, como Zeus manda.]],
 
 	[[Mientras desataba a Rocco para bajarlo, detrás mio apareció un
-vagabundo, trataba de decir "vet" o "ayu". Le dí unas changas que traía en la
-puerta pero se puso a vomitar. Asumí que estaba borracho. Recordé por que fue
-que nunca quise venirme a la ciudad.]],
+vagabundo, trataba de decir "vet" o "ayu".]],
+
+	[[Le dí unas changas que traía en la puerta pero se puso a vomitar.
+Asumí que estaba borracho. Recordé por que fue que nunca quise venirme a la
+ciudad.]],
 
 	[[Entré al edificio y busqué al señor de recepción. Sucedía que no
 recordaba el apartamento de mi amigo, solo que empezaba con 3, pero al final
@@ -136,14 +139,16 @@ helado, hasta que el golpe retumbó en el aire e hizo volar a las palomas.]],
 	[["¡La concha de la--!" oí a alguien gritar.]],
 
 	{"name", "Croft"},
-	[[Me asomé a mirar y ví que había caido junto a un sujeto encapuchado,
+	[[Me asomé a mirar y ví que había caido junto a un plomero encapuchado,
 que cargaba una tubería. El hombre lo rodeó y continuó su camino a pesar de
 haberse llevado un buen susto.]],
 
 	[[Tras el shock, traté de llamar a la policía para dar cuenta de lo que
 había pasado, pero tras varios intentos, nunca contestaron. En otras palabras,
-lo de siempre. Bajé de vuelta y monté a Rocco en el carro. Si la montaña no
-le contesta a Mahoma...]],
+lo de siempre.]],
+
+	[[Bajé de vuelta y monté a Rocco en el carro. Si la montaña no le
+contesta a Mahoma...]],
 
 	[[Conducía encontrando a cada momento mas personas caminando raro, poco
 mas y se arrastraban por el suelo. Sospechaba que algo no andaba bien acá.]],

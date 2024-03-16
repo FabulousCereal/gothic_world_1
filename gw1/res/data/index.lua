@@ -32,10 +32,10 @@ return {offset = -1,
 		{"El chico sin recuerdos", "10"},
 		{"La casa de las nieves", "11"},
 		{"Ilusión Nocturna", "12"},
-		{"Rompiendo el Amanecer", "13"}
 	},
 
 	{name = "Heroína Solitaria", dir = "04.secretary",
+		{"Rompiendo el Amanecer", "13"},
 		{"María sale sola", "14"},
 		{"María es atropellada", "15"},
 		{"María es regresada entera", "16"},

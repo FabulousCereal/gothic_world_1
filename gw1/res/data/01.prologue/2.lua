@@ -113,11 +113,12 @@ nadie me detuviera.]],
 salté sobre el mostrador, tomé cualquier juego de llaves, y entré a buscarles
 la habitación. Podía dar explicaciones después.]],
 
-	{"bg", "mod", fade={"fadeout", 1, true}},
+	{"macro", "rFade", "fab/hostal2.png", nil, 1},
 	[[Los corredores estaban vacios. Escuchaba una tele de alguna
 habitación, pero no veía gente. En el patio habían tuberías y palas tiradas,
 probablemente estaban remodelando.]],
 
+	{"bg", "mod", fade={"fadeout", 1, true}},
 	[[Llegué a mi cuarto y cerré todo, y como tenía aún el olor metálico
 del humo metido en la nariz, me dí una ducha antes de poner las noticias...]],
 

@@ -1,5 +1,8 @@
 return {
-	{"bgm", "set", source="Nostalgia.ogg"},
+	{"bgm", "set", "nostalgia", source="Nostalgia.ogg"},
+	{"bgm", "set", "white", 0, source="wahwahwhite noise.flac",
+		setup={setFilter={type="lowpass", volume=.5, highgain=0}},
+		fade={"fadeto", .5, 6}},
 	{"name"},
 	{"style", "vnMaria"},
 	[[Me desperté.]],
@@ -40,21 +43,23 @@ de un lado a otro en el cuarto ante el silencio sepulcrural en que me hayaba.]],
 la gente mutada, los muertos, el humo, pertenecían a la televisión. O eso
 deseaba.]],
 
-	{"bg", "mod", 1, fade={"fadeout", 2/3, true}},
+	{"bg", "sync"},
+	{"bg", "mod", fade={"fadeout", 2/3, true}},
 	[[Fui a prender la luz para ir al baño, tomar algo de agua, pero
-entonces descubrí que no andaba.]],
+entonces descubrí que se había cortado.]],
 
-	[["¡Maldita sea!" pensé. "¿Quién me habrá mandado a hospedarme en este
-hotel?"]],
+	[["¡Maldita sea!" grité golpeando el muro. ¿Quién me había mandado
+a hospedarme en este hotel?]],
 
 	[[Claro... había sido yo.]],
 
 	[[Mi nombre es María. Solo diré que tengo 18 años. No me parece que sea
 el momento para hablar sobre mí. Tampoco es que quiera, ni que importe.]],
 
-	[[Me tragué mi frustración y, guardando una navaja en mi bolsillo, salí
-por fín de mi cuarto. Muy cómodo y seguro será, pero ningún humano podía vivir
-por mucho ahí. Me volvería loca si seguía una hora mas.]],
+	[[Me lavé la cara para pasar la frustración, y salí por fín de mi
+cuarto, llevando solo las llaves y una navaja conmigo. No pensaba abandonar mis
+otras cosas, pero necesitaba salir ahora. Me volvería loca si seguía una hora
+mas.]],
 
 	{"bg", "add", args={"hotel.jpg", 0, 0, 0, .8},
 		fade={"fadein", 1/3},
@@ -70,7 +75,8 @@ en donde sea que se haya ido toda la gente.]],
 	[[Tuvieron que haberse ido a algún lado, ¿verdad? Evacuar.]],
 
 	{"bg", "mod", fade={"fadeout", 1/3, true}},
-	[[Sin comida ni gente que restara, salí a la calle. Sin saber que
+	{"bgm", "mod", "white", fade={"fadeto", 1, 6}},
+	[[Sin comida ni gente que restara, salí al exterior. Sin saber que
 hacer, me puse a caminar.]],
 
 	{"bg", "add", color=res.palette("tenpm", 0),
@@ -81,15 +87,19 @@ hacer, me puse a caminar.]],
 			{args={"Flash/until.png", 0, 136}},
 		}},
 	},
-	[[Era un día especialmente frío hoy. En las calles no se veía a nadie
-ni nada.]],
+	[[Era un día especialmente frío, con un cielo que estaba mitad nublado,
+mitad despejado.]],
+
+	[[No se veía movimiento alguno tras las ventanas de los edificios, no
+se oía ruido alguno en las calles. Esto no podía ser una ciudad. Traté de
+caminar.]],
 
 	[[La nieve de dos días se había acumulado en las calles y en las
 veredas, entorpeciéndome el paso. El viento polar se colaba por las ventanas de
 las casas, silbaba entre las ramas de los árboles que muertos sin sus hojas
 asemejaban--]],
 
-	{"bgm", "mod", fade={"fadeout", 1/3, true}},
+	{"bgm", "mod", "nostalgia", fade={"fadeout", 1/3, true}},
 	{"sfx", "sfx/sombra.flac", 1/3},
 	{"name"},
 	[[...*ffff*]],
@@ -104,7 +114,7 @@ pensamientos.]],
 
 	{"name", "María"},
 	[[Se oyó el ruido una vez mas. Asustada, me giré para buscarlo, pero
-las calles se seguían viendo vacias. No sabía lo que era.]],
+las calles se seguían viendo vacias. No sabía lo que era. Me empecé a agitar.]],
 
 	{"sfx", "sfx/sombra.flac"},
 	{"name"},
@@ -120,10 +130,9 @@ las calles se seguían viendo vacias. No sabía lo que era.]],
 		}},
 	},
 
-	[[Creí ver de reojo algo moverse, pero me puse a correr en vez de
-quedarme a mirar. El ruido me siguió. Me buscaba.]],
+	[[Creí ver de reojo algo moverse, pero me puse a correr antes de verlo
+bien. El ruido me siguió. Me buscaba.]],
 
-	{"bg", "sync"},
 	{"bg", "mod", fade={"fadeout", 2/3, true}},
 	{"bg", "add", args={"streetlamps.png", 0, 0, 0, .8},
 		color=res.palette("tenpm", 0),
@@ -144,14 +153,14 @@ basura, pero cuando estaba por alcanzar el borde, algo me tomó. El bote se
 movió bajo mis pies.]],
 
 	{"bg", "mod", fade={"fadeout", 1/12, true}},
+	{"bgm", "mod", "white", fade={"fadeout", 1/12, true}},
 	{"sfx", "freesound/377888__usernamemoe__trash-can-falling.edit.flac", 1, 4/3},
 	[[Caí.]],
 
 	{"bg", "add", args={"maria/sombra.png", -680, 0, 0, 3, 3},
 		color=res.palette("tenpm", 1),
-		fade={"fadein", 1/24, "mvabs", -640, -1280, 1/4, "fadeout", 1/6, true}
+		fade={"fadein", 1/30, "mvabs", -640, -1280, 1/5, "fadeout", 1/6, true}
 	},
---	{"sfx", "freesound/540066__nox_sound__weapon_revolver_dryfire_mono.cut.flac"},
 	{"sfx", "freesound/648134__5plus5equalspatata__window-break.flac", 1/2, 1, 1/2},
 	{"sfx", "freesound/346694__deleted_user_2104797__body-fall_02.flac", 1, 1, 4/3},
 	[[Solo alcancé a ver por un momento la forma borrosa de la criatura

@@ -60,17 +60,13 @@ gamestate[helpID].background = normalize({
 })
 
 local confBG = normalize({
-	{args={{
-		{args={"zeh/menu/conf.png"}, shader=res.shader.edgy},
---		{args={f0b.elem.circle, w/2, h/2, 0, w/2}, color=elemColor},
-	}}},
+	{args={"zeh/menu/conf.png"}, shader=res.shader.edgy},
+--	{args={f0b.elem.circle, w/2, h/2, 0, w/2}, color=elemColor},
 })
 local mainBG = normalize({
-	{args={{
-		{args={"zeh/menu/main.png"}, shader=res.shader.edgy},
---		{args=f0b.elem.screenFill(.9), color=elemColor},
-		{args=screen.menu(res.style.title, w, h)},
-	}}},
+	{args={"zeh/menu/main.png"}, shader=res.shader.edgy},
+--	{args=f0b.elem.screenFill(.9), color=elemColor},
+	{args=screen.menu(res.style.title, w, h)},
 })
 
 local menu = fload("engine/menu.lua")

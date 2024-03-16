@@ -107,10 +107,12 @@ local function layerUpdate(layerTable, dt, finish)
 		local layer = layerTable[i]
 		local drawable = layer.args[1]
 		if drawable.update then
+			layerTable.drawn = false
 			drawable:update(dt)
 		end
 		local fade = layer.fade
 		if fade and #fade > 0 then
+			layerTable.drawn = false
 			local remove = seq.update(fadeOps, layer, fade, dt,
 				finish)
 			if remove == true then
@@ -120,63 +122,67 @@ local function layerUpdate(layerTable, dt, finish)
 	end
 end
 
-local function layerDraw(layerTable)
+local function layerDraw(layer, defaultFn, ...)
 	local graphics = love.graphics
-	local default = layerTable.default
-	for i = 1, #layerTable do
-		local layer = layerTable[i]
-		local drawFn = layer.exec or default.exec
-		local shader = layer.shader
-		local color = layer.color
-		graphics.setColor(color)
-		if shader then
-			graphics.setShader(shader)
-		end
-		drawFn(unpack(layer.args))
-		if shader then
-			graphics.setShader()
-		end
+	graphics.setColor(layer.color or {1,1,1,1})
+	local shader = layer.shader
+	if shader then
+		graphics.setShader(shader)
 	end
+	(layer.exec or defaultFn)(...)
+	if shader then
+		graphics.setShader()
+	end
+end
+
+local function layerDrawRange(lt, cnv, start, limit)
+	local graphics = love.graphics
+	local defaultFn = lt.default.exec
+	local prev = graphics.getCanvas()
+	graphics.setCanvas(cnv)
+	graphics.clear()
+	for i = start, limit do
+		layerDraw(lt[i], defaultFn, unpack(lt[i].args))
+	end
+	graphics.setCanvas(prev)
 end
 
 local function defaultDefaults()
 	return {color={1,1,1,1}, exec=love.graphics.draw}
 end
 
-local function setDefaults(layerTable)
-	if not layerTable.default then
-		layerTable.default = defaultDefaults()
+local function setDefaults(lt, force)
+	if not lt.default or force then
+		lt.default = defaultDefaults()
+	end
+	if not lt.root or force then
+		lt.root = defaultDefaults()
+	end
+	local graphics = love.graphics
+	if lt.cnv then
+		local prev = graphics.getCanvas()
+		graphics.setCanvas(lt.cnv)
+		graphics.clear()
+		graphics.setCanvas(prev)
+	else
+		lt.cnv = graphics.newCanvas()
 	end
 end
 
-local function normalizeLayer(layerTable, op)
-	local graphics = love.graphics
-	local default = layerTable.default
+local function normalizeLayer(lt, op)
+	local default = lt.default
 	if not op.color then
 		op.color = fTable.deepCopy(default.color)
 	end
-	if not op.shader then
-		op.shader = default.shader
-	end
-	if not op.exec then
+	if op.exec == nil then
 		op.exec = default.exec
 	end
+	if op.shader == nil then
+		op.shader = default.shader
+	end
 
-	if op.exec == graphics.draw then
-		local arg = op.args[1]
-		if type(arg) == "table" then
-			arg.default = fTable.deepCopy(default)
-			for i = 1, #arg do
-				normalizeLayer(layerTable, arg[i])
-			end
-
-			op.args = {graphics.newCanvas()}
-			graphics.setCanvas(op.args[1])
-			layerDraw(arg)
-			graphics.setCanvas()
-		else
-			op.args[1] = seq.normalizeSrc(res.img, arg)
-		end
+	if op.exec == love.graphics.draw then
+		op.args[1] = seq.normalizeSrc(res.img, op.args[1])
 	end
 end
 
@@ -221,7 +227,6 @@ end
 local layerOps
 layerOps = {
 	add = function(layers, op)
-		setDefaults(layers)
 		normalizeLayer(layers, op)
 		local idx = op[1]
 		if idx then
@@ -232,7 +237,6 @@ layerOps = {
 	end,
 
 	set = function(layers, op)
-		setDefaults(layers)
 		normalizeLayer(layers, op)
 		local idx = normalizeIndex(layers, op[1])
 		layers[idx] = op
@@ -248,8 +252,7 @@ layerOps = {
 	rmall = fTable.clearArray,
 
 	mod = function(layers, op)
-		local start, limit = unpack(op)
-		start, limit = getNormalizedRange(layers, start, limit)
+		local start, limit = getNormalizedRange(layers, op[1], op[2])
 		layerModRange(layers, op, start, limit)
 	end,
 
@@ -262,13 +265,13 @@ layerOps = {
 	end,
 
 	fold = function(layers, op)
-		local graphics = love.graphics
-		local cnv = graphics.newCanvas()
-		graphics.setCanvas(cnv)
-		layerDraw(layers)
-		graphics.setCanvas()
-		layerOps.rmall(layers)
-		layers[1] = {args={cnv}}
+		local start = normalizeIndex(layers, op[1], 1)
+		local limit = normalizeIndex(layers, op[2], #layers)
+
+		local cnv = love.graphics.newCanvas()
+		layerDrawRange(layers, cnv, start, limit)
+		layerOps.rm(layers, {start+1, limit})
+		layers[start] = {args={cnv}}
 	end,
 
 	sync = function(layers)
@@ -282,19 +285,20 @@ layerOps = {
 
 return {
 	ops = function(layerTable, op, directive)
+		layerTable.drawn = false
 		return layerOps[op](layerTable, directive)
 	end,
 
-	normalize = function(layerTable)
-		setDefaults(layerTable)
-		for i = 1, #layerTable do
-			normalizeLayer(layerTable, layerTable[i])
+	normalize = function(lt)
+		setDefaults(lt)
+		for i = 1, #lt do
+			normalizeLayer(lt, lt[i])
 		end
-		return layerTable
+		return lt
 	end,
 
 	reset = function(layerTable)
-		layerTable.default = defaultDefaults()
+		setDefaults(layerTable, true)
 		return fTable.clearArray(layerTable)
 	end,
 
@@ -302,5 +306,14 @@ return {
 		return layerUpdate(layerTable, dt, false)
 	end,
 
-	draw = layerDraw,
+	draw = function(lt)
+		local cnv = lt.cnv
+		if not lt.drawn then
+			layerDrawRange(lt, cnv, 1, #lt)
+			lt.drawn = true
+		end
+		love.graphics.setBlendMode("alpha", "premultiplied")
+		layerDraw(lt.root, defaultFn, cnv)
+		love.graphics.setBlendMode("alpha", "alphamultiply")
+	end,
 }

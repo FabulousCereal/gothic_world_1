@@ -55,7 +55,7 @@ return {offset = -1,
 		{"...y Rosas", "32"},
 	},
 
-	{name = "Tenían demasiada suerte", dir = "07.suerte",
+	{name = "Buenos días", dir = "07.buongiorno",
 		{"Una mañana como cualquier otra", "33"},
 		{"La casa de al lado", "34"},
 		{"Comme à la radio", "35"},
@@ -74,10 +74,17 @@ return {offset = -1,
 		{"Sangre", "45"},
 	},
 
+	{name = "Ciudad decadente", dir = "09.wicked_city",
+		{"?", "46"},
+		{"El Sueño de Falcon, I", "47"},
+		{"Nimzaj", "48"},
+		{"Cliffhanger", "49"},
+	},
+
 	{name = "------- Partes sin escribir a partir de ahora -------"},
 
 	{name = "Días de Fab",
-		{"La Flor Austral", "zzz"},
+		{"La Flor Austral"},
 		{"Michelle"},
 		{"Micto I"},
 		{"Daphne"}

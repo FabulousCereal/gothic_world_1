@@ -71,16 +71,16 @@ vimos fue una camioneta en la cochera.]],
 	[["No porque sepa hacerlos partir voy a saber abrirlos," respondió
 ofendido. "Pero dejame probar."]],
 
+	{"name", "María"},
 	[[Falcón se acercó a inspeccionar la puerta. Cerca había una mesa con
 un montón de herramientas, así que Falcon tomó un destonillador y se puso a
 meterlo en la cerradura.]],
 
-	{"name", "María"},
 	[[Y en fin, parece que estaba en lo correcto porque tras unos segundos
 admitió que no tenía idea de lo que hacía.]],
 
 	{"name", "Bake"},
-	[["¿Que tal si rompemos el vidrio?"]],
+	[["¿Que tal si rompemos una ventana?"]],
 
 	{"name", "María"},
 	[["¿Estás loco? Nos congelaríamos como ayer."]],
@@ -103,10 +103,10 @@ casa."]],
 
 	{"name", "Bake"},
 	[["No gastemos municiones. Dejá." Bake agarró vuelo y se lanzó
-con el hombro a derribarla. Sonó un golpe seco, y Bake rebotó en la puerta y
+con el hombro a derribarla. Con un golpe seco Bake rebotó en la puerta, y
 luego en el suelo.]],
 
-	[["Hoooly shit..." dijo agarrándose el hombro, revolcándose con lo que
+	[["Hoooly shit...!" dijo agarrándose el hombro, revolcándose con lo que
 parecía una risa adolorida. Falcon se golpeó la frente con la palma. Yo ni eso
 pude hacer.]],
 
@@ -159,7 +159,7 @@ el corto plazo. Era como su segunda siesta.]],
 	{"name", "Bake"},
 	[["Naah."]],
 
-	{"name", "Falcon"},
+	{"name", "María"},
 	[[Cuando volví Falcon hacía palanca con el destornillador metido entre
 ambas ventanas. Trataba de mover algo.]],
 

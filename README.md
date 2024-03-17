@@ -1,5 +1,5 @@
 <!--
-SPDX-FileCopyrightText: 2023 Grupo Warominutes
+SPDX-FileCopyrightText: 2024 Grupo Warominutes
 SPDX-License-Identifier: Unlicense
 -->
 
@@ -17,10 +17,10 @@ La adaptación que nadie pidió, la experiencia que ninguno quiere volver a repe
 
 ## Progreso
 
- * Código: 95%
- * Texto: 5%
- * Música: 2%
- * Gráficos: ~0%
+ * Código: 70%
+ * Texto: 6%
+ * Música: 5%
+ * Gráficos: ~2%
 
 Tiempo estimado restante: 24 años.
 

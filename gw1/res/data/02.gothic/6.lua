@@ -133,13 +133,14 @@ vista, parecía... un buen chico.]],
 me helaron la sangre. Si esos ruidos inhumanos no eran de gente... es que tal
 vez no había despertado de ningún sueño.]],
 
-	{"bg", "mod", fade={"delay", 1, "fadein", 1}},
-	{"bg", "mod", 1, fade={"delay", 2, true}},
 	[[No, no podía ser cierto, de ninguna forma. Entré con cautela a
-la cocina. El chico estaba demasiado pendiente de lo que había afuera para
+la cocina.]],
+
+	{"bg", "mod", 1, fade={"delay", 1, true}},
+	{"bg", "mod", fade={"fadein", 1}},
+	[[El chico estaba demasiado pendiente de lo que había afuera para
 notar mi presencia. Miré por la ventana.]],
 
-	{"bg", "sync"},
 	{"bg", "mod", fade={"fadeout", 1/24}},
 	[[Por primera vez ví a las criaturas en directo. Eran dos personas con
 una piel nauseabunda, color verde petroleo, con el pelo casi completamente
@@ -158,6 +159,9 @@ ver la navaja lo único que atinó a hacer fue una gran sonrisa. La tomó de mis
 manos y salió al campo de batalla.]],
 
 	{"bgm", "set", "famicom", source="prelude2_famicom.ogg"},
+	{"bg", "add", fade={"delay", 60/160, "fadein", 60/80}, color={5/6, 5/6, 5/6, 0},
+		args={{"maria/baile.png", 60/160/6, 3, 4, 60/160/6*1.5, update=f0b.anim.update}, 303, 204},
+		exec=f0b.anim.draw},
 	[[A pesar del aspecto terrorífico de las criaturas, el movimiento de
 estas era torpe y lento.]],
 
@@ -175,6 +179,7 @@ pero el chico se safó rápido y volvió a arremeter.]],
 	[[La criatura por fín empezó a tambalearse, y cayó al suelo mientras
 mas de ese líquido brotaba de su herida.]],
 
+	{"bg", "mod", fade={"fadeout", 60/80, true}},
 	{"bgm", "mod", "famicom", fade={"fadeout", 1/3, true}},
 	{"bgm", "mod", "gunshot",
 		fade={"delay", 1, "cmd", {seek=0, play=true, setLooping=true},
@@ -221,7 +226,7 @@ cayera.]],
 	[[Su cuerpo se sentía cálido, a pesar que tenía muy poca ropa para este
 frio.]],
 
-	{"macro", "rFade", "maria/living.png", {2/3, 2/3, 2/3, 0}},
+	{"macro", "rFade", "maria/living.png", {2/3, 2/3, 2/3, 0}, 1},
 	[[Logré llevarlo --arrastrarlo-- con gran esfuerzo hasta un sillón, y
 cuando fuí a recostarlo, descubrí una mancha de sangre formándose atrás en su
 polera.]],

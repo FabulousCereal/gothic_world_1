@@ -171,14 +171,14 @@ function love.update(dt)
 		return transitionExec(dt)
 	else
 		local state = gamestate.state
+		if state.update then
+			state:update(dt)
+		end
 		if state.background then
 			f0b.layers.update(state.background, dt)
 		end
 		if state.tracks then
 			f0b.jukebox.update(state.tracks, dt)
-		end
-		if state.update then
-			state:update(dt)
 		end
 	end
 end

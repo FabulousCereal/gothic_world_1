@@ -3,6 +3,7 @@
 
 f0b = {
 	std = require("f0b.std"),
+	anim = require("f0b.anim"),
 	math = require("f0b.math"),
 	elem = require("f0b.elem"),
 	lisp = require("f0b.lisp"),

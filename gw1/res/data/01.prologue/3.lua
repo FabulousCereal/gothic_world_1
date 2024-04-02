@@ -1,26 +1,35 @@
-local orange = {1, 7/8, 6/8, 0}
-
+local orange = {1, 7/8, 6/8, 1}
+local nada = 5
+local soundDelay = nada*3/2
 return {
 	{"style", "vnFalcon"},
 	{"name", false},
+	{"bg", "add", args={"falcon/mil intentos 1.png"}, color=orange},
+	{"bg", "add", args={"falcon/mil intentos 2.png", 173, 246}, color=orange},
+	{"bg", "add", draw=f0b.draw.screenFill, color={0,0,0,1},
+		fade={"fadeout", 2}},
+	{"wait", 1},
 	[[Lo último que recuerdo era que estaba en la calle con mi chica.
 Aquella imagen quedó grabada en mi mente, lo único que se quedó conmigo de
 antes de la explosión.]],
 
-	{"bg", "add", draw=f0b.draw.screenFill, color={1,1,1,1},
-		fade={"fadeout", 6, true}},
+	{"bg", "rm", 1, 2},
+	{"bg", "mod", color={1,1,1,1}, fade={"delay", 1/12, true}},
+
 	{"sfx", "sfx/explosión cercana.flac"},
 	{"bgm", "set", "fire", 0,
-		fade={"delay", 2, "fadein", 12},
+		fade={"delay", soundDelay, "fadein", 12},
 		source="freesound/369983__northern87__barbecue-fire.ogg"},
-	{"bgm", "set", "siren", .15, setup={seek=21},
+	{"bgm", "set", "siren", 0, setup={seek=21},
+		fade={"delay", soundDelay, "fadeto", 1/6, 6},
 		source="freesound/498187__16fpanskalan_jiri__14-1_ambulance.16.flac"},
-	{"wait", 2, true},
+	{"wait", nada, true},
 	{"macro", "date", {2011, 11, 8, 18, 34, idx=1}},
 
 	{"name", "------"},
-	[[Desperté cubierto de rocas y cenizas, con un dolor que me partía la
-cabeza. Tenía la boca seca y toda la piel me ardía.]],
+	[[Desperté cubierto de rocas y cenizas, con un dolor que no me dejaba
+pensar. Tenía la boca seca y la piel me ardía. Había un horrendo olor metálico
+que apenas me dejaba respirar.]],
 
 	{"bg", "add", args={"croft/street_crappy_test_by_croft70-d57ige5.png",
 		0, 0, 0, .9, 1},
@@ -34,17 +43,9 @@ no pude recordar su nombre.]],
 
 	[[No recordaba el mio tampoco.]],
 
-	[[Toda mi ropa estaba desgarrada y al parecer por unas garras, tal vez
-fueron perros.]],
-
-	[[Me puse de pie apoyándome en lo que quedaba de la pared mas cercana.
-La cabeza me daba vueltas.]],
-
-	[[Había un horrendo olor metálico que no me dejaba respirar. Humo salía
-aún del edificio. No entendía nada de lo que pasaba.]],
-
-	[[Mi pierna derecha parecía no responderme, así que caí al tratar de
-dar un paso.]],
+	[[Logré ponerme de pie apoyándome en lo que quedaba de la pared mas
+cercana. Traté de caminar, pero mi pierna derecha parecía no responderme y caí
+de nuevo. Todo se nubló unos segundos.]],
 
 	[["Necesito un hospital" fue lo único que pude pensar. Al levantar la
 mirada, pude ver algunos carros abandonados. Sus puertas habían quedado
@@ -69,7 +70,7 @@ iluminó.]],
 	{"bg", "add", args={"falcon/carro.png"},
 		fade={"delay", 1/3, "fadein", 1},
 		color=res.palette("sixpm", 0)},
-	[[Me puse a manejar aunque no podía reconocer el lugar. Pensé que me
+	[[Me puse a manejar aunque no reconocía nada del lugar. Pensé que me
 debería ser familiar, pero los nombres de la calles no me sonaban.]],
 
 	[[Mientras iba manejando veía a personas que al parecer estaban
@@ -132,12 +133,12 @@ hacer.]],
 blanco. No podía recordar donde vivía. Ninguna imagen o dirección. Me revisé
 los bolsillos, buscando alguna identificación o un celular.]],
 
-	[[...Nada, pero tenía unos billetes que reconocía. Por lo menos sé que
-vivo en este país.]],
+	[[...Nada, pero tenía algunos billetes. Por lo menos era algo.]],
 
-	[[Sin rumbo claro, comencé a dar vueltas esperando encontrar algún
-policía que me pudiera ayudar, o en el caso mas rebuscado darme cuenta de donde
-me hallaba. Tras media hora ví el anuncio de un hostal.]],
+	[[Sin rumbo claro y con el cuerpo pesandome, comencé a dar vueltas
+esperando encontrar algún policía que me pudiera ayudar, o en el caso mas
+rebuscado darme cuenta de donde me hallaba. Tras media hora ví el anuncio de un
+hostal.]],
 
 	{"bg", "add", args={res.fun.clock.alarm(res.style.carClockAlarm, 20, 50)},
 		fade={"fadein", 1/8},
@@ -149,10 +150,12 @@ me hallaba. Tras media hora ví el anuncio de un hostal.]],
 No había nadie en ningún lado, y si encontraba gente estaban delirando o
 inconscientes.]], true},
 
-	{"bg", "mod", fade={"fadeout", 1, true}},
 	[[Estaba cansado de no poder entender que mierda ocurría, me dolía la
-cabeza cada vez que trataba recordar. Salté el mostrador para tomar unas llaves
-y fuí hasta una habitación, dejándome caer sobre la cama blanca.]],
+cabeza cada vez que trataba recordar.]],
+
+	{"bg", "mod", fade={"fadeout", 1, true}},
+	[[Salté el mostrador para tomar unas llaves y fuí hasta una habitación,
+dejándome caer sobre la cama blanca. Respiré aire fresco.]],
 
 	[[Estaba todo tan callado, pacífico. Las sábanas olían a detergente, y
 tenía un techo sobre la cabeza. Todo esto era impagable.]],
@@ -174,8 +177,8 @@ encendí la televisión, aunque fuera para ver porno.]],
 
 	{"bg", "mod", fade={"fadeout", 1, true}},
 	{"sfx", "sfx/crt on.flac"},
-	[[Sonó el golpe eléctrico que hacían las teles antiguas, y poco a poco
-la pantalla cobró brillo.]],
+	[[Sonó el golpe eléctrico de la tele, y poco a poco la pantalla cobró
+brillo.]],
 
 	[[No hubo necesidad de cambiar de canal, las noticias ya estaban en
 curso...]],

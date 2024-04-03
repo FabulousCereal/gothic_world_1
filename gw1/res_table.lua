@@ -10,8 +10,31 @@ local function grayWeight(r, g, b)
 			vec4 pxl = Texel(tex, tex_coord);
 			pxl.rgb = vec3(dot(pxl.rgb, weights));
 			return color * pxl;
-		}
-	]], r, g, b)
+		}]], r, g, b)
+end
+
+local function dither_o2x2(preColor)
+	local output = preColor
+		and [[
+			vec4 pxl = txl * color + vec4(offset);
+			return floor(pxl);
+		]] or [[
+			vec4 pxl = txl + vec4(offset);
+			return color * floor(pxl);
+		]]
+
+	return string.format(
+		[[vec4 effect(vec4 color, Image tex, vec2 tex_coord, vec2 _scr_coord) {
+			const mat2 weight = mat2(
+				1./16., 9./16.,
+				13./16., 5./16.
+			);
+			vec2 tex_size = vec2(1.0) / fwidth(tex_coord);
+			ivec2 pos = ivec2(mod(tex_coord * tex_size, 2.0));
+			float offset = weight[pos.x][pos.y];
+			vec4 txl = Texel(tex, tex_coord);
+			%s
+		}]], output)
 end
 
 return {
@@ -209,22 +232,6 @@ return {
 			}
 		]],
 
-		dither_o2x2 = [[
-			vec4 effect(vec4 color, Image tex, vec2 tex_coord, vec2 _scr_coord) {
-				const mat2 weight = mat2(
-					1./16., 9./16.,
-					13./16., 5./16.
-				);
-				vec2 tex_size = vec2(1.0) / fwidth(tex_coord);
-				ivec2 pos = ivec2(mod(tex_coord * tex_size, 2.0));
-				float offset = weight[pos.x][pos.y];
-				/*vec4 pxl = Texel(tex, tex_coord) + vec4(offset);
-				return color * floor(pxl);*/
-				vec4 pxl = Texel(tex, tex_coord) * color + vec4(offset);
-				return floor(pxl);
-			}
-		]],
-
 		contrast = [[
 			vec4 effect(vec4 color, Image tex, vec2 tex_coord, vec2 _scr_coord) {
 				vec4 pxl = Texel(tex, tex_coord);
@@ -232,6 +239,9 @@ return {
 				return pxl * color;
 			}
 		]],
+
+		dither_o2x2 = dither_o2x2(false),
+		dither_o2x2_pre = dither_o2x2(true),
 
 		-- Mas o menos como YCbCr.
 		gray = grayWeight(.3, .6, .1),

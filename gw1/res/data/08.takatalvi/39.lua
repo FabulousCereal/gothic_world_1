@@ -165,6 +165,7 @@ era obvio que mentía; no debia tener buena cara.]],
 
 	[["¿No querés descansar? Ha sido un dia pesado."]],
 
+	{"name", "Bake"},
 	[[Ya casi detestaba que me trataran bien, pero terminé asintiendo.
 Quizás sería mejor, a pesar que no era ni mediodía aún.]],
 

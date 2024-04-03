@@ -162,7 +162,7 @@ local fabTeniaRazon = {
 		{
 			bgmStopAll,
 			frDie,
-			[["Muere, desgraciada."]],
+			[["Ya fue. Muere, desgraciada."]],
 		}
 	}},
 }

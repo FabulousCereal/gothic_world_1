@@ -24,7 +24,7 @@ hasta quedarme en un hotel mas de dos días resultaba demasiado.]],
 		fade={"fadein", 1/3}},
 
 	[[El reloj marcaba las 10am justas, su molesto tick-tack reverberando
-de un lado a otro en el cuarto ante el silencio sepulcrural en que me hayaba.]],
+de un lado a otro del cuarto.]],
 
 	{"bg", "mod", fade={"delay", 1, true}},
 	{"bg", "add", args={"Flash/i die/Nube.png", 0, -50}},

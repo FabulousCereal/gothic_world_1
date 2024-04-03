@@ -1,9 +1,9 @@
 local function checaMiRiff()
 	local dialog = {
 		{false, 3},
-		{"Bake", 5.5, [["¡Checá mi riff!"]]},
+		{"Bake", 5, [["¡Checá mi riff!"]]},
 		{"Falcon", 5, [["¿A eso llamas un riff? Mira."]]},
-		{"Bake", 3, [["lol, ¿que es eso? ¿Pipi con carraspera?"]]},
+		{"Bake", 4.5, [["¿wtf es eso? ¿Pipi con carraspera?"]]},
 		{"Falcon", 5, [["Trato de improvisar, hdp ¬¬..."]]},
 		{false, 13},
 		{"Falcon", 3, [["¿Por que paraste?"]]},
@@ -21,7 +21,7 @@ local function checaMiRiff()
 	for i = 1, #dialog do
 		local who, time, what = unpack(dialog[i])
 		if who then
-			local xAdd = (who == "Bake" and 1 or 11)
+			local xAdd = (who == "Bake" and 2 or 12)
 			local x = (rnd() + xAdd) * w/24
 			local y = (rnd() + 6) * h/72
 			local style = res.style["vn" .. who]
@@ -30,6 +30,7 @@ local function checaMiRiff()
 				"bg", "add",
 				args={cnv, floor(x), floor(y)},
 				color={1, 1, 1, 0},
+				shader=false,
 				fade={"delay", delay, "fadein", 1/12, "delay", time, true},
 			}
 		end
@@ -268,8 +269,9 @@ Croft tenía cara de °J°]],
 le unió con el bajo.]],
 
 
-	{"macro", "rFade", "maria/baño.png", false, 1},
-	{"bg", "add", args={"zeh/croft-ojo.png"}, fade={"fadein", 1}},
+	{"macro", "rFade", "maria/baño.png", false, 1, .5},
+	--FIXME
+	{"bg", "add", 3, args={"zeh/croft-ojo.png"}, fade={"fadein", 1}},
 	{"bgm", "set", "wind", 0,
 		setup={setPitch=3/4},
 		fade={"fadeto", 1/3, 24},
@@ -278,12 +280,12 @@ le unió con el bajo.]],
 	[[Con Croft nos lavamos los dientes al sonido de pruebas de guitarra,
 golpes eléctricos, y mas martillazos provenientes del cuarto.]],
 
-	{"bg", "mod", args={"zeh/croft.png"}},
+	{"bg", "mod", 2, args={"zeh/croft.png"}},
 	[[Le pregunté a Croft porque había agua pero no luz, y Croft me dijo
 que el agua corría por gravedad desde las torres. Si seré tonta. Toda la
 vida viéndolas y nunca se me ocurrió que eran para eso.]],
 
-	{"bg", "mod", args={"zeh/croft-ojo.png"}},
+	{"bg", "mod", 2, args={"zeh/croft-ojo.png"}},
 	{"name", "Bake"},
 	[["(Na-na-na-na-na-na-na-na niece! Na-na-na-na niece!)"]],
 
@@ -293,15 +295,14 @@ vida viéndolas y nunca se me ocurrió que eran para eso.]],
 	{"name", "María"},
 	[[No tenía idea de que cantaban esos dos.]],
 
-	{"bg", "mod", args={"zeh/croft.png"}},
+	{"bg", "mod", 2, args={"zeh/croft.png"}},
 	[[Croft también dijo que a su casa por estar en lo alto le dejó de
 llegar agua esta mañana. Debia ser por eso que preferió quedarse a pesar de que
 no quedaran camas.]],
 
 	{"bgm", "sync"},
 	{"bg", "sync"},
-	{"bg", "mod", fade={"fadeout", 1, true}},
-	{"bg", "mod", 1, fade={"fadeout", 1, true}},
+	{"bg", "modall", fade={"fadeout", 1, true}},
 	{"bgm", "mod", "saw", fade={"fadeout", 12, true}},
 	[[En fin, terminamos, y como era tarde, Croft se fue a agarrar la cama
 de Falcon antes que los chicos salieran. Yo tomé la de Bake.]],
@@ -377,8 +378,8 @@ ojos.]],
 	[["Si sos guapo la vas a reconocer."]],
 
 	{"name", "María"},
-	[[Bake agarró la guitarra, y tocó parte de una canción que había sonado
-mucho hace unos años.]],
+	[[Bake agarró la guitarra, y tocó parte de una canción que hasta yo
+conocía.]],
 
 	{"sfx", "sfx/bake riff2.ogg"},
 	{"wait", 4, false, true},
@@ -419,4 +420,7 @@ Claro, ahora le importaba no meter ruido.]],
 	[[Yo me hice la dormida para no hablarle, pero Bake se devolvió y habló
 un poco mas con Falcon en el pasillo. De ahí bajaron al primer piso, y aunque
 esperé a ver si volvían, el sueño me terminó ganando.]],
+
+	{"bgm", "mod", "wind", fade={"fadeout", 3, true}},
+	3
 }

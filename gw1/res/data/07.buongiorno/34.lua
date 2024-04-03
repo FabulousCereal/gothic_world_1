@@ -27,7 +27,7 @@ nos dé hambre?"]],
 	[["Verdad. La agotamos con los amplis xD"]],
 
 	{"name", "María"},
-	[["¿Que hicieron que?"]],
+	[["¿Que hicieron QUE?"]],
 
 	{"name", "Bake"},
 	[["Contabamos con que hariamos puente con la camioneta de Croft xD
@@ -45,6 +45,7 @@ sacamos un carro?"]],
 	{"name", "Bake"},
 	[["Hmm, nah xD Vamos."]],
 
+	{"bg", "mod", fade={"fadeout", 1, true}},
 	{"name", "María"},
 	[[Los chicos se dirigieron a la puerta, y yo me apresuré en ponerme
 abrigo para ir tras ellos. Estabamos saliendo cuando Bake se detiene de golpe,
@@ -106,7 +107,7 @@ casa."]],
 con el hombro a derribarla. Con un golpe seco Bake rebotó en la puerta, y
 luego en el suelo.]],
 
-	[["Hoooly shit...!" dijo agarrándose el hombro, revolcándose con lo que
+	[["Hoooly shit!" dijo agarrándose el hombro, revolcándose con lo que
 parecía una risa adolorida. Falcon se golpeó la frente con la palma. Yo ni eso
 pude hacer.]],
 
@@ -226,9 +227,11 @@ cuerpos a medio deborar sobre un charco de sangre.]],
 del pasillo se levantó una de esas criaturas, sus ropas teñida de sangre.]],
 
 	[[La criatura corrió tras de mí, y yo huí al living gritando. Los
-chicos golpeaban la puerta y me llamaban. Me dirigí sin pensar a unas escaleras
-y las subí a saltos. Me tropecé y me golpée con un escalón en la frente, pero
-me paré antes de que la criatura alcanzara a tomarme y seguí corriendo.]],
+chicos golpeaban la puerta y me llamaban.]],
+
+	[[Me dirigí sin pensar a unas escaleras y las subí a saltos. Me tropecé
+y me golpée con un escalón en la frente, pero el rugido de la criatura
+a punto de tomarme me hizo levantarme y seguir corriendo.]],
 
 	{"name", "Bake"},
 	[["¡MARÍA!"]],
@@ -297,6 +300,7 @@ A los pies de la escalera estaba el cuerpo inerte de la criatura.]],
 la salida al garage. La puerta estaba abierta por completo, la cerradura estaba
 hecha añicos.]],
 
+	{"name", "María"},
 	[[Falcon de pronto se giró con su arma. Me sobresalté, pero era para
 tomar un juego de llaves que estaban colgados.]],
 

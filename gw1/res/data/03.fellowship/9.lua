@@ -22,8 +22,8 @@ callejón.]],
 
 	{"name", "Bake"},
 	[["Hey, ¿me acompañás luego a buscar?" me interrumpió. "Hay una zona
-comercial a media hora de acá. Ahí debería haber comida," explicó. Asentí.
-"Sweet."]],
+comercial a media hora de acá. Ahí debería haber comida," explicó. Asentí sin
+pensar. "Sweet."]],
 
 	{"name", "María"},
 	[[Me quedé en silencio, preocupada pensando en lo del callejón. Lo
@@ -36,7 +36,7 @@ había olvidado por completo. Estuve huyendo de algo, pero... ¿de que?]],
 	[[Pensando con detención, no recordaba haber visto ningún zombie.]],
 
 	{"bg", "mod", fade={"delay", 1, true}},
-	{"bg", "add", args={"yssm.png", -80}, shader=res.shader.dither_o2x2,
+	{"bg", "add", args={"yssm.png", -80}, shader=res.shader.dither_o2x2_pre,
 		color={0, .5, 1, 0}, fade={"fadein", 1}},
 	[[No solo eso, había mirado a todos lados en medio de una calle
 despejada, y no había visto nada.]],
@@ -186,7 +186,7 @@ local infoLoop = {
 		{
 			{"name", "María"},
 			[[Habíamos pasado mucho tiempo hablando, así que agarré
-			toda la pizza.]],
+			la pizza entera.]],
 
 			{"bgm", "mod", fade={"fadeout", 1/4, true}},
 			[["*OM OM*" El chico me miró pasmado.]],
@@ -205,7 +205,7 @@ return {
 	{"style", "vnMaria"},
 	{"bgm", "set", "wind", 0,
 		source="freesound/557188__julien-matthey__jm_natural-elements_wind-01.ogg",
-		fade={"fadeto", .5, 24}},
+		fade={"fadeto", .5, 6}},
 	res.fun.macro.title,
 
 	{"bg", "conf", "default", color={1, 1, .95, 1}},

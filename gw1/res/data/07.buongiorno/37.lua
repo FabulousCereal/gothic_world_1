@@ -222,7 +222,7 @@ tubería, y de pronto se le pegó con un click a la mochila.]],
 	[["Yo tengo un plan. Para salir de la duda, quiero decir."]],
 
 	{"name", "Falcon"},
-	[["Bake, no estamos para boludeces." Falcon me leyó la mente.]],
+	[["Bake, no estamos para tus boludeces." Falcon me leyó la mente.]],
 
 	{"name", "Bake"},
 	[["No es bola. Ustedes tranquilos." Bake se giró hacia los chicos, que
@@ -313,7 +313,7 @@ siguiendo al chico, y este tras hechar un vistazo fue a tomar un acordeón.]],
 
 	{"name", "María"},
 	[[El chico se colocó el acordeón y se sentó en una silla. Observó
-las teclas de ambos lados, las sintió con los dedos, y asegurandose que
+las teclas de ambos lados, las sintió con los dedos, y asegurándose que
 Bake estuviera mirando, empezó a tocar.]],
 
 	{"bgm", "set", "acc",

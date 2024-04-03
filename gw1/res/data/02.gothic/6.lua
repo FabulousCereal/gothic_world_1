@@ -85,6 +85,11 @@ respuestas.]],
 	{"bgm", "mod", "wind",
 		fade={"cmd", {setFilter={type="lowpass", highgain=1/6}}}
 	},
+	{"bgm", "set", "pots", 0,
+source="freesound/571066__trp__180715-banging-dropping-pots-pans-metal-kitchen-foley.edit.flac",
+setup={setFilter={type="lowpass", highgain=1/24}},
+fade={"fadeto", .5, 1}},
+
 	{"macro", "rFade", "maria/pasillo.png"},
 	[[Al abrirla escuché ruidos del primer piso. Cosas golpeándose
 violentamente. El buen humor se me fue de inmediato.]],
@@ -93,14 +98,16 @@ violentamente. El buen humor se me fue de inmediato.]],
 pronto, esa nota no se me hacía tan graciosa.]],
 
 	{"bgm", "mod", "wind", fade={"fadeout", 6, true}},
+	{"bgm", "mod", "pots",
+fade={"cmd", {setFilter={type="lowpass", highgain=1/3}}, "fadeto", 1, 3}},
 	{"macro", "rFade", "Flash/day.png",
 		res.palette("repellantYellow", 0)},
 	[[Bajé con cautela las escaleras, mientras los ruidos aumentaban en
 intensidad. Llegué a una especie de living que daba a un comedor. Las cortinas
 estaban cerradas. Los ruidos provenían de lo que parecía la cocina.]],
 
+	{"bgm", "mod", "pots", fade={"fadeout", 3, true}},
 	{"bg", "add", args={"maria/cocina.png"},
---		color=res.palette("repellantYellow", 0),
 		fade={"fadein", 2/3}},
 	[[Me asomé por la puerta a mirar. Había un muchacho tirando cosas por
 la ventana, hacia el patio.]],

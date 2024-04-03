@@ -155,8 +155,9 @@ sentirme el olor. No lo logré pero estaba segura que debía ser eso.]],
 
 	[[Todo esto es culpa del puto fin del mundo.]],
 
-	[[Tendría que ir de nuevo al area comercial. Era eso, o ir a recuperar
-mis cosas en el hotel, si es que lograba ubicarlo.]],
+	[[Tendría que ir de nuevo al area comercial. O no, estaba demasiado
+lejos. Debía buscar otro lado, o ir a recuperar mis cosas en el hotel, si es
+que lograba ubicarlo.]],
 
 	[[Hice memoria. Bake decía que solo salía a pasear a Pipi. O sea que
 el hotel debía de hecho estar muy cerca de acá.]],
@@ -165,6 +166,7 @@ el hotel debía de hecho estar muy cerca de acá.]],
 cuidara, busqué un lapiz y dejé una nota antes de salir. Pipi me olfateó
 hasta la calle. No me estas haciendo sentir mejor, Pipi.]],
 
-	[[Llevaba mi navaja y una botella con agua. Ahora solo necesitaba
-orientarme.]],
+	{"bg", "mod", fade={"fadeout", 1, true}},
+	[[Llevaba mi fiable navaja y una botella con agua. Ahora solo
+necesitaba orientarme.]],
 }

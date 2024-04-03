@@ -90,13 +90,13 @@ pero en ninguna frecuencia había nada.]],
 	[["Quizás esa era la única."]],
 
 	{"name", "Bake"},
-	[["¿En que numero estaba?" preguntó Bake girando rápido la perilla.]],
+	[["¿En que número estaba?" preguntó Bake girando rápido la perilla.]],
 
 	{"name", "Falcon"},
 	[["Te pasaste, estaba--"]],
 
 	{"name", false},
-	[["...los gobiernos sudamericanos en conjunto declararon..." se oyó de
+	[["los gobiernos sudamericanos en conjunto declararon..." se oyó de
 pronto en una esquina. Bake soltó la perilla sobresaltado.]],
 
 	{"name", "Bake"},
@@ -106,7 +106,7 @@ pronto en una esquina. Bake soltó la perilla sobresaltado.]],
 	[["¡Shhh!" Falcon bajó la velocidad.]],
 
 	{"name", false},
-	[["...??? ????? ?? ??????..."]],
+	[["??? ????? ?? ??????..."]],
 
 	{"name", "Bake"},
 	[["Mierda, regresá." Falcon puso reversa y volvió hasta la
@@ -142,7 +142,7 @@ a las de la bomba atómica..."]],
 	[["¡No tengo tiempo que perder!" Falcon aumentó la velocidad.]],
 
 	{"name", false},
-	[["...?? humo tenía las ????res partículas gamma (las mas
+	[["?? humo tenía las ????res partículas gamma (las mas
 peligrosas, provocadoras de cancer) había ???? ..."]],
 
 	{"name", "Bake"},

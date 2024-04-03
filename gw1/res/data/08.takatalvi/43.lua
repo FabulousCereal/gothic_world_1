@@ -3,7 +3,7 @@ return {
 	res.fun.macro.title,
 
 	{"name", "Fabian"},
-	[["Aún podemos volver," dijo Fab casi gritando.]],
+	[["Aún podemos volver," dijo Fab levantando la voz.]],
 
 	{"name", "Bake"},
 	[["Puta la wea, si no hemos dado ni un paso aún xddd"]],
@@ -193,7 +193,7 @@ recogimos cerca de la Avenida esta mañana. Estaban abandonados xD"]],
 miró de vuelta.]],
 
 	{"name", "Croft"},
-	[["HOLY...!!" Croft sacó el pie, y Rocco con el susto alejó el rabo
+	[["HOLY--!!" Croft sacó el pie, y Rocco con el susto alejó el rabo
 justo a tiempo para esquivar una patada. Los chicos entraron mientras que Croft
 salía a quitarse el regalo.]],
 
@@ -269,6 +269,7 @@ las cajas, y Bake se estiró peresozo.]],
 	[["Entonces me voy dormir xD Cualquier cosa me hablan," se
 despidió. Como si despertarlo fuera fácil.]],
 
+	{"name", "María"},
 	[[Bake salió de la cocina, y los chicos dijeron que también irían a
 descansar. Quedamos solo yo y Croft. Yo suspiré agotada.]],
 

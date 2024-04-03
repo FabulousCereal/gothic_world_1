@@ -362,7 +362,7 @@ tienda de guitarras, cuando ya estaba oscuresciendo y empezando a nevar.]],
 false, true},
 
 	{"sfx", "freesound/204777__ngruber__breaking-glass.cut.flac", .5, .8, .5},
-	{"text", [[a terminar de romper el ventanal a pesar que la
+	{"text", [[a saltar a traves del ventanal a pesar de que la
 puerta estaba abierta. Croft y yo los mirabamos en silencio.]], true},
 
 	{"name", "Croft"},

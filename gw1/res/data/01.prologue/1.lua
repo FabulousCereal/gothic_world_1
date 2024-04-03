@@ -82,22 +82,16 @@ mareada o vomitando.]],
 	[[Ella entonces dijo que iria a ver que pasaba.]],
 
 	{"select", nil, {
-		"No vayas.",
-		"Espera..."}
+		[[Dejarla ir]],
+		[["Espera..."]]}
 	},
 	{"case", nil, {
 		{
-			[["Dejá que pase, no creo que sea nada," le dije para
-			que se calmara.]],
-
-			{"name", "amiga"},
-			[["¿Pero y si es grave?" respondió nerviosa.]],
-
 			{"macro", laAmigaSale, 0},
 
 			{"name", "Bakeritsu"},
-			[[La chica partió de todas formas a asomarse mientras
-			nosotros nos quedamos esperando.]],
+			[[La chica partió a asomarse mientras nosotros nos
+			quedamos esperando.]],
 
 			{"name", "amigo"},
 			[["...Está buena en todo caso," dijo mi amigo.]],
@@ -111,8 +105,8 @@ mareada o vomitando.]],
 		},
 
 		{
-			[["Espera," le dije antes que se fuera. Ella me miró a
-			los ojos. Su labio temblaba.]],
+			[["Espera," le dije cuando se levantó. Ella me miró
+			a los ojos. Su labio temblaba.]],
 
 			{"name", "amiga"},
 			[["¿Que?"]],

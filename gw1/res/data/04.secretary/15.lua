@@ -37,12 +37,11 @@ curso, y que lo mejor sería no mover la cabeza.]],
 	{"name", "-----"},
 	[["Me llamo Croft, y este es mi perro Rocco. Dí hola, Rocco."]],
 
-	{"name", "Rocco"},
+	{"name", "María"},
 	[[Un perro café se apoyó en la cama para olfatearme, y por acto
 reflejo le acaricié la cabeza. El perro sacaba alegre la lengua.
 Supuse que este sujeto no podia ser mala persona.]],
 
-	{"name", "María"},
 	[["¿Que fue lo que pasó?"]],
 
 	{"name", "Croft"},

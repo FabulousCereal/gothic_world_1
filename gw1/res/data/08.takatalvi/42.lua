@@ -77,7 +77,7 @@ la cordura mía?' pensé.]],
 Falcon. No se nos ocurrió buscar esas cosas en la farmacia."]],
 
 	{"name", "María"},
-	[["De ninguna forma vamos a volver a esa farmacia," le reclamé de
+	[["¡De ninguna forma vamos a volver a esa farmacia!" le reclamé de
 inmediato. Bake se sorprendió un poco.]],
 
 	{"name", "Bake"},
@@ -172,9 +172,9 @@ esperaban que me quedara guardada en casa. Era para lo único que servía.]],
 	[["Andrea, ¿quieres ir tu o me quedo yo?"]],
 
 	{"name", "Andrea"},
-	[["Yo pienso que--..." Andrea le lanzó una breve mirada, una expresión
-de que no era la primera vez que oía ese chiste. "Deberiamos ir los tres,
-porque afuera es mas peligroso."]],
+	[["Pienso que--..." Andrea se detuvo y le lanzó una breve mirada, una
+expresión de que no era la primera vez que oía ese chiste. "Deberiamos ir los
+tres, porque afuera es mas peligroso."]],
 
 	{"name", "Fabian"},
 	[["Es que si pasa algo, María tendría que defenderse sola. Sería mejor
@@ -201,13 +201,13 @@ Andrea colgó su poncho en la silla, y quedó decidido.]],
 La puerta de Falcon seguía cerrada, así que la abrí con cautela y miré adentro.
 Seguía en cama.]],
 
+	{"macro", "rFade", "maria/pieza.png"},
 	[["Falcon," susurré. El se movió. "¿Estás despierto?"]],
 
 	{"name", "Falcon"},
 	[["¿M-María?" balbuceó girándose. Se veía pálido. Me acerqué
 tratando de no hacer ruido.]],
 
-	{"macro", "rFade", "maria/pieza.png"},
 	{"name", "María"},
 	[["Vamos a ir por comida ahora," dije arrodillándome junto a la cama.
 "¿Necesitas algún medicamento? Aparte de antivirales."]],

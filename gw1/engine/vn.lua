@@ -44,9 +44,9 @@ local function errorStage(font, ...)
 	local text = graphics.newText(font)
 	text:setf(errmsg, graphics.getWidth(), "left")
 	return {
-		{"bg", "add", exec=graphics.rectangle,
+		{"bg", "add",
 			color={0, 0, 0, 1},
-			args={"fill", 0, 0, text:getDimensions()}},
+			args={f0b.draw.unitSquare, 0, 0, 0, text:getDimensions()}},
 		{"bg", "add", args={text}, color={1,1,1,1}},
 		{"text", "", true},
 		{"bg", "rmall"},

@@ -98,7 +98,7 @@ local function layerUpdate(layerTable, dt, finish)
 	for i = #layerTable, 1, -1 do
 		local layer = layerTable[i]
 		local drawable = layer.args[1]
-		if drawable.update then
+		if type(drawable) == "table" and drawable.update then
 			layerTable.drawn = false
 			drawable:update(dt)
 		end
@@ -116,10 +116,15 @@ end
 
 local shaderOps = {
 	["nil"] = function() end,
+	["boolean"] = function(bool)
+		if bool then
+			error("shader cannot be 'true'")
+		end
+	end,
 	["userdata"] = love.graphics.setShader,
-	["table"] = function(args)
-		local shader = args[1]
-		for k, v in pairs(args) do
+	["table"] = function(shaderArgs)
+		local shader = shaderArgs[1]
+		for k, v in pairs(shaderArgs) do
 			if type(k) == "string" and shader:hasUniform(k) then
 				shader:send(k, v)
 			end
@@ -134,13 +139,13 @@ local function layerDraw(layer, defaultFn, ...)
 	local shader = layer.shader
 	-- When you manage to leave Lua befuddled and discombobulated
 	shaderOps[type(shader)](shader);
-	(layer.exec or defaultFn)(...)
+	(layer.draw or defaultFn)(...)
 	graphics.setShader()
 end
 
 local function layerDrawRange(lt, cnv, start, limit)
 	local graphics = love.graphics
-	local defaultFn = lt.default.exec
+	local defaultFn = lt.default.draw
 	local prev = graphics.getCanvas()
 	graphics.setCanvas(cnv)
 	graphics.clear()
@@ -151,7 +156,7 @@ local function layerDrawRange(lt, cnv, start, limit)
 end
 
 local function defaultDefaults()
-	return {color={1,1,1,1}, exec=love.graphics.draw}
+	return {color={1,1,1,1}, draw=love.graphics.draw}
 end
 
 local function setDefaults(lt, force)
@@ -177,15 +182,17 @@ local function normalizeLayer(lt, op)
 	if not op.color then
 		op.color = fTable.deepCopy(default.color)
 	end
-	if op.exec == nil then
-		op.exec = default.exec
+	if op.draw == nil then
+		op.draw = default.draw
 	end
 	if op.shader == nil then
 		op.shader = default.shader
 	end
 
-	if op.exec == love.graphics.draw then
+	if op.draw == love.graphics.draw then
 		op.args[1] = seq.normalizeSrc(res.img, op.args[1])
+	elseif not op.args then
+		op.args = {} --FIXME
 	end
 end
 
@@ -208,14 +215,14 @@ local function layerMod(layer, op)
 	local deepCopy = fTable.deepCopy
 	for key, val in pairs(op) do
 		local valType = type(val)
-		if valType == "table" then
+		if type(val) == "table" then
 			local copy = deepCopy(val)
 			if key == "args" then
 				copy[1] = seq.normalizeSrc(res.img,
 					copy[1])
 			end
 			layer[key] = copy
-		elseif valType ~= "number" then
+		elseif type(key) ~= "number" then
 			layer[key] = val
 		end
 	end
@@ -237,12 +244,6 @@ layerOps = {
 		else
 			table.insert(layers, op)
 		end
-	end,
-
-	set = function(layers, op)
-		normalizeLayer(layers, op)
-		local idx = normalizeIndex(layers, op[1])
-		layers[idx] = op
 	end,
 
 	rm = function(layers, op)

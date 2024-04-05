@@ -14,11 +14,11 @@ return {
 ánimos de nada. Creía que podía aguantar muchas cosas, pero parecía que
 hasta quedarme en un hotel mas de dos días resultaba demasiado.]],
 
-	{"bg", "add", args=f0b.elem.screenFill, color={3/4, 3/4, 3/4, 1}},
+	{"bg", "add", draw=f0b.draw.screenFill, color={3/4, 3/4, 3/4, 1}},
 	{"bg", "add", args={{res.fun.clock.wall(
-			res.style.clockTint, 10, 00, "Saikō", nil, "line"
+			res.style.clockTint, 10, 00, "Kekkō", "roman", "circle"
 		)}, 12, 12},
-		exec=f0b.shapes.dropShadow},
+		draw=f0b.draw.dropShadow},
 	{"bg", "fold"},
 	{"bg", "mod", color=res.palette("repellantYellow", 0),
 		fade={"fadein", 1/3}},

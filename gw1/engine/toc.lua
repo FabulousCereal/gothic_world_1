@@ -210,8 +210,8 @@ local function tocDraw(self)
 		local width = style.font:getWidth(self.forbiddenChoice)
 		local x = screenW / 2 - width / 2
 		local y = screenH / 2 - em / 2
-		f0b.shapes.text(self.forbiddenChoice,
-			floor(x), floor(y), width, "left", style)
+		f0b.draw.text(self.forbiddenChoice,
+			floor(x), floor(y), width, "left", style.unselected)
 	else
 		if self.entryHeight then
 			if self.entryReached == true then
@@ -221,9 +221,10 @@ local function tocDraw(self)
 			end
 
 			local padding = em * style.padding
-			graphics.rectangle("fill",
+			graphics.draw(f0b.draw.unitSquare,
 				floor(em * 4 - padding),
 				floor(lineSpacing * 2 - padding / 2),
+				0,
 				floor(screenW - em * 6 + padding * 2),
 				floor(self.entryHeight + padding))
 		end

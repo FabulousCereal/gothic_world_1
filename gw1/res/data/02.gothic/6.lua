@@ -160,8 +160,8 @@ manos y salió al campo de batalla.]],
 
 	{"bgm", "set", "famicom", source="prelude2_famicom.ogg"},
 	{"bg", "add", fade={"delay", 60/160, "fadein", 60/80}, color={5/6, 5/6, 5/6, 0},
-		args={{"maria/baile.png", 60/160/6, 3, 4, 60/160/6*1.5, update=f0b.anim.update}, 303, 204},
-		exec=f0b.anim.draw},
+		args={{"maria/baile.png", 60/160/6, 3, 4, 60/160/6*2.5, update=f0b.anim.update}, 303, 204},
+		draw=f0b.anim.draw},
 	[[A pesar del aspecto terrorífico de las criaturas, el movimiento de
 estas era torpe y lento.]],
 
@@ -196,7 +196,7 @@ chico habló.]],
 
 	{"name", "chico"},
 	{"text", [["Graci--"]], false, true},
-	{"bg", "add", args=f0b.elem.screenFill, color={1,1,1,.5},
+	{"bg", "add", draw=f0b.draw.screenFill, color={1,1,1,.5},
 		fade={"fadeout", 1/12, true}},
 	{"text", [[ Lo interrumpí con una cachetada.]], true},
 

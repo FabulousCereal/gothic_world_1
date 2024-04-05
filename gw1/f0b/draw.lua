@@ -1,6 +1,17 @@
 -- SPDX-FileCopyrightText: 2023 Grupo Warominutes
 -- SPDX-License-Identifier: Unlicense
 
+local function unitCanvas()
+	local graphics = love.graphics
+	local cnv = graphics.newCanvas(1, 1)
+	graphics.setCanvas(cnv)
+	graphics.clear(1, 1, 1, 1)
+	graphics.setCanvas()
+	return cnv
+end
+
+local unitSquare = unitCanvas()
+
 local function textGen(style, ...)
 	local t = love.graphics.newText(style.font)
 	t:setf(...)
@@ -13,20 +24,22 @@ local function textWrapDims(t, x, y, limit, pad)
 		floor(limit + pad*2), floor(t:getHeight() + pad)
 end
 
-local function shaderDraw(shader, coords)
-	local x, y, w, h = unpack(coords)
+local function shaderDraw(shader, x, y, w, h)
 	local graphics = love.graphics
 	graphics.setShader(shader)
-	graphics.draw(f0b.elem.square, x, y, 0, w, h)
+	graphics.draw(unitSquare, x, y, 0, w, h)
 	graphics.setShader()
 end
 
-return {
-	rectangleTest = function(rect, x, y)
-		return x >= rect[1] and y >= rect[2]
-			and x <= rect[1] + rect[3] and y <= rect[2] + rect[4]
-	end,
+local function textShaderDraw(t, tx, ty, style, invert, ...)
+	local graphics = love.graphics
+	graphics.setColor(1,1,1,1)
+	shaderDraw(f0b.style.getShader(style), ...)
+	graphics.setColor(style[invert and "backgroundColor" or "color"])
+	graphics.draw(t, tx, ty)
+end
 
+return {
 	textCanvas = function(text, limit, alignment, style)
 		local t, pad = textGen(style, text, limit, alignment)
 
@@ -41,37 +54,32 @@ return {
 		local graphics = love.graphics
 		local cnv = graphics.newCanvas(w, h)
 		graphics.setCanvas(cnv)
-		graphics.setColor(1,1,1,1)
-		shaderDraw(f0b.style.getShader(style), {0, 0, w, h})
-		graphics.draw(t, -xOff, -yOff)
+		textShaderDraw(t, -xOff, -yOff, style, false, 0, 0, w, h)
 		graphics.setCanvas()
 
 		return cnv, xOff, yOff
 	end,
 
-	text = function(text, x, y, limit, alignment, style, invert)
+	text = function(text, tx, ty, limit, alignment, style, invert)
 		local t, pad = textGen(style, text, limit, alignment)
-		local x, y, w, h = textWrapDims(t, x, y, limit, pad)
-		local graphics = love.graphics
-		graphics.setColor(1,1,1,1)
-		shaderDraw(f0b.style.getShader(style, invert), {x, y, w, h})
-		graphics.setColor(style[invert and "backgroundColor" or "color"])
-		graphics.draw(t, x, y)
+		local x, y, w, h = textWrapDims(t, tx, ty, limit, pad)
+		textShaderDraw(t, tx, ty, style, invert, x, y, w, h)
 	end,
 
-	line = function(points, pointRadius)
+	line = function(p, pRadius, lineWidth)
 		local graphics = love.graphics
-		local circle = graphics.circle
-		local lineWidth = graphics.getLineWidth()
-		graphics.setLineWidth(lineWidth / 2)
-		for i = 1, #points, 2 do
-			circle("fill", points[i], points[i+1], pointRadius)
-			circle("line", points[i], points[i+1], 1)
---			graphics.draw(elem.circle, points[i], points[i+1], 0,
---				pointRadius, pointRadius)
+		local shader = res.shader.circle
+		graphics.setLineWidth(lineWidth or pRadius*2)
+		graphics.setShader(shader)
+		shader:send("style_backgroundColor", {1,1,1,1})
+		shader:send("style_borderWidth", 0)
+		for i = 1, #p, 2 do
+			graphics.draw(unitSquare,
+				p[i] - pRadius, p[i+1] - pRadius,
+				0, pRadius*2, pRadius*2)
 		end
-		graphics.setLineWidth(lineWidth)
-		return graphics.line(points)
+		graphics.setShader()
+		return graphics.line(p)
 	end,
 
 	dropShadow = function(drawArgs, xOff, yOff, scaleX, scaleY)
@@ -94,5 +102,14 @@ return {
 		graphics.draw(unpack(drawArgs))
 	end,
 
-	shader = shaderDraw,
+	shader = function(shader, coords)
+		return shaderDraw(shader, unpack(coords))
+	end,
+
+	unitSquare = unitSquare,
+
+	screenFill = function()
+		love.graphics.draw(unitSquare, 0, 0, 0,
+			love.graphics.getDimensions())
+	end
 }

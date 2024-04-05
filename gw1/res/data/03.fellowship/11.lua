@@ -197,7 +197,7 @@ Aunque fuera loco, escucharlo hablar me ayudaba.]],
 	{"bg", "mod", 1, 3, color=res.palette("sixpm"), shader=res.shader.purkinje},
 	{"bg", "mod", 2, fade={"fadeout", 0, "mvdiff", -50, 0, 0}},
 	{"bg", "mod", 3, fade={"mvabs", 600, 0, 1/60}},
-	{"bg", "add", args=f0b.elem.screenFill, color={0,0,0,1},
+	{"bg", "add", draw=f0b.draw.screenFill, color={0,0,0,1},
 		fade={"fadeout", 1, true}},
 	[[Afuera la nieve se apilaba, y el sol se ponía lentamente. Bake me
 contaba de la vez que a Pipi la atropellaron pero que logró salir adelante.]],

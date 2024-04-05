@@ -25,7 +25,7 @@ local function checaMiRiff()
 			local x = (rnd() + xAdd) * w/24
 			local y = (rnd() + 6) * h/72
 			local style = res.style["vn" .. who]
-			local cnv = f0b.shapes.textCanvas(what, limit, "center", style)
+			local cnv = f0b.draw.textCanvas(what, limit, "center", style)
 			cmd[#cmd + 1] = {
 				"bg", "add",
 				args={cnv, floor(x), floor(y)},

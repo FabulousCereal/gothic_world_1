@@ -70,7 +70,7 @@ return {
 	mousemoved = function(button, x, y)
 		local pos, box = button.pos, button.box
 		x, y = x - pos[1], y - pos[2]
-		return f0b.shapes.rectangleTest(box, x, y)
+		return f0b.math.rectangleTest(box, x, y)
 	end,
 
 	setWidth = function(button, style, w)
@@ -97,7 +97,7 @@ return {
 		graphics.translate(pos[1], pos[2])
 
 		graphics.setColor(1, 1, 1, 1)
-		f0b.shapes.shader(f0b.style.getShader(style), button.box)
+		f0b.draw.shader(f0b.style.getShader(style), button.box)
 
 		graphics.setColor(type(button.text.str) == "table"
 			and {1, 1, 1, 1} or style.color)

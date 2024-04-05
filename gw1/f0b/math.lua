@@ -11,4 +11,9 @@ return {
 	oneMod = function(n, div) -- Fuck one-based indexing
 		return (n-1)%div + 1
 	end,
+
+	rectangleTest = function(rect, x, y)
+		return x >= rect[1] and y >= rect[2]
+			and x <= rect[1] + rect[3] and y <= rect[2] + rect[4]
+	end,
 }

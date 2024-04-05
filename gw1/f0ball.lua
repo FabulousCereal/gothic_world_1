@@ -4,12 +4,11 @@
 f0b = {
 	std = require("f0b.std"),
 	anim = require("f0b.anim"),
+	draw = require("f0b.draw"),
 	math = require("f0b.math"),
-	elem = require("f0b.elem"),
 	lisp = require("f0b.lisp"),
 	table = require("f0b.table"),
 	style = require("f0b.style"),
-	shapes = require("f0b.shapes"),
 	layers = require("f0b.layers"),
 	jukebox = require("f0b.jukebox"),
 	buttons = require("f0b.buttons"),

@@ -61,7 +61,7 @@ local keys = dispatch({
 })
 
 local function mouseTest(select, x, y, press)
-	if f0b.shapes.rectangleTest(select.pos, x, y) then
+	if f0b.math.rectangleTest(select.pos, x, y) then
 		x = x - select.pos[1]
 		y = y - select.pos[2]
 		for i, button in ipairs(select) do

@@ -13,7 +13,7 @@ local function snowParticles(screenW, screenH)
 	end
 	span = span + #res.index
 
-	local snow = graphics.newParticleSystem(f0b.elem.square, 512)
+	local snow = graphics.newParticleSystem(f0b.draw.unitSquare, 512)
 	snow:setDirection(math.pi/2)
 	snow:setSpeed(speed)
 	snow:setPosition(-maxSize, -maxSize)
@@ -47,7 +47,7 @@ gamestate[tocID].tracks = f0b.jukebox.newTracklist(
 gamestate[tocID].background = normalize({
 	{args={"menu/index.png"}, color={1, 1, 1, 1}, distance=11},
 	{args={
-		love.graphics.newText(res.font("dejaVuSans", 12), "recuérdame"),
+		love.graphics.newText(res.font("dejaVuSans", 11), "recuérdame"),
 		w*4/7, 920,
 	}, color={.5, .5, .5, 1}, distance=11},
 	{args={snowParticles(w, h)}, distance=24, shader={

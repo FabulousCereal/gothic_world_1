@@ -7,7 +7,7 @@ return {
 Aquella imagen quedó grabada en mi mente, lo único que se quedó conmigo de
 antes de la explosión.]],
 
-	{"bg", "add", args=f0b.elem.screenFill, color={1,1,1,1},
+	{"bg", "add", draw=f0b.draw.screenFill, color={1,1,1,1},
 		fade={"fadeout", 6, true}},
 	{"sfx", "sfx/explosión cercana.flac"},
 	{"bgm", "set", "fire", 0,

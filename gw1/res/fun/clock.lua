@@ -1,30 +1,44 @@
 -- SPDX-FileCopyrightText: 2023 Grupo Warominutes
 -- SPDX-License-Identifier: Unlicense
 
+local function lineTurn(radius, turn, len)
+	local floor = math.floor
+	local cos = math.cos(turn)
+	local sin = math.sin(turn)
+	local bLen = radius * -backLen
+	return {
+		floor(radius + cos(turn) * -radius / 9),
+		floor(radius + sin(turn) * -radius / 9),
+		floor(radius + cos(turn) * len),
+		floor(radius + sin(turn) * len)
+	}
+end
+
+local function lineHands(radius, hourTurn, minuteTurn)
+	return lineTurn(radius, hourTurn, radius / 3),
+		lineTurn(radius, minuteTurn, radius * 5/6)
+end
+
 local clockHandFunction = {
 	line = function(style, radius, hourTurn, minuteTurn)
-		local cos, sin = math.cos, math.sin
-		love.graphics.setLineWidth(style.borderWidth / 2)
-		f0b.shapes.line({
-			radius + cos(hourTurn) * -radius / 9,
-			radius + sin(hourTurn) * -radius / 9,
-			radius + cos(hourTurn) * radius / 3,
-			radius + sin(hourTurn) * radius / 3},
-			style.borderWidth / 4)
+		hour, minute = lineHands(radius, hourTurn, minuteTurn)
+		local bw = style.borderWidth
+		f0b.draw.line(hour, math.floor(bw / 4))
+		f0b.draw.line(minute, math.floor(bw / 6))
+	end,
 
-		love.graphics.setLineWidth(style.borderWidth / 3)
-		f0b.shapes.line({
-			radius + cos(minuteTurn) * -radius / 9,
-			radius + sin(minuteTurn) * -radius / 9,
-			radius + cos(minuteTurn) * radius * 5/6,
-			radius + sin(minuteTurn) * radius * 5/6},
-			style.borderWidth / 6)
+	circle = function(style, radius, hourTurn, minuteTurn)
+		hour, minute = lineHands(radius, hourTurn, minuteTurn)
+		local bw = style.borderWidth
+		local lw = math.floor(bw/8)
+		f0b.draw.line(hour, math.floor(bw * 2/3), lw)
+		f0b.draw.line(minute, math.floor(bw * 2/3), lw)
 	end,
 
 	triangle = function(style, radius, hourTurn, minuteTurn)
 		local graphics = love.graphics
-		local bw = style.borderWidth
-		local points = {-bw, -bw, -bw, bw, radius/3, 0}
+		local bw = math.floor(style.borderWidth/2)
+		local points = {-bw, -bw, -bw, bw, math.floor(radius/3), 0}
 		graphics.setLineWidth(1)
 		graphics.translate(radius, radius)
 
@@ -32,7 +46,7 @@ local clockHandFunction = {
 		graphics.polygon("fill", points)
 		graphics.polygon("line", points)
 
-		points[5] = radius * 5/6 - style.borderWidth
+		points[5] = math.floor(radius * 5/6 - style.borderWidth)
 		graphics.rotate(minuteTurn)
 		graphics.polygon("fill", points)
 		graphics.polygon("line", points)
@@ -42,6 +56,22 @@ local clockHandFunction = {
 }
 
 local printNumeralFunction = {
+	sextant = function(font, num, x, trueY)
+--		local r = {"🬀", "🬁", "🬃", "🬇", "🬏", "🬞",
+--			"🬟", "🬠", "🬢", "🬦", "🬭", "🬰"}
+--		local r = {"🬁", "🬈", "🬗", "🬇", "🬖", "🬋",
+--			"🬞", "🬢", "🬤", "🬃", "🬅", "🬰"}
+		local r = {
+			"🬏", "🬅", "🬗",
+			"🬃", "🬈", "🬋",
+			"🬁", "🬖", "🬤",
+			"🬇", "🬢", "🬰",
+		}
+		num = r[num]
+		local width = font:getWidth(num)
+		love.graphics.print(num, math.floor(x - width / 2), trueY)
+	end,
+
 	roman = function(font, num, x, trueY)
 		-- There is an Unicode plane for this, but I really want that IIII
 		local r = {"I", "II", "III", "IIII", "V", "VI", "VII", "VIII",
@@ -79,7 +109,6 @@ return {
 	wall = function(style, hour, minute, brand, numerals, hands)
 		local graphics = love.graphics
 		local floor = math.floor
-		local tau = f0b.math.tau
 
 		local w, h = graphics.getDimensions()
 		local dims = floor(math.max(w, h) * 2/3)
@@ -87,11 +116,12 @@ return {
 		local prevCanvas = graphics.getCanvas()
 		graphics.setCanvas(clockFace)
 
-		local radius = floor(dims / 2)
 		graphics.setColor(1,1,1,1)
-		f0b.shapes.shader(f0b.style.setupShader(res.shader.circle, style),
+		f0b.draw.shader(f0b.style.setupShader(res.shader.circle, style),
 			{0, 0, dims, dims})
 
+		local tau = f0b.math.tau
+		local radius = floor(dims / 2)
 		local numDistance = radius * 5/6 - style.borderWidth / 2
 		local numTurn = tau / 12
 		local em = style.font:getHeight()
@@ -119,7 +149,6 @@ return {
 			floor(radius - brandFont:getWidth(brand) / 2),
 			floor(radius + brandFont:getHeight() * 5/3))
 		graphics.setCanvas(prevCanvas)
-
 		return clockFace, floor(w / 2 - dims / 2),
 			floor(h * 3/7 - dims / 2)
 	end,

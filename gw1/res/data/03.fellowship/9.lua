@@ -211,7 +211,7 @@ return {
 	{"bg", "conf", "default", color={1, 1, .95, 1}},
 	{"bg", "add", args={"maria/baño.png"}},
 	{"bg", "add", args={"zeh/bake-boxers.png", 150}},
-	{"bg", "add", args=f0b.elem.screenFill, color={0, 0, 0, 1},
+	{"bg", "add", draw=f0b.draw.screenFill, color={0, 0, 0, 1},
 		fade={"fadeout", 2/3, true}},
 	{"text", [[El chico de nombre Bakeritsu, o]], false, true},
 

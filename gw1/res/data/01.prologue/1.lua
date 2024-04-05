@@ -25,7 +25,7 @@ tarde.]],
 	{"bg", "add", args={"cafe/cup.png", 279, 365},
 		color=res.palette("fivepm")},
 
-	{"bg", "add", args=f0b.elem.screenFill, color={0,0,0,1},
+	{"bg", "add", draw=f0b.draw.screenFill, color={0,0,0,1},
 		fade={"fadeout", 3, true}},
 	{"macro", "date", {2011, 11, 8, 17, 34}},
 
@@ -167,7 +167,7 @@ a preocupar. A momentos se sentía un olor metálico en el aire... Casi como
 sangre.]],
 
 	{"bg", "sync"},
-	{"bg", "add", color={.6, .6, .6, 1}, args=f0b.elem.screenFill},
+	{"bg", "add", color={.6, .6, .6, 1}, draw=f0b.draw.screenFill},
 	{"bg", "add", color={.95, .95, .95, 1},
 		args={res.fun.clock.wall(res.style.clockTint, 19, 22, "Saikō")}},
 	{"bg", "fold"},

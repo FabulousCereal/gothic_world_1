@@ -83,7 +83,8 @@ local function transitionExec(dt)
 	end
 end
 
-local function printBGColor(id, bgColor)
+local function changeBGColor(id, bgColor, act)
+	bgColor[act[1]] = bgColor[act[1]] + act[2]
 	print(string.format("%u - r:%.2f, g:%.2f, b:%.2f",
 		id, bgColor[1], bgColor[2], bgColor[3]))
 end
@@ -132,18 +133,16 @@ function love.load()
 
 		local background = gamestate.state.background
 		if acts and background then
+			background.drawn = false
 			if cur ~= 0 then
 				local bg = background[cur]
 				if bg then
-					bg.color[acts[1]] = bg.color[acts[1]] + acts[2]
-					printBGColor(cur, bg.color)
+					changeBGColor(cur, bg.color, acts)
 				end
-				return
-			end
-
-			for id, bg in ipairs(background) do
-				bg.color[acts[1]] = bg.color[acts[1]] + acts[2]
-				printBGColor(id, bg.color)
+			else
+				for id, bg in ipairs(background) do
+					changeBGColor(id, bg.color, acts)
+				end
 			end
 		end
 	end
@@ -151,7 +150,6 @@ end
 
 function love.draw()
 	local state = gamestate.state
-	local graphics = love.graphics
 
 	if state.background then
 		f0b.layers.draw(state.background)
@@ -161,8 +159,8 @@ function love.draw()
 	end
 
 	if gamestate.to then
-		graphics.setColor(gamestate.transitionColor)
-		graphics.draw(unpack(f0b.elem.screenFill))
+		love.graphics.setColor(gamestate.transitionColor)
+		f0b.draw.screenFill()
 	end
 end
 
@@ -171,14 +169,14 @@ function love.update(dt)
 		return transitionExec(dt)
 	else
 		local state = gamestate.state
-		if state.update then
-			state:update(dt)
-		end
 		if state.background then
 			f0b.layers.update(state.background, dt)
 		end
 		if state.tracks then
 			f0b.jukebox.update(state.tracks, dt)
+		end
+		if state.update then
+			state:update(dt)
 		end
 	end
 end

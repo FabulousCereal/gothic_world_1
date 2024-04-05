@@ -50,14 +50,14 @@ jugo, y pegué la frente a la ventanilla. Hacía frío.]],
 
 	{"bgm", "modall", fade={"fadeout", 1/3, true}},
 
-	{"bg", "add", args=f0b.elem.screenFill,
+	{"bg", "add", draw=f0b.draw.screenFill,
 		color=res.palette("softAfternoon", 1, .5),
 		fade={"delay", 2, true}},
 	{"bg", "add", args={res.fun.clock.wall(res.style.clockTint, 17, 34,
-		"Seikō")},
+		"Seikō", nil, "triangle")},
 		color=res.palette("softAfternoon"),
 		fade={"delay", 2, true}},
-	{"bg", "add", args=f0b.elem.screenFill, color={0, 0, 0, 1},
+	{"bg", "add", draw=f0b.draw.screenFill, color={0, 0, 0, 1},
 		fade={"fadeout", 1/3, "delay", 5/3, true}},
 	{"bg", "add", args={"fab/aeropuerto1.png"},
 		color=res.palette("softAfternoon", 0),
@@ -68,7 +68,7 @@ encontré a mi prima por ningún lado, que se suponía iba a recogerme. Quizás 
 atrasó asi que me puse a esperarla, porque no sabía donde vivía.]],
 
 	{"bg", "rmall"},
-	{"bg", "add", args=f0b.elem.screenFill, color={1,1,1,1},
+	{"bg", "add", draw=f0b.draw.screenFill, color={1,1,1,1},
 		fade={"fadeout", .1, true}},
 	[[Entonces ocurrió. Una luz como un rayo iluminó todo, y luego sentí
 la fuerte explosión.]],

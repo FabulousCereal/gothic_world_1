@@ -45,7 +45,6 @@ local defaultStyle = {
 	textAlign = "left",
 	borderRadius = 0,
 	borderWidth = 0,
-	shader = "rect"
 }
 
 local aliases = {
@@ -120,7 +119,7 @@ local function funLoad(path)
 			fun[k] = f0b.std.dofile(path .. file)
 		end
 	end
-	return fun		
+	return fun
 end
 
 local dataPath = "res/data/"
@@ -165,8 +164,7 @@ res = {
 	shader = setmetatable({}, {
 		__index = function(table, key)
 			return setReturn(table, key,
-				love.graphics.newShader(base.shader[key])
-			)
+				love.graphics.newShader(base.shader[key]))
 		end,
 	})
 }

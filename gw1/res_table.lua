@@ -1,7 +1,45 @@
 -- SPDX-FileCopyrightText: 2023 Grupo Warominutes
 -- SPDX-License-Identifier: Unlicense
 
-local vnAlpha = 6/7
+local function sdf(sdf, interpolation)
+	local fn = {
+		sin="sin(clamp(d, -hpi, hpi)) * 0.5 + 0.5",
+		linear="clamp(d, -1, 1) * 0.5 + 0.5",
+		step="step(0, d)",
+	}
+	return string.format([[
+		uniform float style_borderRadius;
+		uniform float style_borderWidth;
+		uniform vec4 style_borderColor;
+		uniform vec4 style_backgroundColor;
+
+		float sdf(vec2 pos, vec2 size, float radius) {
+			%s
+		}
+		float alias(float d) {
+			const float hpi = %.16f;
+			return %s;
+		}
+		vec4 get_color(float dist) {
+			float bw = style_borderWidth == 0.0
+				? -2.0 : style_borderWidth*2.0;
+			vec4 bg = mix(style_borderColor, style_backgroundColor,
+				alias(-dist - bw));
+			bg.a *= alias(-dist);
+			return bg;
+		}
+		vec4 effect(vec4 color, Image _tex, vec2 tex_coord, vec2 _scr_coord) {
+			// Texture size in pixels
+			vec2 tex_size = vec2(1.0) / fwidth(tex_coord);
+
+			// Convert coords from [0,1] to [-width,width]
+			vec2 normal_coord = tex_coord * tex_size * vec2(2.0) - tex_size;
+
+			float dist = sdf(normal_coord, tex_size, style_borderRadius*2.0);
+			return color * get_color(dist);
+		}
+	]], sdf, math.pi/2, fn[interpolation or "sin"])
+end
 
 local function grayWeight(r, g, b)
 	return string.format(
@@ -37,6 +75,8 @@ local function dither_o2x2(preColor)
 		}]], output)
 end
 
+local vnAlpha = 6/7
+
 return {
 	fontAlias = {
 		dejaVuSans = "DejaVuSans.ttf",
@@ -64,7 +104,7 @@ return {
 			fontFamily = "ncentury18",
 			fontSize = 18,
 			color = {1, 0, 0, 1},
-			backgroundColor = {0, 0, 0, .5},
+			backgroundColor = {0, 0, 0, 2/3},
 			padding = .25,
 			borderWidth = 1,
 			margin = .5,
@@ -129,9 +169,7 @@ return {
 			color = {1, 1, 1, 1},
 			backgroundColor = {.125, .125, .125, 3/4},
 			borderWidth = 2,
-	--		borderColor = {.5, .25, .5, 1},
 			borderRadius = 6,
-			shader = "rect",
 			lines = 4,
 			lineSpacing = 2,
 			margin = 1,
@@ -148,7 +186,7 @@ return {
 			fontSize = 24,
 			color = {1, 0, 0, 1},
 			backgroundColor = {0, 0, 0, 1},
-			borderWidth = 0,
+			borderWidth = 1,
 			margin = 1,
 			padding = 1,
 			lines = 4,
@@ -186,41 +224,14 @@ return {
 	},
 
 	shader = {
-		rect = [[
-			uniform float style_borderRadius;
-			uniform float style_borderWidth;
-			uniform vec4 style_borderColor;
-			uniform vec4 style_backgroundColor;
-
-			float sdf(vec2 pos, vec2 size, float radius) {
-				vec2 d = abs(pos) - size + vec2(radius);
-				return clamp(d.x, d.y, 0.0)
-					+ length(max(d, vec2(0.0))) - radius;
-			}
-			float aliasing(float dist) {
-				const float aliasing = 1.0;
-
-				float d = abs(dist) - style_borderWidth;
-				return smoothstep(-aliasing, aliasing, d);
-				//return = step(0, d);
-			}
-			vec4 get_color(float dist) {
-				const vec4 outside_color = vec4(0.0);
-
-				vec4 side_color = dist < 0.0
-					? style_backgroundColor
-					: outside_color;
-				return mix(style_borderColor, side_color,
-					aliasing(dist));
-			}
-			vec4 effect(vec4 color, Image _tex, vec2 tex_coord, vec2 _scr_coord) {
-				vec2 tex_size = vec2(1.0) / fwidth(tex_coord);
-				vec2 size = tex_size - vec2(style_borderWidth);
-				vec2 normal_coord = tex_coord * tex_size * vec2(2.0) - tex_size;
-				float dist = sdf(normal_coord, size, style_borderRadius*2.0);
-				return color * get_color(dist);
-			}
-		]],
+		rect = sdf([[
+			vec2 d = abs(pos) - size + vec2(radius);
+			return clamp(d.x, d.y, 0.0)
+				+ length(max(d, vec2(0.0))) - radius;
+		]]),
+		circle = sdf([[
+			return length(pos) - min(size.x, size.y);
+		]]),
 
 		edgy = [[
 			vec4 effect(vec4 color, Image tex, vec2 tex_coord, vec2 _scr_coord) {

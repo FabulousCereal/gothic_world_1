@@ -1,17 +1,6 @@
 -- SPDX-FileCopyrightText: 2023 Grupo Warominutes
 -- SPDX-License-Identifier: Unlicense
 
-local function borderedParams(fn, fg, bg, borderWidth, ...)
-	local graphics = love.graphics
-	graphics.setColor(bg)
-	fn("fill", ...)
-	if borderWidth > 0 then
-		graphics.setLineWidth(borderWidth)
-		graphics.setColor(fg)
-		fn("line", ...)
-	end
-end
-
 local function textGen(style, ...)
 	local t = love.graphics.newText(style.font)
 	t:setf(...)
@@ -21,14 +10,15 @@ end
 local function textWrapDims(t, x, y, limit, pad)
 	local floor = math.floor
 	return floor(x - pad), floor(y - pad/2),
-		floor(limit + pad*2), floor(t:getHeight() + 0) -- ???
+		floor(limit + pad*2), floor(t:getHeight() + pad)
 end
 
-local function textColor(style, invert)
-	if invert then
-		return style.backgroundColor, style.color
-	end
-	return style.color, style.backgroundColor
+local function shaderDraw(shader, coords)
+	local x, y, w, h = unpack(coords)
+	local graphics = love.graphics
+	graphics.setShader(shader)
+	graphics.draw(f0b.elem.square, x, y, 0, w, h)
+	graphics.setShader()
 end
 
 return {
@@ -37,24 +27,22 @@ return {
 			and x <= rect[1] + rect[3] and y <= rect[2] + rect[4]
 	end,
 
-	textCanvas = function(text, limit, alignment, style, invert)
+	textCanvas = function(text, limit, alignment, style)
 		local t, pad = textGen(style, text, limit, alignment)
 
 		local xOff, yOff, w, h = textWrapDims(t, 0, 0, limit, pad)
 		local em = style.font:getHeight()
-		local bw = math.floor(style.borderWidth/2 * em)
+		local bw = style.borderWidth
 		xOff = xOff - bw
 		yOff = yOff - bw
 		w = w + bw*2
 		h = h + bw*2
 
-		local color, bgColor = textColor(style, invert)
 		local graphics = love.graphics
 		local cnv = graphics.newCanvas(w, h)
 		graphics.setCanvas(cnv)
-		borderedParams(graphics.rectangle, color, bgColor,
-			style.borderWidth,
-			bw, bw, w - bw, h - bw, style.borderRadius)
+		graphics.setColor(1,1,1,1)
+		shaderDraw(f0b.style.getShader(style), {0, 0, w, h})
 		graphics.draw(t, -xOff, -yOff)
 		graphics.setCanvas()
 
@@ -64,17 +52,11 @@ return {
 	text = function(text, x, y, limit, alignment, style, invert)
 		local t, pad = textGen(style, text, limit, alignment)
 		local x, y, w, h = textWrapDims(t, x, y, limit, pad)
-		local color, bgColor = textColor(style, invert)
 		local graphics = love.graphics
-		graphics.setColor(bgColor)
-		graphics.rectangle("fill", x, y, w, h, style.borderRadius)
-		graphics.setColor(color)
+		graphics.setColor(1,1,1,1)
+		shaderDraw(f0b.style.getShader(style, invert), {x, y, w, h})
+		graphics.setColor(style[invert and "backgroundColor" or "color"])
 		graphics.draw(t, x, y)
-	end,
-
-	bordered = function(func, style, ...)
-		return borderedParams(func, style.borderColor,
-			style.backgroundColor, style.borderWidth, ...)
 	end,
 
 	line = function(points, pointRadius)
@@ -112,11 +94,5 @@ return {
 		graphics.draw(unpack(drawArgs))
 	end,
 
-	shader = function(style, coords)
-		local x, y, w, h = unpack(coords)
-		local graphics = love.graphics
-		graphics.setShader(f0b.style.setupShader(style))
-		graphics.draw(f0b.elem.square, x, y, 0, w, h)
-		graphics.setShader()
-	end,
+	shader = shaderDraw,
 }

@@ -89,15 +89,18 @@ local function tocRecalc(fText, toc, style, cur, sub)
 end
 
 local function updateParallax(self)
-	local toc, cur, layers = self.toc, self.cur, self.background
+	local toc, cur = self.toc, self.cur
 
 	local offset = 0
 	for i = 1, cur[1] - 1 do
 		offset = offset + #toc[i] + 1
 	end
 	offset = offset + cur[2]
-		
-	f0b.layers.ops(layers, "modall", {fade={"mvabs", 0, -offset, 2/3}})
+
+	local em, _, margin = f0b.style.getUnits(self.style)
+	diff = -(offset - self.prevOff) * (margin*2 + em)
+	f0b.layers.ops(self.background, "modall", {fade={"mvdiff", false, diff, 2/3}})
+	self.prevOff = offset
 end
 
 local function runStage(self, allow)
@@ -259,6 +262,7 @@ return {
 			entryReached = nil,
 			forbiddenChoice = false,
 			entryHeight = nil,
+			prevOff = 0,
 		}
 	end,
 }

@@ -84,20 +84,19 @@ return {
 		local w, h = graphics.getDimensions()
 		local dims = floor(math.max(w, h) * 2/3)
 		local clockFace = graphics.newCanvas(dims, dims)
+		local prevCanvas = graphics.getCanvas()
 		graphics.setCanvas(clockFace)
 
 		local radius = floor(dims / 2)
-		f0b.shapes.bordered(graphics.circle, style, radius, radius,
-			radius - style.borderWidth / 2)
+		graphics.setColor(1,1,1,1)
+		f0b.shapes.shader(f0b.style.setupShader(res.shader.circle, style),
+			{0, 0, dims, dims})
 
 		local numDistance = radius * 5/6 - style.borderWidth / 2
 		local numTurn = tau / 12
 		local em = style.font:getHeight()
 
-		if not numerals then
-			numerals = "arabic"
-		end
-		local printNumeral = printNumeralFunction[numerals]
+		local printNumeral = printNumeralFunction[numerals or "arabic"]
 		graphics.setFont(style.font)
 		graphics.setColor(style.color)
 		for i = 1, 12 do
@@ -108,13 +107,10 @@ return {
 				floor(y + radius - em / 2))
 		end
 
-		if not hands then
-			hands = "line"
-		end
 		local hourTurn = (numTurn * hour + numTurn / 60 * minute)
 			- tau/4
 		local minuteTurn = tau / 60 * minute - tau/4
-		clockHandFunction[hands](style, radius, hourTurn, minuteTurn)
+		clockHandFunction[hands or "line"](style, radius, hourTurn, minuteTurn)
 
 		local brandFont = res.font(style.fontFamily, floor(em * 2/3))
 		local brandEm = brandFont:getHeight()
@@ -122,7 +118,7 @@ return {
 		graphics.print(brand,
 			floor(radius - brandFont:getWidth(brand) / 2),
 			floor(radius + brandFont:getHeight() * 5/3))
-		graphics.setCanvas()
+		graphics.setCanvas(prevCanvas)
 
 		return clockFace, floor(w / 2 - dims / 2),
 			floor(h * 3/7 - dims / 2)

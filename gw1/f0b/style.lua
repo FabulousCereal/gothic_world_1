@@ -6,6 +6,20 @@ local function getUnits(style)
 	return em, em * style.padding, em * style.margin, em * style.lineHeight
 end	
 
+local function setupShader(shader, style, invert)
+	local names = {"borderWidth", "borderRadius", "borderColor",
+		"backgroundColor"}
+	for _, n in ipairs(names) do
+		local sname = "style_" .. n
+		if shader:hasUniform(sname) then
+			local key = (invert and n == "backgroundColor")
+				and "color" or n
+			shader:send(sname, style[key])
+		end
+	end
+	return shader
+end
+
 return {
 	getUnits = getUnits,
 
@@ -14,18 +28,9 @@ return {
 		return maxW - (pad + margin + style.borderWidth)*2
 	end,
 
-	setupShader = function(style)
-		local shader = res.shader[style.shader]
+	setupShader = setupShader,
 
-		local names = {"borderWidth", "borderRadius", "borderColor",
-			"backgroundColor"}
-		for _, n in ipairs(names) do
-			local sname = "style_" .. n
-			if shader:hasUniform(sname) then
-				shader:send(sname, style[n])
-			end
-		end
-
-		return shader
+	getShader = function(style, invert)
+		return setupShader(style.shader or res.shader.rect, style, invert)
 	end,
 }

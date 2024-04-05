@@ -3,7 +3,7 @@ return {
 	{"bgm", "set", "wind", 0, source="wahwahwhite noise.flac",
 		setup={setFilter={type="lowpass", volume=1, highgain=0}},
 		fade={"delay", 1, "fadeto", 1/3, 6}},
-	{"bgm", "set", "year", source="en el año 2027....ogg"},
+	{"bgm", "set", "year", source="RECSNG12 - En el año 2017....ogg"},
 	res.fun.macro.title,
 
 	{"name", "María"},

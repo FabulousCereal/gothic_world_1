@@ -5,63 +5,55 @@ local seq = require("f0b._seqCommon")
 local fTable = require("f0b.table")
 
 -- Varies arbitrary variables --
--- Format: {"_generic", directives, timeRemaining}
---   directives = {control, [control, [...]]}
---     control = {component, index, delta, [index, delta, [...]]}
-local function genericVary(layer, fade, dt, finish)
-	local remaining = fade[3]
-	local mult = math.min(dt, remaining)
-	remaining = remaining - dt
+-- Format: {"_generic", control, ellapsed, endTime}
+--   control = {where, index, fn, [index, fn, [...]]}
+local function genericVary(layer, fade, dt)
+	local control, acc, endTime = unpack(fade, 2, 4)
+	acc = acc + dt
+	local ratio = endTime > 0 and math.min(acc / endTime, 1) or 1
 
-	local directives = fade[2]
-	for i = 1, #directives do
-		local control = directives[i]
-
-		local component = layer[control[1]]
-		for i = 2, #control, 2 do
-			local idx = control[i]
-			local delta = control[i + 1]
-			component[idx] = component[idx] + delta * mult
-		end
+	local where = control[1]
+	for i = 2, #control, 2 do
+		local idx, fn = unpack(control, i, i+1)
+		where[idx] = fn(ratio)
 	end
 
-	if remaining <= 0 then
-		return 3, remaining
+	if acc >= endTime then
+		return 4, endTime - acc
 	end
-	fade[3] = remaining
+	fade[3] = acc
 end		
+
+local function setLinear(control, tgt, diff)
+	local start = control[1][tgt]
+	table.insert(control, tgt)
+	table.insert(control, function(ratio) return start + diff*ratio end)
+end
 
 -- Turns handwriten movement into "_generic"
 -- Format: {type, x, y, rate}
 local function mvCommon(layer, fade, dt, ...)
 	local args = layer.args
-	if not args[2] then
-		args[2] = 0
-	end
-	if not args[3] then
-		args[3] = 0
+	for i = 2, 3 do
+		args[i] = args[i] or 0
 	end
 
-	local mult = layer.distance or 1
-	local type, deltaX, deltaY, rate = unpack(fade, 1, 4)
+	local type, diffX, diffY, time = unpack(fade, 1, 4)
+	local dist = layer.distance or 1
 	if type == "mvabs" then
-		deltaX = deltaX - (args[2] / mult)
-		deltaY = deltaY - (args[3] / mult)
+		diffX = diffX and diffX / dist - args[2] or 0
+		diffY = diffY and diffY / dist - args[3] or 0
+	else
+		diffX = diffX and diffX / dist or 0
+		diffY = diffY and diffY / dist or 0
 	end
 
-	local rate = math.max(dt, rate) --Allow rate=0
-	local control = {"args"}
-	if deltaX ~= 0 then
-		table.insert(control, 2)
-		table.insert(control, deltaX / rate * mult)
-	end
-	if deltaY ~= 0 then
-		table.insert(control, 3)
-		table.insert(control, deltaY / rate * mult)
-	end
+	local control = {args}
+	setLinear(control, 2, diffX)
+	setLinear(control, 3, diffY)
 	fade[1] = "_generic"
-	fade[2] = {control}
-	table.remove(fade, 3)
+	fade[2] = control
+	fade[3] = 0
 	return genericVary(layer, fade, dt, ...)
 end
 
@@ -122,17 +114,28 @@ local function layerUpdate(layerTable, dt, finish)
 	end
 end
 
+local shaderOps = {
+	["nil"] = function() end,
+	["userdata"] = love.graphics.setShader,
+	["table"] = function(args)
+		local shader = args[1]
+		for k, v in pairs(args) do
+			if type(k) == "string" and shader:hasUniform(k) then
+				shader:send(k, v)
+			end
+		end
+		love.graphics.setShader(shader)
+	end,
+}
+
 local function layerDraw(layer, defaultFn, ...)
 	local graphics = love.graphics
 	graphics.setColor(layer.color or {1,1,1,1})
 	local shader = layer.shader
-	if shader then
-		graphics.setShader(shader)
-	end
+	-- When you manage to leave Lua befuddled and discombobulated
+	shaderOps[type(shader)](shader);
 	(layer.exec or defaultFn)(...)
-	if shader then
-		graphics.setShader()
-	end
+	graphics.setShader()
 end
 
 local function layerDrawRange(lt, cnv, start, limit)

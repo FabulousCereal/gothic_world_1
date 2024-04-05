@@ -4,28 +4,24 @@
 local function snowParticles(screenW, screenH)
 	local graphics = love.graphics
 
-	local size = 3
-	local cnv = graphics.newCanvas(size*2, size*2)
-	graphics.setCanvas(cnv)
-	graphics.draw(f0b.elem.circle, size, size, 0, size)
-	graphics.setCanvas()
-
+	local maxSize = 6
 	local speed = 12
-	local span = screenH + size*3
+	local span = screenH + maxSize*2
 	for i = 1, #res.index do -- Parallax
 		local ch = res.index[i]
 		span = span + #ch
 	end
 	span = span + #res.index
 
-	local snow = graphics.newParticleSystem(cnv, 512)
+	local snow = graphics.newParticleSystem(f0b.elem.square, 512)
 	snow:setDirection(math.pi/2)
-	snow:setSpeed(12)
-	snow:setPosition(screenW, -size)
-	snow:setEmissionArea("uniform", screenW, size)
+	snow:setSpeed(speed)
+	snow:setPosition(-maxSize, -maxSize)
+	snow:setEmissionArea("uniform", screenW + maxSize*2, 0)
 	snow:setEmissionRate(6)
-	snow:setParticleLifetime(span / 12)
-	snow:setSizes(1)
+	snow:setParticleLifetime(span / speed)
+	snow:setSizes(1, maxSize)
+	snow:setSizeVariation(1)
 	snow:start()
 	return snow
 end
@@ -49,8 +45,15 @@ gamestate[tocID].tracks = f0b.jukebox.newTracklist(
 	{"index", setup={play=false}, source="Pronóstico de Nieve (calliope ver).ogg"}
 )
 gamestate[tocID].background = normalize({
-	{args={"menu/index.png"}, color={1, 1, 1, 1}, distance=4},
-	{args={snowParticles(w, h)}, distance=1},
+	{args={"menu/index.png"}, color={1, 1, 1, 1}, distance=11},
+	{args={
+		love.graphics.newText(res.font("dejaVuSans", 12), "recuérdame"),
+		w*4/7, 920,
+	}, color={.5, .5, .5, 1}, distance=11},
+	{args={snowParticles(w, h)}, distance=24, shader={
+		res.shader.circle, style_backgroundColor={1,1,1,1},
+		style_borderWidth=0,
+	}},
 })
 gamestate[credID].background = normalize({
 	{args=screen.credit(res.style.menu, w, h)}
@@ -61,17 +64,15 @@ gamestate[helpID].background = normalize({
 
 local confBG = normalize({
 	{args={"zeh/menu/conf.png"}, shader=res.shader.edgy},
---	{args={f0b.elem.circle, w/2, h/2, 0, w/2}, color=elemColor},
 })
 local mainBG = normalize({
 	{args={"zeh/menu/main.png"}, shader=res.shader.edgy},
---	{args=f0b.elem.screenFill(.9), color=elemColor},
 	{args=screen.menu(res.style.title, w, h)},
 })
 
 local menu = fload("engine/menu.lua")
 local mainEntries = {
-	{"Comenzar", "state", tocID},
+	{"Iniciar", "state", tocID},
 	{"Configuración", "menu", {
 		{"Volumen", false},
 		{"Volver", "return"},

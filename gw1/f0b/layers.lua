@@ -95,10 +95,11 @@ local fadeOps = {
 }
 
 local function layerUpdate(layerTable, dt, finish)
+	isUpdatable = {table=true, userdata=true}
 	for i = #layerTable, 1, -1 do
 		local layer = layerTable[i]
 		local drawable = layer.args[1]
-		if type(drawable) == "table" and drawable.update then
+		if isUpdatable[type(drawable)] and drawable.update then
 			layerTable.drawn = false
 			drawable:update(dt)
 		end
@@ -122,14 +123,11 @@ local shaderOps = {
 		end
 	end,
 	["userdata"] = love.graphics.setShader,
-	["table"] = function(shaderArgs)
-		local shader = shaderArgs[1]
-		for k, v in pairs(shaderArgs) do
-			if type(k) == "string" and shader:hasUniform(k) then
-				shader:send(k, v)
-			end
-		end
+
+	["table"] = function(ctx)
+		local shader = f0b.shader.prepare(ctx)
 		love.graphics.setShader(shader)
+		return true
 	end,
 }
 
@@ -138,9 +136,10 @@ local function layerDraw(layer, defaultFn, ...)
 	graphics.setColor(layer.color or {1,1,1,1})
 	local shader = layer.shader
 	-- When you manage to leave Lua befuddled and discombobulated
-	shaderOps[type(shader)](shader);
+	local dyn = shaderOps[type(shader)](shader);
 	(layer.draw or defaultFn)(...)
 	graphics.setShader()
+	return dyn
 end
 
 local function layerDrawRange(lt, cnv, start, limit)
@@ -149,10 +148,13 @@ local function layerDrawRange(lt, cnv, start, limit)
 	local prev = graphics.getCanvas()
 	graphics.setCanvas(cnv)
 	graphics.clear()
+	local dyn = false
 	for i = start, limit do
-		layerDraw(lt[i], defaultFn, unpack(lt[i].args))
+		dyn = layerDraw(lt[i], defaultFn, unpack(lt[i].args))
+			or dyn
 	end
 	graphics.setCanvas(prev)
+	return dyn
 end
 
 local function defaultDefaults()
@@ -268,6 +270,13 @@ layerOps = {
 		layerMod(layers[op[1]], op)
 	end,
 
+	render = function(layers, op)
+		local idx = normalizeIndex(layers, op[1])
+		local cnv = love.graphics.newCanvas()
+		layerDrawRange(layers, cnv, idx, idx)
+		layers[idx] = {args={cnv}}
+	end,
+
 	fold = function(layers, op)
 		local start = normalizeIndex(layers, op[1], 1)
 		local limit = normalizeIndex(layers, op[2], #layers)
@@ -276,6 +285,12 @@ layerOps = {
 		layerDrawRange(layers, cnv, start, limit)
 		layerOps.rm(layers, {start+1, limit})
 		layers[start] = {args={cnv}}
+	end,
+
+	fn = function(layers, op)
+		local i = normalizeIndex(layers, op[1], #layers)
+		print(i)
+		op[2](layers[i])
 	end,
 
 	sync = function(layers)
@@ -313,8 +328,7 @@ return {
 	draw = function(lt)
 		local cnv = lt.cnv
 		if not lt.drawn then
-			layerDrawRange(lt, cnv, 1, #lt)
-			lt.drawn = true
+			lt.drawn = not layerDrawRange(lt, cnv, 1, #lt)
 		end
 		love.graphics.setBlendMode("alpha", "premultiplied")
 		layerDraw(lt.root, defaultFn, cnv)

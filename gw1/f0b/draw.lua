@@ -1,16 +1,14 @@
 -- SPDX-FileCopyrightText: 2023 Grupo Warominutes
 -- SPDX-License-Identifier: Unlicense
 
-local function unitCanvas()
+local unitSquare = (function()
 	local graphics = love.graphics
 	local cnv = graphics.newCanvas(1, 1)
 	graphics.setCanvas(cnv)
 	graphics.clear(1, 1, 1, 1)
 	graphics.setCanvas()
 	return cnv
-end
-
-local unitSquare = unitCanvas()
+end)()
 
 local function textGen(style, ...)
 	local t = love.graphics.newText(style.font)
@@ -24,11 +22,26 @@ local function textWrapDims(t, x, y, limit, pad)
 		floor(limit + pad*2), floor(t:getHeight() + pad)
 end
 
-local function shaderDraw(shader, x, y, w, h)
+local function shaderAndBack(shader, prev, ...)
 	local graphics = love.graphics
 	graphics.setShader(shader)
-	graphics.draw(unitSquare, x, y, 0, w, h)
-	graphics.setShader()
+	graphics.draw(unitSquare, ...)
+	graphics.setShader(prev)
+end
+
+local function sdfDraw(sdf, margin, x, y, r, w, h, ...)
+	local graphics = love.graphics
+	local shader, prev = f0b.shader.prepare(sdf)
+	w = w + margin*2
+	h = h + margin*2
+	shader:send("margin", margin)
+	shader:send("resolution", {w, h})
+	shaderAndBack(shader, prev, x - margin, y - margin, r, w, h, ...)
+end
+
+local function shaderDraw(ctx, x, y, w, h, ...)
+	local shader, prev = f0b.shader.prepare(ctx)
+	shaderAndBack(shader, prev, x, y, 0, w, h, ...)
 end
 
 local function textShaderDraw(t, tx, ty, style, invert, ...)
@@ -66,20 +79,30 @@ return {
 		textShaderDraw(t, tx, ty, style, invert, x, y, w, h)
 	end,
 
-	line = function(p, pRadius, lineWidth)
+	line = function(p, width, radius)
+		local margin = 1
+		local dx = p[3] - p[1]
+		local dy = p[4] - p[2]
+		local r = math.atan2(dy, dx)
+		local l = math.sqrt(dx*dx + dy*dy) + width
+		local o = -width/2
+		local ctx = res.shader.rect{
+			borderRadius = (radius or width/2) + margin
+		}
 		local graphics = love.graphics
-		local shader = res.shader.circle
-		graphics.setLineWidth(lineWidth or pRadius*2)
-		graphics.setShader(shader)
-		shader:send("style_backgroundColor", {1,1,1,1})
-		shader:send("style_borderWidth", 0)
-		for i = 1, #p, 2 do
-			graphics.draw(unitSquare,
-				p[i] - pRadius, p[i+1] - pRadius,
-				0, pRadius*2, pRadius*2)
-		end
-		graphics.setShader()
-		return graphics.line(p)
+		graphics.push()
+		graphics.translate(p[1], p[2])
+		graphics.rotate(r)
+		sdfDraw(ctx, margin, o, o, 0, l, width)
+		graphics.pop()
+	end,
+
+	rect = function(style, x, y, ...)
+		sdfDraw(f0b.style.setupShader(res.shader.rect, style), 0, x, y, 0, ...)
+	end,
+
+	sdf = function(sdf, ...)
+		sdfDraw(sdf, 1, ...)
 	end,
 
 	dropShadow = function(drawArgs, xOff, yOff, scaleX, scaleY)
@@ -102,9 +125,7 @@ return {
 		graphics.draw(unpack(drawArgs))
 	end,
 
-	shader = function(shader, coords)
-		return shaderDraw(shader, unpack(coords))
-	end,
+	shader = shaderDraw,
 
 	unitSquare = unitSquare,
 

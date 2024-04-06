@@ -137,8 +137,7 @@ return {
 
 		local graphics = love.graphics
 		if board.name then
-			f0b.draw.shader(f0b.style.getShader(style),
-				board.namebox)
+			f0b.draw.rect(style, unpack(board.namebox))
 			graphics.setColor(style.color)
 			graphics.draw(unpack(board.nametext))
 		end

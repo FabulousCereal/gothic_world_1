@@ -45,6 +45,8 @@ local defaultStyle = {
 	textAlign = "left",
 	borderRadius = 0,
 	borderWidth = 0,
+	color = {1, 1, 1, 1},
+	backgroundColor = {0, 0, 0, 0},
 }
 
 local aliases = {
@@ -67,13 +69,7 @@ local fallbackMetatable = {
 		if parent then
 			return setReturn(style, key, parent[key])
 		end
-
-		local default = defaultStyle[key]
-		if default then
-			return setReturn(style, key, default)
-		end
-
-		return nil
+		return setReturn(style, key, defaultStyle[key])
 	end,
 }			
 
@@ -82,12 +78,9 @@ local function setFallbacks(parent)
 	for i = 1, #reserved do
 		local subvariant = parent[reserved[i]]
 		if subvariant then
+			subvariant[1] = parent
 			-- Search key in parent table
-			setmetatable(subvariant, {
-				__index = function(self, key)
-					return parent[key]
-				end
-			})
+			setFallbacks(subvariant)
 		end
 	end
 	return setmetatable(parent, fallbackMetatable)
@@ -121,6 +114,30 @@ local function funLoad(path)
 	end
 	return fun
 end
+
+local function shaderCtx(ctx)
+	return setmetatable(f0b.table.deepCopy(ctx), {
+		__call = function(ctx, ...)
+			return f0b.table.union(ctx, ...)
+		end,
+	})
+end
+
+local shaderAccess = {
+	userdata = function(shader, src, key)
+		return setReturn(src, key, {shader})
+	end,
+	string = function(str, src, key)
+		return setReturn(src, key, {love.graphics.newShader(str)})
+	end,
+	table = function(ctx, src, key)
+		local shader = ctx[1]
+		if type(shader) == "string" then
+			ctx[1] = love.graphics.newShader(shader)
+		end
+		return ctx
+	end,
+}
 
 local dataPath = "res/data/"
 
@@ -163,8 +180,9 @@ res = {
 
 	shader = setmetatable({}, {
 		__index = function(table, key)
-			return setReturn(table, key,
-				love.graphics.newShader(base.shader[key]))
+			local src = base.shader
+			local shader = src[key]
+			return shaderCtx(shaderAccess[type(shader)](shader, src, key))
 		end,
 	})
 }

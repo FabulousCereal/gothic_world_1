@@ -100,8 +100,9 @@ pronto, esa nota no se me hacía tan graciosa.]],
 	{"bgm", "mod", "wind", fade={"fadeout", 6, true}},
 	{"bgm", "mod", "pots",
 fade={"cmd", {setFilter={type="lowpass", highgain=1/3}}, "fadeto", 1, 3}},
-	{"macro", "rFade", "Flash/day.png",
-		res.palette("repellantYellow", 0)},
+	{"macro", "rFade", res.fun.complex.comedor(),
+		res.palette("repellantYellow", 0, 1.25)
+	},
 	[[Bajé con cautela las escaleras, mientras los ruidos aumentaban en
 intensidad. Llegué a una especie de living que daba a un comedor. Las cortinas
 estaban cerradas. Los ruidos provenían de lo que parecía la cocina.]],

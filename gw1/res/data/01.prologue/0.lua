@@ -1,3 +1,32 @@
+local function falling(ctx)
+	return {0, love.timer.getTime()*ctx.mul[2]*2}
+end
+
+local function fallingMul(_, _, dyn)
+	local m = 2.5
+	local mul = {m,m}
+	if dyn then
+		local now = love.timer.getTime()
+		mul = function(ctx)
+			local m = (love.timer.getTime() - now)-96
+			local t = math.pow(.99, m)
+			return {t,t}
+		end
+	end
+	return {
+		{"bg", "add",
+			color={.2, .4, .4, 0}, fade={"fadein", 3},
+			draw=f0b.draw.screenFill,
+			shader=res.shader.fbmWarp{
+				mul=mul, add={-.5,-.5},
+				rolloff=.707, amplitude=0.3,
+				mv=res.fun.complex.shaderTime(1/32),
+				alphaMask=.5,
+			},
+		},
+	}
+end
+
 local function eauDeParfum()
 	local img = res.img("gothic_world_120px.png")
 	local imgW, imgH = img:getDimensions()
@@ -9,7 +38,7 @@ local function eauDeParfum()
 	local graphics = love.graphics
 
 	local eauHeight = font:getHeight()
-	local eauPos = imgH + imgY*2 + eauHeight
+	local eauPos = imgH + imgY*2 + eauHeight/2
 
 	local canvasW = imgW + imgX*2
 	local canvasH = eauPos + eauHeight
@@ -54,6 +83,7 @@ return {
 	{"style", "vnMaria"},
 	{"bgm", "set", "intro", .1, source="newgw2-alt.ogg",
 		fade={"fadeto", 0.5, 2}},
+
 	{"wait", 2},
 	[[Tuve un sueño antes del desastre.]],
 
@@ -86,21 +116,28 @@ caída.]],
 	[["Gracias, pero no puedes..."]],
 
 	{"bg", "mod", fade={"delay", 3, true}},
-	{"bg", "add", color={.15, .2, .2, 0}, fade={"fadein", 3},
-		draw=f0b.draw.screenFill},
 --	{"bg", "add", args={"maria/intro7.png", 0, 0, 0, .8},
 --		color={1, 1, 1, 0},
 --		fade={"delay", 1.5, "fadein", 3}},
 
+	{"bg", "add", color={.15, .3, .3, 0}, fade={"fadein", 3},
+		draw=f0b.draw.screenFill,
+		shader=res.shader.fbm{
+			mul={2,2}, add=falling,
+			amplitude=.5
+		}
+	},
 	{"bgm", "set", "waves", 0, source="olas.ogg",
 		fade={"fadeto", 1, 20}},
 	[[Pasamos por una nube, y cuando salimos cubiertas de escarcha blanca,
 encontré a la paloma acobijada a mi pecho.]],
 
+	{"bg", "mod", fade={"fadeout", 3}},
 	[[Con mis manos entumecidas la abracé, mientras el olor y el ruido de
 las olas nos envolvían.]],
 
-	{"macro", fadeSwap, {"sea2.png", 0, 0, 0, .8}},
+--	{"macro", "rFade", {args={"sea2.png", 0, 0, 0, .8}}, false, false, 3},
+	{"macro", fallingMul, false},
 	{"wait", 1, true},
 	[["Gracias..."]],
 

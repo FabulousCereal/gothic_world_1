@@ -97,7 +97,7 @@ return {
 		graphics.translate(pos[1], pos[2])
 
 		graphics.setColor(1, 1, 1, 1)
-		f0b.draw.shader(f0b.style.getShader(style), button.box)
+		f0b.draw.rect(f0b.style.getShader(style), unpack(button.box))
 
 		graphics.setColor(type(button.text.str) == "table"
 			and {1, 1, 1, 1} or style.color)

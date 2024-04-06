@@ -9,6 +9,7 @@ f0b = {
 	lisp = require("f0b.lisp"),
 	table = require("f0b.table"),
 	style = require("f0b.style"),
+	shader = require("f0b.shader"),
 	layers = require("f0b.layers"),
 	jukebox = require("f0b.jukebox"),
 	buttons = require("f0b.buttons"),

@@ -113,7 +113,12 @@ nadie me detuviera.]],
 salté sobre el mostrador, tomé cualquier juego de llaves, y entré a buscarles
 la habitación. Podía dar explicaciones después.]],
 
-	{"macro", "rFade", "fab/hostal2.png", nil, 1},
+	{"macro", "rFade", {
+		args={"fab/hostal2.png"},
+		shader=res.shader.radial{
+			infoCursor={1/2,0}, infoPow=2, infoMul={2/3,1},
+		},
+	}, nil, 1},
 	[[Los corredores estaban vacios. Escuchaba una tele de alguna
 habitación, pero no veía gente. En el patio habían tuberías y palas tiradas,
 probablemente estaban remodelando.]],

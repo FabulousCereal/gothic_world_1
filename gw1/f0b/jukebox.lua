@@ -130,8 +130,9 @@ local function jukeMod(track, op)
 	end
 end
 
+local defaultAlias = true
+
 local function getAlias(op)
-	local defaultAlias = true
 	return op[1] ~= nil and op[1] or defaultAlias
 end
 
@@ -176,8 +177,13 @@ local trackOps = {
 	end,
 
 	mod = function(tracklist, op)
-		local idx = getAlias(op)
-		jukeMod(tracklist[idx], op)
+		if #op > 0 then
+			for i = 1, #op do
+				jukeMod(tracklist[op[i]], op)
+			end
+		else
+			jukeMod(tracklist[defaultAlias], op)
+		end
 	end,
 
 	modall = function(tracklist, op)

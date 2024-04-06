@@ -2,7 +2,7 @@ return {
 	{"style", "vnMaria"},
 	res.fun.macro.title,
 
-	{"bg", "add", args={"Flash/day.png"}, fade={"fadein", 1}},
+	f0b.table.union(res.fun.complex.comedor(), {"bg", "add", fade={"fadein", 1}}),
 	{"bgm", "set", nil, 0,
 		source="freesound/557188__julien-matthey__jm_natural-elements_wind-01.ogg",
 		setup={setFilter={type="lowpass", volume=1/2, highgain=0}},

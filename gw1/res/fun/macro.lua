@@ -26,23 +26,28 @@ local function title(vars, _, showTitle, time)
 	}
 end
 
-local function fade(name, color, idx, secs, op)
-	local c = color or nil
+local function fade(img, color, idx, secs, op)
 	local s = secs or 2/3
 	local next = idx and idx+1 or nil
+	if type(img) == "string" then
+		img = {args={img}}
+	end
+	img[1], img[2], img[3] = "bg", "add", next
+	img.color=color or nil
+	img.fade={"fadein", s}
 	return {
 		{"bg", "mod", idx, fade={op, s, true}},
-		{"bg", "add", next, args={name}, fade={"fadein", s}, color=c},
+		img,
 	}
 end
 
 return {
-	rFade = function(_, _, name, color, idx, secs)
-		return fade(name, color, idx, secs, "delay")
+	rFade = function(_, _, img, color, idx, secs)
+		return fade(img, color, idx, secs, "delay")
 	end,
 
 	xFade = function(_, _, name, color, idx, secs)
-		return fade(name, color, idx, secs, "fadeout")
+		return fade(img, color, idx, secs, "fadeout")
 	end,
 
 	title = title,

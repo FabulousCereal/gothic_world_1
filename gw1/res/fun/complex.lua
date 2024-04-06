@@ -1,0 +1,49 @@
+-- SPDX-FileCopyrightText: 2024 Grupo Warominutes
+-- SPDX-License-Identifier: Unlicense
+local function shaderCursor(ctx)
+	local pos = {love.mouse.getPosition()}
+	local size = {love.graphics.getDimensions()}
+	local mul = ctx.infoMul
+	for i = 1, #pos do
+		pos[i] = (pos[i] / size[i] - 0.5)*mul[i]
+	end
+	return pos
+end
+
+return {
+	shaderTime = function(xm, ym, xa, ya)
+		xm = xm or 1
+		ym = ym or xm
+		xa = xa or 0
+		ya = ya or xa
+		return function()
+			local t = love.timer.getTime()
+			return {t*xm + xa, t*ym + ya}
+		end
+	end,
+
+	comedor = function(cursor, overrides)
+		return {args={"Flash/day.png"},
+			shader=res.shader.radial({
+				infoCursor=cursor and shaderCursor or {-1/6,-1/6},
+				infoMul={2/3,4/3}, infoPow=2.2,
+				fg={0,0,0,.25}, bg={0,0,0,.97},
+			}, overrides or {})
+		}
+	end,
+
+	linterna = {infoMul={2,2},infoPow=4, bg={0,0,0,.9}},
+
+	cielo = function(luegopiensoenesto)
+		local args={f0b.draw.unitSquare, 40, 40, 0, 560, 560}
+		local bg1 = {args=args, color={1,.75,.45,1}}
+		local bg2 = {
+			args=args, color={.5,.6,.6,0},
+			shader=res.shader.fbmWarp{
+				mul={3,3}, rolloff=.5, amplitude=0.5,
+				mv=res.fun.complex.shaderTime(0, 1/16),
+				alphaMask=1,
+			},
+		}
+	end
+}

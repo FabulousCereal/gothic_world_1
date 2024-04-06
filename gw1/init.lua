@@ -50,10 +50,7 @@ gamestate[tocID].background = normalize({
 		love.graphics.newText(res.font("dejaVuSans", 11), "recuérdame"),
 		w*4/7, 920,
 	}, color={.5, .5, .5, 1}, distance=11},
-	{args={snowParticles(w, h)}, distance=24, shader={
-		res.shader.circle, style_backgroundColor={1,1,1,1},
-		style_borderWidth=0,
-	}},
+	{args={snowParticles(w, h)}, distance=24, shader=res.shader.circle},
 })
 gamestate[credID].background = normalize({
 	{args=screen.credit(res.style.menu, w, h)}
@@ -68,6 +65,15 @@ local confBG = normalize({
 local mainBG = normalize({
 	{args={"zeh/menu/main.png"}, shader=res.shader.edgy},
 	{args=screen.menu(res.style.title, w, h)},
+--[[	{args={f0b.draw.unitSquare, 40, 40, 0, 560, 560},
+		shader=res.shader.fbmRipple{
+			mul={1,1}, add={-.5,-2},rolloff=.8, amplitude=0.2,
+			time=res.fun.complex.shaderTime(6, 0, 15, 0),
+			mv=res.fun.complex.shaderTime(1/16,0),
+			alphaMask=2/3,
+		},
+		color={.8,1,1,1},
+	}]]
 })
 
 local menu = fload("engine/menu.lua")

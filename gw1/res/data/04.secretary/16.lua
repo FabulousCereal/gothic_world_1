@@ -64,7 +64,7 @@ y con levantar la manga del pantalón bastó.]],
 	[["Igual si reposas creo que se te va a pasar mas luego."]],
 
 	{"bg", "mod", fade={"fadeout", 2/3, true}},
-	{"macro", "rFade", "Flash/day.png", false, 1},
+	{"macro", "rFade", res.fun.complex.comedor(), false, 1},
 	{"name", "María"},
 	[[Bajamos los dos la escalera, cual peor que el otro, y de ahí fuimos
 al comedor donde estaban Bake y Croft tomando mate y café, respectivamente.]],
@@ -204,7 +204,7 @@ frente a la escalera.]],
 		{
 			[[A lo mejor solo iba a molestarlo si lo despertaba.]],
 
-			{"macro", "rFade", "Flash/day.png"},
+			{"macro", "rFade", res.fun.complex.comedor()},
 			[[Seguí hasta la mesa y me senté junto a los chicos.
 			Croft ya le estaba contando a Bake sobre como me
 			pasó por encima, y que aparentemente lo rodearon tres

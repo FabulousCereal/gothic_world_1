@@ -198,10 +198,11 @@ viento en la cara y sin abrigo.]],
 	[[Entré con el y Rocco mientras los chicos bajaban sus instrumentos, y
 como se veían entusiasmados en eso, le ofrecí a Croft tomar algo calentarnos.]],
 
-	{"macro", "rFade", "Flash/day.png", {.4, .3, .5, 0}},
-	[[Nos sentamos a comer mientras los chicos martillaban y
-aserruchaban cosas en el segundo piso, en el cuarto desocupado. A Falcon ni se
-le notaba que estuvo toda la mañana en cama.]],
+	{"macro", "rFade", res.fun.complex.comedor(true, res.fun.complex.linterna),
+		{.6, .4, .4, 0}},
+	[[Nos sentamos a comer a la luz de la linterna, mientras los chicos
+martillaban y aserruchaban cosas en el segundo piso, en el cuarto desocupado. A
+Falcon ni se le notaba que estuvo toda la mañana en cama.]],
 
 	{"name", "Croft"},
 	[["¿Son así siempre?"]],

@@ -106,7 +106,7 @@ un rato estaría listo, que esperara un par de minutos.]],
 hacerle preguntas. Al final no hice mas que llevar una mantequilla a la mesa.
 Bake llegó pronto con las tostadas y el agua.]],
 
-	{"macro", "rFade", "Flash/day.png"},
+	{"macro", "rFade", res.fun.complex.comedor()},
 	{"name", "Bake"},
 	[["¿No se levantó Falcon?" me preguntó mientras servía mate. Negué con
 la cabeza. "Seguro le debía hacer falta una buena noche."]],

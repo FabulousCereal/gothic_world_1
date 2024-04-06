@@ -6,18 +6,24 @@ local function getUnits(style)
 	return em, em * style.padding, em * style.margin, em * style.lineHeight
 end	
 
-local function setupShader(shader, style, invert)
-	local names = {"borderWidth", "borderRadius", "borderColor",
-		"backgroundColor"}
-	for _, n in ipairs(names) do
-		local sname = "style_" .. n
-		if shader:hasUniform(sname) then
-			local key = (invert and n == "backgroundColor")
-				and "color" or n
-			shader:send(sname, style[key])
+local function setupShader(ctx, style, invert)
+	local names = {
+		"borderWidth", "borderRadius", "borderColor",
+		"backgroundColor",
+		["color"] = "backgroundColor",
+		["borderColor"] = "backgroundColor",
+		["backgroundColor"] = "color"
+	}
+	local ctx = ctx{}
+	for alt, key in pairs(names) do
+		local type = type(alt)
+		if invert and type == "string" then
+			ctx[alt] = style[key]
+		elseif type == "number" then
+			ctx[key] = style[key]
 		end
 	end
-	return shader
+	return ctx
 end
 
 return {
@@ -31,6 +37,7 @@ return {
 	setupShader = setupShader,
 
 	getShader = function(style, invert)
-		return setupShader(style.shader or res.shader.rect, style, invert)
+		return setupShader(res.shader[style.shader or "rect"], style,
+			invert)
 	end,
 }

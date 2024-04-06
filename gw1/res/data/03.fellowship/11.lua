@@ -274,7 +274,8 @@ me quedé pensando en sus palabras. 'Estar atentos'.]],
 	[[Tras nuestro arreglo la casa quedó aún mas oscura, así que
 con Falcon acordamos buscar velas y baterías para la próxima salida.]],
 
-	{"macro", "rFade", "Flash/day.png", {1, 3/4, 2/3, 0}, 1},
+	{"macro", "rFade", res.fun.complex.comedor(true,
+		res.fun.complex.linterna), {1, 3/4, 2/3, 0}, 1},
 	[[Acabado el trabajo, nos sentamos a comer un estofado con lo único
 medianamente saludable que trajimos.]],
 

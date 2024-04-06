@@ -1,5 +1,9 @@
 return {
 	{"style", "vnMaria"},
+	{"bgm", "set", "wind", 0.5, source="wahwahwhite noise.flac",
+		setup={setFilter={type="lowpass", volume=1, highgain=0}},
+		fade={"fadeto", 1, 6},
+	},
 	res.fun.macro.title,
 
 	{"name", "María"},
@@ -41,9 +45,26 @@ amiga que pensé no volvería a ver.]],
 nosotras. El olor salado y el ruido nos envolvieron, y atraida por estos me
 acerqué al borde.]],
 
+	{"bg", "add", draw=f0b.draw.screenFill, color={1,.62,.25,0}},
+	{"bg", "add",
+		draw=f0b.draw.screenFill,
+		color={.75,1,1,0},
+		shader=res.shader.fbmRipple{
+			mul={1,1}, add={-.5,-2}, rolloff=.8, amplitude=0.2,
+			mv=res.fun.complex.shaderTime(0, 1/8),
+			alphaMask=2/3,
+		},
+	},
+	{"bg", "mod", 2, 3, fade={"fadein", 3}},
+	{"bg", "mod", 1, fade={"delay", 3, true}},
 	[[El ruido del mar se hizo mas fuerte. Quería ver el agua antes de
 decidir.]],
-	{"bgm", "modall", fade={"fadeout", 4, true}},
-	{"bg", "mod", fade={"fadeout", 1}},
-	{"wait", 1.9, true},
+	{"bg", "fn", 0, function(layer)
+		layer.shader.time=res.fun.complex.shaderTime(
+			8, 0, (-love.timer.getTime()+2.25) * 8
+		)
+	end},
+	{"bgm", "mod", "w", "intro", fade={"fadeout", 4, true}},
+	{"bg", "modall", fade={"delay", .5, "fadeout", 2.5, true}},
+	{"wait", 4, true},
 }

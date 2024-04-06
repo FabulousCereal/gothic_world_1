@@ -323,7 +323,7 @@ no dan ganas de estar afuera. Esperá que calme y me ocupo."]],
 	[[Bake se fue al comedor con la lata y me llamó para que comieramos.]],
 
 	{"bgm", "mod", "wind", fade={"fadeout", 6, true}},
-	{"macro", "rFade", "Flash/day.png"},
+	{"macro", "rFade", res.fun.complex.comedor()},
 	[[Vació la pizza minúscula en un plato, le hechó unas gotitas de agua,
 y esta se expandió en segundos. Radiaba calor y un exquisito olor a pizza de
 jamón y piña llenó el ambiente.]],

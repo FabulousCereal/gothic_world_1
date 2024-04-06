@@ -2,7 +2,7 @@ return {
 	{"style", "vnMaria"},
 	{"macro", "titleDate", {2011, 11, 13, 13, 59}},
 
-	{"bg", "add", args={"Flash/day.png"}},
+	f0b.table.union(res.fun.complex.comedor(), {"bg", "add"}),
 	{"name", "María"},
 	[[El mal clima seguía cuando nos sentamos al fin a comer. Falcon seguía
 en cama, y yo ya me había acostumbrado a la sensación de que el viento hecharía

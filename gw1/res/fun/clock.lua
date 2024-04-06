@@ -1,61 +1,63 @@
 -- SPDX-FileCopyrightText: 2023 Grupo Warominutes
 -- SPDX-License-Identifier: Unlicense
 
+local minuteLen = 5/6
+local hourLen = 1/3
+local backLen = 1/9
+
 local function lineTurn(radius, turn, len)
 	local floor = math.floor
 	local cos = math.cos(turn)
 	local sin = math.sin(turn)
 	local bLen = radius * -backLen
 	return {
-		floor(radius + cos(turn) * -radius / 9),
-		floor(radius + sin(turn) * -radius / 9),
-		floor(radius + cos(turn) * len),
-		floor(radius + sin(turn) * len)
+		floor(radius + cos * bLen),
+		floor(radius + sin * bLen),
+		floor(radius + cos * len),
+		floor(radius + sin * len)
 	}
 end
 
 local function lineHands(radius, hourTurn, minuteTurn)
-	return lineTurn(radius, hourTurn, radius / 3),
-		lineTurn(radius, minuteTurn, radius * 5/6)
+	return lineTurn(radius, hourTurn, hourLen * radius),
+		lineTurn(radius, minuteTurn, minuteLen * radius)
 end
 
-local clockHandFunction = {
+local clockHandFun = {
 	line = function(style, radius, hourTurn, minuteTurn)
 		hour, minute = lineHands(radius, hourTurn, minuteTurn)
 		local bw = style.borderWidth
-		f0b.draw.line(hour, math.floor(bw / 4))
-		f0b.draw.line(minute, math.floor(bw / 6))
+		love.graphics.setColor(style.borderColor)
+		f0b.draw.line(hour, bw/2)
+		f0b.draw.line(minute, bw*1/3)
 	end,
 
 	circle = function(style, radius, hourTurn, minuteTurn)
-		hour, minute = lineHands(radius, hourTurn, minuteTurn)
-		local bw = style.borderWidth
-		local lw = math.floor(bw/8)
-		f0b.draw.line(hour, math.floor(bw * 2/3), lw)
-		f0b.draw.line(minute, math.floor(bw * 2/3), lw)
+		local hands = {lineHands(radius, hourTurn, minuteTurn)}
+		local bw = style.borderWidth / 8
+		local radius = style.borderWidth * 4 / 3
+		for _, hand in pairs(hands) do
+			f0b.draw.line(hand, bw)
+			for i = 1, #hand, 2 do
+				local x = hand[i] - radius/2
+				local y = hand[i+1] - radius/2
+				f0b.draw.sdf(res.shader.circle, x, y, 0,
+					radius, radius)
+			end
+		end
 	end,
 
 	triangle = function(style, radius, hourTurn, minuteTurn)
-		local graphics = love.graphics
-		local bw = math.floor(style.borderWidth/2)
-		local points = {-bw, -bw, -bw, bw, math.floor(radius/3), 0}
-		graphics.setLineWidth(1)
-		graphics.translate(radius, radius)
-
-		graphics.rotate(hourTurn)
-		graphics.polygon("fill", points)
-		graphics.polygon("line", points)
-
-		points[5] = math.floor(radius * 5/6 - style.borderWidth)
-		graphics.rotate(minuteTurn)
-		graphics.polygon("fill", points)
-		graphics.polygon("line", points)
-
-		graphics.origin()
+		local ctx = res.shader.triangle
+		local rb = radius * backLen / 2
+		f0b.draw.sdf(ctx, radius, radius, hourTurn,
+			hourLen*radius, rb, backLen / (hourLen*2), 1/2)
+		f0b.draw.sdf(ctx, radius, radius, minuteTurn,
+			minuteLen*radius, rb, backLen / (minuteLen*2), 1/2)
 	end,
 }
 
-local printNumeralFunction = {
+local printNumeralFun = {
 	sextant = function(font, num, x, trueY)
 --		local r = {"🬀", "🬁", "🬃", "🬇", "🬏", "🬞",
 --			"🬟", "🬠", "🬢", "🬦", "🬭", "🬰"}
@@ -118,15 +120,15 @@ return {
 
 		graphics.setColor(1,1,1,1)
 		f0b.draw.shader(f0b.style.setupShader(res.shader.circle, style),
-			{0, 0, dims, dims})
+			0, 0, dims, dims)
 
-		local tau = f0b.math.tau
+		local tau = math.pi*2
 		local radius = floor(dims / 2)
 		local numDistance = radius * 5/6 - style.borderWidth / 2
 		local numTurn = tau / 12
 		local em = style.font:getHeight()
 
-		local printNumeral = printNumeralFunction[numerals or "arabic"]
+		local printNumeral = printNumeralFun[numerals or "arabic"]
 		graphics.setFont(style.font)
 		graphics.setColor(style.color)
 		for i = 1, 12 do
@@ -137,17 +139,18 @@ return {
 				floor(y + radius - em / 2))
 		end
 
-		local hourTurn = (numTurn * hour + numTurn / 60 * minute)
-			- tau/4
-		local minuteTurn = tau / 60 * minute - tau/4
-		clockHandFunction[hands or "line"](style, radius, hourTurn, minuteTurn)
-
 		local brandFont = res.font(style.fontFamily, floor(em * 2/3))
 		local brandEm = brandFont:getHeight()
 		graphics.setFont(brandFont)
 		graphics.print(brand,
 			floor(radius - brandFont:getWidth(brand) / 2),
 			floor(radius + brandFont:getHeight() * 5/3))
+
+		local hourTurn = (numTurn * hour + numTurn / 60 * minute)
+			- tau/4
+		local minuteTurn = tau / 60 * minute - tau/4
+		clockHandFun[hands or "line"](style, radius, hourTurn, minuteTurn)
+
 		graphics.setCanvas(prevCanvas)
 		return clockFace, floor(w / 2 - dims / 2),
 			floor(h * 3/7 - dims / 2)

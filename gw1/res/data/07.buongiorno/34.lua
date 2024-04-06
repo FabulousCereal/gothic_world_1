@@ -2,7 +2,8 @@ return {
 	{"style", "vnMaria"},
 	{"macro", "titleDate", {2011, 11, 13, 9, 13}},
 
-	{"bg", "add", args={"Flash/day.png"}, color=res.palette("tenpm", 0)},
+	f0b.table.union(res.fun.complex.comedor(),
+		{"bg", "add", color=res.palette("tenpm", 0), fade={"fadein", 1}}),
 	{"name", "Bake"},
 	[["Ahh, delicioso," dijo Bake tras acabarse el último pedazo de pollo.
 "¿Que hacemos ahora?"]],

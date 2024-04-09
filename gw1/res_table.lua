@@ -180,6 +180,7 @@ return {
 		dejaVuSans = "DejaVuSans.ttf",
 		dseg7 = "DSEG7Classic-Regular.ttf",
 		ncentury18 = "ncenR18.pcf.gz",
+		ncentury18i = "ncenI18.pcf.gz",
 		takaoMincho = "TakaoMincho.ttf",
 		vollkorn = "Vollkorn-Black.ttf",
 		terminus = "ter-u28n_unicode.pcf.gz",
@@ -212,6 +213,24 @@ return {
 			},
 			unselected = {
 				borderColor = {0, 0, 0, 0},
+			},
+		},
+
+		toc = {
+			"menu",
+			fontFamily = "ncentury18i",
+			color = {0, 0, 0, 1},
+			backgroundColor = {1, 0, 0, 1},
+			borderWidth = 0,
+			disabled = {
+				unselected = {
+					color = {.5, 0, .5, 1},
+					backgroundColor = {0, 0, 0, 1},
+				}
+			},
+			unselected = {
+				color = {1, 0, 0, 1},
+				backgroundColor = {0, 0, 0, 0},
 			},
 		},
 

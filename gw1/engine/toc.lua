@@ -1,19 +1,14 @@
 -- SPDX-FileCopyrightText: 2023 Grupo Warominutes
 -- SPDX-License-Identifier: Unlicense
 
-local tocCmp = {
-	eq = function(c, s)
-		return c[1] == s[1] and c[2] == s[2]
-	end,
+local function tocDiff(c, s)
+	local prim = c[1] - s[1]
+	return prim ~= 0 and prim or c[2] - s[2]
+end
 
-	lt = function(c, s)
-		return c[1] < s[1] or (c[1] == s[1] and c[2] < s[2])
-	end,
-
-	gt = function(c, s)
-		return c[1] > s[1] or (c[1] == s[1] and c[2] > s[2])
-	end,
-}
+local function pushText(text, style, str, x, y)
+	return text:getHeight(text:add({style.color, str}, x, math.floor(y)))
+end
 
 local function tocRecalc(fText, toc, style, cur, sub)
 	fText:clear()
@@ -21,54 +16,49 @@ local function tocRecalc(fText, toc, style, cur, sub)
 	local lineSpacing = em * style.margin
 
 	local screenH = love.graphics.getHeight()
-	local sectionX = math.floor(em * 2)
 	local selected = true
-	local future = false
-	local entryReached
+	local entryStyle = style.disabled
 	local entryHeight
-	local localStyle = style
 
 	local sectionStart = cur[2]
 	local loopPos = {0, 0}
 	local lineY = 0
 	for i = cur[1], #toc do
 		loopPos[1] = i
-		if not future and i > sub[1] then
-			localStyle = style.disabled
-			future = true
-		end
+		local localStyle = (i > sub[1] and style.disabled or style).unselected
 
 		local chapter = toc[i]
-		fText:add({localStyle.color, chapter.name}, 0, math.floor(lineY))
-		lineY = lineY + fText:getHeight() + lineSpacing
+		lineY = lineY + lineSpacing
+			+ pushText(fText, localStyle, chapter.name, 0, lineY)
 
 		for j = sectionStart, #chapter do
 			loopPos[2] = j
-			if tocCmp.eq(loopPos, sub) then
-				fText:add({localStyle.color, "*"}, em, lineY)
-			elseif not future and tocCmp.gt(loopPos, sub) then
+			local diff = tocDiff(loopPos, sub)
+			if diff > 0 then
 				localStyle = style.disabled
-				future = true
+			else
+				localStyle = style
+			end
+			if diff == 0 then
+				entryStyle = localStyle
+				pushText(fText, localStyle.unselected, "*", em, lineY)
+			end
+			if not selected then
+				localStyle = localStyle.unselected
 			end
 
+			local title
 			local section = chapter[j]
-			local title = {nil, nil}
-			if selected then
-				title[1] = localStyle.backgroundColor
-			else
-				title[1] = localStyle.color
-			end
 			if chapter.noNumbers then
-				title[2] = section[1]
+				title = section[1]
 			else
-				title[2] = string.format("%u.%u %s",
+				title = string.format("%u.%u %s",
 					i + toc.offset, j, section[1])
 			end
 
-			fText:add(title, sectionX, math.floor(lineY))
-			local textHeight = fText:getHeight()
+			local textHeight = pushText(fText, localStyle, title,
+				em*2, lineY)
 			if selected then
-				entryReached = not future
 				entryHeight = textHeight
 				selected = false
 			end
@@ -85,7 +75,7 @@ local function tocRecalc(fText, toc, style, cur, sub)
 		sectionStart = 1
 		selected = false
 	end
-	return entryReached, entryHeight
+	return entryStyle, entryHeight
 end
 
 local function updateParallax(self)
@@ -98,7 +88,7 @@ local function updateParallax(self)
 	offset = offset + cur[2]
 
 	local em, _, margin = f0b.style.getUnits(self.style)
-	diff = -(offset - self.prevOff) * (margin*2 + em)
+	local diff = -(offset - self.prevOff) * (margin*2 + em)
 	f0b.layers.ops(self.background, "modall", {fade={"mvdiff", false, diff, 2/3}})
 	self.prevOff = offset
 end
@@ -111,13 +101,12 @@ local function runStage(self, allow)
 		return ":)"
 	end
 
-	if allow == "current" and not tocCmp.eq(cur, sub) then
-		if tocCmp.lt(cur, sub) then
-			return "No puedes cambiar el pasado."
-		else
-			return "No puedes ver el futuro."
-		end
-	elseif allow == "past" and tocCmp.gt(cur, sub) then
+	local diff = tocDiff(cur, sub)
+	if allow == "current" and diff ~= 0 then
+		return diff < 0
+			and "No puedes cambiar el pasado."
+			or "No puedes ver el futuro."
+	elseif allow == "past" and diff > 0 then
 		return "No puedes ver el futuro."
 	end
 	return false
@@ -181,7 +170,7 @@ local function tocKeypressed(self, key)
 		return
 	end
 
-	self.entryReached, self.entryHeight = tocRecalc(self.tocRender,
+	self.entryStyle, self.entryHeight = tocRecalc(self.tocRender,
 		self.toc, self.style, self.cur, self.indexee.cur)
 	if self.background then
 		updateParallax(self)
@@ -214,17 +203,12 @@ local function tocDraw(self)
 			floor(x), floor(y), width, "left", style.unselected)
 	else
 		if self.entryHeight then
-			if self.entryReached == true then
-				graphics.setColor(style.color)
-			else
-				graphics.setColor(style.disabled.color)
-			end
+			style = self.entryStyle
 
 			local padding = em * style.padding
-			graphics.draw(f0b.draw.unitSquare,
+			f0b.draw.rect(style,
 				floor(em * 4 - padding),
 				floor(lineSpacing * 2 - padding / 2),
-				0,
 				floor(screenW - em * 6 + padding * 2),
 				floor(self.entryHeight + padding))
 		end
@@ -236,7 +220,7 @@ end
 
 local function tocPreStarted(self)
 	self.forbiddenChoice = false
-	self.entryReached, self.entryHeight = tocRecalc(self.tocRender,
+	self.entryStyle, self.entryHeight = tocRecalc(self.tocRender,
 		self.toc, self.style, self.cur, self.indexee.cur)
 end
 
@@ -260,9 +244,9 @@ return {
 
 			cur = {1, 1},
 			tocRender = nil,
-			entryReached = nil,
-			forbiddenChoice = false,
+			entryStyle = nil,
 			entryHeight = nil,
+			forbiddenChoice = false,
 			prevOff = 0,
 		}
 	end,

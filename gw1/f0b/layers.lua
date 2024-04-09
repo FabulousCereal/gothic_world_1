@@ -39,13 +39,12 @@ local function mvCommon(layer, fade, dt, ...)
 	end
 
 	local type, diffX, diffY, time = unpack(fade, 1, 4)
-	local dist = layer.distance or 1
 	if type == "mvabs" then
-		diffX = diffX and diffX / dist - args[2] or 0
-		diffY = diffY and diffY / dist - args[3] or 0
+		diffX = diffX and diffX - args[2] or 0
+		diffY = diffY and diffY - args[3] or 0
 	else
-		diffX = diffX and diffX / dist or 0
-		diffY = diffY and diffY / dist or 0
+		diffX = diffX and diffX or 0
+		diffY = diffY and diffY or 0
 	end
 
 	local control = {args}
@@ -131,13 +130,18 @@ local shaderOps = {
 	end,
 }
 
-local function layerDraw(layer, defaultFn, ...)
+local function layerDraw(layer, defaultFn, draw, x, y, ...)
 	local graphics = love.graphics
 	graphics.setColor(layer.color or {1,1,1,1})
 	local shader = layer.shader
+	local scale = layer.scale
+	if scale then
+		x = x and x * scale or 0
+		y = y and y * scale or 0
+	end
 	-- When you manage to leave Lua befuddled and discombobulated
 	local dyn = shaderOps[type(shader)](shader);
-	(layer.draw or defaultFn)(...)
+	(layer.draw or defaultFn)(draw, x, y, ...)
 	graphics.setShader()
 	return dyn
 end

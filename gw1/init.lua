@@ -38,19 +38,19 @@ local elemColor = {0, 0, 0, 1/3}
 local normalize = f0b.layers.normalize
 
 local vnID = gamestate:add(vn.new(res.index, res.style.vn))
-local tocID = gamestate:add(toc.new(res.index, res.style.menu, vnID))
+local tocID = gamestate:add(toc.new(res.index, res.style.toc, vnID))
 local credID = gamestate:add(stub.new())
 local helpID = gamestate:add(stub.new())
 gamestate[tocID].tracks = f0b.jukebox.newTracklist(
 	{"index", setup={play=false}, source="Pronóstico de Nieve (calliope ver).ogg"}
 )
 gamestate[tocID].background = normalize({
-	{args={"menu/index.png"}, color={1, 1, 1, 1}, distance=11},
+	{args={"menu/index.png"}, color={1, 1, 1, 1}, scale=1/11},
 	{args={
 		love.graphics.newText(res.font("dejaVuSans", 11), "recuérdame"),
-		w*4/7, 920,
-	}, color={.5, .5, .5, 1}, distance=11},
-	{args={snowParticles(w, h)}, distance=24, shader=res.shader.circle},
+		w*4/7*11, 920*11,
+	}, color={.5, .5, .5, 1}, scale=1/11},
+	{args={snowParticles(w, h)}, scale=1/24, shader=res.shader.circle},
 })
 gamestate[credID].background = normalize({
 	{args=screen.credit(res.style.menu, w, h)}

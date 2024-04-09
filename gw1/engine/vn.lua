@@ -42,6 +42,7 @@ local function errorStage(font, ...)
 	local errmsg = table.concat({...})
 	local graphics = love.graphics
 	local text = graphics.newText(font)
+	love.graphics.setCanvas() -- Prevent yet another exception on present()
 	text:setf(errmsg, graphics.getWidth(), "left")
 	return {
 		{"bg", "add",
@@ -80,7 +81,7 @@ local function getStage(self, offset)
 		table.insert(path, ".lua")
 
 		local name = table.concat(path)
-		return name, pcall(f0b.std.dofile, name)
+		return name, f0b.std.pcallStack(f0b.std.dofile, name)
 	end
 	return false
 end

@@ -13,5 +13,8 @@ return {
 		end
 		return arg
 	end,
+
+	pcallStack = function(f, ...)
+		return xpcall(f, debug.traceback, ...)
+	end,
 }
-			

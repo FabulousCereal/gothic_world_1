@@ -1,36 +1,48 @@
 local function checaMiRiff()
 	local dialog = {
-		{false, 3},
-		{"Bake", 5, [["¡Checá mi riff!"]]},
-		{"Falcon", 5, [["¿A eso llamas un riff? Mira."]]},
-		{"Bake", 4.5, [["¿wtf es eso? ¿Pipi con carraspera?"]]},
-		{"Falcon", 5, [["Trato de improvisar, hdp ¬¬..."]]},
-		{false, 13},
-		{"Falcon", 3, [["¿Por que paraste?"]]},
-		{"Bake", 4, [["Porque hay que trabajar xD Trabajá xDD"]]},
-		{"Falcon", 4, [["Estaba a punto de sacar un hit, Bake xddd"]]},
-		{"Bake", 2, [["Clavá acá mierda xD"]]},
+		{3},
+		{5, "Bake", [["¡Checá mi riff!"]]},
+		{5, "Falcon", [["¿A eso llamas un riff? Mira."]]},
+		{4.5, "Bake", [["¿wtf es eso? ¿Pipi con carraspera?"]]},
+		{5, "Falcon", [["Trato de improvisar, hdp ¬¬..."]]},
+		{13},
+		{3, "Falcon", [["¿Por que paraste?"]]},
+		{4, "Bake", [["Porque hay que trabajar xD Trabajá xDD"]]},
+		{4, "Falcon", [["Estaba a punto de sacar un hit, Bake xddd"]]},
+		{3, "Bake", [["Clavá aquí mierda xD"]]},
 	}
 	local floor = math.floor
 	local rnd = math.random
 	local w, h = love.graphics.getDimensions()
-	local limit = floor(w * 1/3)
+	local limit = floor(w * 2/5)
 
 	local cmd = {}
 	local delay = 0
+	local button = nil
 	for i = 1, #dialog do
-		local who, time, what = unpack(dialog[i])
-		if who then
+		local time, who, what = unpack(dialog[i])
+		if what then
 			local xAdd = (who == "Bake" and 2 or 12)
 			local x = (rnd() + xAdd) * w/24
 			local y = (rnd() + 6) * h/72
 			local style = res.style["vn" .. who]
-			local cnv = f0b.draw.textCanvas(what, limit, "center", style)
+			if not button then
+				button = f0b.buttons.stub(style)
+			else
+				f0b.buttons.setStyle(button, style)
+			end
+			f0b.buttons.setTextAdapt(button, what, limit, "center")
+			f0b.buttons.setWidth(button, limit)
+			f0b.buttons.regen(button)
+			local cnv = love.graphics.newCanvas(
+				f0b.buttons.getBoxDims(button))
+			love.graphics.setCanvas(cnv)
+			f0b.buttons.drawBox(button)
+			love.graphics.setCanvas()
 			cmd[#cmd + 1] = {
 				"bg", "add",
 				args={cnv, floor(x), floor(y)},
 				color={1, 1, 1, 0},
-				shader=false,
 				fade={"delay", delay, "fadein", 1/12, "delay", time, true},
 			}
 		end

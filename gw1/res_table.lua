@@ -229,8 +229,9 @@ return {
 				}
 			},
 			unselected = {
+				fontFamily = "ncentury18",
 				color = {1, 0, 0, 1},
-				backgroundColor = {0, 0, 0, 0},
+				backgroundColor = {0, 0, 0, 2/3},
 			},
 		},
 

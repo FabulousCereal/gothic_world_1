@@ -93,14 +93,17 @@ local function updateParallax(self)
 	self.prevOff = offset
 end
 
-local function runStage(self, allow)
+local function runStage(self)
 	local cur = self.cur
 	local sub = self.indexee.cur
 
 	if #self.toc[cur[1]] < 1 then
 		return ":)"
+	elseif not self.toc[cur[1]][cur[2]][2] then
+		return "Esta parte aún no existe..."
 	end
 
+	local allow = self.allow
 	local diff = tocDiff(cur, sub)
 	if allow == "current" and diff ~= 0 then
 		return diff < 0
@@ -130,11 +133,20 @@ end
 
 local keyMap = f0b.table.dispatch({
 	["return"] = function(self)
-		self.forbiddenChoice = runStage(self, "any")
-		if not self.forbiddenChoice then
+		self.forbidden = runStage(self, "any")
+		if self.forbidden then
+			local msg = self.forbiddenMsg
+			local buttons = f0b.buttons
+			local floor = math.floor
+			local screenW, screenH = love.graphics.getDimensions()
+			local w = buttons.setTextAdapt(msg, self.forbidden, screenW)
+			buttons.setPos(msg, floor(screenW/2 - w/2),
+				floor(screenH/2 - buttons.getHeight(msg)/2))
+			buttons.regen(msg)
+		else
 			gamestate:stateSwitch(self.indexee.id, self.cur)
 		end
-		return true
+		return self.forbidden
 	end,
 
 	up = function(self)
@@ -163,8 +175,8 @@ local keyMap = f0b.table.dispatch({
 })
 
 local function tocKeypressed(self, key)
-	if self.forbiddenChoice then
-		self.forbiddenChoice = false
+	if self.forbidden then
+		self.forbidden = false
 		return
 	elseif keyMap[key](self) then
 		return
@@ -195,12 +207,8 @@ local function tocDraw(self)
 	local lineSpacing = em * style.margin + em
 	local tocMargin = em * 2
 
-	if self.forbiddenChoice then
-		local width = style.font:getWidth(self.forbiddenChoice)
-		local x = screenW / 2 - width / 2
-		local y = screenH / 2 - em / 2
-		f0b.draw.text(self.forbiddenChoice,
-			floor(x), floor(y), width, "left", style.unselected)
+	if self.forbidden then
+		f0b.buttons.draw(self.forbiddenMsg)
 	else
 		if self.entryHeight then
 			style = self.entryStyle
@@ -219,7 +227,7 @@ local function tocDraw(self)
 end
 
 local function tocPreStarted(self)
-	self.forbiddenChoice = false
+	self.forbidden = false
 	self.entryStyle, self.entryHeight = tocRecalc(self.tocRender,
 		self.toc, self.style, self.cur, self.indexee.cur)
 end
@@ -231,7 +239,7 @@ local function tocPreInit(self)
 end
 
 return {
-	new = function(toc, style, indexeeID)
+	new = function(toc, style, indexeeID, allow)
 		return {
 			draw = tocDraw,
 			keypressed = tocKeypressed,
@@ -246,8 +254,10 @@ return {
 			tocRender = nil,
 			entryStyle = nil,
 			entryHeight = nil,
-			forbiddenChoice = false,
+			forbidden = false,
+			forbiddenMsg = f0b.buttons.stub(style.unselected),
 			prevOff = 0,
+			allow = allow,
 		}
 	end,
 }

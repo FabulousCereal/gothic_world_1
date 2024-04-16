@@ -1,4 +1,4 @@
--- SPDX-FileCopyrightText: 2023 Grupo Warominutes
+-- SPDX-FileCopyrightText: 2024 Grupo Warominutes
 -- SPDX-License-Identifier: Unlicense
 
 local unitSquare = (function()
@@ -9,18 +9,6 @@ local unitSquare = (function()
 	graphics.setCanvas()
 	return cnv
 end)()
-
-local function textGen(style, ...)
-	local t = love.graphics.newText(style.font)
-	t:setf(...)
-	return t, style.font:getHeight() * style.padding
-end
-
-local function textWrapDims(t, x, y, limit, pad)
-	local floor = math.floor
-	return floor(x - pad), floor(y - pad/2),
-		floor(limit + pad*2), floor(t:getHeight() + pad)
-end
 
 local function shaderAndBack(shader, prev, ...)
 	local graphics = love.graphics
@@ -44,41 +32,7 @@ local function shaderDraw(ctx, x, y, w, h, ...)
 	shaderAndBack(shader, prev, x, y, 0, w, h, ...)
 end
 
-local function textShaderDraw(t, tx, ty, style, invert, ...)
-	local graphics = love.graphics
-	graphics.setColor(1,1,1,1)
-	shaderDraw(f0b.style.getShader(style), ...)
-	graphics.setColor(style[invert and "backgroundColor" or "color"])
-	graphics.draw(t, tx, ty)
-end
-
 return {
-	textCanvas = function(text, limit, alignment, style)
-		local t, pad = textGen(style, text, limit, alignment)
-
-		local xOff, yOff, w, h = textWrapDims(t, 0, 0, limit, pad)
-		local em = style.font:getHeight()
-		local bw = style.borderWidth
-		xOff = xOff - bw
-		yOff = yOff - bw
-		w = w + bw*2
-		h = h + bw*2
-
-		local graphics = love.graphics
-		local cnv = graphics.newCanvas(w, h)
-		graphics.setCanvas(cnv)
-		textShaderDraw(t, -xOff, -yOff, style, false, 0, 0, w, h)
-		graphics.setCanvas()
-
-		return cnv, xOff, yOff
-	end,
-
-	text = function(text, tx, ty, limit, alignment, style, invert)
-		local t, pad = textGen(style, text, limit, alignment)
-		local x, y, w, h = textWrapDims(t, tx, ty, limit, pad)
-		textShaderDraw(t, tx, ty, style, invert, x, y, w, h)
-	end,
-
 	line = function(p, width, radius)
 		local margin = 1
 		local dx = p[3] - p[1]
@@ -132,5 +86,5 @@ return {
 	screenFill = function()
 		love.graphics.draw(unitSquare, 0, 0, 0,
 			love.graphics.getDimensions())
-	end
+	end,
 }

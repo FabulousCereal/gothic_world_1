@@ -1,9 +1,10 @@
--- SPDX-FileCopyrightText: 2023 Grupo Warominutes
+-- SPDX-FileCopyrightText: 2024 Grupo Warominutes
 -- SPDX-License-Identifier: Unlicense
 
 local function getUnits(style)
 	local em = style.font:getHeight()
-	return em, em * style.padding, em * style.margin, em * style.lineHeight
+	return em, em * style.padding, em * style.margin, em * style.lineHeight,
+		style.borderWidth
 end	
 
 local function setupShader(ctx, style, invert)
@@ -28,11 +29,6 @@ end
 
 return {
 	getUnits = getUnits,
-
-	textLimit = function(style, maxW)
-		local _, pad, margin = getUnits(style)
-		return maxW - (pad + margin + style.borderWidth)*2
-	end,
 
 	setupShader = setupShader,
 

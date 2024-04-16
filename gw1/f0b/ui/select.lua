@@ -13,25 +13,26 @@ local function selectRegen(select)
 
 	local lineY = 0
 	local maxW = 0
-	for i = 1, #select.choices do --, choice in ipairs(select.choices) do
+	for i = 1, #select.choices do
 		choice = select.choices[i]
 		if select.repl then
 			choice = multiRepl(choice, select.repl)
 		end
-		local button, _, y, textW = f0b.buttons.new(style, 0, lineY,
-			screenW, 1, choice, select.align)
+		local button, textW, y = f0b.buttons.new(style, choice,
+			0, lineY, screenW, 1, select.align)
 		select[i] = button
-		lineY = y
+		lineY = lineY + y
 		if textW > maxW then
 			maxW = textW
 		end
 	end
-	for i = #select.choices + 1, #select do
+	for i = #select, #select.choices + 1, -1 do
 		select[i] = nil
 	end
 	if style.width == "adapt" then
 		for _, button in ipairs(select) do
-			f0b.buttons.setWidth(button, style, maxW)
+			f0b.buttons.setWidth(button, maxW)
+			f0b.buttons.regen(button)
 		end
 	end
 	select.pos[3] = select[1].pos[3]

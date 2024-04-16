@@ -67,18 +67,23 @@ local fallbackMetatable = {
 
 		local parent = rawget(style, 1)
 		if parent then
-			return setReturn(style, key, parent[key])
+			return setReturn(style, key, parent(key))
 		end
 		return setReturn(style, key, defaultStyle[key])
 	end,
 }			
+
+local function indirectAccess(table)
+	-- Protect against recursion
+	return function(key) return table[key] end
+end
 
 local function setFallbacks(parent)
 	local reserved = {"disabled", "unselected"}
 	for i = 1, #reserved do
 		local subvariant = parent[reserved[i]]
 		if subvariant then
-			subvariant[1] = parent
+			subvariant[1] = indirectAccess(parent)
 			-- Search key in parent table
 			setFallbacks(subvariant)
 		end
@@ -90,7 +95,7 @@ local function setStyles(styleTable)
 	if styleTable then
 		for _, style in pairs(styleTable) do
 			if style[1] then
-				style[1] = styleTable[style[1]]
+				style[1] = indirectAccess(styleTable[style[1]])
 			end
 			setFallbacks(style)
 		end

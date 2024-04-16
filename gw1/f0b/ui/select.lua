@@ -13,7 +13,8 @@ local function selectRegen(select)
 
 	local lineY = 0
 	local maxW = 0
-	for i, choice in ipairs(select.choices) do
+	for i = 1, #select.choices do --, choice in ipairs(select.choices) do
+		choice = select.choices[i]
 		if select.repl then
 			choice = multiRepl(choice, select.repl)
 		end

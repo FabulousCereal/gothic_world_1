@@ -20,6 +20,7 @@ local function stateReset(vn, keepRes)
 	vn.textCont = false
 	vn.unskippable = false
 	vn.selectTarget = false
+	vn.selectChosen = {}
 	vn.style = vn.initStyle
 	vn.stackVars = {}
 	vn.path = {}
@@ -116,6 +117,10 @@ local function nextStage(self)
 	return (loadStage(self, 1, self.settings.keepRes))
 end
 
+local function chosenKey(dataStack)
+	return string.format("%d/%d", f0b.lisp.getPos(dataStack))
+end
+
 local function externalOps(opFunc, target, inst)
 	local copy = f0b.table.deepCopy(inst)
 	local op = copy[2]
@@ -176,9 +181,16 @@ local instructionTable = {
 	end,
 
 	select = function(line, vn)
+		local id = f0b.lisp.getPosId(vn.dataStack)
+		local chosen = vn.selectChosen[id]
+		if not chosen then
+			chosen = 1
+			vn.selectChosen[id] = chosen
+		end
 		vn.selectTarget = line[2]
 		widget.select.set(vn.ui.select, line[3])
 		vn.ui.select.display = true
+		vn.ui.select.cur = chosen
 		return true
 	end,
 
@@ -287,6 +299,7 @@ local function selectChosen(self, val)
 	else
 		self.vars[self.selectTarget] = val
 	end
+	self.selectChosen[f0b.lisp.getPosId(self.dataStack)] = val
 	table.insert(self.path, val)
 end
 
@@ -319,12 +332,12 @@ local function endLoadState(self, dt)
 end
 
 local function vnUpdateLoad(self, dt)
-	local start = love.timer.getTime()
+	local getTime = love.timer.getTime
+	local start = getTime()
+	local save = self.saveState
 	repeat
-		local save = self.saveState
-		local p1, p2 = f0b.lisp.getPos(self.dataStack)
-		if #save == #self.path
-		and (p1 > save.pos[1] or (p1 == save.pos[1] and p2 >= save.pos[2])) then
+		local n = f0b.lisp.getCounter(self.dataStack)
+		if n >= save.pos then
 			return endLoadState(self, dt)
 		elseif self.ui.select.display then
 			selectChosen(self, save[#self.path + 1])
@@ -335,7 +348,7 @@ local function vnUpdateLoad(self, dt)
 				return endLoadState(self, dt)
 			end
 		end
-	until love.timer.getTime() - start > dt/2
+	until getTime() - start > dt/2
 end
 
 local function loadState(self)
@@ -352,7 +365,7 @@ end
 local function saveState(self)
 	local save = f0b.table.deepCopy(self.path)
 	save.cur = {unpack(self.cur)}
-	save.pos = {f0b.lisp.getPos(self.dataStack)}
+	save.pos = f0b.lisp.getCounter(self.dataStack)
 	self.saveState = save
 end
 
@@ -433,6 +446,7 @@ return {
 			textCont = false,
 			wait = 0,
 			selectTarget = nil,
+			selectChosen = {},
 			returnValue = nil,
 			settings = nil,
 			gVars = f0b.table.struct.new(index.globals),

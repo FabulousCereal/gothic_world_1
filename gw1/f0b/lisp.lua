@@ -3,10 +3,11 @@
 
 local clearArray = require("f0b.table").clearArray
 
-local function clearCur(proc, i)
+local function pop(proc, i)
 	proc[i] = nil
 	proc[i - 1] = nil
 	proc[i - 2] = nil
+	proc.depth = proc.depth - 1
 end
 
 local function instructionIter(proc)
@@ -18,7 +19,7 @@ local function instructionIter(proc)
 			if loop then
 				proc[idx] = 1
 			else
-				clearCur(proc, idx)
+				pop(proc, idx)
 			end
 		else
 			proc[idx] = pos + 1
@@ -32,16 +33,22 @@ local function push(proc, data, loop)
 	assert(type(data) == "table", "pushed data is not a list")
 	local i = #proc
 	proc[i + 1] = data
-	proc[i + 2] = loop and true or false
+	proc[i + 2] = not not loop
 	proc[i + 3] = 1
 	proc.depth = proc.depth + 1
+end
+
+local function resetFields(proc)
+	proc.depth = 0
+	proc.n = 0
+	return proc
 end
 
 return {
 	["break"] = function(proc)
 		for i = #proc, 1, -3 do
 			local wasLoop = proc[i]
-			clearCur(proc, i)
+			pop(proc, i)
 			if wasLoop then
 				break
 			end
@@ -51,9 +58,7 @@ return {
 	push = push,
 
 	set = function(proc, ...)
-		clearArray(proc)
-		proc.depth = 0
-		return push(proc, ...)
+		return push(resetFields(clearArray(proc)), ...)
 	end,
 
 	trace = function(proc)
@@ -75,12 +80,17 @@ return {
 		return text
 	end,
 
-	getPos = function(proc)
-		return proc.depth, proc[#proc]
+	getPosId = function(proc)
+		return string.format("%d/%d", proc.depth, proc[#proc])
+	end,
+
+	getCounter = function(proc)
+		return proc.n
 	end,
 
 	process = function(proc, ...)
 		for inst in instructionIter, proc do
+			proc.n = proc.n + 1
 			local result = proc[type(inst)](inst, ...)
 			if result ~= nil then
 				return result
@@ -96,7 +106,6 @@ return {
 				return instTable[copy[1]](copy, ...)
 			end
 		end
-		proc.depth = 0
-		return proc
+		return resetFields(proc)
 	end,
 }

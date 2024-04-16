@@ -173,7 +173,7 @@ local function dither_o2x2(preColor)
 		}]], output)
 end
 
-local vnAlpha = 6/7
+local vnAlpha = 7/8
 
 return {
 	fontAlias = {

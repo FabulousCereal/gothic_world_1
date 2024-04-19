@@ -1,3 +1,188 @@
+local recuerdos = {
+	{"name", "María"},
+	[["Si no es mucha la intromisión... ¿Como perdiste la memoria?" me
+animé a preguntarle.]],
+
+	[[Falcon al principio no pareció reaccionar, pero cuando acabó de
+clavar, noté que su expresión había cambiado sutilmente.]],
+
+	{"name", "Falcon"},
+	[["Estaba con una chica al lado de la fábrica cuando explotó," me
+dijo.]],
+
+	{"name", "María"},
+	[[Falcon me contó, en breve, lo que el llamaba toda la historia de su
+vida. Sobre que había tomado un carro abandonado y había dado vueltas sin
+rumbo desde entonces, como esperando reconocer algún lugar.]],
+
+	[[Creo que lo que mas le dolía era que ni siquiera recordaba el nombre
+de la chica.]],
+
+	[[Solo recordaba su rostro y que ella "se reía" por algo, y que intuía
+que eran novios aunque no sabía como.]],
+
+	[["¿Tampoco recuerdas a tu familia?" Falcon se limitó a levantar los
+hombros. No, era claro que no.]],
+
+	{"name", "Falcon"},
+	[["¿Que hay de la tuya?" me preguntó, y me limité a decir que estaba
+lejos de acá.]],
+
+	{"name", "María"},
+	[[Tras un rato de silencio, nos pusimos a clavar de nuevo, mientras
+trataba de imaginar como sería no poder recordar nada, pero sin éxito.]],
+
+	[[Probablemente Falcon estaba a unos minutos en auto de su familia,
+pero no sabía donde buscarla. En cambio yo... aquí estaba, lejos de todo.]],
+
+	[[Para empeorar las cosas, estaba la duda inevitable de que si
+recuperaba sus memorias, si encontraría a su familia viva.]],
+
+	[[Quiero decir, la ciudad estaba casi desierta, y a menos que todos se
+hayan ido sin que nos diéramos cuenta... el pronóstico no era bueno.]],
+
+	[[No quise tocar ese tema, pero supuse que Falcon ya debía haberlo
+considerado. No se notaba como alguien tan despreocupado como Bake.]],
+
+	[[A veces sentía que aún no lograba dimensionar la magnitud de lo que
+había ocurrido en esta ciudad.]],
+}
+
+local losZombies = {
+	{"bg", "mod", fade={"mvabs", 150, 0, 1/60, "fadein", 1/3}},
+	[["¿Crees que vayan a volver a la noche?"]],
+
+	{"name", "Falcon"},
+	[["¿Ah?"]],
+
+	{"name", "María"},
+	[["Esas... Los zombies."]],
+
+	{"name", "Falcon"},
+	[["Eeh, no, no creo. Dudo que tengan mucha memoria."]],
+
+	{"name", "María"},
+	[["Es que Bake dijo que sentían el CO2 de la gente." Falcon me miró
+sorprendido.]],
+
+	{"name", "Falcon"},
+	[["¿De veras?"]],
+
+	{"name", "María"},
+	[["Eso dice el. No sé si será verdad."]],
+
+	{"name", "Falcon"},
+	[["Hmm, es posible. Yo tengo la teoría de que huelen la sangre, pero
+también podría ser eso."]],
+
+	{"name", "María"},
+	[["¿Lo dices por tus heridas?"]],
+
+	{"name", "Falcon"},
+	[["Solo digamos que siempre sabían encontrarme cuando me bajaba del
+auto xD"]],
+
+	{"name", "María"},
+	[[Tenía sentido, Falcon parecía haber pasado unos días duros. En
+comparación, yo habia pasado todo en completa comodidad.]],
+
+	[["Yo recién hoy ví un zombie por primera vez."]],
+
+	{"name", "Falcon"},
+	[["¿De veras? ¿Como los evitaste xD?"]],
+
+	{"name", "María"},
+	[["Me quedé encerrada en un cuarto de hotel desde la explosión."
+Falcon inclinó un poco la cabeza.]],
+
+	{"name", "Falcon"},
+	[["¿Te quedaste encerrada por accidente?" Yo contuve una risa.]],
+
+	{"name", "María"},
+	[["¡No! Me encerré yo sola."]],
+
+	{"name", "Falcon"},
+	[["Ahh, ok XD ¿Pero y que comías?"]],
+
+	{"name", "María"},
+	[["Tenía unos sandwich y galletas, y cuando se me acabaron me comí lo
+de la nevera del cuarto."]],
+
+	{"name", "Falcon"},
+	[["¿Y el aburrimiento?"]],
+
+	{"name", "María"},
+	[["Me ganó en la mañana," dije. Falcon rió.]]
+
+	{"name", "Falcon"},
+	[["Y yo que me sentía con claustrofobia por andar todo el día en el
+auto. Andaba todo cómodo xD" Que cosas...]],
+
+	{"name", "María"},
+	[["¿Dijiste que dormías en el auto? ¿No intentaste buscar una casa?"]],
+
+	{"name", "Falcon"},
+	[["Es complicado saltar rejas con un esguince xd"]],
+
+	{"name", "María"},
+	[["Cierto, perdón." Que tonta. "Ehh, ¿pero esas heridas son por pelear
+con zombies?"]],
+
+	{"name", "Falcon"},
+	[["Si... en parte," dijo medio suspirando. "Aunque en verdad, creo que
+me he hecho mas heridas huyendo de ellos que enfrentándolos xD"]],
+
+	{"name", "María"},
+	[["¿Y no les tienes miedo?"]],
+
+	{"name", "Falcon"},
+	[["...Algo," dijo algo incómodo. "¿Por que? ¿Tu no?"]],
+
+	{"name", "María"},
+	[["Yo si. Ojalá no se den cuenta de que estamos aquí."]],
+
+	{"name", "Falcon"},
+	[["Bueno, igual no creo que nos puedan sentir respirar dentro de una
+casa."]],
+
+	{"name", "María"},
+	[[Puesto de esa forma, si, podía sonar ridículo que fueran a volver...
+¿pero entonces por que habían venido en la mañana?]],
+
+	[[A juzgar por la reacción de Bake, debía ser la primera vez que
+llegaban hasta acá. Quizás... era por mí.]],
+
+	[[Pero no, ¿por que me seguirían a mí en especial? No tenía sentido.]],
+
+	[[Falcon me miró, y debió notar que no estaba muy relajada.]],
+
+	{"name", "Falcon"},
+	[["Mira, mientras no nos tomen por sorpresa no nos va a pasar nada. No
+son sigilosos, y con estas tablas, créeme que nos daremos cuenta si tratan de
+entrar. Es cosa de estar preparados."]],
+
+	{"name", "María"},
+	[["Uhm..." Retomamos el trabajo con Falcon, tratando de quedarme con
+sus palabras. 'Estar preparados'.]],
+
+	[[Yo andaba sobresaltada. Ojalá eso sirva de algo.]],
+}
+
+local laConversacion = {
+	{"select", nil, {
+		[[Sobre las criaturas.]],
+		[[Preguntarle sobre su amnesia.]],
+		[[Terminar.]],
+	}},
+	{"case", nil, {
+		losZombies,
+		recuerdos,
+		{
+			{"break"},
+		},
+	}},
+}
+
 return {
 	{"style", "vnMaria"},
 	res.fun.macro.title,
@@ -116,7 +301,7 @@ hacia el frente para hablarle.]],
 	{"bg", "conf", "default", color=res.palette("fivepm")},
 	{"bg", "add", args={"maria/living.png"}, fade={"fadein", 2}},
 	{"name", "María"},
-	{"text", [[ a la casa cerca de las seis, cuando ya empezaba a oscurecer
+	{"text", [[ a la casa cerca de las seis, cuando el sol ya se ocultaba
 y la nieve comenzaba a tapar la vista. Entramos Falcon y yo cargando
 la comida, y el dejó un segundo las bolsas para estirar los brazos al techo.]],
 	true},
@@ -207,7 +392,7 @@ Aunque fuera loco, escucharlo hablar me ayudaba.]],
 	{"bg", "add", draw=f0b.draw.screenFill, color={0,0,0,1},
 		fade={"fadeout", 1, true}},
 	[[Afuera la nieve se apilaba, y el sol se ponía lentamente. Bake me
-contaba de la vez que a Pipi la atropellaron pero que logró salir adelante.]],
+contaba de la vez que a Pipi la atropellaron pero que logró volver a caminar.]],
 
 	{"bg", "mod", 2, fade={"fadein", 2}},
 	[[Falcon regresó casi una sombra, haciendo que me sobresaltara. Bake se
@@ -216,6 +401,9 @@ rió, y recién ahí sacó su linterna.]],
 	[[Falcon dijo que le preocupaba no tener protección en las ventanas.
 Según el, había visto unos zombies metiéndose a una casa así, e iba a ser muy
 dificil defender tantas entradas ante cualquier problema.]],
+
+	[[Por lo visto, Falcon había observado bastante como se comportaban
+esas criaturas.]],
 
 	{"name", "Bake"},
 	[["Hmm, en la bodega hay unas tablas. Podés clavarlas si querés."]],
@@ -236,7 +424,7 @@ espalda xD]], false, true},
 
 	{"bg", "mod", 2, 3, fade={"fadeout", 1/3}},
 	[[Le quitamos la linterna a Bake y lo dejamos cocinando solo con la
-llama del gas, y entramos todas las tablas y herramientas.]],
+llama del gas, y entramos todas las tablas y herramientas al living.]],
 
 	{"macro", "rFade", "maria/living.png", false, 1},
 	{"bg", "conf", "default", color=res.palette("flashlight"),
@@ -245,37 +433,17 @@ llama del gas, y entramos todas las tablas y herramientas.]],
 		shader=res.shader.contrast},
 	{"bg", "mod", 3, fade={"fadeout", 0}},
 	{"bg", "rm"},
-	[[Yo sostenía mientras el clavaba. Me sentía un poco mal haciéndole
-esto a la casa de Bake, pero peor sería dormir tras lo que dijo Falcon.]],
 
-	{"bg", "mod", fade={"mvabs", 150, 0, 1/60, "fadein", 1/3}},
-	[["¿Crees que vayan a volver a la noche?" le pregunté tras un rato.]],
+	[[Nos pusimos manos a la obra de inmediato. Yo sostenía las tablas
+mientras el las clavaba a la pared.]],
 
-	{"name", "Falcon"},
-	[["¿Ah?"]],
+	[[Me sentía un poco mal haciéndole esto a la casa de Bake, pero peor
+sería dormir tras lo que dijo Falcon.]],
 
-	{"name", "María"},
-	[["Esas... Los zombies."]],
-
-	{"name", "Falcon"},
-	[["Eeh, no creo, no son tan listos. Solo deambulan."]],
-
-	{"name", "María"},
-	[["¿Y no te dan miedo?"]],
-
-	{"name", "Falcon"},
-	{"text", [[]], false, true},
-	{"wait", 1/12, false, true},
-	[["Algo," dijo levantando los hombros, aunque lo noté algo incómodo.]],
-
-	[["Mientras no nos tomen por sorpresa no nos va a pasar nada. Es cosa
-de estar atentos."]],
-
-	{"name", "María"},
-	[["Uhm..." Me quedé mirando a Falcon un poco mientras trabajabamos, y
-me quedé pensando en sus palabras. 'Estar atentos'.]],
-
-	[[Yo andaba demasiado alerta. Ojalá sirva de algo.]],
+	[[Mientras pasaba el tiempo, no pude evitar también sentir algo de
+lástima por Falcon. A pesar de todas sus heridas, se notaba era un buen
+chico.]],
+	{"read", laConversacion, true},
 
 	{"bg", "mod", fade={"fadeout", 1, true}},
 	[[Tras nuestro arreglo la casa quedó aún mas oscura, así que
@@ -384,15 +552,17 @@ azúcar.]],
 así que decidí olvidarme del tema. Daba lo mismo a estas alturas. En serio.]],
 
 	[[Nos quedamos charlando un rato ahora que podíamos hablar con calma.
-Falcon nos contó, como el mismo la llamó, la completa historia de su vida, que
-se limitaba a los últimos tres días desde la explosión.]],
+Falcon le repitió a Bake lo que me había contado sobre como sobrevivió estos
+días.]],
 
-	[[No era mucho, pero me llamó la atención lo de la chica. Entendía
-ahora porque Falcon no había abandonado la ciudad a pesar de tener un auto.
-Ojalá la hubiera buscado mas.]],
+	[[Pronto se pusieron a hablar sobre lo que sabían sobre los zombies.
+Como enfrentarlos mejor, de que tan lejos nos podían detectar, si detectaban
+el CO2 o la sangre o que se yo. Ninguno sabía porque algunos parecían mas
+letárgicos.]],
 
-	[[Hablando de autos, me pareció curioso como al segundo día, ayer, ya
-no había nadie.]],
+	[[Yo le pregunté si sabía a donde se habían ido todos. El tampoco
+tenía idea, pero si había notado el primer día que había muy poca gente
+para una ciudad de millones.]],
 
 	[[Le pregunté si sabía de alguna evacuación y me dijo que no, pero que
 como todas las estaciones habían dejado de transmitir el primer día, había

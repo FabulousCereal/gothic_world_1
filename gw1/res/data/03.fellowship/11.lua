@@ -1,21 +1,11 @@
-local function repeatSqueal(n)
-	local fade = {}
-	local time = 1.19
-	local ins = table.insert
-	for i = 1, n do
-		ins(fade, "cmd")
-		ins(fade, {seek=0})
-		ins(fade, "fadeto")
-		ins(fade, 1 - i/n)
-		ins(fade, time)
-	end
-	return fade
-end
-
 return {
 	{"style", "vnMaria"},
 	res.fun.macro.title,
 
+	{"bgm", "set", "rev", 0,
+		source="freesound/181460__erik90__car-rev.loop.flac",
+		setup={setPitch=1/2},
+		fade={"fadein", 6/3}},
 	{"name", "María"},
 	[[Falcon a pesar de su pie parecía conducir sin problemas.]],
 
@@ -62,13 +52,19 @@ hacia el frente para hablarle.]],
 		{
 			{"name", "Falcon"},
 			[["¿Derrapar?" dijo con una sonrisa dibujándose en su
-			rostro. "Claro. Afirmate." Falcon pasó cambios y le
-			metió el pie al acelerador. Cuando nos íbamos acercando
-			a una curva giró el volante rápido.]],
+			rostro. "Claro. Afirmate."]],
+
+			{"bgm", "mod", "rev",
+				fade={"delay", 1, "bend", 1, 1}},
+			[[Falcon pasó cambios y le metió el pie al acelerador.
+			Cuando nos íbamos acercando a una curva giró el volante
+			rápido.]],
 
 			{"bgm", "set", "squeal1", 0,
 				source="freesound/71739__audible-edge__chrysler-lhs-tire-squeal-04.16.flac",
-				setup={seek=5}, fade={"fadein", .25, "delay", 1.75, "fadeout", .5, true}},
+				setup={seek=5},
+				fade={"fadeto", .75, .25, "delay", 1.75,
+					"fadeout", .5, "cmd", {play=false}}},
 --			{"sfx", "freesound/676613__fivebrosstopmosyt__table-smash-1.flac",
 --				.25, 1/3, 2},
 			{"name", "Bake"},
@@ -77,24 +73,34 @@ hacia el frente para hablarle.]],
 			{"name", "María"},
 			{"sfx", "freesound/634778__5plus5equalspatata__metal-crash.mp3",
 				1/6, 4/3, 2},
+			{"bgm", "mod", "rev",
+				fade={"delay", 2.1, "bend", 4/3, 1}},
 			[[El auto pasó de largo la curva hasta que las
 			ruedas chocaron con la cuneta de enfrente. El auto dió
 			un salto y en el aire vi el piso de la vereda
 			acercándose por mi ventana. Grité.]],
 
+			{"bgm", "mod", "rev",
+				fade={"delay", 1.1, "cmd", {setPitch=1}}},
+			{"bgm", "mod", "squeal1",
+				fade={"delay", 1, "cmd", {play=true, seek=1, setPitch=1.2},
+					"fadeto", 1/2, 1/9}},
 			{"sfx", "freesound/634778__5plus5equalspatata__metal-crash.mp3",
 				1/3, 1, 1},
 			[[Cuando estaba a solo centímetros las ruedas tocaron
 			el suelo y el auto saltó hacia el otro lado.]],
 
+			{"bgm", "mod", "rev",
+				fade={"bend", 3/4, 15}},
 			[[Nos deslizamos por la calle en dirección a un árbol
 			mientras Falcon movía como loco el volante y Bake ponía
 			y sacaba el freno de manos.]],
 
-			{"bgm", "set", "squeal2",
+			{"bgm", "mod", "squeal1",
+				fade={"bend", 3/4, 1/9, "fadeout", 1/9, true}},
+			{"bgm", "set", "squeal2", 0,
 				source="freesound/71738__audible-edge__chrysler-lhs-tire-squeal-03.cut.flac",
-				--fade={"loop", 5, true}}, --repeatSqueal(5)},
-				fade={"fadeout", 6, true}},
+				fade={"fadein", 1, "fadeout", 6, true}},
 			[[De alguna forma lo esquivamos, y nos fuimos con el
 			auto dando coletazos por la calle.]],
 
@@ -105,6 +111,7 @@ hacia el frente para hablarle.]],
 			{"text", [[Llegamos (vivos)]], false, true},
 		}
 	}},
+	{"bgm", "mod", "rev", fade={"fadeout", 1, true}},
 
 	{"bg", "conf", "default", color=res.palette("fivepm")},
 	{"bg", "add", args={"maria/living.png"}, fade={"fadein", 2}},

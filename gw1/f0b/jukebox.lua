@@ -1,4 +1,4 @@
--- SPDX-FileCopyrightText: 2023 Grupo Warominutes
+-- SPDX-FileCopyrightText: 2024 Grupo Warominutes
 -- SPDX-License-Identifier: Unlicense
 
 local seq = require("f0b._seqCommon")
@@ -17,53 +17,60 @@ local function srcSetup(src, setup)
 	end
 end
 
--- Format: {"_bend", deltaPitch, timeRemaining}
-local function jukeboxBend(track, fadeArgs, dt)
-	local src = track.source
-	src:setPitch(seq.fadeCommon(src:getPitch(), fadeArgs, dt))
-	if fadeArgs[3] <= 0 then
-		return 3, fadeArgs[3]
-	end
-end
-
--- Format: {"_fade", deltaVol, timeRemaining}
-local function jukeboxFade(track, fadeArgs, dt)
-	local src = track.source
-	src:setVolume(seq.fadeCommon(src:getVolume(), fadeArgs, dt))
-	if fadeArgs[3] <= 0 then
-		return 3, fadeArgs[3]
-	end
-end
-
-local function fadeSetup(track, fadeArgs, dt)
-	return seq.fadeSetup(track, fadeArgs, dt, track.source:getVolume(),
-		jukeboxFade)
+local function fadeSetup2(track, fade, dt, new, secsIdx)
+	local source = track.source
+	local cur = source:getVolume()
+	fade[1] = "_interpolate"
+	fade[2] = seq.interpolationLinear({source,
+		function(source, idx, val)
+			source:setVolume(val)
+		end,
+		0, fade[secsIdx], secsIdx,
+		"setVolume", new - cur},
+		function(source, idx)
+			return cur
+		end
+	)
+	return seq.interpolate(track, fade, dt)
 end
 
 local fadeOps = {
+	_interpolate = seq.interpolate,
+
 	-- Volume fading --
-	-- {type, targetVol, rate}
-	fadeto = fadeSetup,
-
-	-- {type, time}
-	fadein = fadeSetup,
-	fadeout = fadeSetup,
-
-	_fade = jukeboxFade,
-
-	bend = function(track, fadeArgs, dt)
-		if not track.cents then
-			track.cents = 0
-		end
-		local n, secs = seq.fadeSetup(track, fadeArgs, dt,
-			track.source:getPitch(), jukeboxBend)
-		if n then
-			return n, secs
-		end
-		fadeArgs[1] = "_bend"
+	-- {type, targetVol, time}
+	fadeto = function(t, f, dt)
+		return fadeSetup2(t, f, dt, f[2], 3)
 	end,
 
-	_bend = jukeboxBend,
+	-- {type, time}
+	fadein = function(t, f, dt)
+		return fadeSetup2(t, f, dt, 1, 2)
+	end,
+	fadeout = function(t, f, dt)
+		return fadeSetup2(t, f, dt, 0, 2)
+	end,
+
+	-- Pitch bend --
+	-- Format: {"bend", newPitch, secs}
+	bend = function(track, fade, dt)
+		local source = track.source
+		-- Pitch is logarithmic!
+		local cur = math.sqrt(source:getPitch())
+		local new = math.sqrt(fade[2])
+		fade[1] = "_interpolate"
+		fade[2] = seq.interpolationLinear({source,
+			function(source, idx, val)
+				source:setPitch(val*val)
+			end,
+			0, fade[3], 3,
+			"setPitch", new - cur},
+			function(source, idx)
+				return cur
+			end
+		)
+		return seq.interpolate(track, fade, dt)
+	end,
 
 	delay = function(track, fadeArgs, dt)
 		local secs = fadeArgs[2]

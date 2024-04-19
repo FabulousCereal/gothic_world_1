@@ -1,38 +1,16 @@
--- SPDX-FileCopyrightText: 2023 Grupo Warominutes
+-- SPDX-FileCopyrightText: 2024 Grupo Warominutes
 -- SPDX-License-Identifier: Unlicense
 
 local seq = require("f0b._seqCommon")
 local fTable = require("f0b.table")
 
--- Varies arbitrary variables --
--- Format: {"_generic", control, ellapsed, endTime}
---   control = {where, index, fn, [index, fn, [...]]}
-local function genericVary(layer, fade, dt)
-	local control, acc, endTime = unpack(fade, 2, 4)
-	acc = acc + dt
-	local ratio = endTime > 0 and math.min(acc / endTime, 1) or 1
-
-	local where = control[1]
-	for i = 2, #control, 2 do
-		local idx, fn = unpack(control, i, i+1)
-		where[idx] = fn(ratio)
-	end
-
-	if acc >= endTime then
-		return 4, endTime - acc
-	end
-	fade[3] = acc
-end		
-
-local function setLinear(control, tgt, diff)
-	local start = control[1][tgt]
-	table.insert(control, tgt)
-	table.insert(control, function(ratio) return start + diff*ratio end)
+local function setVal(table, key, val)
+	table[key] = val
 end
 
--- Turns handwriten movement into "_generic"
+-- Turns handwriten movement into "_interpolate"
 -- Format: {type, x, y, rate}
-local function mvCommon(layer, fade, dt, ...)
+local function mvCommon(layer, fade, dt)
 	local args = layer.args
 	for i = 2, 3 do
 		args[i] = args[i] or 0
@@ -47,31 +25,24 @@ local function mvCommon(layer, fade, dt, ...)
 		diffY = diffY and diffY or 0
 	end
 
-	local control = {args}
-	setLinear(control, 2, diffX)
-	setLinear(control, 3, diffY)
-	fade[1] = "_generic"
-	fade[2] = control
-	fade[3] = 0
-	return genericVary(layer, fade, dt, ...)
+	fade[1] = "_interpolate"
+	fade[2] = seq.interpolationLinear{args, setVal, 0, fade[4], 4,
+		2, diffX, 3, diffY}
+	return seq.interpolate(layer, fade, dt)
 end
 
-local function layerFade(layer, fade, dt)
-	layer.color[4] = seq.fadeCommon(layer.color[4], fade, dt)
-	if fade[3] <= 0 then
-		return 3, fade[3]
-	end
-end
-
-local function fadeSetup(layer, fade, dt)
-	layer.color[4] = (fade[1] == "fadein") and 0 or 1
-	return seq.fadeSetup(layer, fade, dt, layer.color[4], layerFade)
+-- Fades --
+-- Format: {"fadein" | "fadeout", secs}
+local function fadeSetup(layer, fade, dt, new, actual)
+	layer.color[4] = actual
+	fade[1] = "_interpolate"
+	fade[2] = seq.interpolationLinear{layer.color, setVal, 0, fade[2], 2,
+		4, new - actual}
+	return seq.interpolate(layer, fade, dt)
 end
 
 local fadeOps = {
-	-- Generic --
-	_generic = genericVary,
-	_fade = layerFade,
+	_interpolate = seq.interpolate,
 
 	-- Delay --
 	-- Format: {"delay", secs}
@@ -83,14 +54,31 @@ local fadeOps = {
 		fade[2] = secs
 	end,
 
-	-- Fades --
-	-- Format: {"fadein" | "fadeout", secs}
-	fadein = fadeSetup,
-	fadeout = fadeSetup,
+	fadein = function(l, f, dt)
+		return fadeSetup(l, f, dt, 1, 0)
+	end,
+	fadeout = function(l, f, dt)
+		return fadeSetup(l, f, dt, 0, 1)
+	end,
 
 	-- Movement --
 	mvdiff = mvCommon,
 	mvabs = mvCommon,
+
+	-- Color interpolation --
+	-- Format: {"color", {r,g,b,a}, secs}
+	color = function(layer, fade, dt)
+		local cur = layer.color
+		local new = fade[2]
+		local int = {layer.color, setVal, 0, fade[3], 3}
+		for i = 1, #new do
+			int[#int+1] = i
+			int[#int+1] = new[i] - cur[i]
+		end
+		fade[1] = "_interpolate"
+		fade[2] = seq.interpolationLinear(int)
+		return seq.interpolate(layer, fade, dt)
+	end,
 }
 
 local function layerUpdate(layerTable, dt, finish)
@@ -193,6 +181,9 @@ local function normalizeLayer(lt, op)
 	end
 	if op.shader == nil then
 		op.shader = default.shader
+	end
+	if op.fade and op.fade[1] == "fadein" then
+		op.color[4] = 0
 	end
 
 	if op.draw == love.graphics.draw then

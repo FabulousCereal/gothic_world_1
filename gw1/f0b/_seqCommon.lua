@@ -1,40 +1,39 @@
--- SPDX-FileCopyrightText: 2023 Grupo Warominutes
+-- SPDX-FileCopyrightText: 2024 Grupo Warominutes
 -- SPDX-License-Identifier: Unlicense
 
-local function fadeShort(args, target)
-	local rate = args[2]
-	table.insert(args, 3, rate)
-	return target, rate
-end
-
-local fadeMap = {
-	fadeout = function(args)
-		return fadeShort(args, 0)
-	end,
-
-	fadein = function(args)
-		return fadeShort(args, 1)
-	end,
-
-	fadeto = function(args)
-		return f0b.math.clamp(args[2], 0, 1), args[3]
-	end,
-}
-
 return {
-	fadeCommon = function(val, fadeArgs, dt)
-		local rate = fadeArgs[2]
-		local newVal = val + rate*dt
-		fadeArgs[3] = fadeArgs[3] - dt
-		return f0b.math.clamp(newVal, 0, 1)
+	-- Interpolates arbitrary values
+	-- Format: {whatever, control}
+	--   control = {where, updateFn, ellapsed, endTime, consume,
+	--     index, fn, [index, fn, [...]]}
+	interpolate = function(_, fade, dt)
+		local control = fade[2]
+		local where, updateFn, acc, endTime, consume =
+			unpack(control, 1, 5)
+		acc = acc + dt
+		local ratio = endTime > 0 and math.min(acc / endTime, 1) or 1
+
+		for i = 6, #control, 2 do
+			local idx, fn = unpack(control, i, i+1)
+			updateFn(where, idx, fn(ratio))
+		end
+		if acc >= endTime then
+			return consume, endTime - acc
+		end
+		control[3] = acc
 	end,
 
-	fadeSetup = function(table, fadeArgs, dt, initVal, fn)
-		local name = fadeArgs[1]
-		local targetVal, rate = fadeMap[name](fadeArgs, initVal)
-		fadeArgs[1] = "_fade"
-		fadeArgs[2] = (targetVal - initVal) / rate
-		return fn(table, fadeArgs, dt)
+	interpolationLinear = function(args, getFn)
+		if not getFn then
+			getFn = function(table, key) return table[key] end
+		end
+		local where = args[1]
+		for i = 6, #args, 2 do
+			local idx, diff = args[i], args[i+1]
+			local start = getFn(where, idx)
+			args[i+1] = function(ratio) return start + diff*ratio end
+		end
+		return args
 	end,
 
 	normalizeSrc = function(loadFn, obj)

@@ -49,7 +49,8 @@ había ocurrido en esta ciudad.]],
 }
 
 local losZombies = {
-	{"bg", "mod", fade={"mvabs", 150, 0, 1/60, "fadein", 1/3}},
+--	{"bg", "mod", fade={"mvabs", 150, 0, 1/60, "fadein", 1/3}},
+	{"name", "María"},
 	[["¿Crees que vayan a volver a la noche?"]],
 
 	{"name", "Falcon"},
@@ -112,7 +113,7 @@ de la nevera del cuarto."]],
 	[["¿Y el aburrimiento?"]],
 
 	{"name", "María"},
-	[["Me ganó en la mañana," dije. Falcon rió.]]
+	[["Me ganó en la mañana," dije. Falcon rió.]],
 
 	{"name", "Falcon"},
 	[["Y yo que me sentía con claustrofobia por andar todo el día en el
@@ -396,11 +397,48 @@ contaba de la vez que a Pipi la atropellaron pero que logró volver a caminar.]]
 
 	{"bg", "mod", 2, fade={"fadein", 2}},
 	[[Falcon regresó casi una sombra, haciendo que me sobresaltara. Bake se
-rió, y recién ahí sacó su linterna.]],
+rió, y recién ahí reveló que tenía una linterna.]],
 
-	[[Falcon dijo que le preocupaba no tener protección en las ventanas.
-Según el, había visto unos zombies metiéndose a una casa así, e iba a ser muy
-dificil defender tantas entradas ante cualquier problema.]],
+	{"bg", "mod", 1, 3, color=res.palette("flashlight"), shader=res.shader.contrast},
+	{"bg", "conf", "root",
+		shader=res.shader.radial{
+			infoCursor={2/3,-2/3}, infoMul={3,3}, infoPow=3,
+		}
+	},
+	{"bg", "mod", args={"zeh/bake-xd.png", 640, 0, 0, -1, 1}},
+	{"name", "Bake"},
+	[["Whazza!"]],
+
+	{"bg", "mod", args={"zeh/bake.png", 600, 0, 0, -1, 1}},
+	{"name", "María"},
+	[["¬¬"]],
+
+--[=[
+	{"bg", "conf", "root",
+		shader=res.shader.radial{
+			infoCursor={-2/3,-2/3}, infoMul={3,3}, infoPow=3,
+		}
+	},
+	1,
+	{"bg", "conf", "root", shader=false},
+	{"bg", "add", draw=f0b.draw.screenFill, color=res.palette("flashlight")},
+	1/12,
+	{"bg", "mod", color={0,0,0,1}, fade={"delay", .5, "fadeout", 4, true}},
+
+	[["¡Ay, Bake!" dije tapándome los ojos. Me había apuntando con la
+linterna.]],
+]=]
+
+	{"bg", "conf", "root", shader=false},
+	{"name", "María"},
+	[[Le quité la linterna a Bake para iluminar bien la cocina, porque no
+me gustaba para nada la oscuridad.]],
+
+	[[Falcon se aclaró la garganta, y explicó que le preocupaba no tener
+protección en las ventanas.]],
+
+	[[Según el, había visto unos zombies metiéndose a una casa así, e iba a
+ser muy dificil defender tantas entradas ante cualquier problema.]],
 
 	[[Por lo visto, Falcon había observado bastante como se comportaban
 esas criaturas.]],
@@ -422,17 +460,13 @@ espalda xD]], false, true},
 	{"name", "María"},
 	[["Yo te ayudo entonces," me ofrecí.]],
 
-	{"bg", "mod", 2, 3, fade={"fadeout", 1/3}},
-	[[Le quitamos la linterna a Bake y lo dejamos cocinando solo con la
+	[[Me llevé la linterna lo dejamos cocinando a Bake solo con la
 llama del gas, y entramos todas las tablas y herramientas al living.]],
 
+	{"bg", "mod", 2, 3, fade={"fadeout", 1/3, true}},
 	{"macro", "rFade", "maria/living.png", false, 1},
 	{"bg", "conf", "default", color=res.palette("flashlight"),
 		shader=res.shader.contrast},
-	{"bg", "mod", 2, 3, color=res.palette("flashlight"),
-		shader=res.shader.contrast},
-	{"bg", "mod", 3, fade={"fadeout", 0}},
-	{"bg", "rm"},
 
 	[[Nos pusimos manos a la obra de inmediato. Yo sostenía las tablas
 mientras el las clavaba a la pared.]],
@@ -445,7 +479,6 @@ lástima por Falcon. A pesar de todas sus heridas, se notaba era un buen
 chico.]],
 	{"read", laConversacion, true},
 
-	{"bg", "mod", fade={"fadeout", 1, true}},
 	[[Tras nuestro arreglo la casa quedó aún mas oscura, así que
 con Falcon acordamos buscar velas y baterías para la próxima salida.]],
 

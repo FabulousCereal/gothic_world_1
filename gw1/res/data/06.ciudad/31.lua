@@ -2,6 +2,8 @@ return {
 	{"style", "vnMaria"},
 	res.fun.macro.title,
 
+	{"bgm", "set", "nor", 3/4,
+		source="normality.ogg"},
 	{"name", "María"},
 	[[Llegamos tras media de hora al distrito comercial de la avenida
 Queens. Falcon y Bake habian estado discutiendo sobre si volver a la calle de
@@ -168,6 +170,7 @@ vidrio roto."]],
 	{"name", "Bake"},
 	[["Allá veo una. Ahora salimos de la duda."]],
 
+	{"bgm", "mod", "nor", fade={"fadeout", 2, true}},
 	{"name", "María"},
 	[[Nos metimos a la gasolinera y Falcon apagó el motor. Ibamos a
 bajarnos cuando Croft dijo que no hacía falta que fueramos todos.]],

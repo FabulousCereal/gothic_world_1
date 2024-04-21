@@ -117,7 +117,7 @@ a Rocco en brazos, aunque Pipi siguió ladrándole.]],
 
 	{"name", "María"},
 	[["Pipi. ¡Pipi! No me hace caso." De pronto la puerta se abrió y
-apareció Bake apuntándo a Croft con una pistola.]],
+apareció Bake apuntándole a Croft con una pistola.]],
 
 	{"name", "Croft"},
 	[["<:3"]],

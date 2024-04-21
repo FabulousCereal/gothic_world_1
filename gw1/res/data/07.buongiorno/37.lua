@@ -198,7 +198,7 @@ pensar en dejar a los dos chicos los en la calle con esta tormenta.]],
 	[[Además que no creía que Croft se haya querido aprovechar de nosotros;
 no tenía sentido habersenos unido solo para robar un revólver.]],
 
-	[[Miré a Bake quién lucía incesiso, así que lo tironée a el y a Falcon
+	[[Miré a Bake quién lucía indeciso, así que lo tironée a el y a Falcon
 para formar un círculo.]],
 
 	{"name", "María"},

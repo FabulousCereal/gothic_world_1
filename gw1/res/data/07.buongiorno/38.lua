@@ -258,7 +258,7 @@ porque no recuerdas a nadie, supongo.]],
 
 	{"name", "Andrea"},
 	[["Sí, pero a los dos días después." ¿Dos días sola? Era increíble.
-Yo no daraba ni 15 minutos afuera sin que me pase alguna estupides.]],
+Yo no duraba ni 15 minutos afuera sin que me pase alguna estupides.]],
 
 	{"name", "María"},
 	[["¿No viste mas gente antes de encontrar a Fab?"]],

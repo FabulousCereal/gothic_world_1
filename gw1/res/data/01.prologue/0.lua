@@ -136,7 +136,6 @@ encontré a la paloma acobijada a mi pecho.]],
 	[[Con mis manos entumecidas la abracé, mientras el olor y el ruido de
 las olas nos envolvían.]],
 
---	{"macro", "rFade", {args={"sea2.png", 0, 0, 0, .8}}, false, false, 3},
 	{"macro", fallingMul, false},
 	{"wait", 1, true},
 	[["Gracias..."]],

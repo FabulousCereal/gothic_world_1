@@ -285,7 +285,7 @@ abandonar rápido el lugar.]],
 
 	{"name", "María"},
 	[[La criatura se lanzó veloz contra Bake. Bake lo esquivó y lo guió
-lejos del auto, y después con nevios de acero esperó que se acercara y le
+lejos del auto, y después con nervios de acero esperó que se acercara y le
 disparó en la cabeza.]],
 
 	{"sfx", "freesound/344142__brokenphono__gunshot_002.flac", .4},

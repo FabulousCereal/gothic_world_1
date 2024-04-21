@@ -28,7 +28,7 @@ Era Falcon. Estaba durmiendo con su abrigo morado puesto.]],
 sintió mal. Preferí dejarlo en paz y cerré la puerta. La alarma en su estante
 marcaba las 13:13.]],
 
-	{"macro", "rFade", "maria/living.png", {.6, .6, .75, 0},
+	{"macro", "rFade", "maria/living.png", {.6, .6, .75, 0}},
 	[[Bajé al primer piso con cautela. Allí, sorprendentemente, encontré a
 Andrea con Fab en el sillón, hablando muy despacio. Se reían de algo que el
 contaba.]],

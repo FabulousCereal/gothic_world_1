@@ -156,7 +156,7 @@ apareció corriendo una de esas cosas. Bake apenas tuvo tiempo de girarse.]],
 con la guitarra. La criatura cayó sobre unos estantes y no se movió mas.]],
 
 	{"name", "Bake"},
-	[["¡MI SUEÑO DE CUMPLIÓ!"]],
+	[["¡MI SUEÑO SE CUMPLIÓ!"]],
 
 	{"bgm", "set", "bakeriff", .75, source="bake riff1.ogg"},
 	{"name", "María"},

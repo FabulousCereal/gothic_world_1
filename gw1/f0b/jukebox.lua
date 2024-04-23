@@ -139,54 +139,62 @@ end
 
 local defaultAlias = true
 
-local function getAlias(op)
-	return op[1] ~= nil and op[1] or defaultAlias
+local function getAlias(name)
+	return name ~= nil and name or defaultAlias
 end
 
 local trackOps = {
-	set = function(tracklist, op)
-		op[1] = getAlias(op)
+	set = function(tracklist, op, name, vol)
+		name = getAlias(name)
 		op.source = seq.normalizeSrc(res.bgm, op.source)
-		op.source:setVolume(op[2] or 1)
+		op.source:setVolume(vol or 1)
 
-		local setup = {play=true, setLooping=true, setVolume=op[2] or 1}
+		local setup = {play=true, setLooping=true, setVolume=vol or 1}
 		if op.setup then
 			setup = f0b.table.union(setup, op.setup)
 		end
 		srcSetup(op.source, setup)
-		tracklist[op[1]] = op
+		tracklist[name] = op
 	end,
 
-	rm = function(tracklist, op)
-		local idx = getAlias(op)
-		tracklist[idx].source:stop()
-		tracklist[idx] = nil
+	rm = function(tracklist, op, name)
+		name = getAlias(name)
+		tracklist[name].source:stop()
+		tracklist[name] = nil
 	end,
 
 	rmall = function(tracklist)
-		for idx, track in pairs(tracklist) do
+		for name, track in pairs(tracklist) do
 			track.source:stop()
-			tracklist[idx] = nil
+			tracklist[name] = nil
 		end
 	end,
 
-	cmd = function(tracklist, op)
-		local idx = getAlias(op)
-		local source = tracklist[idx].source
-		source[op[2]](source, unpack(op, 3))
+	cmd = function(tracklist, op, name, ...)
+		local names = select("#", ...)
+		if names > 0 then
+			for i = 1, names do
+				local name = select(i, ...)
+				srcSetup(tracklist[name].source, op)
+			end
+		else
+			srcSetup(tracklist[defaultAlias], op)
+		end
 	end,
 
-	cmdall = function(tracklist, op)
+	cmdall = function(tracklist, op, ...)
 		for _, track in pairs(tracklist) do
 			local source = track.source
-			source[op[1]](source, unpack(op, 2))
+			srcSetup(source, op)
 		end
 	end,
 
-	mod = function(tracklist, op)
-		if #op > 0 then
-			for i = 1, #op do
-				jukeMod(tracklist[op[i]], op)
+	mod = function(tracklist, op, ...)
+		local names = select("#", ...)
+		if names > 0 then
+			for i = 1, names do
+				local name = select(i, ...)
+				jukeMod(tracklist[name], op)
 			end
 		else
 			jukeMod(tracklist[defaultAlias], op)
@@ -205,8 +213,8 @@ local trackOps = {
 }
 
 return {
-	ops = function(tracklist, op, directive)
-		trackOps[op](tracklist, directive)
+	ops = function(tracklist, inst, op, ...)
+		trackOps[op](tracklist, inst, ...)
 	end,
 
 	update = trackUpdate,

@@ -89,7 +89,7 @@ local function updateParallax(self)
 
 	local em, _, margin = f0b.style.getUnits(self.style)
 	local diff = -(offset - self.prevOff) * (margin*2 + em)
-	f0b.layers.ops(self.background, "modall", {fade={"mvdiff", false, diff, 2/3}})
+	f0b.layers.ops(self.background, {fade={"mvdiff", false, diff, 2/3}}, "modall")
 	self.prevOff = offset
 end
 

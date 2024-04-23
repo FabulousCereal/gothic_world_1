@@ -59,7 +59,7 @@ local function transitionExec(dt)
 	else
 		local state = gamestate.state
 		if state.tracks then
-			f0b.jukebox.ops(state.tracks, "cmdall", {"stop"})
+			f0b.jukebox.ops(state.tracks, {play=false}, "cmdall")
 		end
 		if state.post then
 			state:post()
@@ -73,7 +73,7 @@ local function transitionExec(dt)
 			gamestate.preSwitchArgs = nil
 		end
 		if newState.tracks then
-			f0b.jukebox.ops(newState.tracks, "cmdall", {"play"})
+			f0b.jukebox.ops(newState.tracks, {play=true}, "cmdall")
 		end
 		gamestate.state = newState
 

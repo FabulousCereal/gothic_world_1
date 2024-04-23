@@ -233,9 +233,8 @@ end
 
 local layerOps
 layerOps = {
-	add = function(layers, op)
+	add = function(layers, op, idx)
 		normalizeLayer(layers, op)
-		local idx = op[1]
 		if idx then
 			table.insert(layers, idx, op)
 		else
@@ -243,8 +242,8 @@ layerOps = {
 		end
 	end,
 
-	rm = function(layers, op)
-		local start, limit = getNormalizedRange(layers, op[1], op[2])
+	rm = function(layers, op, start, limit)
+		start, limit = getNormalizedRange(layers, start, limit)
 		for i = limit, start, -1 do
 			table.remove(layers, i)
 		end
@@ -252,8 +251,8 @@ layerOps = {
 
 	rmall = fTable.clearArray,
 
-	mod = function(layers, op)
-		local start, limit = getNormalizedRange(layers, op[1], op[2])
+	mod = function(layers, op, start, limit)
+		local start, limit = getNormalizedRange(layers, start, limit)
 		layerModRange(layers, op, start, limit)
 	end,
 
@@ -261,20 +260,13 @@ layerOps = {
 		layerModRange(layers, op, 1, #layers)
 	end,
 
-	conf = function(layers, op)
-		layerMod(layers[op[1]], op)
+	conf = function(layers, op, name)
+		layerMod(layers[name], op)
 	end,
 
-	render = function(layers, op)
-		local idx = normalizeIndex(layers, op[1])
-		local cnv = love.graphics.newCanvas()
-		layerDrawRange(layers, cnv, idx, idx)
-		layers[idx] = {args={cnv}}
-	end,
-
-	fold = function(layers, op)
-		local start = normalizeIndex(layers, op[1], 1)
-		local limit = normalizeIndex(layers, op[2], #layers)
+	fold = function(layers, op, start, limit)
+		start = normalizeIndex(layers, start, 1)
+		limit = normalizeIndex(layers, limit, #layers)
 
 		local cnv = love.graphics.newCanvas()
 		layerDrawRange(layers, cnv, start, limit)
@@ -282,10 +274,9 @@ layerOps = {
 		layers[start] = {args={cnv}}
 	end,
 
-	fn = function(layers, op)
-		local i = normalizeIndex(layers, op[1], #layers)
-		print(i)
-		op[2](layers[i])
+	fn = function(layers, op, idx, fn)
+		idx = normalizeIndex(layers, idx, #layers)
+		fn(layers[idx])
 	end,
 
 	sync = function(layers)
@@ -298,9 +289,9 @@ layerOps = {
 }
 
 return {
-	ops = function(layerTable, op, directive)
+	ops = function(layerTable, inst, op, ...)
 		layerTable.drawn = false
-		return layerOps[op](layerTable, directive)
+		return layerOps[op](layerTable, inst, ...)
 	end,
 
 	normalize = function(lt)

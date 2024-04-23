@@ -34,7 +34,7 @@ local function stateReset(vn, keepRes)
 	widget.textboard.regen(ui.textboard, vn.initStyle)
 	widget.select.regen(ui.select, vn.initStyle)
 	if not keepRes then
-		f0b.jukebox.ops(vn.tracks, "rmall")
+		f0b.jukebox.ops(vn.tracks, nil, "rmall")
 		f0b.layers.reset(vn.background)
 	end
 end
@@ -122,9 +122,7 @@ local function chosenKey(dataStack)
 end
 
 local function externalOps(opFunc, target, inst)
-	local copy = f0b.table.deepCopy(inst)
-	local op = copy[2]
-	return opFunc.ops(target, op, f0b.table.moveArray(copy, 2))
+	return opFunc.ops(target, inst, unpack(inst, 2))
 end
 
 local instructionTable = {
@@ -142,11 +140,10 @@ local instructionTable = {
 				unpack(fade)}
 		end
 		local inst = {
-			line[2], line[3],
 			source=res.sfx(line[2]), fade=fade,
 			setup={setPitch=line[4], setLooping=false, play=not line[5]},
 		}
-		f0b.jukebox.ops(vn.tracks, "set", inst)
+		f0b.jukebox.ops(vn.tracks, inst, "set", line[2], line[3])
 	end,
 
 	bg = function(line, vn)
@@ -325,8 +322,8 @@ end
 
 local function endLoadState(self, dt)
 	self.update = vnUpdate
-	f0b.layers.ops(self.background, "sync")
-	f0b.jukebox.ops(self.tracks, "sync")
+	f0b.layers.ops(self.background, nil, "sync")
+	f0b.jukebox.ops(self.tracks, nil, "sync")
 	love.audio.setVolume(1)
 	return vnUpdate(self, dt)
 end

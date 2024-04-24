@@ -50,16 +50,18 @@ return {
 		if finish then
 			dt = math.huge
 		end
-		repeat
+		while #seq > 0 and seq[1] ~= true do
 			local op = seq[1]
 			local advance, rem = funcs[op](target, seq, dt, finish)
 			if advance then
 				f0b.table.moveArray(seq, advance)
 			end
-			if rem then
+			if not finish then
+				break
+			elseif rem then
 				dt = -rem
 			end
-		until finish ~= true or #seq == 0 or seq[1] == true
+		end
 		return seq[1]
 	end,
 }

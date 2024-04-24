@@ -55,7 +55,7 @@ acerqué al borde.]],
 			alphaMask=2/3,
 		},
 	},
-	{"bg", "mod", 2, 3, fade={"fadein", 3}},
+	{"bg", "modr", 2, 3, fade={"fadein", 3}},
 	{"bg", "mod", 1, fade={"delay", 3, true}},
 	[[El ruido del mar se hizo mas fuerte. Quería ver el agua antes de
 decidir.]],

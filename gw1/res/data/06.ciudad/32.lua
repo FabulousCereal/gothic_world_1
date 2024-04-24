@@ -204,7 +204,7 @@ del auto.]],
 camino. Croft aguantó estóico, pero creo que igual la debió pasar mal con el
 viento en la cara y sin abrigo.]],
 
-	{"bg", "conf", "default", shader=res.shader.contrast,
+	{"bg", "mod", "default", shader=res.shader.contrast,
 		color=res.palette("flashlight", 0)},
 	{"bg", "add", args={"maria/living.png"}, fade={"fadein", 1}},
 	[[Entré con el y Rocco mientras los chicos bajaban sus instrumentos, y

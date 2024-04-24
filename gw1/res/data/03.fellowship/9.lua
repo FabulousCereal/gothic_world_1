@@ -208,7 +208,7 @@ return {
 		fade={"fadeto", .5, 6}},
 	res.fun.macro.title,
 
-	{"bg", "conf", "default", color={1, 1, .95, 1}},
+	{"bg", "mod", "default", color={1, 1, .95, 1}},
 	{"bg", "add", args={"maria/baño.png"}},
 	{"bg", "add", args={"zeh/bake-boxers.png", 150}},
 	{"bg", "add", draw=f0b.draw.screenFill, color={0, 0, 0, 1},

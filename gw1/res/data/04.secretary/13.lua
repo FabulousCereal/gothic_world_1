@@ -54,7 +54,7 @@ return {
 	{"name", "María"},
 	res.fun.macro.title,
 
-	{"bg", "conf", "default", color=res.palette("tenpm")},
+	{"bg", "mod", "default", color=res.palette("tenpm")},
 	{"let", "quien"},
 	{"global", "get", "quien", "DespiertaDonde"},
 	{"case", "quien",

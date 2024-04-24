@@ -81,25 +81,41 @@ local fadeOps = {
 	end,
 }
 
-local function layerUpdate(layerTable, dt, finish)
-	isUpdatable = {table=true, userdata=true}
-	for i = #layerTable, 1, -1 do
-		local layer = layerTable[i]
+local isUpdatable = {table=true, userdata=true}
+local function layerUpdate(layerTable, layer, i, dt, finish)
+	local dyn = false
+	if layer.args then
 		local drawable = layer.args[1]
 		if isUpdatable[type(drawable)] and drawable.update then
-			layerTable.drawn = false
+			dyn = true
 			drawable:update(dt)
 		end
-		local fade = layer.fade
-		if fade and #fade > 0 then
-			layerTable.drawn = false
-			local remove = seq.update(fadeOps, layer, fade, dt,
-				finish)
-			if remove == true then
-				table.remove(layerTable, i)
-			end
+	end
+	local fade = layer.fade
+	if fade and #fade > 0 then
+		dyn = true
+		local remove = seq.update(fadeOps, layer, fade, dt,
+			finish)
+		if remove == true then
+			table.remove(layerTable, i)
 		end
 	end
+	return dyn
+end
+
+local function layerTableUpdate(layerTable, dt, finish)
+	local dyn = layerTable.redraw
+	for i = #layerTable, 1, -1 do
+		local layer = layerTable[i]
+		if layer.cnv then
+			dyn = layerTableUpdate(layer, dt, finish) or dyn
+		else
+			dyn = layerUpdate(layerTable, layer, i, dt, finish) or dyn
+		end
+	end
+	layerTable.redraw = layerUpdate(layerTable, layerTable.root, nil, dt, finish)
+		or dyn
+	return dyn
 end
 
 local shaderOps = {
@@ -127,39 +143,67 @@ local function layerDraw(layer, defaultFn, draw, x, y, ...)
 		x = x and x * scale or 0
 		y = y and y * scale or 0
 	end
+	local m, n = graphics.getBlendMode()
+	graphics.setBlendMode(m, layer.alpha or "alphamultiply")
 	-- When you manage to leave Lua befuddled and discombobulated
 	local dyn = shaderOps[type(shader)](shader);
 	(layer.draw or defaultFn)(draw, x, y, ...)
 	graphics.setShader()
+	graphics.setBlendMode(m, n)
 	return dyn
 end
 
-local function layerDrawRange(lt, cnv, start, limit)
-	local graphics = love.graphics
-	local defaultFn = lt.default.draw
-	local prev = graphics.getCanvas()
-	graphics.setCanvas(cnv)
-	graphics.clear()
-	local dyn = false
-	for i = start, limit do
-		dyn = layerDraw(lt[i], defaultFn, unpack(lt[i].args))
-			or dyn
+local function unpackIfPresent(t)
+	if t then
+		return unpack(t)
 	end
-	graphics.setCanvas(prev)
+end
+
+local function layerTableDraw(lt, skipDraw)
+	local graphics = love.graphics
+	local defaultFn = graphics.draw
+	local dyn = false
+	if lt.redraw then
+		local prev = graphics.getCanvas()
+		graphics.setCanvas(lt.cnv)
+		graphics.clear()
+		for i = 1, #lt do
+			local ldyn
+			local layer = lt[i]
+			if layer.cnv then
+				ldyn = layerTableDraw(layer)
+			else
+				ldyn = layerDraw(layer, defaultFn,
+					unpackIfPresent(layer.args))
+			end
+			dyn = ldyn or dyn
+		end
+		graphics.setCanvas(prev)
+		lt.redraw = dyn
+	end
+	if not skipDraw then
+		layerDraw(lt.root, defaultFn, lt.cnv)
+	end
 	return dyn
 end
 
-local function defaultDefaults()
-	return {color={1,1,1,1}, draw=love.graphics.draw}
+local function defaultDefaults(alpha)
+	return {color={1,1,1,1}, draw=love.graphics.draw, alpha=alpha}
+end
+
+local function unionOrNew(lt, key, force, ...)
+	local v = lt[key]
+	local new = defaultDefaults(...)
+	if not v or force then
+		lt[key] = new
+	else
+		lt[key] = f0b.table.unionInPlace(new, v)
+	end
 end
 
 local function setDefaults(lt, force)
-	if not lt.default or force then
-		lt.default = defaultDefaults()
-	end
-	if not lt.root or force then
-		lt.root = defaultDefaults()
-	end
+	unionOrNew(lt, "default", force)
+	unionOrNew(lt, "root", force, "premultiplied")
 	local graphics = love.graphics
 	if lt.cnv then
 		local prev = graphics.getCanvas()
@@ -169,6 +213,8 @@ local function setDefaults(lt, force)
 	else
 		lt.cnv = graphics.newCanvas()
 	end
+	lt.redraw = true
+	return lt
 end
 
 local function normalizeLayer(lt, op)
@@ -188,9 +234,21 @@ local function normalizeLayer(lt, op)
 
 	if op.draw == love.graphics.draw then
 		op.args[1] = seq.normalizeSrc(res.img, op.args[1])
-	elseif not op.args then
-		op.args = {} --FIXME
 	end
+	return op
+end
+
+local function normalizeLayerTable(lt)
+	setDefaults(lt)
+	for i = 1, #lt do
+		local l = lt[i]
+		if l.cnv then
+			normalizeLayerTable(l)
+		else
+			normalizeLayer(lt, l)
+		end
+	end
+	return lt
 end
 
 local function normalizeIndex(table, idx, default)
@@ -208,7 +266,7 @@ local function getNormalizedRange(table, start, limit)
 	return start, limit
 end
 
-local function layerMod(layer, op)
+local function layerMod(lt, layer, i, op)
 	local deepCopy = fTable.deepCopy
 	for key, val in pairs(op) do
 		local valType = type(val)
@@ -227,19 +285,29 @@ end
 
 local function layerModRange(layers, op, start, limit)
 	for i = start, limit do
-		layerMod(layers[i], op)
+		local l = layers[i]
+		if l.cnv then
+			layerModRange(l, op, 1, #l)
+		else
+			layerMod(layers, l, i, op)
+		end
 	end
 end	
 
 local layerOps
+
+local function ops(layerTable, inst, op, ...)
+	layerTable.redraw = true
+	return layerOps[op](layerTable, inst, ...)
+end
+
 layerOps = {
 	add = function(layers, op, idx)
 		normalizeLayer(layers, op)
 		if idx then
-			table.insert(layers, idx, op)
-		else
-			table.insert(layers, op)
+			return table.insert(layers, idx, op)
 		end
+		return table.insert(layers, op)
 	end,
 
 	rm = function(layers, op, start, limit)
@@ -251,73 +319,70 @@ layerOps = {
 
 	rmall = fTable.clearArray,
 
-	mod = function(layers, op, start, limit)
-		local start, limit = getNormalizedRange(layers, start, limit)
-		layerModRange(layers, op, start, limit)
+	mod = function(layers, op, idx)
+		if type(idx) ~= "string" then
+			idx = normalizeIndex(layers, idx)
+		end
+		return layerMod(layers, layers[idx], idx, op)
+	end,
+
+	modr = function(layers, op, start, limit)
+		start, limit = getNormalizedRange(layers, start, limit)
+		return layerModRange(layers, op, start, limit)
 	end,
 
 	modall = function(layers, op)
-		layerModRange(layers, op, 1, #layers)
+		return layerModRange(layers, op, 1, #layers)
 	end,
 
-	conf = function(layers, op, name)
-		layerMod(layers[name], op)
+	fn = function(layers, _, idx, fn)
+		layers.redraw = true
+		return fn(layers[idx])
 	end,
 
-	fold = function(layers, op, start, limit)
-		start = normalizeIndex(layers, start, 1)
-		limit = normalizeIndex(layers, limit, #layers)
-
-		local cnv = love.graphics.newCanvas()
-		layerDrawRange(layers, cnv, start, limit)
-		layerOps.rm(layers, {start+1, limit})
-		layers[start] = {args={cnv}}
+	addsub = function(layers, _, idx, sub)
+		if not sub then
+			sub = idx
+			idx = #layers + 1
+		end
+		return table.insert(layers, idx, normalizeLayerTable(sub))
 	end,
 
-	fn = function(layers, op, idx, fn)
-		idx = normalizeIndex(layers, idx, #layers)
-		fn(layers[idx])
+	sub = function(layers, op, idx, ...)
+		local sub = layers[idx]
+		return ops(sub, op, ...)
 	end,
 
-	sync = function(layers)
-		layerUpdate(layers, 0, true)
+	fold = function(layers, op, idx)
+		idx = idx or #layers
+		local sub = layers[idx]
+		layerTableDraw(sub, true)
+		layers[idx] = {args={sub.cnv}, alpha=sub.alpha}
+		return layerMod(layers, normalizeLayer(layers, layers[idx]),
+			idx, op)
+	end,
+
+	sync = function(lt)
+		return layerTableUpdate(lt, 0, true)
 	end,
 
 	debug = function(layers)
-		print(#layers)
+		return print(#layers)
 	end,
 }
 
 return {
-	ops = function(layerTable, inst, op, ...)
-		layerTable.drawn = false
-		return layerOps[op](layerTable, inst, ...)
-	end,
+	ops = ops,
 
-	normalize = function(lt)
-		setDefaults(lt)
-		for i = 1, #lt do
-			normalizeLayer(lt, lt[i])
-		end
-		return lt
-	end,
+	normalize = normalizeLayerTable,
 
 	reset = function(layerTable)
-		setDefaults(layerTable, true)
-		return fTable.clearArray(layerTable)
+		return setDefaults(fTable.clearArray(layerTable), true)
 	end,
 
 	update = function(layerTable, dt)
-		return layerUpdate(layerTable, dt, false)
+		return layerTableUpdate(layerTable, dt, false)
 	end,
 
-	draw = function(lt)
-		local cnv = lt.cnv
-		if not lt.drawn then
-			lt.drawn = not layerDrawRange(lt, cnv, 1, #lt)
-		end
-		love.graphics.setBlendMode("alpha", "premultiplied")
-		layerDraw(lt.root, defaultFn, cnv)
-		love.graphics.setBlendMode("alpha", "alphamultiply")
-	end,
+	draw = layerTableDraw,
 }

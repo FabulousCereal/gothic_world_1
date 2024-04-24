@@ -20,6 +20,15 @@ local function basicDeepCopy(orig)
 	return copy
 end
 
+local function unionInPlace(t, ...)
+	for i = 1, select("#", ...) do
+		for k, v in pairs(select(i, ...)) do
+			t[k] = v
+		end
+	end
+	return t
+end
+
 local function typeFormat(val)
 	if type(val) == "string" then
 		return string.format("%q", val)
@@ -147,14 +156,10 @@ return {
 		return clearArray(table)
 	end,
 
+	unionInPlace = unionInPlace,
+
 	union = function(...)
-		local t = {}
-		for i = 1, select("#", ...) do
-			for k, v in pairs(select(i, ...)) do
-				t[k] = v
-			end
-		end
-		return t
+		return unionInPlace({}, ...)
 	end,
 
 	map = function(t, fn)

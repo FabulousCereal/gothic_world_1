@@ -14,28 +14,33 @@ return {
 ánimos de nada. Creía que podía aguantar muchas cosas, pero parecía que
 hasta quedarme en un hotel mas de dos días resultaba demasiado.]],
 
-	{"bg", "add", draw=f0b.draw.screenFill, color={3/4, 3/4, 3/4, 1}},
-	{"bg", "add", args={{res.fun.clock.wall(
-			res.style.clockTint, 10, 00, "Kekkō", "roman", "circle"
-		)}, 12, 12},
-		draw=f0b.draw.dropShadow},
-	{"bg", "fold"},
-	{"bg", "mod", color=res.palette("repellantYellow", 0),
+	{"bg", "addsub", {
+		{draw=f0b.draw.screenFill, color={3/4, 3/4, 3/4, 1}},
+		{
+			args={{res.fun.clock.wall(
+				res.style.clockTint, 10, 00, "Kekkō", "roman",
+				"circle"
+			)}, 12, 12},
+			draw=f0b.draw.dropShadow
+		},
+	}},
+	{"bg", "fold", color=res.palette("repellantYellow", 0),
 		fade={"fadein", 1/3}},
 
 	[[El reloj marcaba las 10am justas, su molesto tick-tack reverberando
 de un lado a otro del cuarto.]],
 
 	{"bg", "mod", fade={"delay", 1, true}},
-	{"bg", "add", args={"Flash/i die/Nube.png", 0, -50}},
-	{"bg", "add", args={"Flash/la-guagua.png", 0, 137}},
-	{"bg", "add", draw=f0b.draw.screenFill, color={1, 1, 1, 1},
-		shader=res.shader.fbmWarp{
-			alphaMask=1, rolloff=.8, amplitude=.25,
+	{"bg", "addsub", {
+		{args={"Flash/i die/Nube.png", 0, -50}},
+		{args={"Flash/la-guagua.png", 0, 137}},
+		{draw=f0b.draw.screenFill,
+			shader=res.shader.fbmWarp{
+				alphaMask=1, rolloff=.8, amplitude=.25,
+			},
 		},
-	},
-	{"bg", "fold", 2},
-	{"bg", "mod", color=res.palette("repellantYellow", 0),
+	}},
+	{"bg", "fold", color=res.palette("repellantYellow", 0),
 		fade={"fadein", 1}},
 
 	[[La ciudad había muerto en el intervalo de dos días. Era irreal, mi
@@ -43,7 +48,6 @@ de un lado a otro del cuarto.]],
 la gente mutada, los muertos, el humo, pertenecían a la televisión. O eso
 deseaba.]],
 
-	{"bg", "sync"},
 	{"bg", "mod", fade={"fadeout", 2/3, true}},
 	[[Fui a prender la luz para ir al baño, tomar algo de agua, pero
 entonces descubrí que se había cortado.]],
@@ -79,12 +83,12 @@ en donde sea que se haya ido toda la gente.]],
 	[[Sin comida ni gente que restara, salí al exterior. Sin saber que
 hacer, me puse a caminar.]],
 
-	{"bg", "sync"},
-	{"bg", "add", args={"Flash/i die/Nube.png", 0, -50}},
-	{"bg", "add", args={"Flash/i die/Montañas.png", 40, 160}},
-	{"bg", "add", args={"Flash/until.png", 0, 136}},
-	{"bg", "fold"},
-	{"bg", "mod", color=res.palette("tenpm", 0),
+	{"bg", "addsub", {
+		{args={"Flash/i die/Nube.png", 0, -50}},
+		{args={"Flash/i die/Montañas.png", 40, 160}},
+		{args={"Flash/until.png", 0, 136}},
+	}},
+	{"bg", "fold", color=res.palette("tenpm", 0),
 		fade={"delay", 1/3, "fadein", 2/3}},
 	[[Era un día especialmente frío, con un cielo que estaba mitad nublado,
 mitad despejado.]],
@@ -121,10 +125,11 @@ las calles se seguían viendo vacias. No sabía lo que era. Me empecé a agitar.
 
 	{"name", "María"},
 	{"bg", "mod", fade={"fadeout", 2/3, true}},
-	{"bg", "add", args={"Flash/i die/Nube.png", 640, 480, 0, -1}},
-	{"bg", "add", args={"Flash/the.png", 0, 136}},
-	{"bg", "fold", 2},
-	{"bg", "mod", color=res.palette("tenpm", 0),
+	{"bg", "addsub", {
+		{args={"Flash/i die/Nube.png", 640, 480, 0, -1}},
+		{args={"Flash/the.png", 0, 136}},
+	}},
+	{"bg", "fold", color=res.palette("tenpm", 0),
 		fade={"delay", 2/3, "fadein", 2/3}},
 
 	[[Creí ver de reojo algo moverse, pero me puse a correr antes de verlo

@@ -51,7 +51,7 @@ mientras dejaba de sentir mi cuerpo.]],
 moverme. Me desmayaba. Alcancé a oír unas voces en la puerta, a ver una luz y
 unas sombras, y...]],
 
-	{"bg", "conf", "default", color={1,1,1,1}},
+	{"bg", "mod", "default", color={1,1,1,1}},
 	{"macro", "badend", 1},
 	{"return", false},
 }
@@ -329,7 +329,7 @@ return {
 	{"name", "María"},
 	res.fun.macro.title,
 
-	{"bg", "conf", "default", color=res.palette("flashlight", 1, .5),
+	{"bg", "mod", "default", color=res.palette("flashlight", 1, .5),
 		shader=res.shader.contrast},
 	{"bg", "add", args={"maria/living.png"}, fade={"fadein", 1}},
 	[[Opté por quedarme un ratito mas dando vueltas. No se si era por enojo
@@ -394,7 +394,7 @@ noche, pero sin éxito.]],
 	[[De pronto, una tenue luz recorrió los árboles y las casas.
 ¿Una linterna? ¿Un auto? Agudizé el oído y me pareció sentir un motor.]],
 
-	{"bg", "conf", "default",
+	{"bg", "mod", "default",
 		shader=res.shader.purkinje, color={1/6, 1/6, 1/6, 1}},
 	{"macro", "rFade", "maria/living.png"},
 	[[Me dirigí al living y miré por entre las tablas, apagando la linterna

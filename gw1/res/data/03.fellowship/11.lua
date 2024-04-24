@@ -299,7 +299,7 @@ hacia el frente para hablarle.]],
 	}},
 	{"bgm", "mod", "rev", fade={"fadeout", 1, true}},
 
-	{"bg", "conf", "default", color=res.palette("fivepm")},
+	{"bg", "mod", "default", color=res.palette("fivepm")},
 	{"bg", "add", args={"maria/living.png"}, fade={"fadein", 2}},
 	{"name", "María"},
 	{"text", [[ a la casa cerca de las seis, cuando el sol ya se ocultaba
@@ -387,7 +387,7 @@ pecho no desaparecía.]],
 	[[Empecé a charlar un poco con Bake para quitarme eso de la mente.
 Aunque fuera loco, escucharlo hablar me ayudaba.]],
 
-	{"bg", "mod", 1, 3, color=res.palette("sixpm"), shader=res.shader.purkinje},
+	{"bg", "modr", 1, 3, color=res.palette("sixpm"), shader=res.shader.purkinje},
 	{"bg", "mod", 2, fade={"fadeout", 0, "mvdiff", -50, 0, 0}},
 	{"bg", "mod", 3, fade={"mvabs", 600, 0, 1/60}},
 	{"bg", "add", draw=f0b.draw.screenFill, color={0,0,0,1},
@@ -399,8 +399,8 @@ contaba de la vez que a Pipi la atropellaron pero que logró volver a caminar.]]
 	[[Falcon regresó casi una sombra, haciendo que me sobresaltara. Bake se
 rió, y recién ahí reveló que tenía una linterna.]],
 
-	{"bg", "mod", 1, 3, color=res.palette("flashlight"), shader=res.shader.contrast},
-	{"bg", "conf", "root",
+	{"bg", "modr", 1, 3, color=res.palette("flashlight"), shader=res.shader.contrast},
+	{"bg", "mod", "root",
 		shader=res.shader.radial{
 			infoCursor={2/3,-2/3}, infoMul={3,3}, infoPow=3,
 		}
@@ -414,13 +414,13 @@ rió, y recién ahí reveló que tenía una linterna.]],
 	[["¬¬"]],
 
 --[=[
-	{"bg", "conf", "root",
+	{"bg", "mod", "root",
 		shader=res.shader.radial{
 			infoCursor={-2/3,-2/3}, infoMul={3,3}, infoPow=3,
 		}
 	},
 	1,
-	{"bg", "conf", "root", shader=false},
+	{"bg", "mod", "root", shader=false},
 	{"bg", "add", draw=f0b.draw.screenFill, color=res.palette("flashlight")},
 	1/12,
 	{"bg", "mod", color={0,0,0,1}, fade={"delay", .5, "fadeout", 4, true}},
@@ -429,7 +429,7 @@ rió, y recién ahí reveló que tenía una linterna.]],
 linterna.]],
 ]=]
 
-	{"bg", "conf", "root", shader=false},
+	{"bg", "mod", "root", shader=false},
 	{"name", "María"},
 	[[Le quité la linterna a Bake para iluminar bien la cocina, porque no
 me gustaba para nada la oscuridad.]],
@@ -463,9 +463,9 @@ espalda xD]], false, true},
 	[[Me llevé la linterna lo dejamos cocinando a Bake solo con la
 llama del gas, y entramos todas las tablas y herramientas al living.]],
 
-	{"bg", "mod", 2, 3, fade={"fadeout", 1/3, true}},
+	{"bg", "modr", 2, 3, fade={"fadeout", 1/3, true}},
 	{"macro", "rFade", "maria/living.png", false, 1},
-	{"bg", "conf", "default", color=res.palette("flashlight"),
+	{"bg", "mod", "default", color=res.palette("flashlight"),
 		shader=res.shader.contrast},
 
 	[[Nos pusimos manos a la obra de inmediato. Yo sostenía las tablas
@@ -652,7 +652,7 @@ noches."]],
 	{"name", "Bake"},
 	[["Buenas noches."]],
 
-	{"bg", "mod", 2, 3, fade={"fadeout", 1/3, true}},
+	{"bg", "modr", 2, 3, fade={"fadeout", 1/3, true}},
 	{"name", "María"},
 	[[Ambos subieron y se fueron a dormir, dejándome sola a los pies de la
 escalera con la linterna en la mano.]],

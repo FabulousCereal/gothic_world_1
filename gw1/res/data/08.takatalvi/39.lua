@@ -32,7 +32,7 @@ que lo que creía.]],
 a Falcon. Hicieron tal como en la farmacia: Falcon abrió de golpe, y Bake
 apuntó.]],
 
-	{"bg", "conf", "default", color={.5, .5, .5, 1}},
+	{"bg", "mod", "default", color={.5, .5, .5, 1}},
 	{"bg", "add", args={"maria/living.png"}},
 	[[La casa estaba oscura por las tablas, pero no se veía ningún
 movimiento adentro. Nos metimos con cautela, sin romper el grupo.]],

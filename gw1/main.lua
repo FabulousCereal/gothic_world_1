@@ -1,4 +1,4 @@
--- SPDX-FileCopyrightText: 2023 Grupo Warominutes
+-- SPDX-FileCopyrightText: 2024 Grupo Warominutes
 -- SPDX-License-Identifier: Unlicense
 
 gamestate = {
@@ -195,18 +195,22 @@ function love.keypressed(key, ...)
 	end
 end
 
-local function giveInput(callback)
-	return function(...)
-		local state = gamestate.state
-		local fn = state[callback]
-		if fn and not gamestate.to then
-			return fn(state, ...)
-		end
+local function giveInput(callback, ...)
+	local state = gamestate.state
+	local fn = state[callback]
+	if fn and not gamestate.to then
+		return fn(state, ...)
 	end
 end
 
-gamestate.keypressed = giveInput("keypressed")
-local callbacks = {"mousemoved", "mousepressed", "wheelmoved"}
-for i, cb in pairs(callbacks) do
-	love[cb] = giveInput(cb)
+function love.mousemoved(...)
+	local mouse = love.mouse
+	local cursor = giveInput("mousemoved", ...)
+	return mouse.setCursor(cursor and mouse.getSystemCursor(cursor))
 end
+
+local callbacks = {"mousepressed", "wheelmoved"}
+for i, cb in pairs(callbacks) do
+	love[cb] = function(...) return giveInput(cb, ...) end
+end
+gamestate.keypressed = function(...) return giveInput("keypressed", ...) end

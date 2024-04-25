@@ -1,4 +1,4 @@
--- SPDX-FileCopyrightText: 2023 Grupo Warominutes
+-- SPDX-FileCopyrightText: 2024 Grupo Warominutes
 -- SPDX-License-Identifier: Unlicense
 
 local multiRepl = require("f0b.ui._uiCommon").multiRepl
@@ -62,15 +62,13 @@ local keys = dispatch({
 	end,
 })
 
-local function mouseTest(select, x, y, press)
+local function mouseTest(select, x, y)
 	if f0b.math.rectangleTest(select.pos, x, y) then
 		x = x - select.pos[1]
 		y = y - select.pos[2]
 		for i, button in ipairs(select) do
 			if f0b.buttons.mousemoved(button, x, y) then
-				if press or select.style.hover then
-					select.cur = i
-				end
+				select.cur = i
 				return i
 			end
 		end
@@ -78,12 +76,10 @@ local function mouseTest(select, x, y, press)
 end
 
 return {
-	mousepressed = function(select, x, y, mouseButton)
-		return mouseTest(select, x, y, mouseButton == 1)
-	end,
+	mousepressed = mouseTest,
 
-	mousemoved = function(select, x, y)
-		return mouseTest(select, x, y, false)
+	mousemoved = function(...)
+		return mouseTest(...) and "hand"
 	end,
 
 	keypressed = function(select, key)

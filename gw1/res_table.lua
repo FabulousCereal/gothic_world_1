@@ -292,7 +292,6 @@ return {
 			lineSpacing = 2,
 			margin = 1,
 			padding = 1,
-			hover = true,
 			unselected = {
 	--			borderColor = {.5, .5, .5, .5},
 				backgroundColor = {.25, .25, .25, 3/4},

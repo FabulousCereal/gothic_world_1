@@ -1,9 +1,10 @@
--- SPDX-FileCopyrightText: 2023 Grupo Warominutes
+-- SPDX-FileCopyrightText: 2024 Grupo Warominutes
 -- SPDX-License-Identifier: Unlicense
 
 f0b = {
 	std = require("f0b.std"),
 	anim = require("f0b.anim"),
+	doll = require("f0b.doll"),
 	draw = require("f0b.draw"),
 	math = require("f0b.math"),
 	lisp = require("f0b.lisp"),

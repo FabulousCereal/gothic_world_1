@@ -1,4 +1,4 @@
--- SPDX-FileCopyrightText: 2023 Grupo Warominutes
+-- SPDX-FileCopyrightText: 2024 Grupo Warominutes
 -- SPDX-License-Identifier: Unlicense
 
 local base = f0b.std.dofileOr("res_table.lua", {})
@@ -185,6 +185,14 @@ res = {
 			local src = base.shader
 			local shader = src[key]
 			return shaderCtx(shaderAccess[type(shader)](shader, src, key))
+		end,
+	}),
+
+	doll = setmetatable({}, {
+		__index = function(table, key)
+			local info = base.doll[key]
+			local img = res.img(info[1] .. key .. ".png")
+			return setReturn(table, key, {img, unpack(info, 2)})
 		end,
 	})
 }

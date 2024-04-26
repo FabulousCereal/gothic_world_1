@@ -1,4 +1,4 @@
--- SPDX-FileCopyrightText: 2023 Grupo Warominutes
+-- SPDX-FileCopyrightText: 2024 Grupo Warominutes
 -- SPDX-License-Identifier: Unlicense
 
 local function fbm(wrap)
@@ -196,6 +196,20 @@ return {
 		flashlight = {1, .6, 1/4},
 		tungsten = {1, 7/8, 6/8},
 		softAfternoon = {1, .95, .8},
+	},
+
+	doll = {
+		bake = {"zeh/"},
+		bake_boxers = {"zeh/"},
+		bake_xd = {"zeh/", 20},
+		bake_xd_boxers = {"zeh/", 20},
+		croft = {"zeh/", 20},
+		croft_ojo = {"zeh/", 20},
+		falcon = {"zeh/"},
+		falcon_ja = {"zeh/"},
+		andrea={"zeh/", 0, -20},
+		fab={"zeh/"},
+		sillas={"Flash/", 0, -100},
 	},
 
 	style = {

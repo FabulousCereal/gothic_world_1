@@ -3,10 +3,7 @@
 
 local base = f0b.std.dofileOr("res_table.lua", {})
 
-local function setReturn(table, key, arg)
-	table[key] = arg
-	return arg
-end
+local setReturn = f0b.table.set
 
 local function fontLoad(path)
 	local cache = {}

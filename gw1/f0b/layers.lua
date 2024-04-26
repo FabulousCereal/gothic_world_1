@@ -4,10 +4,6 @@
 local seq = require("f0b._seqCommon")
 local fTable = require("f0b.table")
 
-local function setVal(table, key, val)
-	table[key] = val
-end
-
 -- Turns handwriten movement into "_interpolate"
 -- Format: {type, x, y, rate}
 local function mvCommon(layer, fade, dt)
@@ -26,7 +22,7 @@ local function mvCommon(layer, fade, dt)
 	end
 
 	fade[1] = "_interpolate"
-	fade[2] = seq.interpolationLinear{args, setVal, 0, fade[4], 4,
+	fade[2] = seq.interpolationLinear{args, fTable.set, 0, fade[4], 4,
 		2, diffX, 3, diffY}
 	return seq.interpolate(layer, fade, dt)
 end
@@ -36,8 +32,8 @@ end
 local function fadeSetup(layer, fade, dt, new, actual)
 	layer.color[4] = actual
 	fade[1] = "_interpolate"
-	fade[2] = seq.interpolationLinear{layer.color, setVal, 0, fade[2], 2,
-		4, new - actual}
+	fade[2] = seq.interpolationLinear{layer.color, fTable.set, 0, fade[2],
+		2, 4, new - actual}
 	return seq.interpolate(layer, fade, dt)
 end
 
@@ -70,7 +66,7 @@ local fadeOps = {
 	color = function(layer, fade, dt)
 		local cur = layer.color
 		local new = fade[2]
-		local int = {layer.color, setVal, 0, fade[3], 3}
+		local int = {layer.color, fTable.set, 0, fade[3], 3}
 		for i = 1, #new do
 			int[#int+1] = i
 			int[#int+1] = new[i] - cur[i]

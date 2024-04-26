@@ -1,4 +1,4 @@
--- SPDX-FileCopyrightText: 2023 Grupo Warominutes
+-- SPDX-FileCopyrightText: 2024 Grupo Warominutes
 -- SPDX-License-Identifier: Unlicense
 
 local function clearArray(table)
@@ -167,5 +167,10 @@ return {
 			t[k] = fn(v)
 		end
 		return t
+	end,
+
+	set = function(t, k, v)
+		t[k] = v
+		return v
 	end,
 }

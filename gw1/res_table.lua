@@ -149,6 +149,40 @@ local function grayWeight(weights)
 	}
 end
 
+local function radial(texload)
+	local mix = texload
+		and [[
+			vec4 pxl = Texel(tex, texCoord);
+			vec4 over = r + pxl*vec4(1.0 - r.a);
+			return over*color;
+		]] or [[
+			return r*color;
+		]]
+	return {
+		string.format([[
+			uniform vec2 infoCursor;
+			uniform vec2 infoMul;
+			uniform float infoPow;
+			uniform vec4 fg;
+			uniform vec4 bg;
+
+			vec2 norm(vec2 coord) {
+				return coord - vec2(.5);
+			}
+			vec4 effect(vec4 color, Image tex, vec2 texCoord, vec2 _) {
+				float dist = clamp(
+					distance(infoCursor, norm(texCoord)*infoMul),
+					0, 1
+				);
+				vec4 r = mix(fg, bg, pow(dist, infoPow));
+				%s
+			}
+		]], mix),
+		fg={0,0,0,0}, bg={0,0,0,1},
+		infoCursor={.5,.5}, infoPow=2, infoMul={1,1},
+	}
+end
+
 local function dither_o2x2(preColor)
 	local output = preColor
 		and [[
@@ -432,29 +466,8 @@ return {
 		-- https://es.wikipedia.org/wiki/Efecto_Purkinje
 		purkinje = grayWeight{.1, .3, .6},
 
-		radial = {[[
-			uniform vec2 infoCursor;
-			uniform vec2 infoMul;
-			uniform float infoPow;
-			uniform vec4 fg;
-			uniform vec4 bg;
-
-			vec2 norm(vec2 coord) {
-				return coord - vec2(.5);
-			}
-			vec4 effect(vec4 color, Image tex, vec2 texCoord, vec2 _) {
-				float dist = clamp(
-					distance(infoCursor, norm(texCoord)*infoMul),
-					0, 1
-				);
-				vec4 r = mix(fg, bg, pow(dist, infoPow));
-				vec4 pxl = Texel(tex, texCoord);
-				vec4 over = r + pxl*vec4(1.0 - r.a);
-				return over * color;
-			}
-		]], fg={0,0,0,0}, bg={0,0,0,1},
-			infoCursor={.5,.5}, infoPow=2, infoMul={1,1},
-		},
+		radial = radial(false),
+		radialTex = radial(true),
 
 		fbm = fbm{[[
 			float generate(vec2 p) {

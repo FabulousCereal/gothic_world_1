@@ -22,17 +22,33 @@ return {
 		end
 	end,
 
-	comedor = function(cursor, overrides)
+	comedor = function(cursor, ...)
 		return {args={"Flash/day.png"},
-			shader=res.shader.radial({
+			shader=res.shader.radialTex({
 				infoCursor=cursor and shaderCursor or {-1/6,-1/6},
 				infoMul={2/3,4/3}, infoPow=2.2,
 				fg={0,0,0,.25}, bg={0,0,0,.97},
-			}, overrides or {})
+			}, ...)
 		}
 	end,
 
-	linterna = {infoMul={2,2},infoPow=4, bg={0,0,0,.9}},
+	vignette = function(cursor)
+		return {"bg", "add",
+			shader=res.shader.radialTex{
+				infoCursor=cursor and shaderCursor or {0,0},
+				infoMul={2/3,4/3}, infoPow=2.2,
+				fg={0,0,0,0}, bg={0,0,0,.97},
+			},
+			draw=f0b.draw.screenFill,
+		}
+	end,
+
+	linterna = function(tex, pos)
+		return res.shader[tex and "radialTex" or "radial"]{
+			infoCursor = pos or shaderCursor,
+			infoMul={2,2}, infoPow=4, bg={0,0,0,.9},
+		}
+	end,
 
 	cielo = function(luegopiensoenesto)
 		local args={f0b.draw.unitSquare, 40, 40, 0, 560, 560}

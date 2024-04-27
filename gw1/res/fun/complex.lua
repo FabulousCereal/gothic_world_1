@@ -10,17 +10,19 @@ local function shaderCursor(ctx)
 	return pos
 end
 
+local function shaderTime(xm, ym, xa, ya)
+	xm = xm or 1
+	ym = ym or xm
+	xa = xa or 0
+	ya = ya or xa
+	return function()
+		local t = love.timer.getTime()
+		return {t*xm + xa, t*ym + ya}
+	end
+end
+
 return {
-	shaderTime = function(xm, ym, xa, ya)
-		xm = xm or 1
-		ym = ym or xm
-		xa = xa or 0
-		ya = ya or xa
-		return function()
-			local t = love.timer.getTime()
-			return {t*xm + xa, t*ym + ya}
-		end
-	end,
+	shaderTime = shaderTime,
 
 	comedor = function(cursor, ...)
 		return {args={"Flash/day.png"},
@@ -60,16 +62,24 @@ return {
 		}
 	end,
 
-	cielo = function(luegopiensoenesto)
-		local args={f0b.draw.unitSquare, 40, 40, 0, 560, 560}
-		local bg1 = {args=args, color={1,.75,.45,1}}
+	cielo = function(col1, col2, cur)
+		--local args={f0b.draw.unitSquare, 40, 40, 0, 560, 560}
+		local draw = f0b.draw.screenFill
+		local bg1 = {
+			draw=draw,
+			shader=res.shader.radial{
+				infoCursor = cur, infoPow=1, infoMul={2,2},
+				fg={1,1,1,1}, bg=col1,
+			},
+		}
 		local bg2 = {
-			args=args, color={.5,.6,.6,0},
+			draw=draw, color=col2,
 			shader=res.shader.fbmWarp{
 				mul={3,3}, rolloff=.5, amplitude=0.5,
-				mv=res.fun.complex.shaderTime(0, 1/16),
+				add=shaderTime(1/64, 0),
 				alphaMask=1,
 			},
 		}
+		return bg1, bg2
 	end
 }

@@ -8,7 +8,11 @@ return {
 	[["¿Hola, me escuchas?"]],
 
 	{"name", "María"},
-	[[Veía el rostro de un hombre sobre mi. Calvo. Nariz prominente. Era lo
+	[[La última imágen de un sueño se desvaneció mientras una voz me
+hablaba. Una visión que nunca más volvería a repetirse. La voz me siguió
+hablando, y con dificultad abrí los ojos.]],
+
+	[[Noté el rostro de un hombre junto mi. Calvo. Nariz prominente. Era lo
 único que distinguía. La cabeza se me partía sola.]],
 
 	{"bgm", "mod", "theme", fade={"fadeout", 6, true}},
@@ -52,9 +56,20 @@ por el medio y no te tocó ninguna rueda. No podía frenar con esa nieve."]],
 	[[Ahora recordaba. Ya había cruzado la calle cuando se me ocurrió
 devolverme.]],
 
+	{"bg", "addsub", {
+		root={color={0,0,0,0}, fade={"color", {1,1,1,1}, 2}},
+		res.fun.complex.cielo({.75, .8, 1, 1}, {1/3, 1/3, 1/3, 3/4},
+			{-1/3, -1/3})
+	}},
+
 	[[No lograba recordar el auto pero sí fragmentos, como haber estado
-tirada en mitad de la calle. El cielo gris que daba vueltas. Tambien que al
-caer me golpeé la-- "¡AUUU!" grité.]],
+tirada en mitad de la calle.]],
+
+	{"text", [[El cielo gris que daba vueltas. El frio de la nieve
+traspasando mi abrigo. Tambien que al caer me golpeé la-- ]], false, true},
+
+	{"bg", "rm"},
+	{"text", [["¡AUUU!" grité.]], true},
 
 	{"name", "Croft"},
 	[["Disculpa, quería ver como te había quedado la cabeza."]],

@@ -8,8 +8,9 @@ cola muy rápido, como asustada.]],
 
 	[[Bake y Falcon se miraron, y como entendiendose sin hablar, se
 aseguraron de tener las armas cargadas y caminaron hacia la puerta, nosotros
-siguiendolos de cerca. Fab venía con su tubo, y Andrea reveló un revólver
-negro.]],
+siguiendolos de cerca.]],
+
+	[[Fab venía con su tubo, y Andrea reveló un revólver negro.]],
 
 	{"name", "María"},
 	[["¿Sabes disparar Andrea?" le pregunté teniendo que subir la voz. El
@@ -23,17 +24,20 @@ viento hacía difícil oír.]],
 
 	{"name", "Fabian"},
 	[["No podemos practicar si tenemos solo 10 balas," dijo Fab. No era
-broma. "Acuerdate de no cerrar los ojos antes de jalar el gatillo."
-Andrea hizo una mueca. A lo mejor usar el tubo era una decisión mas racional
-que lo que creía.]],
+broma. "Acuerdate de no cerrar los ojos antes de jalar el gatillo."]],
 
 	{"name", "María"},
+	[[Andrea hizo una mueca. A lo mejor preferir una katana y un tubo era
+una decisión mas racional que lo que creía.]],
+
 	[[Nos paramos frente a la puerta, y Bake le hizo una seña con la mano
 a Falcon. Hicieron tal como en la farmacia: Falcon abrió de golpe, y Bake
 apuntó.]],
 
-	{"bg", "mod", "default", color={.5, .5, .5, 1}},
-	{"bg", "add", args={"maria/living.png"}},
+	{"bg", "mod", "root", color={.5, .5, .5, 1}},
+	{"bg", "addsub", {
+		{args={"maria/living.png"}},
+	}},
 	[[La casa estaba oscura por las tablas, pero no se veía ningún
 movimiento adentro. Nos metimos con cautela, sin romper el grupo.]],
 
@@ -45,25 +49,34 @@ desde la cocina. Debía estar abierto.]],
 a la cocina con Bake al frente. El se metió de un salto apuntando. Miró al
 suelo y guardó el arma. Entramos.]],
 
-	{"macro", "rFade", "maria/cocina.png"},
+	{"macro", "bgFade", "maria/cocina.png"},
 	[[Encontramos todo revuelto. La puerta estaba abierta y con la
 cerradura destruida. En el suelo habían platos rotos y ollas tiradas al azar.
 Habían manchas de sangre junto a la entrada.]],
 
+	{"bg", "addsub", {
+		default={draw=f0b.doll.draw},
+		{args={res.doll.bake, 480, 0, -1}},
+	}},
 	{"name", "Bake"},
 	[["Pareciera que un bitchy se metió y salió."]],
 
+	{"bg", "sub", 2, "add", args={res.doll.falcon, 160}, fade={"fadein", .5}},
 	{"name", "Falcon"},
 	[["O a lo mejor subió." Mierda, Falcon...]],
 
+	{"bg", "sub", 2, "modall", fade={"delay", 1, "fadeout", 1/2, "toggle"}},
 	{"name", "Bake"},
 	[["Subamos a ver." Los dos se fueron a revisar el segundo piso,
 mientras Fab se acercaba a mirar la puerta. Este lugar era una pesadilla.]],
 
+	{"bg", "sub", 2, "add", args={res.doll.fab, 160}, fade={"fadein", .5}},
 	{"name", "Fabian"},
 	[["¿Para que se metería y saldría un zombie?" dijo apretando y soltando
 el picaporte. Andrea se le acercó evitando los platos rotos.]],
 
+	{"bg", "sub", 2, "add", args={res.doll.andrea, 480, 0, -1},
+		fade={"fadein", .5}},
 	{"name", "Andrea"},
 	[["¿Quizás olió que había comida?"]],
 
@@ -78,7 +91,7 @@ bestias en la casa del vecino todo este tiempo, y ahora algo se metía a la
 fuerza, como si la casa no tuviera seguridad.]],
 
 	{"name", "Andrea"},
-	[["María, ¿estas bien?" me preguntó Andrea, sobresaltándome.]],
+	[["María, ¿estas bien?" me preguntó Andrea.]],
 
 	{"name", "María"},
 	[["No, no..." Como en forma automática, me acerqué a cerrar la puerta
@@ -90,16 +103,22 @@ Quizás sobre mí, que a diferencia de ellos no podía actuar como si esto fuera
 entretenido. Miré los platos rotos en el suelo, y me agaché a limpiar.]],
 
 	{"name", "Andrea"},
-	[["Espera, te ayudo." Andrea se acercó a recoger también. "Fab, ve
-por una escoba." Fab miró hacia todos lados confundido.]],
+	{"text", [["Espera, te ayudo." ]], false, true},
+	{"bg", "sub", 2, "mod", fade={"fadeout", .5}},
+	{"text", [[Andrea se acercó a recoger también.]], true},
+
+	[["Fab, ve por una escoba." Fab miró hacia todos lados confundido.]],
 
 	{"name", "Fabian"},
 	[["Ehh, ¿donde hay una escoba?" Ambos me miraron, pero
-yo tampoco sabía. Si, yo era una increíble ayuda. Fab salió del cuarto, y
-pronto volvió con pala y escoba. Andrea acercó el basurero, y empezaron a
-hechar todo adentro.]],
+yo tampoco sabía. Si, yo era una increíble ayuda.]],
 
-	{"name", "María"},	
+	{"bg", "sub", 2, "mod", 3, fade={"fadeout", .5}},
+	{"name", "María"},
+	[[Fab salió del cuarto, y pronto volvió con pala y escoba. Andrea
+acercó el basurero, y empezaron a hechar todo adentro.]],
+
+	{"bg", "sub", 2, "modr", 3, 4, fade={"fadein", .5}},
 	[["¿Como lo hacen?" les pregunté. Se giraron ambos a verme.]],
 
 	{"name", "Andrea"},
@@ -109,7 +128,7 @@ hechar todo adentro.]],
 	[["Para estar así de calmados." Los dos se miraron.]],
 
 	{"name", "Andrea"},
-	[["Será que nos acostumbramos a estar expuestos."]],
+	[["Será que nos acostumbramos a estar desprotegidos"]],
 
 	{"name", "Fabian"},
 	[["Aja."]],
@@ -123,6 +142,8 @@ me asustaría más."]],
 	[["¿Entonces por que yo estoy así?" pregunté apretando los puños.
 En eso, Bake y Falcon volvieron.]],
 
+	{"bg", "sub", 2, "modr", 3, 4, fade={"fadeout", .5}},
+	{"bg", "sub", 2, "modr", 1, 2, fade={"toggle", "fadein", .5}},
 	{"name", "Bake"},
 	[["Ya revisamos."]],
 
@@ -130,8 +151,12 @@ En eso, Bake y Falcon volvieron.]],
 	[["Y no había nada. Lo que haya sido, solo llegó hasta acá."]],
 
 	{"name", "Bake"},
-	[["Y dudo que hayan sido Croft y Rocco con hambre xD"]],
+	{"text", [["Y dudo que hayan sido Croft y Rocco con hambre]],
+		false, true},
+	{"bg", "sub", 2, "mod", 1, fade={"src", res.doll.bake_xd}},
+	{"text", [[ xD"]], true},
 
+	{"bg", "sub", 2, "mod", 1, fade={"src", res.doll.bake}},
 	{"name", "María"},
 	[["¿Que vamos a hacer entonces?"]],
 
@@ -139,9 +164,13 @@ En eso, Bake y Falcon volvieron.]],
 	[["¿Hacer de que?" preguntó Bake, igual que cuando estaban los dos
 cuerpos afuera. Ni siquiera sabía como responderle.]],
 
+	{"bg", "sub", 2, "modr", 1, 2, fade={"fadeout", .5}},
+	{"bg", "sub", 2, "modr", 3, 4, fade={"fadein", .5}},
 	{"name", "Fabian"},
 	[["Que pasa si vuelve a atacar, supongo."]],
 
+	{"bg", "sub", 2, "modr", 3, 4, fade={"fadeout", .5, true}},
+	{"bg", "sub", 2, "modr", 1, 2, fade={"fadein", .5}},
 	{"name", "Bake"},
 	[["Hablabamos con Falcon que pudo ser por los huesos de pollo que
 quedaron."]],
@@ -159,6 +188,8 @@ Tendremos que tener mas cuidado."]],
 No quería que ninguno terminara como cualquiera de los cuerpos despedazados que
 encontramos hoy.]],
 
+	{"bg", "sub", 2, "mod", 2, fade={"fadeout", .5, true}},
+	{"bg", "sub", 2, "mod", 1, fade={"mvabs", 400, false, 1}},
 	{"name", "Bake"},
 	[["¿Nena? ¿Te pasa algo?" me preguntó Bake. Negué con la cabeza, pero
 era obvio que mentía; no debia tener buena cara.]],
@@ -167,9 +198,9 @@ era obvio que mentía; no debia tener buena cara.]],
 
 	{"name", "Bake"},
 	[[Ya casi detestaba que me trataran bien, pero terminé asintiendo.
-Quizás sería mejor, a pesar que no era ni mediodía aún.]],
+Quizás sería lo mejor, a pesar que no era ni mediodía aún.]],
 
-	{"bg", "mod", fade={"fadeout", .5}},
+	{"bg", "mod", "root", fade={"color", {0,0,0,0}, 1}},
 	[[Subí al segundo piso, y me fui a la cama. En el espacio que dejé
 desordenado en la mañana, me enrollé, y traté de no pensar en nada.]],
 }

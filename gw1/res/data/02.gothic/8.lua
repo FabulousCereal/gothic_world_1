@@ -17,8 +17,10 @@ abierta por completo.]],
 	{"name", "María"},
 	[["¡¿Que dices?! ¡¿Que el chico se cayó a un pozo?!"]],
 
-	{"bg", "add", args={"maria/living.png"}, color={2/3, 2/3, 2/3, 0},
-		fade={"fadein", 1}},
+	{"bg", "addsub", {
+		{args={"maria/living.png"}, color={2/3, 2/3, 2/3, 0},
+			fade={"fadein", 1}}
+	}},
 	[[Entré a la casa, y lo primero que noté fue que el chico no estaba en
 el sofá.]],
 
@@ -30,11 +32,11 @@ asustando sola.]],
 vivos con los balazos en la cabeza, pero parecía que algo fallaba en la
 mía porque de nuevo empecé a alarmarme.]],
 
-	{"macro", "rFade", "maria/cocina.png"},
+	{"macro", "bgFade", "maria/cocina.png"},
 	[[Me metí a la cocina. Nada parecía fuera de lugar. Me acerqué a la
 ventana.]],
 
-	{"macro", "rFade", "maria/patio.png"},
+	{"macro", "bgFade", "maria/patio.png"},
 	[[Seguían muertos, inertes. La puerta estaba bien cerrada, pero igual
 le puse seguro. Estaba todo bien, solo faltaba... el chico. Debía estar en el
 segundo piso, ¿verdad?]],
@@ -42,36 +44,39 @@ segundo piso, ¿verdad?]],
 	[[De pronto, un grito primal de dolor que me heló el alma cortó el
 aire.]],
 
-	{"bg", "rm"},
+	{"bg", "sub", 1, "rmall"},
 	{"name"},
 	[["¡¡LA CONCHA DE LA LORAAAAAAA!!"]],
 
-	{"bg", "add",
+	{"bg", "sub", 1, "add",
 		args={"croft/cuchillo de cocina canvas 1-1.png", -60, -108},
 		color={1,1,1,0},
-		fade={"fadein", 1/3, "delay", 1/3, "fadeout", 1/3, true}},
+		fade={"fadein", 1/3, "delay", 1/3, "fadeout", 1/3, true}
+	},
 	{"name", "María"},
 	[[Tomé lo primero que encontré a mano y corrí arriba, a buscar al
 chico.]],
 
-	{"bg", "add", args={"maria/pasillo.png"}, fade={"fadein", 1}},
+	{"bg", "sub", 1, "add", args={"maria/pasillo.png"}, fade={"fadein", 1}},
 	[[¿Que esperaba hacer? ¿Creía que serviría yo de algo? Lamentablemente,
 no parecía ser yo la que tomaba decisiones hoy día. Ví una habitación con la
 puerta abierta y con un fuerte olor a alcohol proviniendo de adentro. Entré.]],
 
-	{"bg", "mod", args={"maria/baño.png"}},
+	{"bg", "sub", 1, "mod", args={"maria/baño.png"}},
 	[[Encontré al chico en el baño sin polera ni pantalones, agitando los
 brazos y saltando vehementemente. En su mano, una botella de alcohol
 desinfectante que se acababa de hechar por la espalda.]],
 
-	{"bg", "add", args={"zeh/bake-xd-boxers.png", 100}},
+	{"bg", "addsub", {
+		{args={res.doll.bake_xd_boxers, 320}, draw=f0b.doll.draw}
+	}},
 	{"name", "chico"},
 	[["¡RRRGH!" gruñó de nuevo mientras le corría el alcohol por el cuerpo,
 era como que se duchaba con ella. Tras apretar los puños pareció disipar de
 una todo su dolor. El vapor se fue. Entoces el chico se giró a mirarme con esos
 cautivantes ojos marrones.]],
 
-	{"bg", "mod", args={"zeh/bake-boxers.png", 150}},
+	{"bg", "sub", 2, "mod", fade={"src", res.doll.bake_boxers}},
 	[["Oh, hola. ¿Donde estabas?" me preguntó disimulando estar bien, pero
 respiraba entrecortado por el dolor... o tal vez por el frio. Andaba solo en
 boxers. No pude alejar la vista.]],

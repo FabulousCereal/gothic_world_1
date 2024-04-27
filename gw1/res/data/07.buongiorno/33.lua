@@ -144,8 +144,10 @@ volvería. ¿Para que se iba a robar un revólver si ya tenía un arma?]],
 No sentía hambre aún... Hasta que el olor a comida me empezó a llamar.
 Que remedio. Me vestí y bajé al primer piso.]],
 
-	{"bg", "add", args={"maria/living.png"}, fade={"fadein", 1},
-		color=res.palette("tenpm", 0)},
+	{"bg", "addsub", {
+		{args={"maria/living.png"}, fade={"fadein", 1},
+			color=res.palette("tenpm", 0)},
+	}},
 	[[En la sala me encontré a Bake cubierto con dos toallas en la
 alfombra.]],
 
@@ -205,6 +207,7 @@ ZZZZZZ" Roncaba entre frases, wtf.]],
 	[["Hmm, seguro se lo llevó sin balas, no es para tanto xD" Bake tenía
 respuesta para todo.]],
 
+	{"macro", "bgFade", res.fun.complex.comedor()},
 	{"name", "María"},
 	[[Me fui al comedor a revisar mi abrigo, y efectivamente, mi revólver
 no estaba pero si el cargador, tal como había dicho. Era todo tan extraño.]],

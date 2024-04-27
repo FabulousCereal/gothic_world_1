@@ -7,6 +7,8 @@ return {
 	[[Tras la pizza nos preparamos con Bake para buscar comida, cuando el
 viento había parado.]],
 
+	{"bg", "add", args={res.doll.bake, 320}, draw=f0b.doll.draw,
+		fade={"fadein", 1}},
 	{"name", "Bake"},
 	[["¿Sabés manejar un arma?"]],
 
@@ -21,7 +23,7 @@ Asentí. "Cualquier cosa, vos atacá al cuello, ¿vale?"]],
 	[["Vale..." Lo decía como si fuera fácil, pero yo no creía ser capaz de
 usarla como el. El chico se sacó el pelo de debajo de la campera, y salimos.]],
 
-	{"bg", "mod", fade={"fadeout", 2, true}},
+	{"bg", "modall", fade={"fadeout", 2, true}},
 	{"bgm", "set", "wind", 0, source="wahwahwhite noise.flac",
 		setup={setFilter={type="lowpass", highgain=1/120}},
 		fade={"fadeto", 1/2, 6}},

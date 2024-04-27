@@ -56,10 +56,10 @@ acerqué al borde.]],
 		},
 	},
 	{"bg", "modr", 2, 3, fade={"fadein", 3}},
-	{"bg", "mod", 1, fade={"delay", 3, true}},
+	{"bg", "mod", 1, fade={"delay", 3, "toggle"}},
 	[[El ruido del mar se hizo mas fuerte. Quería ver el agua antes de
 decidir.]],
-	{"bg", "fn", 0, function(layer)
+	{"bg", "fn", 3, function(layer)
 		layer.shader.time=res.fun.complex.shaderTime(
 			8, 0, (-love.timer.getTime()+2.25) * 8
 		)

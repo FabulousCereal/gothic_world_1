@@ -241,7 +241,8 @@ local instructionTable = {
 
 local function processVN(self)
 	self.ui.textboard.display = false
-	local success, val = pcall(f0b.lisp.process, self.dataStack, self)
+	local success, val = f0b.std.pcallStack(f0b.lisp.process,
+		self.dataStack, self)
 	if not success then
 		local trace = f0b.lisp.trace(self.dataStack)
 		trace[0] = "Processing error:\n\n"

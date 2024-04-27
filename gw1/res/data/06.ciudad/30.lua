@@ -1,8 +1,22 @@
+local move = res.fun.macro.mv
+
 return {
 	{"style", "vnMaria"},
 	res.fun.macro.title,
 
-	f0b.table.union(res.fun.complex.comedor(), {"bg", "add", fade={"fadein", 1}}),
+	{"bg", "mod", "root", color={0,0,0,0},
+		fade={"color", {2/3, 2/3, 2/3, 1}, 1}},
+	f0b.table.union(res.fun.complex.comedor2(), {"bg", "add", fade={"fadein", 1}}),
+	{"bg", "addsub", {
+		root={color={1,1,.9,1}},
+		default={draw=f0b.doll.draw},
+		{args={res.doll.sillas, 0, 0, 1, 1, -420}},
+		{args={res.doll.croft, 0, 0, -1, 1, 320}},
+		{args={res.doll.falcon, 0, 0, -1, 1, 640}},
+		{args={res.doll.bake, 0, 0, 1, 1, 40, -20}},
+	}},
+	{"macro", "mesa", false, "add"},
+	{"bg", "mod", fade={"mvabs", 80, false, 0}},
 	{"bgm", "set", nil, 0,
 		source="freesound/557188__julien-matthey__jm_natural-elements_wind-01.ogg",
 		setup={setFilter={type="lowpass", volume=1/2, highgain=0}},
@@ -11,10 +25,12 @@ return {
 	[[Nos quedamos en silencio tras la historia de Croft. Bake tomó de su
 mate y Croft sorbeteó de su café. El viento agarraba fuerza una vez mas.]],
 
+	move(-120, 1/2),
 	{"name", "Falcon"},
 	[["Es raro eso de la barricada. ¿Será para que no salgan los
 infectados?"]],
 
+	move(120, 1/2),
 	{"name", "Bake"},
 	[["La nube de la explosión era gigante. Salió en la tele," dijo sin
 levantar la vista. "No creo que solo acá hayan zombies."]],
@@ -30,6 +46,7 @@ el pelo y suspiró.]],
 	[[Bake se sirvió otro mate. Se veía un poco como en la mañana cuando
 entré a la cocina. Tenso, preocupado de algo.]],
 
+	move(0, 1/2),
 	{"name", "Croft"},
 	[["¿No han intentado salir de la ciudad?"]],
 
@@ -37,10 +54,12 @@ entré a la cocina. Tenso, preocupado de algo.]],
 	[["Pues... No. Tenía miedo y me quedé en el hotel donde estaba por tres
 días."]],
 
+	move(120, 1/2),
 	{"name", "Bake"},
 	[["Yo igual. Preferí quedarme acá porque en todos lados sería lo mismo.
 Y en todo caso no tenía vehículo."]],
 
+	move(-120, 1),
 	{"name", "Falcon"},
 	[["Yo pensé en hacerlo pero... ehh, creí que podría recordar algo si me
 ponía a conducir por cualquier lado."]],
@@ -58,6 +77,7 @@ cual será mi nombre real."]],
 respecto. Bake chupeteó su mate hasta el final, y Croft se acordó de terminar
 su café.]],
 
+	move(120, 1),
 	{"name", "Bake"},
 	[["¿Tenés armas, Croft?"]],
 
@@ -72,14 +92,17 @@ suerte."]],
 	[["Eso si. Aprendí en el servicio," dijo así como si nada. Creo que
 ninguno se lo esperó eso. No parecía militar.]],
 
+	move(-120, 1/2),
 	{"name", "Falcon"},
 	[["¿De veras? ¿Y aún así no te dejaron salir?"]],
 
+	move(0, 1/3),
 	{"name", "Croft"},
 	[["Eh, pasó que no lo terminé porque accidentalmente le prendí fuego a
 una bodega con municiones. Así que sigo siendo civil." Croft hablaba con
 tanta sencillez que no sabía si era en serio o si nos jugaba una broma.]],
 
+	move(120, 1/2),
 	{"name", "Bake"},
 	[["lol, bueno, yo y Falcon tenemos armas, pero estaba pensando que
 esto va para rato así que deberiamos buscar más, aparte de guitarras.
@@ -88,10 +111,12 @@ esto va para rato así que deberiamos buscar más, aparte de guitarras.
 	{"name", "María"},
 	[["Guita-- ¿Quieres mas?"]],
 
+	move(-120, 1/2),
 	{"name", "Falcon"},
 	[["Yo tambien quiero. Me gusta el bajo pero un hombre necesita
 variedad."]],
 
+	move(0, 1/2),
 	{"name", "Croft"},
 	[["Yo necesito gasolina para mi camioneta, pero dale."]],
 
@@ -104,7 +129,7 @@ variedad."]],
 	{"name", "María"},
 	[["Ah, verdad. Vamos entonces."]],
 
-	{"bg", "mod", fade={"fadeout", 1, true}},
+	{"bg", "mod", "root", fade={"color", {0,0,0,0}, 1}},
 	[[Agarramos nuestros abrigos --excepto por Croft-- y salimos al patio.
 Pipi nos olfeateó los pies de nuevo al salir.]],
 

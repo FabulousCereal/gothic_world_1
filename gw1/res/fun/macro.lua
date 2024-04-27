@@ -42,12 +42,48 @@ local function fade(img, color, idx, secs, op)
 end
 
 return {
+	bgFade = function(_, _, img, subidx, secs)
+		if type(img) ~= "table" then
+			img = {args={img}}
+		end
+		subidx = subidx or 1
+		img[1], img[2], img[3], img[4], img[5]
+			= "bg", "sub", subidx, "add", 1
+		return {
+			{"bg", "sub", subidx, "mod", 1,
+				fade={"fadeout", secs or 1, true}},
+			img,
+		}
+	end,
 	rFade = function(_, _, img, color, idx, secs)
 		return fade(img, color, idx, secs, "delay")
 	end,
 
 	xFade = function(_, _, name, color, idx, secs)
 		return fade(img, color, idx, secs, "fadeout")
+	end,
+
+	mesa = function(_, _, secs, ...)
+		local bw = 6
+		local w, h = love.graphics.getDimensions()
+		local y = 3/4
+		secs = secs and {"fadein", secs}
+		return {{
+			args={
+				{
+					borderColor={0,0,0,1}, borderWidth=bw,
+					backgroundColor={3/5,1/3,0,1},
+				}, -bw, h * y, w + bw*2 + w/3, h * (1 - y) + bw,
+				0, 0, -.2,
+			},
+			draw = f0b.draw.rect,
+			fade = secs,
+			"bg", ...
+		}}
+	end,
+
+	mv = function(x, t)
+		return {"bg", "modr", 2, 3, fade={"mvabs", x, false, t}}
 	end,
 
 	title = title,
@@ -58,12 +94,9 @@ return {
 			"Septiembre", "Octubre", "Noviembre", "Diciembre"}
 		local year, month, day, hour, min = unpack(args)
 		local idx = args.idx
-		local wait
-		if args.wait then
-			wait = {"wait", unpack(args.wait)}
-		else
-			wait = defaultTime
-		end
+		local wait = args.wait
+			and {"wait", unpack(args.wait)}
+			or defaultTime
 
 		local dateString = string.format("%u/%s/%u",
 			day, months[month], year)

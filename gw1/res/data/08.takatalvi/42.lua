@@ -1,8 +1,23 @@
+local mv = res.fun.macro.mv
+
 return {
 	{"style", "vnMaria"},
 	{"macro", "titleDate", {2011, 11, 13, 13, 59}},
 
-	f0b.table.union(res.fun.complex.comedor(), {"bg", "add"}),
+	{"bg", "mod", "root", color={0,0,0,0}, fade={"color", {3/4,3/4,3/4,1}, 1}},
+	{"bg", "addsub", {
+		res.fun.complex.comedor2(),
+	}},
+	{"bg", "addsub", {
+		default={draw=f0b.doll.draw},
+		root={color={1,1,3/4,1}},
+		{args={res.doll.sillas, 0, 0, 1, 1, -480}},
+		{args={res.doll.bake, 0, 0, 1, 1, 60, -20}},
+		{args={res.doll.fab, 0, 0, -1, 1, 320}},
+		{args={res.doll.andrea, 0, 0, -1, 1, 640}},
+	}},
+	{"macro", "mesa", false, "add"},
+	{"bg", "mod", 3, fade={"mvdiff", 80, false, 0}},
 	{"name", "María"},
 	[[El mal clima seguía cuando nos sentamos al fin a comer. Falcon seguía
 en cama, y yo ya me había acostumbrado a la sensación de que el viento hecharía
@@ -21,6 +36,7 @@ debería alcanzarnos hasta... mañana por la mañana."]],
 	{"name", "Andrea"},
 	[["Eso o practicar canibalismo." Dios.]],
 
+	mv(120, 1/2),
 	{"name", "Bake"},
 	[["Ok. ¿Salimos ahora o cuando nos dé hambre?" Bake preguntó mirándome
 a mi. Yo no tenía idea esta vez.]],
@@ -33,6 +49,7 @@ a mi. Yo no tenía idea esta vez.]],
 chico el frio duraba una semana y caía mucha nieve. Si las calles se tapan, no
 podremos salir en coche mas tarde."]],
 
+	mv(-120, 1),
 	{"name", "Andrea"},
 	[["Es verdad, eso pasaba cada año. Aunque cuando era chica era lo que
 mas me gustaba."]],
@@ -55,6 +72,7 @@ salir con este frio, pero evidemente no había opción.]],
 	{"name", "María"},
 	[["Debimos habernos abastecido mejor hace unos días," suspiré.]],
 
+	mv(120, 1),
 	{"name", "Bake"},
 	[["Si, siempre perdiamos tiempo en otras cosas," se lamentó también
 Bake.]],
@@ -86,13 +104,16 @@ inmediato. Bake se sorprendió un poco.]],
 	{"name", "María"},
 	[["Bueno... igual no creo que siga habiendo comida en la Avenida."]],
 
+	mv(-120, 1),
 	{"name", "Andrea"},
 	[["Nosotros sabemos donde hay."]],
 
+	mv(0, 1/2),
 	{"name", "Fabian"},
 	[["Si no les importa comer arroz y fideos con salsa una semana,
 claro."]],
 
+	mv(120, 1/2),
 	{"name", "Bake"},
 	[["Pueeede que nos moleste xD ¿Es mucha?"]],
 
@@ -124,29 +145,36 @@ sacamos lo que traíamos."]],
 	{"name", "Fabian"},
 	[["Entonces dale xd"]],
 
+	mv(-120, 1/2),
 	{"name", "Andrea"},
 	[["Oye, pero si sales al frío después de tomar mate se te enchueca la
 boca. Eso decía mi mamá."]],
 
+	mv(120, 1/2),
 	{"name", "Bake"},
 	[["Aw shit, es verdad xDD ¿Que hay del café?"]],
 
+	mv(-120, 1/2),
 	{"name", "Andrea"},
 	[["No, del café no decía nada." Dios.]],
 
+	mv(0, 1/2),
 	{"name", "Fabian"},
 	[["No sé, igual desconfío xD"]],
 
+	mv(120, 1/2),
 	{"name", "Bake"},
 	[["Si, mejor xD Entonces no perdamos tiempo. Salgamos ahora mismo,"
-dijo levantandose.]],
+dijo levantándose.]],
 
+	{"bg", "sub", 2, "mod", 1, fade={"mvdiff", false, 60, 1/3}},
+	{"bg", "mod", 3, fade={"mvdiff", false, 60, 1/3}},
 	{"name", "María"},
-	[["Espera, ¿ahora ahora?" Los chicos se levantaron también, poniendose
-abrigo.]],
+	[["Espera, ¿ahora ahora?" Los chicos se levantaron también, tomando
+sus abrigos.]],
 
 	{"name", "Bake"},
-	[["Obvio. ¿Que mas pensás hacer?"]],
+	[["Obvio. ¿Que pensás hacer?"]],
 
 	{"name", "María"},
 	[["Falcon aún está en cama. No podemos dejarlo solo."]],
@@ -154,11 +182,14 @@ abrigo.]],
 	{"name", "Bake"},
 	[["Pero si esperamos a que despierte vamos a salir a la hora de ayer."]],
 
+	{"bg", "sync"},
+	mv(0, 1/2),
 	{"name", "Fabian"},
 	[["María tiene razón, debería quedarse uno a cuidarlo," señaló Fab.
 "O dos, de hecho." Nos miramos por un momento entre los cuatro. Tenía razón.
 Solo dos necesitaban ir.]],
 
+	mv(120, 1/2),
 	{"name", "Bake"},
 	[["Bueno, ¿te querés quedar, nena?" me preguntó.]],
 
@@ -168,14 +199,20 @@ esperaban que me quedara guardada en casa. Era para lo único que servía.]],
 
 	[["Es que..."]],
 
+	mv(-120, 1/2),
 	{"name", "Fabian"},
 	[["Andrea, ¿quieres ir tu o me quedo yo?"]],
 
 	{"name", "Andrea"},
-	[["Pienso que--..." Andrea se detuvo y le lanzó una breve mirada, una
-expresión de que no era la primera vez que oía ese chiste. "Deberiamos ir los
-tres, porque afuera es mas peligroso."]],
+	{"text", [["Pienso que--..." ]], false, true},
+	{"bg", "sub", 2, "mod", 4, fade={"src", res.doll.andrea_fome}},
+	{"text", [[Andrea se detuvo y le lanzó una breve mirada, una
+expresión de que no era la primera vez que oía ese chiste. ]], true, true},
+	{"bg", "sub", 2, "mod", 4, fade={"src", res.doll.andrea}},
+	{"text", [["Deberiamos ir los tres, porque afuera es mas peligroso."]],
+		true},
 
+	mv(0, 1/2),
 	{"name", "Fabian"},
 	[["Es que si pasa algo, María tendría que defenderse sola. Sería mejor
 dos y dos," argumentó. "O si te acuerdas del lugar puedes ir tú y--"]],
@@ -183,25 +220,31 @@ dos y dos," argumentó. "O si te acuerdas del lugar puedes ir tú y--"]],
 	{"name", "María"},
 	[["No he..." lo interrumpí, insegura, "dicho que quiera quedarme."]],
 
+	mv(120, 1/2),
 	{"name", "Bake"},
 	[["¿Entonces vas?"]],
 
+	{"bg", "sub", 2, "mod", 4, fade={"src", res.doll.andrea_fome}},
 	{"name", "María"},
-	[["Si. Quiero ir," pronuncié. Los chicos me miraron en silencio.
-Andrea colgó su poncho en la silla, y quedó decidido.]],
+	[["Si. Quiero ir," pronuncié. Los chicos me miraron en silencio.]],
 
+	mv(-120, 1/2),
+	[[Andrea colgó su poncho en la silla, y quedó decidido.]],
+
+	mv(120, 1/2),
 	{"name", "Bake"},
 	[["Salgamos rápido entonces."]],
 
 	{"name", "María"},
 	[["Solo déjame avisarle a Falcon primero."]],
 
-	{"macro", "rFade", "maria/pasillo.png"},
+	{"macro", "bgFade", "maria/pasillo.png"},
+	{"bg", "modr", 2, 3, fade={"fadeout", 1, true}},
 	[[Mientras los chicos juntaban sus armas, yo me dirigí al segundo piso.
 La puerta de Falcon seguía cerrada, así que la abrí con cautela y miré adentro.
 Seguía en cama.]],
 
-	{"macro", "rFade", "maria/pieza.png"},
+	{"macro", "bgFade", "maria/pieza.png"},
 	[["Falcon," susurré. El se movió. "¿Estás despierto?"]],
 
 	{"name", "Falcon"},

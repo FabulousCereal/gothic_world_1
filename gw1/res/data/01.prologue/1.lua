@@ -141,6 +141,7 @@ golpea a la que estaba bien buena.]],
 
 	[["Oh shit"]],
 
+	{"bg", "sync"},
 	{"bg", "mod", fade={"mvdiff", 0, -120, 2}},
 	[[Apenas bajó el polvo corrimos a ayudar y a putear al conductor y a la
 chica. El dueño de la cafetería apareció furioso y cagó al conductor a palos,
@@ -172,18 +173,21 @@ a preocupar. A momentos se sentía un olor metálico en el aire... Casi como
 sangre.]],
 
 	{"bg", "sync"},
-	{"bg", "add", color={.6, .6, .6, 1}, draw=f0b.draw.screenFill},
-	{"bg", "add", color={.95, .95, .95, 1},
-		args={res.fun.clock.wall(res.style.clockTint, 19, 22, "Saikō")}},
-	{"bg", "fold"},
-	{"bg", "mod", fade={"fadein", 2/6}, shader=res.shader.dither_o2x2,
-		color=res.palette("sixpm", 0)},
+	{"bg", "addsub", {
+		{color={.6, .6, .6, 1}, draw=f0b.draw.screenFill},
+		{args={res.fun.clock.wall(res.style.clockTint, 19, 22, "Saikō")},
+			color={.95, .95, .95, 1}},
+		root={
+			shader=res.shader.dither_o2x2,
+			color={0,0,0,0},
+			fade={"color", res.palette("sixpm"), 2/6},
+		},
+	}},
 	[[Llegamos casi oscuresciendo, y nos bañamos por las dudas. Faltabamos
 solo yo y mi amigo cuando el me dice que sería mejor que nos bañaramos juntos,
 para lavarnos mejor. Asi que eso hicimos.]],
 
---	{"bg", "mod", fade={"fadeout", 4/6, true}},
-	{"bg", "rm"},
+	{"bg", "rmall"},
 	{"wait", 1},
 	{"bg", "add", args={"bake/y su amigo.png"},
 		color=res.palette("sixpm", 0, 0.9), fade={"fadein", 4/6}},

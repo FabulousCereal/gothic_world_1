@@ -115,7 +115,7 @@ la habitación. Podía dar explicaciones después.]],
 
 	{"macro", "rFade", {
 		args={"fab/hostal2.png"},
-		shader=res.shader.radial{
+		shader=res.shader.radialTex{
 			infoCursor={1/2,0}, infoPow=2, infoMul={2/3,1},
 		},
 	}, nil, 1},

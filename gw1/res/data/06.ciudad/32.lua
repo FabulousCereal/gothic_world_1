@@ -7,7 +7,7 @@ local function checaMiRiff()
 		{5, "Falcon", [["Trato de improvisar, hdp ¬¬..."]]},
 		{13},
 		{3, "Falcon", [["¿Por que paraste?"]]},
-		{4, "Bake", [["Porque hay que trabajar xD Trabajá xDD"]]},
+		{4, "Bake", [["Porque hay que laburar xD Laburá xDD"]]},
 		{4, "Falcon", [["Estaba a punto de sacar un hit, Bake xddd"]]},
 		{3, "Bake", [["Clavá aquí mierda xD"]]},
 	}
@@ -42,8 +42,9 @@ local function checaMiRiff()
 			cmd[#cmd + 1] = {
 				"bg", "add",
 				args={cnv, floor(x), floor(y)},
-				color={1, 1, 1, 0},
-				fade={"delay", delay, "fadein", 1/12, "delay", time, true},
+				hide=true,
+				alpha="premultiplied",
+				fade={"delay", delay, "toggle", "delay", time, true},
 			}
 		end
 		delay = delay + time
@@ -150,6 +151,7 @@ local cafeConCroft = {
 			preferí no tocar el tema por ahora.]],
 		},
 		{
+			{"bg", "sub", 2, "mod", fade={"src", res.doll.croft_ojo}},
 			[[Croft alejó la vista, como si la pregunta le hubiera
 			traido dolorosos recuerdos de un tiempo que debería ser
 			olvidado.]],
@@ -157,6 +159,7 @@ local cafeConCroft = {
 			[[Tras un incómodo silencio quise decirle que no tenía
 			que responder, pero Croft suspiró primero y dijo]],
 
+			{"bg", "sub", 2, "mod", fade={"src", res.doll.croft}},
 			{"name", "Croft"},
 			[["Bueno, todo empezó por un panal de abejas. Promete
 			que no le contarás a nadie mas."]],
@@ -167,10 +170,13 @@ local cafeConCroft = {
 			[[Croft me contó la historia, y como prometí
 			no contarla, no la repetiré.]],
 
+			{"bg", "sub", 2, "mod", fade={"src", res.doll.croft_ojo}},
 			[[Las manos me temblaban cuando Croft terminó. El no
 			despegaba la vista del tazón que rodeaba con las
 			palmas para calentarse. A mi tampoco me gustaban las
 			abejas ahora.]],
+
+			{"bg", "sub", 2, "mod", fade={"src", res.doll.croft}},
 		},
 		{
 			{"name", "Croft"},
@@ -204,14 +210,23 @@ del auto.]],
 camino. Croft aguantó estóico, pero creo que igual la debió pasar mal con el
 viento en la cara y sin abrigo.]],
 
-	{"bg", "mod", "default", shader=res.shader.contrast,
-		color=res.palette("flashlight", 0)},
-	{"bg", "add", args={"maria/living.png"}, fade={"fadein", 1}},
+	{"bg", "addsub", {
+		root={color=res.palette("flashlight")},
+		{args={"maria/living.png"}, fade={"fadein", 1}},
+	}},
+	{"bg", "add", draw=f0b.draw.screenFill, shader=res.fun.complex.linterna()},
 	[[Entré con el y Rocco mientras los chicos bajaban sus instrumentos, y
 como se veían entusiasmados en eso, le ofrecí a Croft tomar algo calentarnos.]],
 
-	{"macro", "rFade", res.fun.complex.comedor(true, res.fun.complex.linterna),
-		{.6, .4, .4, 0}},
+	{"macro", "bgFade", res.fun.complex.comedor2()},
+	{"bg", "addsub", 2, {
+		default={draw=f0b.doll.draw},
+		root={color=res.palette("flashlight")},
+		{args={res.doll.sillas, 320}, fade={"fadein", 1}},
+		{args={res.doll.croft, 480, 0, -1}, fade={"fadein", 1}},
+	}},
+	{"macro", "mesa", false, "add", 3},
+	{"bg", "mod", 3, color=res.palette("flashlight")},
 	[[Nos sentamos a comer a la luz de la linterna, mientras los chicos
 martillaban y aserruchaban cosas en el segundo piso, en el cuarto desocupado. A
 Falcon ni se le notaba que estuvo toda la mañana en cama.]],
@@ -235,6 +250,7 @@ ruido estruendoso nos hizo saltar de susto.]],
 	{"bgm", "set", "test", .8 ,setup={play=false},
 		fade={"delay", 2, "cmd", {play=true}},
 		source="amp test.ogg"},
+	{"bg", "sub", 2, "mod", fade={"src", res.doll.croft_ojo}},
 	[["¡BIENVENIDO A LA SELVA!" gritó Bake mientras tocaba su guitarra
 distorsionada por el ampli. "¡Ahora si, Falcon!"]],
 
@@ -282,9 +298,10 @@ Croft tenía cara de °J°]],
 le unió con el bajo.]],
 
 
-	{"macro", "rFade", "maria/baño.png", false, 1, .5},
-	--FIXME
-	{"bg", "add", 3, args={"zeh/croft-ojo.png"}, fade={"fadein", 1}},
+	{"macro", "bgFade", "maria/baño.png"},
+	{"bg", "sub", 2, "modall", fade={"fadeout", 1, true}},
+	{"bg", "mod", 3, fade={"fadeout", 1, true}},
+	{"bg", "sub", 2, "add", args={res.doll.croft_ojo, 160}, fade={"fadein", 1}},
 	{"bgm", "set", "wind", 0,
 		setup={setPitch=3/4},
 		fade={"fadeto", 1/3, 24},
@@ -293,12 +310,12 @@ le unió con el bajo.]],
 	[[Con Croft nos lavamos los dientes al sonido de pruebas de guitarra,
 golpes eléctricos, y mas martillazos provenientes del cuarto.]],
 
-	{"bg", "mod", 2, args={"zeh/croft.png"}},
+	{"bg", "sub", 2, "mod", fade={"src", res.doll.croft}},
 	[[Le pregunté a Croft porque había agua pero no luz, y Croft me dijo
 que el agua corría por gravedad desde las torres. Si seré tonta. Toda la
 vida viéndolas y nunca se me ocurrió que eran para eso.]],
 
-	{"bg", "mod", 2, args={"zeh/croft-ojo.png"}},
+	{"bg", "sub", 2, "mod", fade={"src", res.doll.croft_ojo}},
 	{"name", "Bake"},
 	[["(Na-na-na-na-na-na-na-na niece! Na-na-na-na niece!)"]],
 
@@ -308,13 +325,11 @@ vida viéndolas y nunca se me ocurrió que eran para eso.]],
 	{"name", "María"},
 	[[No tenía idea de que cantaban esos dos.]],
 
-	{"bg", "mod", 2, args={"zeh/croft.png"}},
+	{"bg", "sub", 2, "mod", fade={"src", res.doll.croft}},
 	[[Croft también dijo que a su casa por estar en lo alto le dejó de
 llegar agua esta mañana. Debia ser por eso que preferió quedarse a pesar de que
 no quedaran camas.]],
 
-	{"bgm", "sync"},
-	{"bg", "sync"},
 	{"bg", "modall", fade={"fadeout", 1, true}},
 	{"bgm", "mod", "saw", fade={"fadeout", 12, true}},
 	[[En fin, terminamos, y como era tarde, Croft se fue a agarrar la cama

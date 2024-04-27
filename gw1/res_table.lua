@@ -242,6 +242,7 @@ return {
 		falcon = {"zeh/"},
 		falcon_ja = {"zeh/"},
 		andrea={"zeh/", 0, -20},
+		andrea_fome={"zeh/", 0, -20},
 		fab={"zeh/"},
 		sillas={"Flash/", 0, -100},
 	},

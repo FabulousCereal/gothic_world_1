@@ -9,15 +9,17 @@ se encontraba bien. Aparte que algo de compañía nunca le viene mal a nadie.]],
 conocido recíen ayer, pero por alguna razón cuestionaba su habilidad para
 saber si algo era grave.]],
 
-	{"macro", "rFade", "maria/pasillo.png"},
+	{"macro", "bgFade", "maria/pasillo.png"},
 	[[Llegué a duras penas arriba y toqué a la puerta. La
 verdad iba a entrar igual porque no esperaba respuesta, pero sorprendentemente
 Falcon me respondió casi de inmediato.]],
 
-	{"macro", "rFade", "maria/pieza.png", {.8, .8, .8, 0}},
+	{"macro", "bgFade",
+		{args={"maria/pieza.png"}, color={.8, .8, .8, 1}}
+	},
 	[[Abrí y encontré a Falcon en pie, poniéndose su abrigo con chapa.]],
 
-	{"bg", "add", args={"zeh/falcon.png", 50}},
+	{"bg", "sub", 2, "add", args={res.doll.falcon, 320}},
 	{"name", "Falcon"},
 	[["Hola," me dijo algo desanimado. Noté que se había puesto ropa nueva
 debajo. Usaba una camisa de Green Park, así que a lo mejor Bake le había
@@ -42,11 +44,13 @@ comiendo galletas abajo. ¿Vienes?"]],
 	{"name", "Falcon"},
 	[["Ya. Muero del hambre," dijo sonriendo.]],
 
-	{"macro", "rFade", "maria/pasillo.png", false, 1},
+	{"macro", "bgFade", "maria/pasillo.png"},
+	{"bg", "sub", 2, "mod", fade={"fadeout", 1}},
 	{"name", "María"},
 	[[Salí a esperarlo al pasillo, y cuando estuvo listo fui con en el
 hasta la escalera.]],
 
+	{"bg", "sub", 2, "mod", fade={"fadein", 0}},
 	{"name", "Falcon"},
 	[["¿Te pasó algo en el pie?"]],
 
@@ -63,8 +67,8 @@ y con levantar la manga del pantalón bastó.]],
 	{"name", "Falcon"},
 	[["Igual si reposas creo que se te va a pasar mas luego."]],
 
-	{"bg", "mod", fade={"fadeout", 2/3, true}},
-	{"macro", "rFade", res.fun.complex.comedor(), false, 1},
+	{"bg", "sub", 2, "mod", fade={"fadeout", 2/3, true}},
+	{"macro", "bgFade", res.fun.complex.comedor()},
 	{"name", "María"},
 	[[Bajamos los dos la escalera, cual peor que el otro, y de ahí fuimos
 al comedor donde estaban Bake y Croft tomando mate y café, respectivamente.]],
@@ -185,7 +189,12 @@ de nuevo volví sin nada.]],
 	{"name", "Bake"},
 	[["Coooool," dijo invitándonos a entrar.]],
 
-	{"bg", "add", args={"maria/living.png"}, fade={"fadein", 1}},
+	{"bg", "addsub", {
+		{args={"maria/living.png"}, fade={"fadein", 1}},
+	}},
+	{"bg", "addsub", {
+		default={draw=f0b.doll.draw}
+	}},
 	{"bgm", "set", "normal", source="un día normal (demo).ogg"},
 	{"name", "María"},
 	[[Pasamos con Croft, que alcanzó a poner el pie para no dejar entrar a
@@ -204,7 +213,7 @@ frente a la escalera.]],
 		{
 			[[A lo mejor solo iba a molestarlo si lo despertaba.]],
 
-			{"macro", "rFade", res.fun.complex.comedor()},
+			{"macro", "bgFade", res.fun.complex.comedor()},
 			[[Seguí hasta la mesa y me senté junto a los chicos.
 			Croft ya le estaba contando a Bake sobre como me
 			pasó por encima, y que aparentemente lo rodearon tres
@@ -252,7 +261,7 @@ frente a la escalera.]],
 			comida para ambos y con el agua caliente.]],
 
 			{"name", "Falcon"},
-			[["Aww."]],
+			[["Aww :_3"]],
 
 			{"name", "María"},
 			[[Croft terminó de contar sobre nuestra huida de los
@@ -261,6 +270,6 @@ frente a la escalera.]],
 		}
 	}},
 	{"bgm", "mod", "normal", fade={"fadeout", 2, true}},
-	{"bg", "mod", 1, fade={"fadeout", 2, true}},
+	{"bg", "mod", "root", fade={"fadeout", 2}},
 	[[Croft bajó la mirada hacia su café. Tomó un sorbo y suspiró...]],
 }

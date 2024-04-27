@@ -20,7 +20,7 @@ sillón, cada uno vuelto hacia su lado y tapados con el poncho.]],
 	[[Sin nada que hacer ni nadie con quien hablar, lo único que quedaba
 era esperar. Vivir para esperar. Ese era el único futuro que veía ahora.]],
 
-	[[Esperar a comer, esperar a dormir. ¿Dormir? ¿Donde?]],
+	[[Esperar a comer, esperar a dormir... ¿Dormir? ¿Donde?]],
 
 	[[Conté las camas, y me dí cuenta que se iba a hacer muy difícil
 acomodarnos todos, y mas si los hombres insistían en no compartir cama.]],
@@ -89,18 +89,19 @@ era solo uno. Parecían venir de la casa del vecino, y luego se desplazaron a la
 calle. En pánico, corrí de vuelta a la casa, cerrando con un portazo.]],
 
 	{"name", "Fabian"},
-	[["¡Ah!" despertó Fab, poniendo por reflejo una mano en el hombro de
+	[["¡Ah!" despertó Fab, moviendo por reflejo el hombro de
 Andrea. Yo miré por entre las tablas de la ventana. Aparecieron unas
 figuras en la calle.]],
 
-	[["¿Que pasa?" Andrea despertó también.]],
+	{"name", "Andrea"},
+	[["¿Q-Que pasa?"]],
 
 	{"name", "María"},
-	[["Hay un grupo de esas cosas afuera." Fab se levantó a mirar. Llegaron
-tres al patio de la casa.]],
+	[["Hay un grupo de esas cosas afuera." Fab y Andrea se levantaron a
+mirar. Llegaron tres bestias al patio de la casa.]],
 
 	{"name", "Fabian"},
-	[["Cielos." Andrea se acercó a mirar.]],
+	[["Cielos."]],
 
 	{"name", "María"},
 	[["¿Que hacemos?"]],

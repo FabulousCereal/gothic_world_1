@@ -49,7 +49,6 @@ había ocurrido en esta ciudad.]],
 }
 
 local losZombies = {
---	{"bg", "mod", fade={"mvabs", 150, 0, 1/60, "fadein", 1/3}},
 	{"name", "María"},
 	[["¿Crees que vayan a volver a la noche?"]],
 
@@ -158,7 +157,7 @@ llegaban hasta acá. Quizás... era por mí.]],
 	[[Falcon me miró, y debió notar que no estaba muy relajada.]],
 
 	{"name", "Falcon"},
-	[["Mira, mientras no nos tomen por sorpresa no nos va a pasar nada. No
+	[["Mientras no nos tomen por sorpresa no nos va a pasar nada. No
 son sigilosos, y con estas tablas, créeme que nos daremos cuenta si tratan de
 entrar. Es cosa de estar preparados."]],
 
@@ -299,15 +298,20 @@ hacia el frente para hablarle.]],
 	}},
 	{"bgm", "mod", "rev", fade={"fadeout", 1, true}},
 
-	{"bg", "mod", "default", color=res.palette("fivepm")},
-	{"bg", "add", args={"maria/living.png"}, fade={"fadein", 2}},
+	{"bg", "mod", "root", color=res.palette("fivepm")},
+	{"bg", "addsub", {
+		{args={"maria/living.png"}, fade={"fadein", 2}},
+	}},
 	{"name", "María"},
 	{"text", [[ a la casa cerca de las seis, cuando el sol ya se ocultaba
 y la nieve comenzaba a tapar la vista. Entramos Falcon y yo cargando
 la comida, y el dejó un segundo las bolsas para estirar los brazos al techo.]],
 	true},
 
-	{"bg", "add", args={"zeh/falcon-ja.png", 150}, fade={"fadein", 1/12}},
+	{"bg", "addsub", {
+		default={draw=f0b.doll.draw},
+		{args={res.doll.falcon_ja, 210}, fade={"fadein", 1/12}},
+	}},
 	{"name", "Falcon"},
 	[["Dios, que agradable," dijo extasiado. "Había dormido todos estos
 días en el auto." Bake entró sin nada y se tiró como tabla en el sillón.]],
@@ -316,8 +320,8 @@ días en el auto." Bake entró sin nada y se tiró como tabla en el sillón.]],
 	[["Tenés razón," dijo recostado boca abajo. Llevé a Falcon a la
 cocina para guardar la comida.]],
 
-	{"macro", "rFade", "maria/cocina.png", false, 1},
-	{"bg", "mod", fade={"fadeout", 1}},
+	{"macro", "bgFade", "maria/cocina.png"},
+	{"bg", "sub", 2, "mod", fade={"fadeout", 1}},
 	[["¿Sabés que nos hizo falta? Unas chelas," comentó Bake desde el
 living. Falcon contuvo una risa, aunque a mi no me hizo gracia.]],
 
@@ -327,7 +331,7 @@ living. Falcon contuvo una risa, aunque a mi no me hizo gracia.]],
 	{"name", "Bake"},
 	[["Mierda xD"]],
 
-	{"bg", "mod", args={"zeh/falcon.png", 50}, fade={"fadein", 1/12}},
+	{"bg", "sub", 2, "mod", fade={"src", res.doll.falcon, "fadein", 1/12}},
 	{"name", "Falcon"},
 	[["¿Eh? ¿Cuerpos?"]],
 
@@ -339,15 +343,18 @@ afuera," dije apuntando a la ventana porque no quería verlos de nuevo.
 	{"name", "Falcon"},
 	{"text", [["Ahh."]], false, true},
 
-	{"bg", "mod", fade={"fadeout", 1}},
+	{"bg", "sub", 2, "mod", fade={"fadeout", 1}},
 	{"text", [[ Falcon fue a echar un ojo mientras yo guardaba la comida.]],
 true},
 
 	[["Aquí no hay nada," dijo.]],
 
-	{"bg", "add", 2, args={"maria/patio.png"}, fade={"fadein", 1/3}},
-	[[Pensé que quizás era la nieve que los había cubrido. Me asomé a
-mirar, y luego abrí la puerta. De verdad no estaban.]],
+	{"name", "María"},
+	{"text", [[Pensé que quizás era la nieve que los había cubrido. ]],
+		false, true},
+	{"bg", "sub", 1, "add", args={"maria/patio.png"}, fade={"fadein", 1/3}},
+	{"text", [[Me asomé a mirar, y luego abrí la puerta. De verdad no
+		estaban.]], true},
 
 	{"name", "María"},
 	[["S-Se suponía que estaban muertos." ¿Donde se habían ido? ¿Que había
@@ -361,9 +368,10 @@ bien muertos."]],
 	{"name", "Falcon"},
 	[["Que yo sepa no son caníbales, pero quién sabe."]],
 
-	{"bg", "add", args={"zeh/bake.png", 640, 0, 0, -1, 1}, fade={"fadein", 1/2}},
-	{"bg", "mod", 3, fade={"mvabs", 50, 0, 0, "fadein", 1/2}},
-	{"bg", "mod", 2, fade={"fadeout", 1/2, true}},
+	{"bg", "sub", 1, "mod", fade={"fadeout", 1/2, true}},
+	{"bg", "sub", 2, "mod", fade={"mvabs", 160, false, 0, "fadein", 1/2}},
+	{"bg", "sub", 2, "add",
+		args={res.doll.bake, 480, 0, -1}, fade={"fadein", 1/2}},
 	{"name", "María"},
 	[[El viento sopló fuerte de nuevo así que nos metimos de nuevo a la
 casa. Le puse el seguro a la puerta.]],
@@ -377,8 +385,7 @@ de calmarme.]],
 	{"name", "Bake"},
 	[["Dale. Yo tengo hambre así que voy a preparar algo."]],
 
-	{"bg", "sync"},
-	{"bg", "mod", 2, fade={"fadeout", 1}},
+	{"bg", "sub", 2, "mod", 1, fade={"fadeout", 1}},
 	{"name", "María"},
 	[[Falcon nos dejó solos, y yo intenté quedarme tranquila con sus
 palabras. Por mas que me dijeran esas cosas, esa extraña incomodidad en el
@@ -387,29 +394,27 @@ pecho no desaparecía.]],
 	[[Empecé a charlar un poco con Bake para quitarme eso de la mente.
 Aunque fuera loco, escucharlo hablar me ayudaba.]],
 
-	{"bg", "modr", 1, 3, color=res.palette("sixpm"), shader=res.shader.purkinje},
-	{"bg", "mod", 2, fade={"fadeout", 0, "mvdiff", -50, 0, 0}},
-	{"bg", "mod", 3, fade={"mvabs", 600, 0, 1/60}},
-	{"bg", "add", draw=f0b.draw.screenFill, color={0,0,0,1},
-		fade={"fadeout", 1, true}},
+	{"bg", "mod", "root", color={0,0,0,1},
+		fade={"color", res.palette("sixpm"), 1},
+		shader=res.shader.purkinje},
 	[[Afuera la nieve se apilaba, y el sol se ponía lentamente. Bake me
 contaba de la vez que a Pipi la atropellaron pero que logró volver a caminar.]],
 
-	{"bg", "mod", 2, fade={"fadein", 2}},
+	{"bg", "sub", 2, "mod", 1, fade={"fadein", 2}},
 	[[Falcon regresó casi una sombra, haciendo que me sobresaltara. Bake se
 rió, y recién ahí reveló que tenía una linterna.]],
 
-	{"bg", "modr", 1, 3, color=res.palette("flashlight"), shader=res.shader.contrast},
-	{"bg", "mod", "root",
-		shader=res.shader.radial{
-			infoCursor={2/3,-2/3}, infoMul={3,3}, infoPow=3,
+	{"bg", "mod", "root", color=res.palette("flashlight"),
+		shader=res.shader.radialTex{
+			infoCursor={3/5,-2/3}, infoMul={3,3}, infoPow=3,
+			bg={0,0,0,.95},
 		}
 	},
-	{"bg", "mod", args={"zeh/bake-xd.png", 640, 0, 0, -1, 1}},
+	{"bg", "sub", 2, "mod", fade={"src", res.doll.bake_xd}},
 	{"name", "Bake"},
 	[["Whazza!"]],
 
-	{"bg", "mod", args={"zeh/bake.png", 600, 0, 0, -1, 1}},
+	{"bg", "sub", 2, "mod", fade={"src", res.doll.bake}},
 	{"name", "María"},
 	[["¬¬"]],
 
@@ -429,9 +434,9 @@ rió, y recién ahí reveló que tenía una linterna.]],
 linterna.]],
 ]=]
 
-	{"bg", "mod", "root", shader=false},
+	{"bg", "mod", "root", shader=res.fun.complex.linterna(true)},
 	{"name", "María"},
-	[[Le quité la linterna a Bake para iluminar bien la cocina, porque no
+	[[Le quité la linterna para iluminar bien la cocina, porque no
 me gustaba para nada la oscuridad.]],
 
 	[[Falcon se aclaró la garganta, y explicó que le preocupaba no tener
@@ -453,20 +458,18 @@ esas criaturas.]],
 	{"text", [["Quisiera, pero caminar dos horas no le hizo bien a mi
 espalda xD]], false, true},
 
-	{"bg", "mod", args={"zeh/bake-xd.png", 640, 0, 0, -1, 1}},
+	{"bg", "sub", 2, "mod", 2, fade={"src", res.doll.bake_xd}},
 	{"text", [[ Me duele xDD"]], true},
 
-	{"bg", "mod", args={"zeh/bake.png", 600, 0, 0, -1, 1}},
+	{"bg", "sub", 2, "mod", 2, fade={"src", res.doll.bake}},
 	{"name", "María"},
 	[["Yo te ayudo entonces," me ofrecí.]],
 
-	[[Me llevé la linterna lo dejamos cocinando a Bake solo con la
+	[[Me llevé la linterna y dejamos cocinando a Bake solo con la
 llama del gas, y entramos todas las tablas y herramientas al living.]],
 
-	{"bg", "modr", 2, 3, fade={"fadeout", 1/3, true}},
-	{"macro", "rFade", "maria/living.png", false, 1},
-	{"bg", "mod", "default", color=res.palette("flashlight"),
-		shader=res.shader.contrast},
+	{"bg", "sub", 2, "modall", fade={"fadeout", 1}},
+	{"macro", "bgFade", "maria/living.png"},
 
 	[[Nos pusimos manos a la obra de inmediato. Yo sostenía las tablas
 mientras el las clavaba a la pared.]],
@@ -474,16 +477,20 @@ mientras el las clavaba a la pared.]],
 	[[Me sentía un poco mal haciéndole esto a la casa de Bake, pero peor
 sería dormir tras lo que dijo Falcon.]],
 
+	{"bg", "sub", 2, "mod", 1, fade={"fadein", 1}},
 	[[Mientras pasaba el tiempo, no pude evitar también sentir algo de
 lástima por Falcon. A pesar de todas sus heridas, se notaba era un buen
 chico.]],
 	{"read", laConversacion, true},
 
+	{"bg", "sub", 2, "mod", 1, fade={"fadeout", 1}},
 	[[Tras nuestro arreglo la casa quedó aún mas oscura, así que
 con Falcon acordamos buscar velas y baterías para la próxima salida.]],
 
-	{"macro", "rFade", res.fun.complex.comedor(true,
-		res.fun.complex.linterna), {1, 3/4, 2/3, 0}, 1},
+	{"macro", "bgFade", res.fun.complex.comedor2()},
+	{"macro", "mesa", 1, "add"},
+	{"bg", "sub", 2, "add", 1, args={res.doll.sillas, 320}},
+	{"bg", "sub", 2, "modall", fade={"fadein", 1}},
 	[[Acabado el trabajo, nos sentamos a comer un estofado con lo único
 medianamente saludable que trajimos.]],
 
@@ -508,19 +515,25 @@ atento.]],
 	{"name", "Falcon"},
 	[["Eeh, mate también."]],
 
+	{"bg", "sub", 2, "mod", 3, fade={"fadeout", 1}},
 	{"name", "María"},
 	[[Bake fue a la cocina y se trajo todo en un solo viaje, incluyendo
-un termo con agua caliente que había hervido de antes. Bake me pasó la yerba y
-empecé a servirme de inmediato. Falcon nos quedó mirando.]],
+un termo con agua caliente que había hervido de antes.]],
+
+	{"bg", "sub", 2, "mod", 3, fade={"fadein", 1}},
+	[[Bake me pasó la yerba y empecé a servirme de inmediato. Falcon nos
+quedó mirando.]],
 
 	{"name", "Falcon"},
 	[["Pregunta, ¿ustedes son novios?" preguntó de pronto. Ambos lo
 miramos.]],
 
+	{"bg", "sub", 2, "mod", 3, fade={"src", res.doll.bake_xd}},
 	{"name", "María"},
 	[[Bake empezó a reir con la pregunta tan repentina, y yo hice lo mismo,
 no más que de paso errándole con el agua al mate.]],
 
+	{"bg", "sub", 2, "mod", 3, fade={"src", res.doll.bake}},
 	{"name", "Bake"},
 	[["lol, no, nos conocimos esta mañana. La salvé de la Sombra," rió.]],
 
@@ -617,9 +630,9 @@ cansancio se nos notaba a todos, aunque a el especialmente.]],
 prácticamente de noche y el ambiente se enfriaba por segundo, decidimos que era
 mejor irnos a dormir. Fuimos hasta la escalera.]],
 
-	{"macro", "rFade", "maria/living.png"},
-	{"bg", "add", args={"zeh/bake.png", 20}, fade={"fadein", 1}},
-	{"bg", "add", args={"zeh/falcon.png", 600, 0, 0, -1, 1}, fade={"fadein", 1}},
+	{"macro", "bgFade", "maria/living.png"},
+	{"bg", "mod", fade={"fadeout", 1, true}},
+	{"bg", "sub", 2, "mod", 1, fade={"fadeout", 1, true}},
 	{"name", "Falcon"},
 	[["¿Donde dormiremos?"]],
 
@@ -630,12 +643,13 @@ mis padres que es doble."]],
 	{"name", "Falcon"},
 	[["No dormiré contigo."]],
 
-	{"bg", "sync"},
-	{"bg", "mod", 2, args={"zeh/bake-xd.png"}},
 	{"name", "Bake"},
-	[["Yo tampoco. No somos gays xD"]],
+	{"text", [["Yo tampoco. ]], false, true},
+	{"bg", "sub", 2, "sync"},
+	{"bg", "sub", 2, "mod", 2, fade={"src", res.doll.bake_xd}},
+	{"text", [[No somos gays xD"]], true},
+	{"bg", "sub", 2, "mod", 2, fade={"src", res.doll.bake}},
 
-	{"bg", "mod", 2, args={"zeh/bake.png", 20}},
 	{"name", "Falcon"},
 	[["María duerme contigo en la doble entonces, a menos que quieras
 dormir solo por la espalda."]],
@@ -652,7 +666,7 @@ noches."]],
 	{"name", "Bake"},
 	[["Buenas noches."]],
 
-	{"bg", "modr", 2, 3, fade={"fadeout", 1/3, true}},
+	{"bg", "sub", 2, "modall", fade={"fadeout", 1/3, true}},
 	{"name", "María"},
 	[[Ambos subieron y se fueron a dormir, dejándome sola a los pies de la
 escalera con la linterna en la mano.]],

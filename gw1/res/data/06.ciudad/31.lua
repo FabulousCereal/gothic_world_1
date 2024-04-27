@@ -102,16 +102,17 @@ agarrándome desprevenida. "Tomá."]],
 	[["Un revólver y un cargador. Debés usarlos bien."]],
 
 	{"name", "María"},
-	[["Pero no se disparar."]],
+	[["Pero no sé disparar."]],
 
 	{"name", "Bake"},
 	[["De ahí te enseñamos. Por ahora guardalo."]],
 
 	{"name", "María"},
 	[[Me quedé mirando el arma mientras los chicos salían de la tienda.
-Era extraño sostener una. Pensé que me sentiría poderosa, como dicen en la
-tele... Pero solo me parecía un fierro pesado. Creo que me desagradaba un
-poco.]],
+Era extraño sostener una.]],
+
+	[[Pensé que me sentiría poderosa, como dicen en la tele... Pero solo me
+parecía un fierro pesado. Creo que me desagradaba un poco.]],
 
 	{"name", "Falcon"},
 	[["¿A donde ahora? ¿A la tienda de guitarras?"]],
@@ -375,12 +376,14 @@ puerta estaba abierta. Croft y yo los mirabamos en silencio.]], true},
 	[["Si, vamos."]],
 
 	[[Fuimos con Croft y Rocco a buscar lo importante en un mall que había
-al lado. Tuvimos que apurarnos antes que se acabara la luz, pero encontramos
-a tiempo lo que buscabamos, ademas de galletas, puré instantáneo, y dos pijamas
-que se veían buenos para el clima.]],
+al lado.]],
+
+	[[Tuvimos que apurarnos antes que se acabara la luz, pero encontramos
+a tiempo lo que buscabamos, ademas de galletas, puré instantáneo, un abrigo
+para Croft, y dos pijamas que se veían buenos para el clima.]],
 
 	[[Cuando volvimos al auto, habían tres criaturas muertas frente a la
-tienda, una con un guitarrón de bufanda. Falcon y Bake habían metido a la cabina
-cuatro guitarras y tres amplis, y estaban metiendo a la fuerza pedazos de pared
-antisonora en el maletero.]],
+tienda, una con una tuba de sombrero. Falcon y Bake habían metido a la cabina
+cuatro guitarras y tres amplis, y estaban metiendo pedazos de pared antisonora
+en el maletero.]],
 }

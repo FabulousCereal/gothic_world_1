@@ -32,6 +32,16 @@ return {
 		}
 	end,
 
+	comedor2 = function()
+		return {
+			--[[El color original es #ffcc00, que es así de simple
+			de expresar con fracciones. Me pregunto como es que
+			elegí justo esos números el 2009.]]
+			color={1, 4/5, 0, 1},
+			draw=f0b.draw.screenFill,
+		}
+	end,
+
 	vignette = function(cursor)
 		return {"bg", "add",
 			shader=res.shader.radialTex{

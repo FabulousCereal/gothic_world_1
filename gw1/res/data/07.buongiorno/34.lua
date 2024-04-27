@@ -2,8 +2,15 @@ return {
 	{"style", "vnMaria"},
 	{"macro", "titleDate", {2011, 11, 13, 9, 13}},
 
-	f0b.table.union(res.fun.complex.comedor(),
-		{"bg", "add", color=res.palette("tenpm", 0), fade={"fadein", 1}}),
+	{"bg", "mod", "root", color={2/3, 2/3, 2/3, 1}},
+	f0b.table.union(res.fun.complex.comedor2(), {"bg", "add"}),
+	{"bg", "addsub", {
+		default={draw=f0b.doll.draw},
+		{args={res.doll.sillas, 320}},
+		{args={res.doll.falcon, 160}},
+		{args={res.doll.bake, 480, 0, -1}},
+	}},
+	{"macro", "mesa", false, "add"},
 	{"name", "Bake"},
 	[["Ahh, delicioso," dijo Bake tras acabarse el último pedazo de pollo.
 "¿Que hacemos ahora?"]],
@@ -12,8 +19,8 @@ return {
 	[["Estamos de nuevo sin comida," reclamé.]],
 
 	{"name", "Bake"},
-	[["Verdad. Habrá que ir de nuevo al mall, lol. ¿Vamos ahora o cuando
-nos dé hambre?"]],
+	[["Verdad. Habrá que ir de shopping de nuevo, lol. ¿Vamos ahora o
+cuando nos dé hambre?"]],
 
 	{"name", "María"},
 	[["¿Como que--? ¡Ahora tiene que ser!"]],
@@ -28,25 +35,29 @@ nos dé hambre?"]],
 	[["Verdad. La agotamos con los amplis xD"]],
 
 	{"name", "María"},
-	[["¿Que hicieron QUE?"]],
+	[["¿QUE?"]],
 
 	{"name", "Bake"},
-	[["Contabamos con que hariamos puente con la camioneta de Croft xD
-Estamos varados y sin amplis xdd"]],
+	[["Contabamos con que hariamos puente con la camioneta de
+Croft xD Estamos varados y sin amplis xdd"]],
 
+	{"bg", "sub", 2, "mod", fade={"src", res.doll.bake_xd}},
 	{"name", "María"},
 	[["Bake..." dije con una necesidad asesina surgiendo de mi. Falcon se
 levantó.]],
 
+	{"bg", "sub", 2, "mod", fade={"src", res.doll.bake}},
+	{"bg", "sub", 2, "mod", 2, fade={"mvdiff", false, -120, 1/3}},
 	{"name", "Falcon"},
 	[["Tranquila, que ese coche ya se iba a desarmar solo," dijo mientras
 se ponía abrigo, y miró a Bake. "¿Se enojarán tus vecinos si les
 sacamos un carro?"]],
 
+	{"bg", "sub", 2, "mod", fade={"mvdiff", false, -120, 1/3}},
 	{"name", "Bake"},
 	[["Hmm, nah xD Vamos."]],
 
-	{"bg", "mod", fade={"fadeout", 1, true}},
+	{"bg", "mod", "root", fade={"color", {0,0,0,0}, 1}},
 	{"name", "María"},
 	[[Los chicos se dirigieron a la puerta, y yo me apresuré en ponerme
 abrigo para ir tras ellos. Estabamos saliendo cuando Bake se detiene de golpe,
@@ -55,9 +66,10 @@ y chocamos Falcon y yo con el.]],
 	{"name", "Bake"},
 	[["lol, mierda," dijo dando un salto. Miramos al suelo y había un
 regalito de Rocco justo frente a la puerta, y para variar ya tenía dibujada una
-suela de zapato. Lo rodeamos y salimos a la calle, con Pipi olfateandonos los
+suela de zapato. Lo rodeamos y salimos a la calle, con Pipi olfateándonos los
 pies.]],
 
+	{"bg", "rmall"},
 	{"name", "María"},
 	[[Fuimos a la casa del vecino. Sin perder el tiempo Bake escaló el
 portón y se metió de un salto.]],

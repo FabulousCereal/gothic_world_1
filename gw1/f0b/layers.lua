@@ -75,6 +75,19 @@ local fadeOps = {
 		fade[2] = seq.interpolationLinear(int)
 		return seq.interpolate(layer, fade, dt)
 	end,
+
+	-- Change first argument
+	-- Format: {"src", arg}
+	src = function(layer, fade, dt)
+		layer.args[1] = fade[2]
+		return 2, -dt
+	end,
+
+	-- Toggle visibility
+	toggle = function(layer, fade, dt)
+		layer.hide = not layer.hide
+		return 1, -dt
+	end,
 }
 
 local isUpdatable = {table=true, userdata=true}
@@ -166,13 +179,15 @@ local function layerTableDraw(lt, skipDraw)
 		for i = 1, #lt do
 			local ldyn
 			local layer = lt[i]
-			if layer.cnv then
-				ldyn = layerTableDraw(layer)
-			else
-				ldyn = layerDraw(layer, defaultFn,
-					unpackIfPresent(layer.args))
+			if not layer.hide then
+				if layer.cnv then
+					ldyn = layerTableDraw(layer)
+				else
+					ldyn = layerDraw(layer, defaultFn,
+						unpackIfPresent(layer.args))
+				end
+				dyn = ldyn or dyn
 			end
-			dyn = ldyn or dyn
 		end
 		graphics.setCanvas(prev)
 		lt.redraw = dyn

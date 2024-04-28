@@ -88,9 +88,9 @@ local function updateParallax(self)
 	offset = offset + cur[2]
 
 	local em, _, margin = f0b.style.getUnits(self.style)
-	local diff = -(offset - self.prevOff) * (margin*2 + em)
-	f0b.layers.ops(self.background, {fade={"mvdiff", false, diff, 2/3}}, "modall")
-	self.prevOff = offset
+	local pos = -offset * (margin*2 + em)
+	f0b.layers.ops(self.background, {fade={"mvabs", false, pos, 2/3}},
+		"modall")
 end
 
 local function runStage(self)

@@ -48,7 +48,7 @@ gamestate[tocID].background = normalize({
 	{args={"menu/index.png"}, color={1, 1, 1, 1}, scale=1/11},
 	{args={
 		love.graphics.newText(res.font("dejaVuSans", 11), "recuérdame"),
-		w*4/7*11, 920*11,
+		0, 0, 0, 1, 1, -w*4/7, -920,
 	}, color={.5, .5, .5, 1}, scale=1/11},
 	{args={snowParticles(w, h)}, scale=1/24, shader=res.shader.circle},
 })

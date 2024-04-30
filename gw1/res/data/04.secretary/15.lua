@@ -58,8 +58,8 @@ devolverme.]],
 
 	{"bg", "addsub", {
 		root={color={0,0,0,0}, fade={"color", {1,1,1,1}, 2}},
-		res.fun.complex.cielo({.75, .8, 1, 1}, {1/3, 1/3, 1/3, 3/4},
-			{-1/3, -1/3})
+		res.fun.complex.cielo({.7, .8, .9, 1}, {1/3, 1/3, 1/3, 3/4},
+			{1/3, 1/3})
 	}},
 
 	[[No lograba recordar el auto pero sí fragmentos, como haber estado

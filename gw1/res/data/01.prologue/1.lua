@@ -200,7 +200,7 @@ para lavarnos mejor. Asi que eso hicimos.]],
 
 	{"bg", "add", args={"bake/amigos-en-el-living.png"},
 		color={.8, .6, .8, 0}, fade={"fadein", 4/6},
-		shader=res.shader.dither_o2x2},
+		shader=res.shader.dither_o2x2_pre},
 	[[Envueltos solo con la luz del crepúsculo, salimos de la ducha y nos
 fuimos al living. Mis amigos ya habían prendido la tele...]],
 	{"bg", "sync"},

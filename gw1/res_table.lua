@@ -17,28 +17,27 @@ local function fbm(wrap)
 				// Adapted from https://www.shadertoy.com/view/4djSRW
 				// These constants aren't special, they just
 				// look ok.
-				const vec2 i = vec2(19.0/31.0);
-				const vec2 h = vec2(23.0/7.0);
+				const vec2 i = vec2(1.1492756978,9.3957601859);
+				const vec2 h = vec2(7.1935862043,2.6010834687);
 				f = fract(f * i);
 				f += dot(f.xyxy, (f + h).xxyy);
 				return fract(dot(f.xy, f.xx));
 			}
 
 			float fnoise2(vec2 pos) {
+				const vec2 c = vec2(0.0, 1.0);
 				vec2 i = floor(pos);
 				vec2 f = pos - i;
-				vec2 c = vec2(0.0, 1.0);
 				vec4 h = vec4(
 					hash(i),
 					hash(i + c.yx),
 					hash(i + c.xy),
 					hash(i + c.yy)
 				);
-				//vec2 s = f*f*(3.0-2.0*f);
-				vec2 s = sin(f * %.10f);
-				vec2 m = vec2(1.0 - s.x, s.x);
+				f = f*f*(3.0-2.0*f);
+				vec2 m = vec2(1.0 - f.x, f.x);
 				float a = dot(h.xy, m);
-				return (dot(h.zw, m) - a)*s.y + a;
+				return (dot(h.zw, m) - a)*f.y + a;
 			}
 
 			float fbm(vec2 pos) {
@@ -71,7 +70,7 @@ local function fbm(wrap)
 				g.a = mix(1.0, g.a, alphaMask);
 				return color * Texel(tex, texCoord) * g;
 			}
-		]], math.pi/2, wrap[1])
+		]], wrap[1])
 	local base = {code,
 		value=0, amplitude=.5, tune={1.99,1.99}, rolloff=.5,
 		alphaMask=0, mul={1,1}, add={-.5,-.5}, mv={0,0},
@@ -82,29 +81,17 @@ end
 local function sdf(sdf, interpolation)
 	local fn = {
 		sin="sin(clamp(d*pi, -pi/2, pi/2)) * 0.5 + 0.5",
-		linear="clamp(d + 0.5, 0, 1)",
+		linear="clamp(d + 0.5, 0.0, 1.0)",
 		step="step(0, d)",
 	}
 	return {string.format([[
-		varying vec2 actualRes;
-#ifdef VERTEX
-		uniform vec2 resolution;
-		vec4 position(mat4 xform, vec4 pos) {
-			if (min(resolution.x, resolution.y) < 0.0) {
-				vec4 scr = vec4(love_ScreenSize.xy, 0.0, 1.0);
-				actualRes = (TransformMatrix * scr).xy;
-			} else {
-				actualRes = resolution;
-			}
-			return xform*pos;
-		}
-#endif
-#ifdef PIXEL
 		uniform float margin;
 		uniform float borderRadius;
 		uniform float borderWidth;
 		uniform vec4 borderColor;
 		uniform vec4 backgroundColor;
+
+		uniform vec2 resolution;
 
 		%s
 		float alias(float d) {
@@ -120,32 +107,17 @@ local function sdf(sdf, interpolation)
 			return bg;
 		}
 		vec4 effect(vec4 color, Image _tex, vec2 texCoord, vec2 _) {
-			// Convert coords from [0,1] to [-res/2,res/2]
-			vec2 halfRes = actualRes * vec2(0.5);
-			vec2 normalCoord = texCoord * actualRes - halfRes;
+			vec2 halfRes = resolution * vec2(0.5);
+			vec2 normalCoord = texCoord * resolution - halfRes;
 
 			float dist = sdf(normalCoord, halfRes);
 			return color * getColor(dist + margin);
 		}
-#endif
 	]], sdf, math.pi, fn[interpolation or "linear"]),
 		resolution={-1,-1},
 		borderWidth=0, borderColor={0,0,0,0}, borderRadius=0,
 		backgroundColor={1,1,1,1},
 		margin=0,
-	}
-end
-
-local function grayWeight(weights)
-	return {
-		[[
-			uniform vec3 weights;
-			vec4 effect(vec4 color, Image tex, vec2 texCoord, vec2 _) {
-				vec4 pxl = Texel(tex, texCoord);
-				pxl.rgb = vec3(dot(pxl.rgb, weights));
-				return color * pxl;
-			}
-		]], weights=weights
 	}
 end
 
@@ -160,26 +132,26 @@ local function radial(texload)
 		]]
 	return {
 		string.format([[
-			uniform vec2 infoCursor;
-			uniform vec2 infoMul;
-			uniform float infoPow;
+			uniform vec2 sub;
+			uniform vec2 mul;
+			uniform float decay;
 			uniform vec4 fg;
 			uniform vec4 bg;
 
-			vec2 norm(vec2 coord) {
-				return coord - vec2(.5);
-			}
 			vec4 effect(vec4 color, Image tex, vec2 texCoord, vec2 _) {
-				float dist = clamp(
-					distance(infoCursor, norm(texCoord)*infoMul),
-					0, 1
-				);
-				vec4 r = mix(fg, bg, pow(dist, infoPow));
+				vec2 x = texCoord*mul - sub;
+				float dist = dot(x, x);
+				float a = clamp(pow(dist, decay), 0.0, 1.0);
+				vec4 r = mix(fg, bg, a);
 				%s
 			}
 		]], mix),
 		fg={0,0,0,0}, bg={0,0,0,1},
-		infoCursor={.5,.5}, infoPow=2, infoMul={1,1},
+		center={.5,.5}, decay=1, mul={1,1},
+		sub=function(ctx)
+			local m, c = ctx.mul, ctx.center
+			return {m[1]*c[1], m[2]*c[2]}
+		end,
 	}
 end
 
@@ -194,13 +166,12 @@ local function dither_o2x2(preColor)
 		]]
 
 	return string.format(
-		[[vec4 effect(vec4 color, Image tex, vec2 texCoord, vec2 _scr_coord) {
+		[[vec4 effect(vec4 color, Image tex, vec2 texCoord, vec2 scrCoord) {
 			const mat2 weight = mat2(
 				1./16., 9./16.,
 				13./16., 5./16.
 			);
-			vec2 texSize = vec2(1.0) / fwidth(texCoord);
-			ivec2 pos = ivec2(mod(texCoord * texSize, 2.0));
+			ivec2 pos = ivec2(mod(scrCoord, 2.0));
 			float offset = weight[pos.x][pos.y];
 			vec4 txl = Texel(tex, texCoord);
 			%s
@@ -407,8 +378,8 @@ return {
 				return x.x*y.y - x.y*y.x;
 			}
 			float segmentDist(vec2 x, vec2 y) {
-				float project = dot(x,y)/dot(y,y);
-				vec2 reject = x - y*clamp(project, 0.0, 1.0);
+				float project = clamp(dot(x,y)/dot(y,y), 0.0, 1.0);
+				vec2 reject = x - y*project;
 				return dot(reject, reject);
 			}
 			float vmin(vec3 x) {
@@ -460,12 +431,17 @@ return {
 		dither_o2x2 = dither_o2x2(false),
 		dither_o2x2_pre = dither_o2x2(true),
 
-		-- Mas o menos como YCbCr.
-		gray = grayWeight{.3, .6, .1},
-
-		-- Una pésima aproximación del efecto Purkinje
-		-- https://es.wikipedia.org/wiki/Efecto_Purkinje
-		purkinje = grayWeight{.1, .3, .6},
+		gray = {
+			[[
+				uniform vec3 weights;
+				vec4 effect(vec4 color, Image tex, vec2 texCoord, vec2 _) {
+					vec4 pxl = Texel(tex, texCoord);
+					pxl.rgb = vec3(dot(pxl.rgb, weights));
+					return color * pxl;
+				}
+			]],
+			weights={.3, .6, .1}, -- Mas o menos como YCbCr.
+		},
 
 		radial = radial(false),
 		radialTex = radial(true),
@@ -488,9 +464,9 @@ return {
 			float generate(vec2 p) {
 				p = p;
 				float ripple = max(time.x-length(-p*waves), 0);
-				ripple = mod(ripple, 3.1415926);
-				p *= 1 + .0625*sin(ripple);
-				p += .25*fbm(vec2(sin(ripple)));
+				ripple = sin(mod(ripple, 3.1415926));
+				p *= 1 + .0625*ripple;
+				p += .25*fbm(vec2(ripple));
 
 				return fbmThirdDegree(p);
 			}

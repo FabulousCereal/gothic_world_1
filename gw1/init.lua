@@ -1,12 +1,12 @@
 -- SPDX-FileCopyrightText: 2023 Grupo Warominutes
 -- SPDX-License-Identifier: Unlicense
 
+local maxPSize = 6
 local function snowParticles(screenW, screenH)
 	local graphics = love.graphics
 
-	local maxSize = 6
 	local speed = 12
-	local span = screenH + maxSize*2
+	local span = screenH + maxPSize*2
 	for i = 1, #res.index do -- Parallax
 		local ch = res.index[i]
 		span = span + #ch
@@ -16,11 +16,11 @@ local function snowParticles(screenW, screenH)
 	local snow = graphics.newParticleSystem(f0b.draw.unitSquare, 512)
 	snow:setDirection(math.pi/2)
 	snow:setSpeed(speed)
-	snow:setPosition(-maxSize, -maxSize)
-	snow:setEmissionArea("uniform", screenW + maxSize*2, 0)
+	snow:setPosition(-maxPSize, -maxPSize)
+	snow:setEmissionArea("uniform", screenW + maxPSize*2, 0)
 	snow:setEmissionRate(6)
 	snow:setParticleLifetime(span / speed)
-	snow:setSizes(1, maxSize)
+	snow:setSizes(4, maxPSize)
 	snow:setSizeVariation(1)
 	snow:start()
 	return snow
@@ -50,7 +50,9 @@ gamestate[tocID].background = normalize({
 		love.graphics.newText(res.font("dejaVuSans", 11), "recuérdame"),
 		0, 0, 0, 1, 1, -w*4/7, -920,
 	}, color={.5, .5, .5, 1}, scale=1/11},
-	{args={snowParticles(w, h)}, scale=1/24, shader=res.shader.circle},
+	{args={snowParticles(w, h)}, scale=1/24,
+		shader=res.shader.circle{resolution={maxPSize, maxPSize}}
+	},
 })
 gamestate[credID].background = normalize({
 	{args=screen.credit(res.style.menu, w, h)}

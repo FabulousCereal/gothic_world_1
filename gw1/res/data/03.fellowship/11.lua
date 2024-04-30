@@ -396,7 +396,8 @@ Aunque fuera loco, escucharlo hablar me ayudaba.]],
 
 	{"bg", "mod", "root", color={0,0,0,1},
 		fade={"color", res.palette("sixpm"), 1},
-		shader=res.shader.purkinje},
+		shader=res.fun.complex.purkinje(),
+	},
 	[[Afuera la nieve se apilaba, y el sol se ponía lentamente. Bake me
 contaba de la vez que a Pipi la atropellaron pero que logró volver a caminar.]],
 
@@ -406,7 +407,7 @@ rió, y recién ahí reveló que tenía una linterna.]],
 
 	{"bg", "mod", "root", color=res.palette("flashlight"),
 		shader=res.shader.radialTex{
-			infoCursor={3/5,-2/3}, infoMul={3,3}, infoPow=3,
+			center={5/7,2/7}, mul={3,3}, decay=2,
 			bg={0,0,0,.95},
 		}
 	},
@@ -421,7 +422,7 @@ rió, y recién ahí reveló que tenía una linterna.]],
 --[=[
 	{"bg", "mod", "root",
 		shader=res.shader.radial{
-			infoCursor={-2/3,-2/3}, infoMul={3,3}, infoPow=3,
+			center={-2/3,-2/3}, mul={3,3}, decay=2,
 		}
 	},
 	1,

@@ -395,7 +395,9 @@ noche, pero sin éxito.]],
 ¿Una linterna? ¿Un auto? Agudizé el oído y me pareció sentir un motor.]],
 
 	{"bg", "mod", "default",
-		shader=res.shader.purkinje, color={1/6, 1/6, 1/6, 1}},
+		shader=res.fun.complex.purkinje(),
+		color={1/6, 1/6, 1/6, 1},
+	},
 	{"macro", "rFade", "maria/living.png"},
 	[[Me dirigí al living y miré por entre las tablas, apagando la linterna
 para no encandilarme.]],

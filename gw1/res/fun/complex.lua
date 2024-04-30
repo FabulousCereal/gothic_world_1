@@ -1,13 +1,10 @@
 -- SPDX-FileCopyrightText: 2024 Grupo Warominutes
 -- SPDX-License-Identifier: Unlicense
 local function shaderCursor(ctx)
-	local pos = {love.mouse.getPosition()}
-	local size = {love.graphics.getDimensions()}
-	local mul = ctx.infoMul
-	for i = 1, #pos do
-		pos[i] = (pos[i] / size[i] - 0.5)*mul[i]
-	end
-	return pos
+	local x, y = love.mouse.getPosition()
+	local w, h = love.graphics.getDimensions()
+	local m = ctx.mul
+	return {x/w * m[1], y/h * m[2]}
 end
 
 local function shaderTime(xm, ym, xa, ya)
@@ -27,8 +24,8 @@ return {
 	comedor = function(cursor, ...)
 		return {args={"Flash/day.png"},
 			shader=res.shader.radialTex({
-				infoCursor=cursor and shaderCursor or {-1/6,-1/6},
-				infoMul={2/3,4/3}, infoPow=2.2,
+				center={2/6,2/6},
+				mul={2/3,4/3}, decay=1,
 				fg={0,0,0,.25}, bg={0,0,0,.97},
 			}, ...)
 		}
@@ -47,8 +44,8 @@ return {
 	vignette = function(cursor)
 		return {"bg", "add",
 			shader=res.shader.radialTex{
-				infoCursor=cursor and shaderCursor or {0,0},
-				infoMul={2/3,4/3}, infoPow=2.2,
+				center={0,0},
+				mul={2/3,4/3}, decay=2.2,
 				fg={0,0,0,0}, bg={0,0,0,.97},
 			},
 			draw=f0b.draw.screenFill,
@@ -57,8 +54,9 @@ return {
 
 	linterna = function(tex, pos)
 		return res.shader[tex and "radialTex" or "radial"]{
-			infoCursor = pos or shaderCursor,
-			infoMul={2,2}, infoPow=4, bg={0,0,0,.9},
+			center=pos,
+			sub=pos and nil or shaderCursor,
+			mul={2,2}, decay=2, bg={0,0,0,.9},
 		}
 	end,
 
@@ -68,7 +66,7 @@ return {
 		local bg1 = {
 			draw=draw,
 			shader=res.shader.radial{
-				infoCursor = cur, infoPow=1, infoMul={2,2},
+				center=cur, decay=1, mul={2,2},
 				fg={1,1,1,1}, bg=col1,
 			},
 		}
@@ -81,5 +79,11 @@ return {
 			},
 		}
 		return bg1, bg2
-	end
+	end,
+
+	-- Aproximación barata. Usa mas o menos los coeficientes de YCbCr, pero
+	-- priorizando el azul.
+	purkinje = function()
+		return res.shader.gray{weights={.1, .3, .6}}
+	end,
 }

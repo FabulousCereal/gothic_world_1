@@ -116,7 +116,7 @@ la habitación. Podía dar explicaciones después.]],
 	{"macro", "rFade", {
 		args={"fab/hostal2.png"},
 		shader=res.shader.radialTex{
-			infoCursor={1/2,0}, infoPow=2, infoMul={2/3,1},
+			center={6/7,2/5}, decay=1, mul={1,1},
 		},
 	}, nil, 1},
 	[[Los corredores estaban vacios. Escuchaba una tele de alguna

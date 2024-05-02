@@ -61,20 +61,21 @@ return {
 	end,
 
 	cielo = function(col1, col2, cur)
-		--local args={f0b.draw.unitSquare, 40, 40, 0, 560, 560}
 		local draw = f0b.draw.screenFill
+		local mul = {2,2}
 		local bg1 = {
 			draw=draw,
 			shader=res.shader.radial{
-				center=cur, decay=1, mul={2,2},
+				center=cur, decay=.5, mul={2,2},
 				fg={1,1,1,1}, bg=col1,
 			},
 		}
 		local bg2 = {
 			draw=draw, color=col2,
 			shader=res.shader.fbmWarp{
-				mul={3,3}, rolloff=.5, amplitude=0.5,
-				add=shaderTime(1/64, 0),
+				mul={2,2}, rolloff=.5, amplitude=.5,
+				add=shaderTime(1/32, 0),
+				mv=shaderTime(1/32, 0),
 				alphaMask=1,
 			},
 		}

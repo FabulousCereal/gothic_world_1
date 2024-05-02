@@ -58,7 +58,7 @@ devolverme.]],
 
 	{"bg", "addsub", {
 		root={color={0,0,0,0}, fade={"color", {1,1,1,1}, 2}},
-		res.fun.complex.cielo({.7, .8, .9, 1}, {1/3, 1/3, 1/3, 3/4},
+		res.fun.complex.cielo({2/3, 2/3, 2/3, 1}, {1/3, 1/3, 1/3, 1},
 			{1/3, 1/3})
 	}},
 

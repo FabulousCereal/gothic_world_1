@@ -191,7 +191,7 @@ local infoLoop = {
 			{"bgm", "mod", fade={"fadeout", 1/4, true}},
 			[["*OM OM*" El chico me miró pasmado.]],
 
-			{"bg", "sub", 2, "mod", fade={"src", res.doll.bake_xd_boxers}},
+			{"bg", 2, "mod", fade={"src", res.doll.bake_xd_boxers}},
 			{"name", "Bake"},
 			{"text", [["xDDD"]], false, true},
 			{"wait", 1/3, false, true},
@@ -239,7 +239,7 @@ el no parecía tan afectado por lo que estuviera ocurriendo allá afuera.]],
 
 	[[De hecho, se lo tomaba todo bien a la ligera.]],
 
-	{"bg", "sub", 2, "mod", fade={"src", res.doll.bake_xd_boxers}},
+	{"bg", 2, "mod", fade={"src", res.doll.bake_xd_boxers}},
 	{"name", "Bake"},
 	[["WIIIAA", dijo luego de echarse desodorante, que podría o no también
 contener alcohol.]],
@@ -247,13 +247,13 @@ contener alcohol.]],
 	{"name", "María"},
 	[["¿Eh?"]],
 
-	{"bg", "sub", 2, "mod", fade={"src", res.doll.bake_boxers}},
+	{"bg", 2, "mod", fade={"src", res.doll.bake_boxers}},
 	{"name", "Bake"},
 	[["Imitando a mi guitarra xD" El chico, que consideraba que ponerse
 ropa de abrigo no era tan esencial en este clima, se puso a tocar a lo
 'Cabeza de Cubeta' mientras salía del baño al pasillo.]],
 
-	{"bg", "sub", 2, "mod", fade={"fadeout", 1}},
+	{"bg", 2, "mod", fade={"fadeout", 1}},
 	{"macro", "bgFade", "maria/pasillo.png"},
 	{"name", "María"},
 	[[El chico vivía en esta casa con sus padres, que justo habían salido
@@ -278,7 +278,7 @@ si no por que podía atraer mas de esas criaturas, pero el chico insistía en qu
 no pasaba nada.]],
 
 	{"name", "Bake"},
-	{"bg", "sub", 2, "mod", fade={"fadein", 0}},
+	{"bg", 2, "mod", fade={"fadein", 0}},
 	[["Bue, me dolió el tendón," dijo cuando se cansó de tocar, con el
 primer tinte de inquietud que había oído en su voz, y dejó la guitarra a un
 lado. "¿Querés comer algo? Tengo Pizza Enlatada."]],
@@ -299,7 +299,7 @@ despensas y muebles, y tras dos minutos dió con una lata empolvada.]],
 	[["'Consumir antes del 2007.' Si está enlatada, no se debería hechar a
 perder, ¿verdad?" dijo antes de enterrarle un abrelatas.]],
 
-	{"bg", "sub", 2, "mod", fade={"fadeout", 1}},
+	{"bg", 2, "mod", fade={"fadeout", 1}},
 	{"name", "María"},
 	[[Noté que afuera el viento agarraba fuerza y que habia empezado a
 nevar de nuevo, con los dos cuerpos lentamente cubriéndose de un blanco
@@ -332,8 +332,8 @@ no dan ganas de estar afuera. Esperá que calme y me ocupo."]],
 
 	{"bgm", "mod", "wind", fade={"fadeout", 6, true}},
 	{"macro", "bgFade", res.fun.complex.comedor2()},
-	{"bg", "sub", 2, "add", 1, args={res.doll.sillas, 320}, fade={"fadein", 1}},
-	{"bg", "sub", 2, "mod", fade={"mvabs", 160, false, 0, "fadein", 1}},
+	{"bg", 2, "add", 1, args={res.doll.sillas, 320}, fade={"fadein", 1}},
+	{"bg", 2, "mod", fade={"mvabs", 160, false, 0, "fadein", 1}},
 	{"macro", "mesa", false, "add", 3},
 	[[Vació la pizza minúscula en un plato, le hechó unas gotitas de agua,
 y esta se expandió en segundos. Radiaba calor y un exquisito olor a pizza de

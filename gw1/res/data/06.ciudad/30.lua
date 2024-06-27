@@ -113,12 +113,12 @@ esto va para rato así que deberiamos buscar más, aparte de guitarras.
 
 	move(-120, 1/2),
 	{"name", "Falcon"},
-	[["Yo tambien quiero. Me gusta el bajo pero un hombre necesita
+	[["Yo también quiero. Me gusta el bajo pero un hombre necesita
 variedad."]],
 
 	move(0, 1/2),
 	{"name", "Croft"},
-	[["Yo necesito gasolina para mi camioneta, pero dale."]],
+	[["Yo necesito diesel para mi camioneta, pero dale."]],
 
 	{"name", "María"},
 	[["¿Soy la única que piensa en la comida?"]],

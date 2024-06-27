@@ -184,7 +184,7 @@ para atrás y yo pasé al del copiloto. Bake acomodó el asiento a su porte y
 aceleró.]],
 
 	[["Si mal no recuerdo ví una farmacia en la Avenida," dijo.
-"Vamos a ir a esa. Y de paso consigo alcohol que se me acabó xD"]],
+"Vamos a ir a esa. Y de paso consigo alcohol para las heridas xD"]],
 
 	{"name", "María"},
 	[["Pero ahí estaba todo saqueado."]],
@@ -233,7 +233,7 @@ mantuvo la velocidad.]],
 	[["¿B-Bake?"]],
 
 	{"name", "Bake"},
-	[["Afirmate que no podemos maniobrar," mintió Bake mientras le apuntaba
+	[["Afírmate que no podemos maniobrar," mintió Bake mientras le apuntaba
 con la camioneta al zombie. Cerré los ojos, y lo embestimos. La camioneta se
 agitó, y le pasamos por encima a la criatura. Falcon levantó la cabeza de
 nuevo.]],
@@ -242,7 +242,7 @@ nuevo.]],
 	[["¿Que esta pasando? ¿Donde aprendiste a conducir?"]],
 
 	{"name", "Bake"},
-	[["Jugando a la Play xDD. Solo arrollamos un zombie, tranquilo."]],
+	[["Jugando a la Poly xDD. Solo arrollamos un zombie, tranquilo."]],
 
 	{"name", "Falcon"},
 	[["Dios, ¿me vas a arrollar así también si me transformo?"]],

@@ -5,25 +5,43 @@ return {
 	{"bgm", "set", "nor", 3/4,
 		source="normality.ogg"},
 	{"name", "María"},
-	[[Llegamos tras media de hora al distrito comercial de la avenida
-Queens. Falcon y Bake habian estado discutiendo sobre si volver a la calle de
+	[[Llegamos tras media hora al distrito comercial de la Avenida
+Queens.]],
+
+	[[Falcon y Bake habian estado discutiendo sobre si volver a la calle de
 ayer a terminar de revisar los negocios, pero viendo que ya no hay gente que
-vaya a saquear mas, prefirieron venir a probar suerte aquí primero.]],
+vaya a saquearlos, prefirieron probar suerte aquí primero.]],
 
-	[[Aparte que según Bake, también había una tienda de música grande por
-acá. Eso convenció a Falcon.]],
+	[[Aparte que según Bake, por aquí hay una tienda de música aún mas
+grande. Eso convenció a Falcon.]],
 
-	[[Estacionamos en una calle cercana y escondida, y de ahí seguimos
-a pie hacia la avenida. Yo llevaba mi confiable navaja en el bolsillo. Falcon
-y Bake llevaban sus armas en la mano. Croft solo llevaba su bidón.]],
+	[[Estacionamos en una calle cercana donde no parecían haber criaturas.
+Nos bajamos y continuamos a pie hacia la Avenida.]],
 
-	[[La avenida estaba hecha un caos. Habian autos chocados y vidrios
-rotos por todos lados. La nieve se acumulaba en las veredas, ocultando a
-veces lo que parecía ser sangre.]],
+	[[Falcon y Bake llevaban sus armas en la mano, listos por si se nos
+aparecía algo. Yo apretaba mi confiable navaja en mi bolsillo. Croft solo traía
+un bidón vacio, con Rocco detrás de el.]],
 
-	[[Aparte del miedo, daba también una pena estar acá, porque se notaba
-que fue muy bonito. Había una gran arboleda de pinos separando las dos vías y
-con los edificios gigantes alrededor.]],
+	[[Al llegar a la esquina nos encontramos con la Avenida.]],
+
+	{"bg", "mod", "root", color={.8,.8,.8,1}},
+	{"bg", "addsub", {
+		{args={"maria/av.png"}, fade={"fadein", 1}},
+	}},
+	[[Habian autos chocados y vidrios rotos por todos lados. La nieve se
+acumulaba en las veredas, ocultando a veces lo que parecía ser sangre. Algunos
+zombies merodeaban, aunque afortunadamente no muy cerca de donde estábamos.]],
+
+	[[Daba algo de pena estar acá, porque se notaba
+que fue un lugar muy bonito. Había una gran arboleda de pinos separando las dos
+vías, con edificios modernos y gigantes sobresaliendo alrededor.]],
+
+	{"bg", "addsub", {
+		{args={res.doll.falcon, 160}},
+		{args={res.doll.bake, 480, 0, -1}},
+		root={color={0,0,0,0}, fade={"color", {1,1,1,1}, 1/12}},
+		default={draw=f0b.doll.draw},
+	}},
 
 	{"name", "Falcon"},
 	[["Conozco este lugar," dijo Falcon impactado.]],
@@ -32,34 +50,42 @@ con los edificios gigantes alrededor.]],
 	[["Es el centro. No hay quien no lo conozca."]],
 
 	{"name", "María"},
-	[["En la tele siempre muestran esta parte cuando habla de acá. Es como
+	[["En la tele siempre muestran esta parte cuando hablan de acá. Es como
 la postal."]],
 
 	{"name", "Falcon"},
 	[["Dejenme, es lo primero que recuerdo en días," dijo mirando a su
-alrededor. "Ese edificio gigante, tenía un record de altura, ¿no?"]],
+alrededor. "Ese edificio de allá, tenía un record de altura, ¿no?"]],
 
+	{"bg", 2, "mod", fade={"fadeout", 1/12}},
+	{"bg", 2, "add", args={res.doll.croft, 480, 0, -1}, fade={"fadein", 1/12}},
 	{"name", "Croft"},
-	[["No es por ser molesto, pero deberiamos aprovechar que no hay verdes
-a la vista y apurarnos."]],
+	[["No es por ser molesto, pero deberiamos aprovechar que los verdes
+están lejos y apurarnos."]],
 
+	{"bg", 2, "mod", 3, fade={"fadeout", 1/12}},
+	{"bg", 2, "mod", 2, fade={"fadein", 1/12}},
 	{"name", "Bake"},
-	[["Croft tiene razón, aparte va a caer la blanca." Ya van dos que
+	[["Croft tiene razón, aparte que va a caer la blanca." Van dos que
 anuncian eso.]],
 
+	{"bg", 2, "mod", 1, 2, fade={"fadeout", 1}},
 	{"name", "María"},
-	[[Bake se puso a caminar y los demás lo seguimos. No nos tomó mucho dar
-con una armería, aunque como era de esperarse, estaba saqueada por completo ya.
-La gente debía ser buena para las armas acá; nunca había visto armerías de
-donde vengo.]],
+	[[Bake indicó una dirección y empezamos a andar. Los zombies no nos
+notaban a esta distancia, aunque aún podrían salir algunos de las calles.]],
 
-	[[Entramos igual a la tienda por si quedó algo. Estaban todos los
-muebles tirados y la caja registradora hecha pedazos, y fuera de eso todo
-vacio.]],
+	[[No nos tomó mucho dar con una armería, aunque como era de esperarse,
+ya estaba saqueada por completo.]],
+
+	[[La gente debía ser buena para las armas acá; nunca había visto ni una
+armería de donde vengo, y aquí habían en cualquier lado.]],
+
+	{"bg", 1, "mod", 1, fade={"fadeout", 1}},
+	[[Entramos a revisar igual por si quedó algo. Estaban todos los muebles
+tirados y la caja registradora hecha pedazos, y fuera de eso todo vacio.]],
 
 	[[Yo no sabía que buscar, así que me quedé vigilando la entrada
-mientras los chicos pasaban a la bodega. Había tanto silencio que se escucharia
-cualquier criatura venir de lejos.]],
+mientras los chicos pasaban a la bodega.]],
 
 	{"name", "Bake"},
 	[["No dejaron casi nada," oí decir a Bake.]],
@@ -70,7 +96,7 @@ tiene balas. ¿Me la llevo igual?"]],
 
 	{"name", "Bake"},
 	[["No, solo estorbaría. Mejor llevemos municiones de armas pequeñas,
-como mi G18. Ya encontré tres cagadores."]],
+como mi C18. Ya encontré tres cagadores."]],
 
 	{"name", "Falcon"},
 	[["lol, 'cagadores'"]],
@@ -85,13 +111,14 @@ como mi G18. Ya encontré tres cagadores."]],
 	[["¿Con rayas de tigre? Cool."]],
 
 	{"name", "Croft"},
-	[["Si, estaba tirada bajo el estante al fondo. Ojalá no sea porque
-está mala."]],
+	[["Si, estaba tirada bajo el estante al fondo. Ojalá no sea por
+estar mala."]],
 
 	{"name", "Bake"},
 	[["Con esto tenemos para sobrevivir otro día." Habiendo
 registrado todo, los chicos se devolvieron.]],
 
+	{"bg", 2, "mod", 2, fade={"fadein", 1/12}},
 	[["María," dijo Bake poniéndome de pronto la mano en el hombro,
 agarrándome desprevenida. "Tomá."]],
 
@@ -107,13 +134,21 @@ agarrándome desprevenida. "Tomá."]],
 	{"name", "Bake"},
 	[["De ahí te enseñamos. Por ahora guardalo."]],
 
+	{"bg", 2, "mod", 2, fade={"fadeout", 1}},
 	{"name", "María"},
 	[[Me quedé mirando el arma mientras los chicos salían de la tienda.
-Era extraño sostener una.]],
+Era la primera vez que sostenía una.]],
 
-	[[Pensé que me sentiría poderosa, como dicen en la tele... Pero solo me
-parecía un fierro pesado. Creo que me desagradaba un poco.]],
+	{"bg", 1, "mod", 1, fade={"fadein", 1}},
+	[[Pensé que me sentiría segura o poderosa como dicen en la tele, pero
+de hecho me sentí algo nerviosa. Me era difícil no pensar en que se podía
+disparar sola en cualquier momento, a pesar de que probablemente debía ser
+segura.]],
 
+	[[Me fijé que los chicos guardaban las suyas en los bolsillos,
+así que hice lo mismo y traté de no pensar mas en ella.]],
+
+	{"bg", 2, "mod", 1, 3, fade={"fadein", 1/12}},
 	{"name", "Falcon"},
 	[["¿A donde ahora? ¿A la tienda de guitarras?"]],
 
@@ -123,14 +158,14 @@ parecía un fierro pesado. Creo que me desagradaba un poco.]],
 	{"name", "Falcon"},
 	[["Ah, verdad xD Bueno vamos rápido."]],
 
+	{"bg", 2, "mod", 1, 3, fade={"fadeout", 1/3}},
 	{"name", "María"},
 	[[Los chicos partieron de inmediato al auto, y tuve que apresurarme
-tras ellos a pesar de mi cojera. Llegamos, nos subimos y fuimos por la avenida
-buscando una gasolinera.]],
+tras ellos a pesar de mi cojera. Llegamos, nos subimos y empezamos a recorrer
+la Avenida.]],
 
 	{"name", "Falcon"},
-	[["¿Crees que haya por acá? No quiero pinchar una rueda con tanto
-vidrio roto."]],
+	[["¿Crees que haya por acá? Quiero volver antes que oscuresca.]],
 
 	{"name", "Croft"},
 	[["Debe haber, si es avenida principal."]],
@@ -148,10 +183,10 @@ vidrio roto."]],
 	[["No sé xD quizás xDDD"]],
 
 	{"name", "Bake"},
-	[["xDD, ¿de donde sacabas gasolina?"]],
+	[["xDD, ¿de donde sacabas nafta?"]],
 
 	{"name", "Falcon"},
-	[["Se la sacaba a otros autos. Tengo el maletero lleno de bidones."]],
+	[["Se la sacaba a otros autos. Traigo el maletero lleno de bidones."]],
 
 	{"name", "Bake"},
 	[["Ah xD"]],
@@ -171,6 +206,7 @@ vidrio roto."]],
 	{"name", "Bake"},
 	[["Allá veo una. Ahora salimos de la duda."]],
 
+	{"bg", 1, "mod", 1, fade={"fadeout", 1}},
 	{"bgm", "mod", "nor", fade={"fadeout", 2, true}},
 	{"name", "María"},
 	[[Nos metimos a la gasolinera y Falcon apagó el motor. Ibamos a
@@ -178,11 +214,11 @@ bajarnos cuando Croft dijo que no hacía falta que fueramos todos.]],
 
 	[[Se bajó con su bidón, dejando a Rocco conmigo, y se fue al otro
 extremo, ya que al parecer Falcon se metió donde había gasolina pero Croft
-necesitaba diesel.]],
+necesitaba diesel. No se veía ningún peligro.]],
 
-	[[Tras unos momentos tocando cosas, nos hizo una seña con el pulgar.
-La bomba funcionaba, de alguna forma. A lo mejor tenían energía de emergencia,
-o que se yo. Me acomodé para esperar.]],
+	[[Tras unos momentos tocando cosas, Croft nos hizo una seña con el
+pulgar. La bomba funcionaba, de alguna forma. A lo mejor tenían energía de
+emergencia, o que se yo. Me acomodé para esperar.]],
 
 	[[Bake se puso a revisar los cassetes que venian en el auto, mientras
 Falcon bostezaba.]],
@@ -207,7 +243,7 @@ Había que estar atenta con este perro.]],
 
 	{"name", "Rocco"},
 	[["¡Auf! ¡Auf!" ladró Rocco enojado. Los tres lo miramos, y de
-pronto sentimos un ruido del otro lado. Un balbuceo.]],
+pronto sentimos un ruido desde la calle. Un balbuceo.]],
 
 	{"name", false},
 	[["¡Bwaaaa...!"]],
@@ -253,7 +289,7 @@ vueltas. La criatura estaba a punto de romper el vidrio con los puños.]],
 	{"bgm", "sync"},
 	{"sfx", "freesound/231243__augustsandberg__desert-eagle.cut.flac"},
 	{"sfx", "freesound/346694__deleted_user_2104797__body-fall_02.flac",
-		1, 1, 1},
+		1, 1, .8},
 	[[Entonces un tiro resonó en el aire, y la cabeza del zombie pareció
 estallar. Se desplomó a un lado y cayó del auto.]],
 
@@ -264,26 +300,30 @@ en salir.]],
 se volcara por completo. Rocco le ladraba al cuerpo de la criatura. Croft venía
 rápido con su arma, habiendo dejado la manguera y el bidón botando bencina.]],
 
-	[[Por la forma en que se desplazaba, realmente parecía alguien que
-hizo el servicio.]],
+	[[Por la forma en que se desplazaba, realmente parecía alguien que hizo
+el servicio.]],
 
+	{"bg", 2, "mod", 3, fade={"fadein", 1/12}},
 	{"name", "Croft"},
 	[["Me creerán que se me había olvidado cargarla," nos dijo.
 También le creía que lo hubieran echado.]],
 
+	{"bg", 2, "mod", 3, fade={"fadeout", 1/12}},
 	{"name", "María"},
 	[[Bake no alcanzó a responderle. La criatura gimió aún viva y se
 empezó a levantar, como si el agujero que tenía la cabeza no fuera nada.]],
 
 	[[Bake y Croft le apuntaron a la vez, pero Bake dijo que había que
 alejarlo primero, y le dijo a Croft a que fuera a buscar el bidón para
-abandonar rápido el lugar.]],
+salir rápido.]],
 
 	[[Bake se bajó de un salto y llamó la atención de la criatura.]],
 
+	{"bg", 2, "mod", 2, args={res.doll.bake, 320, 0, -1}, fade={"fadein", 1/12}},
 	{"name", "Bake"},
 	[["Come to die, shithead."]],
 
+	{"bg", 2, "mod", 2, fade={"fadeout", 1/12}},
 	{"name", "María"},
 	[[La criatura se lanzó veloz contra Bake. Bake lo esquivó y lo guió
 lejos del auto, y después con nervios de acero esperó que se acercara y le
@@ -293,6 +333,12 @@ disparó en la cabeza.]],
 	[[La criatura cayó de nuevo, y Bake volvió al tiempo que Falcon lograba
 escalar fuera del auto. Tenía una suela de zapatilla dibujada en la cara.]],
 
+	{"bg", 2, "mod", 1,
+		args={res.doll.falcon, 480, 0, -1}, fade={"fadein", 1/12}
+	},
+	{"bg", 2, "mod", 2,
+		args={res.doll.bake, 160}, fade={"fadein", 1/12}
+	},
 	{"name", "Falcon"},
 	[["¿Murió?"]],
 
@@ -301,23 +347,24 @@ escalar fuera del auto. Tenía una suela de zapatilla dibujada en la cara.]],
 mas."]],
 
 	{"name", "Falcon"},
-	[["Déjalo, hay que guardar munición. Volteemos el auto para irnos."]],
+	[["Déjalo, hay que guardar munición. Volteemos el auto y salgamos."]],
 
+	{"bg", 2, "mod", 1, 2, fade={"fadeout", 1/12}},
 	{"name", "María"},
 	{"sfx", "freesound/634778__5plus5equalspatata__metal-crash.mp3",
 		1/3, 1, 1},
-	[[Falcon se bajó, y con Croft de vuelta lo enderezamos entre todos.
+	[[Con Croft y su bidón de vuelta enderezamos el auto entre todos.
 Hizo un estruendo al caer y hasta rebotó un poco.]],
 
-	[[Estaba deformado por ambos lados, pero Falcon pudo encenderlo,
-así que nos subimos y nos fuimos antes que la criatura volviera, o que llegara
-otra.]],
+	[[Estaba deformado por ambos lados, pero increíblemente Falcon pudo
+encenderlo, así que nos subimos y nos fuimos antes que la criatura se
+levantara, o que llegara otra.]],
 
 	[[Falcon miraba los espejos ansioso hasta que la gasolinera desapareció
 de nuestra vista. Soltamos un suspiro de alivio... y sentímos un olor.]],
 
 	{"name", "Falcon"},
-	[["¿Que demonios huele así?" preguntó Falcon. Yo y Croft miramos a
+	[["¿Que demonios es eso?" preguntó Falcon. Croft y yo miramos a
 Rocco, pero este nos miró con cara de yo no fui, y de hecho, estaba el asiento
 limpio. Entonces Croft se miró los zapatos.]],
 
@@ -369,12 +416,16 @@ false, true},
 	{"text", [[a saltar a traves del ventanal a pesar de que la
 puerta estaba abierta. Croft y yo los mirabamos en silencio.]], true},
 
+	{"bg", 2, "mod", 3,
+		args={res.doll.croft_ojo, 480, 0, -1}, fade={"fadein", 1/12}
+	},
 	{"name", "Croft"},
 	[["°L°..." dijo. "A mi tambien me hace falta un cepillo."]],
 
 	{"name", "María"},
 	[["Si, vamos."]],
 
+	{"bg", 2, "mod", 3, fade={"fadeout", 1, true}},
 	[[Fuimos con Croft y Rocco a buscar lo importante en un mall que había
 al lado.]],
 
@@ -383,7 +434,8 @@ a tiempo lo que buscabamos, ademas de galletas, puré instantáneo, un abrigo
 para Croft, y dos pijamas que se veían buenos para el clima.]],
 
 	[[Cuando volvimos al auto, habían tres criaturas muertas frente a la
-tienda, una con una tuba de sombrero. Falcon y Bake habían metido a la cabina
-cuatro guitarras y tres amplis, y estaban metiendo pedazos de pared antisonora
-en el maletero.]],
+tienda, una con una tuba de sombrero.]],
+
+	[[Falcon y Bake habían metido a la cabina cuatro guitarras y tres
+amplis, y estaban metiendo pedazos de pared antisonora en el maletero.]],
 }

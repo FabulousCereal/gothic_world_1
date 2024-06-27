@@ -12,6 +12,14 @@ return {
 hablaba. Una visión que nunca más volvería a repetirse. La voz me siguió
 hablando, y con dificultad abrí los ojos.]],
 
+	{"bg", "addsub", {
+		{args={"maria/cuarto de croft.png"}},
+	},
+	{"bg", "addsub", {
+		{args={res.doll.croft_ojo}},
+		default={draw=f0b.doll.draw},
+	},
+	{"bg", "mod", "root", color={0,0,0,0}, fade={"color", {1,1,1,1}, 3}},
 	[[Noté el rostro de un hombre junto mi. Calvo. Nariz prominente. Era lo
 único que distinguía. La cabeza se me partía sola.]],
 
@@ -19,6 +27,7 @@ hablando, y con dificultad abrí los ojos.]],
 
 	[["Ay..."]],
 
+	{"bg", 1, "mod", fade={"src", res.doll.croft}},
 	{"name", "-----"},
 	[["¡Abrio los ojos, Rocco!" ¿Quién rayos era Rocco?]],
 
@@ -144,23 +153,28 @@ esperando," dije recogiendo mis botas.]],
 	[["Vamos, te llevo en el auto." Croft me extendió la mano para
 ayudarme. Con cuidado logré pararme, y cojeé con el hacia la puerta.]],
 
+	{"bg", 1, "mod", fade={"fadeout", 1, true}},
+	{"bg", 2, "mod", fade={"fadeout", 1}},
 	{"name", "María"},
 	[[La casa en la que vivía era bien rústica, y no había señales de que
 viviera con alguien mas. Por las ventanas se veía un patio enorme.]],
 
+	{"bg", 1, "add", args={"maria/mula.png"}, fade={"fadein", 1}},
 	[[Recíen al poner un pie afuera me dí cuenta de que estabamos en un
 area rural, en medio de las montañas. Me quedé incrédula en la puerta.
 ¿En donde demonios estaba?]],
 
 	[[Croft notó mi impresión, y me aseguró que la ciudad estaba a unos
 minutos de acá. Me llevó hacia una vieja camioneta destartalada, que creí
-era chatarra que tenía adornando su patio.]],
+era chatarra que tenía adornando su patio. Rocco se subió al techo.]],
 
+	{"bg", 2, "mod", fade={"fadein", 0}},
 	{"name", "Croft"},
 	[["Esta es mi Vieja Mula. Ya no es lo que era antes, le falla hasta la
 bocina y la radio, pero nunca me ha abandonado," explicó. Viéndola de frente,
 si, este fue el auto que me atropelló.]],
 
+	{"bg", 2, "mod", fade={"fadeout", 1}},
 	{"sfx", "freesound/561724__ezzin__tractor-start.fadeout@9.5.flac"},
 	{"bgm", "set", "mula_idle", 0, setup={play=false},
 		fade={"delay", 9.5, "cmd", {play=true}, "fadein", 1},
@@ -196,6 +210,7 @@ fuerza considerable. Se oyó el ruido de metal dislocándose desde el motor, y
 con un remezón la camioneta empezó a andar como si se hubiera sacudido las
 pulgas.]],
 
+	{"macro", "bgFade", "maria/campo.png"},
 	[[Rocco, por su parte, iba sentado entre los dos, mirando a la lejanía.
 Salimos al camino de tierra. Se divisaba una que otra casa, pero era casi todo
 campo.]],
@@ -252,5 +267,4 @@ hacer y empezó a tirarle tierra y nieve a la rueda hasta quedar contento.
 
 	{"name", "María"},
 	[[Ese era el olor, ese era.]],
-	{"bgm", "rmall"},
 }

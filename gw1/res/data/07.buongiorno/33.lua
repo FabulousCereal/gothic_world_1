@@ -12,6 +12,12 @@ una mano acercándose y la agarré pensando que me iba a tocar el chichón.]],
 
 	[[La persona exclamó asustada. Yo me senté de golpe.]],
 
+	{"bg", "addsub", {}}, -- bg
+	{"bg", "addsub", {
+		{args={res.doll.falcon, 480, 0, -1}, fade={"fadein", 1/24},
+			color={.6,.6,.6,1}},
+		default={draw=f0b.doll.draw},
+	}},
 	[[Con los ojos bien abiertos me dí cuenta que era Falcon.]],
 
 	{"name", "Falcon"},
@@ -118,7 +124,6 @@ puré que es lo único que hay, por si quieres bajar."]],
 	{"name", "María"},
 	[["Lo pensaré," dije mientras me recostaba de nuevo. Era muy temprano.]],
 
-	{"name", "Falcon"},
 	[[Falcon levantó los hombros y se fue hacia la puerta, por lo visto ya
 casi curado de su pie. Iba rodeando la cama cuando pareció perder el equilibrio
 por un momento, pero se afirmó en la tabla.]],
@@ -136,6 +141,7 @@ por un momento, pero se afirmó en la tabla.]],
 	[["No es tanto como ayer al menos." Falcon se fue con cuidado
 hasta la puerta. Yo me volví a acostar.]],
 
+	{"bg", 2, "mod", fade={"fadeout", 1, true}},
 	{"name", "María"},
 	[[¿Que habrá pasado con Croft? Guardaba algo de esperanza en que
 volvería. ¿Para que se iba a robar un revólver si ya tenía un arma?]],
@@ -144,10 +150,10 @@ volvería. ¿Para que se iba a robar un revólver si ya tenía un arma?]],
 No sentía hambre aún... Hasta que el olor a comida me empezó a llamar.
 Que remedio. Me vestí y bajé al primer piso.]],
 
-	{"bg", "addsub", {
-		{args={"maria/living.png"}, fade={"fadein", 1},
-			color=res.palette("tenpm", 0)},
-	}},
+	{"bg", 1, "add",
+		args={"maria/living.png"}, fade={"fadein", 1},
+		color=res.palette("tenpm", 0),
+	},
 	[[En la sala me encontré a Bake cubierto con dos toallas en la
 alfombra.]],
 

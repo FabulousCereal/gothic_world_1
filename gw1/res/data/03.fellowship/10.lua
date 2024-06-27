@@ -2,13 +2,17 @@ return {
 	{"style", "vnMaria"},
 	{"macro", "titleDate", {2011, 11, 11, 15, 20}},
 
-	{"bg", "add", args={"maria/living.png"}},
+	{"bg", "addsub", {
+		{args={"maria/living.png"}},
+	}},
 	{"name", "María"},
 	[[Tras la pizza nos preparamos con Bake para buscar comida, cuando el
 viento había parado.]],
 
-	{"bg", "add", args={res.doll.bake, 320}, draw=f0b.doll.draw,
-		fade={"fadein", 1}},
+	{"bg", "addsub", {
+		{args={res.doll.bake, 320}, draw=f0b.doll.draw,
+			fade={"fadein", 1/12}},
+	}},
 	{"name", "Bake"},
 	[["¿Sabés manejar un arma?"]],
 
@@ -23,7 +27,8 @@ Asentí. "Cualquier cosa, vos atacá al cuello, ¿vale?"]],
 	[["Vale..." Lo decía como si fuera fácil, pero yo no creía ser capaz de
 usarla como el. El chico se sacó el pelo de debajo de la campera, y salimos.]],
 
-	{"bg", "modall", fade={"fadeout", 2, true}},
+	{"bg", 1, "mod", fade={"fadeout", 2, true}},
+	{"bg", 2, "mod", fade={"fadeout", 2}},
 	{"bgm", "set", "wind", 0, source="wahwahwhite noise.flac",
 		setup={setFilter={type="lowpass", highgain=1/120}},
 		fade={"fadeto", 1/2, 6}},
@@ -31,12 +36,16 @@ usarla como el. El chico se sacó el pelo de debajo de la campera, y salimos.]],
 del polo los días se alargaban acercándose el verano, con esa capa daba la
 impresión de que muchas horas de luz no quedaban.]],
 
+	{"bg", 2, "mod", fade={"fadein", 1/12}},
 	{"name", "María"},
 	[["¿No sientes frio?" Esa campera parecía muy delgada.]],
 
 	{"name", "Bake"},
 	[["Nah." El chico saltó como si estuviera calentando, pero de pronto
-gimió adolorido. "Oooh, bitchy-bitch."]],
+gimió adolorido.]],
+
+	{"bg", 2, "mod", fade={"src", res.doll.bake_xd}},
+	[["Oooh, bitchy-bitch."]],
 
 	{"name", "María"},
 	[["¡¿Que te pasó?!"]],
@@ -48,31 +57,35 @@ alcohol xDD"]],
 	{"name", "María"},
 	[['xD'... Este chico rompía con todos los paradigmas.]],
 
+	{"bg", 2, "mod", fade={"src", res.doll.bake}},
 	{"name", "María"},
 	[["Te la vas a abrir de nuevo si no te vas con cuidado. Ven, yo te
 ayudo."]],
 
+	{"bg", 2, "mod", fade={"fadeout", 2}},
 	[[Tomé el brazo del chico y empezamos a caminar. No sabía que bien le
 haría que le llevara el brazo, si era el quién conocía el camino, pero bastaba
-con que se fuera con calma. Pipi nos olfateó los pies hasta dejarnos en la
-calle.]],
+con que se fuera con calma.]],
 
-	[[No habían criaturas a la vista, así que seguimos. El chico permaneció
-callado un buen rato, a lo mejor preocupado de nuestra seguridad, de como
-sobreviviríamos, o tal vez de que hubiera sido bueno haber paseado al perro de
-nuevo. El viento sopló.]],
+	[[Pipi nos olfateó los pies hasta dejarnos en la calle. No habían
+criaturas a la vista, así que seguimos.]],
+
+	[[El chico permaneció callado un buen rato, a lo mejor preocupado de
+nuestra seguridad, de como sobreviviríamos, o tal vez de que hubiera sido bueno
+haber paseado al perro de nuevo.]],
 
 	[[Como me empecé a sentir incómoda por el silencio, le traté de
 preguntar si es que no se había sentido solo, pero el chico me empezó a
-tirar.]],
+tironear.]],
 
+	{"bg", 2, "mod", fade={"fadein", 1/12}},
 	{"name", "Bake"},
 	[["Vení, por acá." Mas adelante aparecieron un par criaturas, y giramos
 en una esquina antes que nos vieran. Fuimos a la siguiente calle, y Bake
 se asomó a mirar. Habían más.]],
 
-	[["Están en todos lados los bitchies," comentó. "Lo bueno es que aunque
-nos vean, nosotros somos mas rápidos."]],
+	[["Están por todos lados los bitchies," comentó. "Lo bueno es que
+aunque nos vean, nosotros somos mas rápidos."]],
 
 	{"name", "María"},
 	[["Bake, algunas no son lentas."]],
@@ -95,18 +108,23 @@ no respirar, ¿ok? Los zombies sienten el CO2."]],
 	[["Solo hazlo." Bake miró una vez mas y me tironeó para que
 cruzáramos.]],
 
+	{"bg", 2, "mod", fade={"fadeout", 1/12}},
 	{"name", "María"},
 	[[Aguantamos la respiración, y medio agachados corrimos al
 otro lado. Tomé aire apenas pude.]],
 
+	{"bg", 2, "mod", fade={"fadein", 1/12}},
 	[["Bake..." dije jadeando. "¿No podríamos... tomar un auto? Están todos
 abandonados." El chico se veía dudoso. "¿Sabes conducir?"]],
 
 	{"name", "Bake"},
 	[["¿Yo? Claro, sé de niño. El tema es si vos sabés hacerlos partir sin
-las llaves." No hizo falta responder, con ver mi expresión bastó. "Eso pensé
-xD"]],
+las llaves." No hizo falta responder, con ver mi expresión bastó.]],
 
+	{"bg", 2, "mod", fade={"src", res.doll.bake_xd}},
+	[["Eso pensé xD"]],
+
+	{"bg", 2, "mod", fade={"src", res.doll.bake, "fadeout", 1}},
 	{"name", "María"},
 	[[Seguimos caminando con mucho cuidado, a veces teniendo que correr, y
 aguantando siempre la respiración aunque no le viera ningún sentido.]],
@@ -128,13 +146,18 @@ con suerte?]],
 	1,
 	[["¡Ba--!", fuí a gritar, cuando me dí cuenta que había sido el.]],
 
+	{"bg", 2, "mod", fade={"src", res.doll.bake_xd, "fadein", 1/12}},
 	{"name", "Bake"},
 	{"text", [["¡Existe el paraiso!" ]], false, true},
 	{"sfx", "freesound/613879__rangoanimations__window-breaking.mp3", 1,
 		4/3},
 
-	{"text", [[gritó acabando de romper con el codo el ventanal de una
-tienda de guitarras. Se metió de un salto y agarró una.]], true},
+	{"bg", 2, "mod", fade={"src", res.doll.bake}},
+	{"text", [[gritó acabando de romper con el codo el ventanal ]], true, true},
+
+	{"bg", 2, "mod", fade={"src", res.doll.bake_xd, "fadeout", 1}},
+	{"text", [[de una tienda de guitarras. Se metió de un salto y agarró
+una.]], true},
 
 	{"name", "María"},
 	[["Dios mio..."]],
@@ -142,12 +165,14 @@ tienda de guitarras. Se metió de un salto y agarró una.]], true},
 	[[Me apresuré en cruzar la calle, acordándome de mirar a ambos lados
 cuando ya estaba del otro lado. ¿Que importaba eso ahora?]],
 
+--	{"bg", 2, "mod", fade={"src", res.doll.bake, "fadein", 1}},
 	[[Seguí a la tienda, y apenas había entrado cuando desde el fondo
 apareció corriendo una de esas cosas. Bake apenas tuvo tiempo de girarse.]],
 
 	{"name", "María"},
 	{"text", [["¡¡BAKE!!"]], false, true},
 
+--	{"bg", 2, "mod", fade={"fadeout", 1/12}},
 	{"sfx", "sfx/guitar hit.flac"},
 	1/3,
 	{"sfx", "freesound/647227__traceyregina__wooden_violin_-toss.cut.flac",
@@ -157,9 +182,11 @@ apareció corriendo una de esas cosas. Bake apenas tuvo tiempo de girarse.]],
 	[[Con reflejos casi sobrehumanos, Bake le alcanzó a quebrar el cráneo
 con la guitarra. La criatura cayó sobre unos estantes y no se movió mas.]],
 
+	{"bg", 2, "mod", fade={"src", res.doll.bake_xd, "fadein", 1/24}},
 	{"name", "Bake"},
 	[["¡MI SUEÑO SE CUMPLIÓ!"]],
 
+	{"bg", 2, "mod", fade={"src", res.doll.bake}},
 	{"bgm", "set", "bakeriff", .75, source="bake riff1.ogg"},
 	{"name", "María"},
 	[[Aprovechando la adrenalina Bake conectó la guitarra a un amplificador
@@ -172,9 +199,11 @@ subió a 11 el volumen.]],
 	{"bgm", "mod", "bakeriff", fade={"fadeto", 1, 1}},
 	[["¡Bake, llamarás la atención!" le dije casi gritando. "¡Bake!"]],
 
+	{"bg", 2, "mod", fade={"src", res.doll.bake_xd}},
 	{"name", "Bake"},
 	[["¿¿Queee??"]],
 
+	{"bg", 2, "mod", fade={"src", res.doll.bake}},
 	{"name", "María"},
 	[[Bake se negaba a dejar de tocar, hasta que llegó otra
 criatura de afuera. Bake interrumpió su solo para embocarsela en la cabeza...]],
@@ -184,10 +213,12 @@ criatura de afuera. Bake interrumpió su solo para embocarsela en la cabeza...]]
 	{"sfx", "sfx/guitar hit muted.flac", 1, 1, .1},
 	[[...Destruyendo definitivamente la guitarra.]],
 
+	{"bg", 2, "mod", fade={"src", res.doll.bake_xd}},
 	{"sfx", "freesound/346694__deleted_user_2104797__body-fall_02.flac"},
 	{"name", "Bake"},
 	[["¡EL PARAISO SI EXISTE DE NUEVO!"]],
 
+	{"bg", 2, "mod", fade={"src", res.doll.bake, "fadeout", 1/3}},
 	{"name", "María"},
 	{"text", [[Tirando los restos ]], false, true},
 	{"sfx", "freesound/647227__traceyregina__wooden_violin_-toss.cut.flac",
@@ -205,16 +236,24 @@ Bake.]],
 	[[Por más loco que estuviera, por lo menos estaba mas que segura con
 el.]],
 
+	{"bg", 2, "mod",
+		args={res.doll.bake, 240, 0, -1}, fade={"fadein", 1/12}
+	},
 	{"name", "Bake"},
 	[["Tomá," dijo pasándome un ampli pesado apenas llegué a su lado.
 En eso, oímos crujir los trozos de vidrio de afuera.]],
 
+	{"bg", 2, "mod", fade={"fadeout", 1/12}},
 	{"bgm", "set", "glass", .2,
 		fade={"fadein", 1},
 		source="freesound/69911__subunit23__crushed-glass2.cut.flac"},
 
 	[[Bake levantó por reflejo otra guitarra, pero luego la bajó.]],
 
+	{"bg", 2, "add",
+		draw=f0b.doll.draw,
+		args={res.doll.falcon, 480, 0, -1}, fade={"fadein", 1}
+	},
 	{"bgm", "mod", "glass", fade={"fadeout", 1/3, true}},
 	{"name", "María"},
 	[[Un chico de cabello castaño había llegado atraído por el ruido.]],
@@ -226,6 +265,7 @@ anonadado, sin decir nada.]],
 	[[Ayudamos al chico a entrar y Bake fue a sentarlo al lado del primer
 zombie que golpeó. Este ya había dejado de moverse.]],
 
+	{"bg", 2, "mod", 1, args={res.doll.bake, 160}, fade={"fadein", 1/12}},
 	{"name", "Bake"},
 	[["¿Como te llamás?"]],
 
@@ -257,9 +297,11 @@ pareció gustarle.]],
 	{"name", "María"},
 	[["María."]],
 
+	{"bg", 2, "mod", 1, fade={"src", res.doll.bake_xd}},
 	{"name", "Bake"},
 	[["Bake, ñam ñam xD"]],
 
+	{"bg", 2, "mod", 1, fade={"src", res.doll.bake}},
 	{"name", "María"},
 	[["¿Andas solo?"]],
 
@@ -273,6 +315,7 @@ que veo en días."]],
 	{"name", "Falcon"},
 	[["Les muestro si me alcanzan ese bajo xD"]],
 
+	{"bg", 2, "modall", fade={"fadeout", 1}},
 	{"bgm", "set", source="falcon melancólico.ogg",
 		setup={play=false},
 		fade={"delay", 1, "cmd", {play=true}, "delay", "remaining", true}},
@@ -284,11 +327,13 @@ altos.]],
 cosas en pequeños escondrijos. Conseguimos comida chatarra, un bate de una
 tienda deportiva, y luego nos llevó a una armería.]],
 
+	{"bg", 2, "mod", fade={"fadein", 1/12}},
 	{"name", "Falcon"},
 	[["Encontré solo unos cartuchos en la bodega, pero no pude revisar los
 estantes mas altos así que a lo mejor aún quedó algo." Bake entró a revisar y a
 los minutos salió con una pistola en la mano.]],
 
+	{"bg", 2, "mod", 1, fade={"fadein", 1/12}},
 	{"name", "Bake"},
 	[["Vos sos adivino, había una Clock 18 con cargador," dijo metiendo
 el cartucho con una sonrisa, y Falcon silbó al verla.]],
@@ -316,9 +361,12 @@ acompañár? Hay que caminar un poco."]],
 	{"name", "Falcon"},
 	[["Si, creo."]],
 
+	{"bg", 2, "mod", 1, fade={"src", res.doll.bake_xd}},
 	{"name", "Bake"},
 	[["Que no se hable mas xD"]],
 
+	{"bg", 2, "mod", 1, fade={"src", res.doll.bake, "fadeout", 1, true}},
+	{"bg", 2, "mod", 2, fade={"fadeout", 1, true}},
 	{"name", "María"},
 	[[Me entregaron a mi el bate ya que los dos tenían armas, y fuimos a
 buscar el auto de Falcon.]],

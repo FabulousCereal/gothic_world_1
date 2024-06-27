@@ -167,7 +167,7 @@ boca. Eso decía mi mamá."]],
 	[["Si, mejor xD Entonces no perdamos tiempo. Salgamos ahora mismo,"
 dijo levantándose.]],
 
-	{"bg", "sub", 2, "mod", 1, fade={"mvdiff", false, 60, 1/3}},
+	{"bg", 2, "mod", 1, fade={"mvdiff", false, 60, 1/3}},
 	{"bg", "mod", 3, fade={"mvdiff", false, 60, 1/3}},
 	{"name", "María"},
 	[["Espera, ¿ahora ahora?" Los chicos se levantaron también, tomando
@@ -205,10 +205,10 @@ esperaban que me quedara guardada en casa. Era para lo único que servía.]],
 
 	{"name", "Andrea"},
 	{"text", [["Pienso que--..." ]], false, true},
-	{"bg", "sub", 2, "mod", 4, fade={"src", res.doll.andrea_fome}},
+	{"bg", 2, "mod", 4, fade={"src", res.doll.andrea_fome}},
 	{"text", [[Andrea se detuvo y le lanzó una breve mirada, una
 expresión de que no era la primera vez que oía ese chiste. ]], true, true},
-	{"bg", "sub", 2, "mod", 4, fade={"src", res.doll.andrea}},
+	{"bg", 2, "mod", 4, fade={"src", res.doll.andrea}},
 	{"text", [["Deberiamos ir los tres, porque afuera es mas peligroso."]],
 		true},
 
@@ -224,7 +224,7 @@ dos y dos," argumentó. "O si te acuerdas del lugar puedes ir tú y--"]],
 	{"name", "Bake"},
 	[["¿Entonces vas?"]],
 
-	{"bg", "sub", 2, "mod", 4, fade={"src", res.doll.andrea_fome}},
+	{"bg", 2, "mod", 4, fade={"src", res.doll.andrea_fome}},
 	{"name", "María"},
 	[["Si. Quiero ir," pronuncié. Los chicos me miraron en silencio.]],
 

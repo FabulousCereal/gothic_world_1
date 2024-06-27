@@ -285,7 +285,7 @@ hacia el frente para hablarle.]],
 				fade={"bend", 3/4, 1/9, "fadeout", 1/9, true}},
 			{"bgm", "set", "squeal2", 0,
 				source="freesound/71738__audible-edge__chrysler-lhs-tire-squeal-03.cut.flac",
-				fade={"fadein", 1, "fadeout", 6, true}},
+				fade={"fadein", 1, "fadeout", 5, true}},
 			[[De alguna forma lo esquivamos, y nos fuimos con el
 			auto dando coletazos por la calle.]],
 
@@ -303,7 +303,7 @@ hacia el frente para hablarle.]],
 		{args={"maria/living.png"}, fade={"fadein", 2}},
 	}},
 	{"name", "María"},
-	{"text", [[ a la casa cerca de las seis, cuando el sol ya se ocultaba
+	{"text", [[ a la casa cerca de las seis, cuando el sol ya se ponía
 y la nieve comenzaba a tapar la vista. Entramos Falcon y yo cargando
 la comida, y el dejó un segundo las bolsas para estirar los brazos al techo.]],
 	true},
@@ -321,7 +321,7 @@ días en el auto." Bake entró sin nada y se tiró como tabla en el sillón.]],
 cocina para guardar la comida.]],
 
 	{"macro", "bgFade", "maria/cocina.png"},
-	{"bg", "sub", 2, "mod", fade={"fadeout", 1}},
+	{"bg", 2, "mod", fade={"fadeout", 1}},
 	[["¿Sabés que nos hizo falta? Unas chelas," comentó Bake desde el
 living. Falcon contuvo una risa, aunque a mi no me hizo gracia.]],
 
@@ -331,7 +331,7 @@ living. Falcon contuvo una risa, aunque a mi no me hizo gracia.]],
 	{"name", "Bake"},
 	[["Mierda xD"]],
 
-	{"bg", "sub", 2, "mod", fade={"src", res.doll.falcon, "fadein", 1/12}},
+	{"bg", 2, "mod", fade={"src", res.doll.falcon, "fadein", 1/12}},
 	{"name", "Falcon"},
 	[["¿Eh? ¿Cuerpos?"]],
 
@@ -343,7 +343,7 @@ afuera," dije apuntando a la ventana porque no quería verlos de nuevo.
 	{"name", "Falcon"},
 	{"text", [["Ahh."]], false, true},
 
-	{"bg", "sub", 2, "mod", fade={"fadeout", 1}},
+	{"bg", 2, "mod", fade={"fadeout", 1}},
 	{"text", [[ Falcon fue a echar un ojo mientras yo guardaba la comida.]],
 true},
 
@@ -352,7 +352,7 @@ true},
 	{"name", "María"},
 	{"text", [[Pensé que quizás era la nieve que los había cubrido. ]],
 		false, true},
-	{"bg", "sub", 1, "add", args={"maria/patio.png"}, fade={"fadein", 1/3}},
+	{"bg", 1, "add", args={"maria/patio.png"}, fade={"fadein", 1/3}},
 	{"text", [[Me asomé a mirar, y luego abrí la puerta. De verdad no
 		estaban.]], true},
 
@@ -368,9 +368,9 @@ bien muertos."]],
 	{"name", "Falcon"},
 	[["Que yo sepa no son caníbales, pero quién sabe."]],
 
-	{"bg", "sub", 1, "mod", fade={"fadeout", 1/2, true}},
-	{"bg", "sub", 2, "mod", fade={"mvabs", 160, false, 0, "fadein", 1/2}},
-	{"bg", "sub", 2, "add",
+	{"bg", 1, "mod", fade={"fadeout", 1/2, true}},
+	{"bg", 2, "mod", fade={"mvabs", 160, false, 0, "fadein", 1/2}},
+	{"bg", 2, "add",
 		args={res.doll.bake, 480, 0, -1}, fade={"fadein", 1/2}},
 	{"name", "María"},
 	[[El viento sopló fuerte de nuevo así que nos metimos de nuevo a la
@@ -385,7 +385,7 @@ de calmarme.]],
 	{"name", "Bake"},
 	[["Dale. Yo tengo hambre así que voy a preparar algo."]],
 
-	{"bg", "sub", 2, "mod", 1, fade={"fadeout", 1}},
+	{"bg", 2, "mod", 1, fade={"fadeout", 1}},
 	{"name", "María"},
 	[[Falcon nos dejó solos, y yo intenté quedarme tranquila con sus
 palabras. Por mas que me dijeran esas cosas, esa extraña incomodidad en el
@@ -401,7 +401,7 @@ Aunque fuera loco, escucharlo hablar me ayudaba.]],
 	[[Afuera la nieve se apilaba, y el sol se ponía lentamente. Bake me
 contaba de la vez que a Pipi la atropellaron pero que logró volver a caminar.]],
 
-	{"bg", "sub", 2, "mod", 1, fade={"fadein", 2}},
+	{"bg", 2, "mod", 1, fade={"fadein", 2}},
 	[[Falcon regresó casi una sombra, haciendo que me sobresaltara. Bake se
 rió, y recién ahí reveló que tenía una linterna.]],
 
@@ -411,11 +411,11 @@ rió, y recién ahí reveló que tenía una linterna.]],
 			bg={0,0,0,.95},
 		}
 	},
-	{"bg", "sub", 2, "mod", fade={"src", res.doll.bake_xd}},
+	{"bg", 2, "mod", fade={"src", res.doll.bake_xd}},
 	{"name", "Bake"},
 	[["Whazza!"]],
 
-	{"bg", "sub", 2, "mod", fade={"src", res.doll.bake}},
+	{"bg", 2, "mod", fade={"src", res.doll.bake}},
 	{"name", "María"},
 	[["¬¬"]],
 
@@ -459,17 +459,17 @@ esas criaturas.]],
 	{"text", [["Quisiera, pero caminar dos horas no le hizo bien a mi
 espalda xD]], false, true},
 
-	{"bg", "sub", 2, "mod", 2, fade={"src", res.doll.bake_xd}},
+	{"bg", 2, "mod", 2, fade={"src", res.doll.bake_xd}},
 	{"text", [[ Me duele xDD"]], true},
 
-	{"bg", "sub", 2, "mod", 2, fade={"src", res.doll.bake}},
+	{"bg", 2, "mod", 2, fade={"src", res.doll.bake}},
 	{"name", "María"},
 	[["Yo te ayudo entonces," me ofrecí.]],
 
 	[[Me llevé la linterna y dejamos cocinando a Bake solo con la
 llama del gas, y entramos todas las tablas y herramientas al living.]],
 
-	{"bg", "sub", 2, "modall", fade={"fadeout", 1}},
+	{"bg", 2, "modall", fade={"fadeout", 1}},
 	{"macro", "bgFade", "maria/living.png"},
 
 	[[Nos pusimos manos a la obra de inmediato. Yo sostenía las tablas
@@ -478,20 +478,20 @@ mientras el las clavaba a la pared.]],
 	[[Me sentía un poco mal haciéndole esto a la casa de Bake, pero peor
 sería dormir tras lo que dijo Falcon.]],
 
-	{"bg", "sub", 2, "mod", 1, fade={"fadein", 1}},
+	{"bg", 2, "mod", 1, fade={"fadein", 1}},
 	[[Mientras pasaba el tiempo, no pude evitar también sentir algo de
 lástima por Falcon. A pesar de todas sus heridas, se notaba era un buen
 chico.]],
 	{"read", laConversacion, true},
 
-	{"bg", "sub", 2, "mod", 1, fade={"fadeout", 1}},
+	{"bg", 2, "mod", 1, fade={"fadeout", 1}},
 	[[Tras nuestro arreglo la casa quedó aún mas oscura, así que
 con Falcon acordamos buscar velas y baterías para la próxima salida.]],
 
 	{"macro", "bgFade", res.fun.complex.comedor2()},
 	{"macro", "mesa", 1, "add"},
-	{"bg", "sub", 2, "add", 1, args={res.doll.sillas, 320}},
-	{"bg", "sub", 2, "modall", fade={"fadein", 1}},
+	{"bg", 2, "add", 1, args={res.doll.sillas, 320}},
+	{"bg", 2, "modall", fade={"fadein", 1}},
 	[[Acabado el trabajo, nos sentamos a comer un estofado con lo único
 medianamente saludable que trajimos.]],
 
@@ -516,12 +516,12 @@ atento.]],
 	{"name", "Falcon"},
 	[["Eeh, mate también."]],
 
-	{"bg", "sub", 2, "mod", 3, fade={"fadeout", 1}},
+	{"bg", 2, "mod", 3, fade={"fadeout", 1}},
 	{"name", "María"},
 	[[Bake fue a la cocina y se trajo todo en un solo viaje, incluyendo
 un termo con agua caliente que había hervido de antes.]],
 
-	{"bg", "sub", 2, "mod", 3, fade={"fadein", 1}},
+	{"bg", 2, "mod", 3, fade={"fadein", 1}},
 	[[Bake me pasó la yerba y empecé a servirme de inmediato. Falcon nos
 quedó mirando.]],
 
@@ -529,12 +529,12 @@ quedó mirando.]],
 	[["Pregunta, ¿ustedes son novios?" preguntó de pronto. Ambos lo
 miramos.]],
 
-	{"bg", "sub", 2, "mod", 3, fade={"src", res.doll.bake_xd}},
+	{"bg", 2, "mod", 3, fade={"src", res.doll.bake_xd}},
 	{"name", "María"},
 	[[Bake empezó a reir con la pregunta tan repentina, y yo hice lo mismo,
 no más que de paso errándole con el agua al mate.]],
 
-	{"bg", "sub", 2, "mod", 3, fade={"src", res.doll.bake}},
+	{"bg", 2, "mod", 3, fade={"src", res.doll.bake}},
 	{"name", "Bake"},
 	[["lol, no, nos conocimos esta mañana. La salvé de la Sombra," rió.]],
 
@@ -633,7 +633,7 @@ mejor irnos a dormir. Fuimos hasta la escalera.]],
 
 	{"macro", "bgFade", "maria/living.png"},
 	{"bg", "mod", fade={"fadeout", 1, true}},
-	{"bg", "sub", 2, "mod", 1, fade={"fadeout", 1, true}},
+	{"bg", 2, "mod", 1, fade={"fadeout", 1, true}},
 	{"name", "Falcon"},
 	[["¿Donde dormiremos?"]],
 
@@ -646,10 +646,10 @@ mis padres que es doble."]],
 
 	{"name", "Bake"},
 	{"text", [["Yo tampoco. ]], false, true},
-	{"bg", "sub", 2, "sync"},
-	{"bg", "sub", 2, "mod", 2, fade={"src", res.doll.bake_xd}},
+	{"bg", 2, "sync"},
+	{"bg", 2, "mod", 2, fade={"src", res.doll.bake_xd}},
 	{"text", [[No somos gays xD"]], true},
-	{"bg", "sub", 2, "mod", 2, fade={"src", res.doll.bake}},
+	{"bg", 2, "mod", 2, fade={"src", res.doll.bake}},
 
 	{"name", "Falcon"},
 	[["María duerme contigo en la doble entonces, a menos que quieras
@@ -667,7 +667,7 @@ noches."]],
 	{"name", "Bake"},
 	[["Buenas noches."]],
 
-	{"bg", "sub", 2, "modall", fade={"fadeout", 1/3, true}},
+	{"bg", 2, "modall", fade={"fadeout", 1/3, true}},
 	{"name", "María"},
 	[[Ambos subieron y se fueron a dormir, dejándome sola a los pies de la
 escalera con la linterna en la mano.]],

@@ -44,11 +44,11 @@ segundo piso, ¿verdad?]],
 	[[De pronto, un grito primal de dolor que me heló el alma cortó el
 aire.]],
 
-	{"bg", "sub", 1, "rmall"},
+	{"bg", 1, "rmall"},
 	{"name"},
 	[["¡¡LA CONCHA DE LA LORAAAAAAA!!"]],
 
-	{"bg", "sub", 1, "add",
+	{"bg", 1, "add",
 		args={"croft/cuchillo de cocina canvas 1-1.png", -60, -108},
 		color={1,1,1,0},
 		fade={"fadein", 1/3, "delay", 1/3, "fadeout", 1/3, true}
@@ -57,12 +57,12 @@ aire.]],
 	[[Tomé lo primero que encontré a mano y corrí arriba, a buscar al
 chico.]],
 
-	{"bg", "sub", 1, "add", args={"maria/pasillo.png"}, fade={"fadein", 1}},
+	{"bg", 1, "add", args={"maria/pasillo.png"}, fade={"fadein", 1}},
 	[[¿Que esperaba hacer? ¿Creía que serviría yo de algo? Lamentablemente,
 no parecía ser yo la que tomaba decisiones hoy día. Ví una habitación con la
 puerta abierta y con un fuerte olor a alcohol proviniendo de adentro. Entré.]],
 
-	{"bg", "sub", 1, "mod", args={"maria/baño.png"}},
+	{"bg", 1, "mod", args={"maria/baño.png"}},
 	[[Encontré al chico en el baño sin polera ni pantalones, agitando los
 brazos y saltando vehementemente. En su mano, una botella de alcohol
 desinfectante que se acababa de hechar por la espalda.]],
@@ -76,7 +76,7 @@ era como que se duchaba con ella. Tras apretar los puños pareció disipar de
 una todo su dolor. El vapor se fue. Entoces el chico se giró a mirarme con esos
 cautivantes ojos marrones.]],
 
-	{"bg", "sub", 2, "mod", fade={"src", res.doll.bake_boxers}},
+	{"bg", 2, "mod", fade={"src", res.doll.bake_boxers}},
 	[["Oh, hola. ¿Donde estabas?" me preguntó disimulando estar bien, pero
 respiraba entrecortado por el dolor... o tal vez por el frio. Andaba solo en
 boxers. No pude alejar la vista.]],

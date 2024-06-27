@@ -8,6 +8,13 @@ destrozado desde afuera, con cajas de remedios esparcidos por toda la
 vereda. Las nubes se veían muy oscuras, y la ramas de los árboles se movían con
 fuerza, botando la nieve.]],
 
+	{"bg", "addsub", {}},
+	{"bg", "addsub", {
+		{args={res.doll.bake, 160}},
+		{args={res.doll.falcon, 480, 0, -1}},
+		default={draw=f0b.doll.draw},
+	}},
+	{"bg", 2, "modall", fade={"fadein", 1}},
 	{"name", "Bake"},
 	[["¿Ves? La destrozaron por gusto, pero no se llevaron todo."]],
 
@@ -46,7 +53,7 @@ almeja que llevaba. La pantalla se iluminó.]],
 
 	{"name", "Bake"},
 	[["Pensé que no estaba de más, ¿ya? xD" Bake fue a dar la vuelta
-al estante. "Vení a buscar vos también, si vos sos el que no se quiere
+al estante. "Vení a buscar vos también, si sos vos el que no se quiere
 morir."]],
 
 	{"name", "María"},
@@ -64,17 +71,19 @@ lo que veníamos.]],
 
 	[[Fuimos separando lo que nos servía en el mostrador. Tomamos botellas
 de alcohol, guantes quirúrgicos, y algunos medicamentos comunes, para
-infecciones, el dolor, y esas cosas. Antivirales, no encontrábamos nada.]],
+el dolor y esas cosas. Antivirales, no encontrábamos nada.]],
 
 	[["No veo ninguno que diga 'antiviral'," dije. "¿No se los habrán
 llevado?"]],
 
 	{"name", "Bake"},
-	[["No creo que sean comunes. Hay que seguir buscando." Seguí
-recorriendo las filas de mostradores, hasta que frené en seco en la última.
-Había un bulto en la oscuridad.]],
+	[["No creo que sean comunes. Hay que seguir buscando."]],
 
+	{"bg", 2, "modall", fade={"fadeout", 1}},
 	{"name", "María"},
+	[[Seguí recorriendo las filas de mostradores, hasta que frené en seco
+en la última. Había un bulto en la oscuridad.]],
+
 	[["Hay algo acá... Creo que es un cuerpo." Los chicos se voltearon a
 verme. Retrocedí mientras Bake venía a alumbrar, y con la luz reveló el cuerpo
 de un hombre.]],
@@ -86,6 +95,7 @@ acá mismo.]],
 	[[Ninguno de los tres decía nada. Creo que a estar alturas, ya no
 teniamos la energía para sorprendernos. Falcon fue el primero en hablar.]],
 
+	{"bg", 2, "modall", fade={"fadein", 1/12}},
 	{"name", "Falcon"},
 	[["Hay que revisar la mochila, debe tener los antivirales ahí."]],
 
@@ -93,17 +103,22 @@ teniamos la energía para sorprendernos. Falcon fue el primero en hablar.]],
 	[["Yo no voy a tocarlo."]],
 
 	{"name", "Falcon"},
-	[["Yo lo haré." Falcon fue a colocarse un par de guantes, y con Bake
-iluminando, se acercó con arma en mano. Ninguno hacia un ruido. La sangre
-congelada crugía bajo sus pisadas.]],
+	[["Yo lo haré."]],
 
+	{"bg", 2, "modall", fade={"fadeout", 1}},
 	{"name", "María"},
+	[[Falcon fue a colocarse un par de guantes, y con Bake
+iluminando, se acercó con arma en mano.]],
+
+	[[Ninguno hacia un ruido. La sangre congelada crugía bajo sus pisadas.]],
+
 	[[Falcon con cautela movió el cuerpo con el arma. Hizo una mueca al
 mirarlo de frente, pero viendo que estaba definitivamente muerto, abrió la
 mochila y metió la mano hasta el fondo...]],
 
 	[[Sacó una caja.]],
 
+	{"bg", 2, "modall", fade={"fadein", 1/12}},
 	{"name", "Falcon"},
 	[["Viraqur." Bake se acercó a iluminarle mejor. "Laboratorio KonoSur.
 Remdesivir. Antiviral de amplio espectro," dijo dibujándosele una sonrisa.
@@ -147,12 +162,12 @@ No sé ustedes, pero preferiría seguir buscando."]],
 silencio.]],
 
 	{"name", "María"},
-	[[El camino de sangre obviamente no era señal de que hubiera algo bueno
+	[[El rastro de sangre obviamente no era señal de que hubiera algo bueno
 del otro lado, pero creo que ninguno llegó a dudar que era necesario entrar; el
 medicamento era demasiado importante. Finalmente nos pusimos de pie, y
 fuimos hacía la puerta.]],
 
-	[[Como yo no tenía arma, y como Falcon estaba aún débil, acordamos
+	[[Como yo no tenía arma, y Falcon estaba aún débil, acordamos
 hacerlo como los policías: yo iba a iluminar, Falcon iba a abrir la puerta,
 y Bake iba a dispararle a cualquier cosa que pudiera salir.]],
 
@@ -162,6 +177,7 @@ pecho, y tenía las manos calientes a pesar del frio.]],
 
 	[[Al llegar a cero, Falcon abrió de un tirón de la puerta.]],
 
+	{"bg", 2, "modall", fade={"fadeout", 1/12, true}},
 	[[Había una cuarto oscuro repleto con cajas de cartón. Al
 otro extremo había una puerta cerrada por la que se filtraba luz de día.
 El camino de sangre giraba hacia la derecha tras las cajas antes de volver

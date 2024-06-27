@@ -83,10 +83,13 @@ local function transitionExec(dt)
 	end
 end
 
-local function changeBGColor(id, bgColor, act)
-	bgColor[act[1]] = bgColor[act[1]] + act[2]
-	print(string.format("%u - r:%.2f, g:%.2f, b:%.2f",
-		id, bgColor[1], bgColor[2], bgColor[3]))
+local function changeBGColor(id, bg, act)
+	local bgColor = bg.color
+	if bgColor then
+		bgColor[act[1]] = bgColor[act[1]] + act[2]
+		print(string.format("%u - r:%.2f, g:%.2f, b:%.2f",
+			id, bgColor[1], bgColor[2], bgColor[3]))
+	end
 end
 
 function love.load()
@@ -137,11 +140,11 @@ function love.load()
 			if cur ~= 0 then
 				local bg = background[cur]
 				if bg then
-					changeBGColor(cur, bg.color, acts)
+					changeBGColor(cur, bg, acts)
 				end
 			else
 				for id, bg in ipairs(background) do
-					changeBGColor(id, bg.color, acts)
+					changeBGColor(id, bg, acts)
 				end
 			end
 		end

@@ -56,7 +56,7 @@ return {offset = -1,
 	},
 
 	{name = "Buenos días", dir = "07.buongiorno",
-		{"Una mañana como cualquier otra", "33"},
+		{"Una mañana más", "33"},
 		{"La casa de al lado", "34"},
 		{"Comme à la radio", "35"},
 		{"Comme à la vie", "36"},

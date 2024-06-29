@@ -1,6 +1,8 @@
 -- SPDX-FileCopyrightText: 2024 Grupo Warominutes
 -- SPDX-License-Identifier: Unlicense
 
+local tableGet = function(table, key) return table[key] end
+
 return {
 	-- Interpolates arbitrary values
 	-- Format: {whatever, control}
@@ -25,7 +27,7 @@ return {
 
 	interpolationLinear = function(args, getFn)
 		if not getFn then
-			getFn = function(table, key) return table[key] end
+			getFn = tableGet
 		end
 		local where = args[1]
 		for i = 6, #args, 2 do

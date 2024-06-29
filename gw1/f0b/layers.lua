@@ -76,7 +76,7 @@ local fadeOps = {
 		return seq.interpolate(layer, fade, dt)
 	end,
 
-	-- Change first argument
+	-- Replace first argument
 	-- Format: {"src", arg}
 	src = function(layer, fade, dt)
 		layer.args[1] = fade[2]
@@ -330,11 +330,14 @@ layerOps = {
 
 	rmall = fTable.clearArray,
 
-	mod = function(layers, op, idx)
-		if type(idx) ~= "string" then
-			idx = normalizeIndex(layers, idx)
+	mod = function(layers, op, ...)
+		for i = 1, math.max(select("#", ...), 1) do
+			local idx = select(i, ...)
+			if type(idx) ~= "string" then
+				idx = normalizeIndex(layers, idx)
+			end
+			layerMod(layers, layers[idx], idx, op)
 		end
-		return layerMod(layers, layers[idx], idx, op)
 	end,
 
 	modr = function(layers, op, start, limit)

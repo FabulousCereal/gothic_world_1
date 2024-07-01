@@ -1,10 +1,10 @@
-local function laAmigaSale(_, _, delay)
-	return {
+local function laAmigaSale(delay)
+	return {"read", {
 		{"bg", "mod", 2, fade={"delay", delay, "fadeout", 1, true}},
 		{"bg", "add", 2, args={"cafe/amiga4.png"},
-			color=res.palette("fivepm", 0),
+			color=res.palette("redbg", 0),
 			fade={"delay", delay, "fadein", 1}},
-	}
+	}}
 end
 
 return {
@@ -78,7 +78,6 @@ importante. Le dije en todo caso que mejor no salieramos, por las dudas.]],
 	[[Quizás fue la decisión correcta. Al rato la gente de afuera se veía
 mareada o vomitando.]],
 
---	{"macro", laAmigaSale, .5},
 	[[Ella entonces dijo que iria a ver que pasaba.]],
 
 	{"select", nil, {
@@ -87,7 +86,7 @@ mareada o vomitando.]],
 	},
 	{"case", nil, {
 		{
-			{"macro", laAmigaSale, 0},
+			laAmigaSale(0),
 
 			{"name", "Bakeritsu"},
 			[[La chica partió a asomarse mientras nosotros nos
@@ -114,7 +113,7 @@ mareada o vomitando.]],
 			{"name", "Bakeritsu"},
 			[["...Traeme un helado ya que te paraste, lol."]],
 
-			{"macro", laAmigaSale, .75},
+			laAmigaSale(.75),
 
 			[[La chica me miró feo y partió mientras mis amigos
 			reían.]],
@@ -123,13 +122,10 @@ mareada o vomitando.]],
 
 	{"bgm", "rm", "song"},
 	{"bg", "sync"},
---	{"bg", "rm", 1, 2},
-	{"bg", "mod", 1, fade={"delay", 7/6 + 1/5, true}},
 	{"bg", "mod", 2, fade={"delay", 7/6, true}},
 	{"bg", "add", 2, args={"zeh/chica atropellada diff +97+53.png", 97, 53},
 		color=res.palette("redbg", 0),
-		fade={"delay", 7/6, "fadein", 0, "delay", 1/5, true}},
---	{"bg", "mod", color=res.palette("redbg")},
+		fade={"delay", 7/6, "fadein", 0}},
 
 	{"sfx", "freesound/71741__audible-edge__nissan-maxima-handbrake-turn.cut.flac"},
 	{"sfx", "freesound/204777__ngruber__breaking-glass.cut.flac", 1/3, .8, 4/3},
@@ -141,7 +137,7 @@ golpea a la que estaba bien buena.]],
 
 	[["Oh shit"]],
 
-	{"bg", "sync"},
+	{"bg", "mod", 1, 2, fade={"fadeout", 1, true}},
 	{"bg", "mod", fade={"mvdiff", 0, -120, 2}},
 	[[Apenas bajó el polvo corrimos a ayudar y a putear al conductor y a la
 chica. El dueño de la cafetería apareció furioso y cagó al conductor a palos,

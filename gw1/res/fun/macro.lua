@@ -47,10 +47,10 @@ return {
 			img = {args={img}}
 		end
 		subidx = subidx or 1
-		img[1], img[2], img[3], img[4], img[5]
-			= "bg", "sub", subidx, "add", 1
+		img[1], img[2], img[3], img[4]
+			= "bg", subidx, "add", 1
 		return {
-			{"bg", "sub", subidx, "mod", 1,
+			{"bg", subidx, "mod", 1,
 				fade={"fadeout", secs or 1, true}},
 			img,
 		}

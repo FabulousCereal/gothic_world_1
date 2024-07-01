@@ -309,6 +309,9 @@ local layerOps
 
 local function ops(layerTable, inst, op, ...)
 	layerTable.redraw = true
+	if type(op) == "number" then
+		return ops(layerTable[op], inst, ...)
+	end
 	return layerOps[op](layerTable, inst, ...)
 end
 

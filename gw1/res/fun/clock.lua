@@ -119,8 +119,8 @@ return {
 		graphics.setCanvas(clockFace)
 
 		graphics.setColor(1,1,1,1)
-		f0b.draw.shader(f0b.style.setupShader(res.shader.circle, style),
-			0, 0, dims, dims)
+		f0b.draw.sdf(f0b.style.setupShader(res.shader.circle, style),
+			0, 0, 0, dims, dims)
 
 		local tau = math.pi*2
 		local radius = floor(dims / 2)

@@ -365,11 +365,6 @@ layerOps = {
 		return table.insert(layers, idx, normalizeLayerTable(sub))
 	end,
 
-	sub = function(layers, op, idx, ...)
-		local sub = layers[idx]
-		return ops(sub, op, ...)
-	end,
-
 	fold = function(layers, op, idx)
 		idx = idx or #layers
 		local sub = layers[idx]

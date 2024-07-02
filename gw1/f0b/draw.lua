@@ -27,11 +27,6 @@ local function sdfDraw(sdf, margin, x, y, r, w, h, ...)
 	shaderAndBack(shader, prev, x - margin, y - margin, r, w, h, ...)
 end
 
-local function shaderDraw(ctx, x, y, w, h, ...)
-	local shader, prev = f0b.shader.prepare(ctx)
-	shaderAndBack(shader, prev, x, y, 0, w, h, ...)
-end
-
 return {
 	line = function(p, width, radius)
 		local margin = 1
@@ -78,8 +73,6 @@ return {
 		graphics.setColor(r, g, b, a)
 		graphics.draw(unpack(drawArgs))
 	end,
-
-	shader = shaderDraw,
 
 	unitSquare = unitSquare,
 

@@ -26,21 +26,6 @@ local function title(vars, _, showTitle, time)
 	}
 end
 
-local function fade(img, color, idx, secs, op)
-	local s = secs or 2/3
-	local next = idx and idx+1 or nil
-	if type(img) == "string" then
-		img = {args={img}}
-	end
-	img[1], img[2], img[3] = "bg", "add", next
-	img.color=color or nil
-	img.fade={"fadein", s}
-	return {
-		{"bg", "mod", idx, fade={op, s, true}},
-		img,
-	}
-end
-
 return {
 	bgFade = function(_, _, img, subidx, secs)
 		if type(img) ~= "table" then
@@ -55,12 +40,20 @@ return {
 			img,
 		}
 	end,
-	rFade = function(_, _, img, color, idx, secs)
-		return fade(img, color, idx, secs, "delay")
-	end,
 
-	xFade = function(_, _, name, color, idx, secs)
-		return fade(img, color, idx, secs, "fadeout")
+	rFade = function(_, _, img, color, idx, secs)
+		local s = secs or 2/3
+		local next = idx and idx+1 or nil
+		if type(img) == "string" then
+			img = {args={img}}
+		end
+		img[1], img[2], img[3] = "bg", "add", next
+		img.color=color or nil
+		img.fade={"fadein", s}
+		return {
+			{"bg", "mod", idx, fade={"delay", s, true}},
+			img,
+		}
 	end,
 
 	mesa = function(_, _, secs, ...)

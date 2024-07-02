@@ -1,73 +1,37 @@
 -- SPDX-FileCopyrightText: 2023 Grupo Warominutes
 -- SPDX-License-Identifier: Unlicense
 
-local function getProperWrap(font, text, maxWidth)
-	if type(text) == "table" then -- Colored text
-		local t = {}
-		for i = 2, #text, 2 do
-			t[i / 2] = text[i]
-		end
-		text = table.concat(t)
-	end
-	local width, wrappedtext = font:getWrap(text, maxWidth)
-	return width, #wrappedtext
-end
-
 return {
 	subtitle = function(text, align)
+		local button = f0b.button
 		local style = res.style.subtitles
 		local graphics = love.graphics
 
-		local em = style.font:getHeight()
-		local lh = em * style.lineHeight
-		local padding = em * style.padding
-		local screenW, screenH = graphics.getDimensions()
-		local maxW = screenW - (em * style.margin + padding) * 2
+		local sW, sH = graphics.getDimensions()
+		local b = button.stub(style)
+		button.setTextAdapt(b, text, sW)
+		button.regen(b)
 
-		local widthPad, lines = getProperWrap(style.font, text, maxW)
-		local width = widthPad + padding * 2
-		local height = lh * lines + padding
-		local x = math.floor(screenW * 0.5 - width * 0.5)
-		local y = math.floor(screenH * 7/8 - height * 0.5)
-
-		if not align then
-			align = "left"
-		end
-
-		if style.backgroundColor and style.backgroundColor[4] > 0 then
-			width, height = math.floor(width), math.floor(height)
-			local canvas = graphics.newCanvas(width, height)
-			graphics.setCanvas(canvas)
-			graphics.clear(style.backgroundColor)
-			if type(text) == "table" then
-				graphics.setColor(1, 1, 1, 1)
-			else
-				graphics.setColor(style.color)
-			end
-			graphics.setFont(style.font)
-			graphics.printf(text, math.floor(padding),
-				math.floor(padding / 2), widthPad, align)
-			graphics.setCanvas()
-			return {canvas, x, y}
-		end
-
-		local subtitle = graphics.newText(style.font)
-		subtitle:addf(text, math.floor(padding),
-			math.floor(padding / 2), widthPad, align)
-		return {subtitle, x, y}
+		local w, h = button.getBoxDims(b)
+		local cnv = graphics.newCanvas(w, h)
+		local prev = graphics.getCanvas()
+		graphics.setCanvas(cnv)
+		button.drawBox(b)
+		graphics.setCanvas(prev)
+		return {cnv, f0b.math.centerRectAt(sW * .5, sH * 7/8, w, h)}
 	end,
 
 	card = function(fontName, fontSize, text, align)
 		local graphics = love.graphics
 
-		local w, h = graphics.getDimensions()
+		local sW, sH = graphics.getDimensions()
 		local font = res.font(fontName, fontSize)
 		local t = graphics.newText(font)
 		if not align then
 			align = "left"
 		end
-		local tW, tH = t:getDimensions(t:addf(text, w, align))
-		t:setf(text, tW, align)
-		return {t, (w - tW)/2, (h - tH)/2}
+		local w, h = t:getDimensions(t:addf(text, sW, align))
+		t:setf(text, w, align)
+		return {t, f0b.math.centerRect(sW, sH, w, h)}
 	end,
 }

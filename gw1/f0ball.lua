@@ -11,8 +11,8 @@ f0b = {
 	table = require("f0b.table"),
 	style = require("f0b.style"),
 	shader = require("f0b.shader"),
+	button = require("f0b.button"),
 	layers = require("f0b.layers"),
 	jukebox = require("f0b.jukebox"),
-	buttons = require("f0b.buttons"),
 	ui = require("f0b.ui")
 }

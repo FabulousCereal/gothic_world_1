@@ -27,17 +27,17 @@ local function checaMiRiff()
 			local y = (rnd() + 6) * h/72
 			local style = res.style["vn" .. who]
 			if not button then
-				button = f0b.buttons.stub(style)
+				button = f0b.button.stub(style)
 			else
-				f0b.buttons.setStyle(button, style)
+				f0b.button.setStyle(button, style)
 			end
-			f0b.buttons.setTextAdapt(button, what, limit, "center")
-			f0b.buttons.setWidth(button, limit)
-			f0b.buttons.regen(button)
+			f0b.button.setTextAdapt(button, what, limit, "center")
+			f0b.button.setWidth(button, limit)
+			f0b.button.regen(button)
 			local cnv = love.graphics.newCanvas(
-				f0b.buttons.getBoxDims(button))
+				f0b.button.getBoxDims(button))
 			love.graphics.setCanvas(cnv)
-			f0b.buttons.drawBox(button)
+			f0b.button.drawBox(button)
 			love.graphics.setCanvas()
 			cmd[#cmd + 1] = {
 				"bg", "add",

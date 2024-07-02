@@ -1,10 +1,22 @@
 -- SPDX-FileCopyrightText: 2024 Grupo Warominutes
 -- SPDX-License-Identifier: Unlicense
 
-local function renderText(button)
-	local text = button.text
-	text[1]:setf(text.str, text.limit, text.align or button.style.textAlign)
-	return text[1]:getWidth()
+local function getProperWrap(font, str, limit)
+	if type(str) == "table" then -- Colored text
+		local t = {}
+		for i = 2, #str, 2 do
+			t[i / 2] = str[i]
+		end
+		str = table.concat(t)
+	end
+	local w, wrappedText = font:getWrap(str, limit)
+	return w, #wrappedText
+end
+
+local function renderText(b)
+	local t = b.text[1]
+	t:setf(b.str, b.limit, b.align or b.style.textAlign)
+	return t:getWidth()
 end
 
 local function buttonWidth(button)
@@ -12,7 +24,7 @@ local function buttonWidth(button)
 end
 
 local function buttonHeight(button, lineHeight, pad, bw, margin)
-	local boxH = button.text.lines * lineHeight + pad + bw*2
+	local boxH = button.lines * lineHeight + pad + bw*2
 	return boxH + margin*2, boxH
 end
 
@@ -33,12 +45,8 @@ local function regen(button)
 	text[1]:setFont(style.font)
 	text[2] = math.floor(box[1] + bw + pad)
 	text[3] = math.floor(box[2] + bw + pad/2)
-	text.limit = w - textPad
+	button.limit = w - textPad
 	return button, renderText(button) + textPad, boxH+margin
-end
-
-local function setStyle(button, style)
-	button.style = style
 end
 
 local function setWidth(button, w)
@@ -46,7 +54,7 @@ local function setWidth(button, w)
 end
 
 local function setLines(button, l)
-	button.text.lines = l
+	button.lines = l
 end
 
 local function setDims(button, w, lines)
@@ -60,6 +68,22 @@ local function setPos(button, x, y)
 	button.pos[2] = y
 end
 
+local function setAlign(button, align)
+	if align ~= nil then
+		button.align = align
+	end
+end
+
+-- Set text. If unspecified, the previous `limit` and `align` values are kept,
+-- even if the new text overflows
+local function setText(button, str, limit, align)
+	button.str = str
+	if limit then
+		setWidth(button, limit)
+	end
+	setAlign(button, align)
+end
+
 local function draw(button, style, x, y)
 	if not style then
 		style = button.style
@@ -67,12 +91,12 @@ local function draw(button, style, x, y)
 	local graphics = love.graphics
 	graphics.push()
 
-	graphics.translate(button.pos[1] - (x or 0), button.pos[2] - (y or 0))
+	graphics.translate(button.pos[1] + (x or 0), button.pos[2] + (y or 0))
 
 	graphics.setColor(1, 1, 1, 1)
 	f0b.draw.rect(f0b.style.getShader(style), unpack(button.box))
 
-	graphics.setColor(type(button.text.str) == "table"
+	graphics.setColor(type(button.str) == "table"
 		and {1, 1, 1, 1} or style.color)
 	graphics.draw(unpack(button.text))
 
@@ -81,79 +105,88 @@ end
 
 local function buttonStub(style)
 	return {
+		-- Position and size of the whole element, margins included
 		pos = {0, 0, 0, 0},
+		-- Offset (relative to pos) and size of the button box
 		box = {0, 0, 0, 0},
-		text = {str = "", limit = 0, lines = 0,
-			love.graphics.newText(style.font), 0, 0},
+		text = {love.graphics.newText(style.font), 0, 0},
 		style = style,
+		str = "",
+		lines = 0,
+		-- If false, align according to style
+		align = false,
+		-- Max size of the text object
+		limit = 0,
 	}
 end
 
 return {
+	-- Whether X and Y are inside the button box
 	mousemoved = function(button, x, y)
 		return f0b.math.rectangleTest(button.box,
 			x - button.pos[1], y - button.pos[2])
 	end,
 
+	-- Button dimensions, sans margin
 	getBoxDims = function(button)
 		return unpack(button.box, 3)
 	end,
 
+	-- Get height with margin
 	getHeight = function(button)
 		return button.pos[4]
 	end,
 
+	getLimit = function(button)
+		return button.limit
+	end,
+
+	-- Set width with margin
 	setWidth = setWidth,
 
-	setStyle = setStyle,
-
+	-- Set width with margin and lines of height
 	setDims = setDims,
 
 	setPos = setPos,
 
-	setText = function(button, str, limit, align)
-		button.text.str = str
-		if limit then
-			setWidth(button, limit)
-		end
-		if align ~= nil then
-			button.text.align = align
-		end
+	setStyle = function(button, style)
+		button.style = style
 	end,
 
-	setTextInPlace = function(button, str)
-		button.text.str = str
-		renderText(button)
-	end,
-
+	-- Set text, adapting the button size to it
 	setTextAdapt = function(button, str, limit, align)
 		local style = button.style
 		local _, pad, margin, _, bw = f0b.style.getUnits(style)
-		local space = (pad+bw+margin)*2
-		local w, wrap = style.font:getWrap(str, limit - space)
-		button.text.str = str
-		if align ~= nil then
-			button.text.align = align
-		end
-		return setDims(button, w + space, #wrap)
+		local outer = (pad+bw+margin)*2
+		local w, lines = getProperWrap(style.font, str, limit - outer)
+		button.str = str
+		setAlign(button, align)
+		return setDims(button, w + outer, lines)
 	end,
+
+	setText = setText,
 
 	draw = draw,
 
+	-- Draw the button with margin omitted
 	drawBox = function(button, style)
-		return draw(button, style, unpack(button.box, 1, 2))
+		return draw(button, style, -button.box[1], -button.box[2])
 	end,
 
+	-- Make changes effective
 	regen = regen,
 
+	regenText = renderText,
+
+	-- Useless minimal button
 	stub = buttonStub,
 
+	-- A new button
 	new = function(style, str, x, y, limit, lines, align)
 		local b = buttonStub(style)
-		b.text.align = align
-		b.text.str = str
 		setPos(b, x, y)
-		setDims(b, limit, lines)
+		setText(b, str, limit, align)
+		setLines(b, lines)
 		return regen(b)
 	end,
 }

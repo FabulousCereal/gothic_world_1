@@ -18,7 +18,7 @@ local function selectRegen(select)
 		if select.repl then
 			choice = multiRepl(choice, select.repl)
 		end
-		local button, textW, y = f0b.buttons.new(style, choice,
+		local button, textW, y = f0b.button.new(style, choice,
 			0, lineY, screenW, 1, select.align)
 		select[i] = button
 		lineY = lineY + y
@@ -31,8 +31,8 @@ local function selectRegen(select)
 	end
 	if style.width == "adapt" then
 		for _, button in ipairs(select) do
-			f0b.buttons.setWidth(button, maxW)
-			f0b.buttons.regen(button)
+			f0b.button.setWidth(button, maxW)
+			f0b.button.regen(button)
 		end
 	end
 	select.pos[3] = select[1].pos[3]
@@ -67,7 +67,7 @@ local function mouseTest(select, x, y)
 		x = x - select.pos[1]
 		y = y - select.pos[2]
 		for i, button in ipairs(select) do
-			if f0b.buttons.mousemoved(button, x, y) then
+			if f0b.button.mousemoved(button, x, y) then
 				select.cur = i
 				return i
 			end
@@ -100,7 +100,7 @@ return {
 
 		graphics.translate(unpack(select.pos, 1, 2))
 		for i, button in ipairs(select) do
-			f0b.buttons.draw(button, (i == select.cur)
+			f0b.button.draw(button, (i == select.cur)
 				and style or style.unselected)
 		end
 

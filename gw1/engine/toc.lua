@@ -136,13 +136,15 @@ local keyMap = f0b.table.dispatch({
 		self.forbidden = runStage(self, "any")
 		if self.forbidden then
 			local msg = self.forbiddenMsg
-			local buttons = f0b.buttons
-			local floor = math.floor
+			local button = f0b.button
 			local screenW, screenH = love.graphics.getDimensions()
-			local w = buttons.setTextAdapt(msg, self.forbidden, screenW)
-			buttons.setPos(msg, floor(screenW/2 - w/2),
-				floor(screenH/2 - buttons.getHeight(msg)/2))
-			buttons.regen(msg)
+			local w = button.setTextAdapt(msg, self.forbidden, screenW)
+			button.regen(msg)
+			button.setPos(msg,
+				f0b.math.centerRect(screenW, screenH,
+					w, button.getHeight(msg)
+				)
+			)
 		else
 			gamestate:stateSwitch(self.indexee.id, self.cur)
 		end
@@ -208,7 +210,7 @@ local function tocDraw(self)
 	local tocMargin = em * 2
 
 	if self.forbidden then
-		f0b.buttons.draw(self.forbiddenMsg)
+		f0b.button.draw(self.forbiddenMsg)
 	else
 		if self.entryHeight then
 			style = self.entryStyle
@@ -255,7 +257,7 @@ return {
 			entryStyle = nil,
 			entryHeight = nil,
 			forbidden = false,
-			forbiddenMsg = f0b.buttons.stub(style.unselected),
+			forbiddenMsg = f0b.button.stub(style.unselected),
 			prevOff = 0,
 			allow = allow,
 		}

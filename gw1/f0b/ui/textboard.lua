@@ -21,7 +21,8 @@ local function typewriterNext(board)
 	local str, pos = board.str, board.pos
 	if pos <= #str then
 		local pos, char = nextCodePoint(str, pos)
-		f0b.buttons.setTextInPlace(board.textboard, string.sub(str, 1, pos))
+		f0b.button.setText(board.textboard, string.sub(str, 1, pos))
+		f0b.button.regenText(board.textboard)
 		board.pos = pos + 1
 		return char
 	else
@@ -32,7 +33,8 @@ end
 
 local function typewriterFinish(board)
 	local text = board.textboard.text
-	f0b.buttons.setTextInPlace(board.textboard, board.str)
+	f0b.button.setText(board.textboard, board.str)
+	f0b.button.regenText(board.textboard)
 	board.pos = #board.str + 1
 	board.finished = true
 end
@@ -52,10 +54,10 @@ local function textboardRegen(board, style)
 	local screenW, screenH = love.graphics.getDimensions()
 
 	local tb = board.textboard
-	f0b.buttons.setStyle(tb, style)
-	f0b.buttons.setDims(tb, screenW, style.lines)
-	f0b.buttons.regen(tb)
-	f0b.buttons.setPos(tb, 0, screenH - f0b.buttons.getHeight(tb))
+	f0b.button.setStyle(tb, style)
+	f0b.button.setDims(tb, screenW, style.lines)
+	f0b.button.regen(tb)
+	f0b.button.setPos(tb, 0, screenH - f0b.button.getHeight(tb))
 
 	local floor = math.floor
 	local bw = style.borderWidth
@@ -86,7 +88,8 @@ return {
 			text[1]:clear()
 		end
 
-		local _, str = board.style.font:getWrap(str, text.limit)
+		local _, str = board.style.font:getWrap(str,
+			f0b.button.getLimit(board.textboard))
 		board.str = table.concat(str, "\n")
 		board.timer = 0
 		board.finished = instant
@@ -134,7 +137,7 @@ return {
 
 	draw = function(board)
 		local style = board.style
-		f0b.buttons.draw(board.textboard)
+		f0b.button.draw(board.textboard)
 
 		local graphics = love.graphics
 		if board.name then
@@ -154,7 +157,7 @@ return {
 			},
 			name = false,
 			str = false,
-			textboard = f0b.buttons.stub(style),
+			textboard = f0b.button.stub(style),
 			pos = 0,
 			speed = 1,
 			finished = true,

@@ -310,6 +310,7 @@ le unió con el bajo.]],
 	[[Con Croft nos lavamos los dientes al sonido de pruebas de guitarra,
 golpes eléctricos, y mas martillazos provenientes del cuarto.]],
 
+	{"bg", 2, "sync"},
 	{"bg", 2, "mod", fade={"src", res.doll.croft}},
 	[[Le pregunté a Croft porque había agua pero no luz, y Croft me dijo
 que el agua corría por gravedad desde las torres. Si seré tonta. Toda la

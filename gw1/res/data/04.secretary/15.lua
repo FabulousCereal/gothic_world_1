@@ -14,11 +14,11 @@ hablando, y con dificultad abrí los ojos.]],
 
 	{"bg", "addsub", {
 		{args={"maria/cuarto de croft.png"}},
-	},
+	}},
 	{"bg", "addsub", {
 		{args={res.doll.croft_ojo}},
 		default={draw=f0b.doll.draw},
-	},
+	}},
 	{"bg", "mod", "root", color={0,0,0,0}, fade={"color", {1,1,1,1}, 3}},
 	[[Noté el rostro de un hombre junto mi. Calvo. Nariz prominente. Era lo
 único que distinguía. La cabeza se me partía sola.]],

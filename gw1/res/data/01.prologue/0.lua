@@ -63,9 +63,7 @@ local function eauDeParfum()
 
 	local w, h = graphics.getDimensions()
 	return {{"bg", "add",
-		args={canvas,
-			math.floor(w / 2 - canvasW / 2),
-			math.floor(h / 2 - canvasH / 2)},
+		args={canvas, f0b.math.centerRect(w, h, canvasW, canvasH)},
 		fade={"fadein", 3},
 	}}
 end

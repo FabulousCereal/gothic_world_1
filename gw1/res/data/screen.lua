@@ -2,9 +2,7 @@
 -- SPDX-License-Identifier: Unlicense
 
 local function center(text, w, h, textW, textH)
-	return {text,
-		math.floor(w / 2 - textW / 2),
-		math.floor(h / 2 - textH / 2)}
+	return {text, f0b.math.centerRect(w, h, textW, textH)}
 end
 
 return {

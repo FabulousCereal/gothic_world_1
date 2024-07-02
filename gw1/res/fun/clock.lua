@@ -152,18 +152,17 @@ return {
 		clockHandFun[hands or "line"](style, radius, hourTurn, minuteTurn)
 
 		graphics.setCanvas(prevCanvas)
-		return clockFace, floor(w / 2 - dims / 2),
-			floor(h * 3/7 - dims / 2)
+		return clockFace, f0b.math.centerRectAt(w * .5, h * 3/7, dims, dims)
 	end,
 
 	alarm = function(style, hour, minute)
 		local text = love.graphics.newText(style.font)
-		local twidth, theight = text:getDimensions(
+		local tW, tH = text:getDimensions(
 			text:add({style.backgroundColor, "88:88"})
 		)
 		text:add({style.color, string.format("%u:%u", hour, minute)})
 
 		local w, h = love.graphics.getDimensions()
-		return text, w / 2 - twidth / 2, h / 2 - theight / 2
+		return text, f0b.math.centerRect(w, h, tW, tH)
 	end,
 }

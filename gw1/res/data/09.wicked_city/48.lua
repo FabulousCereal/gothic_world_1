@@ -2,6 +2,7 @@ return {
 	{"style", "vnMaria"},
 	res.fun.macro.title,
 
+	{"sfx", "freesound/208695__monotraum__car-door-close.flac"},
 	{"name", "Bake"},
 	[["Bien, ¿alguna idea de a donde ir?" preguntó con todos en el auto.]],
 
@@ -61,9 +62,15 @@ Fab y me puse seguro. Andrea se inclinó hacia adelante para mirar a Fab.]],
 
 
 	{"macro", res.fun.macro.date, {2011, 11, 13, 16, 01}},
+	{"bgm", "set", "engine", 0,
+		source="freesound/181460__erik90__car-rev.loop.flac",
+		setup={setPitch=2/3},
+		fade={"fadein", 1},
+	},
 	{"name", "María"},
-	[[Pasamos en el auto frente al hospital junto al parque. Las nubes ya
-habían cubierto el sol de nuevo, y los pinos se agitaban con el viento.]],
+	[[Pasamos en el auto frente al hospital junto al parque, sin bajarnos.
+Las nubes ya habían cubierto el sol de nuevo, y los pinos se agitaban con el
+viento.]],
 
 	[[Y para variar, el parque estaba colmado de zombies.]],
 
@@ -143,6 +150,8 @@ nuevo... A arriesgar nuestras vidas de nuevo.]],
 	{"name", "Bake"},
 	[["¿Eh?"]],
 
+	{"sfx", "freesound/634778__5plus5equalspatata__metal-crash.mp3", .5},
+	{"sfx", "freesound/427563__tbone1999__doorhit.flac", 1, 2/3, 2/3},
 	{"name", "María"},
 	[[El auto saltó violentamente, y Andrea que estaba sin cinturón se
 aplanó la cabeza contra el techo.]],
@@ -163,14 +172,15 @@ decir, pero luego se acordó que tenía que mirar afuera.]],
 doctores?"]],
 
 	{"name", "Bake"},
-	[["La chica está en una cámara de hipersueño."]],
+	[["La chica está en una cámara de hipersueño. Se estaba recuperando."]],
 
 	{"name", "Fabian"},
 	[["Ah... Cielos. No sé si eso es genial o terrible." Fab se rascó
 la barbilla, pensando.]],
 
-	[["Bueno, debería estar segura ahí, pero creo que tampoco es justo
-decirle que no a Bake si me trajo hasta acá. ¿Tú que dices, Andrea?"]],
+	[["En teoría, debería estar protegida de todo ahí dentro, pero creo que
+tampoco es justo decirle que no a Bake si me trajo hasta acá. ¿Tú que dices,
+Andrea?"]],
 
 	{"name", "Andrea"},
 	[["ggghhggh..." Andrea tenía la cabeza entre las rodillas.]],

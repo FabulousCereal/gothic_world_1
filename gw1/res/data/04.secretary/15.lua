@@ -16,7 +16,7 @@ hablando, y con dificultad abrí los ojos.]],
 		{args={"maria/cuarto de croft.png"}},
 	}},
 	{"bg", "addsub", {
-		{args={res.doll.croft_ojo}},
+		{args={res.doll.croft_ojo, 40}},
 		default={draw=f0b.doll.draw},
 	}},
 	{"bg", "mod", "root", color={0,0,0,0}, fade={"color", {1,1,1,1}, 3}},
@@ -27,7 +27,7 @@ hablando, y con dificultad abrí los ojos.]],
 
 	[["Ay..."]],
 
-	{"bg", 1, "mod", fade={"src", res.doll.croft}},
+	{"bg", 2, "mod", fade={"src", res.doll.croft}},
 	{"name", "-----"},
 	[["¡Abrio los ojos, Rocco!" ¿Quién rayos era Rocco?]],
 
@@ -168,7 +168,7 @@ area rural, en medio de las montañas. Me quedé incrédula en la puerta.
 minutos de acá. Me llevó hacia una vieja camioneta destartalada, que creí
 era chatarra que tenía adornando su patio. Rocco se subió al techo.]],
 
-	{"bg", 2, "mod", fade={"fadein", 0}},
+	{"bg", 2, "mod", fade={"mvabs", 120, false, 0, "fadein", 0}},
 	{"name", "Croft"},
 	[["Esta es mi Vieja Mula. Ya no es lo que era antes, le falla hasta la
 bocina y la radio, pero nunca me ha abandonado," explicó. Viéndola de frente,

@@ -130,14 +130,15 @@ aguantaba más.]],
 			podía enderezar la espalda. No sé como logré pararme y
 			caminar en la oscuridad hasta la pieza de Bake.]],
 
+			{"bg", "mod", fade={"fadeout", 1, true}},
 			[[El viento prácticamente azotaba las paredes aquí
 			arriba, pero Bake dormía plácido como tronco. Que puta
 			envidia.]],
 
 			[[Le dí la vuelta a la cama, haciendo crugir todo el
 			piso, y me metí del otro lado. La cama entera estaba
-			calentita, o quizás era yo que estaba congelada. Ah,
-			Dios...]],
+			calentita, o quizás era que yo no podía estar mas
+			congelada. Ah, Dios...]],
 
 			[[Mis preocupaciones quedaron todas olvidadas cuando
 			noté que el calor de la cama radiaba de Bake, y sin
@@ -162,13 +163,13 @@ aguantaba más.]],
 			la cabeza y ocupando tan solo la mitad de esa estrecha
 			cama. Gracias Falcon, eres un santo.]],
 			
-			[[Sin dudarlo un segundo empecé a meterme, sintiendo de
-			inmediato el calor de su cuerpo. Me metí con cuidado de
-			no despertarlo o pasar a llevarle el pie o alguna
+			[[Sin dudarlo un segundo empecé a meterme, con cuidado
+			de no despertarlo o pasar a llevarle el pie o alguna
 			herida, quedando espalda con espalda. Suspiré...]],
 
 			[[Me había vendido por completo por un poco de calor, y
-			no me importaba en lo mas mínimo. zzzzZZZZzzz...]],
+			no me importaba en lo mas mínimo.
+			"zzzzZZZZzzz", ronqué.]],
 		},
 		soyMuyTestaruda,
 		pipiElPerroMaravilla,
@@ -182,8 +183,8 @@ entré a su habitación, ahora de Falcon.]],
 
 	{"macro", "rFade", "maria/pieza.png"},
 	[[Me acerqué a ver si quedaba espacio, y en la oscuridad alcancé a
-notar que Falcon estaba vuelto hacia la pared. Me metí como pude, quedando
-espalda con espalda.]],
+notar que Falcon estaba vuelto hacia la pared. Falcon, eres un santo. Me metí
+como pude, quedando espalda con espalda.]],
 
 	[[El no parecía haberse dado cuenta. De verdad debía estar cansado.]],
 
@@ -192,16 +193,19 @@ mucho en sueños no me caería.]],
 }
 
 local camaDeBake = {
+	{"bg", "mod", fade={"fadeout", 1, true}},
 	[[En sigilo entré a la pieza donde estaba Bake. Apenas distinguía nada,
 así que tuve que tantear para encontrarlo y de ahí meterme del otro lado.]],
 
-	[[La cama resultó estar tan helada que tuve que ponerme el abrigo de
-nuevo. ¿Quien demonios me manda a estos lugares? Detesto tanto el frío, y me
-detesto a mi misma por meterme acá.]],
+	[[Descubrí entonces que Bake dormía solo con dos frazadas.]].
 
-	[[Me acomodé, me cubrí hasta la nariz con las frazadas, y seguí con
-frío. Cuando me acomodé para dormir de lado, noté una calidez que radiaba de
-Bake.]],
+	[[Yo en el norte dormía con tres.]],
+
+	[[Suspiré. Me detesto tanto a mi misma por venirme a meter acá.]],
+
+	[[Me cubrí hasta la nariz con las frazadas y seguí con frío. Cuando me
+acomodaba en posición fetal como último recurso, noté una calidez que radiaba
+de Bake.]],
 
 	[[¿Será mucho atrevimiento apegarme mas? Fui acercándome discretamente
 hasta que podía casi tocar su espalda. Era como una estufita, que genial. No
@@ -209,9 +213,8 @@ sabía como Bake no moría de frío, pero menos mal que no lo hacía.]],
 }
 
 local toallas = {
-	[[Pensé y pensé en mis propias palabras, y al final no logre
-convencerme ni a misma. Tomé todas las toallas que había y fui a tirarlas al
-sillón.]],
+	[[Pensé y pensé en mis opciones, y al final tomé todas las toallas que
+había y fui a tirarlas al sillón.]],
 
 	[[Me acurruqué temblando bajo las toallas, con abrigo y calcetines
 puestos. Pensé que lograría dormir bien.]],
@@ -254,10 +257,13 @@ baño.]],
 
 	[[Baño.]],
 
-	[[OK, quizás estaba siendo demasiado paranoica. Aún podía irme con
-cualquiera de los chicos. ¿De verdad creía que me iban a hacer algo? No eran
-los tiempos para eso. Aparte que por la situación, debian estar durmiendo como
-ladrillos.]],
+	[[OK, quizás estaba siendo demasiado paranoica. ¿De verdad creía que
+los chicos me iban a hacer algo? No estaban los tiempos para eso. Creo...
+¿Creo?]],
+
+	[[Y, ehh, debian estar durmiendo como ladrillos, ¿no?]],
+
+	[[Yo solo no quería mas de este puto frio.]],
 
 	{"select", "quien", {
 		[[Ir con Bake.]],
@@ -280,9 +286,9 @@ local conQuien = {
 	{"case", "quien", {
 		{
 			[[Bake parecía la mejor opción. Lo conocía un par de
-			horas mas que a Falcon. La cama era doble. Me había
-			ayudado, y hasta donde sabía no era ningún perv... Ah,
-			la nota.]],
+			horas mas que a Falcon. La cama tenía mucho espacio. Me
+			había ayudado, y hasta donde sabía no era ningún
+			perv... Ah, la puta nota.]],
 			[[Bueno, dijo que no había abusado... Y yo le creía,
 			¿verdad? Bake me parecía sincero, ¿verdad?]],
 		},
@@ -302,9 +308,7 @@ local conQuien = {
 		{
 			[[Le heché una mirada al sillón. Iba a dormir en un
 			hoyo, con frío. Lo único que tenía de abrigo era la
-			ropa que traía puesta.]],
-			[[Mi idea era dormir y de preferencia en paz, pero aquí
-			parecía imposible. ¿No había otra opción?]],
+			ropa que traía puesta. ¿No había otra opción?]],
 		},
 	}},
 

@@ -112,7 +112,7 @@ un rato estaría listo, que esperara un par de minutos.]],
 hacerle preguntas.]],
 
 	{"bg", "mod", "root", fade={"color", {1/3, 1/3, 1/3, 1}, 1}},
-	{"macro", "bgFade", res.fun.complex.comedor2()},
+	{"macro", "bgFade", res.fun.gfx.comedor2()},
 	{"bg", 2, "add", 1, args={res.doll.sillas, 320},
 		fade={"fadein", 1}},
 	{"macro", "mesa", 1, "add"},

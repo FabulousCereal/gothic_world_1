@@ -331,7 +331,7 @@ no dan ganas de estar afuera. Esperá que calme y me ocupo."]],
 	[[Bake se fue al comedor con la lata y me llamó para que comieramos.]],
 
 	{"bgm", "mod", "wind", fade={"fadeout", 6, true}},
-	{"macro", "bgFade", res.fun.complex.comedor2()},
+	{"macro", "bgFade", res.fun.gfx.comedor2()},
 	{"bg", 2, "add", 1, args={res.doll.sillas, 320}, fade={"fadein", 1}},
 	{"bg", 2, "mod", fade={"mvabs", 160, false, 0, "fadein", 1}},
 	{"macro", "mesa", false, "add", 3},

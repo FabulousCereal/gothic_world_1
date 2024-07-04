@@ -399,7 +399,7 @@ noche, pero sin éxito.]],
 ¿Una linterna? ¿Un auto? Agudizé el oído y me pareció sentir un motor.]],
 
 	{"bg", "mod", "default",
-		shader=res.fun.complex.purkinje(),
+		shader=res.fun.gfx.purkinje(),
 		color={1/6, 1/6, 1/6, 1},
 	},
 	{"macro", "rFade", "maria/living.png"},

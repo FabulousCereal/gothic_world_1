@@ -6,7 +6,7 @@ return {
 
 	{"bg", "mod", "root", color={0,0,0,0}, fade={"color", {3/4,3/4,3/4,1}, 1}},
 	{"bg", "addsub", {
-		res.fun.complex.comedor2(),
+		res.fun.gfx.comedor2(),
 	}},
 	{"bg", "addsub", {
 		default={draw=f0b.doll.draw},

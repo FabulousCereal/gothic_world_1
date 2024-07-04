@@ -20,7 +20,7 @@ local function fallingMul(_, _, dyn)
 			shader=res.shader.fbmWarp{
 				mul=mul, add={-.5,-.5},
 				rolloff=.707, amplitude=0.3,
-				mv=res.fun.complex.shaderTime(1/32),
+				mv=res.fun.gfx.shaderTime(1/32),
 				alphaMask=.5,
 			},
 		},

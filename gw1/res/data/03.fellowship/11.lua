@@ -396,7 +396,7 @@ Aunque fuera loco, escucharlo hablar me ayudaba.]],
 
 	{"bg", "mod", "root", color={0,0,0,1},
 		fade={"color", res.palette("sixpm"), 1},
-		shader=res.fun.complex.purkinje(),
+		shader=res.fun.gfx.purkinje(),
 	},
 	[[Afuera la nieve se apilaba, y el sol se ponía lentamente. Bake me
 contaba de la vez que a Pipi la atropellaron pero que logró volver a caminar.]],
@@ -435,7 +435,7 @@ rió, y recién ahí reveló que tenía una linterna.]],
 linterna.]],
 ]=]
 
-	{"bg", "mod", "root", shader=res.fun.complex.linterna(true)},
+	{"bg", "mod", "root", shader=res.fun.gfx.linterna(true)},
 	{"name", "María"},
 	[[Le quité la linterna para iluminar bien la cocina, porque no
 me gustaba para nada la oscuridad.]],
@@ -488,7 +488,7 @@ chico.]],
 	[[Tras nuestro arreglo la casa quedó aún mas oscura, así que
 con Falcon acordamos buscar velas y baterías para la próxima salida.]],
 
-	{"macro", "bgFade", res.fun.complex.comedor2()},
+	{"macro", "bgFade", res.fun.gfx.comedor2()},
 	{"macro", "mesa", 1, "add"},
 	{"bg", 2, "add", 1, args={res.doll.sillas, 320}},
 	{"bg", 2, "modall", fade={"fadein", 1}},

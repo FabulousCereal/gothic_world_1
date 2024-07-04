@@ -12,7 +12,7 @@ return {
 	{"macro", "titleDate", {2011, 11, 13, 9, 13}},
 
 	{"bg", "mod", "root", color={3/4, 3/4, 2/3, 1}},
-	f0b.table.union(res.fun.complex.comedor2(), {"bg", "add"}),
+	f0b.table.union(res.fun.gfx.comedor2(), {"bg", "add"}),
 	{"bg", "addsub", {
 		default={draw=f0b.doll.draw},
 		{args={res.doll.sillas, 320}},

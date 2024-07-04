@@ -214,11 +214,11 @@ viento en la cara y sin abrigo.]],
 		root={color=res.palette("flashlight")},
 		{args={"maria/living.png"}, fade={"fadein", 1}},
 	}},
-	{"bg", "add", draw=f0b.draw.screenFill, shader=res.fun.complex.linterna()},
+	{"bg", "add", draw=f0b.draw.screenFill, shader=res.fun.gfx.linterna()},
 	[[Entré con el y Rocco mientras los chicos bajaban sus instrumentos, y
 como se veían entusiasmados en eso, le ofrecí a Croft tomar algo calentarnos.]],
 
-	{"macro", "bgFade", res.fun.complex.comedor2()},
+	{"macro", "bgFade", res.fun.gfx.comedor2()},
 	{"bg", "addsub", 2, {
 		default={draw=f0b.doll.draw},
 		root={color=res.palette("flashlight")},

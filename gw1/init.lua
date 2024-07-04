@@ -70,8 +70,8 @@ local mainBG = normalize({
 --[[	{args={f0b.draw.unitSquare, 40, 40, 0, 560, 560},
 		shader=res.shader.fbmRipple{
 			mul={1,1}, add={-.5,-2},rolloff=.8, amplitude=0.2,
-			time=res.fun.complex.shaderTime(6, 0, 15, 0),
-			mv=res.fun.complex.shaderTime(1/16,0),
+			time=res.fun.gfx.shaderTime(6, 0, 15, 0),
+			mv=res.fun.gfx.shaderTime(1/16,0),
 			alphaMask=2/3,
 		},
 		color={.8,1,1,1},

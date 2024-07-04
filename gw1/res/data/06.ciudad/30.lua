@@ -6,7 +6,7 @@ return {
 
 	{"bg", "mod", "root", color={0,0,0,0},
 		fade={"color", {2/3, 2/3, 2/3, 1}, 1}},
-	f0b.table.union(res.fun.complex.comedor2(), {"bg", "add", fade={"fadein", 1}}),
+	f0b.table.union(res.fun.gfx.comedor2(), {"bg", "add", fade={"fadein", 1}}),
 	{"bg", "addsub", {
 		root={color={1,1,.9,1}},
 		default={draw=f0b.doll.draw},

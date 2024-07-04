@@ -51,7 +51,7 @@ acerqué al borde.]],
 		color={.75,1,1,0},
 		shader=res.shader.fbmRipple{
 			mul={1,1}, add={-.5,-2}, rolloff=.8, amplitude=0.2,
-			mv=res.fun.complex.shaderTime(0, 1/8),
+			mv=res.fun.gfx.shaderTime(0, 1/8),
 			alphaMask=2/3,
 		},
 	},
@@ -60,7 +60,7 @@ acerqué al borde.]],
 	[[El ruido del mar se hizo mas fuerte. Quería ver el agua antes de
 decidir.]],
 	{"bg", "fn", 3, function(layer)
-		layer.shader.time=res.fun.complex.shaderTime(
+		layer.shader.time=res.fun.gfx.shaderTime(
 			8, 0, (-love.timer.getTime()+2.25) * 8
 		)
 	end},

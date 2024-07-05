@@ -341,7 +341,7 @@ chicos se pusieron a martillar de nuevo.]],
 	[[Suspiré. Ahora aparte de indignada sentía curiosidad. Me levanté de
 nuevo y fui a tocar la puerta. Me dijeron que pasara. Abrí...]],
 
-	{"bgm", "fade", "hammer", {"cmd", {setFilter={type="lowpass", highgain=1}}}},
+	{"bgm", "fade", "hammer", {"cmd", res.fun.vn.lowpass(1)}},
 	[[...Y me encontré con un estudio de grabación en construcción.]],
 
 	{"name", "Bake"},

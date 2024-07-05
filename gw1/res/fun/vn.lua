@@ -29,4 +29,12 @@ return {
 	charSwap = function(s1, s2, secs)
 		return swap(s1, s2, secs, 2)
 	end,
+
+	mv = function(x, t)
+		return {"bg", "mod", 2, 3, fade={"mvabs", x, false, t}}
+	end,
+
+	lowpass = function(gain, vol)
+		return {setFilter={type="lowpass", volume=vol, highgain=gain}}
+	end,
 }

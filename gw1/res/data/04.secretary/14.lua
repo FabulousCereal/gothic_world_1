@@ -1,7 +1,7 @@
 return {
 	{"style", "vnMaria"},
 --	{"bgm", "set", "wind", source="wahwahwhite noise.ogg",
---		setup={setFilter={type="lowpass", highgain=0}}},
+--		setup=res.fun.vn.lowpass(0),
 	{"bgm", "set", "hero",
 		source="RECSNG11 - Fall of the Hero (boceto).ogg"},
 	{"macro", "titleDate", {2011, 11, 12, 9, 59}},

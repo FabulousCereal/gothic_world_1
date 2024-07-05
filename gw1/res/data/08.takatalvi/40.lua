@@ -1,7 +1,7 @@
 return {
 	{"style", "vnMaria"},
 	{"bgm", "set", "wind", 0.5, source="wahwahwhite noise.flac",
-		setup={setFilter={type="lowpass", volume=1, highgain=0}},
+		setup=res.fun.vn.lowpass(0),
 		fade={"fadeto", 1, 6},
 	},
 	res.fun.macro.title,

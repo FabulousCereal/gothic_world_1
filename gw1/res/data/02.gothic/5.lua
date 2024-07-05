@@ -1,8 +1,8 @@
 return {
 	{"bgm", "set", "nostalgia", source="Nostalgia.ogg"},
 	{"bgm", "set", "white", 0, source="wahwahwhite noise.flac",
-		setup={setFilter={type="lowpass", volume=.5, highgain=0}},
-		fade={"fadeto", .5, 6}},
+		setup=res.fun.vn.lowpass(0),
+		fade={"fadeto", .25, 6}},
 	{"name"},
 	{"style", "vnMaria"},
 	[[Me desperté.]],

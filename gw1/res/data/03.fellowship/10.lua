@@ -30,7 +30,7 @@ usarla como el. El chico se sacó el pelo de debajo de la campera, y salimos.]],
 	{"bg", 1, "fade", {"fadeout", 2, true}},
 	{"bg", 2, "fade", {"fadeout", 2}},
 	{"bgm", "set", "wind", 0, source="wahwahwhite noise.flac",
-		setup={setFilter={type="lowpass", highgain=1/120}},
+		setup=res.fun.vn.lowpass(1/120),
 		fade={"fadeto", 1/2, 6}},
 	[[Unas nubes pesadas ocultaban el sol, y aunque entendía que acá cerca
 del polo los días se alargaban acercándose el verano, con esa capa daba la

@@ -74,10 +74,6 @@ return {
 		}}
 	end,
 
-	mv = function(x, t)
-		return {"bg", "mod", 2, 3, fade={"mvabs", x, false, t}}
-	end,
-
 	title = title,
 
 	date = function(_, _, args)

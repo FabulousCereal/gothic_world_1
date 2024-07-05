@@ -83,11 +83,11 @@ así que no debía ser tan grave. Me levanté y me acerqué a la puerta a buscar
 respuestas.]],
 
 	{"bgm", "fade", "wind",
-		{"cmd", {setFilter={type="lowpass", highgain=1/6}}}
+		{"cmd", res.fun.vn.lowpass(1/6)}
 	},
 	{"bgm", "set", "pots", 0,
 source="freesound/571066__trp__180715-banging-dropping-pots-pans-metal-kitchen-foley.edit.flac",
-setup={setFilter={type="lowpass", highgain=1/24}},
+setup=res.fun.vn.lowpass(1/24),
 fade={"fadeto", .5, 1}},
 
 	{"macro", "rFade", "maria/pasillo.png"},
@@ -99,7 +99,7 @@ pronto, esa nota no se me hacía tan graciosa.]],
 
 	{"bgm", "fade", "wind", {"fadeout", 6, true}},
 	{"bgm", "fade", "pots",
-		{"cmd", {setFilter={type="lowpass", highgain=1/3}}, "fadeto", 1, 3}},
+		{"cmd", res.fun.vn.lowpass(1/3)}, "fadeto", 1, 3}},
 	{"macro", "rFade", res.fun.gfx.comedor(),
 		res.palette("repellantYellow", 0, 1.25)
 	},

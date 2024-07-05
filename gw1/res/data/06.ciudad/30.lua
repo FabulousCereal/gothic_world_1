@@ -1,4 +1,4 @@
-local move = res.fun.macro.mv
+local move = res.fun.vn.mv
 
 return {
 	{"style", "vnMaria"},
@@ -19,8 +19,8 @@ return {
 	{"bg", "fade", {"mvabs", 80, false, 0}},
 	{"bgm", "set", nil, 0,
 		source="freesound/557188__julien-matthey__jm_natural-elements_wind-01.ogg",
-		setup={setFilter={type="lowpass", volume=1/2, highgain=0}},
-		fade={"fadein", 12}},
+		setup=res.fun.vn.lowpass(0),
+		fade={"fadeto", .5, 12}},
 	{"name", "María"},
 	[[Nos quedamos en silencio tras la historia de Croft. Bake tomó de su
 mate y Croft sorbeteó de su café. El viento agarraba fuerza una vez mas.]],

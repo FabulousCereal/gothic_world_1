@@ -1,4 +1,4 @@
-local mv = res.fun.macro.mv
+local mv = res.fun.vn.mv
 
 return {
 	{"style", "vnMaria"},
@@ -182,7 +182,7 @@ sus abrigos.]],
 	{"name", "Bake"},
 	[["Pero si esperamos a que despierte vamos a salir a la hora de ayer."]],
 
-	{"bg", "sync"},
+--	{"bg", "sync"},
 	mv(0, 1/2),
 	{"name", "Fabian"},
 	[["María tiene razón, debería quedarse uno a cuidarlo," señaló Fab.

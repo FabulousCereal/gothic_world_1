@@ -67,7 +67,7 @@ Las olas nunca dejan de oirse...]],
 	},
 	{"sfx", "sfx/gw.wav", 1/12},
 	false,
-	{"bg", "mod", 1, fade={"fadeout", 3, true}},
+	{"bg", "fade", 1, {"fadeout", 3, true}},
 	false,
 	{"bg", "rm"},
 }

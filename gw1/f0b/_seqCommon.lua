@@ -66,4 +66,15 @@ return {
 		end
 		return seq[1]
 	end,
+
+	fadeParse = function(t, fn, default, ...)
+		local n = select("#", ...)
+		local fade = select(n, ...)
+		if n <= 1 then
+			return fn(t, fade, default)
+		end
+		for i = 1, n-1 do
+			fn(t, fade, select(i, ...))
+		end
+	end,
 }

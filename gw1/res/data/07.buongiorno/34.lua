@@ -50,23 +50,22 @@ cuando nos dé hambre?"]],
 	[["Contabamos con que hariamos puente con la camioneta de
 Croft xD Estamos varados y sin amplis xdd"]],
 
-	{"bg", 2, "mod", fade={"src", res.doll.bake_xd}},
+	{"bg", 2, "fade", {"src", res.doll.bake_xd}},
 	{"name", "María"},
 	[["Bake..." dije con una necesidad asesina surgiendo de mi. Falcon se
 levantó.]],
 
-	{"bg", 2, "mod", fade={"src", res.doll.bake}},
-	{"bg", 2, "mod", 2, fade={"mvdiff", false, -120, 1/3}},
+	{"bg", 2, "fade", {"src", res.doll.bake}},
+	{"bg", 2, "fade", 2, {"mvdiff", false, -120, 1/3}},
 	{"name", "Falcon"},
 	[["Tranquila, que ese coche ya se iba a desarmar solo," dijo mientras
 se ponía abrigo, y miró a Bake. "¿Se enojarán tus vecinos si les
 sacamos un carro?"]],
 
-	{"bg", 2, "mod", fade={"mvdiff", false, -120, 1/3}},
+	{"bg", 2, "fade", {"mvdiff", false, -120, 1/3}},
 	{"name", "Bake"},
 	[["Hmm, nah xD Vamos."]],
 
---	{"bg", "mod", "root", fade={"color", {0,0,0,0}, 1}},
 	{"bg", "addsub", {
 		{args={"maria/living.png"}, fade={"fadein", 1}},
 	}},
@@ -84,13 +83,13 @@ y chocamos Falcon y yo con el.]],
 	{"name", "Bake"},
 	[["lol, mierda," dijo dando un salto.]],
 
-	{"bg", 2, "mod", fade={"fadeout", 1/12}},
+	{"bg", 2, "fade", {"fadeout", 1/12}},
 	{"name", "María"},
 	[[Miramos al suelo y había un regalito de Rocco justo frente a la
 puerta, y para variar ya tenía dibujada una suela de zapato. Lo rodeamos y
 salimos a la calle, con Pipi olfateándonos los pies.]],
 
-	{"bg", 1, "mod", fade={"fadeout", 1, true}},
+	{"bg", 1, "fade", {"fadeout", 1, true}},
 	[[Fuimos a la casa del vecino. Sin perder el tiempo Bake escaló el
 portón y se metió de un salto.]],
 
@@ -98,7 +97,7 @@ portón y se metió de un salto.]],
 impedía moverse. Movió un par de fierros adentro y nos abrió. Lo primero que
 vimos fue una camioneta en la cochera.]],
 
-	{"bg", 2, "mod", fade={"fadein", 1/12}},
+	{"bg", 2, "fade", {"fadein", 1/12}},
 	{"bg", 2, "add",
 		args={res.doll.falcon, 480, 0, -1}, fade={"fadein", 1/12}
 	},
@@ -142,7 +141,7 @@ casa."]],
 	{"name", "Bake"},
 	[["No gastemos municiones. Dejá."]],
 
-	{"bg", 2, "mod", 1, fade={"fadeout", 1/12}},
+	{"bg", 2, "fade", 1, {"fadeout", 1/12}},
 	{"name", "María"},
 	[[Bake agarró vuelo y se lanzó con el hombro a derribarla.]],
 
@@ -168,7 +167,7 @@ cuando la espalda le tocó el suelo. "Oww, bitchy bitch."]],
 	{"name", "Falcon"},
 	[["Anda, yo lo cuido."]],
 
-	{"bg", 2, "mod", fade={"fadeout", 1}},
+	{"bg", 2, "fade", {"fadeout", 1}},
 	{"name", "María"},
 	[[Mientras Bake se regeneraba empecé a rodear la casa en busca de algo
 abierto o alguna llave bajo un florero.]],
@@ -183,7 +182,7 @@ baño. Estaba cerrada, pero sin rejilla.]],
 	[["Acá hay una," grité. Solo necesitaba algo donde subirme. Falcon
 se acercó a mirar.]],
 
-	{"bg", 2, "mod", fade={"fadein", 1/12}},
+	{"bg", 2, "fade", {"fadein", 1/12}},
 	{"name", "Falcon"},
 	[["¿Está abierta?"]],
 
@@ -195,7 +194,7 @@ destornillador.]],
 	[["Dame un momento. Si es de las que creo que son, la voy a
 poder abrir."]],
 
-	{"bg", 2, "mod", fade={"fadeout", 1/12}},
+	{"bg", 2, "fade", {"fadeout", 1/12}},
 	{"name", "María"},
 	[[Mientras Falcon que era mas alto la revisaba, fui al garage a buscar
 una silla. Bake seguía en el suelo de concreto, sin interés por levantarse en
@@ -210,7 +209,7 @@ el corto plazo. Era como su segunda siesta.]],
 	[[Cuando volví Falcon hacía palanca con el destornillador metido entre
 ambas ventanas. Trataba de mover algo.]],
 
-	{"bg", 2, "mod", fade={"fadein", 1/12}},
+	{"bg", 2, "fade", {"fadein", 1/12}},
 	{"name", "Falcon"},
 	[["Está el seguro justo ahí detrás. Vé si puedes quitarlo."
 Me subí y empecé a probar suerte.]],
@@ -223,7 +222,7 @@ se pudieran abrir tan fácil.]],
 	[[Fácil relativamente, porque se hizo evidente que esto exigiría
 bastante paciencia.]],
 
-	{"bg", 2, "mod", fade={"fadeout", 1/12}},
+	{"bg", 2, "fade", {"fadeout", 1/12}},
 	[[Tras dos minutos de lento progreso Falcon se fue a ver a Bake que
 seguía sin levantarse. Yo persistí hasta que logré desbloquearla.]],
 

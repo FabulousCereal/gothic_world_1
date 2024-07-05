@@ -305,6 +305,20 @@ local function layerModRange(layers, op, start, limit)
 	end
 end	
 
+local function normalizeStrIdx(layers, idx)
+	if type(idx) ~= "string" then
+		idx = normalizeIndex(layers, idx)
+	end
+	return idx
+end
+
+local function layerFade(layers, fade, idx)
+	idx = normalizeStrIdx(layers, idx)
+	local l = layers[idx]
+	layerUpdate(layers, l, idx, 0, true)
+	l.fade = fTable.deepCopy(fade)
+end
+
 local layerOps
 
 local function ops(layerTable, inst, op, ...)
@@ -335,21 +349,17 @@ layerOps = {
 
 	mod = function(layers, op, ...)
 		for i = 1, math.max(select("#", ...), 1) do
-			local idx = select(i, ...)
-			if type(idx) ~= "string" then
-				idx = normalizeIndex(layers, idx)
-			end
+			local idx = normalizeStrIdx(layers, select(i, ...))
 			layerMod(layers, layers[idx], idx, op)
 		end
 	end,
 
-	modr = function(layers, op, start, limit)
-		start, limit = getNormalizedRange(layers, start, limit)
-		return layerModRange(layers, op, start, limit)
-	end,
-
 	modall = function(layers, op)
 		return layerModRange(layers, op, 1, #layers)
+	end,
+
+	fade = function(layers, _, ...)
+		return seq.fadeParse(layers, layerFade, #layers, ...)
 	end,
 
 	fn = function(layers, _, idx, fn)

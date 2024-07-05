@@ -103,7 +103,7 @@ siempre.]],
 	{"name", "Bake"},
 	[["No, no, estoy bien."]],
 
-	{"bg", 2, "mod", fade={"fadeout", 1}},
+	{"bg", 2, "fade", {"fadeout", 1}},
 	{"name", "María"},
 	[[De un aventón dió vuelta todas las tostadas en el aire, y dijo que en
 un rato estaría listo, que esperara un par de minutos.]],
@@ -111,7 +111,7 @@ un rato estaría listo, que esperara un par de minutos.]],
 	[[Sentía que había algo que no me contaba, pero tampoco me atrevía a
 hacerle preguntas.]],
 
-	{"bg", "mod", "root", fade={"color", {1/3, 1/3, 1/3, 1}, 1}},
+	{"bg", "fade", "root", {"color", {1/3, 1/3, 1/3, 1}, 1}},
 	{"macro", "bgFade", res.fun.gfx.comedor2()},
 	{"bg", 2, "add", 1, args={res.doll.sillas, 320},
 		fade={"fadein", 1}},
@@ -122,13 +122,13 @@ por el frio.]],
 
 	[[Tras varios minutos, Bake llegó con las tostadas y el agua.]],
 
-	{"bg", 2, "mod", 2, fade={"fadein", 0}},
+	{"bg", 2, "fade", 2, {"fadein", 0}},
 	{"name", "Bake"},
 	[["¿No se levantó Falcon?" me preguntó mientras servía agua. Negué con
 la cabeza mientras rodeaba el mate con las manos. "Seguro le debía hacer falta
 una buena noche."]],
 
-	{"bg", 2, "mod", 2, fade={"fadeout", 1, true}},
+	{"bg", 2, "fade", 2, {"fadeout", 1, true}},
 	{"name", "María"},
 	[[Bake no quiso hablar mucho, y al terminar se fue a probar su guitarra
 nueva al living. Sin ampli claro, aunque parecía saber como sonaría de todas
@@ -138,7 +138,7 @@ formas.]],
 ahora.]],
 
 	{"bgm", "set", "bored", source="RECSNG13 - Un Château Abandonné.ogg"},
-	{"bg", "mod", "root", fade={"color", {0,0,0,0}, 2/3}},
+	{"bg", "fade", "root", {"color", {0,0,0,0}, 2/3}},
 	2/3,
 
 	{"bg", "rm", 2, 3},
@@ -174,7 +174,7 @@ baño. Me pregunté si es la herida que lo estaba molestando.]],
 	[[Aunque ahora que lo pienso, un baño no me haría mal... Y de hecho,
 tampoco una muda de ropa y un cepillo. Necesitaba conseguir esas cosas hoy.]],
 
-	{"bgm", "mod", "bored", fade={"fadeout", 1, true}},
+	{"bgm", "fade", "bored", {"fadeout", 1, true}},
 	[[Oh Dios, tal vez era eso. Bake me evitaba porque apestaba. Traté de
 sentirme el olor. No lo logré pero estaba segura que debía ser eso.]],
 
@@ -191,7 +191,7 @@ el hotel debía de hecho estar muy cerca de acá.]],
 cuidara, busqué un lapiz y dejé una nota antes de salir. Pipi me olfateó
 hasta la calle. No me estas haciendo sentir mejor, Pipi.]],
 
-	{"bg", 1, "mod", 1, fade={"fadeout", 1, true}},
+	{"bg", 1, "fade", 1, {"fadeout", 1, true}},
 	[[Llevaba mi fiable navaja y una botella con agua. Ahora solo
 necesitaba orientarme.]],
 }

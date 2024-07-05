@@ -51,7 +51,7 @@ de nuevo. Todo se nubló unos segundos.]],
 mirada, pude ver algunos carros abandonados. Sus puertas habían quedado
 abiertas.]],
 
-	{"bg", "mod", fade={"fadeout", 1/3, true}},
+	{"bg", "fade", {"fadeout", 1/3, true}},
 	[[Me arrastré hasta uno y utilicé mis instintos para volverlo
 a prender sin usar las llaves. El motor cobró vida de inmediato y el tablero se
 iluminó.]],
@@ -65,7 +65,7 @@ iluminó.]],
 
 	{"bgm", "modall", fade={"fadeout", 1/6, true}},
 	{"sfx", "freesound/208695__monotraum__car-door-close.flac"},
-	{"bg", "mod", fade={"fadeout", 1/3, true}},
+	{"bg", "fade", {"fadeout", 1/3, true}},
 
 	{"bg", "add", args={"falcon/carro.png"},
 		fade={"delay", 1/3, "fadein", 1},
@@ -100,7 +100,7 @@ tóxico. Me sentía mareado aún, pero por lo menos no estaba delirando.]],
 	[[Fuí al baño a beber agua, y noté un derrame en mi ojo izquierdo, que
 a estas alturas ni me pareció importante.]],
 
-	{"bg", "mod", fade={"fadeout", 1, true}},
+	{"bg", "fade", {"fadeout", 1, true}},
 	[[Pasada una hora en el hospital, me aburrí porque nadie me había
 visto, y entré en pánico.]],
 
@@ -122,7 +122,7 @@ en unos días.]],
 mas. Claro. El doctor logró conseguir algunas vendas para el pie y con eso
 me fuí de ahí.]],
 
-	{"bg", "mod", fade={"fadeout", 1, true}},
+	{"bg", "fade", {"fadeout", 1, true}},
 	[[Salí rápido a buscar el carro porque una niña comenzó a balbucear y
 tratar de morder a su padre, o no sé que será suyo.]],
 
@@ -153,7 +153,7 @@ inconscientes.]], true},
 	[[Estaba cansado de no poder entender que mierda ocurría, me dolía la
 cabeza cada vez que trataba recordar.]],
 
-	{"bg", "mod", fade={"fadeout", 1, true}},
+	{"bg", "fade", {"fadeout", 1, true}},
 	[[Salté el mostrador para tomar unas llaves y fuí hasta una habitación,
 dejándome caer sobre la cama blanca. Respiré aire fresco.]],
 
@@ -175,7 +175,7 @@ de vida llevaba.]],
 	[[Notando el control remoto sobre la mesa, hice un último esfuerzo y
 encendí la televisión, aunque fuera para ver porno.]],
 
-	{"bg", "mod", fade={"fadeout", 1, true}},
+	{"bg", "fade", {"fadeout", 1, true}},
 	{"sfx", "sfx/crt on.flac"},
 	[[Sonó el golpe eléctrico de la tele, y poco a poco la pantalla cobró
 brillo.]],

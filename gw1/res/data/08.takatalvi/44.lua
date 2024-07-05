@@ -48,7 +48,7 @@ me empezó a doler, así que tampoco toqué nada.]],
 	[[En fin. Tras haberlo movido todo, me recosté en el suelo. Dios,
 ¿para que tomé mate? Desearía tener un libro aunque sea.]],
 
-	{"bgm", "mod", fade={"fadeout", 3, true}},
+	{"bgm", "fade", {"fadeout", 3, true}},
 	[[(*crrreak*)]],
 
 	[[Agudizé el oído ante el ruido. Provenía del piso de abajo.

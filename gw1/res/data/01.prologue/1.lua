@@ -1,6 +1,6 @@
 local function laAmigaSale(delay)
 	return {"read", {
-		{"bg", "mod", 2, fade={"delay", delay, "fadeout", 1, true}},
+		{"bg", "fade", 2, {"delay", delay, "fadeout", 1, true}},
 		{"bg", "add", 2, args={"cafe/amiga4.png"},
 			color=res.palette("redbg", 0),
 			fade={"delay", delay, "fadein", 1}},
@@ -20,13 +20,12 @@ return {
 	[[Lo recuerdo como si hubiera sido ayer. Ocurrió ayer martes en la
 tarde.]],
 
+	{"bg", "mod", "root", color={0,0,0,0}, fade={"color", {1,1,1,1}, 3}},
 	{"bg", "add", args={"cafe/bg.png"}, color=res.palette("fivepm")},
 	{"bg", "add", args={"cafe/amiga1.png"}, color=res.palette("fivepm")},
 	{"bg", "add", args={"cafe/cup.png", 279, 365},
 		color=res.palette("fivepm")},
 
-	{"bg", "add", draw=f0b.draw.screenFill, color={0,0,0,1},
-		fade={"fadeout", 3, true}},
 	{"macro", "date", {2011, 11, 8, 17, 34}},
 
 	[[Estaba tocando "One in a Million" para una amiga en una cafetería
@@ -34,7 +33,7 @@ cerca de su casa. No recuerdo su nombre, pero estaba bien buena (xD).
 
 Terminando de tocar sucede la explosión.]],
 
-	{"bgm", "mod", "song", fade={"fadeto", 0, 1}},
+	{"bgm", "fade", "song", {"fadeto", 0, 1}},
 	1,
 
 	{"name", false},
@@ -43,12 +42,11 @@ Terminando de tocar sucede la explosión.]],
 	{"sfx", "sfx/explosión lejana.flac", .5},
 	[[......*boom*]],
 
-	{"bg", "sync"},
-	{"bg", "mod", 2, fade={"fadeout", 1, true}},
+	{"bg", "fade", 2, {"fadeout", 1, true}},
 	{"bg", "add", 2, args={"cafe/amiga2.png"},
 		color=res.palette("fivepm", 0), fade={"fadein", 1}},
 
-	{"bgm", "mod", "song", fade={"cmd", {setPitch=1/3}, "fadeto", 2, 2}},
+	{"bgm", "fade", "song", {"cmd", {setPitch=1/3}, "fadeto", 2, 2}},
 
 	{"name", "amiga"},
 	[["¿Que fue eso?"]],
@@ -69,7 +67,7 @@ mas.]],
 "Debió ser un camión," dije, pero a los minutos notamos que había un humo raro
 en la calle.]],
 
-	{"bg", "mod", 2, fade={"fadeout", 1, true}},
+	{"bg", "fade", 2, {"fadeout", 1, true}},
 	{"bg", "add", 2, args={"cafe/amiga3.png"},
 		color=res.palette("fivepm", 0), fade={"fadein", 1}},
 	[[La chica se veía muy inquieta con todo esto, pero a mi no me parecía
@@ -122,7 +120,7 @@ mareada o vomitando.]],
 
 	{"bgm", "rm", "song"},
 	{"bg", "sync"},
-	{"bg", "mod", 2, fade={"delay", 7/6, true}},
+	{"bg", "fade", 2, {"delay", 7/6, true}},
 	{"bg", "add", 2, args={"zeh/chica atropellada diff +97+53.png", 97, 53},
 		color=res.palette("redbg", 0),
 		fade={"delay", 7/6, "fadein", 0}},
@@ -137,8 +135,8 @@ golpea a la que estaba bien buena.]],
 
 	[["Oh shit"]],
 
-	{"bg", "mod", 1, 2, fade={"fadeout", 1, true}},
-	{"bg", "mod", fade={"mvdiff", 0, -120, 2}},
+	{"bg", "fade", 1, 2, {"fadeout", 1, true}},
+	{"bg", "fade", {"mvdiff", 0, -120, 2}},
 	[[Apenas bajó el polvo corrimos a ayudar y a putear al conductor y a la
 chica. El dueño de la cafetería apareció furioso y cagó al conductor a palos,
 mientras mis amigos corriamos el auto.]],
@@ -162,13 +160,12 @@ cara y fuimos a mi casa.]],
 
 	{"bg", "add", 1, args={"cafe/ext.png"},
 		color=res.palette("fivepm", 0), fade={"fadein", 3}},
-	{"bg", "mod", fade={"fadeout", 3, true}},
+	{"bg", "fade", {"fadeout", 3, true}},
 	[[En el camino había mucha gente tirada en las calles. No sabiamos que
 estaba pasando, pero lo que había dicho la chica sobre la explosión nos empezó
 a preocupar. A momentos se sentía un olor metálico en el aire... Casi como
 sangre.]],
 
-	{"bg", "sync"},
 	{"bg", "addsub", {
 		{color={.6, .6, .6, 1}, draw=f0b.draw.screenFill},
 		{args={res.fun.clock.wall(res.style.clockTint, 19, 22, "Saikō")},
@@ -190,8 +187,7 @@ para lavarnos mejor. Asi que eso hicimos.]],
 	{"wait", 1},
 	[[Posiblemente eso fue lo que me salvó.]],
 
-	{"bg", "sync"},
-	{"bg", "mod", fade={"fadeout", 4/6, true}},
+	{"bg", "fade", {"fadeout", 4/6, true}},
 	{"wait", 4/6},
 
 	{"bg", "add", args={"bake/amigos-en-el-living.png"},
@@ -199,8 +195,7 @@ para lavarnos mejor. Asi que eso hicimos.]],
 		shader=res.shader.dither_o2x2_pre},
 	[[Envueltos solo con la luz del crepúsculo, salimos de la ducha y nos
 fuimos al living. Mis amigos ya habían prendido la tele...]],
-	{"bg", "sync"},
-	{"bg", "mod", fade={"fadeout", 4/6, true}},
+	{"bg", "fade", {"fadeout", 4/6, true}},
 	{"wait", 1},
 }
 

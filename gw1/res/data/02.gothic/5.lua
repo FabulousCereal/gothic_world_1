@@ -30,7 +30,7 @@ hasta quedarme en un hotel mas de dos días resultaba demasiado.]],
 	[[El reloj marcaba las 10am justas, su molesto tick-tack reverberando
 de un lado a otro del cuarto.]],
 
-	{"bg", "mod", fade={"delay", 1, true}},
+	{"bg", "fade", {"delay", 1, true}},
 	{"bg", "addsub", {
 		{args={"Flash/i die/Nube.png", 0, -50}},
 		{args={"Flash/la-guagua.png", 0, 137}},
@@ -48,7 +48,7 @@ de un lado a otro del cuarto.]],
 la gente mutada, los muertos, el humo, pertenecían a la televisión. O eso
 deseaba.]],
 
-	{"bg", "mod", fade={"fadeout", 2/3, true}},
+	{"bg", "fade", {"fadeout", 2/3, true}},
 	[[Fui a prender la luz para ir al baño, tomar algo de agua, pero
 entonces descubrí que se había cortado.]],
 
@@ -78,8 +78,8 @@ en donde sea que se haya ido toda la gente.]],
 
 	[[Tuvieron que haberse ido a algún lado, ¿verdad? Evacuar.]],
 
-	{"bg", "mod", fade={"fadeout", 1/3, true}},
-	{"bgm", "mod", "white", fade={"fadeto", 1, 6}},
+	{"bg", "fade", {"fadeout", 1/3, true}},
+	{"bgm", "fade", "white", {"fadeto", 1, 6}},
 	[[Sin comida ni gente que restara, salí al exterior. Sin saber que
 hacer, me puse a caminar.]],
 
@@ -102,7 +102,7 @@ veredas, entorpeciéndome el paso. El viento polar se colaba por las ventanas de
 las casas, silbaba entre las ramas de los árboles que muertos sin sus hojas
 asemejaban--]],
 
-	{"bgm", "mod", "nostalgia", fade={"fadeout", 1/3, true}},
+	{"bgm", "fade", "nostalgia", {"fadeout", 1/3, true}},
 	{"sfx", "sfx/sombra.flac", 1/3},
 	{"name"},
 	[[...*ffff*]],
@@ -124,7 +124,7 @@ las calles se seguían viendo vacias. No sabía lo que era. Me empecé a agitar.
 	[[*FFFF*]],
 
 	{"name", "María"},
-	{"bg", "mod", fade={"fadeout", 2/3, true}},
+	{"bg", "fade", {"fadeout", 2/3, true}},
 	{"bg", "addsub", {
 		{args={"Flash/i die/Nube.png", 640, 480, 0, -1}},
 		{args={"Flash/the.png", 0, 136}},
@@ -135,7 +135,7 @@ las calles se seguían viendo vacias. No sabía lo que era. Me empecé a agitar.
 	[[Creí ver de reojo algo moverse, pero me puse a correr antes de verlo
 bien. El ruido me siguió. Me buscaba.]],
 
-	{"bg", "mod", fade={"fadeout", 2/3, true}},
+	{"bg", "fade", {"fadeout", 2/3, true}},
 	{"bg", "add", args={"streetlamps.png", 0, 0, 0, .8},
 		color=res.palette("tenpm", 0),
 		fade={"delay", 2/3, "fadein", 2/3}},
@@ -154,8 +154,8 @@ miedo, giré sin pensarlo en un callejón.]],
 basura, pero cuando estaba por alcanzar el borde, algo me tomó. El bote se
 movió bajo mis pies.]],
 
-	{"bg", "mod", fade={"fadeout", 1/12, true}},
-	{"bgm", "mod", "white", fade={"fadeout", 1/12, true}},
+	{"bg", "fade", {"fadeout", 1/12, true}},
+	{"bgm", "fade", "white", {"fadeout", 1/12, true}},
 	{"sfx", "freesound/377888__usernamemoe__trash-can-falling.edit.flac", 1, 4/3},
 	[[Caí.]],
 

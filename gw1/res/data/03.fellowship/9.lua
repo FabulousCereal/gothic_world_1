@@ -13,7 +13,7 @@ local laComida = {
 ruidos de latas y no pude seguir," dijo antes de hecharse otro pedazo
 a la boca.]],
 
-	{"bgm", "mod", fade={"fadeout", 4}},
+	{"bgm", "fade", {"fadeout", 4}},
 	{"name", "María"},
 	[[Yo demoré un segundo en procesar lo que había dicho. Latas. El
 callejón.]],
@@ -35,7 +35,7 @@ había olvidado por completo. Estuve huyendo de algo, pero... ¿de que?]],
 		fade={"fadein", 1}},
 	[[Pensando con detención, no recordaba haber visto ningún zombie.]],
 
-	{"bg", "mod", fade={"delay", 1, true}},
+	{"bg", "fade", {"delay", 1, true}},
 	{"bg", "add", args={"yssm.png", -80}, shader=res.shader.dither_o2x2_pre,
 		color={0, .5, 1, 0}, fade={"fadein", 1}},
 	[[No solo eso, había mirado a todos lados en medio de una calle
@@ -48,7 +48,7 @@ despejada, y no había visto nada.]],
 	[[¿De verdad no ví nada? ¿O solo no quería creer que había entrado en
 pánico por un ruido cualquiera, y que para variar terminé subiéndome a--?]],
 
-	{"bg", "mod", "root", fade={"fadein", 1/24}},
+	{"bg", "fade", "root", {"fadein", 1/24}},
 	{"name", "Bake"},
 	[["¿No te vas a comer la piña?" preguntó Bake, despavilándome. Señalaba
 una rodaja que había apartado de mi trozo.]],
@@ -57,7 +57,7 @@ una rodaja que había apartado de mi trozo.]],
 	[["No, no, dale." Dejé de darle vueltas al asunto y me enfoqué en
 comer antes que Bake se lo tragara todo. Al fin y al cabo, todo eso ya estaba
 en el pasado. Estaba segura, y viva.]],
-	{"bgm", "mod", fade={"fadein", 4}},
+	{"bgm", "fade", {"fadein", 4}},
 }
 
 local laGente = {
@@ -188,10 +188,10 @@ local infoLoop = {
 			[[Habíamos pasado mucho tiempo hablando, así que agarré
 			la pizza entera.]],
 
-			{"bgm", "mod", fade={"fadeout", 1/4, true}},
+			{"bgm", "fade", {"fadeout", 1/4, true}},
 			[["*OM OM*" El chico me miró pasmado.]],
 
-			{"bg", 2, "mod", fade={"src", res.doll.bake_xd_boxers}},
+			{"bg", 2, "fade", {"src", res.doll.bake_xd_boxers}},
 			{"name", "Bake"},
 			{"text", [["xDDD"]], false, true},
 			{"wait", 1/3, false, true},
@@ -239,7 +239,7 @@ el no parecía tan afectado por lo que estuviera ocurriendo allá afuera.]],
 
 	[[De hecho, se lo tomaba todo bien a la ligera.]],
 
-	{"bg", 2, "mod", fade={"src", res.doll.bake_xd_boxers}},
+	{"bg", 2, "fade", {"src", res.doll.bake_xd_boxers}},
 	{"name", "Bake"},
 	[["WIIIAA", dijo luego de echarse desodorante, que podría o no también
 contener alcohol.]],
@@ -247,13 +247,13 @@ contener alcohol.]],
 	{"name", "María"},
 	[["¿Eh?"]],
 
-	{"bg", 2, "mod", fade={"src", res.doll.bake_boxers}},
+	{"bg", 2, "fade", {"src", res.doll.bake_boxers}},
 	{"name", "Bake"},
 	[["Imitando a mi guitarra xD" El chico, que consideraba que ponerse
 ropa de abrigo no era tan esencial en este clima, se puso a tocar a lo
 'Cabeza de Cubeta' mientras salía del baño al pasillo.]],
 
-	{"bg", 2, "mod", fade={"fadeout", 1}},
+	{"bg", 2, "fade", {"fadeout", 1}},
 	{"macro", "bgFade", "maria/pasillo.png"},
 	{"name", "María"},
 	[[El chico vivía en esta casa con sus padres, que justo habían salido
@@ -264,7 +264,7 @@ llegaría tan lejos. Su único compañero ahora era Pipi, su perro. O perra, mas
 bien.]],
 
 	{"macro", "bgFade", "maria/living.png"},
-	{"bgm", "mod", "wind", fade={"fadeto", .1, 4}},
+	{"bgm", "fade", "wind", {"fadeto", .1, 4}},
 	[[No entendía todas las cosas que decía o hacía el, a lo mejor
 era la cultura del extremo sur o que se yo, pero casi envidiaba su calma en
 esta situación... Escucharlo hablar era como oír una voz de un mundo en que no
@@ -278,7 +278,7 @@ si no por que podía atraer mas de esas criaturas, pero el chico insistía en qu
 no pasaba nada.]],
 
 	{"name", "Bake"},
-	{"bg", 2, "mod", fade={"fadein", 0}},
+	{"bg", 2, "fade", {"fadein", 0}},
 	[["Bue, me dolió el tendón," dijo cuando se cansó de tocar, con el
 primer tinte de inquietud que había oído en su voz, y dejó la guitarra a un
 lado. "¿Querés comer algo? Tengo Pizza Enlatada."]],
@@ -299,7 +299,7 @@ despensas y muebles, y tras dos minutos dió con una lata empolvada.]],
 	[["'Consumir antes del 2007.' Si está enlatada, no se debería hechar a
 perder, ¿verdad?" dijo antes de enterrarle un abrelatas.]],
 
-	{"bg", 2, "mod", fade={"fadeout", 1}},
+	{"bg", 2, "fade", {"fadeout", 1}},
 	{"name", "María"},
 	[[Noté que afuera el viento agarraba fuerza y que habia empezado a
 nevar de nuevo, con los dos cuerpos lentamente cubriéndose de un blanco
@@ -330,10 +330,10 @@ no dan ganas de estar afuera. Esperá que calme y me ocupo."]],
 	{"name", "María"},
 	[[Bake se fue al comedor con la lata y me llamó para que comieramos.]],
 
-	{"bgm", "mod", "wind", fade={"fadeout", 6, true}},
+	{"bgm", "fade", "wind", {"fadeout", 6, true}},
 	{"macro", "bgFade", res.fun.gfx.comedor2()},
 	{"bg", 2, "add", 1, args={res.doll.sillas, 320}, fade={"fadein", 1}},
-	{"bg", 2, "mod", fade={"mvabs", 160, false, 0, "fadein", 1}},
+	{"bg", 2, "fade", {"mvabs", 160, false, 0, "fadein", 1}},
 	{"macro", "mesa", false, "add", 3},
 	[[Vació la pizza minúscula en un plato, le hechó unas gotitas de agua,
 y esta se expandió en segundos. Radiaba calor y un exquisito olor a pizza de

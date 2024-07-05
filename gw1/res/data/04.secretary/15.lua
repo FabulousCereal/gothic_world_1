@@ -23,11 +23,11 @@ hablando, y con dificultad abrí los ojos.]],
 	[[Noté el rostro de un hombre junto mi. Calvo. Nariz prominente. Era lo
 único que distinguía. La cabeza se me partía sola.]],
 
-	{"bgm", "mod", "theme", fade={"fadeout", 6, true}},
+	{"bgm", "fade", "theme", {"fadeout", 6, true}},
 
 	[["Ay..."]],
 
-	{"bg", 2, "mod", fade={"src", res.doll.croft}},
+	{"bg", 2, "fade", {"src", res.doll.croft}},
 	{"name", "-----"},
 	[["¡Abrio los ojos, Rocco!" ¿Quién rayos era Rocco?]],
 
@@ -153,8 +153,8 @@ esperando," dije recogiendo mis botas.]],
 	[["Vamos, te llevo en el auto." Croft me extendió la mano para
 ayudarme. Con cuidado logré pararme, y cojeé con el hacia la puerta.]],
 
-	{"bg", 1, "mod", fade={"fadeout", 1, true}},
-	{"bg", 2, "mod", fade={"fadeout", 1}},
+	{"bg", 1, "fade", {"fadeout", 1, true}},
+	{"bg", 2, "fade", {"fadeout", 1}},
 	{"name", "María"},
 	[[La casa en la que vivía era bien rústica, y no había señales de que
 viviera con alguien mas. Por las ventanas se veía un patio enorme.]],
@@ -168,13 +168,13 @@ area rural, en medio de las montañas. Me quedé incrédula en la puerta.
 minutos de acá. Me llevó hacia una vieja camioneta destartalada, que creí
 era chatarra que tenía adornando su patio. Rocco se subió al techo.]],
 
-	{"bg", 2, "mod", fade={"mvabs", 120, false, 0, "fadein", 0}},
+	{"bg", 2, "fade", {"mvabs", 120, false, 0, "fadein", 0}},
 	{"name", "Croft"},
 	[["Esta es mi Vieja Mula. Ya no es lo que era antes, le falla hasta la
 bocina y la radio, pero nunca me ha abandonado," explicó. Viéndola de frente,
 si, este fue el auto que me atropelló.]],
 
-	{"bg", 2, "mod", fade={"fadeout", 1}},
+	{"bg", 2, "fade", {"fadeout", 1}},
 	{"sfx", "freesound/561724__ezzin__tractor-start.fadeout@9.5.flac"},
 	{"bgm", "set", "mula_idle", 0, setup={play=false},
 		fade={"delay", 9.5, "cmd", {play=true}, "fadein", 1},
@@ -199,8 +199,8 @@ subir, pero preferí no hacer preguntas.]],
 	[["Si, sería lo mejor."]],
 
 	{"bgm", "sync"},
-	{"bgm", "mod", "mula_idle",
-		fade={"cmd", {setPitch=2}, "fadeout", 2,
+	{"bgm", "fade", "mula_idle",
+		{"cmd", {setPitch=2}, "fadeout", 2,
 			"cmd", {play=false, setPitch=1}}},
 	{"bgm", "set", "mula_run", 0,
 		fade={"fadein", 2},
@@ -253,8 +253,8 @@ se aburrirá? De pronto, Rocco empezó a dar vueltas en el asiento.]],
 	{"name", "Croft"},
 	[["¡Rocco! ¡No hagas--! Mierda. !Afuera!"]],
 
-	{"bgm", "mod", "mula_idle", fade={"cmd", {play=true}, "fadein", 2}},
-	{"bgm", "mod", "mula_run", fade={"fadeout", 2, "cmd", {play=false}}},
+	{"bgm", "fade", "mula_idle", {"cmd", {play=true}, "fadein", 2}},
+	{"bgm", "fade", "mula_run", {"fadeout", 2, "cmd", {play=false}}},
 	{"name", "María"},
 	[[Croft detuvo el auto e hizo salir a Rocco al camino, que se bajó
 tiritando. Empezó a hacer del dos junto a la rueda de la camioneta mientras

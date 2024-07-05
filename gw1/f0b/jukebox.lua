@@ -113,17 +113,25 @@ local fadeOps = {
 	end,
 }
 
-local function trackUpdate(tracklist, dt, finish)
-	for name, track in pairs(tracklist) do
-		local fade = track.fade
-		if fade and #fade ~= 0 then
-			local remove = seq.update(fadeOps, track, fade, dt,
-				finish)
-			if remove == true then
-				track.source:stop()
-				tracklist[name] = nil
-			end
+local function rmTrack(tracklist, track, name)
+	track.source:stop()
+	tracklist[name] = nil
+end
+
+local function trackUpdate(tracklist, track, name, dt, finish)
+	local fade = track.fade
+	if fade and #fade ~= 0 then
+		local remove = seq.update(fadeOps, track, fade, dt,
+			finish)
+		if remove == true then
+			rmTrack(tracklist, track, name)
 		end
+	end
+end
+
+local function trackListUpdate(tracklist, dt, finish)
+	for name, track in pairs(tracklist) do
+		trackUpdate(tracklist, track, name, dt, finish)
 	end
 end
 
@@ -135,6 +143,12 @@ local function jukeMod(track, op)
 			track[k] = v
 		end
 	end
+end
+
+local function jukeFade(tracklist, fade, name)
+	local t = tracklist[name]
+	trackUpdate(tracklist, t, name, 0, true)
+	t.fade = f0b.table.deepCopy(fade)
 end
 
 local defaultAlias = true
@@ -159,14 +173,12 @@ local trackOps = {
 
 	rm = function(tracklist, op, name)
 		name = getAlias(name)
-		tracklist[name].source:stop()
-		tracklist[name] = nil
+		rmTrack(tracklist, tracklist[name], name)
 	end,
 
 	rmall = function(tracklist)
 		for name, track in pairs(tracklist) do
-			track.source:stop()
-			tracklist[name] = nil
+			rmTrack(tracklist, track, name)
 		end
 	end,
 
@@ -207,8 +219,12 @@ local trackOps = {
 		end
 	end,
 
+	fade = function(tracklist, _, ...)
+		return seq.fadeParse(tracklist, jukeFade, defaultAlias, ...)
+	end,
+
 	sync = function(tracklist)
-		return trackUpdate(tracklist, 0, true)
+		return trackListUpdate(tracklist, 0, true)
 	end,
 }
 
@@ -217,7 +233,7 @@ return {
 		trackOps[op](tracklist, inst, ...)
 	end,
 
-	update = trackUpdate,
+	update = trackListUpdate,
 
 	newTracklist = function(directive)
 		local tracks = {}

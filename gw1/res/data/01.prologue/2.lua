@@ -86,7 +86,7 @@ la fuerte explosión.]],
 nube de humo acercándose desde la ciudad. La gente miraba confundida, y pronto
 el humo negro empezó a entrar en el aeropuerto.]],
 
-	{"bg", "mod", fade={"fadeout", 1, true}},
+	{"bg", "fade", {"fadeout", 1, true}},
 	[[Este no era mi primer rodeo. Todos los que sobrevivimos la catástrofe
 en Valdemar sabiamos que hacer, asi que me tiré al suelo tapándome la
 nariz y gatée hasta la salida.]],
@@ -123,10 +123,10 @@ la habitación. Podía dar explicaciones después.]],
 habitación, pero no veía gente. En el patio habían tuberías y palas tiradas,
 probablemente estaban remodelando.]],
 
-	{"bg", "mod", fade={"fadeout", 1, true}},
+	{"bg", "fade", {"fadeout", 1, true}},
 	[[Llegué a mi cuarto y cerré todo, y como tenía aún el olor metálico
 del humo metido en la nariz, me dí una ducha antes de poner las noticias...]],
 
-	{"bgm", "mod", fade={"fadeout", 2/3, true}},
+	{"bgm", "fade", {"fadeout", 2/3, true}},
 	{"wait", 2/3},
 }

@@ -15,7 +15,7 @@ y la realidad.]],
 retumbaba sin fin en mi mente... Me hoztigaba, pero no tanto como el súbito
 sonido de un despertador.]],
 
-	{"bgm", "mod", "theme", fade={"fadeout", 2, true}},
+	{"bgm", "fade", "theme", {"fadeout", 2, true}},
 	{"bgm", "set", "alarm", 2/3, source="weird alarm.ogg"},
 	{"bg", "add", args={res.fun.clock.alarm(res.style.clockAlarm, 12, 30)},
 		color={1,1,1,0},
@@ -28,8 +28,8 @@ sonido de un despertador.]],
 	{"text", [[Estiré mi mano e hice callar el reloj como volviendo a una
 vieja rutina,]], false, true},
 
-	{"bgm", "mod", "alarm", fade={"fadeout", 1/12, true}},
-	{"bg", "mod", fade={"fadeout", 1/12, true}},
+	{"bgm", "fade", "alarm", {"fadeout", 1/12, true}},
+	{"bg", "fade", {"fadeout", 1/12, true}},
 	{"bg", "add", args={"maria/pieza.png"},
 		color={1, 1, 1, 0},
 		fade={"delay", 1/6, "fadein", 4}},
@@ -82,8 +82,8 @@ un demonios al tocarme, no parecía haberme hecho herida ni haberme sangrado,
 así que no debía ser tan grave. Me levanté y me acerqué a la puerta a buscar
 respuestas.]],
 
-	{"bgm", "mod", "wind",
-		fade={"cmd", {setFilter={type="lowpass", highgain=1/6}}}
+	{"bgm", "fade", "wind",
+		{"cmd", {setFilter={type="lowpass", highgain=1/6}}}
 	},
 	{"bgm", "set", "pots", 0,
 source="freesound/571066__trp__180715-banging-dropping-pots-pans-metal-kitchen-foley.edit.flac",
@@ -97,9 +97,9 @@ violentamente. El buen humor se me fue de inmediato.]],
 	[[Yo aquí riéndome de este chico y ni sé aún si es peligroso o no. De
 pronto, esa nota no se me hacía tan graciosa.]],
 
-	{"bgm", "mod", "wind", fade={"fadeout", 6, true}},
-	{"bgm", "mod", "pots",
-fade={"cmd", {setFilter={type="lowpass", highgain=1/3}}, "fadeto", 1, 3}},
+	{"bgm", "fade", "wind", {"fadeout", 6, true}},
+	{"bgm", "fade", "pots",
+		{"cmd", {setFilter={type="lowpass", highgain=1/3}}, "fadeto", 1, 3}},
 	{"macro", "rFade", res.fun.gfx.comedor(),
 		res.palette("repellantYellow", 0, 1.25)
 	},
@@ -107,7 +107,7 @@ fade={"cmd", {setFilter={type="lowpass", highgain=1/3}}, "fadeto", 1, 3}},
 intensidad. Llegué a una especie de living que daba a un comedor. Las cortinas
 estaban cerradas. Los ruidos provenían de lo que parecía la cocina.]],
 
-	{"bgm", "mod", "pots", fade={"fadeout", 3, true}},
+	{"bgm", "fade", "pots", {"fadeout", 3, true}},
 	{"bg", "add", args={"maria/cocina.png"},
 		fade={"fadein", 2/3}},
 	[[Me asomé por la puerta a mirar. Había un muchacho tirando cosas por
@@ -122,7 +122,7 @@ arma.]],
 		fade={"loop", 4, "cmd", {play=false}}},
 	1/3,
 
-	{"bg", "mod", fade={"fadeout", 1/6}},
+	{"bg", "fade", {"fadeout", 1/6}},
 	[[El chico comenzó a disparar por la ventana, y yo me escondí
 cubriéndome los oídos. ¿Que estaba sucediendo? ¿Por que me trajo acá? ¿Y que
 querría de mí?]],
@@ -137,12 +137,12 @@ vez no había despertado de ningún sueño.]],
 	[[No, no podía ser cierto, de ninguna forma. Entré con cautela a
 la cocina.]],
 
-	{"bg", "mod", 1, fade={"delay", 1, true}},
-	{"bg", "mod", fade={"fadein", 1}},
+	{"bg", "fade", 1, {"delay", 1, true}},
+	{"bg", "fade", {"fadein", 1}},
 	[[El chico estaba demasiado pendiente de lo que había afuera para
 notar mi presencia. Miré por la ventana.]],
 
-	{"bg", "mod", fade={"fadeout", 1/24}},
+	{"bg", "fade", {"fadeout", 1/24}},
 	[[Por primera vez ví a las criaturas en directo. Eran dos personas con
 una piel nauseabunda, color verde petroleo, con el pelo casi completamente
 caído.]],
@@ -150,7 +150,7 @@ caído.]],
 	[[Sangraban un espeso liquido marrón al ser impactados, pero a pesar de
 que el chico había derribado al mas pequeño a tiros, este seguía vivo.]],
 
-	{"bg", "mod", fade={"fadein", 2/3}},
+	{"bg", "fade", {"fadein", 2/3}},
 	[[Las manos del chico temblaban. No sabía si le quedaban balas para el
 mas grande. Entonces recordé que si esto no era un sueño, debía aún tener mis
 cosas encima. Revisé mis bolsillos. Aún poseía mi navaja.]],
@@ -180,10 +180,10 @@ pero el chico se safó rápido y volvió a arremeter.]],
 	[[La criatura por fín empezó a tambalearse, y cayó al suelo mientras
 mas de ese líquido brotaba de su herida.]],
 
-	{"bg", "mod", fade={"fadeout", 60/80, true}},
-	{"bgm", "mod", "famicom", fade={"fadeout", 1/3, true}},
-	{"bgm", "mod", "gunshot",
-		fade={"delay", 1, "cmd", {seek=0, play=true, setLooping=true},
+	{"bg", "fade", {"fadeout", 60/80, true}},
+	{"bgm", "fade", "famicom", {"fadeout", 1/3, true}},
+	{"bgm", "fade", "gunshot",
+		{"delay", 1, "cmd", {seek=0, play=true, setLooping=true},
 			"loop", 2, true}},
 	[[Al final, el chico lo remató con un disparo en la cabeza, e hizo
 lo mismo con el pequeño que ya había logrado levantarse.]],
@@ -247,7 +247,7 @@ agua y cloro y me dispuse a dar una vuelta para explorar.]],
 	[[Como no encontré un lápiz, le dejé al chico su misma nota en la mesa
 antes de partir, con el despertador puesto a las 1:15pm, por si acaso.]],
 
-	{"bg", "mod", fade={"fadeout", 1, true}},
+	{"bg", "fade", {"fadeout", 1, true}},
 	[[Salí dejando la puerta junta para cuando volviera. El perro del
 chico me siguió olfateándome hasta la calle, y me miró mientras me
 alejaba. Al menos, ahora tenía un lugar donde volver.]],

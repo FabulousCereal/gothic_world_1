@@ -1,3 +1,8 @@
+local gBP = {1,2}
+local gFA = {3,4}
+
+local swap = res.fun.vn.charSwap
+
 return {
 	{"style", "vnMaria"},
 	res.fun.macro.title,
@@ -54,28 +59,33 @@ cerradura destruida. En el suelo habían platos rotos y ollas tiradas al azar.
 Habían manchas de sangre junto a la entrada.]],
 
 	{"bg", "addsub", {
-		default={draw=f0b.doll.draw},
-		{args={res.doll.bake, 480, 0, -1}},
+		default={draw=f0b.doll.draw, color={1,1,1,0}},
+		{args={res.doll.bake, 480, 0, -1}, color={1,1,1,1}},
+		{args={res.doll.falcon, 160}},
+		{args={res.doll.fab, 180}},
+		{args={res.doll.andrea, 480, 0, -1}},
 	}},
 	{"name", "Bake"},
 	[["Pareciera que un bitchy se metió y salió."]],
 
-	{"bg", 2, "add", args={res.doll.falcon, 160}, fade={"fadein", 1/12}},
+	{"bg", 2, "fade", 2, {"fadein", 1/12}},
 	{"name", "Falcon"},
 	[["O a lo mejor subió." Mierda, Falcon...]],
 
-	{"bg", 2, "modall", fade={"delay", 1, "fadeout", 1/2, "toggle"}},
 	{"name", "Bake"},
-	[["Subamos a ver." Los dos se fueron a revisar el segundo piso,
+	[["Subamos a ver."]],
+
+	{"bg", 2, "fade", 1, 2, {"fadeout", 1/2}},
+	{"name", "María"},
+	[[Los dos se fueron a revisar el segundo piso,
 mientras Fab se acercaba a mirar la puerta. Este lugar era una pesadilla.]],
 
-	{"bg", 2, "add", args={res.doll.fab, 160}, fade={"fadein", .5}},
+	{"bg", 2, "fade", 3, {"fadein", .5}},
 	{"name", "Fabian"},
 	[["¿Para que se metería y saldría un zombie?" dijo apretando y soltando
 el picaporte. Andrea se le acercó evitando los platos rotos.]],
 
-	{"bg", 2, "add", args={res.doll.andrea, 480, 0, -1},
-		fade={"fadein", .5}},
+	{"bg", 2, "fade", 4, {"fadein", .5}},
 	{"name", "Andrea"},
 	[["¿Quizás olió que había comida?"]],
 
@@ -103,7 +113,7 @@ entretenido. Miré los platos rotos en el suelo, y me agaché a limpiar.]],
 
 	{"name", "Andrea"},
 	{"text", [["Espera, te ayudo." ]], false, true},
-	{"bg", 2, "mod", fade={"fadeout", .5}},
+	{"bg", 2, "fade", {"fadeout", .5}},
 	{"text", [[Andrea se acercó a recoger también.]], true},
 
 	[["Fab, ve por una escoba." Fab miró hacia todos lados confundido.]],
@@ -112,12 +122,12 @@ entretenido. Miré los platos rotos en el suelo, y me agaché a limpiar.]],
 	[["Ehh, ¿donde hay una escoba?" Ambos me miraron, pero
 yo tampoco sabía. Si, yo era una increíble ayuda.]],
 
-	{"bg", 2, "mod", 3, fade={"fadeout", .5}},
+	{"bg", 2, "fade", 3, {"fadeout", .5}},
 	{"name", "María"},
 	[[Fab salió del cuarto, y pronto volvió con pala y escoba. Andrea
 acercó el basurero, y empezaron a hechar todo adentro.]],
 
-	{"bg", 2, "modr", 3, 4, fade={"fadein", .5}},
+	{"bg", 2, "fade", 3, 4, {"fadein", .5}},
 	[["¿Como lo hacen?" les pregunté. Se giraron ambos a verme.]],
 
 	{"name", "Andrea"},
@@ -141,8 +151,7 @@ me asustaría más."]],
 	[["¿Entonces por que yo estoy así?" pregunté apretando los puños.
 En eso, Bake y Falcon volvieron.]],
 
-	{"bg", 2, "modr", 3, 4, fade={"fadeout", .5}},
-	{"bg", 2, "modr", 1, 2, fade={"toggle", "fadein", .5}},
+	swap(gBP, gFA, .5),
 	{"name", "Bake"},
 	[["Ya revisamos."]],
 
@@ -152,10 +161,10 @@ En eso, Bake y Falcon volvieron.]],
 	{"name", "Bake"},
 	{"text", [["Y dudo que hayan sido Croft y Rocco con hambre]],
 		false, true},
-	{"bg", 2, "mod", 1, fade={"src", res.doll.bake_xd}},
+	{"bg", 2, "fade", 1, {"src", res.doll.bake_xd}},
 	{"text", [[ xD"]], true},
 
-	{"bg", 2, "mod", 1, fade={"src", res.doll.bake}},
+	{"bg", 2, "fade", 1, {"src", res.doll.bake}},
 	{"name", "María"},
 	[["¿Que vamos a hacer entonces?"]],
 
@@ -163,13 +172,11 @@ En eso, Bake y Falcon volvieron.]],
 	[["¿Hacer de que?" preguntó Bake, igual que cuando estaban los dos
 cuerpos afuera. Ni siquiera sabía como responderle.]],
 
-	{"bg", 2, "modr", 1, 2, fade={"fadeout", .5}},
-	{"bg", 2, "modr", 3, 4, fade={"fadein", .5}},
+	swap(gFA, gBP, .5),
 	{"name", "Fabian"},
 	[["Que pasa si vuelve a atacar, supongo."]],
 
-	{"bg", 2, "modr", 3, 4, fade={"fadeout", .5, true}},
-	{"bg", 2, "modr", 1, 2, fade={"fadein", .5}},
+	swap(gBP, gFA, .5),
 	{"name", "Bake"},
 	[["Hablabamos con Falcon que pudo ser por los huesos de pollo que
 quedaron."]],
@@ -187,8 +194,8 @@ Tendremos que tener mas cuidado."]],
 No quería que ninguno terminara como cualquiera de los cuerpos despedazados que
 encontramos hoy.]],
 
-	{"bg", 2, "mod", 2, fade={"fadeout", .5, true}},
-	{"bg", 2, "mod", 1, fade={"mvabs", 400, false, 1}},
+	{"bg", 2, "fade", 2, {"fadeout", .5, true}},
+	{"bg", 2, "fade", 1, {"mvabs", 400, false, 1}},
 	{"name", "Bake"},
 	[["¿Nena? ¿Te pasa algo?" me preguntó Bake. Negué con la cabeza, pero
 era obvio que mentía; no debia tener buena cara.]],
@@ -199,7 +206,7 @@ era obvio que mentía; no debia tener buena cara.]],
 	[[Ya casi detestaba que me trataran bien, pero terminé asintiendo.
 Quizás sería lo mejor, a pesar que no era ni mediodía aún.]],
 
-	{"bg", "mod", "root", fade={"color", {0,0,0,0}, 1}},
+	{"bg", "fade", "root", {"color", {0,0,0,0}, 1}},
 	[[Subí al segundo piso, y me fui a la cama. En el espacio que dejé
 desordenado en la mañana, me enrollé, y traté de no pensar en nada.]],
 }

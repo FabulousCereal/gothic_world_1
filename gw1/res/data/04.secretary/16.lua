@@ -45,12 +45,12 @@ comiendo galletas abajo. ¿Vienes?"]],
 	[["Ya. Muero del hambre," dijo sonriendo.]],
 
 	{"macro", "bgFade", "maria/pasillo.png"},
-	{"bg", 2, "mod", fade={"fadeout", 1}},
+	{"bg", 2, "fade", {"fadeout", 1}},
 	{"name", "María"},
 	[[Salí a esperarlo al pasillo, y cuando estuvo listo fui con en el
 hasta la escalera.]],
 
-	{"bg", 2, "mod", fade={"fadein", 0}},
+	{"bg", 2, "fade", {"fadein", 0}},
 	{"name", "Falcon"},
 	[["¿Te pasó algo en el pie?"]],
 
@@ -67,7 +67,7 @@ y con levantar la manga del pantalón bastó.]],
 	{"name", "Falcon"},
 	[["Igual si reposas creo que se te va a pasar mas luego."]],
 
-	{"bg", 2, "mod", fade={"fadeout", 2/3, true}},
+	{"bg", 2, "fade", {"fadeout", 2/3, true}},
 	{"macro", "bgFade", res.fun.gfx.comedor()},
 	{"name", "María"},
 	[[Bajamos los dos la escalera, cual peor que el otro, y de ahí fuimos
@@ -128,7 +128,7 @@ a Rocco en brazos, aunque Pipi siguió ladrándole.]],
 	{"name", "María"},
 	[["Pipi. ¡Pipi! No me hace caso."]],
 
-	{"bg", 2, "mod", 1, fade={"fadeout", 1/12}},
+	{"bg", 2, "fade", 1, {"fadeout", 1/12}},
 	[[De pronto la puerta se abrió y apareció Bake apuntándole a Croft con
 una pistola.]],
 
@@ -138,7 +138,7 @@ una pistola.]],
 	{"name", "María"},
 	[["¡Espera! ¡No dispares!" grité de inmediato. Bake bajó el arma.]],
 
-	{"bg", 2, "mod", 2, fade={"fadein", 1/12}},
+	{"bg", 2, "fade", 2, {"fadein", 1/12}},
 	{"name", "Bake"},
 	[["Disculpá, pensé que era una de esas cosas verdes por los ladridos.
 ¿Quién es el?"]],
@@ -153,7 +153,7 @@ por el mentón. "Tenés una flor de moretón." Le alejé la mano.]],
 	{"name", "María"},
 	[["Larga historia. El es Croft y su perro Rocco."]],
 
-	{"bg", 2, "mod", 1, fade={"fadein", 1/12}},
+	{"bg", 2, "fade", 1, {"fadein", 1/12}},
 	{"name", "Croft"},
 	[["Hola," dijo extendiendole la mano. Bake guardó el arma y se la
 estrechó.]],
@@ -167,16 +167,16 @@ dos miramos a Croft, y este miró a Rocco que lo miró de vuelta.]],
 sacudia el brazo. Lo había meado encima. "¡No podías hacer todo junto!" lo
 regañó.]],
 
-	{"bg", 2, "mod", 1, fade={"fadeout", 1/3}},
+	{"bg", 2, "fade", 1, {"fadeout", 1/3}},
 	{"name", "María"},
 	[[Rocco terminó de mear en un árbol mientras Croft se quitaba el
 abrigo. Por suerte parecía que era impermeable.]],
 
-	{"bg", 2, "mod", 2, fade={"src", res.doll.bake_xd}},
+	{"bg", 2, "fade", 2, {"src", res.doll.bake_xd}},
 	{"name", "Bake"},
 	[["xD" dijo Bake.]],
 
-	{"bg", 2, "mod", 2, fade={"src", res.doll.bake}},
+	{"bg", 2, "fade", 2, {"src", res.doll.bake}},
 	{"name", "María"},
 	[["¿Ya despertó Falcon?"]],
 
@@ -194,7 +194,7 @@ todo. Igual ya le está bajando, pero se durmió de nuevo y no ha comido nada."]
 	[[No imaginé que estuviera tan mal. No debí haber salido, si al final
 de nuevo volví sin nada.]],
 
-	{"bg", 2, "mod", 2, fade={"fadeout", 1/12}},
+	{"bg", 2, "fade", 2, {"fadeout", 1/12}},
 	{"name", false},
 	[[*crack*]],
 	1,
@@ -282,8 +282,8 @@ frente a la escalera.]],
 			estos días.]],
 		}
 	}},
-	{"bgm", "mod", "normal", fade={"fadeout", 2, true}},
+	{"bgm", "fade", "normal", {"fadeout", 2, true}},
 	[[Croft bajó la mirada hacia su café. Tomó un sorbo y suspiró...]],
-	{"bg", "mod", "root", fade={"color", {0,0,0,0}, 2}},
+	{"bg", "fade", "root", {"color", {0,0,0,0}, 2}},
 	2,
 }

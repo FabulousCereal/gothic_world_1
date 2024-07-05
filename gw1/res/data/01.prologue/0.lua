@@ -71,7 +71,7 @@ end
 local function fadeSwap(_, _, args)
 	local time = 3
 	return {
-		{"bg", "mod", fade={"delay", time, true}},
+		{"bg", "fade", {"delay", time, true}},
 		{"bg", "add", args=args, fade={"fadein", time}},
 	}
 end
@@ -113,7 +113,7 @@ caída.]],
 	{"wait", 1},
 	[["Gracias, pero no puedes..."]],
 
-	{"bg", "mod", fade={"delay", 3, true}},
+	{"bg", "fade", {"delay", 3, true}},
 --	{"bg", "add", args={"maria/intro7.png", 0, 0, 0, .8},
 --		color={1, 1, 1, 0},
 --		fade={"delay", 1.5, "fadein", 3}},
@@ -130,7 +130,7 @@ caída.]],
 	[[Pasamos por una nube, y cuando salimos cubiertas de escarcha blanca,
 encontré a la paloma acobijada a mi pecho.]],
 
-	{"bg", "mod", fade={"fadeout", 3}},
+	{"bg", "fade", {"fadeout", 3}},
 	[[Con mis manos entumecidas la abracé, mientras el olor y el ruido de
 las olas nos envolvían.]],
 
@@ -141,7 +141,7 @@ las olas nos envolvían.]],
 	{"macro", eauDeParfum},
 	{"bgm", "modall", fade={"fadeout", 4, true}},
 	{"wait", 4, true},
-	{"bg", "mod", -1, fade={"fadeout", 2, true}},
-	{"bg", "mod", fade={"fadeout", 2, true}},
+	{"bg", "fade", -1, fade={"fadeout", 2, true}},
+	{"bg", "fade", fade={"fadeout", 2, true}},
 	{"wait", 1.9, true},
 }

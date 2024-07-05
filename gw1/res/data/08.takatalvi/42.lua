@@ -17,7 +17,7 @@ return {
 		{args={res.doll.andrea, 0, 0, -1, 1, 640}},
 	}},
 	{"macro", "mesa", false, "add"},
-	{"bg", "mod", 3, fade={"mvdiff", 80, false, 0}},
+	{"bg", "fade", 3, {"mvdiff", 80, false, 0}},
 	{"name", "María"},
 	[[El mal clima seguía cuando nos sentamos al fin a comer. Falcon seguía
 en cama, y yo ya me había acostumbrado a la sensación de que el viento hecharía
@@ -167,8 +167,8 @@ boca. Eso decía mi mamá."]],
 	[["Si, mejor xD Entonces no perdamos tiempo. Salgamos ahora mismo,"
 dijo levantándose.]],
 
-	{"bg", 2, "mod", 1, fade={"mvdiff", false, 60, 1/3}},
-	{"bg", "mod", 3, fade={"mvdiff", false, 60, 1/3}},
+	{"bg", 2, "fade", 1, {"mvdiff", false, 60, 1/3}},
+	{"bg", "fade", 3, {"mvdiff", false, 60, 1/3}},
 	{"name", "María"},
 	[["Espera, ¿ahora ahora?" Los chicos se levantaron también, tomando
 sus abrigos.]],
@@ -205,10 +205,10 @@ esperaban que me quedara guardada en casa. Era para lo único que servía.]],
 
 	{"name", "Andrea"},
 	{"text", [["Pienso que--..." ]], false, true},
-	{"bg", 2, "mod", 4, fade={"src", res.doll.andrea_fome}},
+	{"bg", 2, "fade", 4, {"src", res.doll.andrea_fome}},
 	{"text", [[Andrea se detuvo y le lanzó una breve mirada, una
 expresión de que no era la primera vez que oía ese chiste. ]], true, true},
-	{"bg", 2, "mod", 4, fade={"src", res.doll.andrea}},
+	{"bg", 2, "fade", 4, {"src", res.doll.andrea}},
 	{"text", [["Deberiamos ir los tres, porque afuera es mas peligroso."]],
 		true},
 
@@ -224,7 +224,7 @@ dos y dos," argumentó. "O si te acuerdas del lugar puedes ir tú y--"]],
 	{"name", "Bake"},
 	[["¿Entonces vas?"]],
 
-	{"bg", 2, "mod", 4, fade={"src", res.doll.andrea_fome}},
+	{"bg", 2, "fade", 4, {"src", res.doll.andrea_fome}},
 	{"name", "María"},
 	[["Si. Quiero ir," pronuncié. Los chicos me miraron en silencio.]],
 
@@ -239,7 +239,7 @@ dos y dos," argumentó. "O si te acuerdas del lugar puedes ir tú y--"]],
 	[["Solo déjame avisarle a Falcon primero."]],
 
 	{"macro", "bgFade", "maria/pasillo.png"},
-	{"bg", "modr", 2, 3, fade={"fadeout", 1, true}},
+	{"bg", "fade", 2, 3, {"fadeout", 1, true}},
 	[[Mientras los chicos juntaban sus armas, yo me dirigí al segundo piso.
 La puerta de Falcon seguía cerrada, así que la abrí con cautela y miré adentro.
 Seguía en cama.]],
@@ -285,7 +285,7 @@ que le dí un beso en la frente. El me miró sorprendido.]],
 
 	[["Chao."]],
 
-	{"bg", "mod", fade={"fadeout", 1, true}},
+	{"bg", "fade", {"fadeout", 1, true}},
 	[[Corrí escalera abajo. El esguince me dolía, pero el tiempo se
 acababa al parecer.]],
 

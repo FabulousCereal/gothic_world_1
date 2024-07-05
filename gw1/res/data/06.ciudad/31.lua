@@ -57,19 +57,19 @@ la postal."]],
 	[["Dejenme, es lo primero que recuerdo en días," dijo mirando a su
 alrededor. "Ese edificio de allá, tenía un record de altura, ¿no?"]],
 
-	{"bg", 2, "mod", fade={"fadeout", 1/12}},
+	{"bg", 2, "fade", {"fadeout", 1/12}},
 	{"bg", 2, "add", args={res.doll.croft, 480, 0, -1}, fade={"fadein", 1/12}},
 	{"name", "Croft"},
 	[["No es por ser molesto, pero deberiamos aprovechar que los verdes
 están lejos y apurarnos."]],
 
-	{"bg", 2, "mod", 3, fade={"fadeout", 1/12}},
-	{"bg", 2, "mod", 2, fade={"fadein", 1/12}},
+	{"bg", 2, "fade", 3, {"fadeout", 1/12}},
+	{"bg", 2, "fade", 2, {"fadein", 1/12}},
 	{"name", "Bake"},
 	[["Croft tiene razón, aparte que va a caer la blanca." Van dos que
 anuncian eso.]],
 
-	{"bg", 2, "mod", 1, 2, fade={"fadeout", 1}},
+	{"bg", 2, "fade", 1, 2, {"fadeout", 1}},
 	{"name", "María"},
 	[[Bake indicó una dirección y empezamos a andar. Los zombies no nos
 notaban a esta distancia, aunque aún podrían salir algunos de las calles.]],
@@ -80,7 +80,7 @@ ya estaba saqueada por completo.]],
 	[[La gente debía ser buena para las armas acá; nunca había visto ni una
 armería de donde vengo, y aquí habían en cualquier lado.]],
 
-	{"bg", 1, "mod", 1, fade={"fadeout", 1}},
+	{"bg", 1, "fade", 1, {"fadeout", 1}},
 	[[Entramos a revisar igual por si quedó algo. Estaban todos los muebles
 tirados y la caja registradora hecha pedazos, y fuera de eso todo vacio.]],
 
@@ -118,7 +118,7 @@ estar mala."]],
 	[["Con esto tenemos para sobrevivir otro día." Habiendo
 registrado todo, los chicos se devolvieron.]],
 
-	{"bg", 2, "mod", 2, fade={"fadein", 1/12}},
+	{"bg", 2, "fade", 2, {"fadein", 1/12}},
 	[["María," dijo Bake poniéndome de pronto la mano en el hombro,
 agarrándome desprevenida. "Tomá."]],
 
@@ -134,12 +134,12 @@ agarrándome desprevenida. "Tomá."]],
 	{"name", "Bake"},
 	[["De ahí te enseñamos. Por ahora guardalo."]],
 
-	{"bg", 2, "mod", 2, fade={"fadeout", 1}},
+	{"bg", 2, "fade", 2, {"fadeout", 1}},
 	{"name", "María"},
 	[[Me quedé mirando el arma mientras los chicos salían de la tienda.
 Era la primera vez que sostenía una.]],
 
-	{"bg", 1, "mod", 1, fade={"fadein", 1}},
+	{"bg", 1, "fade", 1, {"fadein", 1}},
 	[[Pensé que me sentiría segura o poderosa como dicen en la tele, pero
 de hecho me sentí algo nerviosa. Me era difícil no pensar en que se podía
 disparar sola en cualquier momento, a pesar de que probablemente debía ser
@@ -148,7 +148,7 @@ segura.]],
 	[[Me fijé que los chicos guardaban las suyas en los bolsillos,
 así que hice lo mismo y traté de no pensar mas en ella.]],
 
-	{"bg", 2, "mod", 1, 3, fade={"fadein", 1/12}},
+	{"bg", 2, "fade", 1, 3, {"fadein", 1/12}},
 	{"name", "Falcon"},
 	[["¿A donde ahora? ¿A la tienda de guitarras?"]],
 
@@ -158,7 +158,7 @@ así que hice lo mismo y traté de no pensar mas en ella.]],
 	{"name", "Falcon"},
 	[["Ah, verdad xD Bueno vamos rápido."]],
 
-	{"bg", 2, "mod", 1, 3, fade={"fadeout", 1/3}},
+	{"bg", 2, "fade", 1, 3, {"fadeout", 1/3}},
 	{"name", "María"},
 	[[Los chicos partieron de inmediato al auto, y tuve que apresurarme
 tras ellos a pesar de mi cojera. Llegamos, nos subimos y empezamos a recorrer
@@ -206,8 +206,8 @@ la Avenida.]],
 	{"name", "Bake"},
 	[["Allá veo una. Ahora salimos de la duda."]],
 
-	{"bg", 1, "mod", 1, fade={"fadeout", 1}},
-	{"bgm", "mod", "nor", fade={"fadeout", 2, true}},
+	{"bg", 1, "fade", 1, {"fadeout", 1}},
+	{"bgm", "fade", "nor", {"fadeout", 2, true}},
 	{"name", "María"},
 	[[Nos metimos a la gasolinera y Falcon apagó el motor. Ibamos a
 bajarnos cuando Croft dijo que no hacía falta que fueramos todos.]],
@@ -281,8 +281,8 @@ esperando la explosión.]],
 	{"name", "María"},
 	[[No disparaba. No la había cargado.]],
 
-	{"bgm", "mod", "click",
-		fade={"cmd", {setLooping=true, play=true}, "loop", 5, true}},
+	{"bgm", "fade", "click",
+		{"cmd", {setLooping=true, play=true}, "loop", 5, true}},
 	[[Seguí apretando, pero el arma no tenía balas, el barril solo daba
 vueltas. La criatura estaba a punto de romper el vidrio con los puños.]],
 
@@ -303,12 +303,12 @@ rápido con su arma, habiendo dejado la manguera y el bidón botando bencina.]],
 	[[Por la forma en que se desplazaba, realmente parecía alguien que hizo
 el servicio.]],
 
-	{"bg", 2, "mod", 3, fade={"fadein", 1/12}},
+	{"bg", 2, "fade", 3, {"fadein", 1/12}},
 	{"name", "Croft"},
 	[["Me creerán que se me había olvidado cargarla," nos dijo.
 También le creía que lo hubieran echado.]],
 
-	{"bg", 2, "mod", 3, fade={"fadeout", 1/12}},
+	{"bg", 2, "fade", 3, {"fadeout", 1/12}},
 	{"name", "María"},
 	[[Bake no alcanzó a responderle. La criatura gimió aún viva y se
 empezó a levantar, como si el agujero que tenía la cabeza no fuera nada.]],
@@ -323,7 +323,7 @@ salir rápido.]],
 	{"name", "Bake"},
 	[["Come to die, shithead."]],
 
-	{"bg", 2, "mod", 2, fade={"fadeout", 1/12}},
+	{"bg", 2, "fade", 2, {"fadeout", 1/12}},
 	{"name", "María"},
 	[[La criatura se lanzó veloz contra Bake. Bake lo esquivó y lo guió
 lejos del auto, y después con nervios de acero esperó que se acercara y le
@@ -349,7 +349,7 @@ mas."]],
 	{"name", "Falcon"},
 	[["Déjalo, hay que guardar munición. Volteemos el auto y salgamos."]],
 
-	{"bg", 2, "mod", 1, 2, fade={"fadeout", 1/12}},
+	{"bg", 2, "fade", 1, 2, {"fadeout", 1/12}},
 	{"name", "María"},
 	{"sfx", "freesound/634778__5plus5equalspatata__metal-crash.mp3",
 		1/3, 1, 1},
@@ -380,9 +380,8 @@ limpio. Entonces Croft se miró los zapatos.]],
 	{"name", "Croft"},
 	[["Perdón," dijo subiendo lo que quedaba del vidrio.]],
 
-	{"bgm", "sync"},
-	{"bgm", "mod", "window",
-		fade={"fadeto", .5, .5, "cmd", {play=true, seek=6.8},
+	{"bgm", "fade", "window",
+		{"fadeto", .5, .5, "cmd", {play=true, seek=6.8},
 			"delay", 5/3, true}},
 	{"name", "María"},
 	[[...que terminó de caerse por completo.]],
@@ -425,7 +424,7 @@ puerta estaba abierta. Croft y yo los mirabamos en silencio.]], true},
 	{"name", "María"},
 	[["Si, vamos."]],
 
-	{"bg", 2, "mod", 3, fade={"fadeout", 1, true}},
+	{"bg", 2, "fade", 3, {"fadeout", 1, true}},
 	[[Fuimos con Croft y Rocco a buscar lo importante en un mall que había
 al lado.]],
 

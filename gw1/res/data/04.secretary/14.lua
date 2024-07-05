@@ -28,7 +28,7 @@ sola.]],
 dirección a ellos. El hotel no lo recordaba bien por fuera, pero estaba
 convencida de que si lo veía de frente lo reconocería de inmediato.]],
 
-	{"bgm", "mod", "hero", fade={"fadeout", 2, true}},
+	{"bgm", "fade", "hero", {"fadeout", 2, true}},
 	[[¿Pero que hay de la Sombra?]],
 
 	[[La mera idea me hizo parar de inmediato, y no pude dar un paso mas.
@@ -42,11 +42,11 @@ aquella cosa siguiera rondando la misma area.]],
 	[[Di media vuelta y crucé de nuevo la calle. Mi respiración se
 aceleraba mientras me decía a mi misma que no estaba entrando en pánico.]],
 
-	{"bgm", "mod", "mula", fade={"fadeto", 1/16, 4}},
+	{"bgm", "fade", "mula", {"fadeto", 1/16, 4}},
 	[[Tanto, que de nuevo no miré a ambos lados, y no me dí cuenta del auto
 que patinaba por el hielo directo hacia mi.]],
 
-	{"bgm", "mod", "mula", fade={"fadeto", 1/8, 4}},
+	{"bgm", "fade", "mula", {"fadeto", 1/8, 4}},
 	{"name", "-----"},
 	[["¡CUIDADOOOO!"]],
 
@@ -54,7 +54,7 @@ que patinaba por el hielo directo hacia mi.]],
 		source="freesound/561724__ezzin__tractor-start.run_loop.flac",
 		setup={setPitch=4/3},
 		fade={"fadeto", .125, 4}},]]
-	{"bgm", "mod", "mula", fade={"fadeto", 1/4, 3}},
+	{"bgm", "fade", "mula", {"fadeto", 1/4, 3}},
 	{"bgm", "set", "auto", 0,
 		source="freesound/71739__audible-edge__chrysler-lhs-tire-squeal-04.16.flac",
 		fade={"fadein", 1.5},

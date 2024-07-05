@@ -3,7 +3,7 @@ local pipiElPerroMaravilla = {
 mientras recuperaba la sensación del cuerpo, ya que el frío casi me había
 paralizado, y caminé torpemente hasta la puerta bajo la escalera. La abrí.]],
 
-	{"bg", "mod", fade={"fadeout", 1, true}},
+	{"bg", "fade", {"fadeout", 1, true}},
 	[[Me encontré con lo que pareció haber sido la habitación de una mujer.
 El lugar olía a perro, literalmente, pero alli estaba Pipi envuelta en
 frazadas.]],
@@ -130,7 +130,7 @@ aguantaba más.]],
 			podía enderezar la espalda. No sé como logré pararme y
 			caminar en la oscuridad hasta la pieza de Bake.]],
 
-			{"bg", "mod", fade={"fadeout", 1, true}},
+			{"bg", "fade", {"fadeout", 1, true}},
 			[[El viento prácticamente azotaba las paredes aquí
 			arriba, pero Bake dormía plácido como tronco. Que puta
 			envidia.]],
@@ -193,7 +193,7 @@ mucho en sueños no me caería.]],
 }
 
 local camaDeBake = {
-	{"bg", "mod", fade={"fadeout", 1, true}},
+	{"bg", "fade", {"fadeout", 1, true}},
 	[[En sigilo entré a la pieza donde estaba Bake. Apenas distinguía nada,
 así que tuve que tantear para encontrarlo y de ahí meterme del otro lado.]],
 
@@ -376,10 +376,10 @@ pensaba salir a investigar a estas horas.]],
 	[[Me limité a mirar desde adentro, segura, intentando no pensar en la
 posibilidad de que aparecieran de golpe, o peor aún...]],
 
-	{"bg", "mod", fade={"fadeout", 1/12}},
+	{"bg", "fade", {"fadeout", 1/12}},
 	[[Detrás mío.]],
 
-	{"bg", "mod", fade={"fadein", 6}},
+	{"bg", "fade", {"fadein", 6}},
 	[[Mierda, mierda, mierda. ¿Para que me asusto yo sola? Literalmente
 siempre hacía lo mismo.]],
 

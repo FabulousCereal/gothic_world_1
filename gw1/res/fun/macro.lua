@@ -35,8 +35,7 @@ return {
 		img[1], img[2], img[3], img[4]
 			= "bg", subidx, "add", 1
 		return {
-			{"bg", subidx, "mod", 1,
-				fade={"fadeout", secs or 1, true}},
+			{"bg", subidx, "fade", 1, {"fadeout", secs or 1, true}},
 			img,
 		}
 	end,
@@ -51,7 +50,7 @@ return {
 		img.color=color or nil
 		img.fade={"fadein", s}
 		return {
-			{"bg", "mod", idx, fade={"delay", s, true}},
+			{"bg", "fade", idx, {"delay", s, true}},
 			img,
 		}
 	end,
@@ -76,7 +75,7 @@ return {
 	end,
 
 	mv = function(x, t)
-		return {"bg", "modr", 2, 3, fade={"mvabs", x, false, t}}
+		return {"bg", "mod", 2, 3, fade={"mvabs", x, false, t}}
 	end,
 
 	title = title,

@@ -1,18 +1,13 @@
-local function swap(set1, set2, secs)
-	return {"read", {
-		{"bg", 2, "mod", fade={"fadein", secs}, unpack(set1)},
-		{"bg", 2, "mod", fade={"fadeout", secs}, unpack(set2)},
-	}}
-end
+local gP = 1
+local gA = 2
+local gF = 3
+local gB = 4
+local gBAF = {gA,gF,gB}
+local gAF = {gA,gF}
+local gPB = {gP,gB}
+local gPF = {gP,gF}
 
-local gP = {1}
-local gA = {2}
-local gF = {3}
-local gB = {4}
-local gBAF = {2,3,4}
-local gAF = {2,3}
-local gPB = {1,4}
-local gPF = {1,3}
+local swap = res.fun.vn.charSwap
 
 return {
 	{"style", "vnMaria"},
@@ -76,13 +71,12 @@ haber en esta ciudad son farmacias." Falcon se bajó... pero no cerró la
 puerta.]],
 
 	{"bg", "addsub", {
-		{args={res.doll.falcon, 160}},
+		default={draw=f0b.doll.draw, color={1,1,1,0}},
+		{args={res.doll.falcon, 160}, color={1,1,1,1}},
 		{args={res.doll.andrea, 120}},
 		{args={res.doll.fab, 520, 0, -1}},
 		{args={res.doll.bake, 320, 0, -1}},
-		default={draw=f0b.doll.draw},
 	}},
-	{"bg", 2, "modr", 2, 4, color={1,1,1,0}},
 	[["Viene gente," dijo. Levanté la cabeza, y distinguí tres figuras
 que venían en la esquina.]],
 
@@ -163,12 +157,12 @@ queremos comida tenemos que ir por ella ahora ya."]],
 	[["¿Posta? Entonces vamos a la casa y mañana volvemos xD"]],
 
 	swap(gP, gBAF, 1/12),
-	{"bgm", "mod", "af", fade={"fadeout", 5, true}},
+	{"bgm", "fade", "af", {"fadeout", 5, true}},
 
 	{"name", "Falcon"},
 	[["¿A la casa?" preguntó Falcon.]],
 
-	{"bg", 2, "mod", 4, fade={"mvabs", 480, false, 0, "fadein", 1/12}},
+	{"bg", 2, "fade", 4, {"mvabs", 480, false, 0, "fadein", 1/12}},
 	{"name", "Bake"},
 	[["Si. Después buscamos tus pastillas."]],
 
@@ -180,12 +174,11 @@ reclamó Falcon. Bake inclinó la cabeza pensando. "Sobre Croft."]],
 	[["Ehh, estaba somnoliento, solo recuerdo desde lo de la batería,"
 Falcon se golpeó la frente con la palma, suspiró, y se dirigió a los chicos.]],
 
-	{"bg", "sync"},
-	{"bg", 2, "mod", 2, fade={"mvabs", 160, false, 0,
+	{"bg", 2, "fade", 2, {"mvabs", 160, false, 0,
 		"src", res.doll.andrea_fome, "fadein", 1/12}},
-	{"bg", 2, "mod", 3, fade={"mvabs", 480, false, 0, "fadein", 1/12}},
-	{"bg", 2, "mod", 1, fade={"fadeout", 1/12}},
-	{"bg", 2, "mod", 4, fade={"fadeout", 1/12, "mvabs", 480, false, 0}},
+	{"bg", 2, "fade", 3, {"mvabs", 480, false, 0, "fadein", 1/12}},
+	{"bg", 2, "fade", 1, {"fadeout", 1/12}},
+	{"bg", 2, "fade", 4, {"fadeout", 1/12, "mvabs", 480, false, 0}},
 	{"name", "Falcon"},
 	[["Miren, no es por nada, pero no estamos aceptando gente,"
 explicó. Los chicos se miraron confudidos.]],
@@ -200,7 +193,6 @@ no tenía sentido habersenos unido solo para robar un revólver.]],
 	[[Miré a Bake quién lucía indeciso, así que lo tironée a el y a Falcon
 para formar un círculo.]],
 
-	{"bg", "sync"},
 	swap(gPB, gAF, 1/12),
 	{"name", "María"},
 	[["Escuchen, no creo que sean mala gente," susurré.]],
@@ -251,13 +243,12 @@ molieron a golpes,"]], false, true},
 	{"text", [[ Falcon frunció el ceño con el comentario, resaltando aún
 mas sus moretones.]], true},
 
-	{"bg", 2, "mod", 2, fade={"src", res.doll.andrea}},
+	{"bg", 2, "fade", 2, {"src", res.doll.andrea}},
 	{"name", "Bake"},
 	[["shit xD No, miren, nuestro último compañero nos abandonó y se llevó
 un arma, así que solo queremos asegurarnos," les explicó. Los chicos se miraron
 dudosos.]],
 
-	{"bg", "sync"},
 	swap(gAF, gPB, 1/12),
 	{"name", "Fab"},
 	[["Tampoco es que estemos mal solos," dijo aún desconfiando.]],
@@ -273,14 +264,14 @@ tenemos donde hacerlos," dijo la chica.]],
 	{"name", "Bake"},
 	[["Nada. Necesitamos un baterista para nuestra banda."]],
 
-	{"bg", 2, "mod", 1, 4, fade={"fadeout", 1/12}},
+	{"bg", 2, "fade", 1, 4, {"fadeout", 1/12}},
 	{"name", false},
 	[[...]],
 
 	{"name", "María"},
 	[["que ò.ó"]],
 
-	{"bg", 2, "mod", 2, fade={"fadein", 1/12}},
+	{"bg", 2, "fade", 2, {"fadein", 1/12}},
 	{"name", "Andrea"},
 	[["Uhmm, yo sé tocar batería."]],
 
@@ -289,7 +280,7 @@ tenemos donde hacerlos," dijo la chica.]],
 	[["Aw shit nigga, vos vas enton-- Espera, no. Tenés que demostrarlo
 primero xDD ¡Seguidme!"]],
 
-	{"bg", 2, "mod", 4, fade={"fadeout", 1/3}},
+	{"bg", 2, "fade", 4, {"fadeout", 1/3}},
 	{"name", "María"},
 	[[Bake se giró y se puso a caminar a pesar de que el viento agarraba
 fuerza y la nieve no paraba. Todos fueron de inmediato tras el.]],
@@ -304,7 +295,7 @@ fuerza y la nieve no paraba. Todos fueron de inmediato tras el.]],
 	[["Estoy tan impactado como tú. No sé como el que Croft no tocara no me
 pareció sospechoso." ò.ó]],
 
-	{"bg", 2, "mod", 1, fade={"fadeout", 1/12}},
+	{"bg", 2, "fade", 1, {"fadeout", 1/12}},
 	{"name", "María"},
 	[[Bake caminó unas cuadras con nosotros siguiendolo en fila india. Nos
 llevó hasta una tienda con un vidrio roto por completo... La tienda de
@@ -312,12 +303,11 @@ música.]],
 
 	[[ò.ó... Esto era una broma. Tenía que serlo.]],
 
-	{"bg", 2, "mod", 4, fade={"mvabs", 320, false, 0, "fadein", 1/12}},
+	{"bg", 2, "fade", 4, {"mvabs", 320, false, 0, "fadein", 1/12}},
 	{"name", "Bake"},
 	[["Es bien simple. Si tocan bien, los aceptamos," dijo volteandose, y
 miró al chico. "Vos tener que hacer algo también, no pasás por arrastre."]],
 
-	{"bg", "sync"},
 	swap(gAF, gB, 1/12),
 	{"name", "Fab"},
 	[["Yo toco el teclado."]],
@@ -339,20 +329,19 @@ empezó a quitar la mochila.]],
 	{"name", "Fab"},
 	[["Hold my tube," dijo pasándole sus cosas a la chica.]],
 
-	{"bg", 1, "mod", fade={"fadeout", 1/3}},
-	{"bg", 2, "mod", 2, fade={"fadeout", 1/3}},
-	{"bg", 2, "mod", 3, fade={"fadeout", 1/3, "mvabs", 320, false, 0}},
-	{"bg", "mod", "root", fade={"color", {.5,.5,.5,1}, 3}},
+	{"bg", 1, "fade", {"fadeout", 1/3}},
+	{"bg", 2, "fade", 2, {"fadeout", 1/3}},
+	{"bg", 2, "fade", 3, {"fadeout", 1/3, "mvabs", 320, false, 0}},
+	{"bg", "fade", "root", {"color", {.5,.5,.5,1}, 3}},
 	{"name", "María"},
 	[[Entramos siguiendo al chico, y este tras hechar un vistazo fue a
 tomar un acordeón.]],
 
-	{"bg", 2, "mod", 2, fade={"fadein", 1/12}},
+	{"bg", 2, "fade", 2, {"fadein", 1/12}},
 	{"name", "Andrea"},
 	[["Enséñales Fab," lo animó la chica.]],
 
-	{"bg", "sync"},
-	{"bg", 2, "mod", 2, fade={"fadeout", 1/12}},
+	{"bg", 2, "fade", 2, {"fadeout", 1/12}},
 	{"name", "María"},
 	[[El chico se colocó el acordeón y se sentó en una silla. Observó
 las teclas de ambos lados, las sintió con los dedos, y asegurándose que
@@ -363,7 +352,7 @@ Bake estuviera mirando, empezó a tocar.]],
 		fade={"delay", 4/3, "fadeout", 1/48, true}},
 	2/3,
 
-	{"bg", 2, "mod", 4, fade={"fadein", 1/12}},
+	{"bg", 2, "fade", 4, {"fadein", 1/12}},
 	{"name", "Bake"},
 	[["Ahí está bien, vos pasás," dijo Bake cuando el chico no llevaba ni 3
 notas. Los cuatro nos giramos a verlo.]],
@@ -382,12 +371,12 @@ hace falta es la batería."]],
 	[[El chico se quedó anonadado. Miró a la chica, y simplemente levantó
 los hombros. Dejó el acordeón a un lado y fue a tomar sus cosas.]],
 
-	{"bg", 2, "mod", 3, fade={"fadeout", 1}},
+	{"bg", 2, "fade", 3, {"fadeout", 1}},
 	[[El viento estaba agitando los árboles con mucha fuerza, así que la
 chica sin perder mas tiempo fue a buscar unas baquetas y se sentó frente a una
 batería. Aún no creía que estuvieramos perdiendo el tiempo en esto.]],
 
-	{"bg", 2, "mod", 2, fade={"fadein", 1/12}},
+	{"bg", 2, "fade", 2, {"fadein", 1/12}},
 	{"name", "Andrea"},
 	[["¿Como lo hacemos? ¿Marcas un tiempo o quieres algo en especial?"]],
 
@@ -400,7 +389,7 @@ batería. Aún no creía que estuvieramos perdiendo el tiempo en esto.]],
 	[["Bueeeno," dijo acomodándose. Buscó los pedales y empezó a
 tocar.]],
 
-	{"bg", 2, "mod", 2, fade={"fadeout", 1/3}},
+	{"bg", 2, "fade", 2, {"fadeout", 1/3}},
 	{"bgm", "set", "tb", source="Tension Baroque (andrea).ogg"},
 	{"name", "María"},
 	[[Ya lo he dicho, soy un cero a la izquierda en la música. Andrea
@@ -412,16 +401,16 @@ moverme al ritmo.]],
 
 	{"bg", 2, "mod", 1, args={res.doll.falcon, 160, 0, -1},
 		fade={"fadein", 1/12}},
-	{"bg", 2, "mod", 3, fade={"mvabs", 480, false, 0, "fadein", 1/12}},
+	{"bg", 2, "fade", 3, {"mvabs", 480, false, 0, "fadein", 1/12}},
 	[[Miré a Falcon, y el de hecho lo estaba haciendo, igual que Fab.]],
-	{"bg", 2, "mod", 1, 3, fade={"fadeout", 1}},
+	{"bg", 2, "fade", 1, 3, {"fadeout", 1}},
 	4,
 
-	{"bgm", "mod", "tb", fade={"delay", 1, "fadeout", 4, true}},
+	{"bgm", "fade", "tb", {"delay", 1, "fadeout", 4, true}},
 	[[Bake dejó tocar a Andrea hasta que se detuvo por su cuenta, a
 diferencia de Fab.]],
 
-	{"bg", 2, "mod", 4, fade={"fadein", 1/12}},
+	{"bg", 2, "fade", 4, {"fadein", 1/12}},
 	{"name", "Bake"},
 	[["¿Eso es todo?" preguntó Bake, por lo visto nada convencido.
 Andrea inclinó la cabeza.]],
@@ -435,8 +424,7 @@ Andrea inclinó la cabeza.]],
 	[["Nena, en nuestra banda tocamos rock y metal. No te vas a oír
 sobre mi guitarra."]],
 
-	{"bg", 2, "mod", 2, fade={"src", res.doll.andrea_fome}},
-	{"bg", "sync"},
+	{"bg", 2, "fade", 2, {"src", res.doll.andrea_fome}},
 	swap(gA, gB, 1/12),
 	{"name", "Andrea"},
 	[["¿Y que quieres que haga? ¿Que toque a 200 por minuto?"]],
@@ -469,14 +457,14 @@ molesta.]],
 estuviera silenciosamente enojada...]],
 
 	{"bgm", "set", "drums", source="andrea metal loop.ogg"},
-	{"bg", 2, "mod", 2, fade={"fadeout", 1/12}},
+	{"bg", 2, "fade", 2, {"fadeout", 1/12}},
 	[[Y luego alzó las baquetas y partió golpeando el platillo.
 Empezó a tocar tán rápido como Bake.]],
 
 	[["Dios mio..." murmuré. ¿Ese era el estilo metal? ¿Golpear todo en
 cada milisegundo? Los chicos la miraban fijamente.]],
 
-	{"bg", 2, "mod", 1, 3, fade={"fadein", 1/12}},
+	{"bg", 2, "fade", 1, 3, {"fadein", 1/12}},
 	{"name", "Falcon"},
 	[["¿Es doble pedal esa batería?"]],
 
@@ -499,16 +487,16 @@ de aplaudir. "¿Cuanto rato van a estar así?" le pregunté a Falcon.]],
 	[[¿Que era esto, una prueba olímpica? ¿Solo para formar una
 banda?]],
 
-	{"bg", 2, "mod", 4, fade={"fadeout", 1/12}},
+	{"bg", 2, "fade", 4, {"fadeout", 1/12}},
 	[[Miré de nuevo a Andrea, que se esmeraba en seguirle el ritmo a
 Bake... No iba a durar más.]],
 
-	{"bgm", "mod", "drums", fade={"fadeout", 1/12, true}},
-	{"bgm", "mod", "clap", fade={"fadeout", 1, true}},
+	{"bgm", "fade", "drums", {"fadeout", 1/12, true}},
+	{"bgm", "fade", "clap", {"fadeout", 1, true}},
 	[[A menos de un minuto de partir empezó a quedarse atrás y luego se
 detuvo, completamente exausta. Se agarraba el pie.]],
 
-	{"bg", 2, "mod", 4, fade={"fadein", 1/12}},
+	{"bg", 2, "fade", 4, {"fadein", 1/12}},
 	{"name", "Bake"},
 	[["Nena, no tocamos canciones tan cortas."]],
 
@@ -549,15 +537,15 @@ como si esto tuviera sentido. "No sé si los blast beats sean tan importantes."]
 	{"name", "María"},
 	[["Estoy de acuerdo."]],
 
-	{"bg", 2, "mod", 1, 4, fade={"fadeout", 1/12}},
+	{"bg", 2, "fade", 1, 4, {"fadeout", 1/12}},
 	{"name", "María"},
 	[[Andrea se quedó cabisbaja a pesar de la noticia, y Fabian se acercó a
 verla. Mientras tanto, Bake y Falcon salieron a la calle. Yo los seguí.]],
 
-	{"bg", "mod", "root", fade={"color", {.6,.6,.6,1}, 3}},
-	{"bg", 1, "mod", fade={"fadein", 1}},
-	{"bg", 2, "mod", 1, fade={"fadein", 1}},
-	{"bg", 2, "mod", 4, fade={"fadein", 1}},
+	{"bg", "fade", "root", {"color", {.6,.6,.6,1}, 3}},
+	{"bg", 1, "fade", {"fadein", 1}},
+	{"bg", 2, "fade", 1, {"fadein", 1}},
+	{"bg", 2, "fade", 4, {"fadein", 1}},
 	[[No sé si era idea mía, pero todo se veía mas oscuro que cuando
 entramos.]],
 
@@ -632,14 +620,14 @@ se llevan demasiado bien."]],
 	{"name", "María"},
 	[["¡Te pregunté el primer día por tu familia!" reclamé.]],
 
-	{"bg", 2, "mod", 4, fade={"src", res.doll.bake_xd}},
+	{"bg", 2, "fade", 4, {"src", res.doll.bake_xd, "delay", 1,
+		"src", res.doll.bake}},
 	{"name", "Bake"},
 	[["Ah, verdad xD Perdoná xdd"]],
 
 	{"name", "Falcon"},
 	[["Pensé que eras hijo único por las fotos. ¿Está con tus padres?"]],
 
-	{"bg", 2, "mod", 4, fade={"src", res.doll.bake}},
 	{"name", "Bake"},
 	[["No, está acá en la ciudad, en algún lugar. Se peleó feo con
 mis viejos hace unos años y se fue de la casa. Entre que la veo tan poco y el

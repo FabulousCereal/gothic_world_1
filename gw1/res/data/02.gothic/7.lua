@@ -21,7 +21,7 @@ chico.]],
 seguro, o alguien que nos pudiera llevar a uno. Como haría eso, no lo sabía,
 pero era lo único que podía intentar.]],
 
-	{"bgm", "mod", "wind", fade={"fadeto", 1, 1, "delay", 1, "fadeto", 1/3, 3}},
+	{"bgm", "fade", "wind", {"fadeto", 1, 1, "delay", 1, "fadeto", 1/3, 3}},
 	[[Un viento gélido sopló por la calle y botó nieve de los árboles, y
 hundí aún mas mis manos en mis bolsillos, apretando siempre la navaja.]],
 
@@ -64,7 +64,7 @@ sobre si debería buscar comida, y donde.]],
 todos estos días quizas ya tenía. Quizás no. Quizás justo iba a cocinar cuando
 llegaron los--]],
 
-	{"bgm", "mod", "year", fade={"fadeout", 1/6, true}},
+	{"bgm", "fade", "year", {"fadeout", 1/6, true}},
 	[[Me detuve en seco, encontrándome en una intersección con una figura
 verde.]],
 

@@ -40,7 +40,7 @@ amiga que pensé no volvería a ver.]],
 
 	[["Ruu." La paloma se volteó de un salto hacia el océano.]],
 
-	{"bgm", "mod", "w", fade={"fadeto", 1, 3}},
+	{"bgm", "fade", "w", {"fadeto", 1, 3}},
 	[[Me voltée a mirar las olas, y el viento levantó la bruma marina sobre
 nosotras. El olor salado y el ruido nos envolvieron, y atraida por estos me
 acerqué al borde.]],
@@ -55,8 +55,8 @@ acerqué al borde.]],
 			alphaMask=2/3,
 		},
 	},
-	{"bg", "modr", 2, 3, fade={"fadein", 3}},
-	{"bg", "mod", 1, fade={"delay", 3, "toggle"}},
+	{"bg", "fade", 2, 3, {"fadein", 3}},
+	{"bg", "fade", 1, {"delay", 3, "toggle"}},
 	[[El ruido del mar se hizo mas fuerte. Quería ver el agua antes de
 decidir.]],
 	{"bg", "fn", 3, function(layer)
@@ -64,7 +64,7 @@ decidir.]],
 			8, 0, (-love.timer.getTime()+2.25) * 8
 		)
 	end},
-	{"bgm", "mod", "w", "intro", fade={"fadeout", 4, true}},
+	{"bgm", "fade", "w", "intro", {"fadeout", 4, true}},
 	{"bg", "modall", fade={"delay", .5, "fadeout", 2.5, true}},
 	{"wait", 4, true},
 }

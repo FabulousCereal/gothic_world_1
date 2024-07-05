@@ -16,7 +16,7 @@ return {
 		{args={res.doll.bake, 0, 0, 1, 1, 40, -20}},
 	}},
 	{"macro", "mesa", false, "add"},
-	{"bg", "mod", fade={"mvabs", 80, false, 0}},
+	{"bg", "fade", {"mvabs", 80, false, 0}},
 	{"bgm", "set", nil, 0,
 		source="freesound/557188__julien-matthey__jm_natural-elements_wind-01.ogg",
 		setup={setFilter={type="lowpass", volume=1/2, highgain=0}},
@@ -129,7 +129,7 @@ variedad."]],
 	{"name", "María"},
 	[["Ah, verdad. Vamos entonces."]],
 
-	{"bg", "mod", "root", fade={"color", {0,0,0,0}, 1}},
+	{"bg", "fade", "root", {"color", {0,0,0,0}, 1}},
 	[[Agarramos nuestros abrigos --excepto por Croft-- y salimos al patio.
 Pipi nos olfeateó los pies de nuevo al salir.]],
 

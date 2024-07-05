@@ -350,7 +350,12 @@ layerOps = {
 	mod = function(layers, op, ...)
 		for i = 1, math.max(select("#", ...), 1) do
 			local idx = normalizeStrIdx(layers, select(i, ...))
-			layerMod(layers, layers[idx], idx, op)
+			local l = layers[idx]
+			if l.cnv then
+				layerModRange(l, op, 1, #l)
+			else
+				layerMod(layers, layers[idx], idx, op)
+			end
 		end
 	end,
 

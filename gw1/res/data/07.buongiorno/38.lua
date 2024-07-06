@@ -2,10 +2,20 @@ return {
 	{"style", "vnMaria"},
 	res.fun.macro.title,
 
+	{"bgm", "set", "wind", source="wahwahwhite noise.flac",
+		setup=res.fun.vn.lowpass(1/120),
+	},
 	{"name", "María"},
 	[[La tormenta había comenzado a golpear fuerte cuando llegamos al
-auto, con la nieve cayendo a montones. Falcon se apresuró en subirse al asiento
-del conductor antes que Bake, y partimos con toda prisa hacia la casa.]],
+auto, con la nieve cayendo a montones.]],
+
+	{"sfx", "freesound/208695__monotraum__car-door-close.flac", 1, 1, .5},
+	{"bgm", "fade", "wind",
+		{"delay", 2/3, "cmd", res.fun.vn.lowpass(0)},
+	},
+	res.fun.vn.autoVecino("rev", 1.5, "delay", 1.5, "bend", .96, 1),
+	[[Falcon se apresuró en subirse al asiento del conductor antes que
+Bake, y partimos con toda prisa hacia la casa.]],
 
 	[["Bake, ¿va a durar mucho esta tormenta?"]],
 
@@ -441,6 +451,7 @@ Falcon empezara de nuevo con que tenía cáncer. "¿Eh?"]],
 	{"name", "Falcon"},
 	[["Ahem, ya vamos llegando," dijo metiéndose a nuestra calle.]],
 
+	{"bgm", "fade", "rev", {"bend", .64, 3}},
 	{"name", "María"},
 	[[La nieve ya tapaba todo, pero aún se distinguía el portón abierto de
 la casa del vecino, tal como lo dejamos. Bajé la cabeza al pasar por en frente.

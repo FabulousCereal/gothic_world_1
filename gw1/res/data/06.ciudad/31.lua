@@ -5,7 +5,7 @@ return {
 	{"bgm", "set", "nor", 3/4,
 		source="normality.ogg"},
 	{"name", "María"},
-	[[Llegamos tras media hora al distrito comercial de la Avenida
+	[[Llegábamos tras media hora al distrito comercial de la Avenida
 Queens.]],
 
 	[[Falcon y Bake habian estado discutiendo sobre si volver a la calle de

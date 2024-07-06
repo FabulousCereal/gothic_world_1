@@ -52,6 +52,7 @@ dos pájaros de un tiro."]],
 	{"name", "Bake"},
 	[["Let's go!"]],
 
+	res.fun.vn.autoVecino("engine", 0, "delay", 2, "bend", .85, 1/3),
 	{"name", "María"},
 	[[Bake hizo rugir el motor y con un tirón empezamos a movernos. No pude
 evitar pensar que me sentía mucho mas segura con Falcon al volante, e hice como
@@ -59,14 +60,11 @@ Fab y me puse seguro. Andrea se inclinó hacia adelante para mirar a Fab.]],
 
 	{"name", "Andrea"},
 	[["¿De verdad te mareas en los autos?"]],
-
+	{"bgm", "fade", "engine", {"fadeout", 0}},
 
 	{"macro", res.fun.macro.date, {2011, 11, 13, 16, 01}},
-	{"bgm", "set", "engine", 0,
-		source="freesound/181460__erik90__car-rev.loop.flac",
-		setup={setPitch=2/3},
-		fade={"fadein", 1},
-	},
+
+	{"bgm", "fade", "engine", {"fadein", 2}},
 	{"name", "María"},
 	[[Pasamos en el auto frente al hospital junto al parque, sin bajarnos.
 Las nubes ya habían cubierto el sol de nuevo, y los pinos se agitaban con el
@@ -94,6 +92,13 @@ aguanta mas ají en los ojos y patadas en las bolas."]],
 	{"name", "María"},
 	[["¿¿Que??"]],
 
+	{"bgm", "set", "crash", 1,
+		source="freesound/675902__craigsmith__s38-24-big-heavy-car-crash.16.flac",
+		setup={play=false},
+		fade={"delay", .75, "cmd", {play=true}, "delay", .41, "fadeout", 1, true}
+	},
+	{"bgm", "fade", "engine",
+		{"delay", 1, "fadeout", 1/12, "delay", 1/9, "fadein", 1/6}},
 	{"name", "Fabian"},
 	[["¡Cuidado!" El auto de pronto se subió a la vereda y arrolló a un
 zombie.]],
@@ -138,7 +143,7 @@ tomando el volante de nuevo.]],
 	[["¿Querés que no vaya?"]],
 
 	{"name", "María"},
-	[["No, es solo que..." empecé a decir.]],
+	[["No, es solo que..." ¿Que qué?]],
 
 	[[No es que no me importara la chica, pero intuía lo que pasaría.
 Se nos iba a hacer tarde, volveriamos casi sin nada, y habría que salir de
@@ -150,8 +155,8 @@ nuevo... A arriesgar nuestras vidas de nuevo.]],
 	{"name", "Bake"},
 	[["¿Eh?"]],
 
-	{"sfx", "freesound/634778__5plus5equalspatata__metal-crash.mp3", .5},
-	{"sfx", "freesound/427563__tbone1999__doorhit.flac", 1, 2/3, 2/3},
+	{"sfx", "freesound/634778__5plus5equalspatata__metal-crash.mp3", 1/3},
+	{"sfx", "freesound/427563__tbone1999__doorhit.flac", 1, 1, .7},
 	{"name", "María"},
 	[[El auto saltó violentamente, y Andrea que estaba sin cinturón se
 aplanó la cabeza contra el techo.]],

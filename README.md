@@ -15,6 +15,8 @@ La adaptación que nadie pidió, la experiencia que ninguno quiere volver a repe
 
 ![Image](scr2.png "¿Que fue que?")
 
+![Image](scr3.png "Esto nunca ocurre")
+
 ## Progreso
 
  * Código: 70%

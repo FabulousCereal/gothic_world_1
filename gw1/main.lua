@@ -65,7 +65,7 @@ local function transitionExec(dt)
 			state:post()
 		end
 
-		newState = gamestate[gamestate.to]
+		local newState = gamestate[gamestate.to]
 		love.graphics.setBackgroundColor(
 			newState.backgroundColor or {0, 0, 0, 1})
 		if newState.pre then
@@ -213,7 +213,7 @@ function love.mousemoved(...)
 end
 
 local callbacks = {"mousepressed", "wheelmoved"}
-for i, cb in pairs(callbacks) do
+for _, cb in ipairs(callbacks) do
 	love[cb] = function(...) return giveInput(cb, ...) end
 end
 gamestate.keypressed = function(...) return giveInput("keypressed", ...) end

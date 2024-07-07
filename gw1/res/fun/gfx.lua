@@ -21,7 +21,7 @@ end
 return {
 	shaderTime = shaderTime,
 
-	comedor = function(cursor, ...)
+	comedor = function(...)
 		return {args={"Flash/day.png"},
 			shader=res.shader.radialTex({
 				center={2/6,2/6},
@@ -41,7 +41,7 @@ return {
 		}
 	end,
 
-	vignette = function(cursor)
+	vignette = function()
 		return {"bg", "add",
 			shader=res.shader.radialTex{
 				center={0,0},
@@ -66,14 +66,14 @@ return {
 		local bg1 = {
 			draw=draw,
 			shader=res.shader.radial{
-				center=cur, decay=.5, mul={2,2},
+				center=cur, decay=.5, mul=mul,
 				fg={1,1,1,1}, bg=col1,
 			},
 		}
 		local bg2 = {
 			draw=draw, color=col2,
 			shader=res.shader.fbmWarp{
-				mul={2,2}, rolloff=.5, amplitude=.5,
+				mul=mul, rolloff=.5, amplitude=.5,
 				add=shaderTime(1/32, 0),
 				mv=shaderTime(1/32, 0),
 				alphaMask=1,

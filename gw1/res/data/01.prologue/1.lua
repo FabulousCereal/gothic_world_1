@@ -116,7 +116,7 @@ mareada o vomitando.]],
 			[[La chica me miró feo y partió mientras mis amigos
 			reían.]],
 		},
-	}},		
+	}},
 
 	{"bgm", "rm", "song"},
 	{"bg", "sync"},

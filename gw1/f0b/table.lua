@@ -108,7 +108,7 @@ return {
 				__name = "f0b.table.struct",
 				__metatable = defs,
 
-				__index = function(table, key)
+				__index = function(_, key)
 					assert(defs[key],
 						"tried to get undefined struct field: " .. typeFormat(key))
 				end,

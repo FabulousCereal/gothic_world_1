@@ -25,7 +25,7 @@ end
 
 local clockHandFun = {
 	line = function(style, radius, hourTurn, minuteTurn)
-		hour, minute = lineHands(radius, hourTurn, minuteTurn)
+		local hour, minute = lineHands(radius, hourTurn, minuteTurn)
 		local bw = style.borderWidth
 		love.graphics.setColor(style.borderColor)
 		f0b.draw.line(hour, bw/2)
@@ -35,19 +35,19 @@ local clockHandFun = {
 	circle = function(style, radius, hourTurn, minuteTurn)
 		local hands = {lineHands(radius, hourTurn, minuteTurn)}
 		local bw = style.borderWidth / 8
-		local radius = style.borderWidth * 4 / 3
+		local size = style.borderWidth * 4 / 3
 		for _, hand in pairs(hands) do
 			f0b.draw.line(hand, bw)
 			for i = 1, #hand, 2 do
-				local x = hand[i] - radius/2
-				local y = hand[i+1] - radius/2
+				local x = hand[i] - size/2
+				local y = hand[i+1] - size/2
 				f0b.draw.sdf(res.shader.circle, x, y, 0,
-					radius, radius)
+					size, size)
 			end
 		end
 	end,
 
-	triangle = function(style, radius, hourTurn, minuteTurn)
+	triangle = function(_, radius, hourTurn, minuteTurn)
 		local ctx = res.shader.triangle
 		local rb = radius * backLen / 2
 		f0b.draw.sdf(ctx, radius, radius, hourTurn,
@@ -58,7 +58,7 @@ local clockHandFun = {
 }
 
 local printNumeralFun = {
-	sextant = function(font, num, x, trueY)
+	sextant = function(font, n, x, y)
 --		local r = {"🬀", "🬁", "🬃", "🬇", "🬏", "🬞",
 --			"🬟", "🬠", "🬢", "🬦", "🬭", "🬰"}
 --		local r = {"🬁", "🬈", "🬗", "🬇", "🬖", "🬋",
@@ -69,25 +69,25 @@ local printNumeralFun = {
 			"🬁", "🬖", "🬤",
 			"🬇", "🬢", "🬰",
 		}
-		num = r[num]
+		local num = r[n]
 		local width = font:getWidth(num)
-		love.graphics.print(num, math.floor(x - width / 2), trueY)
+		love.graphics.print(num, math.floor(x - width / 2), y)
 	end,
 
-	roman = function(font, num, x, trueY)
+	roman = function(font, n, x, y)
 		-- There is an Unicode plane for this, but I really want that IIII
 		local r = {"I", "II", "III", "IIII", "V", "VI", "VII", "VIII",
 			"IX", "X", "XI", "XII"}
-		local num = r[num]
+		local num = r[n]
 
 		local compact = .5
 		local chars = {}
 		local offset = 0
+		local ins = table.insert
 		for i = 1, #num do
 			local c = string.sub(num, i, i)
-			local n = #chars
-			chars[n+1] = c
-			chars[n+2] = offset
+			ins(chars, c)
+			ins(chars, offset)
 			local w = font:getWidth(c)
 			offset = offset + w * ((i == #num) and 1 or compact)
 		end
@@ -95,7 +95,7 @@ local printNumeralFun = {
 
 		local gPrint = love.graphics.print
 		for i = 1, #chars, 2 do
-			gPrint(chars[i], math.floor(start + chars[i+1]), trueY)
+			gPrint(chars[i], math.floor(start + chars[i+1]), y)
 		end
 	end,
 
@@ -140,7 +140,6 @@ return {
 		end
 
 		local brandFont = res.font(style.fontFamily, floor(em * 2/3))
-		local brandEm = brandFont:getHeight()
 		graphics.setFont(brandFont)
 		graphics.print(brand,
 			floor(radius - brandFont:getWidth(brand) / 2),

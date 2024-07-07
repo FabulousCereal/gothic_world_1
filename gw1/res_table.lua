@@ -78,9 +78,8 @@ local function fbm(wrap)
 	return f0b.table.union(wrap, base)
 end
 
-local function sdf(sdf, interpolation)
+local function sdf(code, interpolation)
 	local fn = {
-		sin="sin(clamp(d*pi, -pi/2, pi/2)) * 0.5 + 0.5",
 		linear="clamp(d + 0.5, 0.0, 1.0)",
 		step="step(0, d)",
 	}
@@ -113,7 +112,7 @@ local function sdf(sdf, interpolation)
 			float dist = sdf(normalCoord, halfRes);
 			return color * getColor(dist + margin);
 		}
-	]], sdf, math.pi, fn[interpolation or "linear"]),
+	]], code, math.pi, fn[interpolation or "linear"]),
 		resolution={-1,-1},
 		borderWidth=0, borderColor={0,0,0,0}, borderRadius=0,
 		backgroundColor={1,1,1,1},

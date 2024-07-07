@@ -18,7 +18,7 @@ local function fontLoad(path)
 				love.graphics.newFont(name, size))
 		end
 	end
-end		
+end
 
 local fontCache = fontLoad("res/fonts/")
 
@@ -68,7 +68,7 @@ local fallbackMetatable = {
 		end
 		return setReturn(style, key, defaultStyle[key])
 	end,
-}			
+}
 
 local function indirectAccess(table)
 	-- Protect against recursion
@@ -117,12 +117,12 @@ local function funLoad(path)
 	return fun
 end
 
+local ctxMetatable = {
+	__call = f0b.table.union,
+}
+
 local function shaderCtx(ctx)
-	return setmetatable(f0b.table.deepCopy(ctx), {
-		__call = function(ctx, ...)
-			return f0b.table.union(ctx, ...)
-		end,
-	})
+	return setmetatable(f0b.table.deepCopy(ctx), ctxMetatable)
 end
 
 local shaderAccess = {
@@ -132,7 +132,7 @@ local shaderAccess = {
 	string = function(str, src, key)
 		return setReturn(src, key, {love.graphics.newShader(str)})
 	end,
-	table = function(ctx, src, key)
+	table = function(ctx, _, _)
 		local shader = ctx[1]
 		if type(shader) == "string" then
 			ctx[1] = love.graphics.newShader(shader)
@@ -181,7 +181,7 @@ res = {
 	style = setStyles(base.style),
 
 	shader = setmetatable({}, {
-		__index = function(table, key)
+		__index = function(_, key)
 			local src = base.shader
 			local shader = src[key]
 			return shaderCtx(shaderAccess[type(shader)](shader, src, key))

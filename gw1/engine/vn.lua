@@ -12,7 +12,7 @@ local function initVars(vn)
 	vars["_title1"] = chap.name
 	vars["_title2"] = chap[c2][1]
 	vn.vars = vars
-end	
+end
 
 local function stateReset(vn, keepRes)
 	vn.wait = 0
@@ -115,10 +115,6 @@ end
 
 local function nextStage(self)
 	return (loadStage(self, 1, self.settings.keepRes))
-end
-
-local function chosenKey(dataStack)
-	return string.format("%d/%d", f0b.lisp.getPos(dataStack))
 end
 
 local function externalOps(opFunc, target, inst)

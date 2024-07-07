@@ -162,7 +162,7 @@ aguantaba más.]],
 			[[Estaba durmiendo mirando hacia la pared, tapado hasta
 			la cabeza y ocupando tan solo la mitad de esa estrecha
 			cama. Gracias Falcon, eres un santo.]],
-			
+
 			[[Sin dudarlo un segundo empecé a meterme, con cuidado
 			de no despertarlo o pasar a llevarle el pie o alguna
 			herida, quedando espalda con espalda. Suspiré...]],
@@ -197,7 +197,7 @@ local camaDeBake = {
 	[[En sigilo entré a la pieza donde estaba Bake. Apenas distinguía nada,
 así que tuve que tantear para encontrarlo y de ahí meterme del otro lado.]],
 
-	[[Descubrí entonces que Bake dormía solo con dos frazadas.]].
+	[[Descubrí entonces que Bake dormía solo con dos frazadas.]],
 
 	[[Yo en el norte dormía con tres.]],
 

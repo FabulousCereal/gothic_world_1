@@ -3,7 +3,7 @@
 
 local widget = {}
 local widgetNames = {"select", "textboard"}
-for i, name in ipairs(widgetNames) do
+for _, name in ipairs(widgetNames) do
 	widget[name] = require("f0b.ui." .. name)
 end
 

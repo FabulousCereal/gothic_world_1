@@ -5,6 +5,7 @@ local multiRepl = require("f0b.ui._uiCommon").multiRepl
 
 local function nextCodePoint(text, start)
 	local byte = string.byte(text, start)
+	local finish
 	if byte > 0xf0 then
 		finish = start + 3
 	elseif byte > 0xe0 then
@@ -32,14 +33,13 @@ local function typewriterNext(board)
 end
 
 local function typewriterFinish(board)
-	local text = board.textboard.text
 	f0b.button.setText(board.textboard, board.str)
 	f0b.button.regenText(board.textboard)
 	board.pos = #board.str + 1
 	board.finished = true
 end
 
-local function nameAndWidth(board, style)
+local function nameAndWidth(board)
 	local style = board.style
 	local em = style.font:getHeight()
 	local pad = style.padding * em
@@ -50,7 +50,7 @@ end
 local function textboardRegen(board, style)
 	board.style = style
 
-	local em, pad, margin, lh = f0b.style.getUnits(style)
+	local em, pad = f0b.style.getUnits(style)
 	local screenW, screenH = love.graphics.getDimensions()
 
 	local tb = board.textboard
@@ -65,7 +65,7 @@ local function textboardRegen(board, style)
 	local nbox = board.namebox
 	local ntext = board.nametext
 	nbox[1] = floor(tb.pos[1] + tb.box[1] + pad)           -- X
-	nbox[2] = floor(tb.pos[2] + tb.box[2] - nameboxH + bw) -- Y 
+	nbox[2] = floor(tb.pos[2] + tb.box[2] - nameboxH + bw) -- Y
 	-- Width is set with name.
 	nbox[4] = floor(nameboxH) -- Height
 
@@ -73,7 +73,7 @@ local function textboardRegen(board, style)
 	ntext[2] = floor(nbox[1] + pad/2 + bw) -- X
 	ntext[3] = floor(nbox[2] + pad/4 + bw) -- Y
 
-	nameAndWidth(board, style)
+	nameAndWidth(board)
 	return board
 end
 
@@ -88,9 +88,9 @@ return {
 			text[1]:clear()
 		end
 
-		local _, str = board.style.font:getWrap(str,
+		local _, wrap = board.style.font:getWrap(str,
 			f0b.button.getLimit(board.textboard))
-		board.str = table.concat(str, "\n")
+		board.str = table.concat(wrap, "\n")
 		board.timer = 0
 		board.finished = instant
 	end,
@@ -99,7 +99,7 @@ return {
 		board.name = name
 		if name then
 			board.nametext[1]:set(name)
-			nameAndWidth(board, style)
+			nameAndWidth(board)
 		end
 	end,
 

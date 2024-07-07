@@ -22,7 +22,7 @@ local function mvCommon(layer, fade, dt)
 	end
 
 	fade[1] = "_interpolate"
-	fade[2] = seq.interpolationLinear{args, fTable.set, 0, fade[4], 4,
+	fade[2] = seq.interpolationLinear{args, fTable.set, 0, time, 4,
 		2, diffX, 3, diffY}
 	return seq.interpolate(layer, fade, dt)
 end
@@ -42,7 +42,7 @@ local fadeOps = {
 
 	-- Delay --
 	-- Format: {"delay", secs}
-	delay = function(layer, fade, dt)
+	delay = function(_, fade, dt)
 		local secs = fade[2] - dt
 		if secs <= 0 then
 			return 2, secs
@@ -84,7 +84,7 @@ local fadeOps = {
 	end,
 
 	-- Toggle visibility
-	toggle = function(layer, fade, dt)
+	toggle = function(layer, _, dt)
 		layer.hide = not layer.hide
 		return 1, -dt
 	end,
@@ -272,23 +272,23 @@ local function normalizeIndex(table, idx, default)
 end
 
 local function getNormalizedRange(table, start, limit)
-	local start = normalizeIndex(table, start)
-	local limit = normalizeIndex(table, limit, start)
+	start = normalizeIndex(table, start)
+	limit = normalizeIndex(table, limit, start)
 	return start, limit
 end
 
-local function layerMod(lt, layer, i, op)
+local function layerMod(layer, op)
 	local deepCopy = fTable.deepCopy
 	for key, val in pairs(op) do
 		local valType = type(val)
-		if type(val) == "table" then
+		if valType == "table" then
 			local copy = deepCopy(val)
 			if key == "args" then
 				copy[1] = seq.normalizeSrc(res.img,
 					copy[1])
 			end
 			layer[key] = copy
-		elseif type(key) ~= "number" then
+		elseif valType ~= "number" then
 			layer[key] = val
 		end
 	end
@@ -300,10 +300,10 @@ local function layerModRange(layers, op, start, limit)
 		if l.cnv then
 			layerModRange(l, op, 1, #l)
 		else
-			layerMod(layers, l, i, op)
+			layerMod(l, op)
 		end
 	end
-end	
+end
 
 local function normalizeStrIdx(layers, idx)
 	if type(idx) ~= "string" then
@@ -338,7 +338,7 @@ layerOps = {
 		return table.insert(layers, op)
 	end,
 
-	rm = function(layers, op, start, limit)
+	rm = function(layers, _, start, limit)
 		start, limit = getNormalizedRange(layers, start, limit)
 		for i = limit, start, -1 do
 			table.remove(layers, i)
@@ -354,7 +354,7 @@ layerOps = {
 			if l.cnv then
 				layerModRange(l, op, 1, #l)
 			else
-				layerMod(layers, layers[idx], idx, op)
+				layerMod(layers[idx], op)
 			end
 		end
 	end,
@@ -385,8 +385,7 @@ layerOps = {
 		local sub = layers[idx]
 		layerTableDraw(sub, true)
 		layers[idx] = {args={sub.cnv}, alpha=sub.alpha}
-		return layerMod(layers, normalizeLayer(layers, layers[idx]),
-			idx, op)
+		return layerMod(normalizeLayer(layers, layers[idx]), op)
 	end,
 
 	sync = function(lt)

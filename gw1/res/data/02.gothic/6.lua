@@ -19,7 +19,7 @@ sonido de un despertador.]],
 	{"bgm", "set", "alarm", 2/3, source="weird alarm.ogg"},
 	{"bg", "add", args={res.fun.clock.alarm(res.style.clockAlarm, 12, 30)},
 		color={1,1,1,0},
-		fade={"fadein", .25}
+		fade={"fadein", .25},
 	},
 	1,
 
@@ -99,7 +99,7 @@ pronto, esa nota no se me hacía tan graciosa.]],
 
 	{"bgm", "fade", "wind", {"fadeout", 6, true}},
 	{"bgm", "fade", "pots",
-		{"cmd", res.fun.vn.lowpass(1/3)}, "fadeto", 1, 3}},
+		{"cmd", res.fun.vn.lowpass(1/3), "fadeto", 1, 3}},
 	{"macro", "rFade", res.fun.gfx.comedor(),
 		res.palette("repellantYellow", 0, 1.25)
 	},
@@ -119,7 +119,8 @@ arma.]],
 
 	{"bgm", "set", "gunshot",
 		source="freesound/344143__brokenphono__gunshot_001.flac",
-		fade={"loop", 4, "cmd", {play=false}}},
+		fade={"loop", 4, "cmd", {play=false}},
+	},
 	1/3,
 
 	{"bg", "fade", {"fadeout", 1/6}},
@@ -184,7 +185,8 @@ mas de ese líquido brotaba de su herida.]],
 	{"bgm", "fade", "famicom", {"fadeout", 1/3, true}},
 	{"bgm", "fade", "gunshot",
 		{"delay", 1, "cmd", {seek=0, play=true, setLooping=true},
-			"loop", 2, true}},
+			"loop", 2, true},
+	},
 	[[Al final, el chico lo remató con un disparo en la cabeza, e hizo
 lo mismo con el pequeño que ya había logrado levantarse.]],
 

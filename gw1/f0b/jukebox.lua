@@ -17,19 +17,22 @@ local function srcSetup(src, setup)
 	end
 end
 
+local function setVol(source, _, val)
+	source:setVolume(val)
+end
+
+local function setPitch(source, _, val)
+	source:setPitch(val*val)
+end
+
 local function fadeSetup2(track, fade, dt, new, secsIdx)
 	local source = track.source
 	local cur = source:getVolume()
 	fade[1] = "_interpolate"
-	fade[2] = seq.interpolationLinear({source,
-		function(source, idx, val)
-			source:setVolume(val)
-		end,
+	fade[2] = seq.interpolationLinear({source, setVol,
 		0, fade[secsIdx], secsIdx,
 		"setVolume", new - cur},
-		function(source, idx)
-			return cur
-		end
+		cur
 	)
 	return seq.interpolate(track, fade, dt)
 end
@@ -59,15 +62,10 @@ local fadeOps = {
 		local cur = math.sqrt(source:getPitch())
 		local new = math.sqrt(fade[2])
 		fade[1] = "_interpolate"
-		fade[2] = seq.interpolationLinear({source,
-			function(source, idx, val)
-				source:setPitch(val*val)
-			end,
+		fade[2] = seq.interpolationLinear({source, setPitch,
 			0, fade[3], 3,
 			"setPitch", new - cur},
-			function(source, idx)
-				return cur
-			end
+			cur
 		)
 		return seq.interpolate(track, fade, dt)
 	end,
@@ -87,7 +85,7 @@ local fadeOps = {
 		fadeArgs[2] = secs
 	end,
 
-	loop = function(track, fadeArgs, dt, finish)
+	loop = function(track, fadeArgs, _, finish)
 		local src = track.source
 		local info = fadeArgs[2]
 		if type(info) ~= "table" then
@@ -106,7 +104,7 @@ local fadeOps = {
 		info[2] = pos
 	end,
 
-	cmd = function(track, fadeArgs, dt)
+	cmd = function(track, fadeArgs)
 		local src = track.source
 		srcSetup(src, fadeArgs[2])
 		return 2
@@ -171,7 +169,7 @@ local trackOps = {
 		tracklist[name] = op
 	end,
 
-	rm = function(tracklist, op, name)
+	rm = function(tracklist, _, name)
 		name = getAlias(name)
 		rmTrack(tracklist, tracklist[name], name)
 	end,
@@ -179,25 +177,6 @@ local trackOps = {
 	rmall = function(tracklist)
 		for name, track in pairs(tracklist) do
 			rmTrack(tracklist, track, name)
-		end
-	end,
-
-	cmd = function(tracklist, op, name, ...)
-		local names = select("#", ...)
-		if names > 0 then
-			for i = 1, names do
-				local name = select(i, ...)
-				srcSetup(tracklist[name].source, op)
-			end
-		else
-			srcSetup(tracklist[defaultAlias], op)
-		end
-	end,
-
-	cmdall = function(tracklist, op, ...)
-		for _, track in pairs(tracklist) do
-			local source = track.source
-			srcSetup(source, op)
 		end
 	end,
 
@@ -221,6 +200,12 @@ local trackOps = {
 
 	fade = function(tracklist, _, ...)
 		return seq.fadeParse(tracklist, jukeFade, defaultAlias, ...)
+	end,
+
+	cmdall = function(tracklist, op)
+		for _, track in pairs(tracklist) do
+			srcSetup(track.source, op)
+		end
 	end,
 
 	sync = function(tracklist)

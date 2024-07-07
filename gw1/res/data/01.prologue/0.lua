@@ -3,15 +3,17 @@ local function falling(ctx)
 end
 
 local function fallingMul(_, _, dyn)
-	local m = 2.5
-	local mul = {m,m}
+	local mul
 	if dyn then
 		local now = love.timer.getTime()
-		mul = function(ctx)
+		mul = function(_)
 			local m = (love.timer.getTime() - now)-96
 			local t = math.pow(.99, m)
 			return {t,t}
 		end
+	else
+		local m = 2.5
+		mul = {m,m}
 	end
 	return {
 		{"bg", "add",
@@ -52,7 +54,7 @@ local function eauDeParfum()
 	graphics.draw(img, imgX, imgY)
 
 	local frameH = math.floor(imgH + imgEm / 2)
-	
+
 	graphics.rectangle("line", 1, 1, canvasW - 2, frameH - 1)
 
 	graphics.setFont(font)

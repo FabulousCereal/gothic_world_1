@@ -34,7 +34,6 @@ local toc = fload("engine/toc.lua")
 local stub = fload("engine/stub.lua")
 
 local w, h = love.graphics.getDimensions()
-local elemColor = {0, 0, 0, 1/3}
 local normalize = f0b.layers.normalize
 
 local vnID = gamestate:add(vn.new(res.index, res.style.vn))

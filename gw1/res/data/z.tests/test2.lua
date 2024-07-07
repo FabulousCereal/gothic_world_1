@@ -189,7 +189,7 @@ return {
 
 	{"style", "vnMaria"},
 	[[Repentinamente, te encuentras frente a frente con Franszciska.]],
- 
+
 	{"bg", "add", args={"franziska/normal.png"}},
 	{"name", "Franzszczcskiszka"},
 	[["¿Que quieres?"]],

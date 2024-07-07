@@ -18,7 +18,6 @@ local function shaderAndBack(shader, prev, ...)
 end
 
 local function sdfDraw(sdf, margin, x, y, r, w, h, ...)
-	local graphics = love.graphics
 	local shader, prev = f0b.shader.prepare(sdf)
 	w = w + margin*2
 	h = h + margin*2

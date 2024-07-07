@@ -25,14 +25,17 @@ return {
 		control[3] = acc
 	end,
 
-	interpolationLinear = function(args, getFn)
-		if not getFn then
-			getFn = tableGet
+	interpolationLinear = function(args, init)
+		if not init then
+			init = tableGet
 		end
 		local where = args[1]
 		for i = 6, #args, 2 do
 			local idx, diff = args[i], args[i+1]
-			local start = getFn(where, idx)
+			local start = init
+			if type(init) == "function" then
+				start = init(where, idx)
+			end
 			args[i+1] = function(ratio) return start + diff*ratio end
 		end
 		return args

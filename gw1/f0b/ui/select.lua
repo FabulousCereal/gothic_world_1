@@ -8,13 +8,13 @@ local dispatch = require("f0b.table").dispatch
 local function selectRegen(select)
 	local style = select.style
 
-	local em, pad, margin, lineHeight = f0b.style.getUnits(style)
+	local _, _, margin = f0b.style.getUnits(style)
 	local screenW = love.graphics.getWidth()
 
 	local lineY = 0
 	local maxW = 0
 	for i = 1, #select.choices do
-		choice = select.choices[i]
+		local choice = select.choices[i]
 		if select.repl then
 			choice = multiRepl(choice, select.repl)
 		end
@@ -86,7 +86,7 @@ return {
 		return keys[key](select)
 	end,
 
-	wheelmoved = function(select, x, y)
+	wheelmoved = function(select, _x, y)
 		y = math.modf(y)
 		if y ~= 0 then
 			return keys[y > 0 and "up" or "down"](select)

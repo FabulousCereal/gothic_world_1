@@ -5,7 +5,7 @@ local function getUnits(style)
 	local em = style.font:getHeight()
 	return em, em * style.padding, em * style.margin, em * style.lineHeight,
 		style.borderWidth
-end	
+end
 
 local function setupShader(ctx, style, invert)
 	local names = {
@@ -15,7 +15,7 @@ local function setupShader(ctx, style, invert)
 		["borderColor"] = "backgroundColor",
 		["backgroundColor"] = "color"
 	}
-	local ctx = ctx{}
+	ctx = ctx{}
 	for alt, key in pairs(names) do
 		local type = type(alt)
 		if invert and type == "string" then

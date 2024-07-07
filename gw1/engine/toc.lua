@@ -191,7 +191,7 @@ local function tocKeypressed(self, key)
 	end
 end
 
-local function tocWheelmoved(self, x, y)
+local function tocWheelmoved(self, _x, y)
 	y = f0b.math.clamp(math.floor(y), -1, 1)
 	if y ~= 0 then
 		return tocKeypressed(self, y > 0 and "up" or "down")
@@ -205,7 +205,7 @@ local function tocDraw(self)
 
 	local floor = math.floor
 	local graphics = love.graphics
-	local screenW, screenH = graphics.getDimensions()
+	local screenW = graphics.getWidth()
 	local lineSpacing = em * style.margin + em
 	local tocMargin = em * 2
 

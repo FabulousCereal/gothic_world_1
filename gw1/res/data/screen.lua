@@ -76,7 +76,6 @@ return {
 
 	menu = function(style, w, h)
 		local text = love.graphics.newText(style.font, "Gothic World 1")
-		local textW, textH = text:getDimensions()
 		return {text,
 			math.floor(w * 4/11),
 			math.floor(h * 15/17)}

@@ -9,7 +9,7 @@ return {
 
 		local sW, sH = graphics.getDimensions()
 		local b = button.stub(style)
-		button.setTextAdapt(b, text, sW)
+		button.setTextAdapt(b, text, sW, align)
 		button.regen(b)
 
 		local w, h = button.getBoxDims(b)

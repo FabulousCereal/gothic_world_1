@@ -1,8 +1,6 @@
 -- SPDX-FileCopyrightText: 2023 Grupo Warominutes
 -- SPDX-License-Identifier: Unlicense
 
-local clearArray = require("f0b.table").clearArray
-
 local function replaceMenu(self, entries)
 	local style = self.style
 	local textList = {}
@@ -63,8 +61,7 @@ end
 
 local function normalizeEntries(entries, em)
 	entries.x, entries.y = emCoords(entries.x or 1, entries.y or 1, em)
-	for i, entry in ipairs(entries) do
-		local entry = entries[i]
+	for _, entry in ipairs(entries) do
 		if entry[2] == "menu" then
 			normalizeEntries(entry[3], em)
 		end

@@ -448,7 +448,8 @@ molesta.]],
 	[[Bake se acercó sonriente, alzó ambas manos...]],
 
 	{"bgm", "set", "clap", source="andrea metal clap.ogg",
-		fade={"fadein", 1/12},},
+		fade={"fadein", 1/12},
+	},
 	[[...y empezó a aplaudir tan veloz como podía.]],
 
 	swap(gA, gB, 1/12),

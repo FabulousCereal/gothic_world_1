@@ -42,13 +42,13 @@ había olvidado por completo. Estuve huyendo de algo, pero... ¿de que?]],
 despejada, y no había visto nada.]],
 
 	{"bg", "rm"},
-	{"bg", "mod", "root", color={1, 1, 1, 0}},
+	{"bg", "mod", "root", color={0,0,0,0}},
 	[[Pero entonces, ¿por que sentía que me faltaba el aire al recordar?]],
 
 	[[¿De verdad no ví nada? ¿O solo no quería creer que había entrado en
 pánico por un ruido cualquiera, y que para variar terminé subiéndome a--?]],
 
-	{"bg", "fade", "root", {"fadein", 1/24}},
+	{"bg", "fade", "root", {"color", {1,1,1,1}, 1/24}},
 	{"name", "Bake"},
 	[["¿No te vas a comer la piña?" preguntó Bake, despavilándome. Señalaba
 una rodaja que había apartado de mi trozo.]],

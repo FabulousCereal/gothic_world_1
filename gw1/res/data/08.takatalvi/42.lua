@@ -239,7 +239,7 @@ dos y dos," argumentó. "O si te acuerdas del lugar puedes ir tú y--"]],
 	[["Solo déjame avisarle a Falcon primero."]],
 
 	{"macro", "bgFade", "maria/pasillo.png"},
-	{"bg", "fade", 2, 3, {"fadeout", 1, true}},
+	{"bg", "mod", 2, 3, fade={"fadeout", 1, true}},
 	[[Mientras los chicos juntaban sus armas, yo me dirigí al segundo piso.
 La puerta de Falcon seguía cerrada, así que la abrí con cautela y miré adentro.
 Seguía en cama.]],

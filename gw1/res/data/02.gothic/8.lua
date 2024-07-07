@@ -62,7 +62,7 @@ chico.]],
 no parecía ser yo la que tomaba decisiones hoy día. Ví una habitación con la
 puerta abierta y con un fuerte olor a alcohol proviniendo de adentro. Entré.]],
 
-	{"bg", 1, "fade", {"src", "maria/baño.png"}},
+	{"bg", 1, "mod", args={"maria/baño.png"}},
 	[[Encontré al chico en el baño sin polera ni pantalones, agitando los
 brazos y saltando vehementemente. En su mano, una botella de alcohol
 desinfectante que se acababa de hechar por la espalda.]],

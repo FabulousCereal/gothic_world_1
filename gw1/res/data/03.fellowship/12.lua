@@ -197,11 +197,10 @@ local camaDeBake = {
 	[[En sigilo entré a la pieza donde estaba Bake. Apenas distinguía nada,
 así que tuve que tantear para encontrarlo y de ahí meterme del otro lado.]],
 
-	[[Descubrí entonces que Bake dormía solo con dos frazadas.]],
+	[[Descubrí entonces que Bake dormía solo con dos frazadas. Yo en el
+norte dormía con tres.]],
 
-	[[Yo en el norte dormía con tres.]],
-
-	[[Suspiré. Me detesto tanto a mi misma por venirme a meter acá.]],
+	[[Suspiré. Me detesto tanto por venirme a meter acá.]],
 
 	[[Me cubrí hasta la nariz con las frazadas y seguí con frío. Cuando me
 acomodaba en posición fetal como último recurso, noté una calidez que radiaba

@@ -283,7 +283,7 @@ primero xDD ¡Seguidme!"]],
 	{"bg", 2, "fade", 4, {"fadeout", 1/3}},
 	{"name", "María"},
 	[[Bake se giró y se puso a caminar a pesar de que el viento agarraba
-fuerza y la nieve no paraba. Todos fueron de inmediato tras el.]],
+fuerza y la nieve no paraba. Todos fueron de inmediato tras él.]],
 
 	[[¿Por que todos lo siguen? ¿Que está pasando? ò.ó]],
 
@@ -329,13 +329,14 @@ empezó a quitar la mochila.]],
 	{"name", "Fab"},
 	[["Hold my tube," dijo pasándole sus cosas a la chica.]],
 
-	{"bg", 1, "fade", {"fadeout", 1/3}},
+	{"macro", "bgFade", "maria/tienda_bateria.png"},
 	{"bg", 2, "fade", 2, {"fadeout", 1/3}},
 	{"bg", 2, "fade", 3, {"fadeout", 1/3, "mvabs", 320, false, 0}},
 	{"bg", "fade", "root", {"color", {.5,.5,.5,1}, 3}},
 	{"name", "María"},
-	[[Entramos siguiendo al chico, y este tras hechar un vistazo fue a
-tomar un acordeón.]],
+	[[Entramos siguiendo al chico. En medio del lugar había una gran
+batería, con instrumentos alrededor. El chico tras hechar un vistazo rápido
+sonrió y fue a tomar un acordeón.]],
 
 	{"bg", 2, "fade", 2, {"fadein", 1/12}},
 	{"name", "Andrea"},
@@ -373,7 +374,7 @@ los hombros. Dejó el acordeón a un lado y fue a tomar sus cosas.]],
 
 	{"bg", 2, "fade", 3, {"fadeout", 1}},
 	[[El viento estaba agitando los árboles con mucha fuerza, así que la
-chica sin perder mas tiempo fue a buscar unas baquetas y se sentó frente a una
+chica sin perder mas tiempo fue a buscar unas baquetas y se sentó frente a la
 batería. Aún no creía que estuvieramos perdiendo el tiempo en esto.]],
 
 	{"bg", 2, "fade", 2, {"fadein", 1/12}},
@@ -402,7 +403,7 @@ moverme al ritmo.]],
 	{"bg", 2, "mod", 1, args={res.doll.falcon, 160, 0, -1},
 		fade={"fadein", 1/12}},
 	{"bg", 2, "fade", 3, {"mvabs", 480, false, 0, "fadein", 1/12}},
-	[[Miré a Falcon, y el de hecho lo estaba haciendo, igual que Fab.]],
+	[[Miré a Falcon, y él de hecho lo estaba haciendo, igual que Fab.]],
 	{"bg", 2, "fade", 1, 3, {"fadeout", 1}},
 	4,
 
@@ -544,7 +545,7 @@ como si esto tuviera sentido. "No sé si los blast beats sean tan importantes."]
 verla. Mientras tanto, Bake y Falcon salieron a la calle. Yo los seguí.]],
 
 	{"bg", "fade", "root", {"color", {.6,.6,.6,1}, 3}},
-	{"bg", 1, "fade", {"fadein", 1}},
+	{"macro", "bgFade", "maria/av.png"},
 	{"bg", 2, "fade", 1, {"fadein", 1}},
 	{"bg", 2, "fade", 4, {"fadein", 1}},
 	[[No sé si era idea mía, pero todo se veía mas oscuro que cuando

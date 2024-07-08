@@ -132,6 +132,7 @@ aguantando siempre la respiración aunque no le viera ningún sentido.]],
 	[[Por alguna suerte divina, y tras media hora, llegamos por fin a la
 zona comercial.]],
 
+	{"bg", 1, "add", args={"maria/com_calle.png"}, fade={"fadein", 1}},
 	[[Era un desastre. A pesar de que ahora no se veía a nadie, habían roto
 los vidrios y saqueado todo en algún punto. Bake soltó mi brazo y se
 cambió a la otra vereda para ver las tiendas del frente.]],
@@ -165,6 +166,7 @@ una.]], true},
 	[[Me apresuré en cruzar la calle, acordándome de mirar a ambos lados
 cuando ya estaba del otro lado. ¿Que importaba eso ahora?]],
 
+	{"bg", 1, "fade", {"fadeout", 1, true}},
 	[[Seguí a la tienda, y apenas había entrado cuando desde el fondo
 apareció corriendo una de esas cosas. Bake apenas tuvo tiempo de girarse.]],
 
@@ -313,6 +315,7 @@ que veo en días."]],
 	{"name", "Falcon"},
 	[["Les muestro si me alcanzan ese bajo xD"]],
 
+	{"bg", 1, "add", args={"maria/com_alto.png"}, fade={"fadein", 1}},
 	{"bg", 2, "modall", fade={"fadeout", 1}},
 	{"bgm", "set", source="falcon melancólico.ogg",
 		setup={play=false},
@@ -369,6 +372,7 @@ acompañár? Hay que caminar un poco."]],
 	[[Me entregaron a mi el bate ya que los dos tenían armas, y fuimos a
 buscar el auto de Falcon.]],
 
+	{"macro", "bgFade", "maria/com_calle.png"},
 	[[Efectivamente era un Auri, uno un tanto machacado, pero que
 funcionaba al fin y al cabo.]],
 

@@ -18,13 +18,13 @@ end
 return {
 	widget = widget,
 
-	regen = forEachWidget(function(widget, target, style)
-		return widget.regen(target, style)
+	regen = forEachWidget(function(w, target, style)
+		return w.regen(target, style)
 	end),
 
-	draw = forEachWidget(function(widget, target)
+	draw = forEachWidget(function(w, target)
 		if target.display then
-			return widget.draw(target)
+			return w.draw(target)
 		end
 	end),
 

@@ -19,9 +19,9 @@ local function nextCodePoint(text, start)
 end
 
 local function typewriterNext(board)
-	local str, pos = board.str, board.pos
-	if pos <= #str then
-		local pos, char = nextCodePoint(str, pos)
+	local str = board.str
+	if board.pos <= #str then
+		local pos, char = nextCodePoint(str, board.pos)
 		f0b.button.setText(board.textboard, string.sub(str, 1, pos))
 		f0b.button.regenText(board.textboard)
 		board.pos = pos + 1

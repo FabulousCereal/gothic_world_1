@@ -1,5 +1,5 @@
 -- SPDX-FileCopyrightText: 2024 Grupo Warominutes
--- SPDX-License-Identifier: Unlicense
+-- SPDX-License-Identifier: Apache-2.0
 local function shaderCursor(ctx)
 	local x, y = love.mouse.getPosition()
 	local w, h = love.graphics.getDimensions()

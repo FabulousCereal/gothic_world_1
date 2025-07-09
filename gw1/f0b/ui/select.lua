@@ -1,5 +1,5 @@
 -- SPDX-FileCopyrightText: 2024 Grupo Warominutes
--- SPDX-License-Identifier: Unlicense
+-- SPDX-License-Identifier: Apache-2.0
 
 local multiRepl = require("f0b.ui._uiCommon").multiRepl
 local oneMod = require("f0b.math").oneMod

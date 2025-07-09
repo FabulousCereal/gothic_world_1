@@ -1,6 +1,6 @@
 <!--
 SPDX-FileCopyrightText: 2024 Grupo Warominutes
-SPDX-License-Identifier: Unlicense
+SPDX-License-Identifier: CC0-1.0
 -->
 
 # Gothic World, chapter 1

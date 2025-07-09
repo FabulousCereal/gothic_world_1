@@ -1,5 +1,5 @@
 -- SPDX-FileCopyrightText: 2024 Grupo Warominutes
--- SPDX-License-Identifier: Unlicense
+-- SPDX-License-Identifier: Apache-2.0
 
 local function sendAll(shader, ctx)
 	for k, v in pairs(ctx) do

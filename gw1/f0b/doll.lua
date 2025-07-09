@@ -1,5 +1,5 @@
 -- SPDX-FileCopyrightText: 2024 Grupo Warominutes
--- SPDX-License-Identifier: Unlicense
+-- SPDX-License-Identifier: Apache-2.0
 
 local function draw(img, hx, hy, x, y, sx, sy, ...)
 	local h = love.graphics.getHeight()

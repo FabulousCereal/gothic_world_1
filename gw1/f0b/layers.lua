@@ -1,5 +1,5 @@
 -- SPDX-FileCopyrightText: 2024 Grupo Warominutes
--- SPDX-License-Identifier: Unlicense
+-- SPDX-License-Identifier: Apache-2.0
 
 local seq = require("f0b._seqCommon")
 local fTable = require("f0b.table")

@@ -1,5 +1,5 @@
 -- SPDX-FileCopyrightText: 2023 Grupo Warominutes
--- SPDX-License-Identifier: Unlicense
+-- SPDX-License-Identifier: Apache-2.0
 
 local function center(text, w, h, textW, textH)
 	return {text, f0b.math.centerRect(w, h, textW, textH)}

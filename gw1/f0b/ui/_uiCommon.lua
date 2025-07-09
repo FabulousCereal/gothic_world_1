@@ -1,3 +1,5 @@
+-- SPDX-FileCopyrightText: 2023 Grupo Warominutes
+-- SPDX-License-Identifier: Apache-2.0
 return {
 	multiRepl = function(str, repl)
 		local gsub = string.gsub

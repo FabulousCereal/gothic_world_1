@@ -184,6 +184,14 @@ function love.update(dt)
 	end
 end
 
+local function giveInput(callback, ...)
+	local state = gamestate.state
+	local fn = state[callback]
+	if fn and not gamestate.to then
+		return fn(state, ...)
+	end
+end
+
 function love.keypressed(key, ...)
 	if key == "escape" then
 		gamestate.to = "quit"
@@ -194,15 +202,7 @@ function love.keypressed(key, ...)
 			f0b.table.print(gamestate.state.background, 10)
 		end
 	else
-		gamestate.keypressed(key, ...)
-	end
-end
-
-local function giveInput(callback, ...)
-	local state = gamestate.state
-	local fn = state[callback]
-	if fn and not gamestate.to then
-		return fn(state, ...)
+		return giveInput("keypressed", key, ...)
 	end
 end
 
@@ -216,4 +216,3 @@ local callbacks = {"mousepressed", "wheelmoved"}
 for _, cb in ipairs(callbacks) do
 	love[cb] = function(...) return giveInput(cb, ...) end
 end
-gamestate.keypressed = function(...) return giveInput("keypressed", ...) end

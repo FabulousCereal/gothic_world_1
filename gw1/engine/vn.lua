@@ -392,16 +392,12 @@ local function vnMousemoved(self, ...)
 	end
 end
 
-local function vnPreCommon(self)
-	curStage(self)
-	return advanceVN2(self)
-end
-
 local function vnPreInitiated(self, stage)
 	if stage then
 		self.cur[1], self.cur[2] = unpack(stage)
 	end
-	return vnPreCommon(self)
+	curStage(self)
+	return advanceVN2(self)
 end
 
 local function vnPreInit(self, stage)

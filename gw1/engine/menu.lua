@@ -22,7 +22,7 @@ end
 
 local menuOps = {
 	state = function(_, entry)
-		gamestate:stateSwitch(entry[3])
+		gamestate:stateSwitch(unpack(entry[3]))
 	end,
 
 	menu = function(self, entry)
